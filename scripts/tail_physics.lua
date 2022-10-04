@@ -51,12 +51,19 @@ events.RENDER:register(function ()
 		end
 	end
 	local tail = models.models.main.Body.Tail
+	local playerPose = player:getPose()
 	if TailPhysicsClass.EnablePyhisics then
 		local tailLimit = {{-60, 60}, {-30, 30}} --尻尾の可動範囲：1. 上下方向, 2. 左右方向
-		local tailXMoveXZ = (VelocityAverage[1] + math.abs(VelocityAverage[3])) * 160
-		local tailMoveY = VelocityAverage[2] * 80
-		local tailXAngleMove = math.abs(VelocityAverage[4]) * 0.05
-		tail:setRot(math.clamp(tailLimit[1][2] - math.min(tailXMoveXZ, math.max(60 - tailMoveY - tailXAngleMove, 0)) + tailMoveY - math.min(tailXAngleMove, math.max(60 -tailXMoveXZ - tailMoveY, 0)), tailLimit[1][1], tailLimit[1][2]) + (player:getPose() == "CROUCHING" and 30 or 0), math.clamp(-VelocityAverage[3] * 160 + VelocityAverage[4] * 0.05, tailLimit[2][1], tailLimit[2][2]), 0)
+		if playerPose == "FALL_FLYING" then
+			tail:setRot(math.clamp(VelocityAverage[1] * 80, tailLimit[1][1], tailLimit[1][2]), math.clamp(-VelocityAverage[4] * 0.1, tailLimit[2][1], tailLimit[2][2]), 0)
+		elseif playerPose == "SWIMMING" then
+			tail:setRot(math.clamp(VelocityAverage[1] * 320, tailLimit[1][1], tailLimit[1][2]), math.clamp(-VelocityAverage[4] * 0.2, tailLimit[2][1], tailLimit[2][2]), 0)
+		else
+			local tailXMoveXZ = (VelocityAverage[1] + math.abs(VelocityAverage[3])) * 160
+			local tailXMoveY = VelocityAverage[2] * 80
+			local tailXAngleMove = math.abs(VelocityAverage[4]) * 0.05
+			tail:setRot(math.clamp(tailLimit[1][2] - math.min(tailXMoveXZ, math.max(60 - tailXMoveY - tailXAngleMove, 0)) + tailXMoveY - math.min(tailXAngleMove, math.max(60 -tailXMoveXZ - tailXMoveY, 0)), tailLimit[1][1], tailLimit[1][2]) + (playerPose == "CROUCHING" and 30 or 0), math.clamp(-VelocityAverage[3] * 160 + VelocityAverage[4] * 0.05, tailLimit[2][1], tailLimit[2][2]), 0)
+		end
 	else
 		tail:setRot(0, 0, 0)
 	end
