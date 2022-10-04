@@ -53,8 +53,7 @@ end
 
 events.TICK:register(function ()
 	if EmotionCount == 0 then
-		local gamemode = player:getGamemode()
-		if (player:getHealth() / player:getMaxHealth() <= 0.2 or player:getFood() <= 6 or player:getFrozenTicks() == 140) and (gamemode == "SURVIVAL" or gamemode == "ADVENTURE") then
+		if General.isTired then
 			FacePartsClass.setEmotion("TIRED", "TIRED", "CLOSED", 0, false)
 		else
 			FacePartsClass.setEmotion("NORMAL", "NORMAL", "CLOSED", 0, false)

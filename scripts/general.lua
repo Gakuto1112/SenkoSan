@@ -1,10 +1,13 @@
 ---@class General 他の複数のクラスが参照するフィールドや関数を定義するクラス
+---@field General.isTired boolean キャラクターが疲弊しているかどうか（サバイバルかアドベンチャーで、HP4以下または満腹度0）
 
 ---@alias AnimationState
 ---| "PLAY"
 ---| "STOP"
 
 General = {}
+
+General.isTired = false
 
 ---渡されたItemStackのアイテムタイプを返す。nilや"minecraft:air"の場合は"none"と返す。
 ---@param item ItemStack アイテムタイプを調べるItemStack
@@ -38,5 +41,10 @@ function General.setAnimations(animationState, animationName)
 		end
 	end
 end
+
+events.TICK:register(function ()
+	local gamemode = player:getGamemode()
+	General.isTired = (player:getHealth() / player:getMaxHealth() <= 0.2 or player:getFood() == 0 or player:getFrozenTicks() == 140) and (gamemode == "SURVIVAL" or gamemode == "ADVENTURE")
+end)
 
 return General

@@ -20,10 +20,10 @@ events.TICK:register(function ()
 	end
 	if health < HealthData[1] then
 		if health == 0 then
-			setEmotion("SURPLISED", "SURPLISED", "CLOSED", 20, true)
+			FacePartsClass.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 20, true)
 			HurtClass.Damaged = "DIED"
 		else
-			setEmotion("SURPLISED", "SURPLISED", "CLOSED", 8, true)
+			FacePartsClass.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 8, true)
 			HurtClass.Damaged = "DAMAGED"
 		end
 	else
