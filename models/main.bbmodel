@@ -25,7 +25,7 @@
             "locked": false,
             "from": [
                 0,
-                0,
+                6,
                 -2
             ],
             "to": [
@@ -46,7 +46,7 @@
                         4,
                         20,
                         8,
-                        32
+                        26
                     ],
                     "texture": 0
                 },
@@ -55,7 +55,7 @@
                         0,
                         20,
                         4,
-                        32
+                        26
                     ],
                     "texture": 0
                 },
@@ -64,7 +64,7 @@
                         12,
                         20,
                         16,
-                        32
+                        26
                     ],
                     "texture": 0
                 },
@@ -73,7 +73,7 @@
                         8,
                         20,
                         12,
-                        32
+                        26
                     ],
                     "texture": 0
                 },
@@ -89,11 +89,12 @@
                 },
                 "down": {
                     "uv": [
-                        8,
+                        4,
                         16,
-                        12,
+                        8,
                         20
                     ],
+                    "rotation": 180,
                     "texture": 0
                 }
             },
@@ -106,7 +107,7 @@
             "locked": false,
             "from": [
                 -4,
-                0,
+                6,
                 -2
             ],
             "to": [
@@ -127,7 +128,7 @@
                         20,
                         52,
                         24,
-                        64
+                        58
                     ],
                     "texture": 0
                 },
@@ -136,7 +137,7 @@
                         16,
                         52,
                         20,
-                        64
+                        58
                     ],
                     "texture": 0
                 },
@@ -145,7 +146,7 @@
                         28,
                         52,
                         32,
-                        64
+                        58
                     ],
                     "texture": 0
                 },
@@ -154,7 +155,7 @@
                         24,
                         52,
                         28,
-                        64
+                        58
                     ],
                     "texture": 0
                 },
@@ -170,11 +171,12 @@
                 },
                 "down": {
                     "uv": [
-                        24,
+                        20,
                         48,
-                        28,
+                        24,
                         52
                     ],
+                    "rotation": 180,
                     "texture": 0
                 }
             },
@@ -187,7 +189,7 @@
             "locked": false,
             "from": [
                 -4,
-                0,
+                6,
                 -2
             ],
             "to": [
@@ -200,7 +202,7 @@
             "inflate": 0.25,
             "origin": [
                 -4,
-                8,
+                7,
                 0
             ],
             "faces": {
@@ -209,7 +211,7 @@
                         4,
                         52,
                         8,
-                        64
+                        58
                     ],
                     "texture": 0
                 },
@@ -224,21 +226,21 @@
                 },
                 "south": {
                     "uv": [
-                        12,
-                        52,
-                        16,
-                        64
+                        0,
+                        0,
+                        0,
+                        0
                     ],
-                    "texture": 0
+                    "texture": null
                 },
                 "west": {
                     "uv": [
-                        8,
-                        52,
-                        12,
-                        64
+                        0,
+                        0,
+                        0,
+                        0
                     ],
-                    "texture": 0
+                    "texture": null
                 },
                 "up": {
                     "uv": [
@@ -1538,7 +1540,7 @@
             "locked": false,
             "from": [
                 0,
-                0,
+                6,
                 -2
             ],
             "to": [
@@ -1560,34 +1562,34 @@
                         4,
                         36,
                         8,
-                        48
+                        42
                     ],
                     "texture": 0
                 },
                 "east": {
                     "uv": [
                         0,
-                        36,
-                        4,
-                        48
+                        0,
+                        0,
+                        0
                     ],
-                    "texture": 0
+                    "texture": null
                 },
                 "south": {
-                    "uv": [
-                        12,
-                        36,
-                        16,
-                        48
-                    ],
-                    "texture": 0
-                },
-                "west": {
                     "uv": [
                         0,
                         0,
                         0,
                         0
+                    ],
+                    "texture": null
+                },
+                "west": {
+                    "uv": [
+                        0,
+                        0,
+                        4,
+                        6
                     ],
                     "texture": null
                 },
@@ -3352,261 +3354,643 @@
             },
             "type": "cube",
             "uuid": "82979715-87c7-dec7-9448-e18d18eee32e"
-        }
-    ],
-    "outliner": [
+        },
         {
-            "name": "Head",
+            "name": "RightLegBottom",
+            "rescale": false,
+            "locked": false,
+            "from": [
+                0,
+                0,
+                -2
+            ],
+            "to": [
+                4,
+                6,
+                2
+            ],
+            "autouv": 0,
+            "color": 5,
             "origin": [
                 0,
-                24,
+                2,
                 0
             ],
-            "color": 0,
-            "uuid": "2911c5ac-a42b-434c-9d91-becfa17fd255",
-            "export": true,
-            "isOpen": true,
-            "locked": false,
-            "visibility": true,
-            "autouv": 0,
-            "children": [
-                "86724f8f-5a95-f7c3-bda6-cb5ccecf61a6",
-                "8faefb19-fd03-eb91-6fb9-bb76c095bdaa",
-                {
-                    "name": "FaceParts",
-                    "origin": [
-                        0,
-                        24,
-                        -4
+            "faces": {
+                "north": {
+                    "uv": [
+                        4,
+                        26,
+                        8,
+                        32
                     ],
-                    "color": 0,
-                    "uuid": "b4ff88f6-ccc1-b306-a4d4-a5097b0ba125",
-                    "export": true,
-                    "isOpen": true,
-                    "locked": false,
-                    "visibility": true,
-                    "autouv": 0,
-                    "children": [
-                        {
-                            "name": "Eyes",
-                            "origin": [
-                                2,
-                                25,
-                                -3
-                            ],
-                            "color": 0,
-                            "uuid": "c7c07635-86ba-6c08-0066-9c63d5287c35",
-                            "export": true,
-                            "isOpen": true,
-                            "locked": false,
-                            "visibility": true,
-                            "autouv": 0,
-                            "children": [
-                                "8a19bb10-4e96-36e7-b50a-19fadd5a1c45",
-                                "562a28e7-6fb0-03e8-84b0-263dfe9b2ea4"
-                            ]
-                        },
-                        "82979715-87c7-dec7-9448-e18d18eee32e"
-                    ]
+                    "texture": 0
                 },
-                {
-                    "name": "Ears",
-                    "origin": [
+                "east": {
+                    "uv": [
+                        0,
+                        26,
+                        4,
+                        32
+                    ],
+                    "texture": 0
+                },
+                "south": {
+                    "uv": [
+                        12,
+                        26,
+                        16,
+                        32
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        8,
+                        26,
+                        12,
+                        32
+                    ],
+                    "texture": 0
+                },
+                "up": {
+                    "uv": [
+                        4,
+                        16,
+                        8,
+                        20
+                    ],
+                    "texture": 0
+                },
+                "down": {
+                    "uv": [
+                        8,
+                        16,
+                        12,
+                        20
+                    ],
+                    "texture": 0
+                }
+            },
+            "type": "cube",
+            "uuid": "753d77a0-9489-ec87-71b8-cf6a106dd1af"
+        },
+        {
+            "name": "RightLegBottomLayer",
+            "rescale": false,
+            "locked": false,
+            "from": [
+                0,
+                0,
+                -2
+            ],
+            "to": [
+                4,
+                6,
+                2
+            ],
+            "autouv": 0,
+            "color": 5,
+            "inflate": 0.25,
+            "origin": [
+                0,
+                2,
+                0
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        4,
+                        42,
+                        8,
+                        48
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        0,
+                        42,
+                        4,
+                        48
+                    ],
+                    "texture": 0
+                },
+                "south": {
+                    "uv": [
+                        12,
+                        42,
+                        16,
+                        48
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        0,
                         0,
                         0,
                         0
                     ],
-                    "color": 0,
-                    "uuid": "00f5720e-faea-564d-cf3b-3c4d548a074a",
-                    "export": true,
-                    "isOpen": true,
-                    "locked": false,
-                    "visibility": true,
-                    "autouv": 0,
-                    "children": [
-                        {
-                            "name": "RightEar",
-                            "origin": [
-                                4.25,
-                                31.75,
-                                -1.25
-                            ],
-                            "rotation": [
-                                0,
-                                0,
-                                -15
-                            ],
-                            "color": 0,
-                            "uuid": "bfa7f6ac-8c11-13fa-64dd-00d1b8301551",
-                            "export": true,
-                            "isOpen": false,
-                            "locked": false,
-                            "visibility": true,
-                            "autouv": 0,
-                            "children": [
-                                "2d23ffdb-cf41-42aa-a024-9ce6a1af2d78",
-                                "36e7f28c-0f54-da24-9f81-01d800b6cf8a",
-                                "9c678655-e385-1342-d40f-955e45743fbc",
-                                "41ad6c57-a935-04fd-6ebf-2a96aa985b07",
-                                "2e594120-c3f0-e1f7-4a65-1c82cfb9e7a7",
-                                "0c8068e6-35c4-1a3c-c5fa-a0cb423982ca",
-                                "0d16c58d-5b19-29a1-8a51-6b273691bcf9"
-                            ]
-                        },
-                        {
-                            "name": "LeftEar",
-                            "origin": [
-                                -4.25,
-                                31.75,
-                                -1.25
-                            ],
-                            "rotation": [
-                                0,
-                                0,
-                                15
-                            ],
-                            "color": 0,
-                            "uuid": "4fab1949-2f33-3926-a845-d4e19ffe8234",
-                            "export": true,
-                            "isOpen": true,
-                            "locked": false,
-                            "visibility": true,
-                            "autouv": 0,
-                            "children": [
-                                "c3d41e48-a1d9-0dc1-f87f-fb975ba344ad",
-                                "9579faa7-0dc6-14c0-742c-32a7e8f45c0d",
-                                "c5642b9e-8c71-9252-c47a-06ec299c2fa1",
-                                "e0bb2179-fb1a-46e9-ac52-f54457e94070",
-                                "8487eab7-3b9f-d4b3-4e2c-a12b8b6183b0",
-                                "ae6e6251-2801-a0d6-6b76-dcf8d16415c7",
-                                "9e7e6816-53e0-9055-47dd-49f6228ae9da"
-                            ]
-                        }
-                    ]
+                    "texture": null
+                },
+                "up": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "rotation": 180,
+                    "texture": null
+                },
+                "down": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
                 }
-            ]
+            },
+            "type": "cube",
+            "uuid": "2c28a438-8b74-6b03-6b55-c09900027d7c"
         },
         {
-            "name": "Body",
+            "name": "LeftLegLayer",
+            "rescale": false,
+            "locked": false,
+            "from": [
+                -4,
+                0,
+                -2
+            ],
+            "to": [
+                0,
+                6,
+                2
+            ],
+            "autouv": 0,
+            "color": 5,
+            "inflate": 0.25,
+            "origin": [
+                -4,
+                1,
+                0
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        4,
+                        58,
+                        8,
+                        64
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        0,
+                        6,
+                        0,
+                        6
+                    ],
+                    "texture": null
+                },
+                "south": {
+                    "uv": [
+                        12,
+                        58,
+                        16,
+                        64
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        8,
+                        58,
+                        12,
+                        64
+                    ],
+                    "texture": 0
+                },
+                "up": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "rotation": 180,
+                    "texture": null
+                },
+                "down": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "rotation": 180,
+                    "texture": null
+                }
+            },
+            "type": "cube",
+            "uuid": "4e609fe2-07bd-943f-5261-0bfdd36d4b2b"
+        },
+        {
+            "name": "LeftLeg",
+            "rescale": false,
+            "locked": false,
+            "from": [
+                -4,
+                0,
+                -2
+            ],
+            "to": [
+                0,
+                6,
+                2
+            ],
+            "autouv": 0,
+            "color": 5,
+            "origin": [
+                -4,
+                2,
+                0
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        20,
+                        58,
+                        24,
+                        64
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        16,
+                        58,
+                        20,
+                        64
+                    ],
+                    "texture": 0
+                },
+                "south": {
+                    "uv": [
+                        28,
+                        58,
+                        32,
+                        64
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        24,
+                        58,
+                        28,
+                        64
+                    ],
+                    "texture": 0
+                },
+                "up": {
+                    "uv": [
+                        20,
+                        48,
+                        24,
+                        52
+                    ],
+                    "rotation": 180,
+                    "texture": 0
+                },
+                "down": {
+                    "uv": [
+                        24,
+                        48,
+                        28,
+                        52
+                    ],
+                    "rotation": 180,
+                    "texture": 0
+                }
+            },
+            "type": "cube",
+            "uuid": "f1b8c692-9148-fd8b-d57b-9f752b42e258"
+        }
+    ],
+    "outliner": [
+        {
+            "name": "Avatar",
             "origin": [
                 0,
-                24,
+                0,
                 0
             ],
             "color": 0,
-            "uuid": "5c3d82d1-20f2-bbae-5f4b-9f5dc39f4708",
+            "uuid": "27fd278a-6841-0eef-c271-5204938d763d",
             "export": true,
             "isOpen": true,
             "locked": false,
             "visibility": true,
             "autouv": 0,
             "children": [
-                "8136671e-ca38-e3ac-f8d2-4e83c9ed3dbe",
-                "91ba6935-f70e-0ab0-bc03-9d1708d4d9b7",
                 {
-                    "name": "Tail",
+                    "name": "LeftLeg",
                     "origin": [
-                        1,
-                        14.5,
-                        2
+                        -2,
+                        12,
+                        0
                     ],
                     "color": 0,
-                    "uuid": "e9e4c368-eb50-65b1-3347-d91423a7b6c4",
+                    "uuid": "e2b4c895-68c0-b786-a5ac-ee58a3bad955",
+                    "export": true,
+                    "isOpen": true,
+                    "locked": false,
+                    "visibility": true,
+                    "autouv": 0,
+                    "children": [
+                        "3e850021-ae31-12e6-13de-06eeb5057cbf",
+                        "d9fea07f-5849-e34b-ee00-cc549e9f0be4",
+                        {
+                            "name": "LeftLegBottom",
+                            "origin": [
+                                -2,
+                                6,
+                                0
+                            ],
+                            "color": 0,
+                            "uuid": "9250ed07-47bc-8363-6b9e-23edbbb61eb0",
+                            "export": true,
+                            "isOpen": true,
+                            "locked": false,
+                            "visibility": true,
+                            "autouv": 0,
+                            "children": [
+                                "f1b8c692-9148-fd8b-d57b-9f752b42e258",
+                                "4e609fe2-07bd-943f-5261-0bfdd36d4b2b"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "RightLeg",
+                    "origin": [
+                        2,
+                        12,
+                        0
+                    ],
+                    "color": 0,
+                    "uuid": "875bef9d-135e-c45f-e9d5-5a1c774743f6",
+                    "export": true,
+                    "isOpen": true,
+                    "locked": false,
+                    "visibility": true,
+                    "autouv": 0,
+                    "children": [
+                        "588dd98b-95e7-0207-2900-519a3cd9cc9d",
+                        "1b4a3132-88b4-1bb5-fa68-43c8e1e04af1",
+                        {
+                            "name": "RightLegBottom",
+                            "origin": [
+                                2,
+                                6,
+                                0
+                            ],
+                            "color": 0,
+                            "uuid": "c3e74adf-9ad7-1fc8-f266-b5b8889e22bf",
+                            "export": true,
+                            "isOpen": true,
+                            "locked": false,
+                            "visibility": true,
+                            "autouv": 0,
+                            "children": [
+                                "753d77a0-9489-ec87-71b8-cf6a106dd1af",
+                                "2c28a438-8b74-6b03-6b55-c09900027d7c"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "LeftArm",
+                    "origin": [
+                        -5,
+                        23,
+                        0
+                    ],
+                    "color": 0,
+                    "uuid": "af94253b-4f4f-8ab4-29fd-fffa30e9449a",
                     "export": true,
                     "isOpen": false,
                     "locked": false,
                     "visibility": true,
                     "autouv": 0,
                     "children": [
-                        "000315ce-b34b-24cd-2b61-0dbcc2bada50",
-                        "f4251d47-8738-0282-c89b-763c7484621f",
-                        "5ed4f504-4cf7-98d3-5865-ca101004be09",
-                        "4542d22e-29c6-eefd-1068-9574e94eec36",
-                        "fd5d1cd7-382a-4935-1352-50543b7473a1",
-                        "31a1238c-366b-bf34-a4f2-301d81fb7be8",
-                        "3df8d69e-673e-e457-ebd8-65688ddb620d",
-                        "a87e3b15-2aee-ae4a-c518-2eda884f88f4",
-                        "67c6c552-8b19-d8ca-4e72-efc77195b555",
-                        "9e5989a8-eea1-4b15-cffe-e885cb524aba",
-                        "bc4dfcf4-8e51-da7b-4566-8fd6c5300b7a"
+                        "3c0eee6d-fae6-e517-46a2-b417d1d7b745",
+                        "c5057cf9-c408-2395-edb3-5789f7dd7d7a"
+                    ]
+                },
+                {
+                    "name": "RightArm",
+                    "origin": [
+                        5,
+                        23,
+                        0
+                    ],
+                    "color": 0,
+                    "uuid": "48aa268d-b174-aa83-0300-eba43794dfe3",
+                    "export": true,
+                    "isOpen": false,
+                    "locked": false,
+                    "visibility": true,
+                    "autouv": 0,
+                    "children": [
+                        "658047a4-4f13-b570-62bb-770bb88ca4a6",
+                        "8b9efce9-badc-2b5e-7123-3bdf71445902"
+                    ]
+                },
+                {
+                    "name": "Body",
+                    "origin": [
+                        0,
+                        24,
+                        0
+                    ],
+                    "color": 0,
+                    "uuid": "5c3d82d1-20f2-bbae-5f4b-9f5dc39f4708",
+                    "export": true,
+                    "isOpen": false,
+                    "locked": false,
+                    "visibility": true,
+                    "autouv": 0,
+                    "children": [
+                        "8136671e-ca38-e3ac-f8d2-4e83c9ed3dbe",
+                        "91ba6935-f70e-0ab0-bc03-9d1708d4d9b7",
+                        {
+                            "name": "Tail",
+                            "origin": [
+                                1,
+                                14.5,
+                                2
+                            ],
+                            "color": 0,
+                            "uuid": "e9e4c368-eb50-65b1-3347-d91423a7b6c4",
+                            "export": true,
+                            "isOpen": false,
+                            "locked": false,
+                            "visibility": true,
+                            "autouv": 0,
+                            "children": [
+                                "000315ce-b34b-24cd-2b61-0dbcc2bada50",
+                                "f4251d47-8738-0282-c89b-763c7484621f",
+                                "5ed4f504-4cf7-98d3-5865-ca101004be09",
+                                "4542d22e-29c6-eefd-1068-9574e94eec36",
+                                "fd5d1cd7-382a-4935-1352-50543b7473a1",
+                                "31a1238c-366b-bf34-a4f2-301d81fb7be8",
+                                "3df8d69e-673e-e457-ebd8-65688ddb620d",
+                                "a87e3b15-2aee-ae4a-c518-2eda884f88f4",
+                                "67c6c552-8b19-d8ca-4e72-efc77195b555",
+                                "9e5989a8-eea1-4b15-cffe-e885cb524aba",
+                                "bc4dfcf4-8e51-da7b-4566-8fd6c5300b7a"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Head",
+                    "origin": [
+                        0,
+                        24,
+                        0
+                    ],
+                    "color": 0,
+                    "uuid": "2911c5ac-a42b-434c-9d91-becfa17fd255",
+                    "export": true,
+                    "isOpen": false,
+                    "locked": false,
+                    "visibility": true,
+                    "autouv": 0,
+                    "children": [
+                        "86724f8f-5a95-f7c3-bda6-cb5ccecf61a6",
+                        "8faefb19-fd03-eb91-6fb9-bb76c095bdaa",
+                        {
+                            "name": "FaceParts",
+                            "origin": [
+                                0,
+                                24,
+                                -4
+                            ],
+                            "color": 0,
+                            "uuid": "b4ff88f6-ccc1-b306-a4d4-a5097b0ba125",
+                            "export": true,
+                            "isOpen": true,
+                            "locked": false,
+                            "visibility": true,
+                            "autouv": 0,
+                            "children": [
+                                {
+                                    "name": "Eyes",
+                                    "origin": [
+                                        2,
+                                        25,
+                                        -3
+                                    ],
+                                    "color": 0,
+                                    "uuid": "c7c07635-86ba-6c08-0066-9c63d5287c35",
+                                    "export": true,
+                                    "isOpen": true,
+                                    "locked": false,
+                                    "visibility": true,
+                                    "autouv": 0,
+                                    "children": [
+                                        "8a19bb10-4e96-36e7-b50a-19fadd5a1c45",
+                                        "562a28e7-6fb0-03e8-84b0-263dfe9b2ea4"
+                                    ]
+                                },
+                                "82979715-87c7-dec7-9448-e18d18eee32e"
+                            ]
+                        },
+                        {
+                            "name": "Ears",
+                            "origin": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "color": 0,
+                            "uuid": "00f5720e-faea-564d-cf3b-3c4d548a074a",
+                            "export": true,
+                            "isOpen": true,
+                            "locked": false,
+                            "visibility": true,
+                            "autouv": 0,
+                            "children": [
+                                {
+                                    "name": "RightEar",
+                                    "origin": [
+                                        4.25,
+                                        31.75,
+                                        -1.25
+                                    ],
+                                    "rotation": [
+                                        0,
+                                        0,
+                                        -15
+                                    ],
+                                    "color": 0,
+                                    "uuid": "bfa7f6ac-8c11-13fa-64dd-00d1b8301551",
+                                    "export": true,
+                                    "isOpen": false,
+                                    "locked": false,
+                                    "visibility": true,
+                                    "autouv": 0,
+                                    "children": [
+                                        "2d23ffdb-cf41-42aa-a024-9ce6a1af2d78",
+                                        "36e7f28c-0f54-da24-9f81-01d800b6cf8a",
+                                        "9c678655-e385-1342-d40f-955e45743fbc",
+                                        "41ad6c57-a935-04fd-6ebf-2a96aa985b07",
+                                        "2e594120-c3f0-e1f7-4a65-1c82cfb9e7a7",
+                                        "0c8068e6-35c4-1a3c-c5fa-a0cb423982ca",
+                                        "0d16c58d-5b19-29a1-8a51-6b273691bcf9"
+                                    ]
+                                },
+                                {
+                                    "name": "LeftEar",
+                                    "origin": [
+                                        -4.25,
+                                        31.75,
+                                        -1.25
+                                    ],
+                                    "rotation": [
+                                        0,
+                                        0,
+                                        15
+                                    ],
+                                    "color": 0,
+                                    "uuid": "4fab1949-2f33-3926-a845-d4e19ffe8234",
+                                    "export": true,
+                                    "isOpen": true,
+                                    "locked": false,
+                                    "visibility": true,
+                                    "autouv": 0,
+                                    "children": [
+                                        "c3d41e48-a1d9-0dc1-f87f-fb975ba344ad",
+                                        "9579faa7-0dc6-14c0-742c-32a7e8f45c0d",
+                                        "c5642b9e-8c71-9252-c47a-06ec299c2fa1",
+                                        "e0bb2179-fb1a-46e9-ac52-f54457e94070",
+                                        "8487eab7-3b9f-d4b3-4e2c-a12b8b6183b0",
+                                        "ae6e6251-2801-a0d6-6b76-dcf8d16415c7",
+                                        "9e7e6816-53e0-9055-47dd-49f6228ae9da"
+                                    ]
+                                }
+                            ]
+                        }
                     ]
                 }
-            ]
-        },
-        {
-            "name": "RightArm",
-            "origin": [
-                5,
-                23,
-                0
-            ],
-            "color": 0,
-            "uuid": "48aa268d-b174-aa83-0300-eba43794dfe3",
-            "export": true,
-            "isOpen": true,
-            "locked": false,
-            "visibility": true,
-            "autouv": 0,
-            "children": [
-                "658047a4-4f13-b570-62bb-770bb88ca4a6",
-                "8b9efce9-badc-2b5e-7123-3bdf71445902"
-            ]
-        },
-        {
-            "name": "LeftArm",
-            "origin": [
-                -5,
-                23,
-                0
-            ],
-            "color": 0,
-            "uuid": "af94253b-4f4f-8ab4-29fd-fffa30e9449a",
-            "export": true,
-            "isOpen": true,
-            "locked": false,
-            "visibility": true,
-            "autouv": 0,
-            "children": [
-                "3c0eee6d-fae6-e517-46a2-b417d1d7b745",
-                "c5057cf9-c408-2395-edb3-5789f7dd7d7a"
-            ]
-        },
-        {
-            "name": "RightLeg",
-            "origin": [
-                2,
-                12,
-                0
-            ],
-            "color": 0,
-            "uuid": "875bef9d-135e-c45f-e9d5-5a1c774743f6",
-            "export": true,
-            "isOpen": true,
-            "locked": false,
-            "visibility": true,
-            "autouv": 0,
-            "children": [
-                "588dd98b-95e7-0207-2900-519a3cd9cc9d",
-                "1b4a3132-88b4-1bb5-fa68-43c8e1e04af1"
-            ]
-        },
-        {
-            "name": "LeftLeg",
-            "origin": [
-                -2,
-                12,
-                0
-            ],
-            "color": 0,
-            "uuid": "e2b4c895-68c0-b786-a5ac-ee58a3bad955",
-            "export": true,
-            "isOpen": true,
-            "locked": false,
-            "visibility": true,
-            "autouv": 0,
-            "children": [
-                "3e850021-ae31-12e6-13de-06eeb5057cbf",
-                "d9fea07f-5849-e34b-ee00-cc549e9f0be4"
             ]
         }
     ],
@@ -3625,6 +4009,597 @@
             "uuid": "209a5f9f-2f9f-2443-33dd-4914eca009fb",
             "relative_path": "../../textures/main.png",
             "source": "data:image/png;base64,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"
+        }
+    ],
+    "animations": [
+        {
+            "uuid": "abf8ce74-8707-4b34-bd83-08f16feb6e70",
+            "name": "sit_down",
+            "loop": "hold",
+            "override": false,
+            "length": 0.16666666666666666,
+            "snapping": 24,
+            "selected": false,
+            "anim_time_update": "",
+            "blend_weight": "",
+            "start_delay": "",
+            "loop_delay": "",
+            "animators": {
+                "48aa268d-b174-aa83-0300-eba43794dfe3": {
+                    "name": "RightArm",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "b722548b-dfa1-4ca5-9289-cb420c5f2c2f",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "-20",
+                                    "y": "-10",
+                                    "z": "-15"
+                                }
+                            ],
+                            "uuid": "56caf76c-9cbb-c819-a0bf-d44ccb53011d",
+                            "time": 0.16666666666666666,
+                            "color": -1,
+                            "interpolation": "linear"
+                        }
+                    ]
+                },
+                "af94253b-4f4f-8ab4-29fd-fffa30e9449a": {
+                    "name": "LeftArm",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "262323e5-ca1f-f81c-a393-a285aaf4a4f2",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "-20",
+                                    "y": "10",
+                                    "z": "15"
+                                }
+                            ],
+                            "uuid": "1402d33d-9cbd-9c3a-cc77-50c55f99790a",
+                            "time": 0.16666666666666666,
+                            "color": -1,
+                            "interpolation": "linear"
+                        }
+                    ]
+                },
+                "875bef9d-135e-c45f-e9d5-5a1c774743f6": {
+                    "name": "RightLeg",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "edd80663-0bf7-19a8-7fd1-cd57b9073d09",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "-80",
+                                    "y": "5",
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "fc3e84c0-f500-70e3-a3d7-09a698f7be39",
+                            "time": 0.16666666666666666,
+                            "color": -1,
+                            "interpolation": "linear"
+                        }
+                    ]
+                },
+                "c3e74adf-9ad7-1fc8-f266-b5b8889e22bf": {
+                    "name": "RightLegBottom",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "f31d2640-cc1b-68cc-38f6-20930bc16032",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "150\n",
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "75178d08-b7cd-9b2b-1539-da0051de5867",
+                            "time": 0.16666666666666666,
+                            "color": -1,
+                            "interpolation": "linear"
+                        }
+                    ]
+                },
+                "e2b4c895-68c0-b786-a5ac-ee58a3bad955": {
+                    "name": "LeftLeg",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "-80",
+                                    "y": "-5",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "9a84f33b-3f09-e2b9-1d44-9b2e6e6b5122",
+                            "time": 0.16666666666666666,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "42214ce0-cff6-134f-8c0f-9ae0e9360994",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "linear"
+                        }
+                    ]
+                },
+                "9250ed07-47bc-8363-6b9e-23edbbb61eb0": {
+                    "name": "LeftLegBottom",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "e8ef2866-2630-aad3-950b-c2acaa1f9c56",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "150",
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "fb5c9333-727b-f5cd-eb9e-eb1e053ce2bd",
+                            "time": 0.16666666666666666,
+                            "color": -1,
+                            "interpolation": "linear"
+                        }
+                    ]
+                },
+                "27fd278a-6841-0eef-c271-5204938d763d": {
+                    "name": "Avatar",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "position",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "4ea807a9-ff39-424a-c77c-4314545f9692",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "position",
+                            "data_points": [
+                                {
+                                    "x": 0,
+                                    "y": -10,
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "9a0a0642-1ce7-ad8c-1ea4-ad1ba87b07cc",
+                            "time": 0.16666666666666666,
+                            "color": -1,
+                            "interpolation": "linear"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "uuid": "7b190fa4-688a-5956-96f7-b492cd60fd4b",
+            "name": "sit_down_first_person_fix",
+            "loop": "hold",
+            "override": false,
+            "length": 0,
+            "snapping": 24,
+            "selected": true,
+            "anim_time_update": "",
+            "blend_weight": "",
+            "start_delay": "",
+            "loop_delay": "",
+            "animators": {
+                "48aa268d-b174-aa83-0300-eba43794dfe3": {
+                    "name": "RightArm",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "20",
+                                    "y": "10",
+                                    "z": "15"
+                                }
+                            ],
+                            "uuid": "e50decd4-ebee-4b2d-99d2-8e47813cc955",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "step"
+                        },
+                        {
+                            "channel": "position",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "9",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "ccc840eb-cc3b-bfec-3387-a8c132c642d2",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "step"
+                        }
+                    ]
+                },
+                "af94253b-4f4f-8ab4-29fd-fffa30e9449a": {
+                    "name": "LeftArm",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "20",
+                                    "y": "-10",
+                                    "z": "-15"
+                                }
+                            ],
+                            "uuid": "30b5a395-60a1-0f99-6f03-45c9d2285acc",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "step"
+                        },
+                        {
+                            "channel": "position",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "9",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "c2bee4dc-5adb-3e7a-fe52-80b2551d0198",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "step"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "uuid": "b14fc554-d954-e73c-3ee7-a7245954360e",
+            "name": "stand_up",
+            "loop": "once",
+            "override": false,
+            "length": 0.16666666666666666,
+            "snapping": 24,
+            "selected": false,
+            "anim_time_update": "",
+            "blend_weight": "",
+            "start_delay": "",
+            "loop_delay": "",
+            "animators": {
+                "48aa268d-b174-aa83-0300-eba43794dfe3": {
+                    "name": "RightArm",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "b722548b-dfa1-4ca5-9289-cb420c5f2c2f",
+                            "time": 0.16666666666666666,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "-20",
+                                    "y": "-10",
+                                    "z": "-15"
+                                }
+                            ],
+                            "uuid": "56caf76c-9cbb-c819-a0bf-d44ccb53011d",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "linear"
+                        }
+                    ]
+                },
+                "af94253b-4f4f-8ab4-29fd-fffa30e9449a": {
+                    "name": "LeftArm",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "262323e5-ca1f-f81c-a393-a285aaf4a4f2",
+                            "time": 0.16666666666666666,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "-20",
+                                    "y": "10",
+                                    "z": "15"
+                                }
+                            ],
+                            "uuid": "1402d33d-9cbd-9c3a-cc77-50c55f99790a",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "linear"
+                        }
+                    ]
+                },
+                "875bef9d-135e-c45f-e9d5-5a1c774743f6": {
+                    "name": "RightLeg",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "edd80663-0bf7-19a8-7fd1-cd57b9073d09",
+                            "time": 0.16666666666666666,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "-80",
+                                    "y": "5",
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "fc3e84c0-f500-70e3-a3d7-09a698f7be39",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "linear"
+                        }
+                    ]
+                },
+                "c3e74adf-9ad7-1fc8-f266-b5b8889e22bf": {
+                    "name": "RightLegBottom",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "f31d2640-cc1b-68cc-38f6-20930bc16032",
+                            "time": 0.16666666666666666,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "150\n",
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "75178d08-b7cd-9b2b-1539-da0051de5867",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "linear"
+                        }
+                    ]
+                },
+                "e2b4c895-68c0-b786-a5ac-ee58a3bad955": {
+                    "name": "LeftLeg",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "-80",
+                                    "y": "-5",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "9a84f33b-3f09-e2b9-1d44-9b2e6e6b5122",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "42214ce0-cff6-134f-8c0f-9ae0e9360994",
+                            "time": 0.16666666666666666,
+                            "color": -1,
+                            "interpolation": "linear"
+                        }
+                    ]
+                },
+                "9250ed07-47bc-8363-6b9e-23edbbb61eb0": {
+                    "name": "LeftLegBottom",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "e8ef2866-2630-aad3-950b-c2acaa1f9c56",
+                            "time": 0.16666666666666666,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "150",
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "fb5c9333-727b-f5cd-eb9e-eb1e053ce2bd",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "linear"
+                        }
+                    ]
+                },
+                "27fd278a-6841-0eef-c271-5204938d763d": {
+                    "name": "Avatar",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "position",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "4ea807a9-ff39-424a-c77c-4314545f9692",
+                            "time": 0.16666666666666666,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "position",
+                            "data_points": [
+                                {
+                                    "x": 0,
+                                    "y": -10,
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "9a0a0642-1ce7-ad8c-1ea4-ad1ba87b07cc",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "linear"
+                        }
+                    ]
+                }
+            }
         }
     ]
 }
