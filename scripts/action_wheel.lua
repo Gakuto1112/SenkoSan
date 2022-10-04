@@ -86,7 +86,7 @@ end)
 
 --メインページのアクション設定
 --アクション1. おすわり（正座）
-MainPage:newToggle(1):item("oak_stairs"):onToggle(function ()
+MainPage:newToggle(1):toggleColor(233 / 255, 160 / 255, 69 / 255):item("oak_stairs"):onToggle(function ()
 	if SitDownClass.CanSitDown then
 		pings.main_action1_toggle()
 	end
@@ -98,6 +98,8 @@ end)
 MainPage:newAction(2):item("feather"):onLeftClick(function ()
 	if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" then
 		pings.main_action2()
+	else
+		print(LanguageClass.getTranslate("action_wheel__main__action_2__unavailable"))
 	end
 end)
 
