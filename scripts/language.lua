@@ -7,11 +7,17 @@ LanguageClass = {}
 LanguageData = {
 	en = {
 		action_wheel__main__action_1__title = "Sit down",
-		action_wheel__main__action_2__title = "Earpick"
+		action_wheel__main__action_2__title = "Earpick",
+		action_wheel__main__action_3__title = "Change display name (scroll): ",
+		action_wheel__main__action_3__name_change_done_first = "Changed your name to §b",
+		action_wheel__main__action_3__name_change_done_last = "§r."
 	},
 	jp = {
 		action_wheel__main__action_1__title = "おすわり",
-		action_wheel__main__action_2__title = "耳かき"
+		action_wheel__main__action_2__title = "耳かき",
+		action_wheel__main__action_3__title = "表示名変更（スクロール）: ",
+		action_wheel__main__action_3__name_change_done_first = "表示名を§b",
+		action_wheel__main__action_3__name_change_done_last = "§rに変更しました。"
 	}
 }
 ActiveLanguage = "en"

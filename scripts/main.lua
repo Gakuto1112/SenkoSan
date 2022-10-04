@@ -1,6 +1,7 @@
 events.ENTITY_INIT:register(function ()
 	--クラスのインスタンス化
 	General = require("scripts/general")
+	NameplateClass = require("scripts/nameplate")
 	HurtClass = require("scripts/hurt")
 	FacePartsClass = require("scripts/face_parts")
 	TailPhysicsClass = require("scripts/tail_physics")
