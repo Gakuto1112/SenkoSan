@@ -3700,167 +3700,6 @@
             "autouv": 0,
             "children": [
                 {
-                    "name": "LeftLeg",
-                    "origin": [
-                        -2,
-                        12,
-                        0
-                    ],
-                    "color": 0,
-                    "uuid": "e2b4c895-68c0-b786-a5ac-ee58a3bad955",
-                    "export": true,
-                    "isOpen": true,
-                    "locked": false,
-                    "visibility": true,
-                    "autouv": 0,
-                    "children": [
-                        "3e850021-ae31-12e6-13de-06eeb5057cbf",
-                        "d9fea07f-5849-e34b-ee00-cc549e9f0be4",
-                        {
-                            "name": "LeftLegBottom",
-                            "origin": [
-                                -2,
-                                6,
-                                0
-                            ],
-                            "color": 0,
-                            "uuid": "9250ed07-47bc-8363-6b9e-23edbbb61eb0",
-                            "export": true,
-                            "isOpen": true,
-                            "locked": false,
-                            "visibility": true,
-                            "autouv": 0,
-                            "children": [
-                                "f1b8c692-9148-fd8b-d57b-9f752b42e258",
-                                "4e609fe2-07bd-943f-5261-0bfdd36d4b2b"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": "RightLeg",
-                    "origin": [
-                        2,
-                        12,
-                        0
-                    ],
-                    "color": 0,
-                    "uuid": "875bef9d-135e-c45f-e9d5-5a1c774743f6",
-                    "export": true,
-                    "isOpen": true,
-                    "locked": false,
-                    "visibility": true,
-                    "autouv": 0,
-                    "children": [
-                        "588dd98b-95e7-0207-2900-519a3cd9cc9d",
-                        "1b4a3132-88b4-1bb5-fa68-43c8e1e04af1",
-                        {
-                            "name": "RightLegBottom",
-                            "origin": [
-                                2,
-                                6,
-                                0
-                            ],
-                            "color": 0,
-                            "uuid": "c3e74adf-9ad7-1fc8-f266-b5b8889e22bf",
-                            "export": true,
-                            "isOpen": true,
-                            "locked": false,
-                            "visibility": true,
-                            "autouv": 0,
-                            "children": [
-                                "753d77a0-9489-ec87-71b8-cf6a106dd1af",
-                                "2c28a438-8b74-6b03-6b55-c09900027d7c"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": "LeftArm",
-                    "origin": [
-                        -5,
-                        23,
-                        0
-                    ],
-                    "color": 0,
-                    "uuid": "af94253b-4f4f-8ab4-29fd-fffa30e9449a",
-                    "export": true,
-                    "isOpen": false,
-                    "locked": false,
-                    "visibility": true,
-                    "autouv": 0,
-                    "children": [
-                        "3c0eee6d-fae6-e517-46a2-b417d1d7b745",
-                        "c5057cf9-c408-2395-edb3-5789f7dd7d7a"
-                    ]
-                },
-                {
-                    "name": "RightArm",
-                    "origin": [
-                        5,
-                        23,
-                        0
-                    ],
-                    "color": 0,
-                    "uuid": "48aa268d-b174-aa83-0300-eba43794dfe3",
-                    "export": true,
-                    "isOpen": false,
-                    "locked": false,
-                    "visibility": true,
-                    "autouv": 0,
-                    "children": [
-                        "658047a4-4f13-b570-62bb-770bb88ca4a6",
-                        "8b9efce9-badc-2b5e-7123-3bdf71445902"
-                    ]
-                },
-                {
-                    "name": "Body",
-                    "origin": [
-                        0,
-                        24,
-                        0
-                    ],
-                    "color": 0,
-                    "uuid": "5c3d82d1-20f2-bbae-5f4b-9f5dc39f4708",
-                    "export": true,
-                    "isOpen": false,
-                    "locked": false,
-                    "visibility": true,
-                    "autouv": 0,
-                    "children": [
-                        "8136671e-ca38-e3ac-f8d2-4e83c9ed3dbe",
-                        "91ba6935-f70e-0ab0-bc03-9d1708d4d9b7",
-                        {
-                            "name": "Tail",
-                            "origin": [
-                                1,
-                                14.5,
-                                2
-                            ],
-                            "color": 0,
-                            "uuid": "e9e4c368-eb50-65b1-3347-d91423a7b6c4",
-                            "export": true,
-                            "isOpen": false,
-                            "locked": false,
-                            "visibility": true,
-                            "autouv": 0,
-                            "children": [
-                                "000315ce-b34b-24cd-2b61-0dbcc2bada50",
-                                "f4251d47-8738-0282-c89b-763c7484621f",
-                                "5ed4f504-4cf7-98d3-5865-ca101004be09",
-                                "4542d22e-29c6-eefd-1068-9574e94eec36",
-                                "fd5d1cd7-382a-4935-1352-50543b7473a1",
-                                "31a1238c-366b-bf34-a4f2-301d81fb7be8",
-                                "3df8d69e-673e-e457-ebd8-65688ddb620d",
-                                "a87e3b15-2aee-ae4a-c518-2eda884f88f4",
-                                "67c6c552-8b19-d8ca-4e72-efc77195b555",
-                                "9e5989a8-eea1-4b15-cffe-e885cb524aba",
-                                "bc4dfcf4-8e51-da7b-4566-8fd6c5300b7a"
-                            ]
-                        }
-                    ]
-                },
-                {
                     "name": "Head",
                     "origin": [
                         0,
@@ -3870,7 +3709,7 @@
                     "color": 0,
                     "uuid": "2911c5ac-a42b-434c-9d91-becfa17fd255",
                     "export": true,
-                    "isOpen": false,
+                    "isOpen": true,
                     "locked": false,
                     "visibility": true,
                     "autouv": 0,
@@ -3907,8 +3746,74 @@
                                     "visibility": true,
                                     "autouv": 0,
                                     "children": [
-                                        "8a19bb10-4e96-36e7-b50a-19fadd5a1c45",
-                                        "562a28e7-6fb0-03e8-84b0-263dfe9b2ea4"
+                                        {
+                                            "name": "RightEye",
+                                            "origin": [
+                                                2,
+                                                25,
+                                                -3
+                                            ],
+                                            "color": 0,
+                                            "uuid": "8a10a772-acb8-dbc6-91f9-af42598205da",
+                                            "export": true,
+                                            "isOpen": true,
+                                            "locked": false,
+                                            "visibility": true,
+                                            "autouv": 0,
+                                            "children": [
+                                                "8a19bb10-4e96-36e7-b50a-19fadd5a1c45",
+                                                {
+                                                    "name": "RightSpyglassPivot",
+                                                    "origin": [
+                                                        2,
+                                                        26,
+                                                        -4
+                                                    ],
+                                                    "color": 0,
+                                                    "uuid": "41401538-77eb-0eb6-14ee-20821b9349af",
+                                                    "export": true,
+                                                    "isOpen": false,
+                                                    "locked": false,
+                                                    "visibility": true,
+                                                    "autouv": 0,
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "LeftEye",
+                                            "origin": [
+                                                2,
+                                                25,
+                                                -3
+                                            ],
+                                            "color": 0,
+                                            "uuid": "45b1129c-3fa2-407e-5396-3b70f70ebfba",
+                                            "export": true,
+                                            "isOpen": true,
+                                            "locked": false,
+                                            "visibility": true,
+                                            "autouv": 0,
+                                            "children": [
+                                                "562a28e7-6fb0-03e8-84b0-263dfe9b2ea4",
+                                                {
+                                                    "name": "LeftSpyglassPivot",
+                                                    "origin": [
+                                                        -2,
+                                                        26,
+                                                        -4
+                                                    ],
+                                                    "color": 0,
+                                                    "uuid": "c954b976-7bd1-cbf5-e43c-813d893eddbe",
+                                                    "export": true,
+                                                    "isOpen": false,
+                                                    "locked": false,
+                                                    "visibility": true,
+                                                    "autouv": 0,
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
                                     ]
                                 },
                                 "82979715-87c7-dec7-9448-e18d18eee32e"
@@ -3987,6 +3892,199 @@
                                         "9e7e6816-53e0-9055-47dd-49f6228ae9da"
                                     ]
                                 }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Body",
+                    "origin": [
+                        0,
+                        24,
+                        0
+                    ],
+                    "color": 0,
+                    "uuid": "5c3d82d1-20f2-bbae-5f4b-9f5dc39f4708",
+                    "export": true,
+                    "isOpen": false,
+                    "locked": false,
+                    "visibility": true,
+                    "autouv": 0,
+                    "children": [
+                        "8136671e-ca38-e3ac-f8d2-4e83c9ed3dbe",
+                        "91ba6935-f70e-0ab0-bc03-9d1708d4d9b7",
+                        {
+                            "name": "Tail",
+                            "origin": [
+                                1,
+                                14.5,
+                                2
+                            ],
+                            "color": 0,
+                            "uuid": "e9e4c368-eb50-65b1-3347-d91423a7b6c4",
+                            "export": true,
+                            "isOpen": false,
+                            "locked": false,
+                            "visibility": true,
+                            "autouv": 0,
+                            "children": [
+                                "000315ce-b34b-24cd-2b61-0dbcc2bada50",
+                                "f4251d47-8738-0282-c89b-763c7484621f",
+                                "5ed4f504-4cf7-98d3-5865-ca101004be09",
+                                "4542d22e-29c6-eefd-1068-9574e94eec36",
+                                "fd5d1cd7-382a-4935-1352-50543b7473a1",
+                                "31a1238c-366b-bf34-a4f2-301d81fb7be8",
+                                "3df8d69e-673e-e457-ebd8-65688ddb620d",
+                                "a87e3b15-2aee-ae4a-c518-2eda884f88f4",
+                                "67c6c552-8b19-d8ca-4e72-efc77195b555",
+                                "9e5989a8-eea1-4b15-cffe-e885cb524aba",
+                                "bc4dfcf4-8e51-da7b-4566-8fd6c5300b7a"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "RightArm",
+                    "origin": [
+                        5,
+                        23,
+                        0
+                    ],
+                    "color": 0,
+                    "uuid": "48aa268d-b174-aa83-0300-eba43794dfe3",
+                    "export": true,
+                    "isOpen": true,
+                    "locked": false,
+                    "visibility": true,
+                    "autouv": 0,
+                    "children": [
+                        "658047a4-4f13-b570-62bb-770bb88ca4a6",
+                        "8b9efce9-badc-2b5e-7123-3bdf71445902",
+                        {
+                            "name": "RightItemPivot",
+                            "origin": [
+                                5.5,
+                                12,
+                                -2
+                            ],
+                            "color": 0,
+                            "uuid": "f6d0be62-3b91-aba8-16f1-b81a1bd6a744",
+                            "export": true,
+                            "isOpen": false,
+                            "locked": false,
+                            "visibility": true,
+                            "autouv": 0,
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "LeftArm",
+                    "origin": [
+                        -5,
+                        23,
+                        0
+                    ],
+                    "color": 0,
+                    "uuid": "af94253b-4f4f-8ab4-29fd-fffa30e9449a",
+                    "export": true,
+                    "isOpen": true,
+                    "locked": false,
+                    "visibility": true,
+                    "autouv": 0,
+                    "children": [
+                        "3c0eee6d-fae6-e517-46a2-b417d1d7b745",
+                        "c5057cf9-c408-2395-edb3-5789f7dd7d7a",
+                        {
+                            "name": "LeftItemPivot",
+                            "origin": [
+                                -5.5,
+                                12,
+                                -2
+                            ],
+                            "color": 0,
+                            "uuid": "c01b4320-036d-e0bb-cec3-3365e77e6e7b",
+                            "export": true,
+                            "isOpen": false,
+                            "locked": false,
+                            "visibility": true,
+                            "autouv": 0,
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "RightLeg",
+                    "origin": [
+                        2,
+                        12,
+                        0
+                    ],
+                    "color": 0,
+                    "uuid": "875bef9d-135e-c45f-e9d5-5a1c774743f6",
+                    "export": true,
+                    "isOpen": false,
+                    "locked": false,
+                    "visibility": true,
+                    "autouv": 0,
+                    "children": [
+                        "588dd98b-95e7-0207-2900-519a3cd9cc9d",
+                        "1b4a3132-88b4-1bb5-fa68-43c8e1e04af1",
+                        {
+                            "name": "RightLegBottom",
+                            "origin": [
+                                2,
+                                6,
+                                0
+                            ],
+                            "color": 0,
+                            "uuid": "c3e74adf-9ad7-1fc8-f266-b5b8889e22bf",
+                            "export": true,
+                            "isOpen": true,
+                            "locked": false,
+                            "visibility": true,
+                            "autouv": 0,
+                            "children": [
+                                "753d77a0-9489-ec87-71b8-cf6a106dd1af",
+                                "2c28a438-8b74-6b03-6b55-c09900027d7c"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "LeftLeg",
+                    "origin": [
+                        -2,
+                        12,
+                        0
+                    ],
+                    "color": 0,
+                    "uuid": "e2b4c895-68c0-b786-a5ac-ee58a3bad955",
+                    "export": true,
+                    "isOpen": false,
+                    "locked": false,
+                    "visibility": true,
+                    "autouv": 0,
+                    "children": [
+                        "3e850021-ae31-12e6-13de-06eeb5057cbf",
+                        "d9fea07f-5849-e34b-ee00-cc549e9f0be4",
+                        {
+                            "name": "LeftLegBottom",
+                            "origin": [
+                                -2,
+                                6,
+                                0
+                            ],
+                            "color": 0,
+                            "uuid": "9250ed07-47bc-8363-6b9e-23edbbb61eb0",
+                            "export": true,
+                            "isOpen": true,
+                            "locked": false,
+                            "visibility": true,
+                            "autouv": 0,
+                            "children": [
+                                "f1b8c692-9148-fd8b-d57b-9f752b42e258",
+                                "4e609fe2-07bd-943f-5261-0bfdd36d4b2b"
                             ]
                         }
                     ]

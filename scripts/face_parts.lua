@@ -31,8 +31,8 @@ BlinkCount = 0
 ---@param duration integer この表情を有効にする時間
 ---@param force boolean trueにすると以前のエモーションが再生中でも強制的に現在のエモーションを適用させる。
 function setEmotion(rightEye, leftEye, mouth, duration, force)
-	local rightEyePart = models.models.main.Avatar.Head.FaceParts.Eyes.RightEye
-	local leftEyePart = models.models.main.Avatar.Head.FaceParts.Eyes.LeftEye
+	local rightEyePart = models.models.main.Avatar.Head.FaceParts.Eyes.RightEye.RightEye
+	local leftEyePart = models.models.main.Avatar.Head.FaceParts.Eyes.LeftEye.LeftEye
 	local mouthPart = models.models.main.Avatar.Head.FaceParts.Mouth
 	if EmotionCount == 0 or force then
 		--右目
