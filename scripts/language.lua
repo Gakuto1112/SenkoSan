@@ -6,10 +6,12 @@ LanguageClass = {}
 
 LanguageData = {
 	en = {
-		action_wheel__main__action_1__title = "Sit down"
+		action_wheel__main__action_1__title = "Sit down",
+		action_wheel__main__action_2__title = "Earpick"
 	},
 	jp = {
-		action_wheel__main__action_1__title = "おすわり"
+		action_wheel__main__action_1__title = "おすわり",
+		action_wheel__main__action_2__title = "耳かき"
 	}
 }
 ActiveLanguage = "en"

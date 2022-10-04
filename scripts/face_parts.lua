@@ -30,7 +30,7 @@ BlinkCount = 0
 ---@param mouth MouthType 設定する口の名前（"NONE"にすると変更されない）
 ---@param duration integer この表情を有効にする時間
 ---@param force boolean trueにすると以前のエモーションが再生中でも強制的に現在のエモーションを適用させる。
-function setEmotion(rightEye, leftEye, mouth, duration, force)
+function FacePartsClass.setEmotion(rightEye, leftEye, mouth, duration, force)
 	local rightEyePart = models.models.main.Avatar.Head.FaceParts.Eyes.RightEye.RightEye
 	local leftEyePart = models.models.main.Avatar.Head.FaceParts.Eyes.LeftEye.LeftEye
 	local mouthPart = models.models.main.Avatar.Head.FaceParts.Mouth
@@ -55,13 +55,13 @@ events.TICK:register(function ()
 	if EmotionCount == 0 then
 		local gamemode = player:getGamemode()
 		if (player:getHealth() / player:getMaxHealth() <= 0.2 or player:getFood() <= 6 or player:getFrozenTicks() == 140) and (gamemode == "SURVIVAL" or gamemode == "ADVENTURE") then
-			setEmotion("TIRED", "TIRED", "NONE", 0, false)
+			FacePartsClass.setEmotion("TIRED", "TIRED", "CLOSED", 0, false)
 		else
-			setEmotion("NORMAL", "NORMAL", "NONE", 0, false)
+			FacePartsClass.setEmotion("NORMAL", "NORMAL", "CLOSED", 0, false)
 		end
 	end
 	if BlinkCount == 200 then
-		setEmotion("CLOSED", "CLOSED", "NONE", 2, false)
+		FacePartsClass.setEmotion("CLOSED", "CLOSED", "NONE", 2, false)
 		BlinkCount = 0
 	elseif not client.isPaused() then
 		BlinkCount = BlinkCount + 1

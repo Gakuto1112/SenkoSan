@@ -6,6 +6,17 @@
 
 General = {}
 
+---渡されたItemStackのアイテムタイプを返す。nilや"minecraft:air"の場合は"none"と返す。
+---@param item ItemStack アイテムタイプを調べるItemStack
+---@return string
+function General.hasItem(item)
+	if item == nil then
+		return "none"
+	else
+		return item.id == "minecraft:air" and "none" or item.id
+	end
+end
+
 --複数のモデルファイルのアニメーションを同時に制御する。
 ---@param animationState AnimationState アニメーションの設定値
 ---@param animationName string アニメーションの名前

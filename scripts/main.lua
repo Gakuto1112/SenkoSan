@@ -7,6 +7,7 @@ events.ENTITY_INIT:register(function ()
 	LanguageClass = require("scripts/language")
 	ActionWheelClass = require("scripts/action_wheel")
 	SitDownClass = require("scripts/sit_down")
+	EarpickClass = require("scripts/earpick")
 
 	--初期化処理
 	vanilla_model.PLAYER:setVisible(false)
