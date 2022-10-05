@@ -71,7 +71,7 @@ events.RENDER:register(function ()
 		local tail = models.models.main.Avatar.Body.Tail
 		local playerPose = player:getPose()
 		local tailLimit = {{-60, 60}, {-30, 30}} --尻尾の可動範囲：1. 上下方向, 2. 左右方向
-		if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" then
+		if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" or player:getVehicle() then
 			tailLimit[1][2] = 10
 		end
 		if playerPose == "FALL_FLYING" then
