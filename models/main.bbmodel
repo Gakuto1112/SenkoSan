@@ -3906,7 +3906,7 @@
                     "color": 0,
                     "uuid": "5c3d82d1-20f2-bbae-5f4b-9f5dc39f4708",
                     "export": true,
-                    "isOpen": false,
+                    "isOpen": true,
                     "locked": false,
                     "visibility": true,
                     "autouv": 0,
@@ -4110,6 +4110,97 @@
         }
     ],
     "animations": [
+        {
+            "uuid": "4f9169a2-4e62-01ed-fba3-e2cd72202358",
+            "name": "wag_tail",
+            "loop": "once",
+            "override": false,
+            "length": 0.4166666666666667,
+            "snapping": 24,
+            "selected": true,
+            "anim_time_update": "",
+            "blend_weight": "",
+            "start_delay": "",
+            "loop_delay": "",
+            "animators": {
+                "e9e4c368-eb50-65b1-3347-d91423a7b6c4": {
+                    "name": "Tail",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": 0,
+                                    "y": 30,
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "d39e2816-83f5-c45e-f865-e1bf780cfd46",
+                            "time": 0.08333333333333333,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": 0,
+                                    "y": "-30",
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "b9f349e1-afed-b8f1-873e-eda0c0f26232",
+                            "time": 0.20833333333333334,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "111cda12-df2c-0396-45cc-1007e6bd1735",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": 0,
+                                    "y": "30",
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "2789af5a-5c78-93c8-17af-084485297c16",
+                            "time": 0.3333333333333333,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "fc1d276b-4fa9-2427-29f5-1576defe2f01",
+                            "time": 0.4166666666666667,
+                            "color": -1,
+                            "interpolation": "linear"
+                        }
+                    ]
+                }
+            }
+        },
         {
             "uuid": "abf8ce74-8707-4b34-bd83-08f16feb6e70",
             "name": "sit_down",

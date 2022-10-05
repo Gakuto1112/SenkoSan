@@ -1,17 +1,34 @@
----@class TailPhysicsClass 尻尾を制御するクラス
+---@class TailClass 尻尾を制御するクラス
 ---@field VelocityData table 速度データ：1. 前後, 2. 上下, 3. 左右, 4. 角速度
 ---@field VelocityAverage table 速度の平均値：1. 前後, 2. 上下, 3. 左右, 4. 角速度
 ---@field LookRotPrevRender number 前レンダーチックのlookRot
 ---@field LookRotDeltaPrevRender number 前レンダーチックのlookRotDelta
----@field TailPhysicsClass.EnablePyhisics boolean 尻尾の物理演算を有効にするかどうか。
+---@field WagTailKey Keybind 尻尾振りをするキー
+---@field WagTailCount integer 尻尾振りの時間を計るカウンター
 
-TailPhysicsClass = {}
+TailClass = {}
 
 VelocityData = {{}, {}, {}, {}}
 VelocityAverage = {0, 0, 0, 0}
 LookRotPrevRender = 0
 LookRotDeltaPrevRender = 0
-TailPhysicsClass.EnablePyhisics = true;
+WagTailKey = keybind:create(LanguageClass.getTranslate("key_name__wag_tail"), "key.keyboard.z")
+WagTailCount = -1
+
+--ping関数
+---尻尾を振る
+function pings.wag_tail()
+	General.setAnimations("PLAY", "wag_tail")
+	WagTailCount = 0
+end
+
+events.TICK:register(function ()
+	if WagTailCount == 9 then
+		WagTailCount = -1
+	else
+		WagTailCount = WagTailCount >= 0 and WagTailCount + 1 or -1
+	end
+end)
 
 events.RENDER:register(function ()
 	local lookDir = player:getLookDir()
@@ -50,9 +67,9 @@ events.RENDER:register(function ()
 			table.remove(velocityTable, 1)
 		end
 	end
-	local tail = models.models.main.Avatar.Body.Tail
-	local playerPose = player:getPose()
-	if TailPhysicsClass.EnablePyhisics then
+	if not renderer:isFirstPerson() or client:hasIrisShader() then
+		local tail = models.models.main.Avatar.Body.Tail
+		local playerPose = player:getPose()
 		local tailLimit = {{-60, 60}, {-30, 30}} --尻尾の可動範囲：1. 上下方向, 2. 左右方向
 		if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" then
 			tailLimit[1][2] = 10
@@ -67,11 +84,15 @@ events.RENDER:register(function ()
 			local tailXAngleMove = math.abs(VelocityAverage[4]) * 0.05
 			tail:setRot(math.clamp(tailLimit[1][2] - math.min(tailXMoveXZ, math.max(tailLimit[1][2] - tailXMoveY - tailXAngleMove, 0)) + tailXMoveY - math.min(tailXAngleMove, math.max(tailLimit[1][2] -tailXMoveXZ - tailXMoveY, 0)), tailLimit[1][1], tailLimit[1][2]) + (playerPose == "CROUCHING" and 30 or 0), math.clamp(-VelocityAverage[3] * 160 + VelocityAverage[4] * 0.05, tailLimit[2][1], tailLimit[2][2]), 0)
 		end
-	else
-		tail:setRot(0, 0, 0)
 	end
 	LookRotDeltaPrevRender = lookRotDelta
 	LookRotPrevRender = lookRot
 end)
 
-return TailPhysicsClass
+WagTailKey.onPress = function ()
+	if WagTailCount == -1 then
+		pings.wag_tail()
+	end
+end
+
+return TailClass
