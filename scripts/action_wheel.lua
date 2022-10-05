@@ -89,6 +89,8 @@ end)
 MainPage:newToggle(1):toggleColor(233 / 255, 160 / 255, 69 / 255):item("oak_stairs"):onToggle(function ()
 	if SitDownClass.CanSitDown then
 		pings.main_action1_toggle()
+	else
+		print(LanguageClass.getTranslate("action_wheel__main__action_1__unavailable"))
 	end
 end):onUntoggle(function ()
 	pings.main_action1_untoggle()

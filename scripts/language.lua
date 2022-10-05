@@ -7,6 +7,7 @@ LanguageClass = {}
 LanguageData = {
 	en = {
 		key_name__wag_tail = "Wag tail",
+		action_wheel__main__action_1__unavailable = "You cannot sit down now.",
 		action_wheel__main__action_1__title = "Sit down",
 		action_wheel__main__action_2__title = "Earpick",
 		action_wheel__main__action_2__unavailable = "Please sit down before running earpick action!",
@@ -16,6 +17,7 @@ LanguageData = {
 	},
 	jp = {
 		key_name__wag_tail = "尻尾を振る",
+		action_wheel__main__action_1__unavailable = "今は座れません。",
 		action_wheel__main__action_1__title = "おすわり",
 		action_wheel__main__action_2__title = "耳かき",
 		action_wheel__main__action_2__unavailable = "耳かきをする前に座ってね！",
