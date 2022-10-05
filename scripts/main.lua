@@ -12,7 +12,9 @@ events.ENTITY_INIT:register(function ()
 	EarpickClass = require("scripts/earpick")
 
 	--初期化処理
-	vanilla_model.PLAYER:setVisible(false)
+	for _, vanillaModel in ipairs({vanilla_model.PLAYER, vanilla_model.ARMOR}) do
+		vanillaModel:setVisible(false)
+	end
 	for _, modelPart in ipairs({models.models.main.Avatar.RightLeg.RightLegBottom, models.models.main.Avatar.LeftLeg.LeftLegBottom}) do
 		modelPart:setParentType("None")
 	end
