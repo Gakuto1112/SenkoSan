@@ -1,5 +1,24 @@
 ---@class General 他の複数のクラスが参照するフィールドや関数を定義するクラス
----@field General.isTired boolean キャラクターが疲弊しているかどうか（サバイバルかアドベンチャーで、HP4以下または満腹度0）
+---@field General.playerCondition ConditionLevel プレイヤーの体力・満腹度の度合い
+--[[
+	## General.playerConditionの値
+	- 凍えている時は常に"LOW"
+	- クリエイティブモードとスペクテイターモードでは常に"HIGH"
+	┌───────────┬───────────────────┬───────────────┐
+	│ 値		│ 体力H				| 満腹度S		 |
+	╞═══════════╪═══════════════════╪═══════════════╡
+	│ "HIGH"	│ 50% < H			│ 30% < S		│
+	├───────────┼───────────────────┼───────────────┤
+	│ "MEDIUM"	│ 20% < H <= 50%	│ 0% < S <= 30%	│
+	├───────────┼───────────────────┼───────────────┤
+	│ "LOW"		│ H <= 50%			│ 0% = S		│
+	└───────────┴───────────────────┴───────────────┘
+]]
+
+---@alias ConditionLevel
+---| "LOW"
+---| "MEDIUM"
+---| "HIGH"
 
 ---@alias AnimationState
 ---| "PLAY"
@@ -7,7 +26,7 @@
 
 General = {}
 
-General.isTired = false
+General.PlayerCondition = "HIGH"
 
 ---渡されたItemStackのアイテムタイプを返す。nilや"minecraft:air"の場合は"none"と返す。
 ---@param item ItemStack アイテムタイプを調べるItemStack
@@ -44,7 +63,9 @@ end
 
 events.TICK:register(function ()
 	local gamemode = player:getGamemode()
-	General.isTired = (player:getHealth() / player:getMaxHealth() <= 0.2 or player:getFood() == 0 or player:getFrozenTicks() == 140) and (gamemode == "SURVIVAL" or gamemode == "ADVENTURE")
+	local healthPercent = player:getHealth() / player:getMaxHealth()
+	local satisfactionPercent = player:getFood() / 20
+	General.PlayerCondition = player:getFrozenTicks() == 140 and "LOW" or (((healthPercent > 0.5 and satisfactionPercent > 0.3) or (gamemode == "CREATIVE" or gamemode == "SPECTATOR")) and "HIGH" or ((healthPercent > 0.2 and satisfactionPercent > 0) and "MEDIUM" or "LOW"))
 end)
 
 return General

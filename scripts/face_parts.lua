@@ -53,7 +53,7 @@ end
 
 events.TICK:register(function ()
 	if EmotionCount == 0 then
-		if General.isTired then
+		if General.PlayerCondition == "LOW" then
 			FacePartsClass.setEmotion("TIRED", "TIRED", "CLOSED", 0, false)
 		else
 			FacePartsClass.setEmotion("NORMAL", "NORMAL", "CLOSED", 0, false)
