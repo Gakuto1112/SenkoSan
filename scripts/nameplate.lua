@@ -18,4 +18,8 @@ events.TICK:register(function()
 	end
 end)
 
+if ConfigClass.DefaultName >= 1 then
+	NameplateClass.setName(ConfigClass.DefaultName == 1 and "Senko_san" or "仙狐さん")
+end
+
 return NameplateClass

@@ -1,4 +1,5 @@
 ---@class ConfigClass アバター設定を管理するクラス A class for managing avatar config.
+---@field ConfigClass.DefaultName integer デフォルトのプレイヤーの表示名 Default player display name.
 ---@field ConfigClass.HideArmor boolean 防具を隠すかどうか Whether or not hide armors.
 
 ConfigClass = {}
@@ -15,6 +16,7 @@ ConfigClass = {}
 	Insted of that, please change configs by editing config file (/sripts/config.lua) directly.
 ]]
 
+ConfigClass.DefaultName = 2 --0. プレイヤー名 Player name, 1. "Senko_san", 2. "仙狐さん"
 ConfigClass.HideArmor = true
 
 --- *** 設定フィールド終了 Config field end ***

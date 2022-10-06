@@ -12,8 +12,8 @@ MainPage = action_wheel:createPage("main_page")
 ActionCount = 0
 ActionCancelFunction = nil
 IsOpenActionWheelPrev = false
-CurrentPlayerNameState = 0
-PlayerNameState = 0
+CurrentPlayerNameState = ConfigClass.DefaultName
+PlayerNameState = ConfigClass.DefaultName
 
 ---アクションの色の有効色/無効色の切り替え
 ---@param actionNumber integer pageNumber内のアクションの番号
