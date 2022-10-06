@@ -36,26 +36,26 @@ events.TICK:register(function ()
 		local leftHanded = player:isLeftHanded()
 		if General.hasItem(player:getHeldItem(leftHanded)) ~= "none" then
 			vanilla_model.RIGHT_ITEM:setVisible(false)
-			models.models.main.Avatar.RightArm:setRot(-20, 0, 0)
+			models.models.main.Avatar.Body.Arms.RightArm:setRot(-20, 0, 0)
 			models.models.ear_cleaning.Avatar.RightArm:setRot(-20, 0, 0)
 		else
 			vanilla_model.RIGHT_ITEM:setVisible(true)
-			models.models.main.Avatar.RightArm:setRot(0, 0, 0)
+			models.models.main.Avatar.Body.Arms.RightArm:setRot(0, 0, 0)
 			models.models.ear_cleaning.Avatar.RightArm:setRot(0, 0, 0)
 		end
 		if General.hasItem(player:getHeldItem(not leftHanded)) ~= "none" then
 			vanilla_model.LEFT_ITEM:setVisible(false)
-			models.models.main.Avatar.LeftArm:setRot(-20, 0, 0)
+			models.models.main.Avatar.Body.Arms.LeftArm:setRot(-20, 0, 0)
 		else
 			vanilla_model.LEFT_ITEM:setVisible(true)
-			models.models.main.Avatar.LeftArm:setRot(0, 0, 0)
+			models.models.main.Avatar.Body.Arms.LeftArm:setRot(0, 0, 0)
 		end
 	else
 		vanilla_model.RIGHT_ITEM:setVisible(true)
 		vanilla_model.LEFT_ITEM:setVisible(true)
 		if player:getPose() ~= "SLEEPING" then
-			models.models.main.Avatar.RightArm:setRot(0, 0, 0)
-			models.models.main.Avatar.LeftArm:setRot(0, 0, 0)
+			models.models.main.Avatar.Body.Arms.RightArm:setRot(0, 0, 0)
+			models.models.main.Avatar.Body.Arms.LeftArm:setRot(0, 0, 0)
 		end
 	end
 	if AnimationCount == 33 then

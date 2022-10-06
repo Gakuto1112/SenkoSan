@@ -75,16 +75,16 @@ end
 ---腕の防具を設定する。腕が表示されているかどうかも考慮される。
 ---@param armorEnabled  boolean 防具を表示するかどうか
 function setArmArmor(armorEnabled)
-	ArmorRoot.Avatar.Body.Arms.RightArm:setVisible(ModelRoot.Avatar.RightArm:getVisible() and armorEnabled)
-	ArmorRoot.Avatar.Body.Arms.LeftArm:setVisible(ModelRoot.Avatar.LeftArm:getVisible() and armorEnabled)
-	if ModelRoot.Avatar.RightArm:getVisible() and armorEnabled then
+	ArmorRoot.Avatar.Body.Arms.RightArm:setVisible(ModelRoot.Avatar.Body.Arms.RightArm:getVisible() and armorEnabled)
+	ArmorRoot.Avatar.Body.Arms.LeftArm:setVisible(ModelRoot.Avatar.Body.Arms.LeftArm:getVisible() and armorEnabled)
+	if ModelRoot.Avatar.Body.Arms.RightArm:getVisible() and armorEnabled then
 		ArmorRoot.Avatar.Body.Arms.RightArm.RightChestplate:setVisible(true)
 		ArmorRoot.Avatar.Body.Arms.RightArm.RightArmBottom.RightChestplateBottom:setVisible(true)
 	else
 		ArmorRoot.Avatar.Body.Arms.RightArm.RightChestplate:setVisible(false)
 		ArmorRoot.Avatar.Body.Arms.RightArm.RightArmBottom.RightChestplateBottom:setVisible(false)
 	end
-	if ModelRoot.Avatar.LeftArm:getVisible() and armorEnabled then
+	if ModelRoot.Avatar.Body.Arms.LeftArm:getVisible() and armorEnabled then
 		ArmorRoot.Avatar.Body.Arms.LeftArm.LeftChestplate:setVisible(true)
 		ArmorRoot.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftChestplateBottom:setVisible(true)
 	else

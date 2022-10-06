@@ -6,7 +6,7 @@
 
 FacePartsClass = {}
 
-EyeTypeID = {NONE = -1, NORMAL = 0, SURPLISED = 1, TIRED = 2, SLEEPY = 3, CLOSED = 4}
+EyeTypeID = {NONE = -1, NORMAL = 0, SURPLISED = 1, TIRED = 2, SLEEPY = 3, CLOSED = 4, UNEQUAL = 5}
 MouthTypeID = {NONE = -1, CLOSED = 0, OPENED = 1}
 EmotionCount = 0
 BlinkCount = 0
@@ -18,6 +18,7 @@ BlinkCount = 0
 ---| "TIRED"
 ---| "SLEEPY"
 ---| "CLOSED"
+---| "UNEQUAL"
 
 ---@alias MouthType
 ---| "NONE"
@@ -37,15 +38,15 @@ function FacePartsClass.setEmotion(rightEye, leftEye, mouth, duration, force)
 	if EmotionCount == 0 or force then
 		--右目
 		if EyeTypeID[rightEye] >= 0 then
-			rightEyePart:setUVPixels(EyeTypeID[rightEye] * 6, 0)
+			rightEyePart:setUVPixels(0, EyeTypeID[rightEye] * 6)
 		end
 		--左目
 		if EyeTypeID[leftEye] >= 0 then
-			leftEyePart:setUVPixels(EyeTypeID[rightEye] * 6, 0)
+			leftEyePart:setUVPixels(0, EyeTypeID[rightEye] * 6)
 		end
 		--口
 		if MouthTypeID[mouth] >= 0 then
-			mouthPart:setUVPixels(MouthTypeID[mouth] * 2, 0)
+			mouthPart:setUVPixels(0, MouthTypeID[mouth] * 2)
 		end
 		EmotionCount = duration
 	end

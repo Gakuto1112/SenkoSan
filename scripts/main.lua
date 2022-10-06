@@ -17,13 +17,14 @@ events.ENTITY_INIT:register(function ()
 	ActionWheelClass = require("scripts/action_wheel")
 	SitDownClass = require("scripts/sit_down")
 	EarpickClass = require("scripts/earpick")
+	WetClass = require("scripts/wet")
 	SleepClass = require("scripts/sleep")
 
 	--初期化処理
 	for _, vanillaModel in ipairs({vanilla_model.PLAYER, vanilla_model.ARMOR}) do
 		vanillaModel:setVisible(false)
 	end
-	for _, modelPart in ipairs({models.models.main.Avatar.Body.BodyBottom, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom, models.models.main.Avatar.RightArm.RightArmBottom, models.models.main.Avatar.LeftArm.LeftArmBottom}) do
+	for _, modelPart in ipairs({models.models.main.Avatar.Body.BodyBottom, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom}) do
 		modelPart:setParentType("None")
 	end
 end)

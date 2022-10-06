@@ -7,8 +7,8 @@ SleepClass = {}
 SleepData = {}
 
 events.TICK:register(function()
-	local rightArm = models.models.main.Avatar.RightArm
-	local leftArm = models.models.main.Avatar.LeftArm
+	local rightArm = models.models.main.Avatar.Body.Arms.RightArm
+	local leftArm = models.models.main.Avatar.Body.Arms.LeftArm
 	local rightLegBottom = models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom
 	local leftLegBottom = models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom
 	local isSleeping = player:getPose() == "SLEEPING"

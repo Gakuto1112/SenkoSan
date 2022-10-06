@@ -3,7 +3,7 @@
 EarsClass = {}
 
 events.TICK:register(function ()
-	models.models.main.Avatar.Head.Ears:setRot(General.PlayerCondition == "LOW" and -40 or (General.PlayerCondition == "MEDIUM" and -20 or 0), 0, 0)
+	models.models.main.Avatar.Head.Ears:setRot((General.PlayerCondition == "LOW" or WetClass.WetCount > 0) and -40 or (General.PlayerCondition == "MEDIUM" and -20 or 0), 0, 0)
 end)
 
 return EarsClass
