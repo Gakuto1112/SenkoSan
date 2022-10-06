@@ -53,8 +53,10 @@ events.TICK:register(function ()
 	else
 		vanilla_model.RIGHT_ITEM:setVisible(true)
 		vanilla_model.LEFT_ITEM:setVisible(true)
-		models.models.main.Avatar.RightArm:setRot(0, 0, 0)
-		models.models.main.Avatar.LeftArm:setRot(0, 0, 0)
+		if player:getPose() ~= "SLEEPING" then
+			models.models.main.Avatar.RightArm:setRot(0, 0, 0)
+			models.models.main.Avatar.LeftArm:setRot(0, 0, 0)
+		end
 	end
 	if AnimationCount == 33 then
 		FacePartsClass.setEmotion("CLOSED", "CLOSED", "CLOSED", 40, true)

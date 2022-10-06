@@ -271,7 +271,7 @@
             "locked": false,
             "from": [
                 4,
-                12,
+                18,
                 -2
             ],
             "to": [
@@ -292,7 +292,7 @@
                         44,
                         20,
                         47,
-                        32
+                        26
                     ],
                     "texture": 0
                 },
@@ -301,7 +301,7 @@
                         40,
                         20,
                         44,
-                        32
+                        26
                     ],
                     "texture": 0
                 },
@@ -310,7 +310,7 @@
                         51,
                         20,
                         54,
-                        32
+                        26
                     ],
                     "texture": 0
                 },
@@ -319,7 +319,7 @@
                         47,
                         20,
                         51,
-                        32
+                        26
                     ],
                     "texture": 0
                 },
@@ -335,12 +335,12 @@
                 },
                 "down": {
                     "uv": [
-                        47,
-                        16,
-                        50,
-                        20
+                        0,
+                        0,
+                        0,
+                        0
                     ],
-                    "texture": 0
+                    "texture": null
                 }
             },
             "type": "cube",
@@ -352,7 +352,7 @@
             "locked": false,
             "from": [
                 -7,
-                12,
+                18,
                 -2
             ],
             "to": [
@@ -373,7 +373,7 @@
                         39,
                         52,
                         36,
-                        64
+                        58
                     ],
                     "texture": 0
                 },
@@ -382,7 +382,7 @@
                         36,
                         52,
                         32,
-                        64
+                        58
                     ],
                     "texture": 0
                 },
@@ -391,7 +391,7 @@
                         46,
                         52,
                         43,
-                        64
+                        58
                     ],
                     "texture": 0
                 },
@@ -400,7 +400,7 @@
                         43,
                         52,
                         39,
-                        64
+                        58
                     ],
                     "texture": 0
                 },
@@ -416,12 +416,12 @@
                 },
                 "down": {
                     "uv": [
-                        42,
-                        48,
-                        39,
-                        52
+                        0,
+                        0,
+                        0,
+                        0
                     ],
-                    "texture": 0
+                    "texture": null
                 }
             },
             "type": "cube",
@@ -433,7 +433,7 @@
             "locked": false,
             "from": [
                 -4,
-                12,
+                18,
                 -2
             ],
             "to": [
@@ -454,7 +454,7 @@
                         20,
                         20,
                         28,
-                        32
+                        26
                     ],
                     "texture": 0
                 },
@@ -463,7 +463,7 @@
                         16,
                         20,
                         20,
-                        32
+                        26
                     ],
                     "texture": 0
                 },
@@ -472,7 +472,7 @@
                         32,
                         20,
                         40,
-                        32
+                        26
                     ],
                     "texture": 0
                 },
@@ -481,7 +481,7 @@
                         28,
                         20,
                         32,
-                        32
+                        26
                     ],
                     "texture": 0
                 },
@@ -496,12 +496,12 @@
                 },
                 "down": {
                     "uv": [
-                        28,
-                        16,
-                        36,
-                        20
+                        0,
+                        0,
+                        0,
+                        0
                     ],
-                    "texture": 0
+                    "texture": null
                 }
             },
             "type": "cube",
@@ -513,7 +513,7 @@
             "locked": false,
             "from": [
                 -4,
-                12,
+                18,
                 -2
             ],
             "to": [
@@ -535,7 +535,7 @@
                         20,
                         36,
                         28,
-                        48
+                        42
                     ],
                     "texture": 0
                 },
@@ -553,7 +553,7 @@
                         32,
                         36,
                         40,
-                        48
+                        42
                     ],
                     "texture": 0
                 },
@@ -1376,7 +1376,7 @@
             "locked": false,
             "from": [
                 4,
-                12,
+                18,
                 -2
             ],
             "to": [
@@ -1398,7 +1398,7 @@
                         44,
                         36,
                         47,
-                        48
+                        42
                     ],
                     "texture": 0
                 },
@@ -1407,7 +1407,7 @@
                         40,
                         36,
                         44,
-                        48
+                        42
                     ],
                     "texture": 0
                 },
@@ -1416,7 +1416,7 @@
                         51,
                         36,
                         54,
-                        48
+                        42
                     ],
                     "texture": 0
                 },
@@ -1425,7 +1425,7 @@
                         47,
                         36,
                         51,
-                        48
+                        42
                     ],
                     "texture": 0
                 },
@@ -1458,7 +1458,7 @@
             "locked": false,
             "from": [
                 -7,
-                12,
+                18,
                 -2
             ],
             "to": [
@@ -1480,7 +1480,7 @@
                         55,
                         52,
                         52,
-                        64
+                        58
                     ],
                     "texture": 0
                 },
@@ -1489,7 +1489,7 @@
                         52,
                         52,
                         48,
-                        64
+                        58
                     ],
                     "texture": 0
                 },
@@ -1498,7 +1498,7 @@
                         62,
                         52,
                         59,
-                        64
+                        58
                     ],
                     "texture": 0
                 },
@@ -1507,7 +1507,7 @@
                         59,
                         52,
                         55,
-                        64
+                        58
                     ],
                     "texture": 0
                 },
@@ -3681,6 +3681,493 @@
             },
             "type": "cube",
             "uuid": "f1b8c692-9148-fd8b-d57b-9f752b42e258"
+        },
+        {
+            "name": "RightArmBottom",
+            "rescale": false,
+            "locked": false,
+            "from": [
+                4,
+                12,
+                -2
+            ],
+            "to": [
+                7,
+                18,
+                2
+            ],
+            "autouv": 0,
+            "color": 5,
+            "origin": [
+                4,
+                21,
+                0
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        44,
+                        26,
+                        47,
+                        32
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        40,
+                        26,
+                        44,
+                        32
+                    ],
+                    "texture": 0
+                },
+                "south": {
+                    "uv": [
+                        51,
+                        26,
+                        54,
+                        32
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        47,
+                        26,
+                        51,
+                        32
+                    ],
+                    "texture": 0
+                },
+                "up": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "rotation": 180,
+                    "texture": null
+                },
+                "down": {
+                    "uv": [
+                        47,
+                        16,
+                        50,
+                        20
+                    ],
+                    "texture": 0
+                }
+            },
+            "type": "cube",
+            "uuid": "ce2a5a82-7648-31c6-66d9-83f7f4ae29e4"
+        },
+        {
+            "name": "RightArmBottomLayer",
+            "rescale": false,
+            "locked": false,
+            "from": [
+                4,
+                12,
+                -2
+            ],
+            "to": [
+                7,
+                18,
+                2
+            ],
+            "autouv": 0,
+            "color": 5,
+            "inflate": 0.25,
+            "origin": [
+                4,
+                21,
+                0
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        44,
+                        42,
+                        47,
+                        48
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        40,
+                        42,
+                        44,
+                        48
+                    ],
+                    "texture": 0
+                },
+                "south": {
+                    "uv": [
+                        51,
+                        42,
+                        54,
+                        48
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                },
+                "up": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "rotation": 180,
+                    "texture": null
+                },
+                "down": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                }
+            },
+            "type": "cube",
+            "uuid": "baef0a87-ea80-8984-9f3f-7054d0eece5c"
+        },
+        {
+            "name": "LeftArmBottomLayer",
+            "rescale": false,
+            "locked": false,
+            "from": [
+                -7,
+                12,
+                -2
+            ],
+            "to": [
+                -4,
+                18,
+                2
+            ],
+            "autouv": 0,
+            "color": 5,
+            "inflate": 0.25,
+            "origin": [
+                -8,
+                21,
+                0
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        55,
+                        58,
+                        52,
+                        64
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                },
+                "south": {
+                    "uv": [
+                        62,
+                        58,
+                        59,
+                        64
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        59,
+                        58,
+                        55,
+                        64
+                    ],
+                    "texture": 0
+                },
+                "up": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "rotation": 180,
+                    "texture": null
+                },
+                "down": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                }
+            },
+            "type": "cube",
+            "uuid": "20a8f577-3285-4bec-a3a4-103d714d7071"
+        },
+        {
+            "name": "LeftArmBottom",
+            "rescale": false,
+            "locked": false,
+            "from": [
+                -7,
+                12,
+                -2
+            ],
+            "to": [
+                -4,
+                18,
+                2
+            ],
+            "autouv": 0,
+            "color": 5,
+            "origin": [
+                -8,
+                21,
+                0
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        39,
+                        58,
+                        36,
+                        64
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        36,
+                        58,
+                        32,
+                        64
+                    ],
+                    "texture": 0
+                },
+                "south": {
+                    "uv": [
+                        46,
+                        58,
+                        43,
+                        64
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        43,
+                        58,
+                        39,
+                        64
+                    ],
+                    "texture": 0
+                },
+                "up": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "rotation": 180,
+                    "texture": null
+                },
+                "down": {
+                    "uv": [
+                        42,
+                        48,
+                        39,
+                        52
+                    ],
+                    "texture": 0
+                }
+            },
+            "type": "cube",
+            "uuid": "88109dc7-8307-ad60-38de-01dd29383032"
+        },
+        {
+            "name": "BodyBottomLayer",
+            "rescale": false,
+            "locked": false,
+            "from": [
+                -4,
+                12,
+                -2
+            ],
+            "to": [
+                4,
+                18,
+                2
+            ],
+            "autouv": 0,
+            "color": 5,
+            "inflate": 0.26,
+            "origin": [
+                0,
+                20,
+                0
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        20,
+                        42,
+                        28,
+                        48
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                },
+                "south": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                },
+                "west": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                },
+                "up": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                },
+                "down": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                }
+            },
+            "type": "cube",
+            "uuid": "56a46675-bc0c-2fe0-b3c3-27503d41a221"
+        },
+        {
+            "name": "BodyBottom",
+            "rescale": false,
+            "locked": false,
+            "from": [
+                -4,
+                12,
+                -2
+            ],
+            "to": [
+                4,
+                18,
+                2
+            ],
+            "autouv": 0,
+            "color": 5,
+            "origin": [
+                0,
+                20,
+                0
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        20,
+                        26,
+                        28,
+                        32
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        16,
+                        26,
+                        20,
+                        32
+                    ],
+                    "texture": 0
+                },
+                "south": {
+                    "uv": [
+                        32,
+                        26,
+                        40,
+                        32
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        28,
+                        26,
+                        32,
+                        32
+                    ],
+                    "texture": 0
+                },
+                "up": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                },
+                "down": {
+                    "uv": [
+                        28,
+                        16,
+                        36,
+                        20
+                    ],
+                    "texture": 0
+                }
+            },
+            "type": "cube",
+            "uuid": "e2a9c599-71f1-f2ae-bd79-3f537b1e7203"
         }
     ],
     "outliner": [
@@ -3709,7 +4196,7 @@
                     "color": 0,
                     "uuid": "2911c5ac-a42b-434c-9d91-becfa17fd255",
                     "export": true,
-                    "isOpen": true,
+                    "isOpen": false,
                     "locked": false,
                     "visibility": true,
                     "autouv": 0,
@@ -3914,31 +4401,143 @@
                         "8136671e-ca38-e3ac-f8d2-4e83c9ed3dbe",
                         "91ba6935-f70e-0ab0-bc03-9d1708d4d9b7",
                         {
-                            "name": "Tail",
+                            "name": "BodyBottom",
                             "origin": [
-                                1,
-                                14.5,
+                                0,
+                                18,
                                 2
                             ],
                             "color": 0,
-                            "uuid": "e9e4c368-eb50-65b1-3347-d91423a7b6c4",
+                            "uuid": "e8434444-438a-7d00-7e72-cd2de9fbd7af",
                             "export": true,
-                            "isOpen": false,
+                            "isOpen": true,
                             "locked": false,
                             "visibility": true,
                             "autouv": 0,
                             "children": [
-                                "000315ce-b34b-24cd-2b61-0dbcc2bada50",
-                                "f4251d47-8738-0282-c89b-763c7484621f",
-                                "5ed4f504-4cf7-98d3-5865-ca101004be09",
-                                "4542d22e-29c6-eefd-1068-9574e94eec36",
-                                "fd5d1cd7-382a-4935-1352-50543b7473a1",
-                                "31a1238c-366b-bf34-a4f2-301d81fb7be8",
-                                "3df8d69e-673e-e457-ebd8-65688ddb620d",
-                                "a87e3b15-2aee-ae4a-c518-2eda884f88f4",
-                                "67c6c552-8b19-d8ca-4e72-efc77195b555",
-                                "9e5989a8-eea1-4b15-cffe-e885cb524aba",
-                                "bc4dfcf4-8e51-da7b-4566-8fd6c5300b7a"
+                                "e2a9c599-71f1-f2ae-bd79-3f537b1e7203",
+                                "56a46675-bc0c-2fe0-b3c3-27503d41a221",
+                                {
+                                    "name": "Tail",
+                                    "origin": [
+                                        1,
+                                        14.5,
+                                        2
+                                    ],
+                                    "color": 0,
+                                    "uuid": "e9e4c368-eb50-65b1-3347-d91423a7b6c4",
+                                    "export": true,
+                                    "isOpen": false,
+                                    "locked": false,
+                                    "visibility": true,
+                                    "autouv": 0,
+                                    "children": [
+                                        "000315ce-b34b-24cd-2b61-0dbcc2bada50",
+                                        "f4251d47-8738-0282-c89b-763c7484621f",
+                                        "5ed4f504-4cf7-98d3-5865-ca101004be09",
+                                        "4542d22e-29c6-eefd-1068-9574e94eec36",
+                                        "fd5d1cd7-382a-4935-1352-50543b7473a1",
+                                        "31a1238c-366b-bf34-a4f2-301d81fb7be8",
+                                        "3df8d69e-673e-e457-ebd8-65688ddb620d",
+                                        "a87e3b15-2aee-ae4a-c518-2eda884f88f4",
+                                        "67c6c552-8b19-d8ca-4e72-efc77195b555",
+                                        "9e5989a8-eea1-4b15-cffe-e885cb524aba",
+                                        "bc4dfcf4-8e51-da7b-4566-8fd6c5300b7a"
+                                    ]
+                                },
+                                {
+                                    "name": "Legs",
+                                    "origin": [
+                                        0,
+                                        12,
+                                        0
+                                    ],
+                                    "color": 0,
+                                    "uuid": "e01688fb-3c5c-1d7b-8882-b089936770b4",
+                                    "export": true,
+                                    "isOpen": true,
+                                    "locked": false,
+                                    "visibility": true,
+                                    "autouv": 0,
+                                    "children": [
+                                        {
+                                            "name": "RightLeg",
+                                            "origin": [
+                                                2,
+                                                12,
+                                                0
+                                            ],
+                                            "color": 0,
+                                            "uuid": "875bef9d-135e-c45f-e9d5-5a1c774743f6",
+                                            "export": true,
+                                            "isOpen": true,
+                                            "locked": false,
+                                            "visibility": true,
+                                            "autouv": 0,
+                                            "children": [
+                                                "588dd98b-95e7-0207-2900-519a3cd9cc9d",
+                                                "1b4a3132-88b4-1bb5-fa68-43c8e1e04af1",
+                                                {
+                                                    "name": "RightLegBottom",
+                                                    "origin": [
+                                                        2,
+                                                        6,
+                                                        0
+                                                    ],
+                                                    "color": 0,
+                                                    "uuid": "c3e74adf-9ad7-1fc8-f266-b5b8889e22bf",
+                                                    "export": true,
+                                                    "isOpen": true,
+                                                    "locked": false,
+                                                    "visibility": true,
+                                                    "autouv": 0,
+                                                    "children": [
+                                                        "753d77a0-9489-ec87-71b8-cf6a106dd1af",
+                                                        "2c28a438-8b74-6b03-6b55-c09900027d7c"
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "LeftLeg",
+                                            "origin": [
+                                                -2,
+                                                12,
+                                                0
+                                            ],
+                                            "color": 0,
+                                            "uuid": "e2b4c895-68c0-b786-a5ac-ee58a3bad955",
+                                            "export": true,
+                                            "isOpen": true,
+                                            "locked": false,
+                                            "visibility": true,
+                                            "autouv": 0,
+                                            "children": [
+                                                "3e850021-ae31-12e6-13de-06eeb5057cbf",
+                                                "d9fea07f-5849-e34b-ee00-cc549e9f0be4",
+                                                {
+                                                    "name": "LeftLegBottom",
+                                                    "origin": [
+                                                        -2,
+                                                        6,
+                                                        0
+                                                    ],
+                                                    "color": 0,
+                                                    "uuid": "9250ed07-47bc-8363-6b9e-23edbbb61eb0",
+                                                    "export": true,
+                                                    "isOpen": true,
+                                                    "locked": false,
+                                                    "visibility": true,
+                                                    "autouv": 0,
+                                                    "children": [
+                                                        "f1b8c692-9148-fd8b-d57b-9f752b42e258",
+                                                        "4e609fe2-07bd-943f-5261-0bfdd36d4b2b"
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
                             ]
                         }
                     ]
@@ -3961,20 +4560,39 @@
                         "658047a4-4f13-b570-62bb-770bb88ca4a6",
                         "8b9efce9-badc-2b5e-7123-3bdf71445902",
                         {
-                            "name": "RightItemPivot",
+                            "name": "RightArmBottom",
                             "origin": [
-                                5.5,
-                                12,
-                                -2
+                                5,
+                                18,
+                                2
                             ],
                             "color": 0,
-                            "uuid": "f6d0be62-3b91-aba8-16f1-b81a1bd6a744",
+                            "uuid": "a9520b31-b324-2dee-d0c3-a7851730bab2",
                             "export": true,
                             "isOpen": false,
                             "locked": false,
                             "visibility": true,
                             "autouv": 0,
-                            "children": []
+                            "children": [
+                                {
+                                    "name": "RightItemPivot",
+                                    "origin": [
+                                        5.5,
+                                        12,
+                                        -2
+                                    ],
+                                    "color": 0,
+                                    "uuid": "f6d0be62-3b91-aba8-16f1-b81a1bd6a744",
+                                    "export": true,
+                                    "isOpen": false,
+                                    "locked": false,
+                                    "visibility": true,
+                                    "autouv": 0,
+                                    "children": []
+                                },
+                                "ce2a5a82-7648-31c6-66d9-83f7f4ae29e4",
+                                "baef0a87-ea80-8984-9f3f-7054d0eece5c"
+                            ]
                         }
                     ]
                 },
@@ -3996,95 +4614,38 @@
                         "3c0eee6d-fae6-e517-46a2-b417d1d7b745",
                         "c5057cf9-c408-2395-edb3-5789f7dd7d7a",
                         {
-                            "name": "LeftItemPivot",
+                            "name": "LeftArmBottom",
                             "origin": [
-                                -5.5,
-                                12,
-                                -2
-                            ],
-                            "color": 0,
-                            "uuid": "c01b4320-036d-e0bb-cec3-3365e77e6e7b",
-                            "export": true,
-                            "isOpen": false,
-                            "locked": false,
-                            "visibility": true,
-                            "autouv": 0,
-                            "children": []
-                        }
-                    ]
-                },
-                {
-                    "name": "RightLeg",
-                    "origin": [
-                        2,
-                        12,
-                        0
-                    ],
-                    "color": 0,
-                    "uuid": "875bef9d-135e-c45f-e9d5-5a1c774743f6",
-                    "export": true,
-                    "isOpen": false,
-                    "locked": false,
-                    "visibility": true,
-                    "autouv": 0,
-                    "children": [
-                        "588dd98b-95e7-0207-2900-519a3cd9cc9d",
-                        "1b4a3132-88b4-1bb5-fa68-43c8e1e04af1",
-                        {
-                            "name": "RightLegBottom",
-                            "origin": [
-                                2,
-                                6,
+                                -5,
+                                18,
                                 0
                             ],
                             "color": 0,
-                            "uuid": "c3e74adf-9ad7-1fc8-f266-b5b8889e22bf",
+                            "uuid": "248a6732-93ec-33dc-6af6-346bfa9a2551",
                             "export": true,
                             "isOpen": true,
                             "locked": false,
                             "visibility": true,
                             "autouv": 0,
                             "children": [
-                                "753d77a0-9489-ec87-71b8-cf6a106dd1af",
-                                "2c28a438-8b74-6b03-6b55-c09900027d7c"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": "LeftLeg",
-                    "origin": [
-                        -2,
-                        12,
-                        0
-                    ],
-                    "color": 0,
-                    "uuid": "e2b4c895-68c0-b786-a5ac-ee58a3bad955",
-                    "export": true,
-                    "isOpen": false,
-                    "locked": false,
-                    "visibility": true,
-                    "autouv": 0,
-                    "children": [
-                        "3e850021-ae31-12e6-13de-06eeb5057cbf",
-                        "d9fea07f-5849-e34b-ee00-cc549e9f0be4",
-                        {
-                            "name": "LeftLegBottom",
-                            "origin": [
-                                -2,
-                                6,
-                                0
-                            ],
-                            "color": 0,
-                            "uuid": "9250ed07-47bc-8363-6b9e-23edbbb61eb0",
-                            "export": true,
-                            "isOpen": true,
-                            "locked": false,
-                            "visibility": true,
-                            "autouv": 0,
-                            "children": [
-                                "f1b8c692-9148-fd8b-d57b-9f752b42e258",
-                                "4e609fe2-07bd-943f-5261-0bfdd36d4b2b"
+                                "88109dc7-8307-ad60-38de-01dd29383032",
+                                "20a8f577-3285-4bec-a3a4-103d714d7071",
+                                {
+                                    "name": "LeftItemPivot",
+                                    "origin": [
+                                        -5.5,
+                                        12,
+                                        -2
+                                    ],
+                                    "color": 0,
+                                    "uuid": "c01b4320-036d-e0bb-cec3-3365e77e6e7b",
+                                    "export": true,
+                                    "isOpen": false,
+                                    "locked": false,
+                                    "visibility": true,
+                                    "autouv": 0,
+                                    "children": []
+                                }
                             ]
                         }
                     ]
@@ -4117,7 +4678,7 @@
             "override": false,
             "length": 0.4166666666666667,
             "snapping": 24,
-            "selected": true,
+            "selected": false,
             "anim_time_update": "",
             "blend_weight": "",
             "start_delay": "",
@@ -5985,6 +6546,235 @@
                             "time": 0,
                             "color": -1,
                             "interpolation": "linear"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "uuid": "bf6aa1f6-430e-8460-ff1f-7e8aa0996358",
+            "name": "sleep",
+            "loop": "hold",
+            "override": false,
+            "length": 0,
+            "snapping": 24,
+            "selected": true,
+            "anim_time_update": "",
+            "blend_weight": "",
+            "start_delay": "",
+            "loop_delay": "",
+            "animators": {
+                "27fd278a-6841-0eef-c271-5204938d763d": {
+                    "name": "Avatar",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "-90",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "1277822d-e7a2-0d0c-b239-7a32a13ad68a",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "step"
+                        },
+                        {
+                            "channel": "position",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": -2,
+                                    "z": -4
+                                }
+                            ],
+                            "uuid": "1e3fcd18-6e15-a695-613f-8cf6c3bcb1d0",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "step"
+                        }
+                    ]
+                },
+                "2911c5ac-a42b-434c-9d91-becfa17fd255": {
+                    "name": "Head",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "15",
+                                    "y": "0\n",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "2b3464f8-200c-4ede-9b49-c110dd055b03",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "step"
+                        }
+                    ]
+                },
+                "48aa268d-b174-aa83-0300-eba43794dfe3": {
+                    "name": "RightArm",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "-60",
+                                    "y": "-30",
+                                    "z": "-20"
+                                }
+                            ],
+                            "uuid": "e98d15b2-8051-038f-18ac-0e8fd2e6f74f",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "step"
+                        }
+                    ]
+                },
+                "a9520b31-b324-2dee-d0c3-a7851730bab2": {
+                    "name": "RightArmBottom",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": -30,
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "9c57dabe-e23a-9d82-c2d6-1405b9934667",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "step"
+                        }
+                    ]
+                },
+                "af94253b-4f4f-8ab4-29fd-fffa30e9449a": {
+                    "name": "LeftArm",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "-60",
+                                    "y": "30",
+                                    "z": "20\n"
+                                }
+                            ],
+                            "uuid": "6ebccba9-9191-9092-05b3-bacd77add9a0",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "step"
+                        }
+                    ]
+                },
+                "c3e74adf-9ad7-1fc8-f266-b5b8889e22bf": {
+                    "name": "RightLegBottom",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "60",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "481bb308-9727-5e07-df9f-92b0f5a7710c",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "step"
+                        }
+                    ]
+                },
+                "9250ed07-47bc-8363-6b9e-23edbbb61eb0": {
+                    "name": "LeftLegBottom",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "60",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "c87563a5-1ba3-4000-a3c7-afebd8365f81",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "step"
+                        }
+                    ]
+                },
+                "248a6732-93ec-33dc-6af6-346bfa9a2551": {
+                    "name": "LeftArmBottom",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "-30",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "6fdfcbf1-bf37-8fca-606e-ad3bfcb2bb65",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "step"
+                        }
+                    ]
+                },
+                "e8434444-438a-7d00-7e72-cd2de9fbd7af": {
+                    "name": "BodyBottom",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "-30",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "e2ac5b23-2861-a7c1-3354-3860a656b213",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "step"
+                        }
+                    ]
+                },
+                "e01688fb-3c5c-1d7b-8882-b089936770b4": {
+                    "name": "Legs",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "-60",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "84877c4a-2f97-bdbe-13ca-b9f4f555ae0b",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "step"
                         }
                     ]
                 }

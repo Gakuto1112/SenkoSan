@@ -3,6 +3,7 @@
 ---@field VelocityAverage table 速度の平均値：1. 前後, 2. 上下, 3. 左右, 4. 角速度
 ---@field LookRotPrevRender number 前レンダーチックのlookRot
 ---@field LookRotDeltaPrevRender number 前レンダーチックのlookRotDelta
+---@field TailClass.enablePyhsics boolean 尻尾の動的角度設定を有効にするかどうか
 ---@field WagTailKey Keybind 尻尾振りをするキー
 ---@field WagTailCount integer 尻尾振りの時間を計るカウンター
 
@@ -12,6 +13,7 @@ VelocityData = {{}, {}, {}, {}}
 VelocityAverage = {0, 0, 0, 0}
 LookRotPrevRender = 0
 LookRotDeltaPrevRender = 0
+TailClass.enablePyhsics = true
 WagTailKey = keybind:create(LanguageClass.getTranslate("key_name__wag_tail"), "key.keyboard.z")
 WagTailCount = -1
 
@@ -67,8 +69,9 @@ events.RENDER:register(function ()
 			table.remove(velocityTable, 1)
 		end
 	end
-	if not renderer:isFirstPerson() or client:hasIrisShader() then
-		local tail = models.models.main.Avatar.Body.Tail
+	--求めた平均速度から尻尾の角度を計算
+	local tail = models.models.main.Avatar.Body.BodyBottom.Tail
+	if (not renderer:isFirstPerson() or client:hasIrisShader()) and TailClass.enablePyhsics then
 		local tailLimit = {{-60, 60}, {-30, 30}} --尻尾の可動範囲：1. 上下方向, 2. 左右方向
 		local playerPose = player:getPose()
 		if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" or player:getVehicle() then
@@ -85,6 +88,8 @@ events.RENDER:register(function ()
 			local tailXConditionAngle = (General.PlayerCondition == "LOW" or animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" or player:getVehicle()) and 0 or (General.PlayerCondition == "MEDIUM" and 15 or 30)
 			tail:setRot(math.clamp(tailLimit[1][2] - math.min(tailXMoveXZ, math.max(tailLimit[1][2] - tailXMoveY - tailXAngleMove - tailXConditionAngle, 0)) + tailXMoveY - math.min(tailXAngleMove, math.max(tailLimit[1][2] -tailXMoveXZ - tailXMoveY - tailXConditionAngle, 0)) - tailXConditionAngle, tailLimit[1][1], tailLimit[1][2]) + (playerPose == "CROUCHING" and 30 or 0), math.clamp(-VelocityAverage[3] * 160 + VelocityAverage[4] * 0.05, tailLimit[2][1], tailLimit[2][2]), 0)
 		end
+	else
+		tail:setRot(0, 0, 0)
 	end
 	LookRotDeltaPrevRender = lookRotDelta
 	LookRotPrevRender = lookRot
