@@ -5,9 +5,7 @@ NameplateClass = {}
 ---プレイヤーの表示名を設定する。
 ---@param newName string 新しい表示名
 function NameplateClass.setName(newName)
-	for _, nameplatePart in ipairs({nameplate.CHAT, nameplate.ENTITY, nameplate.LIST}) do
-		nameplatePart:setText(newName)
-	end
+	nameplate.ALL:setText(newName)
 end
 
 events.TICK:register(function()
@@ -21,5 +19,8 @@ end)
 if ConfigClass.DefaultName >= 1 then
 	NameplateClass.setName(ConfigClass.DefaultName == 1 and "Senko_san" or "仙狐さん")
 end
+
+nameplate.ENTITY:setBackgroundColor(233 / 255, 160 / 255, 70 / 255)
+nameplate.ENTITY.shadow = true
 
 return NameplateClass
