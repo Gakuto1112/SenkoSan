@@ -53,7 +53,8 @@ events.TICK:register(function ()
 	else
 		vanilla_model.RIGHT_ITEM:setVisible(true)
 		vanilla_model.LEFT_ITEM:setVisible(true)
-		if player:getPose() ~= "SLEEPING" then
+		local playerPose = player:getPose()
+		if playerPose ~= "CROUCHING" and playerPose ~= "SLEEPING" then
 			models.models.main.Avatar.Body.Arms.RightArm:setRot(0, 0, 0)
 			models.models.main.Avatar.Body.Arms.LeftArm:setRot(0, 0, 0)
 		end
