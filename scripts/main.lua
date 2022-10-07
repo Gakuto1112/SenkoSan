@@ -19,6 +19,7 @@ events.ENTITY_INIT:register(function ()
 	EarpickClass = require("scripts/earpick")
 	WetClass = require("scripts/wet")
 	SleepClass = require("scripts/sleep")
+	WardenClass = require("scripts/warden")
 
 	--初期化処理
 	for _, vanillaModel in ipairs({vanilla_model.PLAYER, vanilla_model.ARMOR}) do

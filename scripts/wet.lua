@@ -8,7 +8,7 @@
 
 WetClass = {}
 
-JumpKey = keybind:create(LanguageClass.getTranslate("key__jump"), keybind:getVanillaKey("key.jump"))
+JumpKey = keybind:create(LanguageClass.getTranslate("key_name__jump"), keybind:getVanillaKey("key.jump"))
 WalkDistance = 0
 VelocityYData = {}
 OnGroundData = {}

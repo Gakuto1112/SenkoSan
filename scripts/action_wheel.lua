@@ -4,6 +4,7 @@
 ---@field ActionCancelFunction function 現在再生中のアクションをキャンセルする処理
 ---@field IsOpenActionWheelPrev boolean 前チックにアクションホイールを開けていたかどうか
 ---@field ShakeSplashCount integer ブルブル時の水しぶきを出すタイミングを計るカウンター
+---@field SweatCount integer 汗のタイミングを計るカウンター
 ---@field CurrentPlayerNameState integer プレイヤーの現在の表示名の状態を示す：0. プレイヤー名, 1. Senko_san, 2. 仙狐さん
 ---@field PlayerNameState integer プレイヤーの表示名の状態を示す：0. プレイヤー名, 1. Senko_san, 2. 仙狐さん
 
@@ -14,6 +15,7 @@ ActionCount = 0
 ActionCancelFunction = nil
 IsOpenActionWheelPrev = false
 ShakeSplashCount = 0
+SweatCount = 0
 CurrentPlayerNameState = ConfigClass.DefaultName
 PlayerNameState = ConfigClass.DefaultName
 
@@ -34,8 +36,16 @@ end
 ---@param ignoreCooldown boolean アニメーションのクールダウンを無視するかどうか
 function runAction(action, actionCancelFunction, ignoreCooldown)
 	if ActionCount == 0 or ignoreCooldown then
-		action()
-		ActionCancelFunction = actionCancelFunction
+		if WardenClass.WardenNearby then
+			General.setAnimations("PLAY", "refuse_emote")
+			FacePartsClass.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 30, true)
+			ActionCancelFunction = nil
+			ActionCount = 30
+			SweatCount = 30
+		else
+			action()
+			ActionCancelFunction = actionCancelFunction
+		end
 	end
 end
 
@@ -66,7 +76,13 @@ function pings.main_action1()
 end
 
 function pings.main_action2_toggle()
-	SitDownClass.sitDown()
+	runAction(function ()
+		if SitDownClass.CanSitDown then
+			SitDownClass.sitDown()
+		else
+			print(LanguageClass.getTranslate("action_wheel__main__action_2__unavailable"))
+		end
+	end, nil, true)
 end
 
 function pings.main_action2_untoggle()
@@ -75,8 +91,12 @@ end
 
 function pings.main_action3()
 	runAction(function ()
-		EarpickClass.play()
-		ActionCount = 200
+		if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" then
+			EarpickClass.play()
+			ActionCount = 200
+		else
+			print(LanguageClass.getTranslate("action_wheel__main__action_3__unavailable"))
+		end
 	end, function ()
 		EarpickClass.stop()
 		ActionCount = 0
@@ -91,12 +111,12 @@ end
 events.TICK:register(function ()
 	local displayName = PlayerNameState == 0 and player:getName() or (PlayerNameState == 1 and "Senko_san" or "仙狐さん")
 	MainPage:getAction(4):title(LanguageClass.getTranslate("action_wheel__main__action_4__title").."§b"..displayName)
-	setActionEnabled(1, ActionCount == 0)
-	setActionEnabled(2, SitDownClass.CanSitDown)
-	setActionEnabled(3, animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" and ActionCount == 0)
+	setActionEnabled(1, ActionCount == 0 and not WardenClass.WardenNearby)
+	setActionEnabled(2, SitDownClass.CanSitDown and not WardenClass.WardenNearby)
+	setActionEnabled(3, animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" and ActionCount == 0 and not WardenClass.WardenNearby)
 	local sitDownAction = MainPage:getAction(2)
 	sitDownAction:toggled(SitDownClass.CanSitDown and sitDownAction:isToggled())
-	if (HurtClass.Damaged ~= "NONE" and ActionCount > 0) or (animations["models.main"]["earpick"]:getPlayState() == "PLAYING" and animations["models.main"]["sit_down"]:getPlayState() ~= "PLAYING") then
+	if (HurtClass.Damaged ~= "NONE" and ActionCount > 0 and WardenClass.WardenNearby) or (animations["models.main"]["earpick"]:getPlayState() == "PLAYING" and animations["models.main"]["sit_down"]:getPlayState() ~= "PLAYING") then
 		ActionCancelFunction();
 		ActionCount = 0
 	end
@@ -117,6 +137,15 @@ events.TICK:register(function ()
 		end
 		ShakeSplashCount = ShakeSplashCount - 1
 	end
+	if SweatCount > 0 then
+		if SweatCount % 5 == 0 then
+			local playerPos = player:getPos()
+			for _ = 1, math.min(avatar:getMaxParticles() / 4, 4) do
+				particles:addParticle("minecraft:splash", playerPos.x, playerPos.y + 2, playerPos.z)
+			end
+		end
+		SweatCount = SweatCount - 1
+	end
 	ActionCount = ActionCount > 0 and ActionCount - 1 or ActionCount
 	IsOpenActionWheelPrev = isOpenActionWheel
 end)
@@ -129,22 +158,14 @@ end)
 
 --アクション2. おすわり（正座）
 MainPage:newToggle(2):toggleColor(233 / 255, 160 / 255, 69 / 255):item("oak_stairs"):onToggle(function ()
-	if SitDownClass.CanSitDown then
-		pings.main_action2_toggle()
-	else
-		print(LanguageClass.getTranslate("action_wheel__main__action_2__unavailable"))
-	end
+	pings.main_action2_toggle()
 end):onUntoggle(function ()
 	pings.main_action2_untoggle()
 end)
 
 --アクション3. 耳かき
 MainPage:newAction(3):item("feather"):onLeftClick(function ()
-	if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" then
-		pings.main_action3()
-	else
-		print(LanguageClass.getTranslate("action_wheel__main__action_3__unavailable"))
-	end
+	pings.main_action3()
 end)
 
 --アクション4. プレイヤーの表示名変更

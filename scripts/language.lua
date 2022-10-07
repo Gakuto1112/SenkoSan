@@ -7,6 +7,8 @@ LanguageClass = {}
 LanguageData = {
 	en = {
 		key_name__wag_tail = "Wag tail",
+		key_name__jump = "Jump",
+		key_name__attack = "Attack",
 		action_wheel__main__action_1__title = "Body shake",
 		action_wheel__main__action_2__unavailable = "You cannot sit down now.",
 		action_wheel__main__action_2__title = "Sit down",
@@ -18,6 +20,8 @@ LanguageData = {
 	},
 	jp = {
 		key_name__wag_tail = "尻尾を振る",
+		key_name__jump = "ジャンプ",
+		key_name__attack = "攻撃",
 		action_wheel__main__action_1__title = "ブルブル",
 		action_wheel__main__action_2__unavailable = "今は座れないよ！",
 		action_wheel__main__action_2__title = "おすわり",

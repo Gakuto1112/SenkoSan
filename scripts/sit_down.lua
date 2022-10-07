@@ -20,7 +20,7 @@ end
 
 events.TICK:register(function ()
 	local velocity = player:getVelocity()
-	SitDownClass.CanSitDown = player:getPose() == "STANDING" and player:isOnGround() and not player:getVehicle() and math.sqrt(math.abs(velocity.x ^ 2 + velocity.z ^ 2)) == 0 and HurtClass.Damaged == "NONE"
+	SitDownClass.CanSitDown = player:getPose() == "STANDING" and player:isOnGround() and not player:getVehicle() and math.sqrt(math.abs(velocity.x ^ 2 + velocity.z ^ 2)) == 0 and HurtClass.Damaged == "NONE" and not WardenClass.WardenNearby
 	if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" and not SitDownClass.CanSitDown then
 		SitDownClass.standUp()
 	end

@@ -24,7 +24,9 @@ events.TICK:register(function()
 			rightLegBottom:setPivot(2, 6, -2)
 			leftLegBottom:setPivot(-2, 6, -2)
 			TailClass.enablePyhsics = false
-			FacePartsClass.setEmotion("SLEEPY", "SLEEPY", "CLOSED", 40, true)
+			if not WardenClass.WardenNearby then
+				FacePartsClass.setEmotion("SLEEPY", "SLEEPY", "CLOSED", 40, true)
+			end
 			if isFirstPerson then
 				head:setVisible(false)
 			else
@@ -39,7 +41,9 @@ events.TICK:register(function()
 				end
 			end
 		end
-		FacePartsClass.setEmotion("CLOSED", "CLOSED", "CLOSED", 1, false)
+		if not WardenClass.WardenNearby then
+			FacePartsClass.setEmotion("CLOSED", "CLOSED", "CLOSED", 1, false)
+		end
 	else
 		if SleepData[1] then
 			General.setAnimations("STOP", "sleep")

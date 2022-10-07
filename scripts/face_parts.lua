@@ -61,7 +61,9 @@ events.TICK:register(function ()
 		end
 	end
 	if BlinkCount == 200 then
-		FacePartsClass.setEmotion("CLOSED", "CLOSED", "NONE", 2, false)
+		if not WardenClass.WardenNearby then
+			FacePartsClass.setEmotion("CLOSED", "CLOSED", "NONE", 2, false)
+		end
 		BlinkCount = 0
 	elseif not client.isPaused() then
 		BlinkCount = BlinkCount + 1
