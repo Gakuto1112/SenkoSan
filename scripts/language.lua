@@ -23,13 +23,13 @@ LanguageData = {
 		key_name__jump = "ジャンプ",
 		key_name__attack = "攻撃",
 		action_wheel__main__action_1__title = "ブルブル",
-		action_wheel__main__action_2__unavailable = "今は座れないよ！",
+		action_wheel__main__action_2__unavailable = "今は座れないのじゃ。",
 		action_wheel__main__action_2__title = "おすわり",
 		action_wheel__main__action_3__title = "耳かき",
-		action_wheel__main__action_3__unavailable = "耳かきをする前に座ってね！",
-		action_wheel__main__action_4__title = "表示名変更（スクロール）: ",
-		action_wheel__main__action_4__name_change_done_first = "表示名を§b",
-		action_wheel__main__action_4__name_change_done_last = "§rに変更しました。"
+		action_wheel__main__action_3__unavailable = "座ってから耳かきをするかのう。",
+		action_wheel__main__action_4__title = "お主は何と呼ばれたいのじゃ？（スクロール）: ",
+		action_wheel__main__action_4__name_change_done_first = "お主の呼び名を§b",
+		action_wheel__main__action_4__name_change_done_last = "§rに変更したのじゃ。"
 	}
 }
 ActiveLanguage = client:getActiveLang() == "ja_jp" and "jp" or "en"
