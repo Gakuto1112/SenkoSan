@@ -93,7 +93,7 @@ function pings.main_action3()
 	runAction(function ()
 		if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" then
 			EarpickClass.play()
-			ActionCount = 200
+			ActionCount = 238
 		else
 			print(LanguageClass.getTranslate("action_wheel__main__action_3__unavailable"))
 		end

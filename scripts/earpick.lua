@@ -59,9 +59,9 @@ events.TICK:register(function ()
 			models.models.main.Avatar.Body.Arms.LeftArm:setRot(0, 0, 0)
 		end
 	end
-	if AnimationCount == 33 then
+	if AnimationCount == 55 then
 		FacePartsClass.setEmotion("CLOSED", "CLOSED", "CLOSED", 40, true)
-	elseif AnimationCount == 160 then
+	elseif AnimationCount == 198 then
 		FacePartsClass.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
 		local playerPos = player:getPos()
 		sounds:playSound("minecraft:entity.player.levelup", playerPos, 1, 1.5)
@@ -69,7 +69,7 @@ events.TICK:register(function ()
 			particles:addParticle("minecraft:happy_villager", playerPos.x + (math.random() - 0.5) * 4, playerPos.y + (math.random() - 0.5) * 4 + 1, playerPos.z + (math.random() - 0.5) * 4)
 		end
 	end
-	if AnimationCount == 200 then
+	if AnimationCount == 238 then
 		EarpickClass.stop()
 		AnimationCount = -1
 	else
