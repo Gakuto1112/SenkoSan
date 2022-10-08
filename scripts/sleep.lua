@@ -7,16 +7,20 @@ SleepClass = {}
 SleepData = {}
 
 events.TICK:register(function()
+	local head = models.models.main.Avatar.Head
 	local rightArm = models.models.main.Avatar.Body.Arms.RightArm
 	local leftArm = models.models.main.Avatar.Body.Arms.LeftArm
 	local rightLegBottom = models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom
 	local leftLegBottom = models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom
+	local nightgownTextureParts = {models.models.main.Avatar.Body.Body, models.models.main.Avatar.Body.BodyLayer, models.models.main.Avatar.Body.BodyBottom.BodyBottom, models.models.main.Avatar.Body.BodyBottom.BodyBottomLayer, rightArm.RightArm, rightArm.RightArmLayer, rightArm.RightArmBottom.RightArmBottom, rightArm.RightArmBottom.RightArmBottomLayer, leftArm.LeftArm, leftArm.LeftArmLayer, leftArm.LeftArmBottom.LeftArmBottom, leftArm.LeftArmBottom.LeftArmBottomLayer, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLeg, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegLayer, rightLegBottom.RightLegBottom, rightLegBottom.RightLegBottomLayer, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLeg, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegLayer, leftLegBottom.LeftLegBottom, leftLegBottom.LeftLegBottomLayer}
 	local isSleeping = player:getPose() == "SLEEPING"
-	local head = models.models.main.Avatar.Head
 	local isFirstPerson = renderer:isFirstPerson()
 	if isSleeping then
 		if not SleepData[1] then
 			General.setAnimations("PLAY", "sleep")
+			for _, modelPart in ipairs(nightgownTextureParts) do
+				modelPart:setUVPixels(0, 48)
+			end
 			head:setParentType("None")
 			local leftHanded = player:isLeftHanded()
 			rightArm:setRot(General.hasItem(player:getHeldItem(leftHanded)) ~= "none" and -15 or 0, 0, 0)
@@ -47,6 +51,9 @@ events.TICK:register(function()
 	else
 		if SleepData[1] then
 			General.setAnimations("STOP", "sleep")
+			for _, modelPart in ipairs(nightgownTextureParts) do
+				modelPart:setUVPixels(0, 0)
+			end
 			head:setParentType("Head")
 			head:setVisible(true)
 			rightArm:setRot(0, 0, 0)
