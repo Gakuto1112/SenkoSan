@@ -41,7 +41,7 @@ events.TICK:register(function()
 		AutoShakeCount = 0
 	elseif WetClass.WetCount > 0 then
 		if WetClass.WetCount % 5 == 0 then
-			for _ = 1, math.min(avatar:getMaxParticles() / 4, 4) do
+			for _ = 1, math.min(avatar:getMaxParticles() / 4 , 4) * math.ceil(WetClass.WetCount / 300) / 4 do
 				particles:addParticle("minecraft:falling_water", playerPos.x + math.random() - 0.5, playerPos.y + math.random() + 0.5, playerPos.z + math.random() - 0.5)
 			end
 		end
