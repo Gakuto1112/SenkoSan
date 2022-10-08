@@ -159,13 +159,6 @@ events.TICK:register(function()
 				legPart:setRot(0, 0, 0)
 			end
 		end
-		if playerPose == "SLEEPING" then
-			ArmorRoot.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom:setPivot(2, 6, -2)
-			ArmorRoot.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom:setPivot(-2, 6, -2)
-		else
-			ArmorRoot.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom:setPivot(2, 6, 0)
-			ArmorRoot.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom:setPivot(-2, 6, 0)
-		end
 	else
 		ArmorClass.IsChestplateVisible = false
 	end
