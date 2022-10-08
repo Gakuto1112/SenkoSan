@@ -371,45 +371,45 @@
             "faces": {
                 "north": {
                     "uv": [
-                        39,
-                        52,
                         36,
+                        52,
+                        39,
                         58
                     ],
                     "texture": 0
                 },
                 "east": {
                     "uv": [
-                        36,
-                        52,
                         32,
+                        52,
+                        36,
                         58
                     ],
                     "texture": 0
                 },
                 "south": {
                     "uv": [
-                        46,
-                        52,
                         43,
+                        52,
+                        46,
                         58
                     ],
                     "texture": 0
                 },
                 "west": {
                     "uv": [
-                        43,
-                        52,
                         39,
+                        52,
+                        43,
                         58
                     ],
                     "texture": 0
                 },
                 "up": {
                     "uv": [
-                        39,
-                        48,
                         36,
+                        48,
+                        39,
                         52
                     ],
                     "rotation": 180,
@@ -1478,36 +1478,36 @@
             "faces": {
                 "north": {
                     "uv": [
+                        52,
+                        52,
                         55,
-                        52,
-                        52,
                         58
                     ],
                     "texture": 0
                 },
                 "east": {
                     "uv": [
-                        52,
-                        52,
                         48,
+                        52,
+                        52,
                         58
                     ],
                     "texture": 0
                 },
                 "south": {
                     "uv": [
-                        62,
-                        52,
                         59,
+                        52,
+                        62,
                         58
                     ],
                     "texture": 0
                 },
                 "west": {
                     "uv": [
-                        59,
-                        52,
                         55,
+                        52,
+                        59,
                         58
                     ],
                     "texture": 0
@@ -3787,9 +3787,9 @@
             "faces": {
                 "north": {
                     "uv": [
-                        55,
-                        58,
                         52,
+                        58,
+                        55,
                         64
                     ],
                     "texture": 0
@@ -3805,18 +3805,18 @@
                 },
                 "south": {
                     "uv": [
-                        62,
-                        58,
                         59,
+                        58,
+                        62,
                         64
                     ],
                     "texture": 0
                 },
                 "west": {
                     "uv": [
-                        59,
-                        58,
                         55,
+                        58,
+                        59,
                         64
                     ],
                     "texture": 0
@@ -3868,36 +3868,36 @@
             "faces": {
                 "north": {
                     "uv": [
-                        39,
-                        58,
                         36,
+                        58,
+                        39,
                         64
                     ],
                     "texture": 0
                 },
                 "east": {
                     "uv": [
-                        36,
-                        58,
                         32,
+                        58,
+                        36,
                         64
                     ],
                     "texture": 0
                 },
                 "south": {
                     "uv": [
-                        46,
-                        58,
                         43,
+                        58,
+                        46,
                         64
                     ],
                     "texture": 0
                 },
                 "west": {
                     "uv": [
-                        43,
-                        58,
                         39,
+                        58,
+                        43,
                         64
                     ],
                     "texture": 0
@@ -4735,7 +4735,7 @@
             "override": false,
             "length": 0.4166666666666667,
             "snapping": 24,
-            "selected": false,
+            "selected": true,
             "anim_time_update": "",
             "blend_weight": "",
             "start_delay": "",
@@ -6816,7 +6816,7 @@
             "override": false,
             "length": 2,
             "snapping": 24,
-            "selected": true,
+            "selected": false,
             "anim_time_update": "",
             "blend_weight": "",
             "start_delay": "",
