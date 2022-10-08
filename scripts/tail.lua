@@ -21,15 +21,11 @@ WagTailCount = -1
 ---尻尾を振る
 function pings.wag_tail()
 	General.setAnimations("PLAY", "wag_tail")
-	WagTailCount = 0
+	WagTailCount = 9
 end
 
 events.TICK:register(function ()
-	if WagTailCount == 9 then
-		WagTailCount = -1
-	else
-		WagTailCount = WagTailCount >= 0 and WagTailCount + 1 or -1
-	end
+	WagTailCount = WagTailCount > 0 and WagTailCount - 1 or 0
 end)
 
 events.RENDER:register(function ()
@@ -105,7 +101,7 @@ events.RENDER:register(function ()
 end)
 
 WagTailKey.onPress = function ()
-	if WagTailCount == -1 then
+	if WagTailCount == 0 then
 		pings.wag_tail()
 	end
 end

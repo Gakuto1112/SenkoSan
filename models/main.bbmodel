@@ -4328,61 +4328,95 @@
                             "autouv": 0,
                             "children": [
                                 {
-                                    "name": "RightEar",
+                                    "name": "RightEarPivot",
                                     "origin": [
-                                        4.25,
-                                        31.75,
-                                        -1.25
-                                    ],
-                                    "rotation": [
-                                        0,
-                                        0,
-                                        -15
+                                        1,
+                                        30,
+                                        0
                                     ],
                                     "color": 0,
-                                    "uuid": "bfa7f6ac-8c11-13fa-64dd-00d1b8301551",
+                                    "uuid": "f1da2935-ccd2-9215-67bf-c11f29fa735b",
                                     "export": true,
-                                    "isOpen": true,
+                                    "isOpen": false,
                                     "locked": false,
                                     "visibility": true,
                                     "autouv": 0,
                                     "children": [
-                                        "2d23ffdb-cf41-42aa-a024-9ce6a1af2d78",
-                                        "36e7f28c-0f54-da24-9f81-01d800b6cf8a",
-                                        "9c678655-e385-1342-d40f-955e45743fbc",
-                                        "41ad6c57-a935-04fd-6ebf-2a96aa985b07",
-                                        "2e594120-c3f0-e1f7-4a65-1c82cfb9e7a7",
-                                        "0c8068e6-35c4-1a3c-c5fa-a0cb423982ca",
-                                        "0d16c58d-5b19-29a1-8a51-6b273691bcf9"
+                                        {
+                                            "name": "RightEar",
+                                            "origin": [
+                                                4.25,
+                                                31.75,
+                                                -1.25
+                                            ],
+                                            "rotation": [
+                                                0,
+                                                0,
+                                                -15
+                                            ],
+                                            "color": 0,
+                                            "uuid": "bfa7f6ac-8c11-13fa-64dd-00d1b8301551",
+                                            "export": true,
+                                            "isOpen": true,
+                                            "locked": false,
+                                            "visibility": true,
+                                            "autouv": 0,
+                                            "children": [
+                                                "2d23ffdb-cf41-42aa-a024-9ce6a1af2d78",
+                                                "36e7f28c-0f54-da24-9f81-01d800b6cf8a",
+                                                "9c678655-e385-1342-d40f-955e45743fbc",
+                                                "41ad6c57-a935-04fd-6ebf-2a96aa985b07",
+                                                "2e594120-c3f0-e1f7-4a65-1c82cfb9e7a7",
+                                                "0c8068e6-35c4-1a3c-c5fa-a0cb423982ca",
+                                                "0d16c58d-5b19-29a1-8a51-6b273691bcf9"
+                                            ]
+                                        }
                                     ]
                                 },
                                 {
-                                    "name": "LeftEar",
+                                    "name": "LeftEarPivot",
                                     "origin": [
-                                        -4.25,
-                                        31.75,
-                                        -1.25
-                                    ],
-                                    "rotation": [
-                                        0,
-                                        0,
-                                        15
+                                        -1,
+                                        30,
+                                        0
                                     ],
                                     "color": 0,
-                                    "uuid": "4fab1949-2f33-3926-a845-d4e19ffe8234",
+                                    "uuid": "80d6f350-6561-4708-cdbb-3ac2e777f523",
                                     "export": true,
-                                    "isOpen": true,
+                                    "isOpen": false,
                                     "locked": false,
                                     "visibility": true,
                                     "autouv": 0,
                                     "children": [
-                                        "63b4c07f-4306-47c6-e800-5b5b3f2549b2",
-                                        "9579faa7-0dc6-14c0-742c-32a7e8f45c0d",
-                                        "c5642b9e-8c71-9252-c47a-06ec299c2fa1",
-                                        "e0bb2179-fb1a-46e9-ac52-f54457e94070",
-                                        "8487eab7-3b9f-d4b3-4e2c-a12b8b6183b0",
-                                        "ae6e6251-2801-a0d6-6b76-dcf8d16415c7",
-                                        "9e7e6816-53e0-9055-47dd-49f6228ae9da"
+                                        {
+                                            "name": "LeftEar",
+                                            "origin": [
+                                                -4.25,
+                                                31.75,
+                                                -1.25
+                                            ],
+                                            "rotation": [
+                                                0,
+                                                0,
+                                                15
+                                            ],
+                                            "color": 0,
+                                            "uuid": "4fab1949-2f33-3926-a845-d4e19ffe8234",
+                                            "export": true,
+                                            "isOpen": true,
+                                            "locked": false,
+                                            "visibility": true,
+                                            "autouv": 0,
+                                            "children": [
+                                                "63b4c07f-4306-47c6-e800-5b5b3f2549b2",
+                                                "9579faa7-0dc6-14c0-742c-32a7e8f45c0d",
+                                                "c5642b9e-8c71-9252-c47a-06ec299c2fa1",
+                                                "e0bb2179-fb1a-46e9-ac52-f54457e94070",
+                                                "8487eab7-3b9f-d4b3-4e2c-a12b8b6183b0",
+                                                "ae6e6251-2801-a0d6-6b76-dcf8d16415c7",
+                                                "9e7e6816-53e0-9055-47dd-49f6228ae9da"
+                                            ]
+                                        }
                                     ]
                                 }
                             ]
@@ -4786,6 +4820,117 @@
             }
         },
         {
+            "uuid": "c29b62e4-b0d8-47e6-0986-f5c4dfcad6e2",
+            "name": "jerk_ears",
+            "loop": "once",
+            "override": false,
+            "length": 0.25,
+            "snapping": 24,
+            "selected": true,
+            "anim_time_update": "",
+            "blend_weight": "",
+            "start_delay": "",
+            "loop_delay": "",
+            "animators": {
+                "80d6f350-6561-4708-cdbb-3ac2e777f523": {
+                    "name": "LeftEarPivot",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "e505f98d-f3d9-340c-1f30-6bba7ef3640e",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": 0,
+                                    "y": 0,
+                                    "z": "20"
+                                }
+                            ],
+                            "uuid": "e71cdbff-d024-f4aa-2c15-ae43f7f9a6db",
+                            "time": 0.125,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": 0,
+                                    "y": 0,
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "41b4d83d-cc67-bc67-7333-363181abea94",
+                            "time": 0.25,
+                            "color": -1,
+                            "interpolation": "linear"
+                        }
+                    ]
+                },
+                "f1da2935-ccd2-9215-67bf-c11f29fa735b": {
+                    "name": "RightEarPivot",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "87422c6f-7a26-ea62-d59f-458d82f9f4ee",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": 0,
+                                    "y": 0,
+                                    "z": "-20"
+                                }
+                            ],
+                            "uuid": "bcfb8211-d8ce-979e-d223-b8b77f2f6395",
+                            "time": 0.125,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": 0,
+                                    "y": 0,
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "7d5fbb55-3001-02b2-7fd4-1664cbdb5e08",
+                            "time": 0.25,
+                            "color": -1,
+                            "interpolation": "linear"
+                        }
+                    ]
+                }
+            }
+        },
+        {
             "uuid": "abf8ce74-8707-4b34-bd83-08f16feb6e70",
             "name": "sit_down",
             "loop": "hold",
@@ -5128,7 +5273,7 @@
             "override": false,
             "length": 11.9167,
             "snapping": 24,
-            "selected": true,
+            "selected": false,
             "anim_time_update": "",
             "blend_weight": "",
             "start_delay": "",
