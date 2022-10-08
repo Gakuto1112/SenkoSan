@@ -90,9 +90,9 @@
                 "down": {
                     "uv": [
                         4,
-                        16,
+                        22,
                         8,
-                        20
+                        26
                     ],
                     "rotation": 180,
                     "texture": 0
@@ -172,9 +172,9 @@
                 "down": {
                     "uv": [
                         20,
-                        48,
+                        54,
                         24,
-                        52
+                        58
                     ],
                     "rotation": 180,
                     "texture": 0
@@ -254,12 +254,13 @@
                 },
                 "down": {
                     "uv": [
-                        0,
-                        0,
-                        0,
-                        0
+                        4,
+                        55,
+                        8,
+                        59
                     ],
-                    "texture": null
+                    "rotation": 180,
+                    "texture": 0
                 }
             },
             "type": "cube",
@@ -1588,8 +1589,8 @@
                     "uv": [
                         0,
                         0,
-                        4,
-                        6
+                        0,
+                        0
                     ],
                     "texture": null
                 },
@@ -1605,12 +1606,13 @@
                 },
                 "down": {
                     "uv": [
-                        0,
-                        0,
-                        0,
-                        0
+                        4,
+                        39,
+                        8,
+                        43
                     ],
-                    "texture": null
+                    "rotation": 180,
+                    "texture": 0
                 }
             },
             "type": "cube",
@@ -3330,9 +3332,9 @@
                 "up": {
                     "uv": [
                         4,
-                        16,
+                        22,
                         8,
-                        20
+                        26
                     ],
                     "texture": 0
                 },
@@ -3410,13 +3412,13 @@
                 },
                 "up": {
                     "uv": [
-                        0,
-                        0,
-                        0,
-                        0
+                        4,
+                        39,
+                        8,
+                        43
                     ],
                     "rotation": 180,
-                    "texture": null
+                    "texture": 0
                 },
                 "down": {
                     "uv": [
@@ -3432,7 +3434,7 @@
             "uuid": "2c28a438-8b74-6b03-6b55-c09900027d7c"
         },
         {
-            "name": "LeftLegLayer",
+            "name": "LeftLegBottomLayer",
             "rescale": false,
             "locked": false,
             "from": [
@@ -3492,13 +3494,13 @@
                 },
                 "up": {
                     "uv": [
-                        0,
-                        0,
-                        0,
-                        0
+                        4,
+                        55,
+                        8,
+                        59
                     ],
                     "rotation": 180,
-                    "texture": null
+                    "texture": 0
                 },
                 "down": {
                     "uv": [
@@ -3515,7 +3517,7 @@
             "uuid": "4e609fe2-07bd-943f-5261-0bfdd36d4b2b"
         },
         {
-            "name": "LeftLeg",
+            "name": "LeftLegBottom",
             "rescale": false,
             "locked": false,
             "from": [
@@ -3575,9 +3577,9 @@
                 "up": {
                     "uv": [
                         20,
-                        48,
+                        54,
                         24,
-                        52
+                        58
                     ],
                     "rotation": 180,
                     "texture": 0
