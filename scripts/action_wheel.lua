@@ -130,18 +130,16 @@ events.TICK:register(function ()
 	end
 	if ShakeSplashCount > 0 then
 		if ShakeSplashCount % 5 == 0 then
-			local playerPos = player:getPos()
 			for _ = 1, math.min(avatar:getMaxParticles() / 4, 4) do
-				particles:addParticle("minecraft:splash", playerPos.x + math.random() - 0.5, playerPos.y + math.random() + 0.5, playerPos.z + math.random() - 0.5)
+				particles:addParticle("minecraft:splash", player:getPos():add(math.random() - 0.5, math.random() + 0.5, math.random() - 0.5))
 			end
 		end
 		ShakeSplashCount = ShakeSplashCount - 1
 	end
 	if SweatCount > 0 then
 		if SweatCount % 5 == 0 then
-			local playerPos = player:getPos()
 			for _ = 1, math.min(avatar:getMaxParticles() / 4, 4) do
-				particles:addParticle("minecraft:splash", playerPos.x, playerPos.y + 2, playerPos.z)
+				particles:addParticle("minecraft:splash", player:getPos():add(0, 2, 0))
 			end
 		end
 		SweatCount = SweatCount - 1
