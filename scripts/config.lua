@@ -1,4 +1,5 @@
 ---@class ConfigClass アバター設定を管理するクラス A class for managing avatar config.
+---@field ConfigClass.DefaultCostume integer デフォルト（初期状態）のコスチューム Default (initial) costume.
 ---@field ConfigClass.DefaultName integer デフォルトのプレイヤーの表示名 Default player display name.
 ---@field ConfigClass.AutoShake boolean 水から上がった際に自動でブルブルアクションを実行するかどうか Whether or not run body shake action automately after out of the water.
 ---@field ConfigClass.HideArmor boolean 防具を隠すかどうか Whether or not hide armors.
@@ -17,7 +18,8 @@ ConfigClass = {}
 	Insted of that, please change configs by editing config file (/sripts/config.lua) directly.
 ]]
 
-ConfigClass.DefaultName = 2 --0. プレイヤー名 Player name, 1. "Senko_san", 2. "仙狐さん"
+ConfigClass.DefaultCostume = 1 --1. いつものコスチューム Default coustume, 2. 変装 Disguise costume
+ConfigClass.DefaultName = 3 --1. プレイヤー名 Player name, 2. "Senko_san", 3. "仙狐さん"
 ConfigClass.AutoShake = true
 ConfigClass.HideArmor = true
 

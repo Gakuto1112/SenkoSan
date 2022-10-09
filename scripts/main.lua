@@ -14,6 +14,7 @@ events.ENTITY_INIT:register(function ()
 	ArmorClass = require("scripts/armor")
 
 	--機能別クラス
+	CostumeClass = require("scripts/costume")
 	HurtClass = require("scripts/hurt")
 	ActionWheelClass = require("scripts/action_wheel")
 	BroomClass = require("scripts/broom")

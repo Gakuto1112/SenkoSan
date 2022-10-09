@@ -16,6 +16,8 @@ ActionCancelFunction = nil
 IsOpenActionWheelPrev = false
 ShakeSplashCount = 0
 SweatCount = 0
+CurrentCostumeState = ConfigClass.DefaultCostume
+CostumeState = ConfigClass.DefaultCostume
 CurrentPlayerNameState = ConfigClass.DefaultName
 PlayerNameState = ConfigClass.DefaultName
 
@@ -117,14 +119,20 @@ function pings.main_action4()
 	end, false)
 end
 
-function pings.main_action5_name_change(nameID)
-	NameplateClass.setName(nameID == 0 and player:getName() or (nameID == 1 and "Senko_san" or "仙狐さん"))
+function pings.main_action5_custume_change(costumeID)
+	CurrentCostumeState = costumeID
+end
+
+function pings.main_action6_name_change(nameID)
+	NameplateClass.setName(nameID == 1 and player:getName() or (nameID == 2 and "Senko_san" or "仙狐さん"))
 	CurrentPlayerNameState = nameID
 end
 
 events.TICK:register(function ()
-	local displayName = PlayerNameState == 0 and player:getName() or (PlayerNameState == 1 and "Senko_san" or "仙狐さん")
-	MainPage:getAction(5):title(LanguageClass.getTranslate("action_wheel__main__action_5__title").."§b"..displayName)
+	local costumeName = LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[CostumeState])
+	MainPage:getAction(5):title(LanguageClass.getTranslate("action_wheel__main__action_5__title").."§b"..costumeName)
+	local displayName = PlayerNameState == 1 and player:getName() or (PlayerNameState == 2 and "Senko_san" or "仙狐さん")
+	MainPage:getAction(6):title(LanguageClass.getTranslate("action_wheel__main__action_6__title").."§b"..displayName)
 	setActionEnabled(1, BroomClass.canBroomCleaning)
 	setActionEnabled(2, ActionCount == 0 and not WardenClass.WardenNearby)
 	setActionEnabled(3, SitDownClass.CanSitDown)
@@ -137,11 +145,20 @@ events.TICK:register(function ()
 	end
 	local isOpenActionWheel = action_wheel:isEnabled()
 	if not isOpenActionWheel and IsOpenActionWheelPrev then
-		if PlayerNameState ~= CurrentPlayerNameState then
-			pings.main_action5_name_change(PlayerNameState)
+		if CostumeState ~= CurrentCostumeState or PlayerNameState ~= CurrentPlayerNameState then
 			if host:isHost() then
-				print(LanguageClass.getTranslate("action_wheel__main__action_5__name_change_done_first")..displayName..LanguageClass.getTranslate("action_wheel__main__action_5__name_change_done_last"))
 				sounds:playSound("minecraft:entity.player.levelup", player:getPos(), 1, 2)
+			end
+			if CostumeState ~= CurrentCostumeState then
+				pings.main_action5_custume_change(CostumeState)
+				if host:isHost() then
+					print(LanguageClass.getTranslate("action_wheel__main__action_5__name_change_done_first")..costumeName..LanguageClass.getTranslate("action_wheel__main__action_5__name_change_done_last"))
+				end
+			else
+				pings.main_action6_name_change(PlayerNameState)
+				if host:isHost() then
+					print(LanguageClass.getTranslate("action_wheel__main__action_6__name_change_done_first")..displayName..LanguageClass.getTranslate("action_wheel__main__action_6__name_change_done_last"))
+				end
 			end
 		end
 	end
@@ -188,12 +205,20 @@ MainPage:newAction(4):item("feather"):onLeftClick(function ()
 	pings.main_action4()
 end)
 
---アクション5. プレイヤーの表示名変更
-MainPage:newScroll(5):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+MainPage:newScroll(5):item("leather_chestplate"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
 	if direction == -1 then
-		PlayerNameState = PlayerNameState == 2 and 0 or PlayerNameState + 1
+		CostumeState = CostumeState == #CostumeClass.CostumeList and 1 or CostumeState + 1
 	else
-		PlayerNameState = PlayerNameState == 0 and 2 or PlayerNameState - 1
+		CostumeState = CostumeState == 1 and #CostumeClass.CostumeList or CostumeState - 1
+	end
+end)
+
+--アクション6. プレイヤーの表示名変更
+MainPage:newScroll(6):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+	if direction == -1 then
+		PlayerNameState = PlayerNameState == 3 and 1 or PlayerNameState + 1
+	else
+		PlayerNameState = PlayerNameState == 1 and 3 or PlayerNameState - 1
 	end
 end)
 

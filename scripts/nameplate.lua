@@ -16,8 +16,8 @@ events.TICK:register(function()
 	end
 end)
 
-if ConfigClass.DefaultName >= 1 then
-	NameplateClass.setName(ConfigClass.DefaultName == 1 and "Senko_san" or "仙狐さん")
+if ConfigClass.DefaultName >= 2 then
+	NameplateClass.setName(ConfigClass.DefaultName == 2 and "Senko_san" or "仙狐さん")
 end
 
 nameplate.ENTITY:setBackgroundColor(233 / 255, 160 / 255, 70 / 255)

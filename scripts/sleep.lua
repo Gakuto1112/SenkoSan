@@ -7,9 +7,6 @@ SleepData = {}
 
 events.TICK:register(function()
 	local head = models.models.main.Avatar.Head
-	local rightArm = models.models.main.Avatar.Body.Arms.RightArm
-	local leftArm = models.models.main.Avatar.Body.Arms.LeftArm
-	local nightgownTextureParts = {models.models.main.Avatar.Body.Body, models.models.main.Avatar.Body.BodyLayer, models.models.main.Avatar.Body.BodyBottom.BodyBottom, models.models.main.Avatar.Body.BodyBottom.BodyBottomLayer, rightArm.RightArm, rightArm.RightArmLayer, rightArm.RightArmBottom.RightArmBottom, rightArm.RightArmBottom.RightArmBottomLayer, leftArm.LeftArm, leftArm.LeftArmLayer, leftArm.LeftArmBottom.LeftArmBottom, leftArm.LeftArmBottom.LeftArmBottomLayer, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLeg, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegLayer, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.RightLegBottom, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.RightLegBottomLayer, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLeg, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegLayer, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.LeftLegBottom, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.LeftLegBottomLayer}
 	local isSleeping = player:getPose() == "SLEEPING"
 	local isFirstPerson = renderer:isFirstPerson()
 	table.insert(SleepData, isSleeping)
@@ -19,9 +16,7 @@ events.TICK:register(function()
 	if isSleeping then
 		if not SleepData[1] then
 			General.setAnimations("PLAY", "sleep")
-			for _, modelPart in ipairs(nightgownTextureParts) do
-				modelPart:setUVPixels(0, 48)
-			end
+			CostumeClass.setCostume("NIGHTWEAR")
 			head:setParentType("None")
 			ArmsClass.ItemHeldContradicts = {true, true}
 			TailClass.enablePyhsics = false
@@ -45,9 +40,7 @@ events.TICK:register(function()
 	else
 		if SleepData[1] then
 			General.setAnimations("STOP", "sleep")
-			for _, modelPart in ipairs(nightgownTextureParts) do
-				modelPart:setUVPixels(0, 0)
-			end
+			CostumeClass.resetCostume()
 			head:setParentType("Head")
 			head:setVisible(true)
 			ArmsClass.ItemHeldContradicts = {false, false}
