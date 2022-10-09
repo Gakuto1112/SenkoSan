@@ -120,6 +120,11 @@ function pings.main_action4()
 end
 
 function pings.main_action5_custume_change(costumeID)
+	if costumeID == 1 then
+		CostumeClass.resetCostume()
+	else
+		CostumeClass.setCostume(string.upper(CostumeClass.CostumeList[costumeID]))
+	end
 	CurrentCostumeState = costumeID
 end
 
@@ -145,20 +150,18 @@ events.TICK:register(function ()
 	end
 	local isOpenActionWheel = action_wheel:isEnabled()
 	if not isOpenActionWheel and IsOpenActionWheelPrev then
-		if CostumeState ~= CurrentCostumeState or PlayerNameState ~= CurrentPlayerNameState then
+		if CostumeState ~= CurrentCostumeState then
+			pings.main_action5_custume_change(CostumeState)
+			if host:isHost() then
+				sounds:playSound("minecraft:item.armor.equip_leather", player:getPos())
+				print(LanguageClass.getTranslate("action_wheel__main__action_5__name_change_done_first")..costumeName..LanguageClass.getTranslate("action_wheel__main__action_5__name_change_done_last"))
+			end
+		end
+		if PlayerNameState ~= CurrentPlayerNameState then
+			pings.main_action6_name_change(PlayerNameState)
 			if host:isHost() then
 				sounds:playSound("minecraft:entity.player.levelup", player:getPos(), 1, 2)
-			end
-			if CostumeState ~= CurrentCostumeState then
-				pings.main_action5_custume_change(CostumeState)
-				if host:isHost() then
-					print(LanguageClass.getTranslate("action_wheel__main__action_5__name_change_done_first")..costumeName..LanguageClass.getTranslate("action_wheel__main__action_5__name_change_done_last"))
-				end
-			else
-				pings.main_action6_name_change(PlayerNameState)
-				if host:isHost() then
-					print(LanguageClass.getTranslate("action_wheel__main__action_6__name_change_done_first")..displayName..LanguageClass.getTranslate("action_wheel__main__action_6__name_change_done_last"))
-				end
+				print(LanguageClass.getTranslate("action_wheel__main__action_6__name_change_done_first")..displayName..LanguageClass.getTranslate("action_wheel__main__action_6__name_change_done_last"))
 			end
 		end
 	end

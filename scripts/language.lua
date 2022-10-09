@@ -43,7 +43,7 @@ LanguageData = {
 		action_wheel__main__action_5__title = "わらわは何を着ればよいのじゃ？（スクロール）：",
 		action_wheel__main__action_5__name_change_done_first = "§b",
 		action_wheel__main__action_5__name_change_done_last = "§rに着替えたのじゃ。",
-		action_wheel__main__action_6__title = "われらは何と呼ばれればよいのじゃ？（スクロール）: ",
+		action_wheel__main__action_6__title = "わらわは何と呼ばれればよいのじゃ？（スクロール）: ",
 		action_wheel__main__action_6__name_change_done_first = "われらの呼び名を§b",
 		action_wheel__main__action_6__name_change_done_last = "§rに変更したのじゃ。"
 	}

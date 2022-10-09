@@ -1,9 +1,11 @@
 ---@class SleepClass ベッドで寝る時の挙動を制御するクラス
 ---@field SleepData table 寝た瞬間を検出する為にポーズデータを格納するテーブル
+---@field CostumeBeforeSleeping CostumeType 寝る前のコスチュームを保持する変数
 
 SleepClass = {}
 
 SleepData = {}
+CostumeBeforeSleeping = "DEFAULT"
 
 events.TICK:register(function()
 	local head = models.models.main.Avatar.Head
@@ -16,10 +18,10 @@ events.TICK:register(function()
 	if isSleeping then
 		if not SleepData[1] then
 			General.setAnimations("PLAY", "sleep")
+			CostumeBeforeSleeping = CostumeClass.CurrentCostume
 			CostumeClass.setCostume("NIGHTWEAR")
 			head:setParentType("None")
 			ArmsClass.ItemHeldContradicts = {true, true}
-			TailClass.enablePyhsics = false
 			if isFirstPerson then
 				head:setVisible(false)
 			else
@@ -40,11 +42,14 @@ events.TICK:register(function()
 	else
 		if SleepData[1] then
 			General.setAnimations("STOP", "sleep")
-			CostumeClass.resetCostume()
+			if CostumeBeforeSleeping == "DEFAULT" then
+				CostumeClass.resetCostume()
+			else
+				CostumeClass.setCostume(CostumeBeforeSleeping)
+			end
 			head:setParentType("Head")
 			head:setVisible(true)
 			ArmsClass.ItemHeldContradicts = {false, false}
-			TailClass.enablePyhsics = true
 			renderer:setCameraRot()
 		end
 	end

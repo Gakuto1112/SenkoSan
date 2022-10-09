@@ -3,7 +3,8 @@
 ---@field VelocityAverage table 速度の平均値：1. 前後, 2. 上下, 3. 左右, 4. 角速度
 ---@field LookRotPrevRender number 前レンダーチックのlookRot
 ---@field LookRotDeltaPrevRender number 前レンダーチックのlookRotDelta
----@field TailClass.enablePyhsics boolean 尻尾の動的角度設定を有効にするかどうか
+---@field TailClass.EnablePyhsics boolean 尻尾の動的角度設定を有効にするかどうか
+---@field TailClass.StaticTailRot Vector3 尻尾の動的角度設定がオフの時の尻尾の位置
 ---@field WagTailKey Keybind 尻尾振りをするキー
 ---@field WagTailCount integer 尻尾振りの時間を計るカウンター
 
@@ -13,7 +14,8 @@ VelocityData = {{}, {}, {}, {}}
 VelocityAverage = {0, 0, 0, 0}
 LookRotPrevRender = 0
 LookRotDeltaPrevRender = 0
-TailClass.enablePyhsics = true
+TailClass.EnablePyhsics = true
+TailClass.StaticTailRot = vectors.vec3(0, 0, 0)
 WagTailKey = keybind:create(LanguageClass.getTranslate("key_name__wag_tail"), "key.keyboard.z")
 WagTailCount = -1
 
@@ -68,7 +70,7 @@ events.RENDER:register(function ()
 	--求めた平均速度から尻尾の角度を計算
 	local tail = models.models.main.Avatar.Body.BodyBottom.Tail
 	local tailArmor = models.models.armor.Avatar.Body.BodyBottom.Tail
-	if (not renderer:isFirstPerson() or client:hasIrisShader()) and TailClass.enablePyhsics then
+	if (not renderer:isFirstPerson() or client:hasIrisShader()) and TailClass.EnablePyhsics then
 		local tailLimit = {{-60, 60}, {-30, 30}} --尻尾の可動範囲：1. 上下方向, 2. 左右方向
 		local playerPose = player:getPose()
 		if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" or player:getVehicle() then
@@ -91,9 +93,9 @@ events.RENDER:register(function ()
 			end
 		end
 	else
-		tail:setRot(0, 0, 0)
+		tail:setRot(TailClass.StaticTailRot)
 		if ArmorClass.IsChestplateVisible then
-			tailArmor:setRot(0, 0, 0)
+			tailArmor:setRot(TailClass.StaticTailRot)
 		end
 	end
 	LookRotDeltaPrevRender = lookRotDelta
