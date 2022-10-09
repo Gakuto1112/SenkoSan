@@ -19,6 +19,7 @@ events.ENTITY_INIT:register(function ()
 	SitDownClass = require("scripts/sit_down")
 	EarpickClass = require("scripts/earpick")
 	WetClass = require("scripts/wet")
+	FoxFireClass = require("scripts/fox_fire")
 	SleepClass = require("scripts/sleep")
 	WardenClass = require("scripts/warden")
 

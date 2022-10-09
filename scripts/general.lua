@@ -39,6 +39,18 @@ function General.hasItem(item)
 	end
 end
 
+---指定されたステータス効果の情報を返す。指定されたステータス効果が付与されていない場合はnilが返される。
+---@param name string ステータス効果
+---@return table|nil
+function General.getStatusEffect(name)
+	for _, effect in ipairs(player:getStatusEffects()) do
+		if effect.name == "effect.minecraft."..name then
+			return effect
+		end
+	end
+	return nil
+end
+
 --複数のモデルファイルのアニメーションを同時に制御する。
 ---@param animationState AnimationState アニメーションの設定値
 ---@param animationName string アニメーションの名前

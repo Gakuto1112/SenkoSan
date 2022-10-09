@@ -17,13 +17,7 @@ WardenClass.WardenNearby = false
 
 
 events.TICK:register(function()
-	WardenClass.WardenNearby = false
-	for _, effect in ipairs(player:getStatusEffects()) do
-		if effect.name == "effect.minecraft.darkness" then
-			WardenClass.WardenNearby = true
-			break
-		end
-	end
+	WardenClass.WardenNearby = General.getStatusEffect("darkness")
 	local leftHanded = player:isLeftHanded()
 	local rightHandItemType = General.hasItem(player:getHeldItem(leftHanded))
 	local leftHandItemType = General.hasItem(player:getHeldItem(not leftHanded))

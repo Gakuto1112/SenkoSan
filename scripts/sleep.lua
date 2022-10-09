@@ -12,6 +12,10 @@ events.TICK:register(function()
 	local nightgownTextureParts = {models.models.main.Avatar.Body.Body, models.models.main.Avatar.Body.BodyLayer, models.models.main.Avatar.Body.BodyBottom.BodyBottom, models.models.main.Avatar.Body.BodyBottom.BodyBottomLayer, rightArm.RightArm, rightArm.RightArmLayer, rightArm.RightArmBottom.RightArmBottom, rightArm.RightArmBottom.RightArmBottomLayer, leftArm.LeftArm, leftArm.LeftArmLayer, leftArm.LeftArmBottom.LeftArmBottom, leftArm.LeftArmBottom.LeftArmBottomLayer, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLeg, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegLayer, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.RightLegBottom, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.RightLegBottomLayer, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLeg, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegLayer, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.LeftLegBottom, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.LeftLegBottomLayer}
 	local isSleeping = player:getPose() == "SLEEPING"
 	local isFirstPerson = renderer:isFirstPerson()
+	table.insert(SleepData, isSleeping)
+	if #SleepData == 3 then
+		table.remove(SleepData, 1)
+	end
 	if isSleeping then
 		if not SleepData[1] then
 			General.setAnimations("PLAY", "sleep")
@@ -53,10 +57,6 @@ events.TICK:register(function()
 			TailClass.enablePyhsics = true
 			renderer:setCameraRot()
 		end
-	end
-	table.insert(SleepData, isSleeping)
-	if #SleepData == 3 then
-		table.remove(SleepData, 1)
 	end
 end)
 
