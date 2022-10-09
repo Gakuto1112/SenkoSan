@@ -79,7 +79,7 @@ function pings.main_action2_toggle()
 	runAction(function ()
 		if SitDownClass.CanSitDown then
 			SitDownClass.sitDown()
-		else
+		elseif host:isHost() then
 			print(LanguageClass.getTranslate("action_wheel__main__action_2__unavailable"))
 		end
 	end, nil, true)
@@ -94,7 +94,7 @@ function pings.main_action3()
 		if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" then
 			EarpickClass.play()
 			ActionCount = 238
-		else
+		elseif host:isHost() then
 			print(LanguageClass.getTranslate("action_wheel__main__action_3__unavailable"))
 		end
 	end, function ()
@@ -124,8 +124,10 @@ events.TICK:register(function ()
 	if not isOpenActionWheel and IsOpenActionWheelPrev then
 		if PlayerNameState ~= CurrentPlayerNameState then
 			pings.main_action4_name_change(PlayerNameState)
-			print(LanguageClass.getTranslate("action_wheel__main__action_4__name_change_done_first")..displayName..LanguageClass.getTranslate("action_wheel__main__action_4__name_change_done_last"))
-			sounds:playSound("minecraft:entity.player.levelup", player:getPos(), 1, 2)
+			if host:isHost() then
+				print(LanguageClass.getTranslate("action_wheel__main__action_4__name_change_done_first")..displayName..LanguageClass.getTranslate("action_wheel__main__action_4__name_change_done_last"))
+				sounds:playSound("minecraft:entity.player.levelup", player:getPos(), 1, 2)
+			end
 		end
 	end
 	if ShakeSplashCount > 0 then
