@@ -23,9 +23,7 @@ events.TICK:register(function()
 				modelPart:setUVPixels(0, 48)
 			end
 			head:setParentType("None")
-			local leftHanded = player:isLeftHanded()
-			rightArm:setRot(General.hasItem(player:getHeldItem(leftHanded)) ~= "none" and -15 or 0, 0, 0)
-			leftArm:setRot(General.hasItem(player:getHeldItem(not leftHanded)) ~= "none" and -15 or 0, 0, 0)
+			ArmsClass.ItemHeldContradicts = {true, true}
 			TailClass.enablePyhsics = false
 			if isFirstPerson then
 				head:setVisible(false)
@@ -52,8 +50,7 @@ events.TICK:register(function()
 			end
 			head:setParentType("Head")
 			head:setVisible(true)
-			rightArm:setRot(0, 0, 0)
-			leftArm:setRot(0, 0, 0)
+			ArmsClass.ItemHeldContradicts = {false, false}
 			TailClass.enablePyhsics = true
 			renderer:setCameraRot()
 		end

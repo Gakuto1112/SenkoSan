@@ -67,6 +67,20 @@ end
 
 --ping関数
 function pings.main_action1()
+	runAction(function ()
+		if BroomClass.canBroomCleaning then
+			BroomClass.play()
+			ActionCount = 168
+		elseif host:isHost() then
+			print(LanguageClass.getTranslate("action_wheel__main__action_1__unavailable"))
+		end
+	end, function ()
+		BroomClass.stop()
+		ActionCount = 0
+	end, false)
+end
+
+function pings.main_action2()
 	runAction(function()
 		ActionWheelClass.bodyShake()
 	end, function()
@@ -75,27 +89,27 @@ function pings.main_action1()
 	end, false)
 end
 
-function pings.main_action2_toggle()
+function pings.main_action3_toggle()
 	runAction(function ()
 		if SitDownClass.CanSitDown then
 			SitDownClass.sitDown()
 		elseif host:isHost() then
-			print(LanguageClass.getTranslate("action_wheel__main__action_2__unavailable"))
+			print(LanguageClass.getTranslate("action_wheel__main__action_3__unavailable"))
 		end
 	end, nil, true)
 end
 
-function pings.main_action2_untoggle()
+function pings.main_action3_untoggle()
 	SitDownClass.standUp()
 end
 
-function pings.main_action3()
+function pings.main_action4()
 	runAction(function ()
 		if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" then
 			EarpickClass.play()
 			ActionCount = 238
 		elseif host:isHost() then
-			print(LanguageClass.getTranslate("action_wheel__main__action_3__unavailable"))
+			print(LanguageClass.getTranslate("action_wheel__main__action_4__unavailable"))
 		end
 	end, function ()
 		EarpickClass.stop()
@@ -103,29 +117,30 @@ function pings.main_action3()
 	end, false)
 end
 
-function pings.main_action4_name_change(nameID)
+function pings.main_action5_name_change(nameID)
 	NameplateClass.setName(nameID == 0 and player:getName() or (nameID == 1 and "Senko_san" or "仙狐さん"))
 	CurrentPlayerNameState = nameID
 end
 
 events.TICK:register(function ()
 	local displayName = PlayerNameState == 0 and player:getName() or (PlayerNameState == 1 and "Senko_san" or "仙狐さん")
-	MainPage:getAction(4):title(LanguageClass.getTranslate("action_wheel__main__action_4__title").."§b"..displayName)
-	setActionEnabled(1, ActionCount == 0 and not WardenClass.WardenNearby)
-	setActionEnabled(2, SitDownClass.CanSitDown and not WardenClass.WardenNearby)
-	setActionEnabled(3, animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" and ActionCount == 0 and not WardenClass.WardenNearby)
-	local sitDownAction = MainPage:getAction(2)
+	MainPage:getAction(5):title(LanguageClass.getTranslate("action_wheel__main__action_5__title").."§b"..displayName)
+	setActionEnabled(1, BroomClass.canBroomCleaning)
+	setActionEnabled(2, ActionCount == 0 and not WardenClass.WardenNearby)
+	setActionEnabled(3, SitDownClass.CanSitDown)
+	setActionEnabled(4, animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" and ActionCount == 0 and not WardenClass.WardenNearby)
+	local sitDownAction = MainPage:getAction(3)
 	sitDownAction:toggled(SitDownClass.CanSitDown and sitDownAction:isToggled())
-	if (HurtClass.Damaged ~= "NONE" and ActionCount > 0 and WardenClass.WardenNearby) or (animations["models.main"]["earpick"]:getPlayState() == "PLAYING" and animations["models.main"]["sit_down"]:getPlayState() ~= "PLAYING") then
+	if (HurtClass.Damaged ~= "NONE" and ActionCount > 0 and WardenClass.WardenNearby) or (animations["models.main"]["earpick"]:getPlayState() == "PLAYING" and animations["models.main"]["sit_down"]:getPlayState() ~= "PLAYING") or (animations["models.main"]["broom_cleaning"]:getPlayState() == "PLAYING" and not BroomClass.canBroomCleaning) then
 		ActionCancelFunction();
 		ActionCount = 0
 	end
 	local isOpenActionWheel = action_wheel:isEnabled()
 	if not isOpenActionWheel and IsOpenActionWheelPrev then
 		if PlayerNameState ~= CurrentPlayerNameState then
-			pings.main_action4_name_change(PlayerNameState)
+			pings.main_action5_name_change(PlayerNameState)
 			if host:isHost() then
-				print(LanguageClass.getTranslate("action_wheel__main__action_4__name_change_done_first")..displayName..LanguageClass.getTranslate("action_wheel__main__action_4__name_change_done_last"))
+				print(LanguageClass.getTranslate("action_wheel__main__action_5__name_change_done_first")..displayName..LanguageClass.getTranslate("action_wheel__main__action_5__name_change_done_last"))
 				sounds:playSound("minecraft:entity.player.levelup", player:getPos(), 1, 2)
 			end
 		end
@@ -151,25 +166,30 @@ events.TICK:register(function ()
 end)
 
 --メインページのアクション設定
---アクション1. ブルブル
-MainPage:newAction(1):item("water_bucket"):onLeftClick(function()
+--アクション1. お掃除
+MainPage:newAction(1):item("amethyst_shard"):onLeftClick(function ()
 	pings.main_action1()
 end)
 
---アクション2. おすわり（正座）
-MainPage:newToggle(2):toggleColor(233 / 255, 160 / 255, 69 / 255):item("oak_stairs"):onToggle(function ()
-	pings.main_action2_toggle()
+--アクション2. ブルブル
+MainPage:newAction(2):item("water_bucket"):onLeftClick(function()
+	pings.main_action2()
+end)
+
+--アクション3. おすわり（正座）
+MainPage:newToggle(3):toggleColor(233 / 255, 160 / 255, 69 / 255):item("oak_stairs"):onToggle(function ()
+	pings.main_action3_toggle()
 end):onUntoggle(function ()
-	pings.main_action2_untoggle()
+	pings.main_action3_untoggle()
 end)
 
---アクション3. 耳かき
-MainPage:newAction(3):item("feather"):onLeftClick(function ()
-	pings.main_action3()
+--アクション4. 耳かき
+MainPage:newAction(4):item("feather"):onLeftClick(function ()
+	pings.main_action4()
 end)
 
---アクション4. プレイヤーの表示名変更
-MainPage:newScroll(4):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+--アクション5. プレイヤーの表示名変更
+MainPage:newScroll(5):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
 	if direction == -1 then
 		PlayerNameState = PlayerNameState == 2 and 0 or PlayerNameState + 1
 	else
