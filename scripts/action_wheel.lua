@@ -70,14 +70,14 @@ end
 --ping関数
 function pings.main_action1()
 	runAction(function ()
-		if BroomClass.canBroomCleaning then
-			BroomClass.play()
+		if BroomCleaningClass.canBroomCleaning then
+			BroomCleaningClass.play()
 			ActionCount = 168
 		elseif host:isHost() then
 			print(LanguageClass.getTranslate("action_wheel__main__action_1__unavailable"))
 		end
 	end, function ()
-		BroomClass.stop()
+		BroomCleaningClass.stop()
 		ActionCount = 0
 	end, false)
 end
@@ -138,13 +138,13 @@ events.TICK:register(function ()
 	MainPage:getAction(5):title(LanguageClass.getTranslate("action_wheel__main__action_5__title").."§b"..costumeName)
 	local displayName = PlayerNameState == 1 and player:getName() or (PlayerNameState == 2 and "Senko_san" or "仙狐さん")
 	MainPage:getAction(6):title(LanguageClass.getTranslate("action_wheel__main__action_6__title").."§b"..displayName)
-	setActionEnabled(1, BroomClass.canBroomCleaning)
+	setActionEnabled(1, BroomCleaningClass.canBroomCleaning)
 	setActionEnabled(2, ActionCount == 0 and not WardenClass.WardenNearby)
 	setActionEnabled(3, SitDownClass.CanSitDown)
 	setActionEnabled(4, animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" and ActionCount == 0 and not WardenClass.WardenNearby)
 	local sitDownAction = MainPage:getAction(3)
 	sitDownAction:toggled(SitDownClass.CanSitDown and sitDownAction:isToggled())
-	if (HurtClass.Damaged ~= "NONE" and ActionCount > 0 and WardenClass.WardenNearby) or (animations["models.main"]["earpick"]:getPlayState() == "PLAYING" and animations["models.main"]["sit_down"]:getPlayState() ~= "PLAYING") or (animations["models.main"]["broom_cleaning"]:getPlayState() == "PLAYING" and not BroomClass.canBroomCleaning) then
+	if (HurtClass.Damaged ~= "NONE" and ActionCount > 0 and WardenClass.WardenNearby) or (animations["models.main"]["earpick"]:getPlayState() == "PLAYING" and animations["models.main"]["sit_down"]:getPlayState() ~= "PLAYING") or (animations["models.main"]["broom_cleaning"]:getPlayState() == "PLAYING" and not BroomCleaningClass.canBroomCleaning) then
 		ActionCancelFunction();
 		ActionCount = 0
 	end
