@@ -18,7 +18,9 @@ end
 
 ---雑巾がけアニメーションを停止する。
 function ClothCleaningClass.stop()
-	models.models.cloth_cleaning:setVisible(false)
+	for _, modelPart in ipairs({models.models.cloth_cleaning, models.models.cloth_cleaning.Stain}) do
+		modelPart:setVisible(false)
+	end
 	models.models.cloth_cleaning.Avatar.Body.Arms.RightArm:setParentType("RightArm")
 	General.setAnimations("STOP", "cloth_cleaning")
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
@@ -60,7 +62,7 @@ events.TICK:register(function ()
 	elseif ClothCleaningAnimationCount == 1 then
 		ClothCleaningClass.stop()
 	end
-	ClothCleaningAnimationCount = ClothCleaningAnimationCount > 0 and ClothCleaningAnimationCount - 1 or 0
+	ClothCleaningAnimationCount = ClothCleaningAnimationCount > 0 and (client:isPaused() and ClothCleaningAnimationCount or ClothCleaningAnimationCount - 1) or 0
 end)
 
 models.models.cloth_cleaning:setVisible(false)

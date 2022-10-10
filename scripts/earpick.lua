@@ -67,7 +67,7 @@ events.TICK:register(function ()
 	elseif EarpickAnimationCount == 1 then
 		EarpickClass.stop()
 	end
-	EarpickAnimationCount = EarpickAnimationCount > 0 and EarpickAnimationCount - 1 or 0
+	EarpickAnimationCount = EarpickAnimationCount > 0 and (client:isPaused() and EarpickAnimationCount or EarpickAnimationCount - 1) or 0
 end)
 
 models.models.ear_cleaning.LyingPlayer:setPrimaryTexture("SKIN")

@@ -65,7 +65,7 @@ events.TICK:register(function ()
 	elseif BroomCleaningAnimationCount == 1 then
 		BroomCleaningClass.stop()
 	end
-	BroomCleaningAnimationCount = BroomCleaningAnimationCount > 0 and BroomCleaningAnimationCount - 1 or 0
+	BroomCleaningAnimationCount = BroomCleaningAnimationCount > 0 and (client:isPaused() and BroomCleaningAnimationCount or BroomCleaningAnimationCount - 1) or 0
 end)
 
 models.models.broom_cleaning:setVisible(false)
