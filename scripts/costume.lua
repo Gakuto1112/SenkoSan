@@ -24,8 +24,6 @@ function CostumeClass.setCostume(costume)
 	elseif costume == "DISGUISE" then
 		models.models.costume_disguise:setVisible(true)
 		models.models.main.Avatar.Head.Ears:setVisible(false)
-		TailClass.EnablePyhsics = false
-		TailClass.StaticTailRot.x = 30
 	end
 end
 
@@ -37,9 +35,12 @@ function CostumeClass.resetCostume()
 	models.models.costume_disguise:setVisible(false)
 	models.models.main.Avatar.Head.Ears:setVisible(true)
 	TailClass.EnablePyhsics = true
-	TailClass.StaticTailRot.x = 0
 	CostumeClass.CurrentCostume = "DEFAULT"
 end
+
+events.TICK:register(function ()
+	models.models.costume_disguise.Avatar.Head.Hat:setVisible(CostumeClass.CurrentCostume == "DISGUISE" and (ConfigClass.HideArmor or not string.find(General.hasItem(player:getItem(6)), "helmet$")))
+end)
 
 models.models.costume_disguise:setVisible(false)
 for _, modelPart in ipairs({models.models.costume_disguise.Avatar.Body.BodyBottom, models.models.costume_disguise.Avatar.Body.Arms.RightArm.RightArmBottom, models.models.costume_disguise.Avatar.Body.Arms.LeftArm.LeftArmBottom}) do

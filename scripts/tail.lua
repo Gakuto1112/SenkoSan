@@ -4,7 +4,6 @@
 ---@field LookRotPrevRender number 前レンダーチックのlookRot
 ---@field LookRotDeltaPrevRender number 前レンダーチックのlookRotDelta
 ---@field TailClass.EnablePyhsics boolean 尻尾の動的角度設定を有効にするかどうか
----@field TailClass.StaticTailRot Vector3 尻尾の動的角度設定がオフの時の尻尾の位置
 ---@field WagTailKey Keybind 尻尾振りをするキー
 ---@field WagTailCount integer 尻尾振りの時間を計るカウンター
 
@@ -15,7 +14,6 @@ VelocityAverage = {0, 0, 0, 0}
 LookRotPrevRender = 0
 LookRotDeltaPrevRender = 0
 TailClass.EnablePyhsics = true
-TailClass.StaticTailRot = vectors.vec3(0, 0, 0)
 WagTailKey = keybind:create(LanguageClass.getTranslate("key_name__wag_tail"), "key.keyboard.z")
 WagTailCount = -1
 
@@ -69,6 +67,7 @@ events.RENDER:register(function ()
 	end
 	--求めた平均速度から尻尾の角度を計算
 	local tail = models.models.main.Avatar.Body.BodyBottom.Tail
+	local disguiseTail = models.models.costume_disguise.Avatar.Body.BodyBottom.Tail
 	local tailArmor = models.models.armor.Avatar.Body.BodyBottom.Tail
 	if (not renderer:isFirstPerson() or client:hasIrisShader()) and TailClass.EnablePyhsics then
 		local tailLimit = {{-60, 60}, {-30, 30}} --尻尾の可動範囲：1. 上下方向, 2. 左右方向
@@ -85,17 +84,22 @@ events.RENDER:register(function ()
 			local tailXMoveY = VelocityAverage[2] * 80
 			local tailXAngleMove = math.abs(VelocityAverage[4]) * 0.05
 			local tailXConditionAngle = (General.PlayerCondition == "LOW" or animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" or player:getVehicle() or WardenClass.WardenNearby) and 0 or (General.PlayerCondition == "MEDIUM" and 15 or 30)
-			local tailXRot = math.clamp(tailLimit[1][2] - math.min(tailXMoveXZ, math.max(tailLimit[1][2] - tailXMoveY - tailXAngleMove - tailXConditionAngle, 0)) + tailXMoveY - math.min(tailXAngleMove, math.max(tailLimit[1][2] -tailXMoveXZ - tailXMoveY - tailXConditionAngle, 0)) - tailXConditionAngle, tailLimit[1][1], tailLimit[1][2]) + (playerPose == "CROUCHING" and 30 or 0)
-			local tailYRot = math.clamp(-VelocityAverage[3] * 160 + VelocityAverage[4] * 0.05, tailLimit[2][1], tailLimit[2][2])
-			tail:setRot(tailXRot, tailYRot, 0)
+			local tailRot = vectors.vec3(math.clamp(tailLimit[1][2] - math.min(tailXMoveXZ, math.max(tailLimit[1][2] - tailXMoveY - tailXAngleMove - tailXConditionAngle, 0)) + tailXMoveY - math.min(tailXAngleMove, math.max(tailLimit[1][2] -tailXMoveXZ - tailXMoveY - tailXConditionAngle, 0)) - tailXConditionAngle, tailLimit[1][1], tailLimit[1][2]) + (playerPose == "CROUCHING" and 30 or 0), math.clamp(-VelocityAverage[3] * 160 + VelocityAverage[4] * 0.05, tailLimit[2][1], tailLimit[2][2]), 0)
+			tail:setRot(tailRot)
+			if CostumeClass.CurrentCostume == "DISGUISE" then
+				disguiseTail:setRot(tailRot)
+			end
 			if ArmorClass.IsChestplateVisible then
-				tailArmor:setRot(tailXRot, tailYRot, 0)
+				tailArmor:setRot(tailRot)
 			end
 		end
 	else
-		tail:setRot(TailClass.StaticTailRot)
+		tail:setRot(0, 0, 0)
+		if CostumeClass.CurrentCostume == "DISGUISE" then
+			disguiseTail:setRot(0, 0, 0)
+		end
 		if ArmorClass.IsChestplateVisible then
-			tailArmor:setRot(TailClass.StaticTailRot)
+			tailArmor:setRot(0, 0, 0)
 		end
 	end
 	LookRotDeltaPrevRender = lookRotDelta
