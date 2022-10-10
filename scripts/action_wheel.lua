@@ -68,9 +68,9 @@ function ActionWheelClass.bodyShake()
 end
 
 --ping関数
-function pings.main_action1()
+function pings.main_action1_left()
 	runAction(function ()
-		if BroomCleaningClass.canBroomCleaning then
+		if BroomCleaningClass.CanBroomCleaning then
 			BroomCleaningClass.play()
 			ActionCount = 168
 		elseif host:isHost() then
@@ -78,6 +78,20 @@ function pings.main_action1()
 		end
 	end, function ()
 		BroomCleaningClass.stop()
+		ActionCount = 0
+	end, false)
+end
+
+function pings.main_action1_right()
+	runAction(function ()
+		if BroomCleaningClass.CanBroomCleaning then
+			ClothCleaningClass.play()
+			ActionCount = 198
+		elseif host:isHost() then
+			print(LanguageClass.getTranslate("action_wheel__main__action_1__unavailable"))
+		end
+	end, function ()
+		ClothCleaningClass.stop()
 		ActionCount = 0
 	end, false)
 end
@@ -138,13 +152,13 @@ events.TICK:register(function ()
 	MainPage:getAction(5):title(LanguageClass.getTranslate("action_wheel__main__action_5__title").."§b"..costumeName)
 	local displayName = PlayerNameState == 1 and player:getName() or (PlayerNameState == 2 and "Senko_san" or "仙狐さん")
 	MainPage:getAction(6):title(LanguageClass.getTranslate("action_wheel__main__action_6__title").."§b"..displayName)
-	setActionEnabled(1, BroomCleaningClass.canBroomCleaning)
+	setActionEnabled(1, ActionCount == 0 and BroomCleaningClass.CanBroomCleaning)
 	setActionEnabled(2, ActionCount == 0 and not WardenClass.WardenNearby)
 	setActionEnabled(3, SitDownClass.CanSitDown)
 	setActionEnabled(4, animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" and ActionCount == 0 and not WardenClass.WardenNearby)
 	local sitDownAction = MainPage:getAction(3)
 	sitDownAction:toggled(SitDownClass.CanSitDown and sitDownAction:isToggled())
-	if (HurtClass.Damaged ~= "NONE" and ActionCount > 0 and WardenClass.WardenNearby) or (animations["models.main"]["earpick"]:getPlayState() == "PLAYING" and animations["models.main"]["sit_down"]:getPlayState() ~= "PLAYING") or (animations["models.main"]["broom_cleaning"]:getPlayState() == "PLAYING" and not BroomCleaningClass.canBroomCleaning) then
+	if (HurtClass.Damaged ~= "NONE" and ActionCount > 0 and WardenClass.WardenNearby) or (animations["models.main"]["earpick"]:getPlayState() == "PLAYING" and animations["models.main"]["sit_down"]:getPlayState() ~= "PLAYING") or ((animations["models.main"]["broom_cleaning"]:getPlayState() == "PLAYING" or animations["models.main"]["cloth_cleaning"]:getPlayState() == "PLAYING") and not BroomCleaningClass.CanBroomCleaning) then
 		ActionCancelFunction();
 		ActionCount = 0
 	end
@@ -188,7 +202,9 @@ end)
 --メインページのアクション設定
 --アクション1. お掃除
 MainPage:newAction(1):item("amethyst_shard"):onLeftClick(function ()
-	pings.main_action1()
+	pings.main_action1_left()
+end):onRightClick(function ()
+	pings.main_action1_right()
 end)
 
 --アクション2. ブルブル
