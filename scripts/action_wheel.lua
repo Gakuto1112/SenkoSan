@@ -200,44 +200,52 @@ end)
 --メインページのアクション設定
 --アクション1. お掃除
 MainPage:newAction(1):item("amethyst_shard"):onLeftClick(function ()
-	if BroomCleaningClass.CanBroomCleaning and ActionCount == 0 then
-		if math.random() > 0.9 then
-			pings.main_action1_left_alt()
+	if ActionCount == 0 then
+		if BroomCleaningClass.CanBroomCleaning then
+			if math.random() > 0.9 then
+				pings.main_action1_left_alt()
+			else
+				pings.main_action1_left()
+			end
+		elseif WardenClass.WardenNearby then
+			pings.refuse_emote()
 		else
-			pings.main_action1_left()
+			print(LanguageClass.getTranslate("action_wheel__main__action_1__unavailable"))
 		end
-	elseif WardenClass.WardenNearby then
-		pings.refuse_emote()
-	elseif ActionCount == 0 then
-		print(LanguageClass.getTranslate("action_wheel__main__action_1__unavailable"))
 	end
 end):onRightClick(function ()
-	if BroomCleaningClass.CanBroomCleaning and ActionCount == 0 then
-		pings.main_action1_right()
-	elseif WardenClass.WardenNearby then
-		pings.refuse_emote()
-	elseif ActionCount == 0 then
-		print(LanguageClass.getTranslate("action_wheel__main__action_1__unavailable"))
+	if ActionCount == 0 then
+		if BroomCleaningClass.CanBroomCleaning then
+			pings.main_action1_right()
+		elseif WardenClass.WardenNearby then
+			pings.refuse_emote()
+		else
+			print(LanguageClass.getTranslate("action_wheel__main__action_1__unavailable"))
+		end
 	end
 end)
 
 --アクション2. ブルブル
 MainPage:newAction(2):item("water_bucket"):onLeftClick(function()
-	if ActionCount == 0 and not WardenClass.WardenNearby then
-		pings.main_action2()
-	elseif WardenClass.WardenNearby then
-		pings.refuse_emote()
+	if ActionCount == 0 then
+		if WardenClass.WardenNearby then
+			pings.refuse_emote()
+		else
+			pings.main_action2()
+		end
 	end
 end)
 
 --アクション3. おすわり（正座）
 MainPage:newToggle(3):toggleColor(233 / 255, 160 / 255, 69 / 255):item("oak_stairs"):onToggle(function ()
-	if SitDownClass.CanSitDown and ActionCount == 0 then
-		pings.main_action3_toggle()
-	elseif WardenClass.WardenNearby then
-		pings.refuse_emote()
-	elseif ActionCount == 0 then
-		print(LanguageClass.getTranslate("action_wheel__main__action_3__unavailable"))
+	if ActionCount == 0 then
+		if SitDownClass.CanSitDown then
+			pings.main_action3_toggle()
+		elseif WardenClass.WardenNearby then
+			pings.refuse_emote()
+		else
+			print(LanguageClass.getTranslate("action_wheel__main__action_3__unavailable"))
+		end
 	end
 end):onUntoggle(function ()
 	pings.main_action3_untoggle()
@@ -245,15 +253,18 @@ end)
 
 --アクション4. 耳かき
 MainPage:newAction(4):item("feather"):onLeftClick(function ()
-	if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" and ActionCount == 0 then
-		pings.main_action4()
-	elseif WardenClass.WardenNearby then
-		pings.refuse_emote()
-	elseif ActionCount == 0 then
-		print(LanguageClass.getTranslate("action_wheel__main__action_4__unavailable"))
+	if ActionCount == 0 then
+		if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" then
+			pings.main_action4()
+		elseif WardenClass.WardenNearby then
+			pings.refuse_emote()
+		else
+			print(LanguageClass.getTranslate("action_wheel__main__action_4__unavailable"))
+		end
 	end
 end)
 
+--アクション5. 着替え
 MainPage:newScroll(5):item("leather_chestplate"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
 	if direction == -1 then
 		CostumeState = CostumeState == #CostumeClass.CostumeList and 1 or CostumeState + 1
