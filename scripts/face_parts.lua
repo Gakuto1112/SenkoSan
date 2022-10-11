@@ -4,13 +4,6 @@
 ---@field EmotionCount integer エモートの時間を計るカウンター
 ---@field BlinkCount integer 瞬きのタイミングを計るカウンター
 
-FacePartsClass = {}
-
-EyeTypeID = {NONE = -1, NORMAL = 0, SURPLISED = 1, TIRED = 2, SLEEPY = 3, CLOSED = 4, UNEQUAL = 5}
-MouthTypeID = {NONE = -1, CLOSED = 0, OPENED = 1}
-EmotionCount = 0
-BlinkCount = 0
-
 ---@alias EyeType
 ---| "NONE"
 ---| "NORMAL"
@@ -24,6 +17,13 @@ BlinkCount = 0
 ---| "NONE"
 ---| "CLOSED"
 ---| "OPENED"
+
+FacePartsClass = {}
+
+EyeTypeID = {NONE = -1, NORMAL = 0, SURPLISED = 1, TIRED = 2, SLEEPY = 3, CLOSED = 4, UNEQUAL = 5}
+MouthTypeID = {NONE = -1, CLOSED = 0, OPENED = 1}
+EmotionCount = 0
+BlinkCount = 0
 
 ---表情を設定する。
 ---@param rightEye EyeType 設定する右目の名前（"NONE"にすると変更されない）

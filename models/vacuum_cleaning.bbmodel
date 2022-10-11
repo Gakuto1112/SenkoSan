@@ -1,0 +1,1210 @@
+{
+    "meta": {
+        "format_version": "4.0",
+        "model_format": "free",
+        "box_uv": false
+    },
+    "name": "vacuum_cleaning",
+    "model_identifier": "",
+    "visible_box": [
+        1,
+        1,
+        0
+    ],
+    "variable_placeholders": "",
+    "variable_placeholder_buttons": [],
+    "timeline_setups": [],
+    "resolution": {
+        "width": 104,
+        "height": 112
+    },
+    "elements": [
+        {
+            "name": "Body",
+            "rescale": false,
+            "locked": false,
+            "from": [
+                1.5,
+                1,
+                6
+            ],
+            "to": [
+                9.5,
+                7,
+                16
+            ],
+            "autouv": 0,
+            "color": 0,
+            "origin": [
+                2.5,
+                1,
+                7
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        6,
+                        0,
+                        14,
+                        6
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        0,
+                        6,
+                        6,
+                        16
+                    ],
+                    "rotation": 90,
+                    "texture": 0
+                },
+                "south": {
+                    "uv": [
+                        14,
+                        0,
+                        22,
+                        6
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        14,
+                        6,
+                        20,
+                        16
+                    ],
+                    "rotation": 90,
+                    "texture": 0
+                },
+                "up": {
+                    "uv": [
+                        6,
+                        6,
+                        14,
+                        16
+                    ],
+                    "texture": 0
+                },
+                "down": {
+                    "uv": [
+                        20,
+                        6,
+                        28,
+                        16
+                    ],
+                    "texture": 0
+                }
+            },
+            "type": "cube",
+            "uuid": "6864c9bd-021e-f71a-44fe-ba37aa542247"
+        },
+        {
+            "name": "RightWheel",
+            "rescale": false,
+            "locked": false,
+            "from": [
+                9.5,
+                0,
+                11.5
+            ],
+            "to": [
+                10.5,
+                3,
+                14.5
+            ],
+            "autouv": 0,
+            "color": 3,
+            "origin": [
+                5.5,
+                1,
+                13
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        3,
+                        17,
+                        4,
+                        20
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        0,
+                        17,
+                        3,
+                        20
+                    ],
+                    "texture": 0
+                },
+                "south": {
+                    "uv": [
+                        7,
+                        17,
+                        8,
+                        20
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        4,
+                        17,
+                        7,
+                        20
+                    ],
+                    "texture": 0
+                },
+                "up": {
+                    "uv": [
+                        1,
+                        16,
+                        4,
+                        17
+                    ],
+                    "rotation": 90,
+                    "texture": 0
+                },
+                "down": {
+                    "uv": [
+                        4,
+                        16,
+                        7,
+                        17
+                    ],
+                    "rotation": 90,
+                    "texture": 0
+                }
+            },
+            "type": "cube",
+            "uuid": "5999596d-6abc-454e-9ab0-e494c084ac34"
+        },
+        {
+            "name": "LeftWheel",
+            "rescale": false,
+            "locked": false,
+            "from": [
+                0.5,
+                0,
+                11.5
+            ],
+            "to": [
+                1.5,
+                3,
+                14.5
+            ],
+            "autouv": 0,
+            "color": 3,
+            "origin": [
+                5.5,
+                1,
+                13
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        3,
+                        17,
+                        4,
+                        20
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        4,
+                        17,
+                        7,
+                        20
+                    ],
+                    "texture": 0
+                },
+                "south": {
+                    "uv": [
+                        7,
+                        17,
+                        8,
+                        20
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        0,
+                        17,
+                        3,
+                        20
+                    ],
+                    "texture": 0
+                },
+                "up": {
+                    "uv": [
+                        1,
+                        16,
+                        4,
+                        17
+                    ],
+                    "rotation": 90,
+                    "texture": 0
+                },
+                "down": {
+                    "uv": [
+                        4,
+                        16,
+                        7,
+                        17
+                    ],
+                    "rotation": 90,
+                    "texture": 0
+                }
+            },
+            "type": "cube",
+            "uuid": "bf694816-b16e-2a93-8fdb-6470236737c8"
+        },
+        {
+            "name": "Hose",
+            "rescale": false,
+            "locked": false,
+            "from": [
+                4.5,
+                2,
+                -8
+            ],
+            "to": [
+                6.5,
+                4,
+                7
+            ],
+            "autouv": 0,
+            "color": 4,
+            "origin": [
+                5.5,
+                2,
+                6
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        30,
+                        0,
+                        32,
+                        2
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        28,
+                        2,
+                        30,
+                        17
+                    ],
+                    "rotation": 90,
+                    "texture": 0
+                },
+                "south": {
+                    "uv": [
+                        32,
+                        0,
+                        34,
+                        2
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        32,
+                        2,
+                        34,
+                        17
+                    ],
+                    "rotation": 90,
+                    "texture": 0
+                },
+                "up": {
+                    "uv": [
+                        30,
+                        2,
+                        32,
+                        17
+                    ],
+                    "texture": 0
+                },
+                "down": {
+                    "uv": [
+                        34,
+                        2,
+                        36,
+                        17
+                    ],
+                    "texture": 0
+                }
+            },
+            "type": "cube",
+            "uuid": "84dd2d01-0514-4c6a-1beb-68efa5bc4b2a"
+        },
+        {
+            "name": "Shaft",
+            "rescale": false,
+            "locked": false,
+            "from": [
+                4.5,
+                -20,
+                -10
+            ],
+            "to": [
+                6.5,
+                4,
+                -8
+            ],
+            "autouv": 0,
+            "color": 0,
+            "origin": [
+                5.5,
+                2,
+                -9
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        38,
+                        2,
+                        40,
+                        26
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        36,
+                        2,
+                        38,
+                        26
+                    ],
+                    "texture": 0
+                },
+                "south": {
+                    "uv": [
+                        42,
+                        2,
+                        44,
+                        26
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        40,
+                        2,
+                        42,
+                        26
+                    ],
+                    "texture": 0
+                },
+                "up": {
+                    "uv": [
+                        38,
+                        0,
+                        40,
+                        2
+                    ],
+                    "texture": 0
+                },
+                "down": {
+                    "uv": [
+                        40,
+                        0,
+                        42,
+                        2
+                    ],
+                    "texture": 0
+                }
+            },
+            "type": "cube",
+            "uuid": "a619e81b-2a40-acf5-0f15-1dbd4c7f90e6"
+        },
+        {
+            "name": "Handle1",
+            "rescale": false,
+            "locked": false,
+            "from": [
+                4.5,
+                0,
+                -12
+            ],
+            "to": [
+                6.5,
+                1,
+                -10
+            ],
+            "autouv": 0,
+            "color": 3,
+            "origin": [
+                5.5,
+                4,
+                -8
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        9,
+                        16,
+                        11,
+                        17
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        8,
+                        17,
+                        9,
+                        19
+                    ],
+                    "rotation": 90,
+                    "texture": 0
+                },
+                "south": {
+                    "uv": [
+                        11,
+                        16,
+                        13,
+                        17
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        11,
+                        17,
+                        12,
+                        19
+                    ],
+                    "rotation": 90,
+                    "texture": 0
+                },
+                "up": {
+                    "uv": [
+                        9,
+                        17,
+                        11,
+                        19
+                    ],
+                    "texture": 0
+                },
+                "down": {
+                    "uv": [
+                        12,
+                        17,
+                        14,
+                        19
+                    ],
+                    "texture": 0
+                }
+            },
+            "type": "cube",
+            "uuid": "2d95c087-79bb-ee4c-bd7c-069f495b49e2"
+        },
+        {
+            "name": "Handle2",
+            "rescale": false,
+            "locked": false,
+            "from": [
+                4.5,
+                1,
+                -12
+            ],
+            "to": [
+                6.5,
+                4,
+                -11
+            ],
+            "autouv": 0,
+            "color": 3,
+            "origin": [
+                5.5,
+                4,
+                -8
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        15,
+                        17,
+                        17,
+                        20
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        14,
+                        17,
+                        15,
+                        20
+                    ],
+                    "texture": 0
+                },
+                "south": {
+                    "uv": [
+                        18,
+                        17,
+                        20,
+                        20
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        17,
+                        17,
+                        18,
+                        20
+                    ],
+                    "texture": 0
+                },
+                "up": {
+                    "uv": [
+                        15,
+                        16,
+                        17,
+                        17
+                    ],
+                    "texture": 0
+                },
+                "down": {
+                    "uv": [
+                        17,
+                        16,
+                        19,
+                        17
+                    ],
+                    "texture": 0
+                }
+            },
+            "type": "cube",
+            "uuid": "cf4d531a-9ee7-dc6a-705b-5c4365374701"
+        },
+        {
+            "name": "Nozzle",
+            "rescale": false,
+            "locked": false,
+            "from": [
+                2.5,
+                -23,
+                -9
+            ],
+            "to": [
+                8.5,
+                -20,
+                -8
+            ],
+            "autouv": 0,
+            "color": 4,
+            "origin": [
+                5.5,
+                -20,
+                -8
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        1,
+                        21,
+                        7,
+                        24
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        0,
+                        21,
+                        1,
+                        24
+                    ],
+                    "texture": 0
+                },
+                "south": {
+                    "uv": [
+                        8,
+                        21,
+                        14,
+                        24
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        7,
+                        21,
+                        8,
+                        24
+                    ],
+                    "texture": 0
+                },
+                "up": {
+                    "uv": [
+                        1,
+                        20,
+                        7,
+                        21
+                    ],
+                    "texture": 0
+                },
+                "down": {
+                    "uv": [
+                        7,
+                        20,
+                        13,
+                        21
+                    ],
+                    "texture": 0
+                }
+            },
+            "type": "cube",
+            "uuid": "623d7084-8103-4a96-5e17-7a0e42afcf82"
+        }
+    ],
+    "outliner": [
+        {
+            "name": "VeccumCleaner",
+            "origin": [
+                5.5,
+                1,
+                6
+            ],
+            "color": 0,
+            "uuid": "87dadff2-4774-ec7c-f4df-8f4d035d7ce2",
+            "export": true,
+            "isOpen": false,
+            "locked": false,
+            "visibility": true,
+            "autouv": 0,
+            "children": [
+                "6864c9bd-021e-f71a-44fe-ba37aa542247",
+                {
+                    "name": "Wheels",
+                    "origin": [
+                        5.5,
+                        1,
+                        13
+                    ],
+                    "color": 0,
+                    "uuid": "e2b3188a-7dba-6056-5e4f-d17c54a8a22d",
+                    "export": true,
+                    "isOpen": true,
+                    "locked": false,
+                    "visibility": true,
+                    "autouv": 0,
+                    "children": [
+                        "5999596d-6abc-454e-9ab0-e494c084ac34",
+                        "bf694816-b16e-2a93-8fdb-6470236737c8"
+                    ]
+                },
+                {
+                    "name": "Hose",
+                    "origin": [
+                        5.5,
+                        2,
+                        6
+                    ],
+                    "rotation": [
+                        60,
+                        0,
+                        0
+                    ],
+                    "color": 0,
+                    "uuid": "cb20071b-f9b7-550a-5c0c-821d78c3d9f6",
+                    "export": true,
+                    "isOpen": true,
+                    "locked": false,
+                    "visibility": true,
+                    "autouv": 0,
+                    "children": [
+                        "84dd2d01-0514-4c6a-1beb-68efa5bc4b2a",
+                        {
+                            "name": "Shaft",
+                            "origin": [
+                                5.5,
+                                4,
+                                -8
+                            ],
+                            "rotation": [
+                                -10,
+                                0,
+                                0
+                            ],
+                            "color": 0,
+                            "uuid": "1f9f0648-cd76-f7d3-e57b-bda15c4b93b4",
+                            "export": true,
+                            "isOpen": true,
+                            "locked": false,
+                            "visibility": true,
+                            "autouv": 0,
+                            "children": [
+                                "a619e81b-2a40-acf5-0f15-1dbd4c7f90e6",
+                                {
+                                    "name": "Handle",
+                                    "origin": [
+                                        5.5,
+                                        4,
+                                        -8
+                                    ],
+                                    "color": 0,
+                                    "uuid": "71e5653a-5690-6753-8236-1332ed2c7126",
+                                    "export": true,
+                                    "isOpen": true,
+                                    "locked": false,
+                                    "visibility": true,
+                                    "autouv": 0,
+                                    "children": [
+                                        "2d95c087-79bb-ee4c-bd7c-069f495b49e2",
+                                        "cf4d531a-9ee7-dc6a-705b-5c4365374701"
+                                    ]
+                                },
+                                {
+                                    "name": "Nozzle",
+                                    "origin": [
+                                        5.5,
+                                        -20,
+                                        -8
+                                    ],
+                                    "rotation": [
+                                        40,
+                                        0,
+                                        0
+                                    ],
+                                    "color": 0,
+                                    "uuid": "5b589f0c-26f4-a67a-d94e-3e59705b1c52",
+                                    "export": true,
+                                    "isOpen": true,
+                                    "locked": false,
+                                    "visibility": true,
+                                    "autouv": 0,
+                                    "children": [
+                                        "623d7084-8103-4a96-5e17-7a0e42afcf82"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "textures": [
+        {
+            "path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabric\u30d0\u30cb\u30e9\\figura\\avatars\\SenkoSan\\textures\\vacuum_cleaning.png",
+            "name": "vacuum_cleaning.png",
+            "folder": "",
+            "namespace": "",
+            "id": "1",
+            "particle": false,
+            "render_mode": "default",
+            "visible": true,
+            "mode": "bitmap",
+            "saved": true,
+            "uuid": "2376c059-af35-830a-3914-379c6d1fa998",
+            "relative_path": "../../textures/vacuum_cleaning.png",
+            "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGgAAABwCAYAAADymTVXAAAAAXNSR0IArs4c6QAABGhJREFUeF7tmbFrE1EAxt/9B0JblOKYgHQpuKQdbMmgQ0VwsCQBB3Vp6SDBseAkJJtjIIu4FooVhzq0OGRJMrgWIXQzVGkLTp0kkTtIyJ137+6+NJ+1+bq0ad73vtzvl/fucnFMxM/de4/6Uc+5/z/4+N72tJmZmXFsAzqdjm/+bDbrG9/v933PO45jnc/6Yv7jJyMP+vz83CrIPeZGo2FmZ2fN2dmZ7/fCwoIEXdKbYixBR0dHf8lxZa2srEQKCq6c4HFkMhnroU3bShpLELKCms2mdWUuLS1J0AiBSEGVSiV2i7OR3N7eDp1bKyjd3kcXpBWUUpB7tfa18WmYqlar3t+7n5vWmYJXcfV6PVFzoVAwvV4vcqzOQX40DltQPp+3itQ56B8L0gpKtNEMB8ErKPhhNekWpxV0xQVpBV2yoNevXvhmfPP23fDx6IWCVlA68ElHT3SLy2az5uLiwnS73eHrWV9ft742XcUFLhKCNyUHl9kbGxtWkPcfP/PdMA1bQYuLi96toFFBceegOEFzc3NTddPUiRP08/uuT9TN20+8x0kFuSuo0+loBSXd0wLjYgVFzZtEUFg2bgXpc1Bgi3Mf5nK50Ptu7Xbb206KxWJ/9WnZbD7MeenBHWXkOxvdi0u3lJwoOYNpWq1WohlPTk68cfPz82OdI4LSg+VT93WDK2h/f9+sra2FirAJKpVKprz60uQ2l83x8bGXz2QyEpToLZ1sUOwKGmxzwencd7or6EF51TzPbRqtoGTA047y3u21Wi3Vdz9bW1tjrRLbi9QWF7hIcOW4t1/CfnZ2dszhwUHocx/29iYiSYJSCvryu2R+/fhmbty64/t9WFmWoLT7FTDeuWor6PT01LrdTt2dBEDqRCPa4kI+qE6UeMrJJeiKC0rp89oPn8iJ/tpTIx6gBBFhI1UShFAjZiSICBupkiCEGjEjQUTYSJUEIdSIGQkiwkaqJAihRsxIEBE2UiVBCDViRoKIsJEqCUKoETMSRISNVEkQQo2YkSAibKRKghBqxIwEEWEjVRKEUCNmJIgIG6mSIIQaMSNBRNhIlQQh1IgZCSLCRqokCKFGzEgQETZSJUEINWJGgoiwkSoJQqgRMxJEhI1USRBCjZiRICJspEqCEGrEjAQRYSNVEoRQI2YkiAgbqZIghBoxI0FE2EiVBCHUiBkJIsJGqiQIoUbMSBARNlIlQQg1YkaCiLCRKglCqBEzEkSEjVRJEEKNmJEgImykSoIQasSMBBFhI1UShFAjZiSICBupkiCEGjEjQUTYSJUEIdSIGQkiwkaqJAihRsxIEBE2UiVBCDViRoKIsJEqCUKoETMSRISNVEkQQo2YkSAibKRKghBqxIwEEWEjVRKEUCNmJIgIG6mSIIQaMSNBRNhIlQQh1IgZCSLCRqokCKFGzEgQETZSJUEINWJGgoiwkSoJQqgRMxJEhI1USRBCjZiRICJspEqCEGrEjAQRYSNVEoRQI2YkiAgbqZIghBox8wcR2HmA7GJugQAAAABJRU5ErkJggg=="
+        }
+    ],
+    "animations": [
+        {
+            "uuid": "4c18741c-8205-65dd-fa52-5823f9fbd6fd",
+            "name": "vacuum_cleaning",
+            "loop": "once",
+            "override": false,
+            "length": 14,
+            "snapping": 24,
+            "selected": true,
+            "anim_time_update": "",
+            "blend_weight": "",
+            "start_delay": "",
+            "loop_delay": "",
+            "animators": {
+                "87dadff2-4774-ec7c-f4df-8f4d035d7ce2": {
+                    "name": "VeccumCleaner",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "080da566-c1e7-05a2-c4d4-e98173af6caa",
+                            "time": 4.583333333333333,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": 0,
+                                    "y": "225",
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "bd857d4c-01c9-9153-d699-05e6468fa7c7",
+                            "time": 6.583333333333333,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "position",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "87e12dcf-7cd4-a680-c839-f0b357d0ab21",
+                            "time": 2.5,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "position",
+                            "data_points": [
+                                {
+                                    "x": "-8",
+                                    "y": "10",
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "40cd3b7d-fdf3-9288-0980-f9f1ea1c0de4",
+                            "time": 2.6666666666666665,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "position",
+                            "data_points": [
+                                {
+                                    "x": -8,
+                                    "y": "7",
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "cdea89b8-df76-cf74-a123-9e65eefe71aa",
+                            "time": 4.458333333333333,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "position",
+                            "data_points": [
+                                {
+                                    "x": -8,
+                                    "y": "0",
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "f7b43c69-07cd-9a26-5cec-6136dadcebd0",
+                            "time": 4.583333333333333,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "position",
+                            "data_points": [
+                                {
+                                    "x": -9,
+                                    "y": "4",
+                                    "z": -3
+                                }
+                            ],
+                            "uuid": "2d6f82e2-d867-2fc0-de07-9ac376e7ff2b",
+                            "time": 4.833333333333333,
+                            "color": -1,
+                            "interpolation": "catmullrom"
+                        },
+                        {
+                            "channel": "position",
+                            "data_points": [
+                                {
+                                    "x": -11,
+                                    "y": "0",
+                                    "z": -4
+                                }
+                            ],
+                            "uuid": "903fd741-a552-39d8-1653-b677f87f9598",
+                            "time": 5.083333333333333,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "position",
+                            "data_points": [
+                                {
+                                    "x": -14,
+                                    "y": "4",
+                                    "z": -4
+                                }
+                            ],
+                            "uuid": "5e7ac6b4-5989-8e32-c7a1-55d3e874cfdb",
+                            "time": 5.333333333333333,
+                            "color": -1,
+                            "interpolation": "catmullrom"
+                        },
+                        {
+                            "channel": "position",
+                            "data_points": [
+                                {
+                                    "x": -16,
+                                    "y": "0",
+                                    "z": -3
+                                }
+                            ],
+                            "uuid": "01941a02-9b5f-c873-1024-3d4b8535f136",
+                            "time": 5.583333333333333,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "position",
+                            "data_points": [
+                                {
+                                    "x": -17,
+                                    "y": "4",
+                                    "z": 1
+                                }
+                            ],
+                            "uuid": "e96cbea1-2ac5-1931-f55d-c567e4fa1387",
+                            "time": 5.833333333333333,
+                            "color": -1,
+                            "interpolation": "catmullrom"
+                        },
+                        {
+                            "channel": "position",
+                            "data_points": [
+                                {
+                                    "x": -18,
+                                    "y": "0",
+                                    "z": 6
+                                }
+                            ],
+                            "uuid": "912ceeed-6f0e-1b81-4d28-6725a05de40b",
+                            "time": 6.083333333333333,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "position",
+                            "data_points": [
+                                {
+                                    "x": -17,
+                                    "y": 4,
+                                    "z": 10
+                                }
+                            ],
+                            "uuid": "2f5f0b0f-0425-f302-3395-fe982d243581",
+                            "time": 6.333333333333333,
+                            "color": -1,
+                            "interpolation": "catmullrom"
+                        },
+                        {
+                            "channel": "position",
+                            "data_points": [
+                                {
+                                    "x": -13,
+                                    "y": "0",
+                                    "z": 12
+                                }
+                            ],
+                            "uuid": "6edccccb-4ca3-c396-8227-1411f9339b50",
+                            "time": 6.583333333333333,
+                            "color": -1,
+                            "interpolation": "linear"
+                        }
+                    ]
+                },
+                "1f9f0648-cd76-f7d3-e57b-bda15c4b93b4": {
+                    "name": "Shaft",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "abb4555a-3a9f-3bd7-0a69-7153213cfb01",
+                            "time": 2.5,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": -60,
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "9a06a326-186c-2bc8-79ca-768d2bd99290",
+                            "time": 2.6666666666666665,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": -60,
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "6512b1b9-efe3-588d-f56d-f41666494ef0",
+                            "time": 4.458333333333333,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "2c859ef0-bd17-cfce-62ed-2db6459f7734",
+                            "time": 4.583333333333333,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "-30",
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "9be4b454-4abe-fef2-97b2-4c0d824009dd",
+                            "time": 4.833333333333333,
+                            "color": -1,
+                            "interpolation": "catmullrom"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "16b97d2f-5c3a-b019-a484-243e705eb349",
+                            "time": 5.083333333333333,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "-30",
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "5a3675db-65dc-b3cd-df01-54089d476c6d",
+                            "time": 5.333333333333333,
+                            "color": -1,
+                            "interpolation": "catmullrom"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "-0",
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "5441b085-bef9-7156-e1e0-ac9b74982b14",
+                            "time": 5.583333333333333,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "-30",
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "11a778a1-9a4c-d6cc-d92f-788072694c24",
+                            "time": 5.833333333333333,
+                            "color": -1,
+                            "interpolation": "catmullrom"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "1381c554-540b-4dc5-1818-5a3f6f2a4616",
+                            "time": 6.083333333333333,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "-30",
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "b1119d9c-c079-0886-7e37-bf6ef9ed4510",
+                            "time": 6.333333333333333,
+                            "color": -1,
+                            "interpolation": "catmullrom"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            ],
+                            "uuid": "a4548cd3-60b2-50d2-6691-84be407270ed",
+                            "time": 6.583333333333333,
+                            "color": -1,
+                            "interpolation": "linear"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

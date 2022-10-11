@@ -32,22 +32,14 @@ function setActionEnabled(actionNumber, enabled)
 	end
 end
 
----アクションを実行する。ウォーデンが近くにいる時は拒否アクションを実行する。
+---アクションを実行する。
 ---@param action function 実行するアクションの関数
 ---@param actionCancelFunction function アクションのキャンセル処理の関数
 ---@param ignoreCooldown boolean アニメーションのクールダウンを無視するかどうか
 function runAction(action, actionCancelFunction, ignoreCooldown)
 	if ActionCount == 0 or ignoreCooldown then
-		if WardenClass.WardenNearby then
-			General.setAnimations("PLAY", "refuse_emote")
-			FacePartsClass.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 30, true)
-			ActionCancelFunction = nil
-			ActionCount = 30
-			SweatCount = 30
-		else
-			action()
-			ActionCancelFunction = actionCancelFunction
-		end
+		action()
+		ActionCancelFunction = actionCancelFunction
 	end
 end
 
@@ -68,28 +60,42 @@ function ActionWheelClass.bodyShake()
 end
 
 --ping関数
+function pings.refuse_emote()
+	General.setAnimations("PLAY", "refuse_emote")
+	FacePartsClass.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 30, true)
+	ActionCancelFunction = nil
+	ActionCount = 30
+	SweatCount = 30
+	if host:isHost() then
+		print(LanguageClass.getTranslate("action_wheel__refuse_action"))
+	end
+end
+
 function pings.main_action1_left()
 	runAction(function ()
-		if BroomCleaningClass.CanBroomCleaning then
-			BroomCleaningClass.play()
-			ActionCount = 168
-		elseif host:isHost() then
-			print(LanguageClass.getTranslate("action_wheel__main__action_1__unavailable"))
-		end
+		BroomCleaningClass.play()
+		ActionCount = 168
 	end, function ()
 		BroomCleaningClass.stop()
 		ActionCount = 0
 	end, false)
 end
 
+function pings.main_action1_left_alt()
+	runAction(function ()
+		VacuumCleaningClass.play()
+		ActionCount = 281
+	end, function ()
+		VacuumCleaningClass.stop()
+		ActionCount = 0
+	end, false)
+end
+
+
 function pings.main_action1_right()
 	runAction(function ()
-		if BroomCleaningClass.CanBroomCleaning then
-			ClothCleaningClass.play()
-			ActionCount = 198
-		elseif host:isHost() then
-			print(LanguageClass.getTranslate("action_wheel__main__action_1__unavailable"))
-		end
+		ClothCleaningClass.play()
+		ActionCount = 198
 	end, function ()
 		ClothCleaningClass.stop()
 		ActionCount = 0
@@ -107,11 +113,7 @@ end
 
 function pings.main_action3_toggle()
 	runAction(function ()
-		if SitDownClass.CanSitDown then
-			SitDownClass.sitDown()
-		elseif host:isHost() then
-			print(LanguageClass.getTranslate("action_wheel__main__action_3__unavailable"))
-		end
+		SitDownClass.sitDown()
 	end, nil, true)
 end
 
@@ -121,12 +123,8 @@ end
 
 function pings.main_action4()
 	runAction(function ()
-		if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" then
-			EarpickClass.play()
-			ActionCount = 238
-		elseif host:isHost() then
-			print(LanguageClass.getTranslate("action_wheel__main__action_4__unavailable"))
-		end
+		EarpickClass.play()
+		ActionCount = 238
 	end, function ()
 		EarpickClass.stop()
 		ActionCount = 0
@@ -154,11 +152,11 @@ events.TICK:register(function ()
 	MainPage:getAction(6):title(LanguageClass.getTranslate("action_wheel__main__action_6__title").."§b"..displayName)
 	setActionEnabled(1, ActionCount == 0 and BroomCleaningClass.CanBroomCleaning)
 	setActionEnabled(2, ActionCount == 0 and not WardenClass.WardenNearby)
-	setActionEnabled(3, SitDownClass.CanSitDown)
+	setActionEnabled(3, ActionCount == 0 and SitDownClass.CanSitDown)
 	setActionEnabled(4, animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" and ActionCount == 0 and not WardenClass.WardenNearby)
 	local sitDownAction = MainPage:getAction(3)
-	sitDownAction:toggled(SitDownClass.CanSitDown and sitDownAction:isToggled())
-	if (HurtClass.Damaged ~= "NONE" and ActionCount > 0 and WardenClass.WardenNearby) or (animations["models.main"]["earpick"]:getPlayState() == "PLAYING" and animations["models.main"]["sit_down"]:getPlayState() ~= "PLAYING") or ((animations["models.main"]["broom_cleaning"]:getPlayState() == "PLAYING" or animations["models.main"]["cloth_cleaning"]:getPlayState() == "PLAYING") and not BroomCleaningClass.CanBroomCleaning) then
+	sitDownAction:toggled((ActionCount == 0 or animations["models.main"]["earpick"]:getPlayState() == "PLAYING" or (animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" and animations["models.main"]["shake"]:getPlayState() == "PLAYING")) and SitDownClass.CanSitDown and sitDownAction:isToggled())
+	if (HurtClass.Damaged ~= "NONE" and ActionCount > 0 and WardenClass.WardenNearby) or (animations["models.main"]["earpick"]:getPlayState() == "PLAYING" and animations["models.main"]["sit_down"]:getPlayState() ~= "PLAYING") or ((animations["models.main"]["broom_cleaning"]:getPlayState() == "PLAYING" or animations["models.main"]["vacuum_cleaning"]:getPlayState() == "PLAYING" or animations["models.main"]["cloth_cleaning"]:getPlayState() == "PLAYING") and not BroomCleaningClass.CanBroomCleaning) then
 		ActionCancelFunction();
 		ActionCount = 0
 	end
@@ -202,26 +200,58 @@ end)
 --メインページのアクション設定
 --アクション1. お掃除
 MainPage:newAction(1):item("amethyst_shard"):onLeftClick(function ()
-	pings.main_action1_left()
+	if BroomCleaningClass.CanBroomCleaning and ActionCount == 0 then
+		if math.random() > 0.9 then
+			pings.main_action1_left_alt()
+		else
+			pings.main_action1_left()
+		end
+	elseif WardenClass.WardenNearby then
+		pings.refuse_emote()
+	elseif ActionCount == 0 then
+		print(LanguageClass.getTranslate("action_wheel__main__action_1__unavailable"))
+	end
 end):onRightClick(function ()
-	pings.main_action1_right()
+	if BroomCleaningClass.CanBroomCleaning and ActionCount == 0 then
+		pings.main_action1_right()
+	elseif WardenClass.WardenNearby then
+		pings.refuse_emote()
+	elseif ActionCount == 0 then
+		print(LanguageClass.getTranslate("action_wheel__main__action_1__unavailable"))
+	end
 end)
 
 --アクション2. ブルブル
 MainPage:newAction(2):item("water_bucket"):onLeftClick(function()
-	pings.main_action2()
+	if ActionCount == 0 and not WardenClass.WardenNearby then
+		pings.main_action2()
+	elseif WardenClass.WardenNearby then
+		pings.refuse_emote()
+	end
 end)
 
 --アクション3. おすわり（正座）
 MainPage:newToggle(3):toggleColor(233 / 255, 160 / 255, 69 / 255):item("oak_stairs"):onToggle(function ()
-	pings.main_action3_toggle()
+	if SitDownClass.CanSitDown and ActionCount == 0 then
+		pings.main_action3_toggle()
+	elseif WardenClass.WardenNearby then
+		pings.refuse_emote()
+	elseif ActionCount == 0 then
+		print(LanguageClass.getTranslate("action_wheel__main__action_3__unavailable"))
+	end
 end):onUntoggle(function ()
 	pings.main_action3_untoggle()
 end)
 
 --アクション4. 耳かき
 MainPage:newAction(4):item("feather"):onLeftClick(function ()
-	pings.main_action4()
+	if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" and ActionCount == 0 then
+		pings.main_action4()
+	elseif WardenClass.WardenNearby then
+		pings.refuse_emote()
+	elseif ActionCount == 0 then
+		print(LanguageClass.getTranslate("action_wheel__main__action_4__unavailable"))
+	end
 end)
 
 MainPage:newScroll(5):item("leather_chestplate"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
