@@ -5,6 +5,7 @@
 SleepClass = {}
 
 SleepData = {}
+WardenNearbyPrev = false
 CostumeBeforeSleeping = "DEFAULT"
 
 events.TICK:register(function()
@@ -17,7 +18,12 @@ events.TICK:register(function()
 	end
 	if isSleeping then
 		if not SleepData[1] then
-			General.setAnimations("PLAY", "sleep")
+			if WardenClass.WardenNearby then
+				General.setAnimations("STOP", "afraid")
+				General.setAnimations("PLAY", "sleep_afraid")
+			else
+				General.setAnimations("PLAY", "sleep")
+			end
 			CostumeBeforeSleeping = CostumeClass.CurrentCostume
 			CostumeClass.setCostume("NIGHTWEAR")
 			head:setParentType("None")
@@ -36,13 +42,24 @@ events.TICK:register(function()
 				end
 			end
 		end
+		if WardenClass.WardenNearby and not WardenNearbyPrev then
+			General.setAnimations("STOP", "sleep")
+			General.setAnimations("PLAY", "sleep_afraid")
+		elseif not WardenClass.WardenNearby and WardenNearbyPrev then
+			General.setAnimations("PLAY", "sleep")
+			General.setAnimations("STOP", "sleep_afraid")
+		end
 		EarsClass.setEarsRot("DROOPING", 1, true)
 		if not WardenClass.WardenNearby then
 			FacePartsClass.setEmotion("CLOSED", "CLOSED", "CLOSED", 1, false)
 		end
 	else
 		if SleepData[1] then
+			if WardenClass.WardenNearby then
+				General.setAnimations("PLAY", "afraid")
+			end
 			General.setAnimations("STOP", "sleep")
+			General.setAnimations("STOP", "sleep_afraid")
 			if CostumeBeforeSleeping == "DEFAULT" then
 				CostumeClass.resetCostume()
 			else
@@ -54,6 +71,7 @@ events.TICK:register(function()
 			renderer:setCameraRot()
 		end
 	end
+	WardenNearbyPrev = WardenClass.WardenNearby and true or false
 end)
 
 return SleepClass
