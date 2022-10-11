@@ -21,10 +21,17 @@ WagTailCount = -1
 ---尻尾を振る
 function pings.wag_tail()
 	General.setAnimations("PLAY", "wag_tail")
-	WagTailCount = 9
+	WagTailCount = 25
 end
 
 events.TICK:register(function ()
+	if WetClass.WetCount == 0 then
+		if WagTailCount == 18 then
+			sounds:playSound("block.grass.step", player:getPos(), 1, 1)
+		elseif WagTailCount == 25 or WagTailCount == 13 then
+			sounds:playSound("block.grass.step", player:getPos(), 0.5, 1)
+		end
+	end
 	WagTailCount = WagTailCount > 0 and WagTailCount - 1 or 0
 end)
 

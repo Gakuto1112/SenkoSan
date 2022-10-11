@@ -35,7 +35,8 @@ end
 --ping関数
 function pings.jerk_ears()
 	General.setAnimations("PLAY", "jerk_ears")
-	WagTailCount = 5
+	sounds:playSound("entity.egg.throw", player:getPos(), 0.25, 2)
+	JerkEarsCount = 5
 end
 
 events.TICK:register(function ()
@@ -47,7 +48,7 @@ events.TICK:register(function ()
 end)
 
 JerkEarsKey.onPress = function ()
-	if JerkEarsCount == 0 then
+	if JerkEarsCount == 0 and CostumeClass.CurrentCostume ~= "DISGUISE" then
 		pings.jerk_ears()
 	end
 end

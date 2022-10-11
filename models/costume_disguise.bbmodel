@@ -1589,13 +1589,13 @@
     ],
     "animations": [
         {
-            "uuid": "94b42376-5082-b93a-3b13-8c29ea8e424b",
+            "uuid": "3a440f37-6c42-3d7a-2a30-260e34a76114",
             "name": "wag_tail",
             "loop": "once",
             "override": false,
-            "length": 0.4166666666666667,
+            "length": 1.25,
             "snapping": 24,
-            "selected": false,
+            "selected": true,
             "anim_time_update": "",
             "blend_weight": "",
             "start_delay": "",
@@ -1615,7 +1615,7 @@
                                 }
                             ],
                             "uuid": "d39e2816-83f5-c45e-f865-e1bf780cfd46",
-                            "time": 0.08333333333333333,
+                            "time": 0.3333333333333333,
                             "color": -1,
                             "interpolation": "linear"
                         },
@@ -1629,7 +1629,7 @@
                                 }
                             ],
                             "uuid": "b9f349e1-afed-b8f1-873e-eda0c0f26232",
-                            "time": 0.20833333333333334,
+                            "time": 0.5833333333333334,
                             "color": -1,
                             "interpolation": "linear"
                         },
@@ -1657,7 +1657,7 @@
                                 }
                             ],
                             "uuid": "2789af5a-5c78-93c8-17af-084485297c16",
-                            "time": 0.3333333333333333,
+                            "time": 0.9166666666666666,
                             "color": -1,
                             "interpolation": "linear"
                         },
@@ -1671,7 +1671,7 @@
                                 }
                             ],
                             "uuid": "fc1d276b-4fa9-2427-29f5-1576defe2f01",
-                            "time": 0.4166666666666667,
+                            "time": 1.25,
                             "color": -1,
                             "interpolation": "linear"
                         }
@@ -3055,7 +3055,7 @@
             "override": false,
             "length": 14,
             "snapping": 24,
-            "selected": true,
+            "selected": false,
             "anim_time_update": "",
             "blend_weight": "",
             "start_delay": "",
