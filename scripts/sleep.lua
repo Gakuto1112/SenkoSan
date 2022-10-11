@@ -36,7 +36,7 @@ events.TICK:register(function()
 				end
 			end
 		end
-		EarsClass.SetEarsRot("DROOPING", 1, true)
+		EarsClass.setEarsRot("DROOPING", 1, true)
 		if not WardenClass.WardenNearby then
 			FacePartsClass.setEmotion("CLOSED", "CLOSED", "CLOSED", 1, false)
 		end

@@ -23,6 +23,7 @@ function ClothCleaningClass.stop()
 	end
 	models.models.cloth_cleaning.Avatar.Body.Arms.RightArm:setParentType("RightArm")
 	General.setAnimations("STOP", "cloth_cleaning")
+	FacePartsClass:resetEmotion()
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 	for _, modelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
 		modelPart:setVisible(true)

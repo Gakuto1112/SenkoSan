@@ -20,6 +20,7 @@ function BroomCleaningClass.stop()
 	models.models.broom_cleaning:setVisible(false)
 	General.setAnimations("STOP", "broom_cleaning")
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+	FacePartsClass:resetEmotion()
 	for _, modelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
 		modelPart:setVisible(true)
 	end

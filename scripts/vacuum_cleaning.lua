@@ -20,6 +20,8 @@ function VacuumCleaningClass.stop()
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 	end
 	General.setAnimations("STOP", "vacuum_cleaning")
+	FacePartsClass:resetEmotion()
+	EarsClass.resetEarsRot()
 	for _, modelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
 		modelPart:setVisible(true)
 	end
@@ -51,7 +53,7 @@ events.TICK:register(function ()
 		if VacuumCleaningAnimationCount <= 231 and VacuumCleaningAnimationCount > 192 then
 			if VacuumCleaningAnimationCount == 231 then
 				FacePartsClass.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 39, true)
-				EarsClass.SetEarsRot("DROOPING", 230, true)
+				EarsClass.setEarsRot("DROOPING", 230, true)
 			end
 			sounds:playSound("entity.experience_orb.pickup", player:getPos(), 0.25, 1.5)
 		elseif VacuumCleaningAnimationCount <= 189 and VacuumCleaningAnimationCount >= 149 and (VacuumCleaningAnimationCount - 149) % 10 == 0 then

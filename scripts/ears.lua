@@ -16,15 +16,20 @@ EarsRotCount = 0
 JerkEarsKey = keybind:create(LanguageClass.getTranslate("key_name__jerk_ears"), "key.keyboard.x")
 JerkEarsCount = 0
 
----耳の角度を決定する。
+---耳の角度を設定する。
 ---@param earRot EarsRotType 設定する耳の垂れ具合
 ---@param duration integer この耳の角度をを有効にする時間
 ---@param force boolean trueにすると以前のタイマーが残っていても強制的に適用する。
-function EarsClass.SetEarsRot(earRot, duration, force)
+function EarsClass.setEarsRot(earRot, duration, force)
 	if EarsRotCount == 0 or force then
 		models.models.main.Avatar.Head.Ears:setRot(EarsRotTypeID[earRot], 0, 0)
 		EarsRotCount = duration
 	end
+end
+
+---耳の角度をリセットする。
+function EarsClass.resetEarsRot()
+	EarsRotCount = 0
 end
 
 --ping関数
@@ -35,7 +40,7 @@ end
 
 events.TICK:register(function ()
 	if EarsRotCount == 0 then
-		EarsClass.SetEarsRot((General.PlayerCondition == "LOW" or player:getFrozenTicks() == 140) and "DROOPING" or (General.PlayerCondition == "MEDIUM" and "SLIGHTLY_DROOPING" or "STAND"), 0, false)
+		EarsClass.setEarsRot((General.PlayerCondition == "LOW" or player:getFrozenTicks() == 140) and "DROOPING" or (General.PlayerCondition == "MEDIUM" and "SLIGHTLY_DROOPING" or "STAND"), 0, false)
 	end
 	EarsRotCount = EarsRotCount > 0 and (client:isPaused() and EarsRotCount or EarsRotCount - 1) or 0
 	JerkEarsCount = JerkEarsCount > 0 and (client:isPaused() and JerkEarsCount or JerkEarsCount - 1) or 0

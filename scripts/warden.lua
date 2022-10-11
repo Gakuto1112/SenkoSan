@@ -26,7 +26,7 @@ events.TICK:register(function()
 		if not WardenNearbyData[1] then
 			General.setAnimations("PLAY", "afraid")
 		end
-		EarsClass.SetEarsRot("DROOPING", 1, true)
+		EarsClass.setEarsRot("DROOPING", 1, true)
 		FacePartsClass.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 0, false)
 	else
 		General.setAnimations("STOP", "afraid")

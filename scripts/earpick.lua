@@ -23,6 +23,7 @@ function EarpickClass.stop()
 	end
 	General.setAnimations("STOP", "earpick")
 	General.setAnimations("STOP", "earpick_arm_fix")
+	FacePartsClass:resetEmotion()
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 	for _, modelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
 		modelPart:setVisible(true)

@@ -52,6 +52,11 @@ function FacePartsClass.setEmotion(rightEye, leftEye, mouth, duration, force)
 	end
 end
 
+---表情をリセットする。
+function FacePartsClass.resetEmotion()
+	EmotionCount = 0
+end
+
 events.TICK:register(function ()
 	if EmotionCount == 0 then
 		if General.PlayerCondition == "LOW" then
