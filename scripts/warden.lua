@@ -9,7 +9,7 @@ WardenNearbyData = {}
 WardenClass.WardenNearby = false
 
 events.TICK:register(function()
-	WardenClass.WardenNearby = General.getStatusEffect("darkness")
+	WardenClass.WardenNearby = General.getStatusEffect("darkness") and true or false
 	if WardenClass.WardenNearby then
 		if not WardenNearbyData[1] and player:getPose() ~= "SLEEPING" then
 			General.setAnimations("PLAY", "afraid")
@@ -21,7 +21,7 @@ events.TICK:register(function()
 		General.setAnimations("STOP", "right_hide_bell")
 		General.setAnimations("STOP", "left_hide_bell")
 	end
-	table.insert(WardenNearbyData, WardenClass.WardenNearby and true or false)
+	table.insert(WardenNearbyData, WardenClass.WardenNearby)
 	if #WardenNearbyData == 2 then
 		table.remove(WardenNearbyData, 1)
 	end

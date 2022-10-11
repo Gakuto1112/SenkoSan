@@ -9,7 +9,8 @@ WardenNearbyPrev = false
 CostumeBeforeSleeping = "DEFAULT"
 
 events.TICK:register(function()
-	local head = models.models.main.Avatar.Head
+	local mainModel = models.models.main
+	local head = mainModel.Avatar.Head
 	local isSleeping = player:getPose() == "SLEEPING"
 	local isFirstPerson = renderer:isFirstPerson()
 	table.insert(SleepData, isSleeping)
@@ -29,7 +30,7 @@ events.TICK:register(function()
 			head:setParentType("None")
 			ArmsClass.ItemHeldContradicts = {true, true}
 			if isFirstPerson then
-				head:setVisible(false)
+				mainModel:setVisible(false)
 			else
 				local sleepBlock = world.getBlockState(player:getPos())
 				if string.find(sleepBlock.id, "^minecraft:.+bed$") then
@@ -66,12 +67,12 @@ events.TICK:register(function()
 				CostumeClass.setCostume(CostumeBeforeSleeping)
 			end
 			head:setParentType("Head")
-			head:setVisible(true)
+			mainModel:setVisible(true)
 			ArmsClass.ItemHeldContradicts = {false, false}
 			renderer:setCameraRot()
 		end
 	end
-	WardenNearbyPrev = WardenClass.WardenNearby and true or false
+	WardenNearbyPrev = WardenClass.WardenNearby
 end)
 
 return SleepClass
