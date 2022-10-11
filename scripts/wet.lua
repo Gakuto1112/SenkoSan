@@ -36,8 +36,11 @@ events.TICK:register(function()
 			table.remove(dataTable, 1)
 		end
 	end
+	local tail = models.models.main.Avatar.Body.BodyBottom.Tail
 	if player:isWet() then
 		WetClass.WetCount = player:isInWater() and 1200 or WetClass.WetCount + 4
+		EarsClass.setEarsRot("DROOPING", 1, true)
+		tail:setScale(0.5, 0.5, 1)
 		AutoShakeCount = 0
 	elseif WetClass.WetCount > 0 then
 		if WetClass.WetCount % 5 == 0 then
@@ -45,6 +48,8 @@ events.TICK:register(function()
 				particles:addParticle("minecraft:falling_water", playerPos.x + math.random() - 0.5, playerPos.y + math.random() + 0.5, playerPos.z + math.random() - 0.5)
 			end
 		end
+		tail:setScale(0.5, 0.5, 1)
+		EarsClass.setEarsRot("DROOPING", 1, true)
 		if JumpKey:isPressed() and OnGroundData[1] and velocity.y > 0 and VelocityYData[1] <= 0 then
 			sounds:playSound("minecraft:entity.cod.flop", playerPos, WetClass.WetCount / 1200, 1)
 		end
@@ -59,6 +64,8 @@ events.TICK:register(function()
 		if not paused then
 			WetClass.WetCount = WetClass.WetCount - 1
 		end
+	else
+		tail:setScale(1, 1, 1)
 	end
 end)
 
