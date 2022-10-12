@@ -138,5 +138,7 @@ ConfigClass.HideArmor = true
 - 不具合がありましたら、[Issues](https://github.com/Gakuto1112/SenkoSan/issues)までご連絡下さい。
 
 ## リンク集
+- [Figura（CurseForge）](https://www.curseforge.com/minecraft/mc-mods/figura)
+- [Figura（Modrinth）](https://modrinth.com/mod/figura)
 - [TVアニメ「世話やきキツネの仙狐さん」オフィシャルサイト](http://senkosan.com/)
 - [Amazon.co.jp_ 世話やきキツネの仙狐さんを観る _ Prime Video](https://www.amazon.co.jp/gp/video/detail/B07QJG9NP7)
