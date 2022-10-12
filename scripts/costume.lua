@@ -47,4 +47,8 @@ for _, modelPart in ipairs({models.models.costume_disguise.Avatar.Body.BodyBotto
 	modelPart:setParentType("None")
 end
 
+if ConfigClass.DefaultCostume > 1 then
+	CostumeClass.setCostume(string.upper(CostumeClass.CostumeList[ConfigClass.DefaultCostume]))
+end
+
 return CostumeClass
