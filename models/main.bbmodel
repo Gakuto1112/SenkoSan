@@ -4174,6 +4174,87 @@
             },
             "type": "cube",
             "uuid": "63b4c07f-4306-47c6-e800-5b5b3f2549b2"
+        },
+        {
+            "name": "Glasses",
+            "rescale": false,
+            "locked": false,
+            "from": [
+                -4,
+                24,
+                -4
+            ],
+            "to": [
+                4,
+                32,
+                -4
+            ],
+            "autouv": 0,
+            "color": 6,
+            "inflate": 0.5,
+            "origin": [
+                0,
+                24,
+                0
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        0,
+                        0,
+                        104,
+                        112
+                    ],
+                    "texture": 1
+                },
+                "east": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                },
+                "south": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                },
+                "west": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                },
+                "up": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                },
+                "down": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                }
+            },
+            "type": "cube",
+            "uuid": "ebc31522-7d03-b10c-73e3-332e34764769"
         }
     ],
     "outliner": [
@@ -4209,6 +4290,7 @@
                     "children": [
                         "86724f8f-5a95-f7c3-bda6-cb5ccecf61a6",
                         "8faefb19-fd03-eb91-6fb9-bb76c095bdaa",
+                        "ebc31522-7d03-b10c-73e3-332e34764769",
                         {
                             "name": "FaceParts",
                             "origin": [
@@ -4725,6 +4807,21 @@
             "uuid": "209a5f9f-2f9f-2443-33dd-4914eca009fb",
             "relative_path": "../../textures/main.png",
             "source": "data:image/png;base64,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"
+        },
+        {
+            "path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabric\u30d0\u30cb\u30e9\\figura\\avatars\\SenkoSan\\textures\\glasses.png",
+            "name": "glasses.png",
+            "folder": "",
+            "namespace": "",
+            "id": "1",
+            "particle": false,
+            "render_mode": "default",
+            "visible": true,
+            "mode": "bitmap",
+            "saved": true,
+            "uuid": "8ac25dc7-eb4d-777f-a607-f58b6ea81088",
+            "relative_path": "../../textures/glasses.png",
+            "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAACBJREFUKFNjZCAAGIeMgo2P/9eDHOsvy9gIopH5BH0BAJLbCAn6uP5hAAAAAElFTkSuQmCC"
         }
     ],
     "animations": [
@@ -12884,7 +12981,7 @@
             "override": false,
             "length": 0.16666666666666666,
             "snapping": 24,
-            "selected": true,
+            "selected": false,
             "anim_time_update": "",
             "blend_weight": "",
             "start_delay": "",
