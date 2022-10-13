@@ -96,7 +96,7 @@ events.RENDER:register(function ()
 			if CostumeClass.CurrentCostume == "DISGUISE" then
 				disguiseTail:setRot(tailRot)
 			end
-			if ArmorClass.IsChestplateVisible then
+			if ArmorClass.ArmorVisible[2] then
 				tailArmor:setRot(tailRot)
 			end
 		end
@@ -105,7 +105,7 @@ events.RENDER:register(function ()
 		if CostumeClass.CurrentCostume == "DISGUISE" then
 			disguiseTail:setRot(0, 0, 0)
 		end
-		if ArmorClass.IsChestplateVisible then
+		if ArmorClass.ArmorVisible[2] then
 			tailArmor:setRot(0, 0, 0)
 		end
 	end

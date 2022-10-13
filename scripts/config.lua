@@ -18,7 +18,7 @@ ConfigClass = {}
 	Insted of that, please change configs by editing config file (/sripts/config.lua) directly.
 ]]
 
-ConfigClass.DefaultCostume = 1 --1. いつものコスチューム Default coustume, 2. 変装 Disguise costume
+ConfigClass.DefaultCostume = 1 --1. いつものコスチューム Default coustume, 2. 変装 Disguise costume, 3. メイド服A Maid costume A
 ConfigClass.DefaultName = 3 --1. プレイヤー名 Player name, 2. "Senko_san", 3. "仙狐さん"
 ConfigClass.AutoShake = true
 ConfigClass.HideArmor = true

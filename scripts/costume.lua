@@ -47,9 +47,15 @@ function CostumeClass.resetCostume()
 end
 
 events.TICK:register(function ()
-	models.models.costume_disguise.Avatar.Head.Hat:setVisible(CostumeClass.CurrentCostume == "DISGUISE" and (ConfigClass.HideArmor or not string.find(General.hasItem(player:getItem(6)), "helmet$")))
+	models.models.costume_disguise.Avatar.Head.Hat:setVisible(CostumeClass.CurrentCostume == "DISGUISE" and not ArmorClass.ArmorVisible[1])
 	if CostumeClass.CurrentCostume == "MAID_A" then
 		models.models.costume_maid_a.Avatar.Body.BodyBottom.Skirt:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
+		models.models.costume_maid_a.Avatar.Head:setVisible(not ArmorClass.ArmorVisible[1])
+		models.models.costume_maid_a.Avatar.Body:setVisible(not ArmorClass.ArmorVisible[3])
+	else
+		for _, modelsPart in ipairs({models.models.costume_maid_a.Avatar.Head, models.models.costume_maid_a.Avatar.Body}) do
+			modelsPart:setVisible(false)
+		end
 	end
 end)
 

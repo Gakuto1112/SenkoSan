@@ -1,7 +1,7 @@
 ---@class ArmorClass 防具の表示を制御するクラス
 ---@field ModelRoot CustomModelPart モデルのルートパス
 ---@field ArmorRoot CustomModelPart 防具モデルのルートパス
----@field ArmorClass.IsChestplateVisible boolean チェストプレートが可視かどうか
+---@field ArmorClass.ArmorVisible table 各防具の部位（ヘルメット、チェストプイート、レギンス、ブーツ）が可視状態かどうか。
 
 ---@alias ArmorType
 ---| "HELMET"
@@ -13,7 +13,7 @@ ArmorClass = {}
 
 ModelRoot = models.models.main
 ArmorRoot = models.models.armor
-ArmorClass.IsChestplateVisible = false
+ArmorClass.ArmorVisible = {false, false, false, false}
 
 ---防具の設定。有効な防具であれば、trueを返す。
 ---@param armorItem ItemStack 対象の防具のアイテムスタック
@@ -108,39 +108,49 @@ events.TICK:register(function()
 		local helmetItem = player:getItem(6)
 		local playerPose = player:getPose()
 		local isSleeping = renderer:isFirstPerson() and playerPose == "SLEEPING"
-		helmet:setVisible(setArmor(helmetItem, "HELMET", {helmet}, {helmet.HelmetOverlay}) and not isSleeping)
+		if setArmor(helmetItem, "HELMET", {helmet}, {helmet.HelmetOverlay}) and not isSleeping then
+			helmet:setVisible(true)
+			ArmorClass.ArmorVisible[1] = true
+		else
+			helmet:setVisible(false)
+			ArmorClass.ArmorVisible[1] = false
+		end
 		if setArmor(player:getItem(5), "CHESTPLATE", chetplate, {ArmorRoot.Avatar.Body.Chestplate.ChestplateOverlay, ArmorRoot.Avatar.Body.BodyBottom.ChestplateBottom.ChestplateBottomOverlay, ArmorRoot.Avatar.Body.Arms.RightArm.RightChestplate.RightChestplateOverlay, ArmorRoot.Avatar.Body.Arms.LeftArm.LeftChestplate.LeftChestplateOverlay, ArmorRoot.Avatar.Body.Arms.RightArm.RightChestplate.RightChestplateOverlay, ArmorRoot.Avatar.Body.Arms.RightArm.RightArmBottom.RightChestplateBottom.RightChestplateBottomOverlay, ArmorRoot.Avatar.Body.Arms.LeftArm.LeftChestplate.LeftChestplateOverlay, ArmorRoot.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftChestplateBottom.LeftChestplateBottomOverlay}) and not isSleeping then
 			for i = 1, 2 do
 				chetplate[i]:setVisible(true)
 			end
 			models.models.armor.Avatar.Body.BodyBottom.Tail:setVisible(true)
 			setArmArmor(true)
-			ArmorClass.IsChestplateVisible = true
+			ArmorClass.ArmorVisible[2] = true
 		else
 			for i = 1, 2 do
 				chetplate[i]:setVisible(false)
 			end
 			models.models.armor.Avatar.Body.BodyBottom.Tail:setVisible(false)
 			setArmArmor(false)
-			ArmorClass.IsChestplateVisible = false
+			ArmorClass.ArmorVisible[2] = false
 		end
 		if setArmor(player:getItem(4),"LEGGINGS", leggings, {ArmorRoot.Avatar.Body.Leggings.LeggingsOverlay, ArmorRoot.Avatar.Body.BodyBottom.LeggingsBottom.LeggingsBottomOverlay, ArmorRoot.Avatar.Body.BodyBottom.Legs.RightLeg.RightLeggings.RightLeggingsOverlay, ArmorRoot.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.RightLeggingsBottom.RightLeggingsBottomOverlay, ArmorRoot.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLeggings.LeftLeggingsOverlay, ArmorRoot.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.LeftLeggingsBottom.LeftLeggingsBottomOverlay}) and not isSleeping then
 			for _, armorPart in ipairs(leggings) do
 				armorPart:setVisible(true)
 			end
+			ArmorClass.ArmorVisible[3] = true
 		else
 			for _, armorPart in ipairs(leggings) do
 				armorPart:setVisible(false)
 			end
+			ArmorClass.ArmorVisible[3] = false
 		end
 		if setArmor(player:getItem(3), "BOOTS", boots, {ArmorRoot.Avatar.Body.BodyBottom.Legs.RightLeg.RightBoots.RightBootsOverlay, ArmorRoot.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.RightBootsBottom.RightBootsBottomOverlay, ArmorRoot.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftBoots.LeftBootsOverlay, ArmorRoot.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.LeftBootsBottom.LeftBootsBottomOverlay}) and not isSleeping then
 			for _, armorPart in ipairs(boots) do
 				armorPart:setVisible(true)
 			end
+			ArmorClass.ArmorVisible[4] = true
 		else
 			for _, armorPart in ipairs(boots) do
 				armorPart:setVisible(false)
 			end
+			ArmorClass.ArmorVisible[4] = false
 		end
 		ArmorRoot.Avatar.Head:setParentType(playerPose == "SLEEPING" and "None" or "Head")
 		if playerPose == "CROUCHING" then
@@ -167,7 +177,7 @@ events.TICK:register(function()
 			end
 		end
 	else
-		ArmorClass.IsChestplateVisible = false
+		ArmorClass.ArmorVisible = {false, false, false, false}
 	end
 end)
 
