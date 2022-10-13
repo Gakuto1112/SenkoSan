@@ -172,7 +172,7 @@ events.TICK:register(function ()
 		if PlayerNameState ~= CurrentPlayerNameState then
 			pings.main_action6_name_change(PlayerNameState)
 			if host:isHost() then
-				sounds:playSound("minecraft:entity.player.levelup", player:getPos(), 1, 2)
+				sounds:playSound("minecraft:ui.cartography_table.take_result", player:getPos(), 1, 1)
 				print(LanguageClass.getTranslate("action_wheel__main__action_6__name_change_done_first")..displayName..LanguageClass.getTranslate("action_wheel__main__action_6__name_change_done_last"))
 			end
 		end
