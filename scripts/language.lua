@@ -23,12 +23,12 @@ LanguageData = {
 		action_wheel__main_1__action_3__title = "Sit down",
 		action_wheel__main_1__action_4__title = "Earpick",
 		action_wheel__main_1__action_4__unavailable = "I will clean your ears after I sit down!",
-		action_wheel__main_1__action_5__title = "What costume should I wear? (scroll): ",
-		action_wheel__main_1__action_5__name_change_done_first = "I changed my clothers to §b",
-		action_wheel__main_1__action_5__name_change_done_last = "§r!",
-		action_wheel__main_1__action_6__title = "What should I be called? (scroll): ",
-		action_wheel__main_1__action_6__name_change_done_first = "I changed my name to §b",
-		action_wheel__main_1__action_6__name_change_done_last = "§r!"
+		action_wheel__main_2__action_1__title = "What costume should I wear? (scroll): ",
+		action_wheel__main_2__action_1__done_first = "I changed my clothers to §b",
+		action_wheel__main_2__action_1__done_last = "§r!",
+		action_wheel__main_2__action_2__title = "What should I be called? (scroll): ",
+		action_wheel__main_2__action_2__done_first = "I changed my name to §b",
+		action_wheel__main_2__action_2__done_last = "§r!"
 	},
 	jp = {
 		key_name__wag_tail = "尻尾フリフリ",
@@ -48,12 +48,12 @@ LanguageData = {
 		action_wheel__main_1__action_3__title = "おすわり",
 		action_wheel__main_1__action_4__title = "耳かき",
 		action_wheel__main_1__action_4__unavailable = "座ってから耳かきをするかのう。",
-		action_wheel__main_1__action_5__title = "わらわは何を着ればよいのじゃ？（スクロール）：",
-		action_wheel__main_1__action_5__name_change_done_first = "§b",
-		action_wheel__main_1__action_5__name_change_done_last = "§rに着替えたのじゃ。",
-		action_wheel__main_1__action_6__title = "わらわは何と呼ばれればよいのじゃ？（スクロール）: ",
-		action_wheel__main_1__action_6__name_change_done_first = "わらわの呼び名を§b",
-		action_wheel__main_1__action_6__name_change_done_last = "§rに変更したのじゃ。"
+		action_wheel__main_2__action_1__title = "わらわは何を着ればよいのじゃ？（スクロール）：",
+		action_wheel__main_2__action_1__done_first = "§b",
+		action_wheel__main_2__action_1__done_last = "§rに着替えたのじゃ。",
+		action_wheel__main_2__action_2__title = "わらわは何と呼ばれればよいのじゃ？（スクロール）: ",
+		action_wheel__main_2__action_2__done_first = "わらわの呼び名を§b",
+		action_wheel__main_2__action_2__done_last = "§rに変更したのじゃ。"
 	}
 }
 ActiveLanguage = client:getActiveLang() == "ja_jp" and "jp" or "en"

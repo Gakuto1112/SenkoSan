@@ -72,7 +72,7 @@ function pings.refuse_emote()
 	end
 end
 
-function pings.main_action1_left()
+function pings.main1_action1_left()
 	runAction(function ()
 		BroomCleaningClass.play()
 		ActionCount = 168
@@ -82,7 +82,7 @@ function pings.main_action1_left()
 	end, false)
 end
 
-function pings.main_action1_left_alt()
+function pings.main1_action1_left_alt()
 	runAction(function ()
 		VacuumCleaningClass.play()
 		ActionCount = 281
@@ -92,8 +92,7 @@ function pings.main_action1_left_alt()
 	end, false)
 end
 
-
-function pings.main_action1_right()
+function pings.main1_action1_right()
 	runAction(function ()
 		ClothCleaningClass.play()
 		ActionCount = 198
@@ -103,7 +102,7 @@ function pings.main_action1_right()
 	end, false)
 end
 
-function pings.main_action2()
+function pings.main1_action2()
 	runAction(function()
 		ActionWheelClass.bodyShake()
 	end, function()
@@ -112,17 +111,17 @@ function pings.main_action2()
 	end, false)
 end
 
-function pings.main_action3_toggle()
+function pings.main1_action3_toggle()
 	runAction(function ()
 		SitDownClass.sitDown()
 	end, nil, true)
 end
 
-function pings.main_action3_untoggle()
+function pings.main1_action3_untoggle()
 	SitDownClass.standUp()
 end
 
-function pings.main_action4()
+function pings.main1_action4()
 	runAction(function ()
 		EarpickClass.play()
 		ActionCount = 238
@@ -132,7 +131,7 @@ function pings.main_action4()
 	end, false)
 end
 
-function pings.main_action5_custume_change(costumeID)
+function pings.main2_action1_custume_change(costumeID)
 	if costumeID == 1 then
 		CostumeClass.resetCostume()
 	else
@@ -141,16 +140,16 @@ function pings.main_action5_custume_change(costumeID)
 	CurrentCostumeState = costumeID
 end
 
-function pings.main_action6_name_change(nameID)
+function pings.main2_action2_name_change(nameID)
 	NameplateClass.setName(nameID == 1 and player:getName() or (nameID == 2 and "Senko_san" or "仙狐さん"))
 	CurrentPlayerNameState = nameID
 end
 
 events.TICK:register(function ()
 	local costumeName = LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[CostumeState])
-	MainPages[1]:getAction(5):title(LanguageClass.getTranslate("action_wheel__main_1__action_5__title").."§b"..costumeName)
+	MainPages[2]:getAction(1):title(LanguageClass.getTranslate("action_wheel__main_2__action_1__title").."§b"..costumeName)
 	local displayName = PlayerNameState == 1 and player:getName() or (PlayerNameState == 2 and "Senko_san" or "仙狐さん")
-	MainPages[1]:getAction(6):title(LanguageClass.getTranslate("action_wheel__main_1__action_6__title").."§b"..displayName)
+	MainPages[2]:getAction(2):title(LanguageClass.getTranslate("action_wheel__main_2__action_2__title").."§b"..displayName)
 	setActionEnabled(1, 1, ActionCount == 0 and BroomCleaningClass.CanBroomCleaning)
 	setActionEnabled(1, 2, ActionCount == 0 and not WardenClass.WardenNearby)
 	setActionEnabled(1, 3, ActionCount == 0 and SitDownClass.CanSitDown)
@@ -164,17 +163,17 @@ events.TICK:register(function ()
 	local isOpenActionWheel = action_wheel:isEnabled()
 	if not isOpenActionWheel and IsOpenActionWheelPrev then
 		if CostumeState ~= CurrentCostumeState then
-			pings.main_action5_custume_change(CostumeState)
+			pings.main2_action1_custume_change(CostumeState)
 			if host:isHost() then
 				sounds:playSound("minecraft:item.armor.equip_leather", player:getPos())
-				print(LanguageClass.getTranslate("action_wheel__main_1__action_5__name_change_done_first")..costumeName..LanguageClass.getTranslate("action_wheel__main_1__action_5__name_change_done_last"))
+				print(LanguageClass.getTranslate("action_wheel__main_2__action_1__done_first")..costumeName..LanguageClass.getTranslate("action_wheel__main_2__action_1__done_last"))
 			end
 		end
 		if PlayerNameState ~= CurrentPlayerNameState then
-			pings.main_action6_name_change(PlayerNameState)
+			pings.main2_action2_name_change(PlayerNameState)
 			if host:isHost() then
 				sounds:playSound("minecraft:ui.cartography_table.take_result", player:getPos(), 1, 1)
-				print(LanguageClass.getTranslate("action_wheel__main_1__action_6__name_change_done_first")..displayName..LanguageClass.getTranslate("action_wheel__main_1__action_6__name_change_done_last"))
+				print(LanguageClass.getTranslate("action_wheel__main_2__action_2__done_first")..displayName..LanguageClass.getTranslate("action_wheel__main_2__action_2__done_last"))
 			end
 		end
 	end
@@ -204,24 +203,24 @@ MainPages[1]:newAction(1):item("amethyst_shard"):onLeftClick(function ()
 	if ActionCount == 0 then
 		if BroomCleaningClass.CanBroomCleaning then
 			if math.random() > 0.9 then
-				pings.main_action1_left_alt()
+				pings.main1_action1_left_alt()
 			else
-				pings.main_action1_left()
+				pings.main1_action1_left()
 			end
 		elseif WardenClass.WardenNearby then
 			pings.refuse_emote()
 		else
-			print(LanguageClass.getTranslate("action_wheel__main__action_1__unavailable"))
+			print(LanguageClass.getTranslate("action_wheel__main_1__action_1__unavailable"))
 		end
 	end
 end):onRightClick(function ()
 	if ActionCount == 0 then
 		if BroomCleaningClass.CanBroomCleaning then
-			pings.main_action1_right()
+			pings.main1_action1_right()
 		elseif WardenClass.WardenNearby then
 			pings.refuse_emote()
 		else
-			print(LanguageClass.getTranslate("action_wheel__main__action_1__unavailable"))
+			print(LanguageClass.getTranslate("action_wheel__main_1__action_1__unavailable"))
 		end
 	end
 end)
@@ -232,7 +231,7 @@ MainPages[1]:newAction(2):item("water_bucket"):onLeftClick(function()
 		if WardenClass.WardenNearby then
 			pings.refuse_emote()
 		else
-			pings.main_action2()
+			pings.main1_action2()
 		end
 	end
 end)
@@ -241,32 +240,32 @@ end)
 MainPages[1]:newToggle(3):toggleColor(233 / 255, 160 / 255, 69 / 255):item("oak_stairs"):onToggle(function ()
 	if ActionCount == 0 then
 		if SitDownClass.CanSitDown then
-			pings.main_action3_toggle()
+			pings.main1_action3_toggle()
 		elseif WardenClass.WardenNearby then
 			pings.refuse_emote()
 		else
-			print(LanguageClass.getTranslate("action_wheel__main__action_3__unavailable"))
+			print(LanguageClass.getTranslate("action_wheel__main_1__action_3__unavailable"))
 		end
 	end
 end):onUntoggle(function ()
-	pings.main_action3_untoggle()
+	pings.main1_action3_untoggle()
 end)
 
 --アクション1-4. 耳かき
 MainPages[1]:newAction(4):item("feather"):onLeftClick(function ()
 	if ActionCount == 0 then
 		if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" then
-			pings.main_action4()
+			pings.main1_action4()
 		elseif WardenClass.WardenNearby then
 			pings.refuse_emote()
 		else
-			print(LanguageClass.getTranslate("action_wheel__main__action_4__unavailable"))
+			print(LanguageClass.getTranslate("action_wheel__main_1__action_4__unavailable"))
 		end
 	end
 end)
 
---アクション1-5. 着替え
-MainPages[1]:newScroll(5):item("leather_chestplate"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+--アクション2-1. 着替え
+MainPages[2]:newScroll(1):item("leather_chestplate"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
 	if direction == -1 then
 		CostumeState = CostumeState == #CostumeClass.CostumeList and 1 or CostumeState + 1
 	else
@@ -274,8 +273,8 @@ MainPages[1]:newScroll(5):item("leather_chestplate"):color(200 / 255, 200 / 255,
 	end
 end)
 
---アクション1-6. プレイヤーの表示名変更
-MainPages[1]:newScroll(6):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+--アクション2-2. プレイヤーの表示名変更
+MainPages[2]:newScroll(2):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
 	if direction == -1 then
 		PlayerNameState = PlayerNameState == 3 and 1 or PlayerNameState + 1
 	else
