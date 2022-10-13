@@ -21,6 +21,14 @@ CostumeState = ConfigClass.DefaultCostume
 CurrentPlayerNameState = ConfigClass.DefaultName
 PlayerNameState = ConfigClass.DefaultName
 
+---アニメーションが再生中かどうかを返す
+---@param modelName string モデル名
+---@param animationName string アニメーションが名
+---@return boolean
+function isAnimationPlaying(modelName, animationName)
+	return animations[modelName][animationName]:getPlayState() == "PLAYING"
+end
+
 ---アクションの色の有効色/無効色の切り替え
 ---@param pageNumber integer メインアクションのページ番号
 ---@param actionNumber integer pageNumber内のアクションの番号
@@ -131,6 +139,16 @@ function pings.main1_action4()
 	end, false)
 end
 
+function pings.main1_action5()
+	runAction(function ()
+		TeaTimeClass.play()
+		ActionCount = 250
+	end, function ()
+		TeaTimeClass.stop()
+		ActionCount = 0
+	end, false)
+end
+
 function pings.main2_action1_custume_change(costumeID)
 	if costumeID == 1 then
 		CostumeClass.resetCostume()
@@ -153,10 +171,12 @@ events.TICK:register(function ()
 	setActionEnabled(1, 1, ActionCount == 0 and BroomCleaningClass.CanBroomCleaning)
 	setActionEnabled(1, 2, ActionCount == 0 and not WardenClass.WardenNearby)
 	setActionEnabled(1, 3, ActionCount == 0 and SitDownClass.CanSitDown)
-	setActionEnabled(1, 4, animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" and ActionCount == 0 and not WardenClass.WardenNearby)
+	for i = 4, 5 do
+		setActionEnabled(1, i, isAnimationPlaying("models.main", "sit_down") and ActionCount == 0 and not WardenClass.WardenNearby)
+	end
 	local sitDownAction = MainPages[1]:getAction(3)
-	sitDownAction:toggled((ActionCount == 0 or animations["models.main"]["earpick"]:getPlayState() == "PLAYING" or (animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" and animations["models.main"]["shake"]:getPlayState() == "PLAYING")) and SitDownClass.CanSitDown and sitDownAction:isToggled())
-	if (HurtClass.Damaged ~= "NONE" and ActionCount > 0 and WardenClass.WardenNearby) or (animations["models.main"]["earpick"]:getPlayState() == "PLAYING" and animations["models.main"]["sit_down"]:getPlayState() ~= "PLAYING") or ((animations["models.main"]["broom_cleaning"]:getPlayState() == "PLAYING" or animations["models.main"]["vacuum_cleaning"]:getPlayState() == "PLAYING" or animations["models.main"]["cloth_cleaning"]:getPlayState() == "PLAYING") and not BroomCleaningClass.CanBroomCleaning) then
+	sitDownAction:toggled((ActionCount == 0 or isAnimationPlaying("models.main", "earpick") or isAnimationPlaying("models.main", "tea_time") or (isAnimationPlaying("models.main", "sit_down") and isAnimationPlaying("models.main", "shake"))) and SitDownClass.CanSitDown and sitDownAction:isToggled())
+	if (HurtClass.Damaged ~= "NONE" and ActionCount > 0 and WardenClass.WardenNearby) or ((isAnimationPlaying("models.main", "earpick") or isAnimationPlaying("models.main", "tea_time")) and not isAnimationPlaying("models.main", "sit_down")) or ((isAnimationPlaying("models.main", "broom_cleaning") or isAnimationPlaying("models.main", "vacuum_cleaning") or isAnimationPlaying("models.main", "cloth_cleaning")) and not BroomCleaningClass.CanBroomCleaning) then
 		ActionCancelFunction();
 		ActionCount = 0
 	end
@@ -254,12 +274,25 @@ end)
 --アクション1-4. 耳かき
 MainPages[1]:newAction(4):item("feather"):onLeftClick(function ()
 	if ActionCount == 0 then
-		if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" then
+		if isAnimationPlaying("models.main", "sit_down") then
 			pings.main1_action4()
 		elseif WardenClass.WardenNearby then
 			pings.refuse_emote()
 		else
 			print(LanguageClass.getTranslate("action_wheel__main_1__action_4__unavailable"))
+		end
+	end
+end)
+
+--アクション1-5. ティータイム
+MainPages[1]:newAction(5):item("flower_pot"):onLeftClick(function ()
+	if ActionCount == 0 then
+		if isAnimationPlaying("models.main", "sit_down") then
+			pings.main1_action5()
+		elseif WardenClass.WardenNearby then
+			pings.refuse_emote()
+		else
+			print(LanguageClass.getTranslate("action_wheel__main_1__action_5__unavailable"))
 		end
 	end
 end)

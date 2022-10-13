@@ -1,5 +1,5 @@
 ---@class EarpickClass 耳かきのアニメーションを制御するクラス
----@field EarpickAnimationCount integer アニメーションの再生時間を示すカウンター。-1は停止中。
+---@field EarpickAnimationCount integer アニメーションの再生時間を示すカウンター。
 
 EarpickClass = {}
 
@@ -7,20 +7,16 @@ EarpickAnimationCount = 0
 
 ---耳かきアニメーションを再生する。
 function EarpickClass.play()
-	for _, modelPart in ipairs({models.models.ear_cleaning.Avatar, models.models.ear_cleaning.LyingPlayer}) do
-		modelPart:setVisible(true)
-	end
+	models.models.ear_cleaning:setVisible(true)
 	General.setAnimations("PLAY", "earpick")
 	General.setAnimations("PLAY", "earpick_arm_fix")
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-	EarpickAnimationCount = 239
+	EarpickAnimationCount = 238
 end
 
 ---耳かきアニメーションを停止する。
 function EarpickClass.stop()
-	for _, modelPart in ipairs({models.models.ear_cleaning.Avatar, models.models.ear_cleaning.LyingPlayer}) do
-		modelPart:setVisible(false)
-	end
+	models.models.ear_cleaning:setVisible(false)
 	General.setAnimations("STOP", "earpick")
 	General.setAnimations("STOP", "earpick_arm_fix")
 	FacePartsClass:resetEmotion()
@@ -81,8 +77,6 @@ else
 		modelPart:setVisible(false)
 	end
 end
-for _, modelPart in ipairs({models.models.ear_cleaning.Avatar, models.models.ear_cleaning.LyingPlayer}) do
-	modelPart:setVisible(false)
-end
+models.models.ear_cleaning:setVisible(false)
 
 return EarpickClass
