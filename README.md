@@ -37,13 +37,21 @@ TVアニメ「世話やきキツネの仙狐さん」（とその原作）に登
   ![寝姿](README_images/寝姿.jpg)
 
 - 複数の衣装チェンジができます。
-  - 通常の服
+  - いつもの服
 
-    ![通常の服](README_images/通常の服.jpg)
+    ![いつもの服](README_images/通常の服.jpg)
 
   - 変装服（第3話）
 
     ![変装服](README_images/変装服.jpg)
+
+  - メイド服A（第6話）
+
+    ![メイド服A](README_images/メイド服A.jpg)
+
+  - メイド服B（第6話）
+
+    ![メイド服B](README_images/メイド服B.jpg)
 
   - 今後もいくつか追加していく予定です。
 
@@ -126,7 +134,7 @@ ConfigClass.HideArmor = true
 
 | 項目 | 説明 | 有効な値 | 初期値 |
 | - | - | - | - |
-| ``ConfigClass.DefaultCostume`` | アバター読み込み時に適用するコスチュームのIDです。詳しくは設定ファイル内の説明をご覧ください。 | ``integer`` 1 - 2 | 1 |
+| ``ConfigClass.DefaultCostume`` | アバター読み込み時に適用するコスチュームのIDです。詳しくは設定ファイル内の説明をご覧ください。 | ``integer`` 1 - 4 | 1 |
 | ``ConfigClass.DefaultName`` | アバター読み込み時に適用するプレイヤーの表示名です。詳しくは設定ファイル内の説明をご覧ください。 | ``integer`` 1 - 3 | 3 |
 | ``ConfigClass.AutoShake`` | 水から上がった際に自動で身震いするかどうかです。 | ``boolean`` | ``true`` |
 | ``ConfigClass.HideArmor`` | 防具を隠すかどうかです。``false``にすると防具が表示されます。 | ``boolean`` | ``true`` |
