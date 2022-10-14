@@ -26,13 +26,10 @@ with open(INPUT_FILE, mode="r", encoding="utf-8") as input_file:
 							else:
 								output_file.write(simple_message_line)
 			else:
-				if re.search(r"[ \t]*!\[.+\]\(.+\)", line):
-					if "<!-- REQUIRED_IMAGE -->" in line_prev:
-						output_file.write(line.replace("../../", ""))
-					else:
-						ignore_next_line = True
+				if re.search(r"[ \t]*!\[.+\]\(.+\)", line) and not "<!-- REQUIRED_IMAGE -->" in line_prev:
+					ignore_next_line = True
 				elif not ignore_next_line:
-					output_file.write(line)
+					output_file.write(line.replace("../../", ""))
 				else:
 					ignore_next_line = False
 			line_prev = line
