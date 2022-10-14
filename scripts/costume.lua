@@ -4,7 +4,7 @@
 
 CostumeClass = {}
 CostumeClass.CurrentCostume = "DEFAULT"
-CostumeClass.CostumeList = {"default", "disguise", "maid_a", "maid_b", "swimsuit"}
+CostumeClass.CostumeList = {"default", "disguise", "maid_a", "maid_b", "swimsuit", "purification"}
 
 ---@alias CostumeType
 ---| "DEFAULT"
@@ -13,6 +13,7 @@ CostumeClass.CostumeList = {"default", "disguise", "maid_a", "maid_b", "swimsuit
 ---| "MAID_A"
 ---| "MAID_B"
 ---| "SWIMSUIT"
+---| "PURIFICATION"
 
 ---メインモデルのテクスチャのオフセット値を設定する。
 ---@param offset integer オフセット値
@@ -42,6 +43,8 @@ function CostumeClass.setCostume(costume)
 	elseif costume == "SWIMSUIT" then
 		setCostumeTextureOffset(192)
 		models.models.costume_swimsuit:setVisible(true)
+	elseif costume == "PURIFICATION" then
+		setCostumeTextureOffset(240)
 	end
 end
 

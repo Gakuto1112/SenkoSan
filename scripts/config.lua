@@ -20,7 +20,7 @@ ConfigClass = {}
 
 --- *** 設定フィールド開始 Begin of the config field ***
 
-ConfigClass.DefaultCostume = 1 --1. いつものコスチューム Default coustume, 2. 変装 Disguise costume, 3. メイド服A Maid costume A, 4. メイド服B Maid costume B, 5. 水着 Swimsuit
+ConfigClass.DefaultCostume = 1 --1. いつものコスチューム Default coustume, 2. 変装 Disguise costume, 3. メイド服A Maid costume A, 4. メイド服B Maid costume B, 5. 水着 Swimsuit, 6. 清めの服 Purification clothes
 ConfigClass.DefaultName = 3 --1. プレイヤー名 Player name, 2. "Senko_san", 3. "仙狐さん"
 ConfigClass.AutoShake = true
 ConfigClass.HideArmor = true

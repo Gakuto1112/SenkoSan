@@ -3,7 +3,7 @@
 ---@field IsSneaking boolean スニークしているかどうか
 
 LegsClass = {}
-LegSwingMultiplayer = {DEFAULT = 0, NIGHTWEAR = 0, DISGUISE = 0, MAID_A = -0.67, MAID_B = -0.83, SWIMSUIT = 0}
+LegSwingMultiplayer = {DEFAULT = 0, NIGHTWEAR = 0, DISGUISE = 0, MAID_A = -0.67, MAID_B = -0.83, SWIMSUIT = 0, PURIFICATION = 0}
 IsSneaking = false
 
 events.TICK:register(function ()
