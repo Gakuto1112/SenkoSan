@@ -32,7 +32,7 @@ events.TICK:register(function ()
 	if EarpickAnimationCount > 0 then
 		local playerPos = player:getPos()
 		for _ = 1, 5 do
-			particles:addParticle("minecraft:end_rod", playerPos.x + (math.random() - 0.5) * 10, playerPos.y + (math.random() - 0.5) * 10, playerPos.z + (math.random() - 0.5) * 10)
+			particles:addParticle("minecraft:end_rod", playerPos:copy():add((math.random() - 0.5) * 10, (math.random() - 0.5) * 10, (math.random() - 0.5) * 10))
 		end
 		local leftHanded = player:isLeftHanded()
 		if General.hasItem(player:getHeldItem(leftHanded)) ~= "none" then
@@ -67,6 +67,7 @@ events.TICK:register(function ()
 	EarpickAnimationCount = EarpickAnimationCount > 0 and (client:isPaused() and EarpickAnimationCount or EarpickAnimationCount - 1) or 0
 end)
 
+models.models.ear_cleaning:setVisible(false)
 models.models.ear_cleaning.LyingPlayer:setPrimaryTexture("SKIN")
 if player:getModelType() == "DEFAULT" then
 	for _, modelPart in ipairs({models.models.ear_cleaning.LyingPlayer.LyingPlayerBody.LyingPlayerArms.LyingPlayerRightArms.LyingPlayerRightArmSlim, models.models.ear_cleaning.LyingPlayer.LyingPlayerBody.LyingPlayerArms.LyingPlayerLeftArms.LyingPlayerLeftArmSlim}) do
@@ -77,6 +78,5 @@ else
 		modelPart:setVisible(false)
 	end
 end
-models.models.ear_cleaning:setVisible(false)
 
 return EarpickClass

@@ -18,7 +18,9 @@ end
 
 ---お茶飲みのアニメーションを停止する。
 function TeaTimeClass.stop()
-	models.models.tea:setVisible(false)
+	for _, modelPart in ipairs({models.models.tea, models.models.tea.Avatar.Body.Yunomi1.Tea}) do
+		modelPart:setVisible(false)
+	end
 	General.setAnimations("STOP", "tea_time")
 	General.setAnimations("STOP", "earpick_arm_fix")
 	FacePartsClass:resetEmotion()
@@ -50,13 +52,11 @@ events.TICK:register(function ()
 			ArmsClass.ItemHeldContradicts[2] = false
 		end
 	end
-	if TeaTimeAnimationCount <= 210 and TeaTimeAnimationCount > 50 then
+	if TeaTimeAnimationCount <= 210 and TeaTimeAnimationCount > 50 and (TeaTimeAnimationCount - 210) % 20 == 0 then
 		if TeaTimeAnimationCount == 210 then
 			FacePartsClass.setEmotion("CLOSED", "CLOSED", "CLOSED", 160, true)
 		end
-		if (TeaTimeAnimationCount - 210) % 20 == 0 then
-			sounds:playSound("minecraft:entity.generic.drink", player:getPos(), 0.5, 1)
-		end
+		sounds:playSound("minecraft:entity.generic.drink", player:getPos(), 0.5, 1)
 	elseif TeaTimeAnimationCount == 50 then
 		models.models.tea.Avatar.Body.Yunomi1.Tea:setVisible(false)
 	elseif TeaTimeAnimationCount == 40 then
@@ -73,7 +73,9 @@ events.TICK:register(function ()
 	TeaTimeAnimationCount = TeaTimeAnimationCount > 0 and (client:isPaused() and TeaTimeAnimationCount or TeaTimeAnimationCount - 1) or 0
 end)
 
-models.models.tea:setVisible(false)
+for _, modelPart in ipairs({models.models.tea, models.models.tea.Avatar.Body.Yunomi1.Tea}) do
+	modelPart:setVisible(false)
+end
 models.models.tea.Avatar.Table.Board:setPrimaryTexture("RESOURCE", "textures/block/spruce_planks.png")
 models.models.tea.Avatar.Table.TableLegs:setPrimaryTexture("RESOURCE", "textures/block/spruce_log.png")
 
