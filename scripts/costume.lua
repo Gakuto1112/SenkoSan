@@ -55,22 +55,77 @@ end
 events.TICK:register(function ()
 	models.models.costume_disguise.Avatar.Head.Hat:setVisible(CostumeClass.CurrentCostume == "DISGUISE" and not ArmorClass.ArmorVisible[1])
 	if CostumeClass.CurrentCostume == "MAID_A" then
-		models.models.costume_maid_a.Avatar.Body.BodyBottom.Skirt:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
+		local skirt = models.models.costume_maid_a.Avatar.Body.BodyBottom.Skirt
+		skirt:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
 		models.models.costume_maid_a.Avatar.Head:setVisible(not ArmorClass.ArmorVisible[1])
 		models.models.costume_maid_a.Avatar.Body:setVisible(not ArmorClass.ArmorVisible[3])
+		if player:getVehicle() then
+			if ArmorClass.ArmorVisible[3] then
+				models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
+			else
+				models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(false)
+				skirt.Skirt2:setPos(0, 0.75, 0)
+				skirt.Skirt2:setScale(1.05, 1, 1.05)
+				skirt.Skirt2.Skirt3:setPos(0, 0.75, 0)
+				skirt.Skirt2.Skirt3:setScale(1.05, 1, 1.05)
+				skirt.Skirt2.Skirt3.Skirt4:setPos(0, 1.5, 0)
+				skirt.Skirt2.Skirt3.Skirt4:setScale(1.05, 1, 1.05)
+				skirt.Skirt2.Skirt3.Skirt4.Skirt5:setPos(0, 2.5, 0)
+				skirt.Skirt2.Skirt3.Skirt4.Skirt5:setScale(1.05, 1, 1.05)
+				skirt.Skirt2.Skirt3.Skirt4.Skirt5.Skirt6:setPos(0, 2.5, 0)
+				skirt.Skirt2.Skirt3.Skirt4.Skirt5.Skirt6:setScale(1.05, 1, 1.05)
+				end
+		else
+			models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
+			skirt.Skirt2:setPos(0, 0, 0)
+			skirt.Skirt2:setScale(1, 1, 1)
+			skirt.Skirt2.Skirt3:setPos(0, 0, 0)
+			skirt.Skirt2.Skirt3:setScale(1, 1, 1)
+			skirt.Skirt2.Skirt3.Skirt4:setPos(0, 0, 0)
+			skirt.Skirt2.Skirt3.Skirt4:setScale(1, 1, 1)
+			skirt.Skirt2.Skirt3.Skirt4.Skirt5:setPos(0, 0, 0)
+			skirt.Skirt2.Skirt3.Skirt4.Skirt5:setScale(1, 1, 1)
+			skirt.Skirt2.Skirt3.Skirt4.Skirt5.Skirt6:setPos(0, 0, 0)
+			skirt.Skirt2.Skirt3.Skirt4.Skirt5.Skirt6:setScale(1, 1, 1)
+		end
 	else
 		for _, modelsPart in ipairs({models.models.costume_maid_a.Avatar.Head, models.models.costume_maid_a.Avatar.Body}) do
 			modelsPart:setVisible(false)
 		end
 	end
 	if CostumeClass.CurrentCostume == "MAID_B" then
-		models.models.costume_maid_b.Avatar.Body.BodyBottom.Skirt:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
+		local skirt = models.models.costume_maid_b.Avatar.Body.BodyBottom.Skirt
+		skirt:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
 		models.models.costume_maid_b.Avatar.Head:setVisible(not ArmorClass.ArmorVisible[1])
 		models.models.costume_maid_b.Avatar.Body:setVisible(not ArmorClass.ArmorVisible[3])
+		if player:getVehicle() then
+			if ArmorClass.ArmorVisible[3] then
+				models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
+			else
+				models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(false)
+				skirt.Skirt2:setPos(0, 2.5, 0)
+				skirt.Skirt2:setScale(1.05, 1, 1.2)
+				skirt.Skirt2.Skirt3:setPos(0, 2.5, 0)
+				skirt.Skirt2.Skirt3:setScale(1.05, 1, 1.2)
+				skirt.Skirt2.Skirt3.Skirt4:setPos(0, 2.5, 0)
+				skirt.Skirt2.Skirt3.Skirt4:setScale(1.05, 1, 1.2)
+			end
+		else
+			models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
+			skirt.Skirt2:setPos(0, 0, 0)
+			skirt.Skirt2:setScale(1, 1, 1)
+			skirt.Skirt2.Skirt3:setPos(0, 0, 0)
+			skirt.Skirt2.Skirt3:setScale(1, 1, 1)
+			skirt.Skirt2.Skirt3.Skirt4:setPos(0, 0, 0)
+			skirt.Skirt2.Skirt3.Skirt4:setScale(1, 1, 1)
+		end
 	else
 		for _, modelsPart in ipairs({models.models.costume_maid_b.Avatar.Head, models.models.costume_maid_b.Avatar.Body}) do
 			modelsPart:setVisible(false)
 		end
+	end
+	if CostumeClass.CurrentCostume ~= "MAID_A" and CostumeClass.CurrentCostume ~= "MAID_B" then
+		models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
 	end
 end)
 
