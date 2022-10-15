@@ -75,6 +75,32 @@ TVアニメ「世話やきキツネの仙狐さん」（とその原作）に登
 ### アクション2-2. 名前変更
 プレイヤーの表示名を変更します。スクロールで表示名を選択します。ただし、他のプレイヤーが変更された名前を見るには、**そのプレイヤーもFiguraを導入し、あなたの信頼設定を十分上げる必要があります**。
 
+## 推奨設定
+### 信用度設定（Trust）
+**Trusted**以上推奨
+
+| 項目 | 推奨設定 | 備考 |
+| - | - | - |
+| Vanilla Model Change | **有効！！** | これが有効でないと、バニラのプレイヤーモデルが消えません！！ |
+| Nameplate Change | 有効 | |
+| Custom Player Heads | 有効 | |
+
+### Figura設定（Settings）
+
+| 項目 | 推奨設定 | 備考 |
+| - | - | - |
+| Chat customizations | "Script" または "Script + Badges" | |
+| Entity customizations | "Script" または "Script + Badges" | |
+| Tablist customizations | "Script" または "Script + Badges" | |
+| Print Output | "Chat" | |
+| First Person Hands | 無効 | |
+
+### マインクラフト設定
+| 項目 | 推奨設定 | 備考 |
+| - | - | - |
+| キー設定 | ZキーやXキーにキー割り当てを行わない | |
+| 言語設定 | 日本語 | 日本語以外の言語では英語表示になります。 |
+
 ## アバター設定について
 [設定ファイル（scripts/config.lua）](scripts/config.lua)を編集することで、一部のアバターの初期値を変更できます。
 - 2022/10/12現在、Figuraの仕様上ゲーム内での設定を提供できません。
