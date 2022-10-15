@@ -23,11 +23,6 @@ events.TICK:register(function ()
 	if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" and not SitDownClass.CanSitDown then
 		SitDownClass.standUp()
 	end
-	if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" and renderer:isFirstPerson() then
-		General.setAnimations("PLAY", "sit_down_first_person_fix")
-	else
-		General.setAnimations("STOP", "sit_down_first_person_fix")
-	end
 end)
 
 events.WORLD_RENDER:register(function ()

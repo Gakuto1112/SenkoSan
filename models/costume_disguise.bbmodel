@@ -7670,89 +7670,6 @@
             }
         },
         {
-            "uuid": "7b190fa4-688a-5956-96f7-b492cd60fd4b",
-            "name": "sit_down_first_person_fix",
-            "loop": "hold",
-            "override": false,
-            "length": 0,
-            "snapping": 24,
-            "selected": false,
-            "anim_time_update": "",
-            "blend_weight": "",
-            "start_delay": "",
-            "loop_delay": "",
-            "animators": {
-                "48aa268d-b174-aa83-0300-eba43794dfe3": {
-                    "name": "RightArm",
-                    "type": "bone",
-                    "keyframes": [
-                        {
-                            "channel": "rotation",
-                            "data_points": [
-                                {
-                                    "x": "20",
-                                    "y": "10",
-                                    "z": "15"
-                                }
-                            ],
-                            "uuid": "e50decd4-ebee-4b2d-99d2-8e47813cc955",
-                            "time": 0,
-                            "color": -1,
-                            "interpolation": "step"
-                        },
-                        {
-                            "channel": "position",
-                            "data_points": [
-                                {
-                                    "x": "0",
-                                    "y": "9",
-                                    "z": "0"
-                                }
-                            ],
-                            "uuid": "ccc840eb-cc3b-bfec-3387-a8c132c642d2",
-                            "time": 0,
-                            "color": -1,
-                            "interpolation": "step"
-                        }
-                    ]
-                },
-                "af94253b-4f4f-8ab4-29fd-fffa30e9449a": {
-                    "name": "LeftArm",
-                    "type": "bone",
-                    "keyframes": [
-                        {
-                            "channel": "rotation",
-                            "data_points": [
-                                {
-                                    "x": "20",
-                                    "y": "-10",
-                                    "z": "-15"
-                                }
-                            ],
-                            "uuid": "30b5a395-60a1-0f99-6f03-45c9d2285acc",
-                            "time": 0,
-                            "color": -1,
-                            "interpolation": "step"
-                        },
-                        {
-                            "channel": "position",
-                            "data_points": [
-                                {
-                                    "x": "0",
-                                    "y": "9",
-                                    "z": "0"
-                                }
-                            ],
-                            "uuid": "c2bee4dc-5adb-3e7a-fe52-80b2551d0198",
-                            "time": 0,
-                            "color": -1,
-                            "interpolation": "step"
-                        }
-                    ]
-                }
-            }
-        },
-        {
             "uuid": "5ecb9776-7fb3-c596-38c7-6ca87c2ea8c9",
             "name": "earpick",
             "loop": "once",
@@ -9688,7 +9605,7 @@
             "override": false,
             "length": 21.25,
             "snapping": 24,
-            "selected": true,
+            "selected": false,
             "anim_time_update": "",
             "blend_weight": "",
             "start_delay": "",
