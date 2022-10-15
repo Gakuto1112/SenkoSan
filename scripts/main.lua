@@ -8,6 +8,7 @@ events.ENTITY_INIT:register(function ()
 	--パーツ別クラス
 	ArmsClass = require("scripts/arms")
 	LegsClass = require("scripts/legs")
+	ApronClass = require("scripts/apron")
 	FacePartsClass = require("scripts/face_parts")
 	GlassesClass = require("scripts/glasses")
 	TailClass = require("scripts/tail")

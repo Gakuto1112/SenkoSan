@@ -134,10 +134,14 @@ events.TICK:register(function()
 			for _, armorPart in ipairs(leggings) do
 				armorPart:setVisible(true)
 			end
+			ApronClass.IsVisible = false
 			ArmorClass.ArmorVisible[3] = true
 		else
 			for _, armorPart in ipairs(leggings) do
 				armorPart:setVisible(false)
+			end
+			if CostumeClass.CurrentCostume == "DEFAULT" or CostumeClass.CurrentCostume == "DISGUISE" then
+				ApronClass.IsVisible = true
 			end
 			ArmorClass.ArmorVisible[3] = false
 		end

@@ -33,18 +33,23 @@ function CostumeClass.setCostume(costume)
 		TailClass.EnablePyhsics = false
 	elseif costume == "DISGUISE" then
 		models.models.costume_disguise:setVisible(true)
+		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 8)
 		models.models.main.Avatar.Head.Ears:setVisible(false)
 	elseif costume == "MAID_A" then
 		setCostumeTextureOffset(96)
 		models.models.costume_maid_a:setVisible(true)
+		ApronClass.IsVisible = false
 	elseif costume == "MAID_B" then
 		setCostumeTextureOffset(144)
 		models.models.costume_maid_b:setVisible(true)
+		ApronClass.IsVisible = false
 	elseif costume == "SWIMSUIT" then
 		setCostumeTextureOffset(192)
 		models.models.costume_swimsuit:setVisible(true)
+		ApronClass.IsVisible = false
 	elseif costume == "PURIFICATION" then
 		setCostumeTextureOffset(240)
+		ApronClass.IsVisible = false
 	end
 end
 
@@ -54,6 +59,8 @@ function CostumeClass.resetCostume()
 	for _, modelPart in ipairs({models.models.costume_disguise, models.models.costume_maid_a, models.models.costume_maid_b, models.models.costume_swimsuit}) do
 		modelPart:setVisible(false)
 	end
+	ApronClass.IsVisible = true
+	models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 0)
 	models.models.main.Avatar.Head.Ears:setVisible(true)
 	TailClass.EnablePyhsics = true
 	CostumeClass.CurrentCostume = "DEFAULT"

@@ -1,5 +1,7 @@
 ---@class General 他の複数のクラスが参照するフィールドや関数を定義するクラス
----@field General.playerCondition ConditionLevel プレイヤーの体力・満腹度の度合い
+---@field General.PlayerCondition ConditionLevel プレイヤーの体力・満腹度の度合い
+---@field General.IsSneaking boolean スニーク中かどうか（RENDER内で使用するための変数）
+
 --[[
 	## General.playerConditionの値
 	- 凍えている時は常に"LOW"
@@ -27,6 +29,7 @@
 General = {}
 
 General.PlayerCondition = "HIGH"
+General.IsSneaking = false
 
 ---渡されたItemStackのアイテムタイプを返す。nilや"minecraft:air"の場合は"none"と返す。
 ---@param item ItemStack アイテムタイプを調べるItemStack
@@ -78,6 +81,7 @@ events.TICK:register(function ()
 	local healthPercent = player:getHealth() / player:getMaxHealth()
 	local satisfactionPercent = player:getFood() / 20
 	General.PlayerCondition = player:getFrozenTicks() == 140 and "LOW" or (((healthPercent > 0.5 and satisfactionPercent > 0.3) or (gamemode == "CREATIVE" or gamemode == "SPECTATOR")) and "HIGH" or ((healthPercent > 0.2 and satisfactionPercent > 0) and "MEDIUM" or "LOW"))
+	General.IsSneaking = player:getPose() == "CROUCHING"
 end)
 
 return General
