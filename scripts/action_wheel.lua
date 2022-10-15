@@ -7,6 +7,8 @@
 ---@field SweatCount integer 汗のタイミングを計るカウンター
 ---@field CurrentPlayerNameState integer プレイヤーの現在の表示名の状態を示す：0. プレイヤー名, 1. Senko_san, 2. 仙狐さん
 ---@field PlayerNameState integer プレイヤーの表示名の状態を示す：0. プレイヤー名, 1. Senko_san, 2. 仙狐さん
+---@field IsSynced boolean アバターの設定がホストと同期されたかどうか
+---@field NextSyncCount integer 次の同期pingまでのカウンター
 
 ActionWheelClass = {}
 
@@ -20,6 +22,8 @@ CurrentCostumeState = ConfigClass.DefaultCostume
 CostumeState = ConfigClass.DefaultCostume
 CurrentPlayerNameState = ConfigClass.DefaultName
 PlayerNameState = ConfigClass.DefaultName
+IsSynced = host:isHost()
+NextSyncCount = 300
 
 ---アニメーションが再生中かどうかを返す
 ---@param modelName string モデル名
@@ -69,6 +73,20 @@ function ActionWheelClass.bodyShake()
 end
 
 --ping関数
+function pings.syncAvatarSetting(nameID, costumeID)
+	if not IsSynced then
+		CurrentPlayerNameState = nameID
+		CurrentCostumeState = costumeID
+		NameplateClass.setName(CurrentPlayerNameState == 1 and player:getName() or (CurrentPlayerNameState == 2 and "Senko_san" or "仙狐さん"))
+		if CurrentCostumeState == 0 then
+			CostumeClass.resetCostume()
+		else
+			CostumeClass.setCostume(string.upper(CostumeClass.CostumeList[CurrentCostumeState]))
+		end
+		IsSynced = true
+	end
+end
+
 function pings.refuse_emote()
 	General.setAnimations("PLAY", "refuse_emote")
 	FacePartsClass.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 30, true)
@@ -191,20 +209,24 @@ events.TICK:register(function ()
 		ActionCount = 0
 	end
 	local isOpenActionWheel = action_wheel:isEnabled()
-	if not isOpenActionWheel and IsOpenActionWheelPrev then
-		if CostumeState ~= CurrentCostumeState then
-			pings.main2_action1_custume_change(CostumeState)
-			if host:isHost() then
+	if host:isHost() then
+		if not isOpenActionWheel and IsOpenActionWheelPrev then
+			if CostumeState ~= CurrentCostumeState then
+				pings.main2_action1_custume_change(CostumeState)
 				sounds:playSound("minecraft:item.armor.equip_leather", player:getPos())
 				print(LanguageClass.getTranslate("action_wheel__main_2__action_1__done_first")..costumeName..LanguageClass.getTranslate("action_wheel__main_2__action_1__done_last"))
 			end
-		end
-		if PlayerNameState ~= CurrentPlayerNameState then
-			pings.main2_action2_name_change(PlayerNameState)
-			if host:isHost() then
+			if PlayerNameState ~= CurrentPlayerNameState then
+				pings.main2_action2_name_change(PlayerNameState)
 				sounds:playSound("minecraft:ui.cartography_table.take_result", player:getPos(), 1, 1)
 				print(LanguageClass.getTranslate("action_wheel__main_2__action_2__done_first")..displayName..LanguageClass.getTranslate("action_wheel__main_2__action_2__done_last"))
 			end
+		end
+		if NextSyncCount == 0 then
+			pings.syncAvatarSetting(CurrentPlayerNameState, CurrentCostumeState)
+			NextSyncCount = 300
+		elseif not client:isPaused() then
+			NextSyncCount = NextSyncCount - 1
 		end
 	end
 	if ShakeSplashCount > 0 then
