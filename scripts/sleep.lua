@@ -31,6 +31,7 @@ events.TICK:register(function()
 			ArmsClass.ItemHeldContradicts = {true, true}
 			if isFirstPerson then
 				mainModel:setVisible(false)
+				ApronClass.IsVisible = false
 			else
 				local sleepBlock = world.getBlockState(player:getPos())
 				if string.find(sleepBlock.id, "^minecraft:.+bed$") then
@@ -68,6 +69,7 @@ events.TICK:register(function()
 			end
 			head:setParentType("Head")
 			mainModel:setVisible(true)
+			ApronClass.IsVisible = (CostumeBeforeSleeping == "DEFAULT" or CostumeBeforeSleeping == "DISGUISE") and not ArmorClass.ArmorVisible[3]
 			ArmsClass.ItemHeldContradicts = {false, false}
 			renderer:setCameraRot()
 		end

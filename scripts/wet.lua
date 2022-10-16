@@ -13,6 +13,7 @@ WalkDistance = 0
 VelocityYData = {}
 OnGroundData = {}
 WetClass.WetCount = 0
+WetClass.AutoShake = ConfigClass.AutoShake
 AutoShakeCount = 0
 
 events.TICK:register(function()
@@ -53,7 +54,7 @@ events.TICK:register(function()
 		if JumpKey:isPressed() and OnGroundData[1] and velocity.y > 0 and VelocityYData[1] <= 0 then
 			sounds:playSound("minecraft:entity.cod.flop", playerPos, WetClass.WetCount / 1200, 1)
 		end
-		if ConfigClass.AutoShake and animations["models.main"]["shake"]:getPlayState() ~= "PLAYING" then
+		if WetClass.AutoShake and animations["models.main"]["shake"]:getPlayState() ~= "PLAYING" then
 			if AutoShakeCount == 20 then
 				ActionWheelClass.bodyShake()
 				AutoShakeCount = 0

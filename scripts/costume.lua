@@ -148,7 +148,11 @@ events.TICK:register(function ()
 		end
 	end
 	if CostumeClass.CurrentCostume ~= "MAID_A" and CostumeClass.CurrentCostume ~= "MAID_B" then
-		models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
+		if renderer:isFirstPerson() and player:getPose() == "SLEEPING" then
+			models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(false)
+		else
+			models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
+		end
 	end
 end)
 

@@ -73,7 +73,7 @@ function ActionWheelClass.bodyShake()
 end
 
 --ping関数
-function pings.syncAvatarSetting(nameID, costumeID)
+function pings.syncAvatarSetting(nameID, costumeID, autoShake, hideArmor)
 	if not IsSynced then
 		CurrentPlayerNameState = nameID
 		CurrentCostumeState = costumeID
@@ -83,6 +83,8 @@ function pings.syncAvatarSetting(nameID, costumeID)
 		else
 			CostumeClass.setCostume(string.upper(CostumeClass.CostumeList[CurrentCostumeState]))
 		end
+		WetClass.AutoShake = autoShake
+		ArmorClass.HideArmor = hideArmor
 		IsSynced = true
 	end
 end
@@ -187,7 +189,7 @@ function pings.main1_action7()
 	end, false)
 end
 
-function pings.main2_action1_custume_change(costumeID)
+function pings.main2_action1(costumeID)
 	if costumeID == 1 then
 		CostumeClass.resetCostume()
 	else
@@ -196,9 +198,25 @@ function pings.main2_action1_custume_change(costumeID)
 	CurrentCostumeState = costumeID
 end
 
-function pings.main2_action2_name_change(nameID)
+function pings.main2_action2(nameID)
 	NameplateClass.setName(nameID == 1 and player:getName() or (nameID == 2 and "Senko_san" or "仙狐さん"))
 	CurrentPlayerNameState = nameID
+end
+
+function pings.main2_action3_toggle()
+	WetClass.AutoShake = true
+end
+
+function pings.main2_action3_untoggle()
+	WetClass.AutoShake = false
+end
+
+function pings.main2_action4_toggle()
+	ArmorClass.HideArmor = true
+end
+
+function pings.main2_action4_untoggle()
+	ArmorClass.HideArmor = false
 end
 
 events.TICK:register(function ()
@@ -224,18 +242,18 @@ events.TICK:register(function ()
 	if host:isHost() then
 		if not isOpenActionWheel and IsOpenActionWheelPrev then
 			if CostumeState ~= CurrentCostumeState then
-				pings.main2_action1_custume_change(CostumeState)
+				pings.main2_action1(CostumeState)
 				sounds:playSound("minecraft:item.armor.equip_leather", player:getPos())
 				print(LanguageClass.getTranslate("action_wheel__main_2__action_1__done_first")..costumeName..LanguageClass.getTranslate("action_wheel__main_2__action_1__done_last"))
 			end
 			if PlayerNameState ~= CurrentPlayerNameState then
-				pings.main2_action2_name_change(PlayerNameState)
+				pings.main2_action2(PlayerNameState)
 				sounds:playSound("minecraft:ui.cartography_table.take_result", player:getPos(), 1, 1)
 				print(LanguageClass.getTranslate("action_wheel__main_2__action_2__done_first")..displayName..LanguageClass.getTranslate("action_wheel__main_2__action_2__done_last"))
 			end
 		end
 		if NextSyncCount == 0 then
-			pings.syncAvatarSetting(CurrentPlayerNameState, CurrentCostumeState)
+			pings.syncAvatarSetting(CurrentPlayerNameState, CurrentCostumeState, WetClass.AutoShake, ArmorClass.HideArmor)
 			NextSyncCount = 300
 		elseif not client:isPaused() then
 			NextSyncCount = NextSyncCount - 1
@@ -384,6 +402,34 @@ MainPages[2]:newScroll(2):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255
 		PlayerNameState = PlayerNameState == 1 and 3 or PlayerNameState - 1
 	end
 end)
+
+--アクション2-3. 自動ブルブル
+MainPages[2]:newToggle(3):title(LanguageClass.getTranslate("action_wheel__main_2__action_3__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__main_2__action_3__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("water_bucket"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+	pings.main2_action3_toggle()
+	MainPages[2]:getAction(3):hoverColor(85 / 255, 1, 85 / 255)
+end):onUntoggle(function ()
+	pings.main2_action3_untoggle()
+	MainPages[2]:getAction(3):hoverColor(1, 85 / 255, 85 / 255)
+end)
+if ConfigClass.AutoShake then
+	local action = MainPages[2]:getAction(3)
+	action:toggled(ConfigClass.AutoShake)
+	action:hoverColor(85 / 255, 1, 85 / 255)
+end
+
+--アクション2-4. 防具の非表示
+MainPages[2]:newToggle(4):title(LanguageClass.getTranslate("action_wheel__main_2__action_4__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__main_2__action_4__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("iron_chestplate"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+	pings.main2_action4_toggle()
+	MainPages[2]:getAction(4):hoverColor(85 / 255, 1, 85 / 255)
+end):onUntoggle(function ()
+	pings.main2_action4_untoggle()
+	MainPages[2]:getAction(4):hoverColor(1, 85 / 255, 85 / 255)
+end)
+if ConfigClass.HideArmor then
+	local action = MainPages[2]:getAction(4)
+	action:toggled(ConfigClass.HideArmor)
+	action:hoverColor(85 / 255, 1, 85 / 255)
+end
 
 --アクション8（共通）. ページ切り替え
 for index, mainPage in ipairs(MainPages) do
