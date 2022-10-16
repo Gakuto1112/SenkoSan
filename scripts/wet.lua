@@ -56,7 +56,7 @@ events.TICK:register(function()
 		end
 		if WetClass.AutoShake and animations["models.main"]["shake"]:getPlayState() ~= "PLAYING" then
 			if AutoShakeCount == 20 then
-				ActionWheelClass.bodyShake()
+				ActionWheelClass.bodyShake(false)
 				AutoShakeCount = 0
 			elseif not paused then
 				AutoShakeCount = AutoShakeCount + 1
