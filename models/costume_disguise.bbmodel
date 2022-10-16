@@ -687,7 +687,7 @@
             ],
             "autouv": 0,
             "color": 5,
-            "inflate": 0.26,
+            "inflate": 0.27,
             "origin": [
                 -8,
                 21,
@@ -851,7 +851,7 @@
             ],
             "autouv": 0,
             "color": 5,
-            "inflate": 0.26,
+            "inflate": 0.27,
             "origin": [
                 4,
                 21,
@@ -7491,7 +7491,7 @@
             "override": false,
             "length": 24.4167,
             "snapping": 24,
-            "selected": false,
+            "selected": true,
             "anim_time_update": "",
             "blend_weight": "",
             "start_delay": "",
@@ -7582,48 +7582,6 @@
                             ],
                             "uuid": "1f374812-196f-b5bf-2959-58a19299bd1b",
                             "time": 2.5,
-                            "color": -1,
-                            "interpolation": "linear"
-                        },
-                        {
-                            "channel": "rotation",
-                            "data_points": [
-                                {
-                                    "x": 22.81,
-                                    "y": 9.23,
-                                    "z": 3.86
-                                }
-                            ],
-                            "uuid": "95eaba2a-987a-8975-8c6f-b08608e0049f",
-                            "time": 4.5,
-                            "color": -1,
-                            "interpolation": "linear"
-                        },
-                        {
-                            "channel": "rotation",
-                            "data_points": [
-                                {
-                                    "x": "0",
-                                    "y": "0",
-                                    "z": "0"
-                                }
-                            ],
-                            "uuid": "27bcbc00-3f42-94b5-807f-7f929160d211",
-                            "time": 4.75,
-                            "color": -1,
-                            "interpolation": "linear"
-                        },
-                        {
-                            "channel": "rotation",
-                            "data_points": [
-                                {
-                                    "x": 0,
-                                    "y": 0,
-                                    "z": 0
-                                }
-                            ],
-                            "uuid": "a2d0c5a7-e4db-a4eb-9b59-48904ef5461e",
-                            "time": 5.25,
                             "color": -1,
                             "interpolation": "linear"
                         },
@@ -8007,6 +7965,34 @@
                             ],
                             "uuid": "f18de6fa-6840-4b27-3781-67ed2f5fe41a",
                             "time": 22.916666666666668,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": 22.81,
+                                    "y": 9.23,
+                                    "z": 3.86
+                                }
+                            ],
+                            "uuid": "7d872291-1b4b-6c0c-e927-13c88a7bbbdd",
+                            "time": 4.5,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": 22.81,
+                                    "y": 9.23,
+                                    "z": 3.86
+                                }
+                            ],
+                            "uuid": "84583207-b6da-00b4-81a1-f738a1c53bbc",
+                            "time": 5.25,
                             "color": -1,
                             "interpolation": "linear"
                         }

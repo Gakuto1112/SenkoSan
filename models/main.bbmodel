@@ -282,6 +282,7 @@
             ],
             "autouv": 0,
             "color": 5,
+            "inflate": 0.001,
             "origin": [
                 4,
                 21,
@@ -363,6 +364,7 @@
             ],
             "autouv": 0,
             "color": 5,
+            "inflate": 0.001,
             "origin": [
                 -8,
                 21,
@@ -3694,7 +3696,7 @@
             ],
             "autouv": 0,
             "color": 5,
-            "inflate": 0.25,
+            "inflate": 0.26,
             "origin": [
                 4,
                 21,
@@ -3776,7 +3778,7 @@
             ],
             "autouv": 0,
             "color": 5,
-            "inflate": 0.25,
+            "inflate": 0.26,
             "origin": [
                 -8,
                 21,
@@ -11353,34 +11355,6 @@
                             "channel": "rotation",
                             "data_points": [
                                 {
-                                    "x": "0",
-                                    "y": "0",
-                                    "z": "0"
-                                }
-                            ],
-                            "uuid": "27bcbc00-3f42-94b5-807f-7f929160d211",
-                            "time": 4.75,
-                            "color": -1,
-                            "interpolation": "linear"
-                        },
-                        {
-                            "channel": "rotation",
-                            "data_points": [
-                                {
-                                    "x": 0,
-                                    "y": 0,
-                                    "z": 0
-                                }
-                            ],
-                            "uuid": "a2d0c5a7-e4db-a4eb-9b59-48904ef5461e",
-                            "time": 5.25,
-                            "color": -1,
-                            "interpolation": "linear"
-                        },
-                        {
-                            "channel": "rotation",
-                            "data_points": [
-                                {
                                     "x": 22.5,
                                     "y": "0",
                                     "z": "0"
@@ -11757,6 +11731,20 @@
                             ],
                             "uuid": "f18de6fa-6840-4b27-3781-67ed2f5fe41a",
                             "time": 22.916666666666668,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": 22.81,
+                                    "y": 9.23,
+                                    "z": 3.86
+                                }
+                            ],
+                            "uuid": "455ee2cf-f6dc-7789-65bb-f69151e8fd88",
+                            "time": 5.25,
                             "color": -1,
                             "interpolation": "linear"
                         }
