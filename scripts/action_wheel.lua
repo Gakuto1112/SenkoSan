@@ -249,7 +249,7 @@ events.TICK:register(function ()
 	local sitDownAction = MainPages[2]:getAction(1)
 	sitDownAction:toggled((ActionCount == 0 or isAnimationPlaying("models.main", "earpick") or isAnimationPlaying("models.main", "tea_time") or isAnimationPlaying("models.main", "massage") or (isAnimationPlaying("models.main", "sit_down") and isAnimationPlaying("models.main", "shake"))) and SitDownClass.CanSitDown and sitDownAction:isToggled())
 	if ActionCount > 0 then
-		if (HurtClass.Damaged ~= "NONE" and ActionCount > 0 and WardenClass.WardenNearby) or ((isAnimationPlaying("models.main", "earpick") or isAnimationPlaying("models.main", "tea_time") or isAnimationPlaying("models.main", "massage")) and not isAnimationPlaying("models.main", "sit_down")) or ((isAnimationPlaying("models.main", "broom_cleaning") or isAnimationPlaying("models.main", "vacuum_cleaning") or isAnimationPlaying("models.main", "cloth_cleaning") or isAnimationPlaying("models.main", "hair_cut") or isAnimationPlaying("models.main", "fox_jump")) and not BroomCleaningClass.CanBroomCleaning) then
+		if (HurtClass.Damaged ~= "NONE" and ActionCount > 0 and WardenClass.WardenNearby) or ((isAnimationPlaying("models.main", "earpick") or isAnimationPlaying("models.main", "tea_time") or isAnimationPlaying("models.main", "massage")) and not isAnimationPlaying("models.main", "sit_down")) or ((isAnimationPlaying("models.main", "broom_cleaning") or isAnimationPlaying("models.main", "vacuum_cleaning") or isAnimationPlaying("models.main", "cloth_cleaning") or isAnimationPlaying("models.main", "hair_cut")) and not BroomCleaningClass.CanBroomCleaning) or (isAnimationPlaying("models.main", "fox_jump") and not FoxJumpClass.CanFoxJump) then
 			ActionCancelFunction();
 			ActionCount = 0
 		end
