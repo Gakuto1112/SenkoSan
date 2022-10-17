@@ -34,6 +34,7 @@ function CostumeClass.setCostume(costume)
 		TailClass.EnablePyhsics = false
 	elseif costume == "DISGUISE" then
 		models.models.costume_disguise:setVisible(true)
+		setCostumeTextureOffset(96)
 		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 8)
 		models.models.main.Avatar.Head.Ears:setVisible(false)
 	elseif costume == "MAID_A" then
@@ -163,7 +164,7 @@ end)
 for _, modelPart in ipairs({models.models.costume_disguise, models.models.costume_maid_a, models.models.costume_maid_b, models.models.costume_swimsuit}) do
 	modelPart:setVisible(false)
 end
-for _, modelPart in ipairs({models.models.costume_disguise.Avatar.Body.BodyBottom, models.models.costume_disguise.Avatar.Body.Arms.RightArm.RightArmBottom, models.models.costume_disguise.Avatar.Body.Arms.LeftArm.LeftArmBottom, models.models.costume_maid_a.Avatar.Body.BodyBottom, models.models.costume_maid_b.Avatar.Body.BodyBottom, models.models.costume_swimsuit.Avatar.Body.BodyBottom}) do
+for _, modelPart in ipairs({models.models.costume_maid_a.Avatar.Body.BodyBottom, models.models.costume_maid_b.Avatar.Body.BodyBottom, models.models.costume_swimsuit.Avatar.Body.BodyBottom}) do
 	modelPart:setParentType("None")
 end
 
