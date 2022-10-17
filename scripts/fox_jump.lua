@@ -22,9 +22,10 @@ end
 
 events.TICK:register(function ()
 	local targetPos = vectors.rotateAroundAxis(-(player:getBodyYaw() % 360), 0, 0, 1, 0, 1, 0):add(player:getPos()):add(0, 0.5, 0)
-	local block1_1 = world.getBlockState(targetPos:copy():add(0, -1, 0)).id
-	local block10 = world.getBlockState(targetPos).id
-	FoxJumpClass.CanFoxJump = BroomCleaningClass.CanBroomCleaning and (block10 == "minecraft:air" or block10 == "minecraft:snow") and (block1_1 == "minecraft:snow_block" or block1_1 == "minecraft:snow") and world.getBlockState(targetPos:copy():add(0, 1, 0)).id == "minecraft:air" and world.getBlockState(targetPos:copy():add(0, 2, 0)).id == "minecraft:air" and world.getBlockState(player:getPos():add(0, 2, 0)).id == "minecraft:air"
+	local block1_1 = world.getBlockState(targetPos:copy():add(0, -1, 0))
+	local block10 = world.getBlockState(targetPos)
+	local block1_1SnowLayer = block1_1.id == "minecraft:snow" and tonumber(block1_1.properties["layers"]) >= 6 or false
+	FoxJumpClass.CanFoxJump = BroomCleaningClass.CanBroomCleaning and (block10.id == "minecraft:air" or block10.id == "minecraft:snow") and (block1_1.id == "minecraft:snow_block" or block1_1SnowLayer) and world.getBlockState(targetPos:copy():add(0, 1, 0)).id == "minecraft:air" and world.getBlockState(targetPos:copy():add(0, 2, 0)).id == "minecraft:air" and world.getBlockState(player:getPos():add(0, 2, 0)).id == "minecraft:air"
 	if FoxJumpAnimationCount == 98 then
 		sounds:playSound("entity.snowball.throw", player:getPos(), 1, 1.5)
 		FacePartsClass.setEmotion("UNEQUAL", "UNEQUAL", "OPENED", 11, true)
