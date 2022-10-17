@@ -4,7 +4,7 @@
 
 CostumeClass = {}
 CostumeClass.CurrentCostume = "DEFAULT"
-CostumeClass.CostumeList = {"default", "disguise", "maid_a", "maid_b", "swimsuit", "purification"}
+CostumeClass.CostumeList = {"default", "disguise", "maid_a", "maid_b", "swimsuit", "purification", "kappogi"}
 
 ---@alias CostumeType
 ---| "DEFAULT"
@@ -14,6 +14,7 @@ CostumeClass.CostumeList = {"default", "disguise", "maid_a", "maid_b", "swimsuit
 ---| "MAID_B"
 ---| "SWIMSUIT"
 ---| "PURIFICATION"
+---| "KAPPOGI"
 
 ---メインモデルのテクスチャのオフセット値を設定する。
 ---@param offset integer オフセット値
@@ -36,20 +37,23 @@ function CostumeClass.setCostume(costume)
 		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 8)
 		models.models.main.Avatar.Head.Ears:setVisible(false)
 	elseif costume == "MAID_A" then
-		setCostumeTextureOffset(96)
+		setCostumeTextureOffset(144)
 		models.models.costume_maid_a:setVisible(true)
 		ApronClass.IsVisible = false
 	elseif costume == "MAID_B" then
-		setCostumeTextureOffset(144)
+		setCostumeTextureOffset(192)
 		models.models.costume_maid_b:setVisible(true)
 		ApronClass.IsVisible = false
 	elseif costume == "SWIMSUIT" then
-		setCostumeTextureOffset(192)
+		setCostumeTextureOffset(240)
 		models.models.costume_swimsuit:setVisible(true)
 		ApronClass.IsVisible = false
 	elseif costume == "PURIFICATION" then
-		setCostumeTextureOffset(240)
+		setCostumeTextureOffset(288)
 		ApronClass.IsVisible = false
+	elseif costume == "KAPPOGI" then
+		setCostumeTextureOffset(336)
+		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 16)
 	end
 end
 

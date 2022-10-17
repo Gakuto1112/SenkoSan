@@ -69,7 +69,7 @@ events.TICK:register(function()
 			end
 			head:setParentType("Head")
 			mainModel:setVisible(true)
-			ApronClass.IsVisible = (CostumeBeforeSleeping == "DEFAULT" or CostumeBeforeSleeping == "DISGUISE") and not ArmorClass.ArmorVisible[3]
+			ApronClass.IsVisible = (CostumeBeforeSleeping == "DEFAULT" or CostumeBeforeSleeping == "DISGUISE" or CostumeClass.CurrentCostume == "KAPPOGI") and not ArmorClass.ArmorVisible[3]
 			ArmsClass.ItemHeldContradicts = {false, false}
 			renderer:setCameraRot()
 		end
