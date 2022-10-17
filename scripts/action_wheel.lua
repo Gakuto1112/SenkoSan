@@ -202,7 +202,7 @@ function pings.main2_action4()
 	end, false)
 end
 
-function pings.main2_action1(costumeID)
+function pings.main3_action1(costumeID)
 	if costumeID == 1 then
 		CostumeClass.resetCostume()
 	else
@@ -211,7 +211,7 @@ function pings.main2_action1(costumeID)
 	CurrentCostumeState = costumeID
 end
 
-function pings.main2_action2(nameID)
+function pings.main3_action2(nameID)
 	NameplateClass.setName(nameID == 1 and player:getName() or (nameID == 2 and "Senko_san" or "仙狐さん"))
 	CurrentPlayerNameState = nameID
 end
@@ -258,12 +258,12 @@ events.TICK:register(function ()
 	if host:isHost() then
 		if not isOpenActionWheel and IsOpenActionWheelPrev then
 			if CostumeState ~= CurrentCostumeState then
-				pings.main2_action1(CostumeState)
+				pings.main3_action1(CostumeState)
 				sounds:playSound("minecraft:item.armor.equip_leather", player:getPos())
 				print(LanguageClass.getTranslate("action_wheel__main_3__action_1__done_first")..costumeName..LanguageClass.getTranslate("action_wheel__main_3__action_1__done_last"))
 			end
 			if PlayerNameState ~= CurrentPlayerNameState then
-				pings.main2_action2(PlayerNameState)
+				pings.main3_action2(PlayerNameState)
 				sounds:playSound("minecraft:ui.cartography_table.take_result", player:getPos(), 1, 1)
 				print(LanguageClass.getTranslate("action_wheel__main_3__action_2__done_first")..displayName..LanguageClass.getTranslate("action_wheel__main_3__action_2__done_last"))
 			end
