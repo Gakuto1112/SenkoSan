@@ -4,7 +4,7 @@
 
 CostumeClass = {}
 CostumeClass.CurrentCostume = "DEFAULT"
-CostumeClass.CostumeList = {"default", "disguise", "maid_a", "maid_b", "swimsuit", "purification", "kappogi"}
+CostumeClass.CostumeList = {"default", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi"}
 
 ---@alias CostumeType
 ---| "DEFAULT"
@@ -13,6 +13,7 @@ CostumeClass.CostumeList = {"default", "disguise", "maid_a", "maid_b", "swimsuit
 ---| "MAID_A"
 ---| "MAID_B"
 ---| "SWIMSUIT"
+---| "CHEERLEADER"
 ---| "PURIFICATION"
 ---| "KAPPOGI"
 
@@ -49,11 +50,15 @@ function CostumeClass.setCostume(costume)
 		setCostumeTextureOffset(240)
 		models.models.costume_swimsuit:setVisible(true)
 		ApronClass.IsVisible = false
-	elseif costume == "PURIFICATION" then
+	elseif costume == "CHEERLEADER" then
 		setCostumeTextureOffset(288)
+		models.models.costume_cheerleader:setVisible(true)
+		ApronClass.IsVisible = false
+	elseif costume == "PURIFICATION" then
+		setCostumeTextureOffset(336)
 		ApronClass.IsVisible = false
 	elseif costume == "KAPPOGI" then
-		setCostumeTextureOffset(336)
+		setCostumeTextureOffset(384)
 		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 16)
 	end
 end
@@ -61,7 +66,7 @@ end
 ---コスチュームをリセットし、デフォルトのコスチュームにする。
 function CostumeClass.resetCostume()
 	setCostumeTextureOffset(0)
-	for _, modelPart in ipairs({models.models.costume_disguise, models.models.costume_maid_a, models.models.costume_maid_b, models.models.costume_swimsuit}) do
+	for _, modelPart in ipairs({models.models.costume_disguise, models.models.costume_maid_a, models.models.costume_maid_b, models.models.costume_swimsuit, models.models.costume_cheerleader}) do
 		modelPart:setVisible(false)
 	end
 	ApronClass.IsVisible = true
@@ -152,6 +157,25 @@ events.TICK:register(function ()
 			modelsPart:setVisible(false)
 		end
 	end
+	if CostumeClass.CurrentCostume == "CHEERLEADER" then
+		models.models.costume_cheerleader.Avatar.Body.BodyBottom.Skirt:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
+		models.models.costume_cheerleader.Avatar.Body.BodyBottom.Skirt:setVisible(not ArmorClass.ArmorVisible[3])
+		local rightPonPon = models.models.costume_cheerleader.Avatar.Body.Arms.RightArm.RightArmBottom.RightPonPon
+		local leftPonPon = models.models.costume_cheerleader.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftPonPon
+		if ActionWheelClass.ActionCount == 0 then
+			local leftHanded = player:isLeftHanded()
+			rightPonPon:setVisible(General.hasItem(player:getHeldItem(leftHanded)) == "none")
+			leftPonPon:setVisible(General.hasItem(player:getHeldItem(not leftHanded)) == "none")
+		else
+			for _, modelPart in ipairs({rightPonPon, leftPonPon}) do
+				modelPart:setVisible(false)
+			end
+		end
+	else
+		for _, modelPart in ipairs({models.models.costume_cheerleader.Avatar.Body.BodyBottom.Skirt, models.models.costume_cheerleader.Avatar.Body.Arms.RightArm.RightArmBottom.RightPonPon, models.models.costume_cheerleader.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftPonPon}) do
+			modelPart:setVisible(false)
+		end
+	end
 	if CostumeClass.CurrentCostume ~= "MAID_A" and CostumeClass.CurrentCostume ~= "MAID_B" then
 		if renderer:isFirstPerson() and player:getPose() == "SLEEPING" then
 			models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(false)
@@ -161,10 +185,10 @@ events.TICK:register(function ()
 	end
 end)
 
-for _, modelPart in ipairs({models.models.costume_disguise, models.models.costume_maid_a, models.models.costume_maid_b, models.models.costume_swimsuit}) do
+for _, modelPart in ipairs({models.models.costume_disguise, models.models.costume_maid_a, models.models.costume_maid_b, models.models.costume_swimsuit, models.models.costume_cheerleader}) do
 	modelPart:setVisible(false)
 end
-for _, modelPart in ipairs({models.models.costume_maid_a.Avatar.Body.BodyBottom, models.models.costume_maid_b.Avatar.Body.BodyBottom, models.models.costume_swimsuit.Avatar.Body.BodyBottom}) do
+for _, modelPart in ipairs({models.models.costume_maid_a.Avatar.Body.BodyBottom, models.models.costume_maid_b.Avatar.Body.BodyBottom, models.models.costume_swimsuit.Avatar.Body.BodyBottom, models.models.costume_cheerleader.Avatar.Body.BodyBottom, models.models.costume_cheerleader.Avatar.Body.Arms.RightArm.RightArmBottom, models.models.costume_cheerleader.Avatar.Body.Arms.LeftArm.LeftArmBottom}) do
 	modelPart:setParentType("None")
 end
 

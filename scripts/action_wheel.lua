@@ -1,6 +1,6 @@
 ---@class ActionWheelClass アクションホイールを制御するクラス
 ---@field MainPage table アクションホイールのメインページ
----@field ActionCount integer アクション再生中は0より大きくなるカウンター
+---@field ActionWheelClass.ActionCount integer アクション再生中は0より大きくなるカウンター
 ---@field ActionCancelFunction function 現在再生中のアクションをキャンセルする処理
 ---@field IsOpenActionWheelPrev boolean 前チックにアクションホイールを開けていたかどうか
 ---@field ShakeSplashCount integer ブルブル時の水しぶきを出すタイミングを計るカウンター
@@ -13,7 +13,7 @@
 ActionWheelClass = {}
 
 MainPages = {}
-ActionCount = 0
+ActionWheelClass.ActionCount = 0
 ActionCancelFunction = nil
 IsOpenActionWheelPrev = false
 ShakeSplashCount = 0
@@ -50,7 +50,7 @@ end
 ---@param actionCancelFunction function アクションのキャンセル処理の関数
 ---@param ignoreCooldown boolean アニメーションのクールダウンを無視するかどうか
 function runAction(action, actionCancelFunction, ignoreCooldown)
-	if ActionCount == 0 or ignoreCooldown then
+	if ActionWheelClass.ActionCount == 0 or ignoreCooldown then
 		action()
 		ActionCancelFunction = actionCancelFunction
 	end
@@ -72,7 +72,7 @@ function ActionWheelClass.bodyShake(snow)
 	elseif snow then
 		ShakeSplashCount = -20
 	end
-	ActionCount = 20
+	ActionWheelClass.ActionCount = 20
 end
 
 --ping関数
@@ -96,7 +96,7 @@ function pings.refuse_emote()
 	General.setAnimations("PLAY", "refuse_emote")
 	FacePartsClass.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 30, true)
 	ActionCancelFunction = nil
-	ActionCount = 30
+	ActionWheelClass.ActionCount = 30
 	SweatCount = 30
 	if host:isHost() then
 		print(LanguageClass.getTranslate("action_wheel__refuse_action"))
@@ -106,50 +106,50 @@ end
 function pings.main1_action1_left()
 	runAction(function ()
 		BroomCleaningClass.play()
-		ActionCount = 168
+		ActionWheelClass.ActionCount = 168
 	end, function ()
 		BroomCleaningClass.stop()
-		ActionCount = 0
+		ActionWheelClass.ActionCount = 0
 	end, false)
 end
 
 function pings.main1_action1_left_alt()
 	runAction(function ()
 		VacuumCleaningClass.play()
-		ActionCount = 281
+		ActionWheelClass.ActionCount = 281
 	end, function ()
 		VacuumCleaningClass.stop()
-		ActionCount = 0
+		ActionWheelClass.ActionCount = 0
 	end, false)
 end
 
 function pings.main1_action1_right()
 	runAction(function ()
 		ClothCleaningClass.play()
-		ActionCount = 198
+		ActionWheelClass.ActionCount = 198
 	end, function ()
 		ClothCleaningClass.stop()
-		ActionCount = 0
+		ActionWheelClass.ActionCount = 0
 	end, false)
 end
 
 function pings.main1_action2()
 	runAction(function ()
 		HairCutClass.play()
-		ActionCount = 488
+		ActionWheelClass.ActionCount = 488
 	end, function ()
 		HairCutClass.stop()
-		ActionCount = 0
+		ActionWheelClass.ActionCount = 0
 	end)
 end
 
 function pings.main1_action3()
 	runAction(function ()
 		FoxJumpClass.play()
-		ActionCount = 124
+		ActionWheelClass.ActionCount = 124
 	end, function ()
 		FoxJumpClass.stop()
-		ActionCount = 0
+		ActionWheelClass.ActionCount = 0
 	end)
 end
 
@@ -175,30 +175,30 @@ end
 function pings.main2_action2()
 	runAction(function ()
 		EarpickClass.play()
-		ActionCount = 238
+		ActionWheelClass.ActionCount = 238
 	end, function ()
 		EarpickClass.stop()
-		ActionCount = 0
+		ActionWheelClass.ActionCount = 0
 	end, false)
 end
 
 function pings.main2_action3()
 	runAction(function ()
 		TeaTimeClass.play()
-		ActionCount = 250
+		ActionWheelClass.ActionCount = 250
 	end, function ()
 		TeaTimeClass.stop()
-		ActionCount = 0
+		ActionWheelClass.ActionCount = 0
 	end, false)
 end
 
 function pings.main2_action4()
 	runAction(function ()
 		MassaseClass.play()
-		ActionCount = 426
+		ActionWheelClass.ActionCount = 426
 	end, function ()
 		MassaseClass.stop()
-		ActionCount = 0
+		ActionWheelClass.ActionCount = 0
 	end, false)
 end
 
@@ -238,20 +238,20 @@ events.TICK:register(function ()
 	local displayName = PlayerNameState == 1 and player:getName() or (PlayerNameState == 2 and "Senko_san" or "仙狐さん")
 	MainPages[3]:getAction(2):title(LanguageClass.getTranslate("action_wheel__main_3__action_2__title").."§b"..displayName)
 	for i = 1, 2 do
-		setActionEnabled(1, i, ActionCount == 0 and BroomCleaningClass.CanBroomCleaning)
+		setActionEnabled(1, i, ActionWheelClass.ActionCount == 0 and BroomCleaningClass.CanBroomCleaning)
 	end
-	setActionEnabled(1, 3, ActionCount == 0 and FoxJumpClass.CanFoxJump)
-	setActionEnabled(1, 4, ActionCount == 0 and not WardenClass.WardenNearby)
-	setActionEnabled(2, 1, ActionCount == 0 and SitDownClass.CanSitDown)
+	setActionEnabled(1, 3, ActionWheelClass.ActionCount == 0 and FoxJumpClass.CanFoxJump)
+	setActionEnabled(1, 4, ActionWheelClass.ActionCount == 0 and not WardenClass.WardenNearby)
+	setActionEnabled(2, 1, ActionWheelClass.ActionCount == 0 and SitDownClass.CanSitDown)
 	for i = 2, 4 do
-		setActionEnabled(2, i, isAnimationPlaying("models.main", "sit_down") and ActionCount == 0 and not WardenClass.WardenNearby)
+		setActionEnabled(2, i, isAnimationPlaying("models.main", "sit_down") and ActionWheelClass.ActionCount == 0 and not WardenClass.WardenNearby)
 	end
 	local sitDownAction = MainPages[2]:getAction(1)
-	sitDownAction:toggled((ActionCount == 0 or isAnimationPlaying("models.main", "earpick") or isAnimationPlaying("models.main", "tea_time") or isAnimationPlaying("models.main", "massage") or (isAnimationPlaying("models.main", "sit_down") and isAnimationPlaying("models.main", "shake"))) and SitDownClass.CanSitDown and sitDownAction:isToggled())
-	if ActionCount > 0 then
-		if (HurtClass.Damaged ~= "NONE" and ActionCount > 0 and WardenClass.WardenNearby) or ((isAnimationPlaying("models.main", "earpick") or isAnimationPlaying("models.main", "tea_time") or isAnimationPlaying("models.main", "massage")) and not isAnimationPlaying("models.main", "sit_down")) or ((isAnimationPlaying("models.main", "broom_cleaning") or isAnimationPlaying("models.main", "vacuum_cleaning") or isAnimationPlaying("models.main", "cloth_cleaning") or isAnimationPlaying("models.main", "hair_cut")) and not BroomCleaningClass.CanBroomCleaning) or (isAnimationPlaying("models.main", "fox_jump") and not FoxJumpClass.CanFoxJump) then
+	sitDownAction:toggled((ActionWheelClass.ActionCount == 0 or isAnimationPlaying("models.main", "earpick") or isAnimationPlaying("models.main", "tea_time") or isAnimationPlaying("models.main", "massage") or (isAnimationPlaying("models.main", "sit_down") and isAnimationPlaying("models.main", "shake"))) and SitDownClass.CanSitDown and sitDownAction:isToggled())
+	if ActionWheelClass.ActionCount > 0 then
+		if (HurtClass.Damaged ~= "NONE" and ActionWheelClass.ActionCount > 0 and WardenClass.WardenNearby) or ((isAnimationPlaying("models.main", "earpick") or isAnimationPlaying("models.main", "tea_time") or isAnimationPlaying("models.main", "massage")) and not isAnimationPlaying("models.main", "sit_down")) or ((isAnimationPlaying("models.main", "broom_cleaning") or isAnimationPlaying("models.main", "vacuum_cleaning") or isAnimationPlaying("models.main", "cloth_cleaning") or isAnimationPlaying("models.main", "hair_cut")) and not BroomCleaningClass.CanBroomCleaning) or (isAnimationPlaying("models.main", "fox_jump") and not FoxJumpClass.CanFoxJump) then
 			ActionCancelFunction();
-			ActionCount = 0
+			ActionWheelClass.ActionCount = 0
 		end
 	end
 	local isOpenActionWheel = action_wheel:isEnabled()
@@ -298,7 +298,7 @@ events.TICK:register(function ()
 		end
 		SweatCount = SweatCount - 1
 	end
-	ActionCount = ActionCount > 0 and ActionCount - 1 or ActionCount
+	ActionWheelClass.ActionCount = ActionWheelClass.ActionCount > 0 and ActionWheelClass.ActionCount - 1 or ActionWheelClass.ActionCount
 	IsOpenActionWheelPrev = isOpenActionWheel
 end)
 
@@ -309,7 +309,7 @@ end
 --メインページのアクション設定
 --アクション1-1. お掃除
 MainPages[1]:newAction(1):item("amethyst_shard"):onLeftClick(function ()
-	if ActionCount == 0 then
+	if ActionWheelClass.ActionCount == 0 then
 		if BroomCleaningClass.CanBroomCleaning then
 			if math.random() > 0.9 then
 				pings.main1_action1_left_alt()
@@ -323,7 +323,7 @@ MainPages[1]:newAction(1):item("amethyst_shard"):onLeftClick(function ()
 		end
 	end
 end):onRightClick(function ()
-	if ActionCount == 0 then
+	if ActionWheelClass.ActionCount == 0 then
 		if BroomCleaningClass.CanBroomCleaning then
 			pings.main1_action1_right()
 		elseif WardenClass.WardenNearby then
@@ -336,7 +336,7 @@ end)
 
 --アクション1-2. 散髪
 MainPages[1]:newAction(2):item("shears"):onLeftClick(function ()
-	if ActionCount == 0 then
+	if ActionWheelClass.ActionCount == 0 then
 		if BroomCleaningClass.CanBroomCleaning then
 			pings.main1_action2()
 		elseif WardenClass.WardenNearby then
@@ -349,7 +349,7 @@ end)
 
 --アクション1-3. キツネジャンプ
 MainPages[1]:newAction(3):item("snow_block"):onLeftClick(function ()
-	if ActionCount == 0 then
+	if ActionWheelClass.ActionCount == 0 then
 		if FoxJumpClass.CanFoxJump then
 			pings.main1_action3()
 		elseif WardenClass.WardenNearby then
@@ -362,7 +362,7 @@ end)
 
 --アクション1-4. ブルブル
 MainPages[1]:newAction(4):item("water_bucket"):onLeftClick(function()
-	if ActionCount == 0 then
+	if ActionWheelClass.ActionCount == 0 then
 		if WardenClass.WardenNearby then
 			pings.refuse_emote()
 		else
@@ -373,7 +373,7 @@ end)
 
 --アクション2-1. おすわり（正座）
 MainPages[2]:newToggle(1):toggleColor(233 / 255, 160 / 255, 69 / 255):item("oak_stairs"):onToggle(function ()
-	if ActionCount == 0 then
+	if ActionWheelClass.ActionCount == 0 then
 		if SitDownClass.CanSitDown then
 			pings.main2_action1_toggle()
 		elseif WardenClass.WardenNearby then
@@ -388,7 +388,7 @@ end)
 
 --アクション2-2. 耳かき
 MainPages[2]:newAction(2):item("feather"):onLeftClick(function ()
-	if ActionCount == 0 then
+	if ActionWheelClass.ActionCount == 0 then
 		if isAnimationPlaying("models.main", "sit_down") then
 			pings.main2_action2()
 		elseif WardenClass.WardenNearby then
@@ -401,7 +401,7 @@ end)
 
 --アクション2-3. ティータイム
 MainPages[2]:newAction(3):item("flower_pot"):onLeftClick(function ()
-	if ActionCount == 0 then
+	if ActionWheelClass.ActionCount == 0 then
 		if isAnimationPlaying("models.main", "sit_down") then
 			pings.main2_action3()
 		elseif WardenClass.WardenNearby then
@@ -414,7 +414,7 @@ end)
 
 --アクション2-4. マッサージ
 MainPages[2]:newAction(4):item("orange_bed"):onLeftClick(function ()
-	if ActionCount == 0 then
+	if ActionWheelClass.ActionCount == 0 then
 		if isAnimationPlaying("models.main", "sit_down") then
 			pings.main2_action4()
 		elseif WardenClass.WardenNearby then
