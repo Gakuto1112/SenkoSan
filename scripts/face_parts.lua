@@ -42,7 +42,7 @@ function FacePartsClass.setEmotion(rightEye, leftEye, mouth, duration, force)
 		end
 		--左目
 		if EyeTypeID[leftEye] >= 0 then
-			leftEyePart:setUVPixels(EyeTypeID[leftEye] == 0 and -6 or 0, EyeTypeID[rightEye] * 6)
+			leftEyePart:setUVPixels(EyeTypeID[leftEye] == 0 and -6 or 0, EyeTypeID[leftEye] * 6)
 		end
 		--口
 		if MouthTypeID[mouth] >= 0 then
