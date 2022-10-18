@@ -130,7 +130,7 @@ ConfigClass.HideArmor = true
 
 | 項目 | 説明 | 有効な値 | 初期値 |
 | - | - | - | - |
-| ``ConfigClass.DefaultCostume`` | アバター読み込み時に適用するコスチュームのIDです。詳しくは設定ファイル内の説明をご覧ください。 | ``integer`` 1 - 7 | 1 |
+| ``ConfigClass.DefaultCostume`` | アバター読み込み時に適用するコスチュームのIDです。詳しくは設定ファイル内の説明をご覧ください。 | ``integer`` 1 - 8 | 1 |
 | ``ConfigClass.DefaultName`` | アバター読み込み時に適用するプレイヤーの表示名です。詳しくは設定ファイル内の説明をご覧ください。 | ``integer`` 1 - 3 | 3 |
 | ``ConfigClass.AutoShake`` | 水から上がった際に自動で身震いするかどうかです。 | ``boolean`` | ``true`` |
 | ``ConfigClass.HideArmor`` | 防具を隠すかどうかです。``false``にすると防具が表示されます。 | ``boolean`` | ``true`` |
