@@ -1,11 +1,14 @@
 ---@class LanguageClass アバターの表示言語を管理するクラス
 ---@field LanguageData table 言語データ
----@field ActiveLanguage string 設定言語
+---@field LanguageClass.LanguageList table 利用可能な言語のリスト
+---@field LanguageClass.ActiveLanguage integer 設定言語
 
 LanguageClass = {}
 
 LanguageData = {
 	en = {
+		language__en = "English",
+		language__jp = "Japanese",
 		key_name__wag_tail = "Wag tail",
 		key_name__jerk_ears = "Jerk ears",
 		key_name__jump = "Jump",
@@ -37,16 +40,27 @@ LanguageData = {
 		action_wheel__main_2__action_3__unavailable = "I will sip tea after I sit down!",
 		action_wheel__main_2__action_4__title = "Massage",
 		action_wheel__main_2__action_4__unavailable = "I will massage you after I sit down!",
-		action_wheel__main_3__action_1__title = "What costume should I wear? (scroll): ",
-		action_wheel__main_3__action_1__done_first = "I changed my clothers to §b",
-		action_wheel__main_3__action_1__done_last = "§r!",
-		action_wheel__main_3__action_2__title = "What should I be called? (scroll): ",
-		action_wheel__main_3__action_2__done_first = "I changed my name to §b",
+		action_wheel__main_3__action_1__title = "Senko san line collection",
+		action_wheel__main_3__action_2__title = "What costume should I wear? (scroll): ",
+		action_wheel__main_3__action_2__done_first = "I changed my clothers to §b",
 		action_wheel__main_3__action_2__done_last = "§r!",
-		action_wheel__main_3__action_3__title = "Auto shake：§b",
-		action_wheel__main_3__action_4__title = "Hide armor：§b"
+		action_wheel__main_3__action_3__title = "What should I be called? (scroll): ",
+		action_wheel__main_3__action_3__done_first = "I changed my name to §b",
+		action_wheel__main_3__action_3__done_last = "§r!",
+		action_wheel__main_3__action_4__title = "Auto shake：§b",
+		action_wheel__main_3__action_5__title = "Hide armor：§b",
+		action_wheel__word__action_1_title = "Let you pamper me as much as you like!",
+		action_wheel__word__action_2_title = "Let you cuddle my tail as much as you like!",
+		action_wheel__word__action_3_title = "Welcome back!",
+		action_wheel__word__action_4_title = "You must be tired!",
+		action_wheel__word__action_5_title = "It must have been a tough day for you. Good work today.",
+		action_wheel__word__action_6_title = "Uyan♪",
+		action_wheel__word__action_7_title = "I'm just a moving ball of fur...",
+		action_wheel__word__action_8_title = "I will try other languages (scroll): §b"
 	},
 	jp = {
+		language__en = "英語",
+		language__jp = "日本語",
 		key_name__wag_tail = "尻尾フリフリ",
 		key_name__jerk_ears = "お耳ピクピク",
 		key_name__jump = "ジャンプ",
@@ -78,27 +92,45 @@ LanguageData = {
 		action_wheel__main_2__action_3__unavailable = "座ってからお茶をすすろうかのう。",
 		action_wheel__main_2__action_4__title = "マッサージ",
 		action_wheel__main_2__action_4__unavailable = "座ってからお主をほぐそうかのう。",
-		action_wheel__main_3__action_1__title = "わらわは何を着ればよいのじゃ？（スクロール）：",
-		action_wheel__main_3__action_1__done_first = "§b",
-		action_wheel__main_3__action_1__done_last = "§rに着替えたのじゃ。",
-		action_wheel__main_3__action_2__title = "わらわは何と呼ばれればよいのじゃ？（スクロール）: ",
-		action_wheel__main_3__action_2__done_first = "わらわの呼び名を§b",
-		action_wheel__main_3__action_2__done_last = "§rに変更したのじゃ。",
-		action_wheel__main_3__action_3__title = "自動ブルブル：§b",
-		action_wheel__main_3__action_4__title = "防具を隠す：§b"
+		action_wheel__main_3__action_1__title = "仙狐さんセリフ集",
+		action_wheel__main_3__action_2__title = "わらわは何を着ればよいのじゃ？（スクロール）：",
+		action_wheel__main_3__action_2__done_first = "§b",
+		action_wheel__main_3__action_2__done_last = "§rに着替えたのじゃ。",
+		action_wheel__main_3__action_3__title = "わらわは何と呼ばれればよいのじゃ？（スクロール）: ",
+		action_wheel__main_3__action_3__done_first = "わらわの呼び名を§b",
+		action_wheel__main_3__action_3__done_last = "§rに変更したのじゃ。",
+		action_wheel__main_3__action_4__title = "自動ブルブル：§b",
+		action_wheel__main_3__action_5__title = "防具を隠す：§b",
+		action_wheel__word__action_1_title = "存分に甘やかしてくれよう",
+		action_wheel__word__action_2_title = "存分にもふるがよい",
+		action_wheel__word__action_3_title = "おかえりなのじゃ",
+		action_wheel__word__action_4_title = "お疲れ様じゃ",
+		action_wheel__word__action_5_title = "今日も大変だったのう",
+		action_wheel__word__action_6_title = "うやん♪",
+		action_wheel__word__action_7_title = "わらわはただの動く毛玉じゃ...",
+		action_wheel__word__action_8_title = "わらわもよその国の言葉に挑戦しようかのう（スクロール）: §b"
 	}
 }
-ActiveLanguage = client:getActiveLang() == "ja_jp" and "jp" or "en"
+LanguageClass.LanguageList = {"en", "jp"}
+LanguageClass.ActiveLanguage = client:getActiveLang() == "ja_jp" and 2 or 1
 
 ---翻訳キーに対する訳文を返す。設定言語が存在しない場合は英語の文が返される。また、指定したキーの訳が無い場合は英語->キーそのままが返される。
 ---@param keyName string 翻訳キー
 ---@return string
 function LanguageClass.getTranslate(keyName)
-	return LanguageData[ActiveLanguage][keyName] and LanguageData[ActiveLanguage][keyName] or (LanguageData["en"][keyName] and LanguageData["en"][keyName] or keyName)
+	return LanguageData[LanguageClass.LanguageList[LanguageClass.ActiveLanguage]][keyName] and LanguageData[LanguageClass.LanguageList[LanguageClass.ActiveLanguage]][keyName] or (LanguageData["en"][keyName] and LanguageData["en"][keyName] or keyName)
+end
+
+---言語を指定して翻訳キーに対する訳文を返す。
+---@param keyName string 翻訳キー
+---@param languageID integer 言語ID
+---@return string
+function LanguageClass.getTranslateWithLang(keyName, languageID)
+	return LanguageData[LanguageClass.LanguageList[languageID]][keyName]
 end
 
 events.WORLD_TICK:register(function ()
-	ActiveLanguage = client:getActiveLang() == "ja_jp" and "jp" or "en"
+	LanguageClass.ActiveLanguage = client:getActiveLang() == "ja_jp" and 2 or 1
 end)
 
 return LanguageClass

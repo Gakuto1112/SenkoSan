@@ -1,5 +1,8 @@
 ---@class ActionWheelClass アクションホイールを制御するクラス
 ---@field MainPage table アクションホイールのメインページ
+---@field WordPages Page セリフ一覧のページ
+---@field IsOpenWordPages boolean セリフ一覧のページを開いているかどうか
+---@field CurrentWordLanguage integer 現在のセリフの言語
 ---@field ActionWheelClass.ActionCount integer アクション再生中は0より大きくなるカウンター
 ---@field ActionCancelFunction function 現在再生中のアクションをキャンセルする処理
 ---@field IsOpenActionWheelPrev boolean 前チックにアクションホイールを開けていたかどうか
@@ -13,6 +16,9 @@
 ActionWheelClass = {}
 
 MainPages = {}
+WordPages = action_wheel:createPage()
+IsOpenWordPages = false
+CurrentWordLanguage = LanguageClass.ActiveLanguage
 ActionWheelClass.ActionCount = 0
 ActionCancelFunction = nil
 IsOpenActionWheelPrev = false
@@ -234,9 +240,9 @@ end
 
 events.TICK:register(function ()
 	local costumeName = LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[CostumeState])
-	MainPages[3]:getAction(1):title(LanguageClass.getTranslate("action_wheel__main_3__action_1__title").."§b"..costumeName)
+	MainPages[3]:getAction(2):title(LanguageClass.getTranslate("action_wheel__main_3__action_2__title").."§b"..costumeName)
 	local displayName = PlayerNameState == 1 and player:getName() or (PlayerNameState == 2 and "Senko_san" or "仙狐さん")
-	MainPages[3]:getAction(2):title(LanguageClass.getTranslate("action_wheel__main_3__action_2__title").."§b"..displayName)
+	MainPages[3]:getAction(3):title(LanguageClass.getTranslate("action_wheel__main_3__action_3__title").."§b"..displayName)
 	for i = 1, 2 do
 		setActionEnabled(1, i, ActionWheelClass.ActionCount == 0 and BroomCleaningClass.CanBroomCleaning)
 	end
@@ -260,12 +266,16 @@ events.TICK:register(function ()
 			if CostumeState ~= CurrentCostumeState then
 				pings.main3_action1(CostumeState)
 				sounds:playSound("minecraft:item.armor.equip_leather", player:getPos())
-				print(LanguageClass.getTranslate("action_wheel__main_3__action_1__done_first")..costumeName..LanguageClass.getTranslate("action_wheel__main_3__action_1__done_last"))
+				print(LanguageClass.getTranslate("action_wheel__main_3__action_2__done_first")..costumeName..LanguageClass.getTranslate("action_wheel__main_3__action_2__done_last"))
 			end
 			if PlayerNameState ~= CurrentPlayerNameState then
 				pings.main3_action2(PlayerNameState)
 				sounds:playSound("minecraft:ui.cartography_table.take_result", player:getPos(), 1, 1)
-				print(LanguageClass.getTranslate("action_wheel__main_3__action_2__done_first")..displayName..LanguageClass.getTranslate("action_wheel__main_3__action_2__done_last"))
+				print(LanguageClass.getTranslate("action_wheel__main_3__action_3__done_first")..displayName..LanguageClass.getTranslate("action_wheel__main_3__action_3__done_last"))
+			end
+			if IsOpenWordPages then
+				action_wheel:setPage(MainPages[3])
+				IsOpenWordPages = false
 			end
 		end
 		if NextSyncCount == 0 then
@@ -425,8 +435,14 @@ MainPages[2]:newAction(4):item("orange_bed"):onLeftClick(function ()
 	end
 end)
 
---アクション3-1. 着替え
-MainPages[3]:newScroll(1):item("leather_chestplate"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+--アクション3-1. 仙狐さんセリフ集
+MainPages[3]:newAction(1):title(LanguageClass.getTranslate("action_wheel__main_3__action_1__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+	IsOpenWordPages = true
+	action_wheel:setPage(WordPages)
+end)
+
+--アクション3-2. 着替え
+MainPages[3]:newScroll(2):item("leather_chestplate"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
 	if direction == -1 then
 		CostumeState = CostumeState == #CostumeClass.CostumeList and 1 or CostumeState + 1
 	else
@@ -434,8 +450,8 @@ MainPages[3]:newScroll(1):item("leather_chestplate"):color(200 / 255, 200 / 255,
 	end
 end)
 
---アクション3-2. プレイヤーの表示名変更
-MainPages[3]:newScroll(2):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+--アクション3-3. プレイヤーの表示名変更
+MainPages[3]:newScroll(3):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
 	if direction == -1 then
 		PlayerNameState = PlayerNameState == 3 and 1 or PlayerNameState + 1
 	else
@@ -443,30 +459,30 @@ MainPages[3]:newScroll(2):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255
 	end
 end)
 
---アクション3-3. 自動ブルブル
-MainPages[3]:newToggle(3):title(LanguageClass.getTranslate("action_wheel__main_3__action_3__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__main_3__action_3__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("water_bucket"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+--アクション3-4. 自動ブルブル
+MainPages[3]:newToggle(4):title(LanguageClass.getTranslate("action_wheel__main_3__action_4__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__main_3__action_4__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("water_bucket"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
 	pings.main3_action3_toggle()
-	MainPages[3]:getAction(3):hoverColor(85 / 255, 1, 85 / 255)
+	MainPages[3]:getAction(4):hoverColor(85 / 255, 1, 85 / 255)
 end):onUntoggle(function ()
 	pings.main3_action3_untoggle()
-	MainPages[3]:getAction(3):hoverColor(1, 85 / 255, 85 / 255)
+	MainPages[3]:getAction(4):hoverColor(1, 85 / 255, 85 / 255)
 end)
 if ConfigClass.AutoShake then
-	local action = MainPages[3]:getAction(3)
+	local action = MainPages[3]:getAction(4)
 	action:toggled(ConfigClass.AutoShake)
 	action:hoverColor(85 / 255, 1, 85 / 255)
 end
 
---アクション2-4. 防具の非表示
-MainPages[3]:newToggle(4):title(LanguageClass.getTranslate("action_wheel__main_3__action_4__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__main_3__action_4__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("iron_chestplate"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+--アクション3-5. 防具の非表示
+MainPages[3]:newToggle(5):title(LanguageClass.getTranslate("action_wheel__main_3__action_5__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__main_3__action_5__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("iron_chestplate"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
 	pings.main3_action4_toggle()
-	MainPages[3]:getAction(4):hoverColor(85 / 255, 1, 85 / 255)
+	MainPages[3]:getAction(5):hoverColor(85 / 255, 1, 85 / 255)
 end):onUntoggle(function ()
 	pings.main3_action4_untoggle()
-	MainPages[3]:getAction(4):hoverColor(1, 85 / 255, 85 / 255)
+	MainPages[3]:getAction(5):hoverColor(1, 85 / 255, 85 / 255)
 end)
 if ConfigClass.HideArmor then
-	local action = MainPages[3]:getAction(4)
+	local action = MainPages[3]:getAction(5)
 	action:toggled(ConfigClass.HideArmor)
 	action:hoverColor(85 / 255, 1, 85 / 255)
 end
@@ -483,6 +499,57 @@ for index, mainPage in ipairs(MainPages) do
 		end
 	end)
 end
+
+--セリフのページのアクション設定
+--アクション1. 「存分に甘やかしてくれよう！」
+WordPages:newAction(1):title(LanguageClass.getTranslate("action_wheel__word__action_1_title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+	host:sendChatMessage(LanguageClass.getTranslateWithLang("action_wheel__word__action_1_title", CurrentWordLanguage))
+end)
+
+--アクション2. 「存分にもふるがよい」
+WordPages:newAction(2):title(LanguageClass.getTranslate("action_wheel__word__action_2_title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+	host:sendChatMessage(LanguageClass.getTranslateWithLang("action_wheel__word__action_2_title", CurrentWordLanguage))
+end)
+
+--アクション3. 「おかえりなのじゃ」
+WordPages:newAction(3):title(LanguageClass.getTranslate("action_wheel__word__action_3_title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+	host:sendChatMessage(LanguageClass.getTranslateWithLang("action_wheel__word__action_3_title", CurrentWordLanguage))
+end)
+
+--アクション4. 「お疲れ様じゃ」
+WordPages:newAction(4):title(LanguageClass.getTranslate("action_wheel__word__action_4_title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+	host:sendChatMessage(LanguageClass.getTranslateWithLang("action_wheel__word__action_4_title", CurrentWordLanguage))
+end)
+
+--アクション5. 「今日も大変だったのう」
+WordPages:newAction(5):title(LanguageClass.getTranslate("action_wheel__word__action_5_title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+	host:sendChatMessage(LanguageClass.getTranslateWithLang("action_wheel__word__action_5_title", CurrentWordLanguage))
+end)
+
+--アクション6. 「うやん♪」
+WordPages:newAction(6):title(LanguageClass.getTranslate("action_wheel__word__action_6_title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+	host:sendChatMessage(LanguageClass.getTranslateWithLang("action_wheel__word__action_6_title", CurrentWordLanguage))
+end)
+
+--アクション7. 「わらわはただの動く毛玉じゃ...」
+WordPages:newAction(7):title(LanguageClass.getTranslate("action_wheel__word__action_7_title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+	host:sendChatMessage(LanguageClass.getTranslateWithLang("action_wheel__word__action_7_title", CurrentWordLanguage))
+end)
+
+--アクション8. 言語切り替え
+WordPages:newScroll(8):title(LanguageClass.getTranslate("action_wheel__word__action_8_title")..LanguageClass.getTranslate("language__"..LanguageClass.LanguageList[LanguageClass.ActiveLanguage])):item("paper"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+	if LanguageClass.LanguageList[CurrentWordLanguage - direction] then
+		CurrentWordLanguage = CurrentWordLanguage - direction
+	elseif CurrentWordLanguage == 1 then
+		CurrentWordLanguage = #LanguageClass.LanguageList
+	else
+		CurrentWordLanguage = 1
+	end
+	for i = 1, 7 do
+		WordPages:getAction(i):title(LanguageClass.getTranslateWithLang("action_wheel__word__action_"..i.."_title", CurrentWordLanguage))
+	end
+	WordPages:getAction(8):title(LanguageClass.getTranslate("action_wheel__word__action_8_title")..LanguageClass.getTranslate("language__"..LanguageClass.LanguageList[CurrentWordLanguage]))
+end)
 
 action_wheel:setPage(MainPages[1])
 
