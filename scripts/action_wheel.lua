@@ -239,10 +239,6 @@ function pings.main3_action4_untoggle()
 end
 
 events.TICK:register(function ()
-	local costumeName = LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[CostumeState])
-	MainPages[3]:getAction(2):title(LanguageClass.getTranslate("action_wheel__main_3__action_2__title").."§b"..costumeName)
-	local displayName = PlayerNameState == 1 and player:getName() or (PlayerNameState == 2 and "Senko_san" or "仙狐さん")
-	MainPages[3]:getAction(3):title(LanguageClass.getTranslate("action_wheel__main_3__action_3__title").."§b"..displayName)
 	for i = 1, 2 do
 		setActionEnabled(1, i, ActionWheelClass.ActionCount == 0 and BroomCleaningClass.CanBroomCleaning)
 	end
@@ -266,12 +262,12 @@ events.TICK:register(function ()
 			if CostumeState ~= CurrentCostumeState then
 				pings.main3_action1(CostumeState)
 				sounds:playSound("minecraft:item.armor.equip_leather", player:getPos())
-				print(LanguageClass.getTranslate("action_wheel__main_3__action_2__done_first")..costumeName..LanguageClass.getTranslate("action_wheel__main_3__action_2__done_last"))
+				print(LanguageClass.getTranslate("action_wheel__main_3__action_2__done_first")..LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[CostumeState])..LanguageClass.getTranslate("action_wheel__main_3__action_2__done_last"))
 			end
 			if PlayerNameState ~= CurrentPlayerNameState then
 				pings.main3_action2(PlayerNameState)
 				sounds:playSound("minecraft:ui.cartography_table.take_result", player:getPos(), 1, 1)
-				print(LanguageClass.getTranslate("action_wheel__main_3__action_3__done_first")..displayName..LanguageClass.getTranslate("action_wheel__main_3__action_3__done_last"))
+				print(LanguageClass.getTranslate("action_wheel__main_3__action_3__done_first")..(PlayerNameState == 1 and player:getName() or (PlayerNameState == 2 and "Senko_san" or "仙狐さん"))..LanguageClass.getTranslate("action_wheel__main_3__action_3__done_last"))
 			end
 			if IsOpenWordPages then
 				action_wheel:setPage(MainPages[3])
@@ -442,21 +438,23 @@ MainPages[3]:newAction(1):title(LanguageClass.getTranslate("action_wheel__main_3
 end)
 
 --アクション3-2. 着替え
-MainPages[3]:newScroll(2):item("leather_chestplate"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+MainPages[3]:newScroll(2):title(LanguageClass.getTranslate("action_wheel__main_3__action_2__title").."§b"..LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[CostumeState])):item("leather_chestplate"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
 	if direction == -1 then
 		CostumeState = CostumeState == #CostumeClass.CostumeList and 1 or CostumeState + 1
 	else
 		CostumeState = CostumeState == 1 and #CostumeClass.CostumeList or CostumeState - 1
 	end
+	MainPages[3]:getAction(2):title(LanguageClass.getTranslate("action_wheel__main_3__action_2__title").."§b"..LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[CostumeState]))
 end)
 
 --アクション3-3. プレイヤーの表示名変更
-MainPages[3]:newScroll(3):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+MainPages[3]:newScroll(3):title(LanguageClass.getTranslate("action_wheel__main_3__action_3__title").."§b"..(PlayerNameState == 1 and player:getName() or (PlayerNameState == 2 and "Senko_san" or "仙狐さん"))):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
 	if direction == -1 then
 		PlayerNameState = PlayerNameState == 3 and 1 or PlayerNameState + 1
 	else
 		PlayerNameState = PlayerNameState == 1 and 3 or PlayerNameState - 1
 	end
+	MainPages[3]:getAction(3):title(LanguageClass.getTranslate("action_wheel__main_3__action_3__title").."§b"..(PlayerNameState == 1 and player:getName() or (PlayerNameState == 2 and "Senko_san" or "仙狐さん")))
 end)
 
 --アクション3-4. 自動ブルブル
