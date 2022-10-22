@@ -62,7 +62,11 @@ events.TICK:register(function ()
 		end
 	end
 	if TailCuddlingAnimationCount == 370 then
-		FacePartsClass.setEmotion("NORMAL", General.PlayerCondition == "LOW" and "TIRED_INVERSED" or "NORMAL_INVERSED", "NONE", 100, true)
+		if General.PlayerCondition == "LOW" then
+			FacePartsClass.setEmotion("TIRED", "TIRED_INVERSED", "NONE", 100, true)
+		else
+			FacePartsClass.setEmotion("NORMAL", "NORMAL_INVERSED", "NONE", 100, true)
+		end
 	elseif TailCuddlingAnimationCount == 270 then
 		FacePartsClass.setEmotion("SURPLISED", "SURPLISED", "NONE", 90, true)
 		sounds:playSound("entity.experience_orb.pickup", player:getPos(), 0.25, 1.5)
