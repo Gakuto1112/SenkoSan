@@ -232,19 +232,19 @@ function pings.main3_action2(nameID)
 	CurrentPlayerNameState = nameID
 end
 
-function pings.main3_action3_toggle()
+function pings.main3_action4_toggle()
 	WetClass.AutoShake = true
 end
 
-function pings.main3_action3_untoggle()
+function pings.main3_action4_untoggle()
 	WetClass.AutoShake = false
 end
 
-function pings.main3_action4_toggle()
+function pings.main3_action5_toggle()
 	ArmorClass.HideArmor = true
 end
 
-function pings.main3_action4_untoggle()
+function pings.main3_action5_untoggle()
 	ArmorClass.HideArmor = false
 end
 
@@ -483,29 +483,43 @@ end)
 
 --アクション3-4. 自動ブルブル
 MainPages[3]:newToggle(4):title(LanguageClass.getTranslate("action_wheel__main_3__action_4__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__main_3__action_4__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("water_bucket"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
-	pings.main3_action3_toggle()
+	pings.main3_action4_toggle()
 	MainPages[3]:getAction(4):hoverColor(85 / 255, 1, 85 / 255)
 end):onUntoggle(function ()
-	pings.main3_action3_untoggle()
+	pings.main3_action4_untoggle()
 	MainPages[3]:getAction(4):hoverColor(1, 85 / 255, 85 / 255)
 end)
 if ConfigClass.AutoShake then
 	local action = MainPages[3]:getAction(4)
-	action:toggled(ConfigClass.AutoShake)
+	action:toggled(true)
 	action:hoverColor(85 / 255, 1, 85 / 255)
 end
 
 --アクション3-5. 防具の非表示
 MainPages[3]:newToggle(5):title(LanguageClass.getTranslate("action_wheel__main_3__action_5__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__main_3__action_5__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("iron_chestplate"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
-	pings.main3_action4_toggle()
+	pings.main3_action5_toggle()
 	MainPages[3]:getAction(5):hoverColor(85 / 255, 1, 85 / 255)
 end):onUntoggle(function ()
-	pings.main3_action4_untoggle()
+	pings.main3_action5_untoggle()
 	MainPages[3]:getAction(5):hoverColor(1, 85 / 255, 85 / 255)
 end)
 if ConfigClass.HideArmor then
 	local action = MainPages[3]:getAction(5)
-	action:toggled(ConfigClass.HideArmor)
+	action:toggled(true)
+	action:hoverColor(85 / 255, 1, 85 / 255)
+end
+
+--アクション3-6. 一人称視点での狐火の表示の切り替え
+MainPages[3]:newToggle(6):title(LanguageClass.getTranslate("action_wheel__main_3__action_6__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__main_3__action_6__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("soul_torch"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+	FoxFireClass.FoxFireInFirstPerson = true
+	MainPages[3]:getAction(6):hoverColor(85 / 255, 1, 85 / 255)
+end):onUntoggle(function ()
+	FoxFireClass.FoxFireInFirstPerson = false
+	MainPages[3]:getAction(6):hoverColor(1, 85 / 255, 85 / 255)
+end)
+if ConfigClass.FoxFireInFirstPerson then
+	local action = MainPages[3]:getAction(6)
+	action:toggled(true)
 	action:hoverColor(85 / 255, 1, 85 / 255)
 end
 

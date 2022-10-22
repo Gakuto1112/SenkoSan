@@ -188,6 +188,7 @@ ConfigClass.DefaultCostume = 1
 ConfigClass.DefaultName = 3
 ConfigClass.AutoShake = true
 ConfigClass.HideArmor = true
+ConfigClass.FoxFireInFirstPerson = true
 ```
 
 | 項目 | 説明 | 有効な値 | 初期値 |
@@ -196,6 +197,7 @@ ConfigClass.HideArmor = true
 | ``ConfigClass.DefaultName`` | アバター読み込み時に適用するプレイヤーの表示名です。詳しくは設定ファイル内の説明をご覧ください。 | ``integer`` 1 - 3 | 3 |
 | ``ConfigClass.AutoShake`` | 水から上がった際に自動で身震いするかどうかです。 | ``boolean`` | ``true`` |
 | ``ConfigClass.HideArmor`` | 防具を隠すかどうかです。``false``にすると防具が表示されます。 | ``boolean`` | ``true`` |
+| ``ConfigClass.FoxFireInFirstPerson`` | 一人称視点で狐火を表示するかどうかです。この設定に関わらず、三人称視点では条件を満たせば常に表示されます。 | ``boolean`` | ``true`` |
 
 ## 注意事項
 - このアバターは[Figuraコミュニティー](https://discord.gg/ekHGHcH8Af)に寄せられたリクエストの延長線上のアバターです。

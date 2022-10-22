@@ -3,6 +3,7 @@
 ---@field ConfigClass.DefaultName integer デフォルトのプレイヤーの表示名 Default player display name.
 ---@field ConfigClass.AutoShake boolean 水から上がった際に自動でブルブルアクションを実行するかどうか Whether or not run body shake action automately after out of the water.
 ---@field ConfigClass.HideArmor boolean 防具を隠すかどうか Whether or not hide armors.
+---@field ConfigClass.FoxFireInFirstPerson boolean 一人称視点で狐火を表示するかどうか Whether or not show fox fire in first person view.
 
 ConfigClass = {}
 
@@ -24,6 +25,7 @@ ConfigClass.DefaultCostume = 1 --1. いつものコスチューム Default coust
 ConfigClass.DefaultName = 3 --1. プレイヤー名 Player name, 2. "Senko_san", 3. "仙狐さん"
 ConfigClass.AutoShake = true
 ConfigClass.HideArmor = true
+ConfigClass.FoxFireInFirstPerson = true
 
 --- *** 設定フィールド終了 End of the config field ***
 
