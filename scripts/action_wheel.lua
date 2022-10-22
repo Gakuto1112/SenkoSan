@@ -82,7 +82,7 @@ function ActionWheelClass.bodyShake(snow)
 end
 
 --ping関数
-function pings.syncAvatarSetting(nameID, costumeID, autoShake, hideArmor)
+function pings.syncAvatarSetting(nameID, costumeID, autoShake, showArmor)
 	if not IsSynced then
 		CurrentPlayerNameState = nameID
 		CurrentCostumeState = costumeID
@@ -93,7 +93,7 @@ function pings.syncAvatarSetting(nameID, costumeID, autoShake, hideArmor)
 			CostumeClass.setCostume(string.upper(CostumeClass.CostumeList[CurrentCostumeState]))
 		end
 		WetClass.AutoShake = autoShake
-		ArmorClass.HideArmor = hideArmor
+		ArmorClass.ShowArmor = showArmor
 		IsSynced = true
 	end
 end
@@ -241,11 +241,11 @@ function pings.main3_action4_untoggle()
 end
 
 function pings.main3_action5_toggle()
-	ArmorClass.HideArmor = true
+	ArmorClass.ShowArmor = true
 end
 
 function pings.main3_action5_untoggle()
-	ArmorClass.HideArmor = false
+	ArmorClass.ShowArmor = false
 end
 
 events.TICK:register(function ()
@@ -286,7 +286,7 @@ events.TICK:register(function ()
 			end
 		end
 		if NextSyncCount == 0 then
-			pings.syncAvatarSetting(CurrentPlayerNameState, CurrentCostumeState, WetClass.AutoShake, ArmorClass.HideArmor)
+			pings.syncAvatarSetting(CurrentPlayerNameState, CurrentCostumeState, WetClass.AutoShake, ArmorClass.ShowArmor)
 			NextSyncCount = 300
 		elseif not client:isPaused() then
 			NextSyncCount = NextSyncCount - 1
@@ -503,7 +503,7 @@ end):onUntoggle(function ()
 	pings.main3_action5_untoggle()
 	MainPages[3]:getAction(5):hoverColor(1, 85 / 255, 85 / 255)
 end)
-if ConfigClass.HideArmor then
+if ConfigClass.ShowArmor then
 	local action = MainPages[3]:getAction(5)
 	action:toggled(true)
 	action:hoverColor(85 / 255, 1, 85 / 255)
