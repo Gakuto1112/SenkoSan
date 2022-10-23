@@ -78,6 +78,16 @@ end
 
 events.TICK:register(function ()
 	models.models.costume_disguise.Avatar.Head.Hat:setVisible(CostumeClass.CurrentCostume == "DISGUISE" and not ArmorClass.ArmorVisible[1])
+	if CostumeClass.CurrentCostume == "DISGUISE" then
+		local bodyBottom = models.models.costume_disguise.Avatar.Body.BodyBottom
+		if player:getPose() == "CROUCHING" then
+			bodyBottom:setPos(0, 4, 0)
+			bodyBottom:setRot(30, 0, 0)
+		else
+			bodyBottom:setPos(0, 0, 0)
+			bodyBottom:setRot(0, 0, 0)
+		end
+	end
 	if CostumeClass.CurrentCostume == "MAID_A" then
 		local skirt = models.models.costume_maid_a.Avatar.Body.BodyBottom.Skirt
 		skirt:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
