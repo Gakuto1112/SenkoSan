@@ -4,7 +4,6 @@
 
 WardenClass = {}
 
-AttackKey = keybind:create(LanguageClass.getTranslate("key_name__attack"), keybind:getVanillaKey("key.attack"))
 WardenNearbyData = {}
 WardenClass.WardenNearby = false
 
