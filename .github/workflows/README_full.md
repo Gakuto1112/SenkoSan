@@ -3,7 +3,7 @@ TVアニメ「世話やきキツネの仙狐さん」（とその原作）に登
 
 <!-- SIMPLE_MESSAGE -->
 
-対応Figuraバージョン：[0.1.0-rc9](https://www.curseforge.com/minecraft/mc-mods/figura/files/4007916)
+対応Figuraバージョン：[0.1.0-rc.9](https://www.curseforge.com/minecraft/mc-mods/figura/files/4007916)
 
 <!-- REQUIRED_IMAGE -->
 ![メイン](../../README_images/メイン.jpg)
@@ -158,6 +158,23 @@ TVアニメ「世話やきキツネの仙狐さん」（とその原作）に登
 
 ### アクション3-6. 一人称視点での狐火の表示の切り替え
 [アバター設定](#アバター設定について)の``ConfigClass.FoxFireInFirstPerson``の値を変更できます。上を向いた際に、頭上の狐火が煩わしいと感じる場合はオフにして下さい。ただし、 **アバターが再読み込みされる度に値が元に戻ります。** 永続的に値を変更する場合は、[設定ファイル](../../scripts/config.lua)から値を変更して下さい。
+
+## 使用方法
+1. マインクラフト1.19.2に[Fabric](https://fabricmc.net/)をインストールし、[Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)と[Figura 0.1.0-rc.9+1.19.2]((https://www.curseforge.com/minecraft/mc-mods/figura/files/4007916))を追加します。各Modの依存関係にご注意ください。
+2. ページ上部の緑色のボタン「**Code**」から「**Download ZIP**」からこのレポジトリのファイルをダウンロードします。（または、このレポジトリをクローンします。）
+3. 圧縮ファイルの場合は展開します。
+   - 以下のファイル、フォルダはアバターの動作には不要なので削除しても構いません。
+     - [.github](../../.github/)
+     - [README_images](../../README_images/)
+     - [.gitignore](../../.gitignore)
+     - [CONTRIBUTING.md](../../CONTRIBUTING.md)
+     - [README.md](../../README.md)
+     - [衣装一覧.md](../../衣装一覧.md)
+4. ``<マインクラフトのゲームフォルダ>/figura/avatars/``にアバターのデータを配置します。
+   - フォルダはFiguraを追加したマインクラフトを一度起動すると自動的に生成されます。ない場合は手動で作成しても構いません。
+5. ゲームメニューからFiguraメニュー（Δマーク）を開き、画面左のアバターリストから「仙狐さん」を選択します。
+6. 必要に応じて[権限設定](#推奨設定)をして下さい。
+7. アバターをサーバーにアップロードすると、他のFiguraプレイヤーもあなたのアバターを見ることができます。
 
 ## 推奨設定
 ### 信用度設定（Trust）
