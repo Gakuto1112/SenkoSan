@@ -157,6 +157,10 @@ ConfigClass.DefaultName = 5
 ConfigClass.AutoShake = true
 ConfigClass.ShowArmor = false
 ConfigClass.FoxFireInFirstPerson = true
+ConfigClass.KiyBinds = {
+	WagTail = "key.keyboard.z",
+	JerkEars = "key.keyboard.x"
+}
 ```
 
 | 項目 | 説明 | 有効な値 | 初期値 |
@@ -166,6 +170,8 @@ ConfigClass.FoxFireInFirstPerson = true
 | ``ConfigClass.AutoShake`` | 水から上がった際に自動で身震いするかどうかです。 | ``boolean`` | ``true`` |
 | ``ConfigClass.ShowArmor`` | 防具を表示するどうかです。 | ``boolean`` | ``false`` |
 | ``ConfigClass.FoxFireInFirstPerson`` | 一人称視点で狐火を表示するかどうかです。この設定に関わらず、三人称視点では条件を満たせば常に表示されます。 | ``boolean`` | ``true`` |
+| ``ConfigClass.KiyBinds.WagTail`` | 「尻尾フリフリ」のデフォルトのキーです。有効なキーのリストについては[こちら](https://applejuiceyy.github.io/figs/latest/Keybinds/)をご覧ください。 | ``string`` | "key.keyboard.z" |
+| ``ConfigClass.KiyBinds.JerkEars`` | 「お耳ピクピク」のデフォルトのキーです。有効なキーのリストについては[こちら](https://applejuiceyy.github.io/figs/latest/Keybinds/)をご覧ください。 | ``string`` | "key.keyboard.x" |
 
 ## 注意事項
 - このアバターは[Figuraコミュニティー](https://discord.gg/ekHGHcH8Af)に寄せられたリクエストの延長線上のアバターです。
