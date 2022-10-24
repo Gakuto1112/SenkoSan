@@ -127,7 +127,33 @@ function pings.refuse_emote()
 	end
 end
 
-function pings.main1_action1_left()
+function pings.main1_action1(particle)
+	runAction(function ()
+		FacePartsClass.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
+		if particle then
+			local playerPos = player:getPos()
+			sounds:playSound("minecraft:entity.player.levelup", playerPos, 1, 1.5)
+			for _ = 1, 30 do
+				particles:addParticle("minecraft:happy_villager", playerPos:copy():add((math.random() - 0.5) * 4, (math.random() - 0.5) * 4 + 1, (math.random() - 0.5) * 4))
+			end
+		end
+		ActionWheelClass.ActionCount = 40
+	end, function ()
+		FacePartsClass.resetEmotion()
+		ActionWheelClass.ActionCount = 0
+	end, false)
+end
+
+function pings.main1_action2()
+	runAction(function()
+		ActionWheelClass.bodyShake(false)
+	end, function()
+		General.setAnimations("STOP", "shake")
+		ShakeSplashCount = 0
+	end, false)
+end
+
+function pings.main1_action3_left()
 	runAction(function ()
 		BroomCleaningClass.play()
 		ActionWheelClass.ActionCount = 168
@@ -137,7 +163,7 @@ function pings.main1_action1_left()
 	end, false)
 end
 
-function pings.main1_action1_left_alt()
+function pings.main1_action3_left_alt()
 	runAction(function ()
 		VacuumCleaningClass.play()
 		ActionWheelClass.ActionCount = 281
@@ -147,7 +173,7 @@ function pings.main1_action1_left_alt()
 	end, false)
 end
 
-function pings.main1_action1_right()
+function pings.main1_action3_right()
 	runAction(function ()
 		ClothCleaningClass.play()
 		ActionWheelClass.ActionCount = 198
@@ -157,7 +183,7 @@ function pings.main1_action1_right()
 	end, false)
 end
 
-function pings.main1_action2()
+function pings.main1_action4()
 	runAction(function ()
 		HairCutClass.play()
 		ActionWheelClass.ActionCount = 488
@@ -167,7 +193,7 @@ function pings.main1_action2()
 	end)
 end
 
-function pings.main1_action3()
+function pings.main1_action5()
 	runAction(function ()
 		FoxJumpClass.play()
 		ActionWheelClass.ActionCount = 124
@@ -175,15 +201,6 @@ function pings.main1_action3()
 		FoxJumpClass.stop()
 		ActionWheelClass.ActionCount = 0
 	end)
-end
-
-function pings.main1_action4()
-	runAction(function()
-		ActionWheelClass.bodyShake(false)
-	end, function()
-		General.setAnimations("STOP", "shake")
-		ShakeSplashCount = 0
-	end, false)
 end
 
 function pings.main2_action1_toggle()
@@ -274,10 +291,12 @@ end
 
 events.TICK:register(function ()
 	for i = 1, 2 do
+		setActionEnabled(1, i, ActionWheelClass.ActionCount == 0 and not WardenClass.WardenNearby)
+	end
+	for i = 3, 4 do
 		setActionEnabled(1, i, ActionWheelClass.ActionCount == 0 and BroomCleaningClass.CanBroomCleaning)
 	end
-	setActionEnabled(1, 3, ActionWheelClass.ActionCount == 0 and FoxJumpClass.CanFoxJump)
-	setActionEnabled(1, 4, ActionWheelClass.ActionCount == 0 and not WardenClass.WardenNearby)
+	setActionEnabled(1, 5, ActionWheelClass.ActionCount == 0 and FoxJumpClass.CanFoxJump)
 	setActionEnabled(2, 1, ActionWheelClass.ActionCount == 0 and SitDownClass.CanSitDown)
 	setActionEnabled(2, 2, ActionWheelClass.ActionCount == 0 and TailCuddlingClass.CanCuddleTail)
 	for i = 3, 5 do
@@ -348,51 +367,55 @@ for _ = 1, 3 do
 end
 
 --メインページのアクション設定
---アクション1-1. お掃除
-MainPages[1]:newAction(1):item("amethyst_shard"):onLeftClick(function ()
+--アクション1-1. にっこり
+MainPages[1]:newAction(1):item("emerald"):onLeftClick(function ()
+	if ActionWheelClass.ActionCount == 0 then
+		if WardenClass.WardenNearby then
+			pings.refuse_emote()
+		else
+			pings.main1_action1(false)
+		end
+	end
+end):onRightClick(function ()
+	if ActionWheelClass.ActionCount == 0 then
+		if WardenClass.WardenNearby then
+			pings.refuse_emote()
+		else
+			pings.main1_action1(true)
+		end
+	end
+end)
+
+--アクション1-2. ブルブル
+MainPages[1]:newAction(2):item("water_bucket"):onLeftClick(function()
+	if ActionWheelClass.ActionCount == 0 then
+		if WardenClass.WardenNearby then
+			pings.refuse_emote()
+		else
+			pings.main1_action2()
+		end
+	end
+end)
+
+--アクション1-3. お掃除
+MainPages[1]:newAction(3):item("amethyst_shard"):onLeftClick(function ()
 	if ActionWheelClass.ActionCount == 0 then
 		if BroomCleaningClass.CanBroomCleaning then
 			if math.random() > 0.9 then
-				pings.main1_action1_left_alt()
+				pings.main1_action3_left_alt()
 			else
-				pings.main1_action1_left()
+				pings.main1_action3_left()
 			end
 		elseif WardenClass.WardenNearby then
 			pings.refuse_emote()
 		else
-			print(LanguageClass.getTranslate("action_wheel__main_1__action_1__unavailable"))
+			print(LanguageClass.getTranslate("action_wheel__main_1__action_3__unavailable"))
 		end
 	end
 end):onRightClick(function ()
 	if ActionWheelClass.ActionCount == 0 then
 		if BroomCleaningClass.CanBroomCleaning then
-			pings.main1_action1_right()
-		elseif WardenClass.WardenNearby then
-			pings.refuse_emote()
-		else
-			print(LanguageClass.getTranslate("action_wheel__main_1__action_1__unavailable"))
-		end
-	end
-end)
-
---アクション1-2. 散髪
-MainPages[1]:newAction(2):item("shears"):onLeftClick(function ()
-	if ActionWheelClass.ActionCount == 0 then
-		if BroomCleaningClass.CanBroomCleaning then
-			pings.main1_action2()
-		elseif WardenClass.WardenNearby then
-			pings.refuse_emote()
-		else
-			print(LanguageClass.getTranslate("action_wheel__main_1__action_2__unavailable"))
-		end
-	end
-end)
-
---アクション1-3. キツネジャンプ
-MainPages[1]:newAction(3):item("snow_block"):onLeftClick(function ()
-	if ActionWheelClass.ActionCount == 0 then
-		if FoxJumpClass.CanFoxJump then
-			pings.main1_action3()
+			pings.main1_action3_right()
 		elseif WardenClass.WardenNearby then
 			pings.refuse_emote()
 		else
@@ -401,13 +424,28 @@ MainPages[1]:newAction(3):item("snow_block"):onLeftClick(function ()
 	end
 end)
 
---アクション1-4. ブルブル
-MainPages[1]:newAction(4):item("water_bucket"):onLeftClick(function()
+--アクション1-4. 散髪
+MainPages[1]:newAction(4):item("shears"):onLeftClick(function ()
 	if ActionWheelClass.ActionCount == 0 then
-		if WardenClass.WardenNearby then
+		if BroomCleaningClass.CanBroomCleaning then
+			pings.main1_action4()
+		elseif WardenClass.WardenNearby then
 			pings.refuse_emote()
 		else
-			pings.main1_action4()
+			print(LanguageClass.getTranslate("action_wheel__main_1__action_4__unavailable"))
+		end
+	end
+end)
+
+--アクション1-5. キツネジャンプ
+MainPages[1]:newAction(5):item("snow_block"):onLeftClick(function ()
+	if ActionWheelClass.ActionCount == 0 then
+		if FoxJumpClass.CanFoxJump then
+			pings.main1_action5()
+		elseif WardenClass.WardenNearby then
+			pings.refuse_emote()
+		else
+			print(LanguageClass.getTranslate("action_wheel__main_1__action_5__unavailable"))
 		end
 	end
 end)
