@@ -13,7 +13,7 @@ EarsClass = {}
 
 EarsRotTypeID = {STAND = 0, SLIGHTLY_DROOPING = -20, DROOPING = -40}
 EarsRotCount = 0
-JerkEarsKey = keybind:create(LanguageClass.getTranslate("key_name__jerk_ears"), "key.keyboard.x")
+JerkEarsKey = keybind:create(LanguageClass.getTranslate("key_name__jerk_ears"), ConfigClass.KiyBinds.JerkEars)
 JerkEarsCount = 0
 
 ---耳の角度を設定する。
