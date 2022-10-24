@@ -93,9 +93,9 @@ end
 ---名前変更のアクションの名称を変更する。
 function setNameChangeActionTitle()
 	if PlayerNameState == CurrentPlayerNameState then
-		MainPages[3]:getAction(3):title(LanguageClass.getTranslate("action_wheel__main_3__action_3__title").."§b"..(PlayerNameState == 1 and player:getName() or (PlayerNameState == 2 and "Senko_san" or "仙狐さん")))
+		MainPages[3]:getAction(3):title(LanguageClass.getTranslate("action_wheel__main_3__action_3__title").."§b"..NameplateClass.NameList[PlayerNameState])
 	else
-		MainPages[3]:getAction(3):title(LanguageClass.getTranslate("action_wheel__main_3__action_3__title").."§b"..(PlayerNameState == 1 and player:getName() or (PlayerNameState == 2 and "Senko_san" or "仙狐さん")).."\n§7"..LanguageClass.getTranslate("action_wheel__close_to_confirm"))
+		MainPages[3]:getAction(3):title(LanguageClass.getTranslate("action_wheel__main_3__action_3__title").."§b"..NameplateClass.NameList[PlayerNameState].."\n§7"..LanguageClass.getTranslate("action_wheel__close_to_confirm"))
 	end
 end
 
@@ -104,7 +104,7 @@ function pings.syncAvatarSetting(nameID, costumeID, autoShake, showArmor)
 	if not IsSynced then
 		CurrentPlayerNameState = nameID
 		CurrentCostumeState = costumeID
-		NameplateClass.setName(CurrentPlayerNameState == 1 and player:getName() or (CurrentPlayerNameState == 2 and "Senko_san" or "仙狐さん"))
+		NameplateClass.setName(nameID)
 		if CurrentCostumeState == 0 then
 			CostumeClass.resetCostume()
 		else
@@ -249,7 +249,7 @@ function pings.main3_action1(costumeID)
 end
 
 function pings.main3_action2(nameID)
-	NameplateClass.setName(nameID == 1 and player:getName() or (nameID == 2 and "Senko_san" or "仙狐さん"))
+	NameplateClass.setName(nameID)
 	CurrentPlayerNameState = nameID
 	if host:isHost() then
 		setNameChangeActionTitle()
@@ -302,7 +302,7 @@ events.TICK:register(function ()
 			if PlayerNameState ~= CurrentPlayerNameState then
 				pings.main3_action2(PlayerNameState)
 				sounds:playSound("minecraft:ui.cartography_table.take_result", player:getPos(), 1, 1)
-				print(LanguageClass.getTranslate("action_wheel__main_3__action_3__done_first")..(PlayerNameState == 1 and player:getName() or (PlayerNameState == 2 and "Senko_san" or "仙狐さん"))..LanguageClass.getTranslate("action_wheel__main_3__action_3__done_last"))
+				print(LanguageClass.getTranslate("action_wheel__main_3__action_3__done_first")..NameplateClass.NameList[PlayerNameState]..LanguageClass.getTranslate("action_wheel__main_3__action_3__done_last"))
 			end
 			if IsOpenWordPages then
 				action_wheel:setPage(MainPages[3])
@@ -496,11 +496,11 @@ MainPages[3]:newScroll(2):title(LanguageClass.getTranslate("action_wheel__main_3
 end)
 
 --アクション3-3. プレイヤーの表示名変更
-MainPages[3]:newScroll(3):title(LanguageClass.getTranslate("action_wheel__main_3__action_3__title").."§b"..(PlayerNameState == 1 and player:getName() or (PlayerNameState == 2 and "Senko_san" or "仙狐さん"))):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+MainPages[3]:newScroll(3):title(LanguageClass.getTranslate("action_wheel__main_3__action_3__title").."§b"..NameplateClass.NameList[PlayerNameState]):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
 	if direction == -1 then
-		PlayerNameState = PlayerNameState == 3 and 1 or PlayerNameState + 1
+		PlayerNameState = PlayerNameState == #NameplateClass.NameList and 1 or PlayerNameState + 1
 	else
-		PlayerNameState = PlayerNameState == 1 and 3 or PlayerNameState - 1
+		PlayerNameState = PlayerNameState == 1 and #NameplateClass.NameList or PlayerNameState - 1
 	end
 	setNameChangeActionTitle()
 end)
