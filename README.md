@@ -133,7 +133,7 @@ TVアニメ「世話やきキツネの仙狐さん」（とその原作）に登
 
 ```lua
 ConfigClass.DefaultCostume = 1
-ConfigClass.DefaultName = 3
+ConfigClass.DefaultName = 5
 ConfigClass.AutoShake = true
 ConfigClass.ShowArmor = false
 ConfigClass.FoxFireInFirstPerson = true
@@ -142,7 +142,7 @@ ConfigClass.FoxFireInFirstPerson = true
 | 項目 | 説明 | 有効な値 | 初期値 |
 | - | - | - | - |
 | ``ConfigClass.DefaultCostume`` | アバター読み込み時に適用するコスチュームのIDです。詳しくは設定ファイル内の説明をご覧ください。 | ``integer`` 1 - 8 | 1 |
-| ``ConfigClass.DefaultName`` | アバター読み込み時に適用するプレイヤーの表示名です。詳しくは設定ファイル内の説明をご覧ください。 | ``integer`` 1 - 3 | 3 |
+| ``ConfigClass.DefaultName`` | アバター読み込み時に適用するプレイヤーの表示名です。詳しくは設定ファイル内の説明をご覧ください。 | ``integer`` 1 - 5 | 5 |
 | ``ConfigClass.AutoShake`` | 水から上がった際に自動で身震いするかどうかです。 | ``boolean`` | ``true`` |
 | ``ConfigClass.ShowArmor`` | 防具を表示するどうかです。 | ``boolean`` | ``false`` |
 | ``ConfigClass.FoxFireInFirstPerson`` | 一人称視点で狐火を表示するかどうかです。この設定に関わらず、三人称視点では条件を満たせば常に表示されます。 | ``boolean`` | ``true`` |
