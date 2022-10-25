@@ -14455,13 +14455,123 @@
             }
         },
         {
+            "uuid": "82b2f327-c500-b0aa-a8fe-0217ec09dc7a",
+            "name": "sit_down_right_umbrella",
+            "loop": "hold",
+            "override": false,
+            "length": 0,
+            "snapping": 24,
+            "selected": false,
+            "anim_time_update": "",
+            "blend_weight": "",
+            "start_delay": "",
+            "loop_delay": "",
+            "animators": {
+                "773e0e38-42c7-dfb1-76b3-2e2c859ccf9d": {
+                    "name": "LeftLegBottom",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "e8ef2866-2630-aad3-950b-c2acaa1f9c56",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "linear"
+                        }
+                    ]
+                },
+                "9be305ab-a928-a9fa-f26f-0776d5f2052a": {
+                    "name": "RightArm",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "10",
+                                    "z": "15"
+                                }
+                            ],
+                            "uuid": "56caf76c-9cbb-c819-a0bf-d44ccb53011d",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "step"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "uuid": "c8e13896-2696-5b36-bc36-35ca3647d6b8",
+            "name": "sit_down_left_umbrella",
+            "loop": "hold",
+            "override": false,
+            "length": 0,
+            "snapping": 24,
+            "selected": true,
+            "anim_time_update": "",
+            "blend_weight": "",
+            "start_delay": "",
+            "loop_delay": "",
+            "animators": {
+                "773e0e38-42c7-dfb1-76b3-2e2c859ccf9d": {
+                    "name": "LeftLegBottom",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "e8ef2866-2630-aad3-950b-c2acaa1f9c56",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "linear"
+                        }
+                    ]
+                },
+                "0a5f0a5e-c3b7-0792-6849-aa4ddaf05304": {
+                    "name": "LeftArm",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "-10",
+                                    "z": "-15"
+                                }
+                            ],
+                            "uuid": "dc85bf40-1ca1-8980-5830-9719b6e355c7",
+                            "time": 0,
+                            "color": -1,
+                            "interpolation": "step"
+                        }
+                    ]
+                }
+            }
+        },
+        {
             "uuid": "e38f757e-7c35-65a1-b7bb-47f1a2978792",
             "name": "tail_cuddling",
             "loop": "once",
             "override": false,
             "length": 20,
             "snapping": 24,
-            "selected": true,
+            "selected": false,
             "anim_time_update": "",
             "blend_weight": "",
             "start_delay": "",

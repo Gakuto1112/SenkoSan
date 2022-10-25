@@ -4,6 +4,7 @@
 ---@field ConfigClass.AutoShake boolean 水から上がった際に自動でブルブルアクションを実行するかどうか Whether or not run body shake action automately after out of the water.
 ---@field ConfigClass.ShowArmor boolean 防具を表示するどうか Whether or not show armors.
 ---@field ConfigClass.FoxFireInFirstPerson boolean 一人称視点で狐火を表示するかどうか Whether or not show fox fire in first person view.
+---@field ConfigClass.UmbrellaSound boolean 傘の開閉音を再生するかどうか Whether or not play sound when opening/closing umbrella.
 ---@field ConfigClass.KiyBinds table アバター固有アクションのキーバインドのテーブル Key binds of avatar-specific actions.
 
 ConfigClass = {}
@@ -27,6 +28,7 @@ ConfigClass.DefaultName = 5 --1. プレイヤー名 Player name, 2. "Senko", 3. 
 ConfigClass.AutoShake = true
 ConfigClass.ShowArmor = false
 ConfigClass.FoxFireInFirstPerson = true
+ConfigClass.UmbrellaSound = true
 ConfigClass.KiyBinds = { -- 有効なキーのリストについては以下のURLをご参照ください。 Please refer to the following URL for valid key list. https://applejuiceyy.github.io/figs/latest/Keybinds/
 	WagTail = "key.keyboard.z",
 	JerkEars = "key.keyboard.x"

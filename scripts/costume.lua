@@ -174,8 +174,8 @@ events.TICK:register(function ()
 		local leftPonPon = models.models.costume_cheerleader.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftPonPon
 		if ActionWheelClass.ActionCount == 0 then
 			local leftHanded = player:isLeftHanded()
-			rightPonPon:setVisible(General.hasItem(player:getHeldItem(leftHanded)) == "none")
-			leftPonPon:setVisible(General.hasItem(player:getHeldItem(not leftHanded)) == "none")
+			rightPonPon:setVisible(General.hasItem(player:getHeldItem(leftHanded)) == "none" and (not UmbrellaClass.EnableUmbrella or not leftHanded))
+			leftPonPon:setVisible(General.hasItem(player:getHeldItem(not leftHanded)) == "none" and (not UmbrellaClass.EnableUmbrella or leftHanded))
 		else
 			for _, modelPart in ipairs({rightPonPon, leftPonPon}) do
 				modelPart:setVisible(false)

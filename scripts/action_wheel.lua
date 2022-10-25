@@ -31,14 +31,6 @@ PlayerNameState = ConfigClass.DefaultName
 IsSynced = host:isHost()
 NextSyncCount = 300
 
----アニメーションが再生中かどうかを返す
----@param modelName string モデル名
----@param animationName string アニメーションが名
----@return boolean
-function isAnimationPlaying(modelName, animationName)
-	return animations[modelName][animationName]:getPlayState() == "PLAYING"
-end
-
 ---アクションの色の有効色/無効色の切り替え
 ---@param pageNumber integer メインアクションのページ番号
 ---@param actionNumber integer pageNumber内のアクションの番号
@@ -72,7 +64,7 @@ function ActionWheelClass.bodyShake(snow)
 	General.setAnimations("PLAY", "shake")
 	sounds:playSound("minecraft:entity.wolf.shake", player:getPos(), 1, 1.5)
 	FacePartsClass.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 20, true)
-	if WetClass.WetCount > 0 and not player:isWet() then
+	if WetClass.WetCount > 0 and not WetClass.IsWet then
 		ShakeSplashCount = 20
 		WetClass.WetCount = 20
 	elseif snow then
@@ -100,7 +92,7 @@ function setNameChangeActionTitle()
 end
 
 --ping関数
-function pings.syncAvatarSetting(nameID, costumeID, autoShake, showArmor)
+function pings.syncAvatarSetting(nameID, costumeID, autoShake, showArmor, umbrellaSound)
 	if not IsSynced then
 		CurrentPlayerNameState = nameID
 		CurrentCostumeState = costumeID
@@ -112,6 +104,7 @@ function pings.syncAvatarSetting(nameID, costumeID, autoShake, showArmor)
 		end
 		WetClass.AutoShake = autoShake
 		ArmorClass.ShowArmor = showArmor
+		UmbrellaClass.UmbrellaSound = umbrellaSound
 		IsSynced = true
 	end
 end
@@ -289,6 +282,14 @@ function pings.main3_action5_untoggle()
 	ArmorClass.ShowArmor = false
 end
 
+function pings.main3_action7_toggle()
+	UmbrellaClass.UmbrellaSound = true
+end
+
+function pings.main3_action7_untoggle()
+	UmbrellaClass.UmbrellaSound = false
+end
+
 events.TICK:register(function ()
 	for i = 1, 2 do
 		setActionEnabled(1, i, ActionWheelClass.ActionCount == 0 and not WardenClass.WardenNearby)
@@ -300,12 +301,12 @@ events.TICK:register(function ()
 	setActionEnabled(2, 1, ActionWheelClass.ActionCount == 0 and SitDownClass.CanSitDown)
 	setActionEnabled(2, 2, ActionWheelClass.ActionCount == 0 and TailCuddlingClass.CanCuddleTail)
 	for i = 3, 5 do
-		setActionEnabled(2, i, isAnimationPlaying("models.main", "sit_down") and ActionWheelClass.ActionCount == 0 and not WardenClass.WardenNearby)
+		setActionEnabled(2, i, General.isAnimationPlaying("models.main", "sit_down") and ActionWheelClass.ActionCount == 0 and not WardenClass.WardenNearby)
 	end
 	local sitDownAction = MainPages[2]:getAction(1)
-	sitDownAction:toggled((ActionWheelClass.ActionCount == 0 or isAnimationPlaying("models.main", "earpick") or isAnimationPlaying("models.main", "tea_time") or isAnimationPlaying("models.main", "massage") or (isAnimationPlaying("models.main", "sit_down") and isAnimationPlaying("models.main", "shake"))) and SitDownClass.CanSitDown and sitDownAction:isToggled())
+	sitDownAction:toggled((ActionWheelClass.ActionCount == 0 or General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage") or (General.isAnimationPlaying("models.main", "sit_down") and General.isAnimationPlaying("models.main", "shake"))) and SitDownClass.CanSitDown and sitDownAction:isToggled())
 	if ActionWheelClass.ActionCount > 0 then
-		if (HurtClass.Damaged ~= "NONE" and ActionWheelClass.ActionCount > 0 and WardenClass.WardenNearby) or ((isAnimationPlaying("models.main", "earpick") or isAnimationPlaying("models.main", "tea_time") or isAnimationPlaying("models.main", "massage")) and not isAnimationPlaying("models.main", "sit_down")) or (isAnimationPlaying("models.main", "tail_cuddling") and not TailCuddlingClass.CanCuddleTail) or ((isAnimationPlaying("models.main", "broom_cleaning") or isAnimationPlaying("models.main", "vacuum_cleaning") or isAnimationPlaying("models.main", "cloth_cleaning") or isAnimationPlaying("models.main", "hair_cut")) and not BroomCleaningClass.CanBroomCleaning) or (isAnimationPlaying("models.main", "fox_jump") and not FoxJumpClass.CanFoxJump) then
+		if (HurtClass.Damaged ~= "NONE" and ActionWheelClass.ActionCount > 0 and WardenClass.WardenNearby) or ((General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage")) and not General.isAnimationPlaying("models.main", "sit_down")) or (General.isAnimationPlaying("models.main", "tail_cuddling") and not TailCuddlingClass.CanCuddleTail) or ((General.isAnimationPlaying("models.main", "broom_cleaning") or General.isAnimationPlaying("models.main", "vacuum_cleaning") or General.isAnimationPlaying("models.main", "cloth_cleaning") or General.isAnimationPlaying("models.main", "hair_cut")) and not BroomCleaningClass.CanBroomCleaning) or (General.isAnimationPlaying("models.main", "fox_jump") and not FoxJumpClass.CanFoxJump) then
 			ActionCancelFunction();
 			ActionWheelClass.ActionCount = 0
 		end
@@ -329,7 +330,7 @@ events.TICK:register(function ()
 			end
 		end
 		if NextSyncCount == 0 then
-			pings.syncAvatarSetting(CurrentPlayerNameState, CurrentCostumeState, WetClass.AutoShake, ArmorClass.ShowArmor)
+			pings.syncAvatarSetting(CurrentPlayerNameState, CurrentCostumeState, WetClass.AutoShake, ArmorClass.ShowArmor, UmbrellaClass.UmbrellaSound)
 			NextSyncCount = 300
 		elseif not client:isPaused() then
 			NextSyncCount = NextSyncCount - 1
@@ -481,7 +482,7 @@ end)
 --アクション2-3. 耳かき
 MainPages[2]:newAction(3):item("feather"):onLeftClick(function ()
 	if ActionWheelClass.ActionCount == 0 then
-		if isAnimationPlaying("models.main", "sit_down") then
+		if General.isAnimationPlaying("models.main", "sit_down") then
 			pings.main2_action3()
 		elseif WardenClass.WardenNearby then
 			pings.refuse_emote()
@@ -494,7 +495,7 @@ end)
 --アクション2-4. ティータイム
 MainPages[2]:newAction(4):item("flower_pot"):onLeftClick(function ()
 	if ActionWheelClass.ActionCount == 0 then
-		if isAnimationPlaying("models.main", "sit_down") then
+		if General.isAnimationPlaying("models.main", "sit_down") then
 			pings.main2_action4()
 		elseif WardenClass.WardenNearby then
 			pings.refuse_emote()
@@ -507,7 +508,7 @@ end)
 --アクション2-5. マッサージ
 MainPages[2]:newAction(5):item("yellow_bed"):onLeftClick(function ()
 	if ActionWheelClass.ActionCount == 0 then
-		if isAnimationPlaying("models.main", "sit_down") then
+		if General.isAnimationPlaying("models.main", "sit_down") then
 			pings.main2_action5()
 		elseif WardenClass.WardenNearby then
 			pings.refuse_emote()
@@ -581,6 +582,20 @@ end):onUntoggle(function ()
 end)
 if ConfigClass.FoxFireInFirstPerson then
 	local action = MainPages[3]:getAction(6)
+	action:toggled(true)
+	action:hoverColor(85 / 255, 1, 85 / 255)
+end
+
+--アクション3-7. 傘の開閉音
+MainPages[3]:newToggle(7):title(LanguageClass.getTranslate("action_wheel__main_3__action_7__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__main_3__action_7__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("red_carpet"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+	pings.main3_action7_toggle()
+	MainPages[3]:getAction(7):hoverColor(85 / 255, 1, 85 / 255)
+end):onUntoggle(function ()
+	pings.main3_action7_untoggle()
+	MainPages[3]:getAction(7):hoverColor(1, 85 / 255, 85 / 255)
+end)
+if ConfigClass.UmbrellaSound then
+	local action = MainPages[3]:getAction(7)
 	action:toggled(true)
 	action:hoverColor(85 / 255, 1, 85 / 255)
 end

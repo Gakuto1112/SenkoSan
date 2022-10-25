@@ -10,7 +10,7 @@ events.TICK:register(function ()
 end)
 
 events.RENDER:register(function ()
-	if ApronClass.IsVisible and animations["models.main"]["sit_down"]:getPlayState() ~= "PLAYING" then
+	if ApronClass.IsVisible and not General.isAnimationPlaying("models.main", "sit_down") then
 		local apronBottom = models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom
 		if General.IsSneaking then
 			apronBottom:setRot(math.max(vanilla_model.RIGHT_LEG:getOriginRot().x, vanilla_model.LEFT_LEG:getOriginRot().x) + 30, 0, 0)

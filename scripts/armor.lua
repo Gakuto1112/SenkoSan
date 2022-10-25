@@ -168,29 +168,6 @@ events.TICK:register(function()
 			ArmorClass.ArmorVisible[4] = false
 		end
 		ArmorRoot.Avatar.Head:setParentType(playerPose == "SLEEPING" and "None" or "Head")
-		if playerPose == "CROUCHING" then
-			if not renderer:isFirstPerson() then
-				for _, armorPart in ipairs({ArmorRoot.Avatar.Body.Arms.RightArm, ArmorRoot.Avatar.Body.Arms.LeftArm}) do
-					armorPart:setPos(0, 3, 0)
-					armorPart:setRot(30, 0, 0)
-				end
-			end
-			for _, legPart in ipairs({ArmorRoot.Avatar.Body.BodyBottom.Legs.RightLeg, ArmorRoot.Avatar.Body.BodyBottom.Legs.LeftLeg}) do
-				legPart:setPos(0, 4, -4)
-				legPart:setRot(30, 0, 0)
-			end
-		else
-			if not renderer:isFirstPerson() then
-				for _, armorPart in ipairs({ArmorRoot.Avatar.Body.Arms.RightArm, ArmorRoot.Avatar.Body.Arms.LeftArm}) do
-					armorPart:setPos(0, 0, 0)
-					armorPart:setRot(0, 0, 0)
-				end
-			end
-			for _, legPart in ipairs({ArmorRoot.Avatar.Body.BodyBottom.Legs.RightLeg, ArmorRoot.Avatar.Body.BodyBottom.Legs.LeftLeg}) do
-				legPart:setPos(0, 0, 0)
-				legPart:setRot(0, 0, 0)
-			end
-		end
 	elseif ShowArmorPrev then
 		for _, modelPart in ipairs({ArmorRoot.Avatar.Head.Helmet, ArmorRoot.Avatar.Body.Chestplate, ArmorRoot.Avatar.Body.BodyBottom.ChestplateBottom, ArmorRoot.Avatar.Body.Arms.RightArm.RightChestplate, ArmorRoot.Avatar.Body.Arms.LeftArm.LeftChestplate, ArmorRoot.Avatar.Body.Arms.RightArm.RightChestplate, ArmorRoot.Avatar.Body.Arms.RightArm.RightArmBottom.RightChestplateBottom, ArmorRoot.Avatar.Body.Arms.LeftArm.LeftChestplate, ArmorRoot.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftChestplateBottom, models.models.armor.Avatar.Body.BodyBottom.Tail, ArmorRoot.Avatar.Body.Leggings, ArmorRoot.Avatar.Body.BodyBottom.LeggingsBottom, ArmorRoot.Avatar.Body.BodyBottom.Legs.RightLeg.RightLeggings, ArmorRoot.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.RightLeggingsBottom, ArmorRoot.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLeggings, ArmorRoot.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.LeftLeggingsBottom, ArmorRoot.Avatar.Body.BodyBottom.Legs.RightLeg.RightBoots, ArmorRoot.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.RightBootsBottom, ArmorRoot.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.LeftBootsBottom, ArmorRoot.Avatar.Head.Helmet.HelmetOverlay, ArmorRoot.Avatar.Body.Chestplate.ChestplateOverlay, ArmorRoot.Avatar.Body.BodyBottom.ChestplateBottom.ChestplateBottomOverlay, ArmorRoot.Avatar.Body.Arms.RightArm.RightChestplate.RightChestplateOverlay, ArmorRoot.Avatar.Body.Arms.LeftArm.LeftChestplate.LeftChestplateOverlay, ArmorRoot.Avatar.Body.Arms.RightArm.RightChestplate.RightChestplateOverlay, ArmorRoot.Avatar.Body.Arms.RightArm.RightArmBottom.RightChestplateBottom.RightChestplateBottomOverlay, ArmorRoot.Avatar.Body.Arms.LeftArm.LeftChestplate.LeftChestplateOverlay, ArmorRoot.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftChestplateBottom.LeftChestplateBottomOverlay, ArmorRoot.Avatar.Body.Leggings.LeggingsOverlay, ArmorRoot.Avatar.Body.BodyBottom.LeggingsBottom.LeggingsBottomOverlay, ArmorRoot.Avatar.Body.BodyBottom.Legs.RightLeg.RightLeggings.RightLeggingsOverlay, ArmorRoot.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.RightLeggingsBottom.RightLeggingsBottomOverlay, ArmorRoot.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLeggings.LeftLeggingsOverlay, ArmorRoot.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.LeftLeggingsBottom.LeftLeggingsBottomOverlay, ArmorRoot.Avatar.Body.BodyBottom.Legs.RightLeg.RightBoots.RightBootsOverlay, ArmorRoot.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.RightBootsBottom.RightBootsBottomOverlay, ArmorRoot.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftBoots.LeftBootsOverlay, ArmorRoot.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.LeftBootsBottom.LeftBootsBottomOverlay}) do
 			modelPart:setVisible(false)

@@ -20,15 +20,15 @@ end
 
 events.TICK:register(function ()
 	SitDownClass.CanSitDown = player:getPose() == "STANDING" and player:isOnGround() and not player:getVehicle() and player:getVelocity():length() == 0 and HurtClass.Damaged == "NONE" and not WardenClass.WardenNearby
-	if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" and not SitDownClass.CanSitDown then
+	if General.isAnimationPlaying("models.main", "sit_down") and not SitDownClass.CanSitDown then
 		SitDownClass.standUp()
 	end
 end)
 
 events.WORLD_RENDER:register(function ()
-	if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" and CameraYOffset > -0.5 then
+	if General.isAnimationPlaying("models.main", "sit_down") and CameraYOffset > -0.5 then
 		CameraYOffset = math.max(CameraYOffset - 0.5 / client:getFPS() * 6, -0.5)
-	elseif animations["models.main"]["sit_down"]:getPlayState() ~= "PLAYING" and CameraYOffset < 0 then
+	elseif not General.isAnimationPlaying("models.main", "sit_down") and CameraYOffset < 0 then
 		CameraYOffset = math.min(CameraYOffset + 0.5 / client:getFPS() * 6, 0)
 	end
 	renderer:offsetCameraPivot(0, CameraYOffset, 0)

@@ -3,7 +3,9 @@
 ---@field WalkDistance number 鈴を鳴らす用の歩いた距離
 ---@field VelocityYData table ジャンプしたかどうかを判定する為にy方向の速度を格納するテーブル
 ---@field OnGroundData table 前チックに着地していたかを判定する為に着地情報を格納するテーブル
+---@field WetClass.IsWet boolean 濡れているかどうか
 ---@field WetClass.WetCount integer 濡れの度合いを計るカウンター
+---@field WetClass.AutoShake boolean 自動ブルブルが有効かどうか
 ---@field AutoShakeCount integer 自動ブルブルまでの時間を計るカウンター
 
 WetClass = {}
@@ -12,6 +14,7 @@ JumpKey = keybind:create(LanguageClass.getTranslate("key_name__jump"), keybind:g
 WalkDistance = 0
 VelocityYData = {}
 OnGroundData = {}
+WetClass.IsWet = false
 WetClass.WetCount = 0
 WetClass.AutoShake = ConfigClass.AutoShake
 AutoShakeCount = 0
@@ -38,7 +41,8 @@ events.TICK:register(function()
 		end
 	end
 	local tail = models.models.main.Avatar.Body.BodyBottom.Tail
-	if player:isWet() then
+	WetClass.IsWet = (player:isInRain() and not UmbrellaClass.EnableUmbrella) or player:isInWater()
+	if WetClass.IsWet then
 		WetClass.WetCount = player:isInWater() and 1200 or WetClass.WetCount + 4
 		EarsClass.setEarsRot("DROOPING", 1, true)
 		tail:setScale(0.5, 0.5, 1)
@@ -54,7 +58,7 @@ events.TICK:register(function()
 		if JumpKey:isPressed() and OnGroundData[1] and velocity.y > 0 and VelocityYData[1] <= 0 then
 			sounds:playSound("minecraft:entity.cod.flop", playerPos, WetClass.WetCount / 1200, 1)
 		end
-		if WetClass.AutoShake and animations["models.main"]["shake"]:getPlayState() ~= "PLAYING" then
+		if WetClass.AutoShake and not General.isAnimationPlaying("models.main", "shake") then
 			if AutoShakeCount == 20 then
 				ActionWheelClass.bodyShake(false)
 				AutoShakeCount = 0

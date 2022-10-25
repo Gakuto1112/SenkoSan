@@ -54,6 +54,14 @@ function General.getStatusEffect(name)
 	return nil
 end
 
+---アニメーションが再生中かどうかを返す
+---@param modelName string モデル名
+---@param animationName string アニメーションが名
+---@return boolean
+function General.isAnimationPlaying(modelName, animationName)
+	return animations[modelName][animationName]:getPlayState() == "PLAYING"
+end
+
 --複数のモデルファイルのアニメーションを同時に制御する。
 ---@param animationState AnimationState アニメーションの設定値
 ---@param animationName string アニメーションの名前

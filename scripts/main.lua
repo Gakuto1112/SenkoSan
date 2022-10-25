@@ -13,6 +13,7 @@ events.ENTITY_INIT:register(function ()
 	GlassesClass = require("scripts/glasses")
 	TailClass = require("scripts/tail")
 	EarsClass = require("scripts/ears")
+	UmbrellaClass = require("scripts/umbrella")
 	ArmorClass = require("scripts/armor")
 
 	--機能別クラス

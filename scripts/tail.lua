@@ -79,7 +79,7 @@ events.RENDER:register(function ()
 	if (not renderer:isFirstPerson() or client:hasIrisShader()) and TailClass.EnablePyhsics then
 		local tailLimit = {{-60, 60}, {-30, 30}} --尻尾の可動範囲：1. 上下方向, 2. 左右方向
 		local playerPose = player:getPose()
-		if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" or player:getVehicle() then
+		if General.isAnimationPlaying("models.main", "sit_down") or player:getVehicle() then
 			tailLimit[1][2] = 10
 		end
 		if playerPose == "FALL_FLYING" then
@@ -90,7 +90,7 @@ events.RENDER:register(function ()
 			local tailXMoveXZ = (VelocityAverage[1] + math.abs(VelocityAverage[3])) * 160
 			local tailXMoveY = VelocityAverage[2] * 80
 			local tailXAngleMove = math.abs(VelocityAverage[4]) * 0.05
-			local tailXConditionAngle = (General.PlayerCondition == "LOW" or animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" or player:getVehicle() or WardenClass.WardenNearby) and 0 or (General.PlayerCondition == "MEDIUM" and 15 or 30)
+			local tailXConditionAngle = (General.PlayerCondition == "LOW" or General.isAnimationPlaying("models.main", "sit_down") or player:getVehicle() or WardenClass.WardenNearby) and 0 or (General.PlayerCondition == "MEDIUM" and 15 or 30)
 			local tailRot = vectors.vec3(math.clamp(tailLimit[1][2] - math.min(tailXMoveXZ, math.max(tailLimit[1][2] - tailXMoveY - tailXAngleMove - tailXConditionAngle, 0)) + tailXMoveY - math.min(tailXAngleMove, math.max(tailLimit[1][2] -tailXMoveXZ - tailXMoveY - tailXConditionAngle, 0)) - tailXConditionAngle, tailLimit[1][1], tailLimit[1][2]) + (playerPose == "CROUCHING" and 30 or 0), math.clamp(-VelocityAverage[3] * 160 + VelocityAverage[4] * 0.05, tailLimit[2][1], tailLimit[2][2]), 0)
 			tail:setRot(tailRot)
 			if CostumeClass.CurrentCostume == "DISGUISE" then

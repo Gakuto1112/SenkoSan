@@ -29,7 +29,7 @@ function BroomCleaningClass.stop()
 end
 
 events.TICK:register(function ()
-	BroomCleaningClass.CanBroomCleaning = player:getPose() == "STANDING" and player:isOnGround() and not player:getVehicle() and player:getVelocity():length() == 0 and HurtClass.Damaged == "NONE" and animations["models.main"]["sit_down"]:getPlayState() ~= "PLAYING" and not WardenClass.WardenNearby
+	BroomCleaningClass.CanBroomCleaning = player:getPose() == "STANDING" and player:isOnGround() and not player:getVehicle() and player:getVelocity():length() == 0 and HurtClass.Damaged == "NONE" and not General.isAnimationPlaying("models.main", "sit_down") and not WardenClass.WardenNearby
 	if BroomCleaningAnimationCount > 0 then
 		local leftHanded = player:isLeftHanded()
 		if General.hasItem(player:getHeldItem(leftHanded)) ~= "none" then

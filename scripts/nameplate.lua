@@ -12,7 +12,7 @@ function NameplateClass.setName(nameID)
 end
 
 events.TICK:register(function()
-	if animations["models.main"]["sit_down"]:getPlayState() == "PLAYING" then
+	if General.isAnimationPlaying("models.main", "sit_down") then
 		nameplate.ENTITY:setPos(0, -0.5, 0)
 	else
 		nameplate.ENTITY:setPos(0, 0, 0)
