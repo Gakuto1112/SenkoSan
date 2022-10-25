@@ -1,7 +1,7 @@
 # SenkoSan（仙狐さん）
 TVアニメ「世話やきキツネの仙狐さん」（とその原作）に登場するキャラクターを再現した、MinecraftのスキンMod「[Figura](https://www.curseforge.com/minecraft/mc-mods/figura)」向けスキン「SenkoSan（仙狐さん）」です。
 
-**このREADMEには本来、大量の画像（約66MB）を添付していますが、通信量の軽減のため、必要最低限以外の画像は添付されおりません。全ての画像を確認したい方は[README（完全版）](./.github/workflows/README_full.md)をご覧ください。**
+**このREADMEには本来、大量の画像（約67MB）を添付していますが、通信量の軽減のため、必要最低限以外の画像は添付されおりません。全ての画像を確認したい方は[README（完全版）](./.github/workflows/README_full.md)をご覧ください。**
 
 対応Figuraバージョン：[0.1.0-rc.9](https://www.curseforge.com/minecraft/mc-mods/figura/files/4007916)
 
@@ -33,6 +33,11 @@ TVアニメ「世話やきキツネの仙狐さん」（とその原作）に登
   - 水から上がると身震いして体に付いた水滴を飛ばします（[設定](#アバター設定について)でオフにできます）。
 
   - 尻尾は水にぬれるとしなびてしまいます（第5話）。
+
+- 雨が降っていると傘をさします。
+  - 傘をさしている場合は雨で濡れることはありません。
+  - オフハンドにアイテムを持っている時やアニメーションを再生した時は雨でも傘をしまいます（この場合はもちろん濡れます）。
+  - 傘を開閉する音は[設定](#アバター設定について)でオフにできます。
 
 - 暗視が付与されていると頭上に狐火が出現します。
   - 濡れている場合は消えてしまいます。
@@ -102,6 +107,9 @@ TVアニメ「世話やきキツネの仙狐さん」（とその原作）に登
 ### アクション3-6. 一人称視点での狐火の表示の切り替え
 [アバター設定](#アバター設定について)の``ConfigClass.FoxFireInFirstPerson``の値を変更できます。上を向いた際に、頭上の狐火が煩わしいと感じる場合はオフにして下さい。ただし、 **アバターが再読み込みされる度に値が元に戻ります。** 永続的に値を変更する場合は、[設定ファイル](scripts/config.lua)から値を変更して下さい。
 
+### アクション3-7. 傘の開閉音の切り替え
+[アバター設定](#アバター設定について)の``ConfigClass.UmbrellaSound``の値を変更できます。傘の開閉音が煩わしいと感じる場合はオフにして下さい。ただし、 **アバターが再読み込みされる度に値が元に戻ります。** 永続的に値を変更する場合は、[設定ファイル](scripts/config.lua)から値を変更して下さい。
+
 ## 使用方法
 1. マインクラフト1.19.2に[Fabric](https://fabricmc.net/)をインストールし、[Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)と[Figura 0.1.0-rc.9+1.19.2]((https://www.curseforge.com/minecraft/mc-mods/figura/files/4007916))を追加します。各Modの依存関係にご注意ください。
 2. ページ上部の緑色のボタン「**Code**」から「**Download ZIP**」からこのレポジトリのファイルをダウンロードします。（または、このレポジトリをクローンします。）
@@ -157,6 +165,7 @@ ConfigClass.DefaultName = 5
 ConfigClass.AutoShake = true
 ConfigClass.ShowArmor = false
 ConfigClass.FoxFireInFirstPerson = true
+ConfigClass.UmbrellaSound = true
 ConfigClass.KiyBinds = {
 	WagTail = "key.keyboard.z",
 	JerkEars = "key.keyboard.x"
@@ -170,6 +179,7 @@ ConfigClass.KiyBinds = {
 | ``ConfigClass.AutoShake`` | 水から上がった際に自動で身震いするかどうかです。 | ``boolean`` | ``true`` |
 | ``ConfigClass.ShowArmor`` | 防具を表示するどうかです。 | ``boolean`` | ``false`` |
 | ``ConfigClass.FoxFireInFirstPerson`` | 一人称視点で狐火を表示するかどうかです。この設定に関わらず、三人称視点では条件を満たせば常に表示されます。 | ``boolean`` | ``true`` |
+| ``ConfigClass.UmbrellaSound`` | 傘の開閉音を再生するかどうかです。 | ``boolean`` | ``true`` |
 | ``ConfigClass.KiyBinds.WagTail`` | 「尻尾フリフリ」のデフォルトのキーです。有効なキーのリストについては[こちら](https://applejuiceyy.github.io/figs/latest/Keybinds/)をご覧ください。 | ``string`` | "key.keyboard.z" |
 | ``ConfigClass.KiyBinds.JerkEars`` | 「お耳ピクピク」のデフォルトのキーです。有効なキーのリストについては[こちら](https://applejuiceyy.github.io/figs/latest/Keybinds/)をご覧ください。 | ``string`` | "key.keyboard.x" |
 
