@@ -31,7 +31,6 @@ function TailCuddlingClass.stop()
 	for _, modelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
 		modelPart:setVisible(true)
 	end
-	ArmsClass.ItemHeldContradicts = {false, false}
 	TailClass.EnablePyhsics = true
 	TailCuddlingAnimationCount = 0
 end
@@ -42,23 +41,6 @@ events.TICK:register(function ()
 		local playerPos = player:getPos()
 		for _ = 1, 5 do
 			particles:addParticle("minecraft:end_rod", playerPos:copy():add((math.random() - 0.5) * 10, (math.random() - 0.5) * 10, (math.random() - 0.5) * 10))
-		end
-		local leftHanded = player:isLeftHanded()
-		if General.hasItem(player:getHeldItem(leftHanded)) ~= "none" then
-			vanilla_model.RIGHT_ITEM:setVisible(false)
-			ArmsClass.ItemHeldContradicts[1] = true
-			models.models.ear_cleaning.Avatar.RightArm:setRot(-20, 0, 0)
-		else
-			vanilla_model.RIGHT_ITEM:setVisible(true)
-			ArmsClass.ItemHeldContradicts[1] = false
-			models.models.ear_cleaning.Avatar.RightArm:setRot(0, 0, 0)
-		end
-		if General.hasItem(player:getHeldItem(not leftHanded)) ~= "none" then
-			vanilla_model.LEFT_ITEM:setVisible(false)
-			ArmsClass.ItemHeldContradicts[2] = true
-		else
-			vanilla_model.LEFT_ITEM:setVisible(true)
-			ArmsClass.ItemHeldContradicts[2] = false
 		end
 	end
 	if TailCuddlingAnimationCount == 370 then
