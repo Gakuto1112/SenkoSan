@@ -36,7 +36,7 @@ function TailCuddlingClass.stop()
 end
 
 events.TICK:register(function ()
-	TailCuddlingClass.CanCuddleTail = General.isAnimationPlaying("models.main", "sit_down") and CostumeClass.CurrentCostume ~= "DISGUISE" and (not ArmorClass.ShowArmor or not ArmorClass.ArmorVisible[2])
+	TailCuddlingClass.CanCuddleTail = General.isAnimationPlaying("models.main", "sit_down") and CostumeClass.CurrentCostume ~= "DISGUISE" and (not ArmorClass.ShowArmor or not ArmorClass.ArmorVisible[2]) and not player:isWet() and WetClass.WetCount == 0
 	if TailCuddlingAnimationCount <= 270 and TailCuddlingAnimationCount >= 20 then
 		local playerPos = player:getPos()
 		for _ = 1, 5 do

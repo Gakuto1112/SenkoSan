@@ -6,6 +6,7 @@
 ---@field ActionWheelClass.ActionCount integer アクション再生中は0より大きくなるカウンター
 ---@field ActionCancelFunction function 現在再生中のアクションをキャンセルする処理
 ---@field IsOpenActionWheelPrev boolean 前チックにアクションホイールを開けていたかどうか
+---@field CanBodyShake boolean ブルブルアクションができるかどうか
 ---@field ShakeSplashCount integer ブルブル時の水しぶきを出すタイミングを計るカウンター
 ---@field SweatCount integer 汗のタイミングを計るカウンター
 ---@field CurrentPlayerNameState integer プレイヤーの現在の表示名の状態を示す：0. プレイヤー名, 1. Senko_san, 2. 仙狐さん
@@ -22,6 +23,7 @@ CurrentWordLanguage = LanguageClass.ActiveLanguage
 ActionWheelClass.ActionCount = 0
 ActionCancelFunction = nil
 IsOpenActionWheelPrev = false
+CanBodyShake = false
 ShakeSplashCount = 0
 SweatCount = 0
 CurrentCostumeState = ConfigClass.DefaultCostume
@@ -291,9 +293,9 @@ function pings.main3_action7_untoggle()
 end
 
 events.TICK:register(function ()
-	for i = 1, 2 do
-		setActionEnabled(1, i, ActionWheelClass.ActionCount == 0 and not WardenClass.WardenNearby)
-	end
+	CanBodyShake = not player:isUnderwater() and not player:isInLava() and not WardenClass.WardenNearby
+	setActionEnabled(1, 1, ActionWheelClass.ActionCount == 0 and not WardenClass.WardenNearby)
+	setActionEnabled(1, 2, ActionWheelClass.ActionCount == 0 and CanBodyShake)
 	for i = 3, 4 do
 		setActionEnabled(1, i, ActionWheelClass.ActionCount == 0 and BroomCleaningClass.CanBroomCleaning)
 	end
@@ -390,10 +392,12 @@ end)
 --アクション1-2. ブルブル
 MainPages[1]:newAction(2):item("water_bucket"):onLeftClick(function()
 	if ActionWheelClass.ActionCount == 0 then
-		if WardenClass.WardenNearby then
+		if CanBodyShake then
+			pings.main1_action2()
+		elseif WardenClass.WardenNearby then
 			pings.refuse_emote()
 		else
-			pings.main1_action2()
+			print(LanguageClass.getTranslate("action_wheel__main_1__action_2__unavailable"))
 		end
 	end
 end)

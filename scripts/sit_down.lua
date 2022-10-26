@@ -19,7 +19,7 @@ function SitDownClass.standUp()
 end
 
 events.TICK:register(function ()
-	SitDownClass.CanSitDown = player:getPose() == "STANDING" and player:isOnGround() and not player:getVehicle() and player:getVelocity():length() == 0 and HurtClass.Damaged == "NONE" and not WardenClass.WardenNearby
+	SitDownClass.CanSitDown = player:getPose() == "STANDING" and player:isOnGround() and not player:isInWater() and not player:isInLava() and player:getFrozenTicks() == 0 and not player:getVehicle() and player:getVelocity():length() == 0 and HurtClass.Damaged == "NONE" and not WardenClass.WardenNearby
 	if General.isAnimationPlaying("models.main", "sit_down") and not SitDownClass.CanSitDown then
 		SitDownClass.standUp()
 	end
