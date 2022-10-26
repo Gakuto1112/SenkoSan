@@ -1,6 +1,9 @@
 # コントリビュートする際は
 このレポジトリに対してコントリビュートする際の注意事項です。
 
+## モデルファイルについて
+モデルファイルもバージョン管理できるように整形しています。BlockBenchの「File」→「環境設定」→「設定」→「エクスポート」より、「プロジェクトファイルを最小化」のチェックを外してからモデルを保存して下さい。
+
 ## READMEについて
 - このレポジトリの[README.md](./README.md)は[README_full.md](./.github/workflows/README_full.md)を基にして、[Github Actions](https://github.co.jp/features/actions)によって自動生成されます。よって、READMEを編集する際は、 **README.mdではなく、README_full.mdを編集して下さい。** メインブランチにマージされた際に、自動的にREADME.mdに反映されます。
 - Github ActionsによってREADMEが以下のように編集されます。
