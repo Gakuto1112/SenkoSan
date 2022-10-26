@@ -59,20 +59,24 @@ end
 ---ブルブル
 ---@param snow boolean アニメーションの際に雪のパーティクルを表示させるかどうか
 function ActionWheelClass.bodyShake(snow)
-	ActionCancelFunction = function()
+	runAction(function ()
+		if ActionWheelClass.ActionCount > 0 then
+			ActionCancelFunction()
+		end
+		General.setAnimations("PLAY", "shake")
+		sounds:playSound("minecraft:entity.wolf.shake", player:getPos(), 1, 1.5)
+		FacePartsClass.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 20, true)
+		if WetClass.WetCount > 0 and not WetClass.IsWet then
+			ShakeSplashCount = 20
+			WetClass.WetCount = 20
+		elseif snow then
+			ShakeSplashCount = -20
+		end
+		ActionWheelClass.ActionCount = 20
+	end, function ()
 		General.setAnimations("STOP", "shake")
 		ShakeSplashCount = 0
-	end
-	General.setAnimations("PLAY", "shake")
-	sounds:playSound("minecraft:entity.wolf.shake", player:getPos(), 1, 1.5)
-	FacePartsClass.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 20, true)
-	if WetClass.WetCount > 0 and not WetClass.IsWet then
-		ShakeSplashCount = 20
-		WetClass.WetCount = 20
-	elseif snow then
-		ShakeSplashCount = -20
-	end
-	ActionWheelClass.ActionCount = 20
+	end, true)
 end
 
 ---衣装変更のアクションの名称を変更する。
