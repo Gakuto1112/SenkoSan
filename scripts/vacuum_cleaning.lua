@@ -32,14 +32,14 @@ end
 events.TICK:register(function ()
 	if VacuumCleaningAnimationCount > 0 then
 		local leftHanded = player:isLeftHanded()
-		if General.hasItem(player:getHeldItem(leftHanded)) ~= "none" then
+		if player:getHeldItem(leftHanded).id ~= "minecraft:air" then
 			vanilla_model.RIGHT_ITEM:setVisible(false)
 			ArmsClass.ItemHeldContradicts[1] = true
 		else
 			vanilla_model.RIGHT_ITEM:setVisible(true)
 			ArmsClass.ItemHeldContradicts[1] = false
 		end
-		if General.hasItem(player:getHeldItem(not leftHanded)) ~= "none" then
+		if player:getHeldItem(not leftHanded).id ~= "minecraft:air" then
 			vanilla_model.LEFT_ITEM:setVisible(false)
 			ArmsClass.ItemHeldContradicts[2] = true
 		else

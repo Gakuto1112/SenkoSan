@@ -10,9 +10,9 @@ events.TICK:register(function ()
 	local rightArmorLeg = models.models.armor.Avatar.Body.BodyBottom.Legs.RightLeg
 	local leftArmorLeg = models.models.armor.Avatar.Body.BodyBottom.Legs.LeftLeg
 	local multiplayer = LegSwingMultiplayer[CostumeClass.CurrentCostume] and LegSwingMultiplayer[CostumeClass.CurrentCostume] or 0
-	local rightLegRot = vanilla_model.RIGHT_LEG:getOriginRot().x * multiplayer + (General.IsSneaking and 30 or 0)
-	local leftLegRot = vanilla_model.LEFT_LEG:getOriginRot().x * multiplayer + (General.IsSneaking and 30 or 0)
 	local playerPose = player:getPose()
+	local rightLegRot = vanilla_model.RIGHT_LEG:getOriginRot().x * multiplayer + (playerPose == "CROUCHING" and 30 or 0)
+	local leftLegRot = vanilla_model.LEFT_LEG:getOriginRot().x * multiplayer + (playerPose == "CROUCHING" and 30 or 0)
 	if playerPose == "CROUCHING" then
 		for _, legPart in ipairs({rightLeg, leftLeg}) do
 			legPart:setPos(0, 4, -4)

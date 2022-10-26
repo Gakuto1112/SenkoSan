@@ -32,7 +32,7 @@ events.TICK:register(function ()
 	BroomCleaningClass.CanBroomCleaning = SitDownClass.CanSitDown and not General.isAnimationPlaying("models.main", "sit_down")
 	if BroomCleaningAnimationCount > 0 then
 		local leftHanded = player:isLeftHanded()
-		if General.hasItem(player:getHeldItem(leftHanded)) ~= "none" then
+		if player:getHeldItem(leftHanded).id ~= "minecraft:air" then
 			vanilla_model.RIGHT_ITEM:setVisible(false)
 			ArmsClass.ItemHeldContradicts[1] = true
 			models.models.broom_cleaning.Avatar.Body.Arms.RightArm:setRot(-15, 0, 0)
@@ -41,7 +41,7 @@ events.TICK:register(function ()
 			ArmsClass.ItemHeldContradicts[1] = false
 			models.models.broom_cleaning.Avatar.Body.Arms.RightArm:setRot(0, 0, 0)
 		end
-		if General.hasItem(player:getHeldItem(not leftHanded)) ~= "none" then
+		if player:getHeldItem(not leftHanded).id ~= "minecraft:air" then
 			vanilla_model.LEFT_ITEM:setVisible(false)
 			ArmsClass.ItemHeldContradicts[2] = true
 		else

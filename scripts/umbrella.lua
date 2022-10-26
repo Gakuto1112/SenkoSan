@@ -10,8 +10,9 @@ UmbrellaClass.UmbrellaSound = ConfigClass.UmbrellaSound
 
 events.TICK:register(function ()
 	local playerPose = player:getPose()
-	local activeItem = General.hasItem(player:getActiveItem())
-	UmbrellaClass.EnableUmbrella = player:isInRain() and not player:isUnderwater() and activeItem ~= "minecraft:bow" and activeItem ~= "minecraft:crossbow" and not player:getVehicle() and playerPose ~= "FALL_FLYING" and playerPose ~= "SWIMMING" and General.hasItem(player:getHeldItem(true)) == "none" and not General.isAnimationPlaying("models.main", "broom_cleaning") and not General.isAnimationPlaying("models.main", "vacuum_cleaning") and not General.isAnimationPlaying("models.main", "cloth_cleaning") and not General.isAnimationPlaying("models.main", "hair_cut") and not General.isAnimationPlaying("models.main", "fox_jump") and not General.isAnimationPlaying("models.main", "tail_cuddling") and not General.isAnimationPlaying("models.main", "earpick") and not General.isAnimationPlaying("models.main", "tea_time") and not General.isAnimationPlaying("models.main", "massage")
+	local activeItem = player:getActiveItem()
+	local mainHeldItem = player:getHeldItem()
+	UmbrellaClass.EnableUmbrella = player:isInRain() and not player:isUnderwater() and activeItem.id ~= "minecraft:bow" and activeItem.id ~= "minecraft:crossbow" and (mainHeldItem.id ~= "minecraft:crossbow" or mainHeldItem.tag["Charged"] == 0) and not player:getVehicle() and playerPose ~= "FALL_FLYING" and playerPose ~= "SWIMMING" and player:getHeldItem(true).id == "minecraft:air" and not General.isAnimationPlaying("models.main", "broom_cleaning") and not General.isAnimationPlaying("models.main", "vacuum_cleaning") and not General.isAnimationPlaying("models.main", "cloth_cleaning") and not General.isAnimationPlaying("models.main", "hair_cut") and not General.isAnimationPlaying("models.main", "fox_jump") and not General.isAnimationPlaying("models.main", "tail_cuddling") and not General.isAnimationPlaying("models.main", "earpick") and not General.isAnimationPlaying("models.main", "tea_time") and not General.isAnimationPlaying("models.main", "massage")
 	local umbrella = models.models.umbrella
 	local rightArm = models.models.main.Avatar.Body.Arms.RightArm
 	local leftArm = models.models.main.Avatar.Body.Arms.LeftArm
