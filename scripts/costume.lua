@@ -160,7 +160,7 @@ events.TICK:register(function ()
 	end
 	if CostumeClass.CurrentCostume == "SWIMSUIT" then
 		models.models.costume_swimsuit.Avatar.Body.BodyBottom.Swimsuit:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
-		models.models.costume_swimsuit.Avatar.Head:setVisible(not ArmorClass.ArmorVisible[1])
+		models.models.costume_swimsuit.Avatar.Head:setVisible(string.find(player:getItem(6).id, "^minecraft:.+_helmet$") ~= nil and not ArmorClass.ArmorVisible[1])
 		models.models.costume_swimsuit.Avatar.Body:setVisible(not ArmorClass.ArmorVisible[3])
 	else
 		for _, modelsPart in ipairs({models.models.costume_swimsuit.Avatar.Head, models.models.costume_swimsuit.Avatar.Body}) do
