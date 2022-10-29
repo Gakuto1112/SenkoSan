@@ -36,9 +36,9 @@ events.RENDER:register(function ()
 	local rightArmorLeg = models.models.armor.Avatar.Body.BodyBottom.Legs.RightLeg
 	local leftArmorLeg = models.models.armor.Avatar.Body.BodyBottom.Legs.LeftLeg
 	local multiplayer = LegSwingMultiplayer[CostumeClass.CurrentCostume] and LegSwingMultiplayer[CostumeClass.CurrentCostume] or 0
-	local rightLegRot = vanilla_model.RIGHT_LEG:getOriginRot().x * multiplayer + (General.IsSneaking and 30 or 0)
-	local leftLegRot = vanilla_model.LEFT_LEG:getOriginRot().x * multiplayer + (General.IsSneaking and 30 or 0)
 	local playerPose = player:getPose()
+	local rightLegRot = vanilla_model.RIGHT_LEG:getOriginRot().x * multiplayer + (playerPose == "CROUCHING" and 30 or 0)
+	local leftLegRot = vanilla_model.LEFT_LEG:getOriginRot().x * multiplayer + (playerPose == "CROUCHING" and 30 or 0)
 	if (playerPose == "STANDING" or playerPose == "CROUCHING" or playerPose == "SWIMMING" or playerPose == "FALL_FLYING") and not player:getVehicle() and not ArmorClass.ArmorVisible[3] then
 		rightLeg:setRot(rightLegRot, 0, 0)
 		leftLeg:setRot(leftLegRot, 0, 0)
