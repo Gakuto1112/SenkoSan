@@ -3,7 +3,7 @@ TVアニメ「世話やきキツネの仙狐さん」（とその原作）に登
 
 <!-- SIMPLE_MESSAGE -->
 
-対応Figuraバージョン：[0.1.0-rc.9](https://www.curseforge.com/minecraft/mc-mods/figura/files/4007916)
+対応Figuraバージョン：[0.1.0-rc.10](https://www.curseforge.com/minecraft/mc-mods/figura/files/4073363)
 
 <!-- REQUIRED_IMAGE -->
 ![メイン](../../README_images/メイン.jpg)
@@ -45,6 +45,10 @@ TVアニメ「世話やきキツネの仙狐さん」（とその原作）に登
 
 - あなたの表示名をキャラクターの名前に変更できます。
   - 他のプレイヤーがこの名前を見えるようにするには、**他のプレイヤーもFiguraを導入し、あなたの信頼設定を十分上げる必要があります**。
+  - 0.1.0-rc10では、一時的にプレイヤーリストのアバター表示が無効になっています。
+    > added a new setting to toggle whether UI elements should render the avatar portrait instead of the vanilla skin, (default OFF)
+
+    > currently locked as of the portrait rendering is VERY glitchy
 
   ![名前変更](../../README_images/名前変更.jpg)
 
