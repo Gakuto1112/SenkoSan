@@ -460,7 +460,7 @@ MainPages[1]:newAction(5):item("snow_block"):onLeftClick(function ()
 end)
 
 --アクション2-1. おすわり（正座）
-MainPages[2]:newToggle(1):toggleColor(233 / 255, 160 / 255, 69 / 255):item("oak_stairs"):onToggle(function ()
+MainPages[2]:newAction(1):toggleColor(233 / 255, 160 / 255, 69 / 255):item("oak_stairs"):onToggle(function ()
 	if ActionWheelClass.ActionCount == 0 then
 		if SitDownClass.CanSitDown then
 			pings.main2_action1_toggle()
@@ -533,7 +533,7 @@ MainPages[3]:newAction(1):title(LanguageClass.getTranslate("action_wheel__main_3
 end)
 
 --アクション3-2. 着替え
-MainPages[3]:newScroll(2):title(LanguageClass.getTranslate("action_wheel__main_3__action_2__title").."§b"..LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[CostumeState])):item("leather_chestplate"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+MainPages[3]:newAction(2):title(LanguageClass.getTranslate("action_wheel__main_3__action_2__title").."§b"..LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[CostumeState])):item("leather_chestplate"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
 	if direction == -1 then
 		CostumeState = CostumeState == #CostumeClass.CostumeList and 1 or CostumeState + 1
 	else
@@ -543,7 +543,7 @@ MainPages[3]:newScroll(2):title(LanguageClass.getTranslate("action_wheel__main_3
 end)
 
 --アクション3-3. プレイヤーの表示名変更
-MainPages[3]:newScroll(3):title(LanguageClass.getTranslate("action_wheel__main_3__action_3__title").."§b"..NameplateClass.NameList[PlayerNameState]):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+MainPages[3]:newAction(3):title(LanguageClass.getTranslate("action_wheel__main_3__action_3__title").."§b"..NameplateClass.NameList[PlayerNameState]):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
 	if direction == -1 then
 		PlayerNameState = PlayerNameState == #NameplateClass.NameList and 1 or PlayerNameState + 1
 	else
@@ -553,7 +553,7 @@ MainPages[3]:newScroll(3):title(LanguageClass.getTranslate("action_wheel__main_3
 end)
 
 --アクション3-4. 自動ブルブル
-MainPages[3]:newToggle(4):title(LanguageClass.getTranslate("action_wheel__main_3__action_4__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__main_3__action_4__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("water_bucket"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+MainPages[3]:newAction(4):title(LanguageClass.getTranslate("action_wheel__main_3__action_4__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__main_3__action_4__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("water_bucket"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
 	pings.main3_action4_toggle()
 	MainPages[3]:getAction(4):hoverColor(85 / 255, 1, 85 / 255)
 end):onUntoggle(function ()
@@ -567,7 +567,7 @@ if ConfigClass.AutoShake then
 end
 
 --アクション3-5. 防具の非表示
-MainPages[3]:newToggle(5):title(LanguageClass.getTranslate("action_wheel__main_3__action_5__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__main_3__action_5__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("iron_chestplate"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+MainPages[3]:newAction(5):title(LanguageClass.getTranslate("action_wheel__main_3__action_5__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__main_3__action_5__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("iron_chestplate"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
 	pings.main3_action5_toggle()
 	MainPages[3]:getAction(5):hoverColor(85 / 255, 1, 85 / 255)
 end):onUntoggle(function ()
@@ -581,7 +581,7 @@ if ConfigClass.ShowArmor then
 end
 
 --アクション3-6. 一人称視点での狐火の表示の切り替え
-MainPages[3]:newToggle(6):title(LanguageClass.getTranslate("action_wheel__main_3__action_6__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__main_3__action_6__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("soul_torch"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+MainPages[3]:newAction(6):title(LanguageClass.getTranslate("action_wheel__main_3__action_6__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__main_3__action_6__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("soul_torch"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
 	FoxFireClass.FoxFireInFirstPerson = true
 	MainPages[3]:getAction(6):hoverColor(85 / 255, 1, 85 / 255)
 end):onUntoggle(function ()
@@ -595,7 +595,7 @@ if ConfigClass.FoxFireInFirstPerson then
 end
 
 --アクション3-7. 傘の開閉音
-MainPages[3]:newToggle(7):title(LanguageClass.getTranslate("action_wheel__main_3__action_7__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__main_3__action_7__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("red_carpet"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+MainPages[3]:newAction(7):title(LanguageClass.getTranslate("action_wheel__main_3__action_7__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__main_3__action_7__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("red_carpet"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
 	pings.main3_action7_toggle()
 	MainPages[3]:getAction(7):hoverColor(85 / 255, 1, 85 / 255)
 end):onUntoggle(function ()
@@ -610,7 +610,7 @@ end
 
 --アクション8（共通）. ページ切り替え
 for index, mainPage in ipairs(MainPages) do
-	mainPage:newScroll(8):title(LanguageClass.getTranslate("action_wheel__main__action_8__title")..index.."/"..#MainPages):item("arrow"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+	mainPage:newAction(8):title(LanguageClass.getTranslate("action_wheel__main__action_8__title")..index.."/"..#MainPages):item("arrow"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
 		if MainPages[index - direction] then
 			action_wheel:setPage(MainPages[index - direction])
 		elseif index == 1 then
@@ -658,7 +658,7 @@ WordPages:newAction(7):title(LanguageClass.getTranslate("action_wheel__word__act
 end)
 
 --アクション8. 言語切り替え
-WordPages:newScroll(8):title(LanguageClass.getTranslate("action_wheel__word__action_8__title")..LanguageClass.getTranslate("language__"..LanguageClass.LanguageList[LanguageClass.ActiveLanguage])):item("paper"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+WordPages:newAction(8):title(LanguageClass.getTranslate("action_wheel__word__action_8__title")..LanguageClass.getTranslate("language__"..LanguageClass.LanguageList[LanguageClass.ActiveLanguage])):item("paper"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
 	if LanguageClass.LanguageList[CurrentWordLanguage - direction] then
 		CurrentWordLanguage = CurrentWordLanguage - direction
 	elseif CurrentWordLanguage == 1 then
