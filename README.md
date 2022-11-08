@@ -3,7 +3,7 @@ TVアニメ「世話やきキツネの仙狐さん」（とその原作）に登
 
 **このREADMEには本来、大量の画像（約67MB）を添付していますが、通信量の軽減のため、必要最低限以外の画像は添付されおりません。全ての画像を確認したい方は[README（完全版）](./.github/workflows/README_full.md)をご覧ください。**
 
-対応Figuraバージョン：[0.1.0-rc.9](https://www.curseforge.com/minecraft/mc-mods/figura/files/4007916)
+対応Figuraバージョン：[0.1.0-rc.10](https://www.curseforge.com/minecraft/mc-mods/figura/files/4073363)
 
 ![メイン](README_images/メイン.jpg)
 
@@ -28,6 +28,10 @@ TVアニメ「世話やきキツネの仙狐さん」（とその原作）に登
 
 - あなたの表示名をキャラクターの名前に変更できます。
   - 他のプレイヤーがこの名前を見えるようにするには、**他のプレイヤーもFiguraを導入し、あなたの信頼設定を十分上げる必要があります**。
+  - 0.1.0-rc10では、一時的にプレイヤーリストのアバター表示が無効になっています。
+    > added a new setting to toggle whether UI elements should render the avatar portrait instead of the vanilla skin, (default OFF)
+
+    > currently locked as of the portrait rendering is VERY glitchy
 
 - 水に触れると濡れてしまいます。
   - 水から上がると身震いして体に付いた水滴を飛ばします（[設定](#アバター設定について)でオフにできます）。
