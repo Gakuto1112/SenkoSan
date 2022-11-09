@@ -15,8 +15,8 @@ ArmorClass = {}
 
 ModelRoot = models.models.main
 ArmorRoot = models.models.armor
-ArmorClass.ShowArmor = ConfigClass.ShowArmor
-ShowArmorPrev = ConfigClass.ShowArmor
+ArmorClass.ShowArmor = ConfigClass.loadConfig("showArmor", false)
+ShowArmorPrev = ArmorClass.ShowArmor
 ArmorClass.ArmorVisible = {false, false, false, false}
 
 ---防具の設定。有効な防具であれば、trueを返す。
@@ -24,7 +24,7 @@ ArmorClass.ArmorVisible = {false, false, false, false}
 ---@param armorType ArmorType 設定する防具の種類
 ---@param armorPartList table 設定する防具のモデルのパーツリスト
 ---@param overlayPartList table 設定する防具のオーバーレイのパーツリスト
----@return boolean
+---@return boolean isArmorValid 引数の防具が有効かどうか
 function setArmor(armorItem, armorType, armorPartList, overlayPartList)
 	if string.find(armorItem.id, "^minecraft:.+_"..string.lower(armorType)) then
 		local material = string.match(armorItem.id, ":.+_")
@@ -178,9 +178,9 @@ events.TICK:register(function()
 	ShowArmorPrev = ArmorClass.ShowArmor
 end)
 
-ArmorRoot:setVisible(ConfigClass.ShowArmor)
+ArmorRoot:setVisible(ArmorClass.ShowArmor)
 for _, armorPart in ipairs({ArmorRoot.Avatar.Body.Arms.RightArm.RightChestplate, ArmorRoot.Avatar.Body.Arms.RightArm.RightArmBottom.RightChestplateBottom, ArmorRoot.Avatar.Body.Arms.LeftArm.LeftChestplate, ArmorRoot.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftChestplate}) do
-	armorPart:setVisible(ConfigClass.ShowArmor)
+	armorPart:setVisible(ArmorClass.ShowArmor)
 end
 for _, modelPart in ipairs({ArmorRoot.Avatar.Body.BodyBottom, ArmorRoot.Avatar.Body.Arms.RightArm.RightArmBottom, ArmorRoot.Avatar.Body.Arms.LeftArm.LeftArmBottom, ArmorRoot.Avatar.Body.BodyBottom.Legs.RightLeg.RightLeggings, ArmorRoot.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom, ArmorRoot.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.RightLeggingsBottom, ArmorRoot.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLeggings, ArmorRoot.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom, ArmorRoot.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.LeftLeggingsBottom}) do
 	modelPart:setParentType("None")

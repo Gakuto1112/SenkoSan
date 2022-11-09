@@ -6,7 +6,7 @@
 FoxFireClass = {}
 FoxFireEnableData = {}
 FoxFirePos = vectors.vec(0, 0, 0)
-FoxFireClass.FoxFireInFirstPerson = ConfigClass.FoxFireInFirstPerson
+FoxFireClass.FoxFireInFirstPerson = ConfigClass.loadConfig("foxFireInFirstPerson", true)
 
 events.TICK:register(function ()
 	local isFoxFireEnabled = (General.getStatusEffect("night_vision") and true or false) and WetClass.WetCount == 0

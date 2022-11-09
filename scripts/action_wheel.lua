@@ -1,7 +1,8 @@
 ---@class ActionWheelClass アクションホイールを制御するクラス
 ---@field MainPage table アクションホイールのメインページ
----@field WordPages Page セリフ一覧のページ
----@field IsOpenWordPages boolean セリフ一覧のページを開いているかどうか
+---@field WordPage Page セリフ一覧のページ
+---@field ConfigPage Page 設定のページ
+---@field ParentPage Page 現在開いているページの親ページ。アクションホイールを閉じた際に設定するページ。
 ---@field CurrentWordLanguage integer 現在のセリフの言語
 ---@field ActionWheelClass.ActionCount integer アクション再生中は0より大きくなるカウンター
 ---@field ActionCancelFunction function 現在再生中のアクションをキャンセルする処理
@@ -9,16 +10,17 @@
 ---@field CanBodyShake boolean ブルブルアクションができるかどうか
 ---@field ShakeSplashCount integer ブルブル時の水しぶきを出すタイミングを計るカウンター
 ---@field SweatCount integer 汗のタイミングを計るカウンター
----@field CurrentPlayerNameState integer プレイヤーの現在の表示名の状態を示す：0. プレイヤー名, 1. Senko_san, 2. 仙狐さん
----@field PlayerNameState integer プレイヤーの表示名の状態を示す：0. プレイヤー名, 1. Senko_san, 2. 仙狐さん
----@field IsSynced boolean アバターの設定がホストと同期されたかどうか
----@field NextSyncCount integer 次の同期pingまでのカウンター
+---@field ActionWheelClass.CurrentCostumeState integer プレイヤーの現在のコスチュームの状態を示す：1. いつもの服, 2. 変装服, 3. メイド服A, 4. メイド服B, 5. 水着, 6. チアリーダーの服, 7. 清めの服, 8. 割烹着
+---@field CurrentCostumeState integer プレイヤーのコスチュームの状態を示す：1. いつもの服, 2. 変装服, 3. メイド服A, 4. メイド服B, 5. 水着, 6. チアリーダーの服, 7. 清めの服, 8. 割烹着
+---@field ActionWheelClass.CurrentPlayerNameState integer プレイヤーの現在の表示名の状態を示す：1. プレイヤー名, 2. Senko, 3. 仙狐, 4. Senko_san, 5. 仙狐さん
+---@field PlayerNameState integer プレイヤーの表示名の状態を示す：1. プレイヤー名, 2. Senko, 3. 仙狐, 4. Senko_san, 5. 仙狐さん
 
 ActionWheelClass = {}
 
 MainPages = {}
-WordPages = action_wheel:createPage()
-IsOpenWordPages = false
+WordPage = action_wheel:createPage()
+ConfigPage = action_wheel:createPage()
+ParentPage = nil;
 CurrentWordLanguage = LanguageClass.ActiveLanguage
 ActionWheelClass.ActionCount = 0
 ActionCancelFunction = nil
@@ -26,12 +28,10 @@ IsOpenActionWheelPrev = false
 CanBodyShake = false
 ShakeSplashCount = 0
 SweatCount = 0
-CurrentCostumeState = ConfigClass.DefaultCostume
-CostumeState = ConfigClass.DefaultCostume
-CurrentPlayerNameState = ConfigClass.DefaultName
-PlayerNameState = ConfigClass.DefaultName
-IsSynced = host:isHost()
-NextSyncCount = 300
+ActionWheelClass.CurrentCostumeState = ConfigClass.loadConfig("costume", 1)
+CostumeState = ActionWheelClass.CurrentCostumeState
+ActionWheelClass.CurrentPlayerNameState = ConfigClass.loadConfig("name", 1)
+PlayerNameState = ActionWheelClass.CurrentPlayerNameState
 
 ---アクションの色の有効色/無効色の切り替え
 ---@param pageNumber integer メインアクションのページ番号
@@ -81,40 +81,23 @@ end
 
 ---衣装変更のアクションの名称を変更する。
 function setCostumeChangeActionTitle()
-	if CostumeState == CurrentCostumeState then
-		MainPages[3]:getAction(2):title(LanguageClass.getTranslate("action_wheel__main_3__action_2__title").."§b"..LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[CostumeState]))
+	if CostumeState == ActionWheelClass.CurrentCostumeState then
+		ConfigPage:getAction(1):title(LanguageClass.getTranslate("action_wheel__config__action_1__title").."§b"..LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[CostumeState]))
 	else
-		MainPages[3]:getAction(2):title(LanguageClass.getTranslate("action_wheel__main_3__action_2__title").."§b"..LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[CostumeState]).."\n§7"..LanguageClass.getTranslate("action_wheel__close_to_confirm"))
+		ConfigPage:getAction(1):title(LanguageClass.getTranslate("action_wheel__config__action_1__title").."§b"..LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[CostumeState]).."\n§7"..LanguageClass.getTranslate("action_wheel__close_to_confirm"))
 	end
 end
 
 ---名前変更のアクションの名称を変更する。
 function setNameChangeActionTitle()
-	if PlayerNameState == CurrentPlayerNameState then
-		MainPages[3]:getAction(3):title(LanguageClass.getTranslate("action_wheel__main_3__action_3__title").."§b"..NameplateClass.NameList[PlayerNameState])
+	if PlayerNameState == ActionWheelClass.CurrentPlayerNameState then
+		ConfigPage:getAction(2):title(LanguageClass.getTranslate("action_wheel__config__action_2__title").."§b"..NameplateClass.NameList[PlayerNameState])
 	else
-		MainPages[3]:getAction(3):title(LanguageClass.getTranslate("action_wheel__main_3__action_3__title").."§b"..NameplateClass.NameList[PlayerNameState].."\n§7"..LanguageClass.getTranslate("action_wheel__close_to_confirm"))
+		ConfigPage:getAction(2):title(LanguageClass.getTranslate("action_wheel__config__action_2__title").."§b"..NameplateClass.NameList[PlayerNameState].."\n§7"..LanguageClass.getTranslate("action_wheel__close_to_confirm"))
 	end
 end
 
 --ping関数
-function pings.syncAvatarSetting(nameID, costumeID, autoShake, showArmor, umbrellaSound)
-	if not IsSynced then
-		CurrentPlayerNameState = nameID
-		CurrentCostumeState = costumeID
-		NameplateClass.setName(nameID)
-		if CurrentCostumeState == 0 then
-			CostumeClass.resetCostume()
-		else
-			CostumeClass.setCostume(string.upper(CostumeClass.CostumeList[CurrentCostumeState]))
-		end
-		WetClass.AutoShake = autoShake
-		ArmorClass.ShowArmor = showArmor
-		UmbrellaClass.UmbrellaSound = umbrellaSound
-		IsSynced = true
-	end
-end
-
 function pings.refuse_emote()
 	General.setAnimations("PLAY", "refuse_emote")
 	FacePartsClass.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 30, true)
@@ -252,47 +235,41 @@ function pings.main2_action5()
 	end, false)
 end
 
-function pings.main3_action1(costumeID)
+function pings.config_action1(costumeID)
 	if costumeID == 1 then
 		CostumeClass.resetCostume()
 	else
 		CostumeClass.setCostume(string.upper(CostumeClass.CostumeList[costumeID]))
 	end
-	CurrentCostumeState = costumeID
-	if host:isHost() then
-		setCostumeChangeActionTitle()
-	end
+	ActionWheelClass.CurrentCostumeState = costumeID
 end
 
-function pings.main3_action2(nameID)
+function pings.config_action2(nameID)
 	NameplateClass.setName(nameID)
-	CurrentPlayerNameState = nameID
-	if host:isHost() then
-		setNameChangeActionTitle()
-	end
+	ActionWheelClass.CurrentPlayerNameState = nameID
 end
 
-function pings.main3_action4_toggle()
+function pings.config_action3_toggle()
 	WetClass.AutoShake = true
 end
 
-function pings.main3_action4_untoggle()
+function pings.config_action3_untoggle()
 	WetClass.AutoShake = false
 end
 
-function pings.main3_action5_toggle()
+function pings.config_action4_toggle()
 	ArmorClass.ShowArmor = true
 end
 
-function pings.main3_action5_untoggle()
+function pings.config_action4_untoggle()
 	ArmorClass.ShowArmor = false
 end
 
-function pings.main3_action7_toggle()
+function pings.config_action6_toggle()
 	UmbrellaClass.UmbrellaSound = true
 end
 
-function pings.main3_action7_untoggle()
+function pings.config_action6_untoggle()
 	UmbrellaClass.UmbrellaSound = false
 end
 
@@ -313,33 +290,31 @@ events.TICK:register(function ()
 	sitDownAction:toggled((ActionWheelClass.ActionCount == 0 or General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage") or (General.isAnimationPlaying("models.main", "sit_down") and General.isAnimationPlaying("models.main", "shake"))) and SitDownClass.CanSitDown and sitDownAction:isToggled())
 	if ActionWheelClass.ActionCount > 0 then
 		if (HurtClass.Damaged ~= "NONE" and ActionWheelClass.ActionCount > 0 and WardenClass.WardenNearby) or ((General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage")) and not General.isAnimationPlaying("models.main", "sit_down")) or (General.isAnimationPlaying("models.main", "tail_cuddling") and not TailCuddlingClass.CanCuddleTail) or ((General.isAnimationPlaying("models.main", "broom_cleaning") or General.isAnimationPlaying("models.main", "vacuum_cleaning") or General.isAnimationPlaying("models.main", "cloth_cleaning") or General.isAnimationPlaying("models.main", "hair_cut")) and not BroomCleaningClass.CanBroomCleaning) or (General.isAnimationPlaying("models.main", "fox_jump") and not FoxJumpClass.CanFoxJump) then
-			ActionCancelFunction();
+			ActionCancelFunction()
 			ActionWheelClass.ActionCount = 0
 		end
 	end
 	local isOpenActionWheel = action_wheel:isEnabled()
 	if host:isHost() then
 		if not isOpenActionWheel and IsOpenActionWheelPrev then
-			if CostumeState ~= CurrentCostumeState then
-				pings.main3_action1(CostumeState)
+			if CostumeState ~= ActionWheelClass.CurrentCostumeState then
+				pings.config_action1(CostumeState)
+				setCostumeChangeActionTitle()
+				ConfigClass.saveConfig("costume", CostumeState)
 				sounds:playSound("minecraft:item.armor.equip_leather", player:getPos())
-				print(LanguageClass.getTranslate("action_wheel__main_3__action_2__done_first")..LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[CostumeState])..LanguageClass.getTranslate("action_wheel__main_3__action_2__done_last"))
+				print(LanguageClass.getTranslate("action_wheel__config__action_1__done_first")..LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[CostumeState])..LanguageClass.getTranslate("action_wheel__config__action_1__done_last"))
 			end
-			if PlayerNameState ~= CurrentPlayerNameState then
-				pings.main3_action2(PlayerNameState)
+			if PlayerNameState ~= ActionWheelClass.CurrentPlayerNameState then
+				pings.config_action2(PlayerNameState)
+				setNameChangeActionTitle()
+				ConfigClass.saveConfig("name", PlayerNameState)
 				sounds:playSound("minecraft:ui.cartography_table.take_result", player:getPos(), 1, 1)
-				print(LanguageClass.getTranslate("action_wheel__main_3__action_3__done_first")..NameplateClass.NameList[PlayerNameState]..LanguageClass.getTranslate("action_wheel__main_3__action_3__done_last"))
+				print(LanguageClass.getTranslate("action_wheel__config__action_2__done_first")..NameplateClass.NameList[PlayerNameState]..LanguageClass.getTranslate("action_wheel__config__action_2__done_last"))
 			end
-			if IsOpenWordPages then
-				action_wheel:setPage(MainPages[3])
-				IsOpenWordPages = false
+			if ParentPage then
+				action_wheel:setPage(ParentPage)
+				ParentPage = nil
 			end
-		end
-		if NextSyncCount == 0 then
-			pings.syncAvatarSetting(CurrentPlayerNameState, CurrentCostumeState, WetClass.AutoShake, ArmorClass.ShowArmor, UmbrellaClass.UmbrellaSound)
-			NextSyncCount = 300
-		elseif not client:isPaused() then
-			NextSyncCount = NextSyncCount - 1
 		end
 	end
 	if ShakeSplashCount > 0 then
@@ -528,85 +503,15 @@ end)
 
 --アクション3-1. 仙狐さんセリフ集
 MainPages[3]:newAction(1):title(LanguageClass.getTranslate("action_wheel__main_3__action_1__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
-	IsOpenWordPages = true
-	action_wheel:setPage(WordPages)
+	action_wheel:setPage(WordPage)
+	ParentPage = MainPages[3]
 end)
 
---アクション3-2. 着替え
-MainPages[3]:newAction(2):title(LanguageClass.getTranslate("action_wheel__main_3__action_2__title").."§b"..LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[CostumeState])):item("leather_chestplate"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
-	if direction == -1 then
-		CostumeState = CostumeState == #CostumeClass.CostumeList and 1 or CostumeState + 1
-	else
-		CostumeState = CostumeState == 1 and #CostumeClass.CostumeList or CostumeState - 1
-	end
-	setCostumeChangeActionTitle()
+--アクション3-2. 設定ページ
+MainPages[3]:newAction(2):title(LanguageClass.getTranslate("action_wheel__main_3__action_2__title")):item("comparator"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+	action_wheel:setPage(ConfigPage)
+	ParentPage = MainPages[3]
 end)
-
---アクション3-3. プレイヤーの表示名変更
-MainPages[3]:newAction(3):title(LanguageClass.getTranslate("action_wheel__main_3__action_3__title").."§b"..NameplateClass.NameList[PlayerNameState]):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
-	if direction == -1 then
-		PlayerNameState = PlayerNameState == #NameplateClass.NameList and 1 or PlayerNameState + 1
-	else
-		PlayerNameState = PlayerNameState == 1 and #NameplateClass.NameList or PlayerNameState - 1
-	end
-	setNameChangeActionTitle()
-end)
-
---アクション3-4. 自動ブルブル
-MainPages[3]:newAction(4):title(LanguageClass.getTranslate("action_wheel__main_3__action_4__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__main_3__action_4__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("water_bucket"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
-	pings.main3_action4_toggle()
-	MainPages[3]:getAction(4):hoverColor(85 / 255, 1, 85 / 255)
-end):onUntoggle(function ()
-	pings.main3_action4_untoggle()
-	MainPages[3]:getAction(4):hoverColor(1, 85 / 255, 85 / 255)
-end)
-if ConfigClass.AutoShake then
-	local action = MainPages[3]:getAction(4)
-	action:toggled(true)
-	action:hoverColor(85 / 255, 1, 85 / 255)
-end
-
---アクション3-5. 防具の非表示
-MainPages[3]:newAction(5):title(LanguageClass.getTranslate("action_wheel__main_3__action_5__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__main_3__action_5__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("iron_chestplate"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
-	pings.main3_action5_toggle()
-	MainPages[3]:getAction(5):hoverColor(85 / 255, 1, 85 / 255)
-end):onUntoggle(function ()
-	pings.main3_action5_untoggle()
-	MainPages[3]:getAction(5):hoverColor(1, 85 / 255, 85 / 255)
-end)
-if ConfigClass.ShowArmor then
-	local action = MainPages[3]:getAction(5)
-	action:toggled(true)
-	action:hoverColor(85 / 255, 1, 85 / 255)
-end
-
---アクション3-6. 一人称視点での狐火の表示の切り替え
-MainPages[3]:newAction(6):title(LanguageClass.getTranslate("action_wheel__main_3__action_6__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__main_3__action_6__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("soul_torch"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
-	FoxFireClass.FoxFireInFirstPerson = true
-	MainPages[3]:getAction(6):hoverColor(85 / 255, 1, 85 / 255)
-end):onUntoggle(function ()
-	FoxFireClass.FoxFireInFirstPerson = false
-	MainPages[3]:getAction(6):hoverColor(1, 85 / 255, 85 / 255)
-end)
-if ConfigClass.FoxFireInFirstPerson then
-	local action = MainPages[3]:getAction(6)
-	action:toggled(true)
-	action:hoverColor(85 / 255, 1, 85 / 255)
-end
-
---アクション3-7. 傘の開閉音
-MainPages[3]:newAction(7):title(LanguageClass.getTranslate("action_wheel__main_3__action_7__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__main_3__action_7__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("red_carpet"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
-	pings.main3_action7_toggle()
-	MainPages[3]:getAction(7):hoverColor(85 / 255, 1, 85 / 255)
-end):onUntoggle(function ()
-	pings.main3_action7_untoggle()
-	MainPages[3]:getAction(7):hoverColor(1, 85 / 255, 85 / 255)
-end)
-if ConfigClass.UmbrellaSound then
-	local action = MainPages[3]:getAction(7)
-	action:toggled(true)
-	action:hoverColor(85 / 255, 1, 85 / 255)
-end
 
 --アクション8（共通）. ページ切り替え
 for index, mainPage in ipairs(MainPages) do
@@ -623,42 +528,42 @@ end
 
 --セリフのページのアクション設定
 --アクション1. 「存分に甘やかしてくれよう！」
-WordPages:newAction(1):title(LanguageClass.getTranslate("action_wheel__word__action_1__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+WordPage:newAction(1):title(LanguageClass.getTranslate("action_wheel__word__action_1__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
 	host:sendChatMessage(LanguageClass.getTranslateWithLang("action_wheel__word__action_1__title", CurrentWordLanguage))
 end)
 
 --アクション2. 「存分にもふるがよい」
-WordPages:newAction(2):title(LanguageClass.getTranslate("action_wheel__word__action_2__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+WordPage:newAction(2):title(LanguageClass.getTranslate("action_wheel__word__action_2__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
 	host:sendChatMessage(LanguageClass.getTranslateWithLang("action_wheel__word__action_2__title", CurrentWordLanguage))
 end)
 
 --アクション3. 「おかえりなのじゃ」
-WordPages:newAction(3):title(LanguageClass.getTranslate("action_wheel__word__action_3__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+WordPage:newAction(3):title(LanguageClass.getTranslate("action_wheel__word__action_3__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
 	host:sendChatMessage(LanguageClass.getTranslateWithLang("action_wheel__word__action_3__title", CurrentWordLanguage))
 end)
 
 --アクション4. 「お疲れ様じゃ」
-WordPages:newAction(4):title(LanguageClass.getTranslate("action_wheel__word__action_4__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+WordPage:newAction(4):title(LanguageClass.getTranslate("action_wheel__word__action_4__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
 	host:sendChatMessage(LanguageClass.getTranslateWithLang("action_wheel__word__action_4__title", CurrentWordLanguage))
 end)
 
 --アクション5. 「今日も大変だったのう」
-WordPages:newAction(5):title(LanguageClass.getTranslate("action_wheel__word__action_5__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+WordPage:newAction(5):title(LanguageClass.getTranslate("action_wheel__word__action_5__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
 	host:sendChatMessage(LanguageClass.getTranslateWithLang("action_wheel__word__action_5__title", CurrentWordLanguage))
 end)
 
 --アクション6. 「うやん♪」
-WordPages:newAction(6):title(LanguageClass.getTranslate("action_wheel__word__action_6__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+WordPage:newAction(6):title(LanguageClass.getTranslate("action_wheel__word__action_6__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
 	host:sendChatMessage(LanguageClass.getTranslateWithLang("action_wheel__word__action_6__title", CurrentWordLanguage))
 end)
 
 --アクション7. 「わらわはただの動く毛玉じゃ...」
-WordPages:newAction(7):title(LanguageClass.getTranslate("action_wheel__word__action_7__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+WordPage:newAction(7):title(LanguageClass.getTranslate("action_wheel__word__action_7__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
 	host:sendChatMessage(LanguageClass.getTranslateWithLang("action_wheel__word__action_7__title", CurrentWordLanguage))
 end)
 
 --アクション8. 言語切り替え
-WordPages:newAction(8):title(LanguageClass.getTranslate("action_wheel__word__action_8__title")..LanguageClass.getTranslate("language__"..LanguageClass.LanguageList[LanguageClass.ActiveLanguage])):item("paper"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+WordPage:newAction(8):title(LanguageClass.getTranslate("action_wheel__word__action_8__title")..LanguageClass.getTranslate("language__"..LanguageClass.LanguageList[LanguageClass.ActiveLanguage])):item("paper"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
 	if LanguageClass.LanguageList[CurrentWordLanguage - direction] then
 		CurrentWordLanguage = CurrentWordLanguage - direction
 	elseif CurrentWordLanguage == 1 then
@@ -667,10 +572,95 @@ WordPages:newAction(8):title(LanguageClass.getTranslate("action_wheel__word__act
 		CurrentWordLanguage = 1
 	end
 	for i = 1, 7 do
-		WordPages:getAction(i):title(CurrentWordLanguage == LanguageClass.ActiveLanguage and LanguageClass.getTranslateWithLang("action_wheel__word__action_"..i.."__title", CurrentWordLanguage) or LanguageClass.getTranslateWithLang("action_wheel__word__action_"..i.."__title", CurrentWordLanguage).."\n§7"..LanguageClass.getTranslate("action_wheel__word__action_8__bracket_begin")..LanguageClass.getTranslate("action_wheel__word__action_"..i.."__title")..LanguageClass.getTranslate("action_wheel__word__action_8__bracket_end"))
+		WordPage:getAction(i):title(CurrentWordLanguage == LanguageClass.ActiveLanguage and LanguageClass.getTranslateWithLang("action_wheel__word__action_"..i.."__title", CurrentWordLanguage) or LanguageClass.getTranslateWithLang("action_wheel__word__action_"..i.."__title", CurrentWordLanguage).."\n§7"..LanguageClass.getTranslate("action_wheel__word__action_8__bracket_begin")..LanguageClass.getTranslate("action_wheel__word__action_"..i.."__title")..LanguageClass.getTranslate("action_wheel__word__action_8__bracket_end"))
 	end
-	WordPages:getAction(8):title(LanguageClass.getTranslate("action_wheel__word__action_8__title")..LanguageClass.getTranslate("language__"..LanguageClass.LanguageList[CurrentWordLanguage]))
+	WordPage:getAction(8):title(LanguageClass.getTranslate("action_wheel__word__action_8__title")..LanguageClass.getTranslate("language__"..LanguageClass.LanguageList[CurrentWordLanguage]))
 end)
+
+--設定のページのアクション設定
+--アクション1. 着替え
+ConfigPage:newAction(1):title(LanguageClass.getTranslate("action_wheel__config__action_1__title").."§b"..LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[CostumeState])):item("leather_chestplate"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+	if direction == -1 then
+		CostumeState = CostumeState == #CostumeClass.CostumeList and 1 or CostumeState + 1
+	else
+		CostumeState = CostumeState == 1 and #CostumeClass.CostumeList or CostumeState - 1
+	end
+	setCostumeChangeActionTitle()
+end)
+
+--アクション2. プレイヤーの表示名変更
+ConfigPage:newAction(2):title(LanguageClass.getTranslate("action_wheel__config__action_2__title").."§b"..NameplateClass.NameList[PlayerNameState]):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+	if direction == -1 then
+		PlayerNameState = PlayerNameState == #NameplateClass.NameList and 1 or PlayerNameState + 1
+	else
+		PlayerNameState = PlayerNameState == 1 and #NameplateClass.NameList or PlayerNameState - 1
+	end
+	setNameChangeActionTitle()
+end)
+
+--アクション3. 自動ブルブル
+ConfigPage:newAction(3):title(LanguageClass.getTranslate("action_wheel__config__action_3__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__config__action_3__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("water_bucket"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+	pings.config_action3_toggle()
+	ConfigPage:getAction(3):hoverColor(85 / 255, 1, 85 / 255)
+	ConfigClass.saveConfig("autoShake", true)
+end):onUntoggle(function ()
+	pings.config_action3_untoggle()
+	ConfigPage:getAction(3):hoverColor(1, 85 / 255, 85 / 255)
+	ConfigClass.saveConfig("autoShake", false)
+end)
+if ConfigClass.loadConfig("autoShake", true) then
+	local action = ConfigPage:getAction(3)
+	action:toggled(true)
+	action:hoverColor(85 / 255, 1, 85 / 255)
+end
+
+--アクション4. 防具の非表示
+ConfigPage:newAction(4):title(LanguageClass.getTranslate("action_wheel__config__action_4__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__config__action_4__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("iron_chestplate"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+	pings.config_action4_toggle()
+	ConfigPage:getAction(4):hoverColor(85 / 255, 1, 85 / 255)
+	ConfigClass.saveConfig("showArmor", true)
+end):onUntoggle(function ()
+	pings.config_action4_untoggle()
+	ConfigPage:getAction(4):hoverColor(1, 85 / 255, 85 / 255)
+	ConfigClass.saveConfig("showArmor", false)
+end)
+if ConfigClass.loadConfig("showArmor", false) then
+	local action = ConfigPage:getAction(4)
+	action:toggled(true)
+	action:hoverColor(85 / 255, 1, 85 / 255)
+end
+
+--アクション5. 一人称視点での狐火の表示の切り替え
+ConfigPage:newAction(5):title(LanguageClass.getTranslate("action_wheel__config__action_5__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__config__action_5__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("soul_torch"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+	FoxFireClass.FoxFireInFirstPerson = true
+	ConfigPage:getAction(5):hoverColor(85 / 255, 1, 85 / 255)
+	ConfigClass.saveConfig("foxFireInFirstPerson", true)
+end):onUntoggle(function ()
+	FoxFireClass.FoxFireInFirstPerson = false
+	ConfigPage:getAction(5):hoverColor(1, 85 / 255, 85 / 255)
+	ConfigClass.saveConfig("foxFireInFirstPerson", false)
+end)
+if ConfigClass.loadConfig("foxFireInFirstPerson", true) then
+	local action = ConfigPage:getAction(5)
+	action:toggled(true)
+	action:hoverColor(85 / 255, 1, 85 / 255)
+end
+
+--アクション6. 傘の開閉音
+ConfigPage:newAction(6):title(LanguageClass.getTranslate("action_wheel__config__action_6__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__config__action_6__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("red_carpet"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+	pings.config_action6_toggle()
+	ConfigPage:getAction(6):hoverColor(85 / 255, 1, 85 / 255)
+	ConfigClass.saveConfig("umbrellaSound", true)
+end):onUntoggle(function ()
+	pings.config_action6_untoggle()
+	ConfigPage:getAction(6):hoverColor(1, 85 / 255, 85 / 255)
+	ConfigClass.saveConfig("umbrellaSound", false)
+end)
+if ConfigClass.loadConfig("umbrellaSound", true) then
+	local action = ConfigPage:getAction(6)
+	action:toggled(true)
+	action:hoverColor(85 / 255, 1, 85 / 255)
+end
 
 action_wheel:setPage(MainPages[1])
 

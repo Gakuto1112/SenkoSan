@@ -1,10 +1,10 @@
 ---@class CostumeClass キャラクターのコスチュームを管理し、円滑に切り替えられるようにするクラス
----@field CostumeClass.CurrentCostume CostumeType 現在のコスチューム
 ---@field CostumeClass.CostumeList table 利用可能なコスチュームのリスト
+---@field CostumeClass.CurrentCostume CostumeType 現在のコスチューム
 
 CostumeClass = {}
-CostumeClass.CurrentCostume = "DEFAULT"
 CostumeClass.CostumeList = {"default", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi"}
+CostumeClass.CurrentCostume = string.upper(CostumeClass.CostumeList[ConfigClass.loadConfig("costume", 1)])
 
 ---@alias CostumeType
 ---| "DEFAULT"
@@ -202,8 +202,8 @@ for _, modelPart in ipairs({models.models.costume_maid_a.Avatar.Body.BodyBottom,
 	modelPart:setParentType("None")
 end
 
-if ConfigClass.DefaultCostume > 1 then
-	CostumeClass.setCostume(string.upper(CostumeClass.CostumeList[ConfigClass.DefaultCostume]))
+if CostumeClass.CurrentCostume ~= "DEFAULT" then
+	CostumeClass.setCostume(CostumeClass.CurrentCostume)
 end
 
 return CostumeClass

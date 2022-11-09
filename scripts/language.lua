@@ -20,8 +20,8 @@ LanguageData = {
 		costume__cheerleader = "Cheerleader costume",
 		costume__purification = "Purification clothes",
 		costume__kappogi = "Kappogi (cook's apron)",
-		action_wheel__toggle_off = "off",
-		action_wheel__toggle_on = "on",
+		action_wheel__toggle_off = "§coff",
+		action_wheel__toggle_on = "§aon",
 		action_wheel__refuse_action = "(It is not the time... I have a strong feeling bad sign...)",
 		action_wheel__close_to_confirm = "(Close action wheel to confirm.)",
 		action_wheel__main__action_8__title = "Change pages §7(scroll)§r: §b",
@@ -45,16 +45,7 @@ LanguageData = {
 		action_wheel__main_2__action_5__title = "Massage",
 		action_wheel__main_2__action_5__unavailable = "I will massage you after I sit down!",
 		action_wheel__main_3__action_1__title = "Senko san line collection",
-		action_wheel__main_3__action_2__title = "What costume should I wear? §7(scroll)§r: ",
-		action_wheel__main_3__action_2__done_first = "I changed my clothers to §b",
-		action_wheel__main_3__action_2__done_last = "§r!",
-		action_wheel__main_3__action_3__title = "What should I be called? §7(scroll)§r: ",
-		action_wheel__main_3__action_3__done_first = "I changed my name to §b",
-		action_wheel__main_3__action_3__done_last = "§r!",
-		action_wheel__main_3__action_4__title = "Auto shake: §b",
-		action_wheel__main_3__action_5__title = "Show armor: §b",
-		action_wheel__main_3__action_6__title = "Show fox fire in first person: §b",
-		action_wheel__main_3__action_7__title = "Umbrella sound：§b",
+		action_wheel__main_3__action_2__title = "Senko san config",
 		action_wheel__word__action_1__title = "Let you pamper me as much as you like!",
 		action_wheel__word__action_2__title = "Let you cuddle my tail as much as you like!",
 		action_wheel__word__action_3__title = "Welcome back!",
@@ -64,7 +55,17 @@ LanguageData = {
 		action_wheel__word__action_7__title = "I'm just a moving ball of fur...",
 		action_wheel__word__action_8__title = "I will try other languages §7(scroll)§r: §b",
 		action_wheel__word__action_8__bracket_begin = "(",
-		action_wheel__word__action_8__bracket_end = ")"
+		action_wheel__word__action_8__bracket_end = ")",
+		action_wheel__config__action_1__title = "What costume should I wear? §7(scroll)§r: ",
+		action_wheel__config__action_1__done_first = "I changed my clothers to §b",
+		action_wheel__config__action_1__done_last = "§r!",
+		action_wheel__config__action_2__title = "What should I be called? §7(scroll)§r: ",
+		action_wheel__config__action_2__done_first = "I changed my name to §b",
+		action_wheel__config__action_2__done_last = "§r!",
+		action_wheel__config__action_3__title = "Auto shake: ",
+		action_wheel__config__action_4__title = "Show armor: ",
+		action_wheel__config__action_5__title = "Show fox fire in first person: ",
+		action_wheel__config__action_6__title = "Umbrella sound："
 	},
 	jp = {
 		language__en = "英語",
@@ -80,8 +81,8 @@ LanguageData = {
 		costume__cheerleader = "チアリーダーの服",
 		costume__purification = "清めの服",
 		costume__kappogi = "割烹着",
-		action_wheel__toggle_off = "オフ",
-		action_wheel__toggle_on = "オン",
+		action_wheel__toggle_off = "§cオフ",
+		action_wheel__toggle_on = "§aオン",
 		action_wheel__refuse_action = "（今はそれどころじゃないのじゃ...何かよからぬ気配を強く感じるのじゃ...）",
 		action_wheel__close_to_confirm = "（アクションホイールを閉じて確定なのじゃ。）",
 		action_wheel__main__action_8__title = "ページ切り替え§7（スクロール）§r：§b",
@@ -105,16 +106,7 @@ LanguageData = {
 		action_wheel__main_2__action_5__title = "マッサージ",
 		action_wheel__main_2__action_5__unavailable = "座ってからお主をほぐそうかのう。",
 		action_wheel__main_3__action_1__title = "仙狐さんセリフ集",
-		action_wheel__main_3__action_2__title = "わらわは何を着ればよいのじゃ？§7（スクロール）§r：",
-		action_wheel__main_3__action_2__done_first = "§b",
-		action_wheel__main_3__action_2__done_last = "§rに着替えたのじゃ。",
-		action_wheel__main_3__action_3__title = "わらわは何と呼ばれればよいのじゃ？§7（スクロール）§r: ",
-		action_wheel__main_3__action_3__done_first = "わらわの呼び名を§b",
-		action_wheel__main_3__action_3__done_last = "§rに変更したのじゃ。",
-		action_wheel__main_3__action_4__title = "自動ブルブル：§b",
-		action_wheel__main_3__action_5__title = "防具の表示：§b",
-		action_wheel__main_3__action_6__title = "一人称視点での狐火の表示：§b",
-		action_wheel__main_3__action_7__title = "傘の開閉音：§b",
+		action_wheel__main_3__action_2__title = "仙狐さん設定",
 		action_wheel__word__action_1__title = "存分に甘やかしてくれよう！",
 		action_wheel__word__action_2__title = "存分にもふるがよい！",
 		action_wheel__word__action_3__title = "おかえりなのじゃ～",
@@ -124,7 +116,17 @@ LanguageData = {
 		action_wheel__word__action_7__title = "わらわはただの動く毛玉じゃ...",
 		action_wheel__word__action_8__title = "わらわもよその国の言葉に挑戦しようかのう§7（スクロール）§r: §b",
 		action_wheel__word__action_8__bracket_begin = "（",
-		action_wheel__word__action_8__bracket_end = "）"
+		action_wheel__word__action_8__bracket_end = "）",
+		action_wheel__config__action_1__title = "わらわは何を着ればよいのじゃ？§7（スクロール）§r：",
+		action_wheel__config__action_1__done_first = "§b",
+		action_wheel__config__action_1__done_last = "§rに着替えたのじゃ。",
+		action_wheel__config__action_2__title = "わらわは何と呼ばれればよいのじゃ？§7（スクロール）§r: ",
+		action_wheel__config__action_2__done_first = "わらわの呼び名を§b",
+		action_wheel__config__action_2__done_last = "§rに変更したのじゃ。",
+		action_wheel__config__action_3__title = "自動ブルブル：",
+		action_wheel__config__action_4__title = "防具の表示：",
+		action_wheel__config__action_5__title = "一人称視点での狐火の表示：",
+		action_wheel__config__action_6__title = "傘の開閉音："
 	}
 }
 LanguageClass.LanguageList = {"en", "jp"}
@@ -132,7 +134,7 @@ LanguageClass.ActiveLanguage = client:getActiveLang() == "ja_jp" and 2 or 1
 
 ---翻訳キーに対する訳文を返す。設定言語が存在しない場合は英語の文が返される。また、指定したキーの訳が無い場合は英語->キーそのままが返される。
 ---@param keyName string 翻訳キー
----@return string
+---@return string translatedString 翻訳キーに対する翻訳データ。設定言語での翻訳が存在しない場合は英文が返される。英文すら存在しない場合は翻訳キーがそのまま返される。
 function LanguageClass.getTranslate(keyName)
 	return LanguageData[LanguageClass.LanguageList[LanguageClass.ActiveLanguage]][keyName] and LanguageData[LanguageClass.LanguageList[LanguageClass.ActiveLanguage]][keyName] or (LanguageData["en"][keyName] and LanguageData["en"][keyName] or keyName)
 end
@@ -140,7 +142,7 @@ end
 ---言語を指定して翻訳キーに対する訳文を返す。
 ---@param keyName string 翻訳キー
 ---@param languageID integer 言語ID
----@return string
+---@return string|nil translatedString 翻訳キーに対する翻訳データ。設定言語での翻訳が存在しない場合はnilが返される。
 function LanguageClass.getTranslateWithLang(keyName, languageID)
 	return LanguageData[LanguageClass.LanguageList[languageID]][keyName]
 end
