@@ -1,39 +1,86 @@
----@class ConfigClass アバター設定を管理するクラス A class for managing avatar config.
----@field ConfigClass.DefaultCostume integer デフォルト（初期状態）のコスチューム Default (initial) costume.
----@field ConfigClass.DefaultName integer デフォルトのプレイヤーの表示名 Default player display name.
----@field ConfigClass.AutoShake boolean 水から上がった際に自動でブルブルアクションを実行するかどうか Whether or not run body shake action automately after out of the water.
----@field ConfigClass.ShowArmor boolean 防具を表示するどうか Whether or not show armors.
----@field ConfigClass.FoxFireInFirstPerson boolean 一人称視点で狐火を表示するかどうか Whether or not show fox fire in first person view.
----@field ConfigClass.UmbrellaSound boolean 傘の開閉音を再生するかどうか Whether or not play sound when opening/closing umbrella.
----@field ConfigClass.KiyBinds table アバター固有アクションのキーバインドのテーブル Key binds of avatar-specific actions.
+---@class ConfigClass アバター設定を管理するクラス
+---@field DefaultValues table 読み込んだ値のデフォルト値を保持するテーブル
+---@field IsSynced boolean アバターの設定がホストと同期されたかどうか
+---@field NextSyncCount integer 次の同期pingまでのカウンター
+---@field ConfigClass.DefaultCostume integer デフォルト（初期状態）のコスチューム
+---@field ConfigClass.DefaultName integer デフォルトのプレイヤーの表示名
+---@field ConfigClass.AutoShake boolean 水から上がった際に自動でブルブルアクションを実行するかどうか
+---@field ConfigClass.ShowArmor boolean 防具を表示するどうか
+---@field ConfigClass.FoxFireInFirstPerson boolean 一人称視点で狐火を表示するかどうか
+---@field ConfigClass.UmbrellaSound boolean 傘の開閉音を再生するかどうか
+---@field ConfigClass.KiyBinds table アバター固有アクションのキーバインドのテーブル
 
 ConfigClass = {}
+DefaultValues = {}
+IsSynced = host:isHost()
+NextSyncCount = 0
 
---[[
-	*** NOTE ***
-	2022/7/16現在、Rewrite版には、データを保存して後で読み出せるようにする機能が搭載されていません。
-	つまり、Prewrite版のような設定ページが現在は作成できません！
-	代わりに、下の設定値を直接変更して下さい。
-	何が何を表しているのか、有効か値は何かは、上の"@field"を参照して下さい。
+---設定を読み出す
+---@param keyName string 読み出す設定の名前
+---@param defaultValue any 該当の設定が無い場合や、ホスト外での実行の場合はこの値が返される。
+---@return any data 読み出した値
+function ConfigClass.loadConfig(keyName, defaultValue)
+	if host:isHost() then
+		local data = config:load(keyName)
+		DefaultValues[keyName] = defaultValue
+		if data ~= nil then
+			return data
+		else
+			return defaultValue
+		end
+	else
+		return defaultValue
+	end
+end
 
-	As of 7/16/2022, Figura does not have a function to save data to be able to load later.
-	It means that it is impossible to create config system like when pre-write.
-	Insted of that, please change configs by editing config file (/sripts/config.lua) directly.
-]]
+---設定を保存する
+---@param keyName string 保存する設定の名前
+---@param value any 保存する値
+function ConfigClass.saveConfig(keyName, value)
+	if host:isHost() then
+		if DefaultValues[keyName] == value then
+			config:save(keyName, nil)
+		else
+			config:save(keyName, value)
+		end
+	end
+end
 
---- *** 設定フィールド開始 Begin of the config field ***
+--ping関数
+---アバター設定を他Figuraクライアントと同期する。
+---@param nameID integer 名前ID
+---@param costumeID integer 衣装ID
+---@param autoShake boolean 自動ブルブル
+---@param showArmor boolean 防具を表示するかどうか
+---@param umbrellaSound boolean 傘の開閉音を再生するかどうか
+function pings.syncAvatarConfig(nameID, costumeID, autoShake, showArmor, umbrellaSound)
+	if not IsSynced then
+		ActionWheelClass.CurrentPlayerNameState = nameID
+		ActionWheelClass.CurrentCostumeState = costumeID
+		NameplateClass.setName(nameID)
+		if ActionWheelClass.CurrentCostumeState == 0 then
+			CostumeClass.resetCostume()
+		else
+			CostumeClass.setCostume(string.upper(CostumeClass.CostumeList[ActionWheelClass.CurrentCostumeState]))
+		end
+		WetClass.AutoShake = autoShake
+		ArmorClass.ShowArmor = showArmor
+		UmbrellaClass.UmbrellaSound = umbrellaSound
+		IsSynced = true
+	end
+end
 
-ConfigClass.DefaultCostume = 1 --1. いつものコスチューム Default coustume, 2. 変装 Disguise costume, 3. メイド服A Maid costume A, 4. メイド服B Maid costume B, 5. 水着 Swimsuit, 6. チアリーダー, 7. 清めの服 Purification clothes, 8. 割烹着
-ConfigClass.DefaultName = 5 --1. プレイヤー名 Player name, 2. "Senko", 3. "仙狐", 4. "Senko_san", 5. "仙狐さん"
-ConfigClass.AutoShake = true
-ConfigClass.ShowArmor = false
-ConfigClass.FoxFireInFirstPerson = true
-ConfigClass.UmbrellaSound = true
-ConfigClass.KiyBinds = { -- 有効なキーのリストについては以下のURLをご参照ください。 Please refer to the following URL for valid key list. https://applejuiceyy.github.io/figs/latest/Keybinds/
-	WagTail = "key.keyboard.z",
-	JerkEars = "key.keyboard.x"
-}
+events.TICK:register(function ()
+	if NextSyncCount == 0 then
+		pings.syncAvatarConfig(ActionWheelClass.CurrentPlayerNameState, ActionWheelClass.CurrentCostumeState, WetClass.AutoShake, ArmorClass.ShowArmor, UmbrellaClass.UmbrellaSound)
+		NextSyncCount = 300
+	else
+		NextSyncCount = NextSyncCount - 1
+	end
+end)
 
---- *** 設定フィールド終了 End of the config field ***
+if host:isHost() then
+	config:name("Senko_san")
+end
 
 return ConfigClass

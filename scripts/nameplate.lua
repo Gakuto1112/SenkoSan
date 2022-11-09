@@ -19,9 +19,7 @@ events.TICK:register(function()
 	end
 end)
 
-if ConfigClass.DefaultName >= 2 then
-	NameplateClass.setName(ConfigClass.DefaultName)
-end
+NameplateClass.setName(ConfigClass.loadConfig("name", 1))
 nameplate.ENTITY:setBackgroundColor(233 / 255, 160 / 255, 70 / 255)
 nameplate.ENTITY.shadow = true
 

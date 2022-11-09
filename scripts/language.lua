@@ -134,7 +134,7 @@ LanguageClass.ActiveLanguage = client:getActiveLang() == "ja_jp" and 2 or 1
 
 ---翻訳キーに対する訳文を返す。設定言語が存在しない場合は英語の文が返される。また、指定したキーの訳が無い場合は英語->キーそのままが返される。
 ---@param keyName string 翻訳キー
----@return string
+---@return string translatedString 翻訳キーに対する翻訳データ。設定言語での翻訳が存在しない場合は英文が返される。英文すら存在しない場合は翻訳キーがそのまま返される。
 function LanguageClass.getTranslate(keyName)
 	return LanguageData[LanguageClass.LanguageList[LanguageClass.ActiveLanguage]][keyName] and LanguageData[LanguageClass.LanguageList[LanguageClass.ActiveLanguage]][keyName] or (LanguageData["en"][keyName] and LanguageData["en"][keyName] or keyName)
 end
@@ -142,7 +142,7 @@ end
 ---言語を指定して翻訳キーに対する訳文を返す。
 ---@param keyName string 翻訳キー
 ---@param languageID integer 言語ID
----@return string
+---@return string|nil translatedString 翻訳キーに対する翻訳データ。設定言語での翻訳が存在しない場合はnilが返される。
 function LanguageClass.getTranslateWithLang(keyName, languageID)
 	return LanguageData[LanguageClass.LanguageList[languageID]][keyName]
 end

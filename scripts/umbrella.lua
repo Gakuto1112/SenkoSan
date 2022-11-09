@@ -6,7 +6,7 @@
 UmbrellaClass = {}
 UmbrellaClass.EnableUmbrella = false
 EnableUmbrellaPrev = false
-UmbrellaClass.UmbrellaSound = ConfigClass.UmbrellaSound
+UmbrellaClass.UmbrellaSound = ConfigClass.loadConfig("umbrellaSound", true)
 
 events.TICK:register(function ()
 	local playerPose = player:getPose()

@@ -14,7 +14,7 @@ VelocityAverage = {0, 0, 0, 0}
 LookRotPrevRender = 0
 LookRotDeltaPrevRender = 0
 TailClass.EnablePyhsics = true
-WagTailKey = keybind:create(LanguageClass.getTranslate("key_name__wag_tail"), ConfigClass.KiyBinds.WagTail)
+WagTailKey = keybind:create(LanguageClass.getTranslate("key_name__wag_tail"), ConfigClass.loadConfig("keybind.wagTail", "key.keyboard.z"))
 WagTailCount = -1
 
 --ping関数

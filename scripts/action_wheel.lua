@@ -10,10 +10,10 @@
 ---@field CanBodyShake boolean ブルブルアクションができるかどうか
 ---@field ShakeSplashCount integer ブルブル時の水しぶきを出すタイミングを計るカウンター
 ---@field SweatCount integer 汗のタイミングを計るカウンター
----@field CurrentPlayerNameState integer プレイヤーの現在の表示名の状態を示す：0. プレイヤー名, 1. Senko_san, 2. 仙狐さん
----@field PlayerNameState integer プレイヤーの表示名の状態を示す：0. プレイヤー名, 1. Senko_san, 2. 仙狐さん
----@field IsSynced boolean アバターの設定がホストと同期されたかどうか
----@field NextSyncCount integer 次の同期pingまでのカウンター
+---@field ActionWheelClass.CurrentCostumeState integer プレイヤーの現在のコスチュームの状態を示す：1. いつもの服, 2. 変装服, 3. メイド服A, 4. メイド服B, 5. 水着, 6. チアリーダーの服, 7. 清めの服, 8. 割烹着
+---@field CurrentCostumeState integer プレイヤーのコスチュームの状態を示す：1. いつもの服, 2. 変装服, 3. メイド服A, 4. メイド服B, 5. 水着, 6. チアリーダーの服, 7. 清めの服, 8. 割烹着
+---@field ActionWheelClass.CurrentPlayerNameState integer プレイヤーの現在の表示名の状態を示す：1. プレイヤー名, 2. Senko, 3. 仙狐, 4. Senko_san, 5. 仙狐さん
+---@field PlayerNameState integer プレイヤーの表示名の状態を示す：1. プレイヤー名, 2. Senko, 3. 仙狐, 4. Senko_san, 5. 仙狐さん
 
 ActionWheelClass = {}
 
@@ -28,12 +28,10 @@ IsOpenActionWheelPrev = false
 CanBodyShake = false
 ShakeSplashCount = 0
 SweatCount = 0
-CurrentCostumeState = ConfigClass.DefaultCostume
-CostumeState = ConfigClass.DefaultCostume
-CurrentPlayerNameState = ConfigClass.DefaultName
-PlayerNameState = ConfigClass.DefaultName
-IsSynced = host:isHost()
-NextSyncCount = 300
+ActionWheelClass.CurrentCostumeState = ConfigClass.loadConfig("costume", 1)
+CostumeState = ActionWheelClass.CurrentCostumeState
+ActionWheelClass.CurrentPlayerNameState = ConfigClass.loadConfig("name", 1)
+PlayerNameState = ActionWheelClass.CurrentPlayerNameState
 
 ---アクションの色の有効色/無効色の切り替え
 ---@param pageNumber integer メインアクションのページ番号
@@ -83,7 +81,7 @@ end
 
 ---衣装変更のアクションの名称を変更する。
 function setCostumeChangeActionTitle()
-	if CostumeState == CurrentCostumeState then
+	if CostumeState == ActionWheelClass.CurrentCostumeState then
 		ConfigPage:getAction(1):title(LanguageClass.getTranslate("action_wheel__config__action_1__title").."§b"..LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[CostumeState]))
 	else
 		ConfigPage:getAction(1):title(LanguageClass.getTranslate("action_wheel__config__action_1__title").."§b"..LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[CostumeState]).."\n§7"..LanguageClass.getTranslate("action_wheel__close_to_confirm"))
@@ -92,7 +90,7 @@ end
 
 ---名前変更のアクションの名称を変更する。
 function setNameChangeActionTitle()
-	if PlayerNameState == CurrentPlayerNameState then
+	if PlayerNameState == ActionWheelClass.CurrentPlayerNameState then
 		ConfigPage:getAction(2):title(LanguageClass.getTranslate("action_wheel__config__action_2__title").."§b"..NameplateClass.NameList[PlayerNameState])
 	else
 		ConfigPage:getAction(2):title(LanguageClass.getTranslate("action_wheel__config__action_2__title").."§b"..NameplateClass.NameList[PlayerNameState].."\n§7"..LanguageClass.getTranslate("action_wheel__close_to_confirm"))
@@ -100,23 +98,6 @@ function setNameChangeActionTitle()
 end
 
 --ping関数
-function pings.syncAvatarSetting(nameID, costumeID, autoShake, showArmor, umbrellaSound)
-	if not IsSynced then
-		CurrentPlayerNameState = nameID
-		CurrentCostumeState = costumeID
-		NameplateClass.setName(nameID)
-		if CurrentCostumeState == 0 then
-			CostumeClass.resetCostume()
-		else
-			CostumeClass.setCostume(string.upper(CostumeClass.CostumeList[CurrentCostumeState]))
-		end
-		WetClass.AutoShake = autoShake
-		ArmorClass.ShowArmor = showArmor
-		UmbrellaClass.UmbrellaSound = umbrellaSound
-		IsSynced = true
-	end
-end
-
 function pings.refuse_emote()
 	General.setAnimations("PLAY", "refuse_emote")
 	FacePartsClass.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 30, true)
@@ -254,47 +235,41 @@ function pings.main2_action5()
 	end, false)
 end
 
-function pings.main3_action1(costumeID)
+function pings.config_action1(costumeID)
 	if costumeID == 1 then
 		CostumeClass.resetCostume()
 	else
 		CostumeClass.setCostume(string.upper(CostumeClass.CostumeList[costumeID]))
 	end
-	CurrentCostumeState = costumeID
-	if host:isHost() then
-		setCostumeChangeActionTitle()
-	end
+	ActionWheelClass.CurrentCostumeState = costumeID
 end
 
-function pings.main3_action2(nameID)
+function pings.config_action2(nameID)
 	NameplateClass.setName(nameID)
-	CurrentPlayerNameState = nameID
-	if host:isHost() then
-		setNameChangeActionTitle()
-	end
+	ActionWheelClass.CurrentPlayerNameState = nameID
 end
 
-function pings.main3_action4_toggle()
+function pings.config_action3_toggle()
 	WetClass.AutoShake = true
 end
 
-function pings.main3_action4_untoggle()
+function pings.config_action3_untoggle()
 	WetClass.AutoShake = false
 end
 
-function pings.main3_action5_toggle()
+function pings.config_action4_toggle()
 	ArmorClass.ShowArmor = true
 end
 
-function pings.main3_action5_untoggle()
+function pings.config_action4_untoggle()
 	ArmorClass.ShowArmor = false
 end
 
-function pings.main3_action7_toggle()
+function pings.config_action6_toggle()
 	UmbrellaClass.UmbrellaSound = true
 end
 
-function pings.main3_action7_untoggle()
+function pings.config_action6_untoggle()
 	UmbrellaClass.UmbrellaSound = false
 end
 
@@ -315,20 +290,24 @@ events.TICK:register(function ()
 	sitDownAction:toggled((ActionWheelClass.ActionCount == 0 or General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage") or (General.isAnimationPlaying("models.main", "sit_down") and General.isAnimationPlaying("models.main", "shake"))) and SitDownClass.CanSitDown and sitDownAction:isToggled())
 	if ActionWheelClass.ActionCount > 0 then
 		if (HurtClass.Damaged ~= "NONE" and ActionWheelClass.ActionCount > 0 and WardenClass.WardenNearby) or ((General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage")) and not General.isAnimationPlaying("models.main", "sit_down")) or (General.isAnimationPlaying("models.main", "tail_cuddling") and not TailCuddlingClass.CanCuddleTail) or ((General.isAnimationPlaying("models.main", "broom_cleaning") or General.isAnimationPlaying("models.main", "vacuum_cleaning") or General.isAnimationPlaying("models.main", "cloth_cleaning") or General.isAnimationPlaying("models.main", "hair_cut")) and not BroomCleaningClass.CanBroomCleaning) or (General.isAnimationPlaying("models.main", "fox_jump") and not FoxJumpClass.CanFoxJump) then
-			ActionCancelFunction();
+			ActionCancelFunction()
 			ActionWheelClass.ActionCount = 0
 		end
 	end
 	local isOpenActionWheel = action_wheel:isEnabled()
 	if host:isHost() then
 		if not isOpenActionWheel and IsOpenActionWheelPrev then
-			if CostumeState ~= CurrentCostumeState then
-				pings.main3_action1(CostumeState)
+			if CostumeState ~= ActionWheelClass.CurrentCostumeState then
+				pings.config_action1(CostumeState)
+				setCostumeChangeActionTitle()
+				ConfigClass.saveConfig("costume", CostumeState)
 				sounds:playSound("minecraft:item.armor.equip_leather", player:getPos())
 				print(LanguageClass.getTranslate("action_wheel__config__action_1__done_first")..LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[CostumeState])..LanguageClass.getTranslate("action_wheel__config__action_1__done_last"))
 			end
-			if PlayerNameState ~= CurrentPlayerNameState then
-				pings.main3_action2(PlayerNameState)
+			if PlayerNameState ~= ActionWheelClass.CurrentPlayerNameState then
+				pings.config_action2(PlayerNameState)
+				setNameChangeActionTitle()
+				ConfigClass.saveConfig("name", PlayerNameState)
 				sounds:playSound("minecraft:ui.cartography_table.take_result", player:getPos(), 1, 1)
 				print(LanguageClass.getTranslate("action_wheel__config__action_2__done_first")..NameplateClass.NameList[PlayerNameState]..LanguageClass.getTranslate("action_wheel__config__action_2__done_last"))
 			end
@@ -336,12 +315,6 @@ events.TICK:register(function ()
 				action_wheel:setPage(ParentPage)
 				ParentPage = nil
 			end
-		end
-		if NextSyncCount == 0 then
-			pings.syncAvatarSetting(CurrentPlayerNameState, CurrentCostumeState, WetClass.AutoShake, ArmorClass.ShowArmor, UmbrellaClass.UmbrellaSound)
-			NextSyncCount = 300
-		elseif not client:isPaused() then
-			NextSyncCount = NextSyncCount - 1
 		end
 	end
 	if ShakeSplashCount > 0 then
@@ -627,13 +600,15 @@ end)
 
 --アクション3. 自動ブルブル
 ConfigPage:newAction(3):title(LanguageClass.getTranslate("action_wheel__config__action_3__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__config__action_3__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("water_bucket"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
-	pings.main3_action4_toggle()
+	pings.config_action3_toggle()
 	ConfigPage:getAction(3):hoverColor(85 / 255, 1, 85 / 255)
+	ConfigClass.saveConfig("autoShake", true)
 end):onUntoggle(function ()
-	pings.main3_action4_untoggle()
+	pings.config_action3_untoggle()
 	ConfigPage:getAction(3):hoverColor(1, 85 / 255, 85 / 255)
+	ConfigClass.saveConfig("autoShake", false)
 end)
-if ConfigClass.AutoShake then
+if ConfigClass.loadConfig("autoShake", true) then
 	local action = ConfigPage:getAction(3)
 	action:toggled(true)
 	action:hoverColor(85 / 255, 1, 85 / 255)
@@ -641,13 +616,15 @@ end
 
 --アクション4. 防具の非表示
 ConfigPage:newAction(4):title(LanguageClass.getTranslate("action_wheel__config__action_4__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__config__action_4__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("iron_chestplate"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
-	pings.main3_action5_toggle()
+	pings.config_action4_toggle()
 	ConfigPage:getAction(4):hoverColor(85 / 255, 1, 85 / 255)
+	ConfigClass.saveConfig("showArmor", true)
 end):onUntoggle(function ()
-	pings.main3_action5_untoggle()
+	pings.config_action4_untoggle()
 	ConfigPage:getAction(4):hoverColor(1, 85 / 255, 85 / 255)
+	ConfigClass.saveConfig("showArmor", false)
 end)
-if ConfigClass.ShowArmor then
+if ConfigClass.loadConfig("showArmor", false) then
 	local action = ConfigPage:getAction(4)
 	action:toggled(true)
 	action:hoverColor(85 / 255, 1, 85 / 255)
@@ -657,11 +634,13 @@ end
 ConfigPage:newAction(5):title(LanguageClass.getTranslate("action_wheel__config__action_5__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__config__action_5__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("soul_torch"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
 	FoxFireClass.FoxFireInFirstPerson = true
 	ConfigPage:getAction(5):hoverColor(85 / 255, 1, 85 / 255)
+	ConfigClass.saveConfig("foxFireInFirstPerson", true)
 end):onUntoggle(function ()
 	FoxFireClass.FoxFireInFirstPerson = false
 	ConfigPage:getAction(5):hoverColor(1, 85 / 255, 85 / 255)
+	ConfigClass.saveConfig("foxFireInFirstPerson", false)
 end)
-if ConfigClass.FoxFireInFirstPerson then
+if ConfigClass.loadConfig("foxFireInFirstPerson", true) then
 	local action = ConfigPage:getAction(5)
 	action:toggled(true)
 	action:hoverColor(85 / 255, 1, 85 / 255)
@@ -669,13 +648,15 @@ end
 
 --アクション6. 傘の開閉音
 ConfigPage:newAction(6):title(LanguageClass.getTranslate("action_wheel__config__action_6__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__config__action_6__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("red_carpet"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
-	pings.main3_action7_toggle()
+	pings.config_action6_toggle()
 	ConfigPage:getAction(6):hoverColor(85 / 255, 1, 85 / 255)
+	ConfigClass.saveConfig("umbrellaSound", true)
 end):onUntoggle(function ()
-	pings.main3_action7_untoggle()
+	pings.config_action6_untoggle()
 	ConfigPage:getAction(6):hoverColor(1, 85 / 255, 85 / 255)
+	ConfigClass.saveConfig("umbrellaSound", false)
 end)
-if ConfigClass.UmbrellaSound then
+if ConfigClass.loadConfig("umbrellaSound", true) then
 	local action = ConfigPage:getAction(6)
 	action:toggled(true)
 	action:hoverColor(85 / 255, 1, 85 / 255)

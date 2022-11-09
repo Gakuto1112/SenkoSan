@@ -31,7 +31,7 @@ General.PlayerCondition = "HIGH"
 
 ---指定されたステータス効果の情報を返す。指定されたステータス効果が付与されていない場合はnilが返される。
 ---@param name string ステータス効果
----@return table|nil
+---@return table|nil status ステータス効果の情報（該当のステータスを受けていない場合はnilが返る。）
 function General.getStatusEffect(name)
 	for _, effect in ipairs(player:getStatusEffects()) do
 		if effect.name == "effect.minecraft."..name then
@@ -44,7 +44,7 @@ end
 ---アニメーションが再生中かどうかを返す
 ---@param modelName string モデル名
 ---@param animationName string アニメーションが名
----@return boolean
+---@return boolean isAnimationPlaying アニメーションが再生中かどうか
 function General.isAnimationPlaying(modelName, animationName)
 	return animations[modelName][animationName]:getPlayState() == "PLAYING"
 end
