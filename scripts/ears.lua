@@ -43,6 +43,11 @@ events.TICK:register(function ()
 	if EarsRotCount == 0 then
 		EarsClass.setEarsRot((General.PlayerCondition == "LOW" or player:getFrozenTicks() == 140) and "DROOPING" or (General.PlayerCondition == "MEDIUM" and "SLIGHTLY_DROOPING" or "STAND"), 0, false)
 	end
+	if not JerkEarsKey:isDefault() then
+		local newKey = JerkEarsKey:getKey()
+		ConfigClass.saveConfig("keybind.jerkEars", newKey)
+		JerkEarsKey:setKey(newKey)
+	end
 	EarsRotCount = EarsRotCount > 0 and (client:isPaused() and EarsRotCount or EarsRotCount - 1) or 0
 	JerkEarsCount = JerkEarsCount > 0 and (client:isPaused() and JerkEarsCount or JerkEarsCount - 1) or 0
 end)

@@ -32,6 +32,11 @@ events.TICK:register(function ()
 			sounds:playSound("block.grass.step", player:getPos(), 0.5, 1)
 		end
 	end
+	if not WagTailKey:isDefault() then
+		local newKey = WagTailKey:getKey()
+		ConfigClass.saveConfig("keybind.wagTail", newKey)
+		WagTailKey:setKey(newKey)
+	end
 	WagTailCount = WagTailCount > 0 and WagTailCount - 1 or 0
 end)
 
