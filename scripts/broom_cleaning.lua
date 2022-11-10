@@ -52,9 +52,9 @@ events.TICK:register(function ()
 	if (BroomCleaningAnimationCount + 8) % 17 == 0 and BroomCleaningAnimationCount > 49 then
 		sounds:playSound("minecraft:entity.cat.hiss", player:getPos(), 0.5, 2)
 		models.models.broom_cleaning.Avatar.Dust:setOpacity(models.models.broom_cleaning.Avatar.Dust:getOpacity() - 0.14)
-		local dustPos = vectors.rotateAroundAxis(-(player:getBodyYaw() % 360), 0, 0, 0.65, 0, 1, 0):add(player:getPos())
+		local dustParticlePivot = models.models.broom_cleaning.Avatar.Dust.DustParticlePivot:partToWorldMatrix()
 		for _ = 1, 5 do
-			particles:addParticle("minecraft:block minecraft:gravel", dustPos)
+			particles:addParticle("minecraft:block minecraft:gravel", dustParticlePivot[4][1], dustParticlePivot[4][2], dustParticlePivot[4][3])
 		end
 	elseif BroomCleaningAnimationCount == 41 then
 		FacePartsClass.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)

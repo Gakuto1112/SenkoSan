@@ -208,7 +208,32 @@
 						}
 					]
 				},
-				"071d3d64-fe8a-b1c4-826d-37a9659da0b3"
+				{
+					"name": "Dust",
+					"origin": [0, 0, 0],
+					"color": 0,
+					"uuid": "a412c242-f5f7-449f-c490-7308641a9274",
+					"export": true,
+					"isOpen": true,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": [
+						"071d3d64-fe8a-b1c4-826d-37a9659da0b3",
+						{
+							"name": "DustParticlePivot",
+							"origin": [0, 0, -11],
+							"color": 0,
+							"uuid": "b7b29b73-f3e2-2f07-5ca2-b06f0a861944",
+							"export": true,
+							"isOpen": true,
+							"locked": false,
+							"visibility": true,
+							"autouv": 0,
+							"children": []
+						}
+					]
+				}
 			]
 		}
 	],

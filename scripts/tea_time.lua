@@ -51,6 +51,12 @@ events.TICK:register(function ()
 			vanilla_model.LEFT_ITEM:setVisible(true)
 			ArmsClass.ItemHeldContradicts[2] = false
 		end
+		local yunomi2ParticlePivot = models.models.tea.Avatar.Table.TableItems.Yunomi2.Yunomi2ParticlePivot:partToWorldMatrix()
+		particles:addParticle("poof", yunomi2ParticlePivot[4][1], yunomi2ParticlePivot[4][2], yunomi2ParticlePivot[4][3]):scale(0.2):velocity(0, 0, 0):lifetime(15)
+		if TeaTimeAnimationCount > 50 then
+			local yunomi1ParticlePivot = models.models.tea.Avatar.Body.Yunomi1.Yunomi1ParticlePivot:partToWorldMatrix()
+			particles:addParticle("poof", yunomi1ParticlePivot[4][1], yunomi1ParticlePivot[4][2], yunomi1ParticlePivot[4][3]):scale(0.2):velocity(0, 0, 0):lifetime(15)
+		end
 	end
 	if TeaTimeAnimationCount <= 210 and TeaTimeAnimationCount > 50 and (TeaTimeAnimationCount - 210) % 20 == 0 then
 		if TeaTimeAnimationCount == 210 then
