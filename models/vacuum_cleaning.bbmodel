@@ -344,6 +344,18 @@
 			"children": [
 				"6864c9bd-021e-f71a-44fe-ba37aa542247",
 				{
+					"name": "ExhaustParticlePivot",
+					"origin": [5.5, 4, 16],
+					"color": 0,
+					"uuid": "830d9213-b104-48b8-cc93-484e6d5554b3",
+					"export": true,
+					"isOpen": true,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": []
+				},
+				{
 					"name": "Wheels",
 					"origin": [5.5, 1, 13],
 					"color": 0,
@@ -438,7 +450,7 @@
 			"override": false,
 			"length": 14,
 			"snapping": 24,
-			"selected": false,
+			"selected": true,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
