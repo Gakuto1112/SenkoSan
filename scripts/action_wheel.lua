@@ -242,11 +242,17 @@ function pings.config_action1(costumeID)
 		CostumeClass.setCostume(string.upper(CostumeClass.CostumeList[costumeID]))
 	end
 	ActionWheelClass.CurrentCostumeState = costumeID
+	if host:isHost() then
+		setCostumeChangeActionTitle()
+	end
 end
 
 function pings.config_action2(nameID)
 	NameplateClass.setName(nameID)
 	ActionWheelClass.CurrentPlayerNameState = nameID
+	if host:isHost() then
+		setNameChangeActionTitle()
+	end
 end
 
 function pings.config_action3_toggle()
@@ -299,14 +305,12 @@ events.TICK:register(function ()
 		if not isOpenActionWheel and IsOpenActionWheelPrev then
 			if CostumeState ~= ActionWheelClass.CurrentCostumeState then
 				pings.config_action1(CostumeState)
-				setCostumeChangeActionTitle()
 				ConfigClass.saveConfig("costume", CostumeState)
 				sounds:playSound("minecraft:item.armor.equip_leather", player:getPos())
 				print(LanguageClass.getTranslate("action_wheel__config__action_1__done_first")..LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[CostumeState])..LanguageClass.getTranslate("action_wheel__config__action_1__done_last"))
 			end
 			if PlayerNameState ~= ActionWheelClass.CurrentPlayerNameState then
 				pings.config_action2(PlayerNameState)
-				setNameChangeActionTitle()
 				ConfigClass.saveConfig("name", PlayerNameState)
 				sounds:playSound("minecraft:ui.cartography_table.take_result", player:getPos(), 1, 1)
 				print(LanguageClass.getTranslate("action_wheel__config__action_2__done_first")..NameplateClass.NameList[PlayerNameState]..LanguageClass.getTranslate("action_wheel__config__action_2__done_last"))
@@ -579,7 +583,7 @@ end)
 
 --設定のページのアクション設定
 --アクション1. 着替え
-ConfigPage:newAction(1):title(LanguageClass.getTranslate("action_wheel__config__action_1__title").."§b"..LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[CostumeState])):item("leather_chestplate"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+ConfigPage:newAction(1):item("leather_chestplate"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
 	if direction == -1 then
 		CostumeState = CostumeState == #CostumeClass.CostumeList and 1 or CostumeState + 1
 	else
@@ -589,7 +593,7 @@ ConfigPage:newAction(1):title(LanguageClass.getTranslate("action_wheel__config__
 end)
 
 --アクション2. プレイヤーの表示名変更
-ConfigPage:newAction(2):title(LanguageClass.getTranslate("action_wheel__config__action_2__title").."§b"..NameplateClass.NameList[PlayerNameState]):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+ConfigPage:newAction(2):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
 	if direction == -1 then
 		PlayerNameState = PlayerNameState == #NameplateClass.NameList and 1 or PlayerNameState + 1
 	else
@@ -662,6 +666,8 @@ if ConfigClass.loadConfig("umbrellaSound", true) then
 	action:hoverColor(85 / 255, 1, 85 / 255)
 end
 
+setCostumeChangeActionTitle()
+setNameChangeActionTitle()
 action_wheel:setPage(MainPages[1])
 
 return ActionWheelClass
