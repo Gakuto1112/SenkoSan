@@ -106,12 +106,6 @@ events.TICK:register(function ()
 	HairCutAnimationCount = HairCutAnimationCount > 0 and (client:isPaused() and HairCutAnimationCount or HairCutAnimationCount - 1) or 0
 end)
 
-for _, modelPart in ipairs({models.models.hair_cut, models.models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairPiece}) do
-	modelPart:setVisible(false)
-end
-for _, modelPart in ipairs({models.models.hair_cut.Avatar.Body.Arms.RightArm.RightArmBottom, models.models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom}) do
-	modelPart:setParentType("None")
-end
 for _, modelPart in ipairs({models.models.hair_cut.SittingPlayer, models.models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairPiece}) do
 	modelPart:setPrimaryTexture("SKIN")
 end

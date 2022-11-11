@@ -66,7 +66,6 @@ events.TICK:register(function ()
 	MassageAnimationCount = MassageAnimationCount > 0 and (client:isPaused() and MassageAnimationCount or MassageAnimationCount - 1) or 0
 end)
 
-models.models.massage:setVisible(false)
 models.models.massage.LyingPlayer:setPrimaryTexture("SKIN")
 if player:getModelType() == "DEFAULT" then
 	for _, modelPart in ipairs({models.models.massage.LyingPlayer.LyingPlayerBody.LyingPlayerArms.LyingPlayerRightArms.LyingPlayerRightArmSlim, models.models.massage.LyingPlayer.LyingPlayerBody.LyingPlayerArms.LyingPlayerLeftArms.LyingPlayerLeftArmSlim}) do

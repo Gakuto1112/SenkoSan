@@ -79,9 +79,6 @@ events.TICK:register(function ()
 	TeaTimeAnimationCount = TeaTimeAnimationCount > 0 and (client:isPaused() and TeaTimeAnimationCount or TeaTimeAnimationCount - 1) or 0
 end)
 
-for _, modelPart in ipairs({models.models.tea, models.models.tea.Avatar.Body.Yunomi1.Tea}) do
-	modelPart:setVisible(false)
-end
 models.models.tea.Avatar.Table.Board:setPrimaryTexture("RESOURCE", "textures/block/spruce_planks.png")
 models.models.tea.Avatar.Table.TableLegs:setPrimaryTexture("RESOURCE", "textures/block/spruce_log.png")
 

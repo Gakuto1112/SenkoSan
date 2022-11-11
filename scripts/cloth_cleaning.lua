@@ -66,7 +66,4 @@ events.TICK:register(function ()
 	ClothCleaningAnimationCount = ClothCleaningAnimationCount > 0 and (client:isPaused() and ClothCleaningAnimationCount or ClothCleaningAnimationCount - 1) or 0
 end)
 
-models.models.cloth_cleaning:setVisible(false)
-models.models.cloth_cleaning.Avatar.Body.Arms.RightArm.RightArmBottom:setParentType("None")
-
 return ClothCleaningClass

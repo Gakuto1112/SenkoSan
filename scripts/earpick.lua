@@ -67,7 +67,6 @@ events.TICK:register(function ()
 	EarpickAnimationCount = EarpickAnimationCount > 0 and (client:isPaused() and EarpickAnimationCount or EarpickAnimationCount - 1) or 0
 end)
 
-models.models.ear_cleaning:setVisible(false)
 models.models.ear_cleaning.LyingPlayer:setPrimaryTexture("SKIN")
 if player:getModelType() == "DEFAULT" then
 	for _, modelPart in ipairs({models.models.ear_cleaning.LyingPlayer.LyingPlayerBody.LyingPlayerArms.LyingPlayerRightArms.LyingPlayerRightArmSlim, models.models.ear_cleaning.LyingPlayer.LyingPlayerBody.LyingPlayerArms.LyingPlayerLeftArms.LyingPlayerLeftArmSlim}) do

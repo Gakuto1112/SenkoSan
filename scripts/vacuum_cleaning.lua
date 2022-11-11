@@ -78,6 +78,4 @@ events.TICK:register(function ()
 	VacuumCleaningAnimationCount = VacuumCleaningAnimationCount > 0 and (client:isPaused() and VacuumCleaningAnimationCount or VacuumCleaningAnimationCount - 1) or 0
 end)
 
-models.models.vacuum_cleaning:setVisible(false)
-
 return VacuumCleaningClass

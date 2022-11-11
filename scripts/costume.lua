@@ -195,13 +195,6 @@ events.TICK:register(function ()
 	end
 end)
 
-for _, modelPart in ipairs({models.models.costume_disguise, models.models.costume_maid_a, models.models.costume_maid_b, models.models.costume_swimsuit, models.models.costume_cheerleader}) do
-	modelPart:setVisible(false)
-end
-for _, modelPart in ipairs({models.models.costume_maid_a.Avatar.Body.BodyBottom, models.models.costume_maid_b.Avatar.Body.BodyBottom, models.models.costume_swimsuit.Avatar.Body.BodyBottom, models.models.costume_cheerleader.Avatar.Body.BodyBottom, models.models.costume_cheerleader.Avatar.Body.Arms.RightArm.RightArmBottom, models.models.costume_cheerleader.Avatar.Body.Arms.LeftArm.LeftArmBottom}) do
-	modelPart:setParentType("None")
-end
-
 if CostumeClass.CurrentCostume ~= "DEFAULT" then
 	CostumeClass.setCostume(CostumeClass.CurrentCostume)
 end

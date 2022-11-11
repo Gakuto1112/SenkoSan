@@ -83,7 +83,6 @@ events.TICK:register(function ()
 	TailCuddlingAnimationCount = TailCuddlingAnimationCount > 0 and (client:isPaused() and TailCuddlingAnimationCount or TailCuddlingAnimationCount - 1) or 0
 end)
 
-models.models.tail_cuddling:setVisible(false)
 models.models.tail_cuddling.SittingPlayer:setPrimaryTexture("SKIN")
 if player:getModelType() == "DEFAULT" then
 	for _, modelPart in ipairs({models.models.tail_cuddling.SittingPlayer.SittingPlayerBody.SittingPlayerArms.SittingPlayerRightArms.SittingPlayerRightArmSlim, models.models.tail_cuddling.SittingPlayer.SittingPlayerBody.SittingPlayerArms.SittingPlayerLeftArms.SittingPlayerLeftArmSlim}) do

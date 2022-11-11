@@ -69,7 +69,4 @@ events.TICK:register(function ()
 	BroomCleaningAnimationCount = BroomCleaningAnimationCount > 0 and (client:isPaused() and BroomCleaningAnimationCount or BroomCleaningAnimationCount - 1) or 0
 end)
 
-models.models.broom_cleaning:setVisible(false)
-models.models.broom_cleaning.Avatar.Body.Arms.RightArm.RightArmBottom:setParentType("None")
-
 return BroomCleaningClass

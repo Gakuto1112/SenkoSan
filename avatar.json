@@ -5,5 +5,116 @@
 	"color": "f0bf64",
 	"autoScripts": [
 		"scripts/main.lua"
-	]
+	],
+	"customizations": {
+		"models.armor": {
+			"visible": false
+		},
+		"models.armor.Avatar.Body.BodyBottom": {
+			"parentType": "None"
+		},
+		"models.armor.Avatar.Body.Arms.RightArm.RightArmBottom": {
+			"parentType": "None"
+		},
+		"models.armor.Avatar.Body.Arms.LeftArm.LeftArmBottom": {
+			"parentType": "None"
+		},
+		"models.armor.Avatar.Body.BodyBottom.Legs.RightLeg.RightLeggings": {
+			"parentType": "None"
+		},
+		"models.armor.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom": {
+			"parentType": "None"
+		},
+		"models.armor.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.RightLeggingsBottom": {
+			"parentType": "None"
+		},
+		"models.armor.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLeggings": {
+			"parentType": "None"
+		},
+		"models.armor.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom": {
+			"parentType": "None"
+		},
+		"models.armor.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.LeftLeggingsBottom": {
+			"parentType": "None"
+		},
+		"models.broom_cleaning": {
+			"visible": false
+		},
+		"models.broom_cleaning.Avatar.Body.Arms.RightArm.RightArmBottom": {
+			"parentType": "None"
+		},
+		"models.cloth_cleaning": {
+			"visible": false
+		},
+		"models.cloth_cleaning.Avatar.Body.Arms.RightArm.RightArmBottom": {
+			"parentType": "None"
+		},
+		"models.costume_disguise": {
+			"visible": false
+		},
+		"models.costume_maid_a": {
+			"visible": false
+		},
+		"models.costume_maid_b": {
+			"visible": false
+		},
+		"models.costume_swimsuit": {
+			"visible": false
+		},
+		"models.costume_cheerleader": {
+			"visible": false
+		},
+		"models.costume_maid_a.Avatar.Body.BodyBottom": {
+			"parentType": "None"
+		},
+		"models.costume_maid_b.Avatar.Body.BodyBottom": {
+			"parentType": "None"
+		},
+		"models.costume_swimsuit.Avatar.Body.BodyBottom": {
+			"parentType": "None"
+		},
+		"models.costume_cheerleader.Avatar.Body.BodyBottom": {
+			"parentType": "None"
+		},
+		"models.costume_cheerleader.Avatar.Body.Arms.RightArm.RightArmBottom": {
+			"parentType": "None"
+		},
+		"models.costume_cheerleader.Avatar.Body.Arms.LeftArm.LeftArmBottom": {
+			"parentType": "None"
+		},
+		"models.ear_cleaning": {
+			"visible": false
+		},
+		"models.main.Avatar.Head.Glasses": {
+			"visible": false,
+			"primaryRenderType": "TRANSLUCENT"
+		},
+		"models.hair_cut": {
+			"visible": false
+		},
+		"models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairPiece": {
+			"visible": false
+		},
+		"models.hair_cut.Avatar.Body.Arms.RightArm.RightArmBottom": {
+			"parentType": "None"
+		},
+		"models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom": {
+			"parentType": "None"
+		},
+		"models.massage": {
+			"visible": false
+		},
+		"models.tail_cuddling": {
+			"visible": false
+		},
+		"models.tea": {
+			"visible": false
+		},
+		"models.tea.Avatar.Body.Yunomi1.Tea": {
+			"visible": false
+		},
+		"models.vacuum_cleaning": {
+			"visible": false
+		}
+	}
 }

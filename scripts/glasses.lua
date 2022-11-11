@@ -22,7 +22,4 @@ events.TICK:register(function ()
 	end
 end)
 
-models.models.main.Avatar.Head.Glasses:setVisible(false)
-models.models.main.Avatar.Head.Glasses:setPrimaryRenderType("TRANSLUCENT")
-
 return GlassesClass
