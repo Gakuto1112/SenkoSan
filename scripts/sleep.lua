@@ -37,7 +37,7 @@ events.TICK:register(function()
 				if string.find(sleepBlock.id, "^minecraft:.+bed$") then
 					local facingValue = {north = 180, east = -90, south = 0, west = 90}
 					if renderer:isCameraBackwards() then
-						renderer:setCameraRot(-10, facingValue[sleepBlock.properties["facing"]] - 20, 0)
+						renderer:setCameraRot(10, facingValue[sleepBlock.properties["facing"]] + 160, 0)
 					else
 						renderer:setCameraRot(10, facingValue[sleepBlock.properties["facing"]] + 20, 0)
 					end
