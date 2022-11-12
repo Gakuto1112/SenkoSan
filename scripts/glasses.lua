@@ -12,7 +12,7 @@ end
 events.TICK:register(function ()
 	if host:isHost() then
 		local guiClassName = host:getScreen()
-		local glassesWear = guiClassName and (guiClassName == "class_486" or guiClassName == "class_473" or guiClassName == "class_3934" or guiClassName == "class_3935") or false
+		local glassesWear = guiClassName == "net.minecraft.class_486" or guiClassName == "net.minecraft.class_473" or guiClassName == "net.minecraft.class_3934" or guiClassName == "net.minecraft.class_3935"
 		if glassesWear and not GlassesWorePrev then
 			pings.setGlassVisible(true)
 		elseif not glassesWear and GlassesWorePrev then
