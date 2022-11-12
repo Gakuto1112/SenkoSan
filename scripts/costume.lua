@@ -32,7 +32,7 @@ function CostumeClass.setCostume(costume)
 	CostumeClass.CurrentCostume = costume
 	if costume == "NIGHTWEAR" then
 		setCostumeTextureOffset(48)
-		TailClass.EnablePyhsics = false
+		PhysicsClass.EnablePyhsics = false
 	elseif costume == "DISGUISE" then
 		models.models.costume_disguise:setVisible(true)
 		setCostumeTextureOffset(96)
@@ -72,7 +72,7 @@ function CostumeClass.resetCostume()
 	ApronClass.IsVisible = true
 	models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 0)
 	models.models.main.Avatar.Head.Ears:setVisible(true)
-	TailClass.EnablePyhsics = true
+	PhysicsClass.EnablePyhsics = true
 	CostumeClass.CurrentCostume = "DEFAULT"
 end
 
