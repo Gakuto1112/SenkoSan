@@ -14,6 +14,7 @@
 ---@field CurrentCostumeState integer プレイヤーのコスチュームの状態を示す：1. いつもの服, 2. 変装服, 3. メイド服A, 4. メイド服B, 5. 水着, 6. チアリーダーの服, 7. 清めの服, 8. 割烹着
 ---@field ActionWheelClass.CurrentPlayerNameState integer プレイヤーの現在の表示名の状態を示す：1. プレイヤー名, 2. Senko, 3. 仙狐, 4. Senko_san, 5. 仙狐さん
 ---@field PlayerNameState integer プレイヤーの表示名の状態を示す：1. プレイヤー名, 2. Senko, 3. 仙狐, 4. Senko_san, 5. 仙狐さん
+---@field IsWetPrev boolean 前チックに濡れていたかどうか
 
 ActionWheelClass = {}
 
@@ -32,6 +33,7 @@ ActionWheelClass.CurrentCostumeState = ConfigClass.loadConfig("costume", 1)
 CostumeState = ActionWheelClass.CurrentCostumeState
 ActionWheelClass.CurrentPlayerNameState = ConfigClass.loadConfig("name", 1)
 PlayerNameState = ActionWheelClass.CurrentPlayerNameState
+IsWetPrev = false
 
 ---アクションの色の有効色/無効色の切り替え
 ---@param pageNumber integer メインアクションのページ番号
@@ -280,28 +282,28 @@ function pings.config_action6_untoggle()
 end
 
 events.TICK:register(function ()
-	CanBodyShake = not player:isUnderwater() and not player:isInLava() and not WardenClass.WardenNearby
-	setActionEnabled(1, 1, ActionWheelClass.ActionCount == 0 and not WardenClass.WardenNearby)
-	setActionEnabled(1, 2, ActionWheelClass.ActionCount == 0 and CanBodyShake)
-	for i = 3, 4 do
-		setActionEnabled(1, i, ActionWheelClass.ActionCount == 0 and BroomCleaningClass.CanBroomCleaning)
-	end
-	setActionEnabled(1, 5, ActionWheelClass.ActionCount == 0 and FoxJumpClass.CanFoxJump)
-	setActionEnabled(2, 1, ActionWheelClass.ActionCount == 0 and SitDownClass.CanSitDown)
-	setActionEnabled(2, 2, ActionWheelClass.ActionCount == 0 and TailCuddlingClass.CanCuddleTail)
-	for i = 3, 5 do
-		setActionEnabled(2, i, General.isAnimationPlaying("models.main", "sit_down") and ActionWheelClass.ActionCount == 0 and not WardenClass.WardenNearby)
-	end
-	local sitDownAction = MainPages[2]:getAction(1)
-	sitDownAction:toggled((ActionWheelClass.ActionCount == 0 or General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage") or (General.isAnimationPlaying("models.main", "sit_down") and General.isAnimationPlaying("models.main", "shake"))) and SitDownClass.CanSitDown and sitDownAction:isToggled())
-	if ActionWheelClass.ActionCount > 0 then
-		if (HurtClass.Damaged ~= "NONE" and ActionWheelClass.ActionCount > 0 and WardenClass.WardenNearby) or ((General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage")) and not General.isAnimationPlaying("models.main", "sit_down")) or (General.isAnimationPlaying("models.main", "tail_cuddling") and not TailCuddlingClass.CanCuddleTail) or ((General.isAnimationPlaying("models.main", "broom_cleaning") or General.isAnimationPlaying("models.main", "vacuum_cleaning") or General.isAnimationPlaying("models.main", "cloth_cleaning") or General.isAnimationPlaying("models.main", "hair_cut")) and not BroomCleaningClass.CanBroomCleaning) or (General.isAnimationPlaying("models.main", "fox_jump") and not FoxJumpClass.CanFoxJump) then
-			ActionCancelFunction()
-			ActionWheelClass.ActionCount = 0
-		end
-	end
-	local isOpenActionWheel = action_wheel:isEnabled()
 	if host:isHost() then
+		CanBodyShake = not player:isUnderwater() and not player:isInLava() and not WardenClass.WardenNearby
+		setActionEnabled(1, 1, ActionWheelClass.ActionCount == 0 and not WardenClass.WardenNearby)
+		setActionEnabled(1, 2, ActionWheelClass.ActionCount == 0 and CanBodyShake)
+		for i = 3, 4 do
+			setActionEnabled(1, i, ActionWheelClass.ActionCount == 0 and BroomCleaningClass.CanBroomCleaning)
+		end
+		setActionEnabled(1, 5, ActionWheelClass.ActionCount == 0 and FoxJumpClass.CanFoxJump)
+		setActionEnabled(2, 1, ActionWheelClass.ActionCount == 0 and SitDownClass.CanSitDown)
+		setActionEnabled(2, 2, ActionWheelClass.ActionCount == 0 and TailCuddlingClass.CanCuddleTail)
+		for i = 3, 5 do
+			setActionEnabled(2, i, General.isAnimationPlaying("models.main", "sit_down") and ActionWheelClass.ActionCount == 0 and not WardenClass.WardenNearby)
+		end
+		local sitDownAction = MainPages[2]:getAction(1)
+		sitDownAction:toggled((ActionWheelClass.ActionCount == 0 or General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage") or (General.isAnimationPlaying("models.main", "sit_down") and General.isAnimationPlaying("models.main", "shake"))) and SitDownClass.CanSitDown and sitDownAction:isToggled())
+		if ActionWheelClass.ActionCount > 0 then
+			if (HurtClass.Damaged ~= "NONE" and ActionWheelClass.ActionCount > 0 and WardenClass.WardenNearby) or ((General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage")) and not General.isAnimationPlaying("models.main", "sit_down")) or (General.isAnimationPlaying("models.main", "tail_cuddling") and not TailCuddlingClass.CanCuddleTail) or ((General.isAnimationPlaying("models.main", "broom_cleaning") or General.isAnimationPlaying("models.main", "vacuum_cleaning") or General.isAnimationPlaying("models.main", "cloth_cleaning") or General.isAnimationPlaying("models.main", "hair_cut")) and not BroomCleaningClass.CanBroomCleaning) or (General.isAnimationPlaying("models.main", "fox_jump") and not FoxJumpClass.CanFoxJump) then
+				ActionCancelFunction()
+				ActionWheelClass.ActionCount = 0
+			end
+		end
+		local isOpenActionWheel = action_wheel:isEnabled()
 		if not isOpenActionWheel and IsOpenActionWheelPrev then
 			if CostumeState ~= ActionWheelClass.CurrentCostumeState then
 				pings.config_action1(CostumeState)
@@ -320,6 +322,14 @@ events.TICK:register(function ()
 				ParentPage = nil
 			end
 		end
+		if WetClass.WetCount > 0 and not IsWetPrev then
+			MainPages[1]:getAction(2):item("water_bucket")
+		elseif WetClass.WetCount == 0 and IsWetPrev then
+			MainPages[1]:getAction(2):item("bucket")
+		end
+		ActionWheelClass.ActionCount = ActionWheelClass.ActionCount > 0 and ActionWheelClass.ActionCount - 1 or ActionWheelClass.ActionCount
+		IsOpenActionWheelPrev = isOpenActionWheel
+		IsWetPrev = WetClass.WetCount > 0
 	end
 	if ShakeSplashCount > 0 then
 		if ShakeSplashCount % 5 == 0 then
@@ -344,8 +354,6 @@ events.TICK:register(function ()
 		end
 		SweatCount = SweatCount - 1
 	end
-	ActionWheelClass.ActionCount = ActionWheelClass.ActionCount > 0 and ActionWheelClass.ActionCount - 1 or ActionWheelClass.ActionCount
-	IsOpenActionWheelPrev = isOpenActionWheel
 end)
 
 for _ = 1, 3 do
@@ -373,7 +381,7 @@ end):onRightClick(function ()
 end)
 
 --アクション1-2. ブルブル
-MainPages[1]:newAction(2):item("water_bucket"):onLeftClick(function()
+MainPages[1]:newAction(2):item("bucket"):onLeftClick(function()
 	if ActionWheelClass.ActionCount == 0 then
 		if CanBodyShake then
 			pings.main1_action2()
