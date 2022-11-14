@@ -42,10 +42,12 @@ function CostumeClass.setCostume(costume)
 		setCostumeTextureOffset(144)
 		models.models.costume_maid_a:setVisible(true)
 		ApronClass.IsVisible = false
+		LegsClass.ReducedLegSwing = true
 	elseif costume == "MAID_B" then
 		setCostumeTextureOffset(192)
 		models.models.costume_maid_b:setVisible(true)
 		ApronClass.IsVisible = false
+		LegsClass.ReducedLegSwing = true
 	elseif costume == "SWIMSUIT" then
 		setCostumeTextureOffset(240)
 		models.models.costume_swimsuit:setVisible(true)
@@ -70,6 +72,7 @@ function CostumeClass.resetCostume()
 		modelPart:setVisible(false)
 	end
 	ApronClass.IsVisible = true
+	LegsClass.ReducedLegSwing = false
 	models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 0)
 	models.models.main.Avatar.Head.Ears:setVisible(true)
 	CostumeClass.CurrentCostume = "DEFAULT"
@@ -107,19 +110,14 @@ events.TICK:register(function ()
 				skirt.Skirt2.Skirt3.Skirt4.Skirt5:setScale(1.05, 1, 1.05)
 				skirt.Skirt2.Skirt3.Skirt4.Skirt5.Skirt6:setPos(0, 2.5, 0)
 				skirt.Skirt2.Skirt3.Skirt4.Skirt5.Skirt6:setScale(1.05, 1, 1.05)
-				end
+			end
 		else
 			models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
 			skirt.Skirt2:setPos(0, 0, 0)
-			skirt.Skirt2:setScale(1, 1, 1)
 			skirt.Skirt2.Skirt3:setPos(0, 0, 0)
-			skirt.Skirt2.Skirt3:setScale(1, 1, 1)
 			skirt.Skirt2.Skirt3.Skirt4:setPos(0, 0, 0)
-			skirt.Skirt2.Skirt3.Skirt4:setScale(1, 1, 1)
 			skirt.Skirt2.Skirt3.Skirt4.Skirt5:setPos(0, 0, 0)
-			skirt.Skirt2.Skirt3.Skirt4.Skirt5:setScale(1, 1, 1)
 			skirt.Skirt2.Skirt3.Skirt4.Skirt5.Skirt6:setPos(0, 0, 0)
-			skirt.Skirt2.Skirt3.Skirt4.Skirt5.Skirt6:setScale(1, 1, 1)
 		end
 	else
 		for _, modelsPart in ipairs({models.models.costume_maid_a.Avatar.Head, models.models.costume_maid_a.Avatar.Body}) do
@@ -146,11 +144,8 @@ events.TICK:register(function ()
 		else
 			models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
 			skirt.Skirt2:setPos(0, 0, 0)
-			skirt.Skirt2:setScale(1, 1, 1)
 			skirt.Skirt2.Skirt3:setPos(0, 0, 0)
-			skirt.Skirt2.Skirt3:setScale(1, 1, 1)
 			skirt.Skirt2.Skirt3.Skirt4:setPos(0, 0, 0)
-			skirt.Skirt2.Skirt3.Skirt4:setScale(1, 1, 1)
 		end
 	else
 		for _, modelsPart in ipairs({models.models.costume_maid_b.Avatar.Head, models.models.costume_maid_b.Avatar.Body}) do
@@ -191,6 +186,24 @@ events.TICK:register(function ()
 		else
 			models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
 		end
+	end
+end)
+
+events.RENDER:register(function ()
+	local legAngle = math.abs(vanilla_model.RIGHT_LEG:getOriginRot().x) / 80
+	if CostumeClass.CurrentCostume == "MAID_A" then
+		local skirt = models.models.costume_maid_a.Avatar.Body.BodyBottom.Skirt
+		skirt.Skirt2:setScale(1, 1, 1 + 0.1 * legAngle)
+		skirt.Skirt2.Skirt3:setScale(1, 1, 1 + 0.09 * legAngle)
+		skirt.Skirt2.Skirt3.Skirt4:setScale(1, 1, 1 + 0.05 * legAngle)
+		skirt.Skirt2.Skirt3.Skirt4.Skirt5:setScale(1, 1, 1 + 0.05 * legAngle)
+		skirt.Skirt2.Skirt3.Skirt4.Skirt5.Skirt6:setScale(1, 1, 1 + 0.02 * legAngle)
+	elseif CostumeClass.CurrentCostume == "MAID_B" then
+		local skirt = models.models.costume_maid_b.Avatar.Body.BodyBottom.Skirt
+		skirt:setScale(1, 1, 1 + 0.5 * legAngle)
+		skirt.Skirt2:setScale(1, 1, 1 + 0.25 * legAngle)
+		skirt.Skirt2.Skirt3:setScale(1, 1, 1 + 0.15 * legAngle)
+		skirt.Skirt2.Skirt3.Skirt4:setScale(1, 1, 1 + 0.1 * legAngle)
 	end
 end)
 
