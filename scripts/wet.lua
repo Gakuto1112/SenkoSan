@@ -27,7 +27,7 @@ events.TICK:register(function()
 	if not paused then
 		WalkDistance = WalkDistance + math.sqrt(math.abs(velocity.x ^ 2 + velocity.z ^ 2))
 		if WalkDistance >= 1.8 then
-			if not player:getVehicle() and onGround and not player:isUnderwater() then
+			if not player:getVehicle() and onGround and not player:isInWater() then
 				sounds:playSound("minecraft:entity.cod.flop", playerPos, WetClass.WetCount / 1200, 1)
 			end
 			WalkDistance = 0
