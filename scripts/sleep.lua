@@ -19,6 +19,7 @@ events.TICK:register(function()
 	end
 	if isSleeping then
 		if not SleepData[1] then
+			PhysicsClass.EnablePyhsics = false
 			if WardenClass.WardenNearby then
 				General.setAnimations("STOP", "afraid")
 				General.setAnimations("PLAY", "sleep_afraid")
@@ -57,6 +58,7 @@ events.TICK:register(function()
 		end
 	else
 		if SleepData[1] then
+			PhysicsClass.EnablePyhsics = true
 			if WardenClass.WardenNearby then
 				General.setAnimations("PLAY", "afraid")
 			end

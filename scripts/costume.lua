@@ -3,7 +3,7 @@
 ---@field CostumeClass.CurrentCostume CostumeType 現在のコスチューム
 
 CostumeClass = {}
-CostumeClass.CostumeList = {"default", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi"}
+CostumeClass.CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi"}
 CostumeClass.CurrentCostume = string.upper(CostumeClass.CostumeList[ConfigClass.loadConfig("costume", 1)])
 
 ---@alias CostumeType
@@ -32,7 +32,7 @@ function CostumeClass.setCostume(costume)
 	CostumeClass.CurrentCostume = costume
 	if costume == "NIGHTWEAR" then
 		setCostumeTextureOffset(48)
-		PhysicsClass.EnablePyhsics = false
+		ApronClass.IsVisible = false
 	elseif costume == "DISGUISE" then
 		models.models.costume_disguise:setVisible(true)
 		setCostumeTextureOffset(96)
@@ -72,7 +72,6 @@ function CostumeClass.resetCostume()
 	ApronClass.IsVisible = true
 	models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 0)
 	models.models.main.Avatar.Head.Ears:setVisible(true)
-	PhysicsClass.EnablePyhsics = true
 	CostumeClass.CurrentCostume = "DEFAULT"
 end
 
