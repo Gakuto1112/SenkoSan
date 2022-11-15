@@ -5,6 +5,7 @@ on:
     branches: ["main"]
     paths:
       - ".github/workflows/**"
+      - "README_images/**"
 
 permissions:
   contents: write
