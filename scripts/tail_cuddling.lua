@@ -49,6 +49,7 @@ events.TICK:register(function ()
 		else
 			FacePartsClass.setEmotion("NORMAL", "NORMAL_INVERSED", "NONE", 100, true)
 		end
+		FacePartsClass.setComplexion("BLUSH", 210, true)
 	elseif TailCuddlingAnimationCount == 270 then
 		FacePartsClass.setEmotion("SURPLISED", "SURPLISED", "NONE", 90, true)
 		sounds:playSound("entity.experience_orb.pickup", player:getPos(), 0.25, 1.5)
