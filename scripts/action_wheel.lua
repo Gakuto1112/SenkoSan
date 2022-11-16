@@ -2,6 +2,7 @@
 ---@field MainPage table アクションホイールのメインページ
 ---@field WordPage Page セリフ一覧のページ
 ---@field ConfigPage Page 設定のページ
+---@field IsOpenWordPage boolean セリフ集のページを開いているかどうか
 ---@field ParentPage Page 現在開いているページの親ページ。アクションホイールを閉じた際に設定するページ。
 ---@field CurrentWordLanguage integer 現在のセリフの言語
 ---@field ActionWheelClass.ActionCount integer アクション再生中は0より大きくなるカウンター
@@ -21,7 +22,8 @@ ActionWheelClass = {}
 MainPages = {}
 WordPage = action_wheel:createPage()
 ConfigPage = action_wheel:createPage()
-ParentPage = nil;
+IsOpenWordPage = false
+ParentPage = nil
 CurrentWordLanguage = LanguageClass.ActiveLanguage
 ActionWheelClass.ActionCount = 0
 ActionCancelFunction = nil
@@ -297,6 +299,7 @@ events.TICK:register(function ()
 		end
 		local sitDownAction = MainPages[2]:getAction(1)
 		sitDownAction:toggled((ActionWheelClass.ActionCount == 0 or General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage") or (General.isAnimationPlaying("models.main", "sit_down") and General.isAnimationPlaying("models.main", "shake"))) and SitDownClass.CanSitDown and sitDownAction:isToggled())
+		setActionEnabled(3, 1, not WardenClass.WardenNearby)
 		if ActionWheelClass.ActionCount > 0 then
 			if (HurtClass.Damaged ~= "NONE" and ActionWheelClass.ActionCount > 0 and WardenClass.WardenNearby) or ((General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage")) and not General.isAnimationPlaying("models.main", "sit_down")) or (General.isAnimationPlaying("models.main", "tail_cuddling") and not TailCuddlingClass.CanCuddleTail) or ((General.isAnimationPlaying("models.main", "broom_cleaning") or General.isAnimationPlaying("models.main", "vacuum_cleaning") or General.isAnimationPlaying("models.main", "cloth_cleaning") or General.isAnimationPlaying("models.main", "hair_cut")) and not BroomCleaningClass.CanBroomCleaning) or (General.isAnimationPlaying("models.main", "fox_jump") and not FoxJumpClass.CanFoxJump) then
 				ActionCancelFunction()
@@ -319,6 +322,7 @@ events.TICK:register(function ()
 			end
 			if ParentPage then
 				action_wheel:setPage(ParentPage)
+				IsOpenWordPage = false
 				ParentPage = nil
 			end
 		end
@@ -326,6 +330,11 @@ events.TICK:register(function ()
 			MainPages[1]:getAction(2):item("water_bucket")
 		elseif WetClass.WetCount == 0 and IsWetPrev then
 			MainPages[1]:getAction(2):item("bucket")
+		end
+		if WardenClass.WardenNearby and IsOpenWordPage then
+			action_wheel:setPage(ParentPage)
+			IsOpenWordPage = false
+			ParentPage = nil
 		end
 		ActionWheelClass.ActionCount = ActionWheelClass.ActionCount > 0 and ActionWheelClass.ActionCount - 1 or ActionWheelClass.ActionCount
 		IsOpenActionWheelPrev = isOpenActionWheel
@@ -514,9 +523,16 @@ MainPages[2]:newAction(5):item("yellow_bed"):onLeftClick(function ()
 end)
 
 --アクション3-1. 仙狐さんセリフ集
-MainPages[3]:newAction(1):title(LanguageClass.getTranslate("action_wheel__main_3__action_1__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
-	action_wheel:setPage(WordPage)
-	ParentPage = MainPages[3]
+MainPages[3]:newAction(1):item("book"):onLeftClick(function ()
+	if WardenClass.WardenNearby then
+		if ActionWheelClass.ActionCount == 0 then
+			pings.refuse_emote()
+		end
+	else
+		action_wheel:setPage(WordPage)
+		IsOpenWordPage = true
+		ParentPage = MainPages[3]
+	end
 end)
 
 --アクション3-2. 設定ページ
