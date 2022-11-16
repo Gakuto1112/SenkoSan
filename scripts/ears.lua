@@ -2,6 +2,7 @@
 ---@field EyeTypeID table EarsRotTupeと角度を紐付けるテーブル
 ---@field EarsRotCount integer 耳の角度を変更するの時間を計るカウンター
 ---@field JerkEarsKey Keybind 耳を動かすキー
+---@field EarsClass.EnableJerkEar boolean 耳を動かす機能を有効にするかどうか
 ---@field JerkEarsCount integer 耳を動かす時間を計るカウンター
 
 ---@alias EarsRotType
@@ -14,6 +15,7 @@ EarsClass = {}
 EarsRotTypeID = {STAND = 0, SLIGHTLY_DROOPING = -20, DROOPING = -40}
 EarsRotCount = 0
 JerkEarsKey = keybind:create(LanguageClass.getTranslate("key_name__jerk_ears"), ConfigClass.loadConfig("keybind.jerkEars", "key.keyboard.x"))
+EarsClass.EnableJerkEar = true
 JerkEarsCount = 0
 
 ---耳の角度を設定する。
@@ -53,7 +55,7 @@ events.TICK:register(function ()
 end)
 
 JerkEarsKey.onPress = function ()
-	if JerkEarsCount == 0 and CostumeClass.CurrentCostume ~= "DISGUISE" then
+	if JerkEarsCount == 0 and EarsClass.EnableJerkEar then
 		pings.jerk_ears()
 	end
 end

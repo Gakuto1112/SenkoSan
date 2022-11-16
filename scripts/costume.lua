@@ -37,7 +37,6 @@ function CostumeClass.setCostume(costume)
 		models.models.costume_disguise:setVisible(true)
 		setCostumeTextureOffset(96)
 		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 8)
-		models.models.main.Avatar.Head.Ears:setVisible(false)
 	elseif costume == "MAID_A" then
 		setCostumeTextureOffset(144)
 		models.models.costume_maid_a:setVisible(true)
@@ -74,13 +73,22 @@ function CostumeClass.resetCostume()
 	ApronClass.IsVisible = true
 	LegsClass.ReducedLegSwing = false
 	models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 0)
-	models.models.main.Avatar.Head.Ears:setVisible(true)
 	CostumeClass.CurrentCostume = "DEFAULT"
 end
 
 events.TICK:register(function ()
-	models.models.costume_disguise.Avatar.Head.Hat:setVisible(CostumeClass.CurrentCostume == "DISGUISE" and not ArmorClass.ArmorVisible[1])
+	local hat = models.models.costume_disguise.Avatar.Head.Hat
+	local ears = models.models.main.Avatar.Head.Ears
 	if CostumeClass.CurrentCostume == "DISGUISE" then
+		if ArmorClass.ArmorVisible[1] then
+			hat:setVisible(false)
+			ears:setVisible(true)
+			EarsClass.EnableJerkEar = true
+		else
+			hat:setVisible(true)
+			ears:setVisible(false)
+			EarsClass.EnableJerkEar = false
+		end
 		local bodyBottom = models.models.costume_disguise.Avatar.Body.BodyBottom
 		if player:getPose() == "CROUCHING" then
 			bodyBottom:setPos(0, 4, 0)
@@ -89,6 +97,10 @@ events.TICK:register(function ()
 			bodyBottom:setPos(0, 0, 0)
 			bodyBottom:setRot(0, 0, 0)
 		end
+	else
+		hat:setVisible(false)
+		ears:setVisible(true)
+		EarsClass.EnableJerkEar = true
 	end
 	if CostumeClass.CurrentCostume == "MAID_A" then
 		local skirt = models.models.costume_maid_a.Avatar.Body.BodyBottom.Skirt
