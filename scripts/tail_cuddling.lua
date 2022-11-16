@@ -14,7 +14,7 @@ function TailCuddlingClass.play()
 	end
 	General.setAnimations("PLAY", "tail_cuddling")
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-	PhysicsClass.EnablePyhsics = false
+	PhysicsClass.EnablePyhsics[1] = false
 	TailCuddlingAnimationCount = 380
 end
 
@@ -31,7 +31,7 @@ function TailCuddlingClass.stop()
 	for _, modelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
 		modelPart:setVisible(true)
 	end
-	PhysicsClass.EnablePyhsics = true
+	PhysicsClass.EnablePyhsics[1] = true
 	TailCuddlingAnimationCount = 0
 end
 

@@ -3,7 +3,7 @@
 ---@field CostumeClass.CurrentCostume CostumeType 現在のコスチューム
 
 CostumeClass = {}
-CostumeClass.CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi"}
+CostumeClass.CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "santa"}
 CostumeClass.CurrentCostume = string.upper(CostumeClass.CostumeList[ConfigClass.loadConfig("costume", 1)])
 
 ---@alias CostumeType
@@ -16,6 +16,7 @@ CostumeClass.CurrentCostume = string.upper(CostumeClass.CostumeList[ConfigClass.
 ---| "CHEERLEADER"
 ---| "PURIFICATION"
 ---| "KAPPOGI"
+---| "SANTA"
 
 ---メインモデルのテクスチャのオフセット値を設定する。
 ---@param offset integer オフセット値
@@ -61,6 +62,8 @@ function CostumeClass.setCostume(costume)
 	elseif costume == "KAPPOGI" then
 		setCostumeTextureOffset(384)
 		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 16)
+	elseif costume == "SANTA" then
+		setCostumeTextureOffset(432)
 	end
 end
 
@@ -198,6 +201,17 @@ events.TICK:register(function ()
 		else
 			models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
 		end
+	end
+	local santa = models.models.costume_santa
+	local leftEar = models.models.main.Avatar.Head.Ears.LeftEarPivot
+	if CostumeClass.CurrentCostume ~= "SANTA" or ArmorClass.ArmorVisible[1] then
+		santa:setVisible(false)
+		HairAccessoryClass.visible(true)
+		leftEar:setVisible(CostumeClass.CurrentCostume ~= "DISGUISE")
+	else
+		santa:setVisible(true)
+		HairAccessoryClass.visible(false)
+		leftEar:setVisible(false)
 	end
 end)
 

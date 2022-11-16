@@ -14,6 +14,7 @@ events.ENTITY_INIT:register(function ()
 	PhysicsClass = require("scripts/physics")
 	TailClass = require("scripts/tail")
 	EarsClass = require("scripts/ears")
+	HairAccessoryClass = require("scripts/hair_accessory")
 	UmbrellaClass = require("scripts/umbrella")
 	ArmorClass = require("scripts/armor")
 

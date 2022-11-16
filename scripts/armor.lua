@@ -94,6 +94,7 @@ function setArmArmor(armorEnabled)
 end
 
 events.TICK:register(function()
+	local playerPose = player:getPose()
 	local isSleeping = renderer:isFirstPerson() and playerPose == "SLEEPING"
 	if ArmorClass.ShowArmor then
 		local helmet = models.models.armor.Avatar.Head.Helmet
@@ -101,7 +102,6 @@ events.TICK:register(function()
 		local leggings = {models.models.armor.Avatar.Body.Leggings, models.models.armor.Avatar.Body.BodyBottom.LeggingsBottom, models.models.armor.Avatar.Body.BodyBottom.Legs.RightLeg.RightLeggings, models.models.armor.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.RightLeggingsBottom, models.models.armor.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLeggings, models.models.armor.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.LeftLeggingsBottom}
 		local boots = {models.models.armor.Avatar.Body.BodyBottom.Legs.RightLeg.RightBoots, models.models.armor.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.RightBootsBottom, models.models.armor.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.LeftBootsBottom}
 		local helmetItem = player:getItem(6)
-		local playerPose = player:getPose()
 		if setArmor(helmetItem, "HELMET", {helmet}, {helmet.HelmetOverlay}) and not isSleeping then
 			helmet:setVisible(true)
 			ArmorClass.ArmorVisible[1] = true
