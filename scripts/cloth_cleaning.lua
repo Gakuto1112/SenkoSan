@@ -49,21 +49,21 @@ events.TICK:register(function ()
 			vanilla_model.LEFT_ITEM:setVisible(true)
 			ArmsClass.ItemHeldContradicts[2] = false
 		end
-	end
-	if ClothCleaningAnimationCount == 91 then
-		models.models.cloth_cleaning.Stain:setVisible(false)
-		models.models.cloth_cleaning.Avatar.Body.Arms.RightArm.RightArmBottom.Cloth.Cloth:setUVPixels(0, 6)
-	elseif ClothCleaningAnimationCount == 41 then
-		FacePartsClass.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
-		local playerPos = player:getPos()
-		sounds:playSound("minecraft:entity.player.levelup", playerPos, 1, 1.5)
-		for _ = 1, 30 do
-			particles:addParticle("minecraft:happy_villager", playerPos:copy():add((math.random() - 0.5) * 4, (math.random() - 0.5) * 4 + 1, (math.random() - 0.5) * 4))
+		if ClothCleaningAnimationCount == 91 then
+			models.models.cloth_cleaning.Stain:setVisible(false)
+			models.models.cloth_cleaning.Avatar.Body.Arms.RightArm.RightArmBottom.Cloth.Cloth:setUVPixels(0, 6)
+		elseif ClothCleaningAnimationCount == 41 then
+			FacePartsClass.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
+			local playerPos = player:getPos()
+			sounds:playSound("minecraft:entity.player.levelup", playerPos, 1, 1.5)
+			for _ = 1, 30 do
+				particles:addParticle("minecraft:happy_villager", playerPos:copy():add((math.random() - 0.5) * 4, (math.random() - 0.5) * 4 + 1, (math.random() - 0.5) * 4))
+			end
+		elseif ClothCleaningAnimationCount == 1 then
+			ClothCleaningClass.stop()
 		end
-	elseif ClothCleaningAnimationCount == 1 then
-		ClothCleaningClass.stop()
+		ClothCleaningAnimationCount = ClothCleaningAnimationCount > 0 and (client:isPaused() and ClothCleaningAnimationCount or ClothCleaningAnimationCount - 1) or 0
 	end
-	ClothCleaningAnimationCount = ClothCleaningAnimationCount > 0 and (client:isPaused() and ClothCleaningAnimationCount or ClothCleaningAnimationCount - 1) or 0
 end)
 
 return ClothCleaningClass

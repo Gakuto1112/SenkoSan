@@ -46,36 +46,36 @@ events.TICK:register(function ()
 			vanilla_model.LEFT_ITEM:setVisible(true)
 			ArmsClass.ItemHeldContradicts[2] = false
 		end
-	end
-	if VacuumCleaningAnimationCount == 236 then
-		sounds:playSound("block.stone_button.click_on", player:getPos(), 1, 1.5)
-	elseif VacuumCleaningAnimationCount <= 231 and VacuumCleaningAnimationCount > 148 then
-		if VacuumCleaningAnimationCount <= 231 and VacuumCleaningAnimationCount > 192 then
-			if VacuumCleaningAnimationCount == 231 then
-				FacePartsClass.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 39, true)
-				EarsClass.setEarsRot("DROOPING", 230, true)
+		if VacuumCleaningAnimationCount == 236 then
+			sounds:playSound("block.stone_button.click_on", player:getPos(), 1, 1.5)
+		elseif VacuumCleaningAnimationCount <= 231 and VacuumCleaningAnimationCount > 148 then
+			if VacuumCleaningAnimationCount <= 231 and VacuumCleaningAnimationCount > 192 then
+				if VacuumCleaningAnimationCount == 231 then
+					FacePartsClass.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 39, true)
+					EarsClass.setEarsRot("DROOPING", 230, true)
+				end
+				sounds:playSound("entity.experience_orb.pickup", player:getPos(), 0.25, 1.5)
+			elseif VacuumCleaningAnimationCount <= 189 and VacuumCleaningAnimationCount >= 149 and (VacuumCleaningAnimationCount - 149) % 10 == 0 then
+				sounds:playSound("entity.iron_golem.step", player:getPos(), 1, 1)
 			end
-			sounds:playSound("entity.experience_orb.pickup", player:getPos(), 0.25, 1.5)
-		elseif VacuumCleaningAnimationCount <= 189 and VacuumCleaningAnimationCount >= 149 and (VacuumCleaningAnimationCount - 149) % 10 == 0 then
-			sounds:playSound("entity.iron_golem.step", player:getPos(), 1, 1)
+			if VacuumCleaningAnimationCount == 192 then
+				FacePartsClass.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 76, true)
+			end
+			sounds:playSound("entity.minecart.riding", player:getPos(), 0.25, 2)
+			local exhaustParticlePivot = models.models.vacuum_cleaning.VeccumCleaner.ExhaustParticlePivot:partToWorldMatrix()
+			particles:addParticle("poof", exhaustParticlePivot[4][1], exhaustParticlePivot[4][2], exhaustParticlePivot[4][3]):scale(0.3)
+		elseif VacuumCleaningAnimationCount == 148 then
+			models.models.vacuum_cleaning:setVisible(false)
+			sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+		elseif VacuumCleaningAnimationCount == 119 then
+			FacePartsClass.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 85, true)
+		elseif VacuumCleaningAnimationCount == 34 then
+			FacePartsClass.setEmotion("CLOSED", "CLOSED", "CLOSED", 30, true)
+		elseif VacuumCleaningAnimationCount == 1 then
+			VacuumCleaningClass.stop()
 		end
-		if VacuumCleaningAnimationCount == 192 then
-			FacePartsClass.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 76, true)
-		end
-		sounds:playSound("entity.minecart.riding", player:getPos(), 0.25, 2)
-		local exhaustParticlePivot = models.models.vacuum_cleaning.VeccumCleaner.ExhaustParticlePivot:partToWorldMatrix()
-		particles:addParticle("poof", exhaustParticlePivot[4][1], exhaustParticlePivot[4][2], exhaustParticlePivot[4][3]):scale(0.3)
-	elseif VacuumCleaningAnimationCount == 148 then
-		models.models.vacuum_cleaning:setVisible(false)
-		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-	elseif VacuumCleaningAnimationCount == 119 then
-		FacePartsClass.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 85, true)
-	elseif VacuumCleaningAnimationCount == 34 then
-		FacePartsClass.setEmotion("CLOSED", "CLOSED", "CLOSED", 30, true)
-	elseif VacuumCleaningAnimationCount == 1 then
-		VacuumCleaningClass.stop()
+		VacuumCleaningAnimationCount = VacuumCleaningAnimationCount > 0 and (client:isPaused() and VacuumCleaningAnimationCount or VacuumCleaningAnimationCount - 1) or 0
 	end
-	VacuumCleaningAnimationCount = VacuumCleaningAnimationCount > 0 and (client:isPaused() and VacuumCleaningAnimationCount or VacuumCleaningAnimationCount - 1) or 0
 end)
 
 return VacuumCleaningClass

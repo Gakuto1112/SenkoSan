@@ -49,21 +49,21 @@ events.TICK:register(function ()
 			vanilla_model.LEFT_ITEM:setVisible(true)
 			ArmsClass.ItemHeldContradicts[2] = false
 		end
-	end
-	if (MassageAnimationCount <= 403 and MassageAnimationCount >= 373 and (MassageAnimationCount - 403) % 15 == 0) or (MassageAnimationCount <= 341 and MassageAnimationCount >= 311 and (MassageAnimationCount - 341) % 15 == 0) or (MassageAnimationCount <= 279 and MassageAnimationCount >= 249 and (MassageAnimationCount - 279) % 15 == 0) or (MassageAnimationCount <= 151 and MassageAnimationCount >= 59 and (MassageAnimationCount - 151) % 8 == 0) then
-		sounds:playSound("minecraft:block.wool.step", player:getPos(), 0.5, 1)
-		if MassageAnimationCount == 95 then
-			FacePartsClass.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
-			local playerPos = player:getPos()
-			sounds:playSound("minecraft:entity.player.levelup", playerPos, 1, 1.5)
-			for _ = 1, 30 do
-				particles:addParticle("minecraft:happy_villager", playerPos:copy():add((math.random() - 0.5) * 4, (math.random() - 0.5) * 4 + 1, (math.random() - 0.5) * 4))
+		if (MassageAnimationCount <= 403 and MassageAnimationCount >= 373 and (MassageAnimationCount - 403) % 15 == 0) or (MassageAnimationCount <= 341 and MassageAnimationCount >= 311 and (MassageAnimationCount - 341) % 15 == 0) or (MassageAnimationCount <= 279 and MassageAnimationCount >= 249 and (MassageAnimationCount - 279) % 15 == 0) or (MassageAnimationCount <= 151 and MassageAnimationCount >= 59 and (MassageAnimationCount - 151) % 8 == 0) then
+			sounds:playSound("minecraft:block.wool.step", player:getPos(), 0.5, 1)
+			if MassageAnimationCount == 95 then
+				FacePartsClass.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
+				local playerPos = player:getPos()
+				sounds:playSound("minecraft:entity.player.levelup", playerPos, 1, 1.5)
+				for _ = 1, 30 do
+					particles:addParticle("minecraft:happy_villager", playerPos:copy():add((math.random() - 0.5) * 4, (math.random() - 0.5) * 4 + 1, (math.random() - 0.5) * 4))
+				end
 			end
+		elseif MassageAnimationCount == 1 then
+			MassaseClass.stop()
 		end
-	elseif MassageAnimationCount == 1 then
-		MassaseClass.stop()
+		MassageAnimationCount = MassageAnimationCount > 0 and (client:isPaused() and MassageAnimationCount or MassageAnimationCount - 1) or 0
 	end
-	MassageAnimationCount = MassageAnimationCount > 0 and (client:isPaused() and MassageAnimationCount or MassageAnimationCount - 1) or 0
 end)
 
 models.models.massage.LyingPlayer:setPrimaryTexture("SKIN")

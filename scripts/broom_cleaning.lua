@@ -48,25 +48,25 @@ events.TICK:register(function ()
 			vanilla_model.LEFT_ITEM:setVisible(true)
 			ArmsClass.ItemHeldContradicts[2] = false
 		end
-	end
-	if (BroomCleaningAnimationCount + 8) % 17 == 0 and BroomCleaningAnimationCount > 49 then
-		sounds:playSound("minecraft:entity.cat.hiss", player:getPos(), 0.5, 2)
-		models.models.broom_cleaning.Avatar.Dust:setOpacity(models.models.broom_cleaning.Avatar.Dust:getOpacity() - 0.14)
-		local dustParticlePivot = models.models.broom_cleaning.Avatar.Dust.DustParticlePivot:partToWorldMatrix()
-		for _ = 1, 5 do
-			particles:addParticle("minecraft:block minecraft:gravel", dustParticlePivot[4][1], dustParticlePivot[4][2], dustParticlePivot[4][3])
+		if (BroomCleaningAnimationCount + 8) % 17 == 0 and BroomCleaningAnimationCount > 49 then
+			sounds:playSound("minecraft:entity.cat.hiss", player:getPos(), 0.5, 2)
+			models.models.broom_cleaning.Avatar.Dust:setOpacity(models.models.broom_cleaning.Avatar.Dust:getOpacity() - 0.14)
+			local dustParticlePivot = models.models.broom_cleaning.Avatar.Dust.DustParticlePivot:partToWorldMatrix()
+			for _ = 1, 5 do
+				particles:addParticle("minecraft:block minecraft:gravel", dustParticlePivot[4][1], dustParticlePivot[4][2], dustParticlePivot[4][3])
+			end
+		elseif BroomCleaningAnimationCount == 41 then
+			FacePartsClass.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
+			local playerPos = player:getPos()
+			sounds:playSound("minecraft:entity.player.levelup", playerPos, 1, 1.5)
+			for _ = 1, 30 do
+				particles:addParticle("minecraft:happy_villager", playerPos:copy():add((math.random() - 0.5) * 4, (math.random() - 0.5) * 4 + 1, (math.random() - 0.5) * 4))
+			end
+		elseif BroomCleaningAnimationCount == 1 then
+			BroomCleaningClass.stop()
 		end
-	elseif BroomCleaningAnimationCount == 41 then
-		FacePartsClass.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
-		local playerPos = player:getPos()
-		sounds:playSound("minecraft:entity.player.levelup", playerPos, 1, 1.5)
-		for _ = 1, 30 do
-			particles:addParticle("minecraft:happy_villager", playerPos:copy():add((math.random() - 0.5) * 4, (math.random() - 0.5) * 4 + 1, (math.random() - 0.5) * 4))
-		end
-	elseif BroomCleaningAnimationCount == 1 then
-		BroomCleaningClass.stop()
+		BroomCleaningAnimationCount = BroomCleaningAnimationCount > 0 and (client:isPaused() and BroomCleaningAnimationCount or BroomCleaningAnimationCount - 1) or 0
 	end
-	BroomCleaningAnimationCount = BroomCleaningAnimationCount > 0 and (client:isPaused() and BroomCleaningAnimationCount or BroomCleaningAnimationCount - 1) or 0
 end)
 
 return BroomCleaningClass
