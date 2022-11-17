@@ -114,7 +114,7 @@ Figuraには、アクションホイールキー（デフォルトは「B」キ�
 濡れている際に自動的に[ブルブル](#アクション1-2-ブルブル)を実行するかどうかを設定できます。
 
 ### アクション4. 防具の表示の切り替え
-防具を表示するかどうかを設定できます。一部の[衣装](衣装一覧.md)は防具と干渉しないように、防具装備中は非表示になります。
+防具を表示するかどうかを設定できます。一部の[衣装](衣装一覧.md)は防具と干渉しないように、防具装備中は非表示になります。この設定はバニラの防具にのみ対応しています。
 
 ### アクション5. 一人称視点での狐火の表示の切り替え
 一人称視点で狐火のパーティクルを表示するかどうかを設定できます。上を向いた際に、頭上の狐火が煩わしいと感じる場合はオフにして下さい。
@@ -152,14 +152,15 @@ Figuraには、アクションホイールキー（デフォルトは「B」キ�
 | Custom Player Heads | 有効 | |
 
 ### Figura設定（Settings）
+「Δ」のマークが付いている項目は、Figuraのデフォルト設定がこのアバターの推奨設定となっています。
 
 | 項目 | 推奨設定 | 備考 |
 | - | - | - |
-| Chat customizations | "Script" または "Script + Badges" | |
-| Entity customizations | "Script" または "Script + Badges" | |
-| Tablist customizations | "Script" または "Script + Badges" | |
-| Print Output | "Chat" | |
-| First Person Hands | 無効 | |
+| Chat customizations Δ | "Script" または "Script + Badges" | |
+| Entity customizations Δ | "Script" または "Script + Badges" | |
+| Tablist customizations Δ | "Script" または "Script + Badges" | |
+| Print Output Δ | "Chat" | |
+| First Person Hands Δ | 無効 | |
 | Chat Messages | 有効 | セリフ集からチャット発言するのに必要です。また、**安全のため、他のアバターに切り替える際は無効にして下さい。** |
 
 ### マインクラフト設定
