@@ -236,24 +236,5 @@ end)
 if CostumeClass.CurrentCostume ~= "DEFAULT" then
 	CostumeClass.setCostume(CostumeClass.CurrentCostume)
 end
-if host:isHost() and CostumeClass.CurrentCostume == "SANTA" then
-	---西暦1年1月1日からの経過日数を返す。
-	---@param year integer
-	---@param month integer
-	---@param day integer
-	---@return integer daysElapsed 西暦1年1月1日からの経過日数
-	function getDaysElapsed(year, month, day)
-		return 365 * (year - 1) + math.floor(year / 4) - math.floor(year / 100) + math.floor(year / 400) + 59 + math.floor(306 * ((month <= 2 and month + 12 or month) + 1) / 10) - 122 + day
-	end
-
-	local now = client:getSystemTime() / 1000
-	local day = math.floor(now / 86400)
-	local year = 1970 + math.floor(day / 365.2425)
-	local daysElapsedFromNewYear = day - getDaysElapsed(year, 1, 1) + getDaysElapsed(1970, 1, 1)
-	daysElapsedFromNewYear = ((year % 4 == 0 and year % 100 ~= 0) or year % 400 == 0) and daysElapsedFromNewYear - 1 or daysElapsedFromNewYear
-	if daysElapsedFromNewYear >= 347 and daysElapsedFromNewYear <= 349 then
-		print(LanguageClass.getTranslate("message__merry_christmas"))
-	end
-end
 
 return CostumeClass

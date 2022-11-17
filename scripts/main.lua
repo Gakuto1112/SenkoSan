@@ -36,6 +36,7 @@ events.ENTITY_INIT:register(function ()
 	FoxFireClass = require("scripts/fox_fire")
 	SleepClass = require("scripts/sleep")
 	WardenClass = require("scripts/warden")
+	ChristmasClass = require("scripts/christmas")
 
 	--初期化処理
 	for _, vanillaModel in ipairs({vanilla_model.PLAYER, vanilla_model.ARMOR}) do
