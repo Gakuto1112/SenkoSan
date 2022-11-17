@@ -29,6 +29,19 @@ General = {}
 
 General.PlayerCondition = "HIGH"
 
+---該当するキーのインデックスを返す。キーがテーブルに存在しない場合は-1を返す。
+---@param targetTable table 調べるテーブル
+---@param key any 見つけ出す要素
+---@return integer index targetTable内のkeyがあるインデックス。存在しない場合は-1を返す。
+function General.indexof(targetTable, key)
+	for index, element in ipairs(targetTable) do
+		if element == key then
+			return index
+		end
+	end
+	return -1
+end
+
 ---指定されたステータス効果の情報を返す。指定されたステータス効果が付与されていない場合はnilが返される。
 ---@param name string ステータス効果
 ---@return table|nil status ステータス効果の情報（該当のステータスを受けていない場合はnilが返る。）

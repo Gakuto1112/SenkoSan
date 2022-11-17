@@ -1,14 +1,12 @@
 ---@class LanguageClass アバターの表示言語を管理するクラス
 ---@field LanguageData table 言語データ
----@field LanguageClass.LanguageList table 利用可能な言語のリスト
----@field LanguageClass.ActiveLanguage integer 設定言語
 
 LanguageClass = {}
 
 LanguageData = {
-	en = {
-		language__en = "English",
-		language__jp = "Japanese",
+	en_us = {
+		language__en_us = "English",
+		language__ja_jp = "Japanese",
 		key_name__wag_tail = "Wag tail",
 		key_name__jerk_ears = "Jerk ears",
 		key_name__jump = "Jump",
@@ -70,9 +68,9 @@ LanguageData = {
 		action_wheel__config__action_6__title = "Umbrella sound：",
 		message__merry_christmas = "Merry Christmas!"
 	},
-	jp = {
-		language__en = "英語",
-		language__jp = "日本語",
+	ja_jp = {
+		language__en_us = "英語",
+		language__ja_jp = "日本語",
 		key_name__wag_tail = "尻尾フリフリ",
 		key_name__jerk_ears = "お耳ピクピク",
 		key_name__jump = "ジャンプ",
@@ -135,26 +133,28 @@ LanguageData = {
 		message__merry_christmas = "メリークリスマスなのじゃ！"
 	}
 }
-LanguageClass.LanguageList = {"en", "jp"}
-LanguageClass.ActiveLanguage = client:getActiveLang() == "ja_jp" and 2 or 1
 
 ---翻訳キーに対する訳文を返す。設定言語が存在しない場合は英語の文が返される。また、指定したキーの訳が無い場合は英語->キーそのままが返される。
 ---@param keyName string 翻訳キー
+---@param languageName string|nil 言語名。nilの場合は現在の言語になる。
 ---@return string translatedString 翻訳キーに対する翻訳データ。設定言語での翻訳が存在しない場合は英文が返される。英文すら存在しない場合は翻訳キーがそのまま返される。
-function LanguageClass.getTranslate(keyName)
-	return LanguageData[LanguageClass.LanguageList[LanguageClass.ActiveLanguage]][keyName] and LanguageData[LanguageClass.LanguageList[LanguageClass.ActiveLanguage]][keyName] or (LanguageData["en"][keyName] and LanguageData["en"][keyName] or keyName)
+function LanguageClass.getTranslate(keyName, languageName)
+	if languageName then
+		return (LanguageData[languageName] and LanguageData[languageName][keyName]) and LanguageData[languageName][keyName] or (LanguageData["en_us"][keyName] and LanguageData["en_us"][keyName] or keyName)
+	else
+		local activeLanguage = client:getActiveLang()
+		return (LanguageData[activeLanguage] and LanguageData[activeLanguage][keyName]) and LanguageData[activeLanguage][keyName] or (LanguageData["en_us"][keyName] and LanguageData["en_us"][keyName] or keyName)
+	end
 end
 
----言語を指定して翻訳キーに対する訳文を返す。
----@param keyName string 翻訳キー
----@param languageID integer 言語ID
----@return string|nil translatedString 翻訳キーに対する翻訳データ。設定言語での翻訳が存在しない場合はnilが返される。
-function LanguageClass.getTranslateWithLang(keyName, languageID)
-	return LanguageData[LanguageClass.LanguageList[languageID]][keyName]
+---利用可能な言語リストを返す。
+---@return table
+function LanguageClass.getLanguages()
+	local result = {}
+	for languageName, language in pairs(LanguageData) do
+		table.insert(result, languageName)
+	end
+	return result
 end
-
-events.WORLD_TICK:register(function ()
-	LanguageClass.ActiveLanguage = client:getActiveLang() == "ja_jp" and 2 or 1
-end)
 
 return LanguageClass
