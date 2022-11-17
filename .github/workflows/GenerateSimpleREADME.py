@@ -11,7 +11,6 @@ with open(OUTPUT_FILE, mode="w", encoding="utf-8") as output_file:
 with open(INPUT_FILE, mode="r", encoding="utf-8") as input_file:
 	with open(OUTPUT_FILE, mode="a", encoding="utf-8") as output_file:
 		line_prev: str = ""
-		ignore_next_line: bool = False
 		for line in input_file:
 			if re.search(r"<!-- .+ -->", line):
 				if "SIMPLE_MESSAGE" in line:
@@ -27,9 +26,10 @@ with open(INPUT_FILE, mode="r", encoding="utf-8") as input_file:
 								output_file.write(simple_message_line)
 			else:
 				if re.search(r"[ \t]*!\[.+\]\(.+\)", line) and not "<!-- REQUIRED_IMAGE -->" in line_prev:
-					ignore_next_line = True
-				elif not ignore_next_line:
-					output_file.write(line.replace("../../", ""))
+					image_before = re.search(r"^ +", line)
+					image_title = re.search(r"!\[.+\]", line).group()[2:-1]
+					image_path = re.search(r"\(.+\)", line).group()[1:-1].replace("../../", "")
+					output_file.write(f"{image_before.group() if not image_before is None else ''}[[画像] {image_title}]({image_path})")
 				else:
-					ignore_next_line = False
+					output_file.write(line.replace("../../", ""))
 			line_prev = line
