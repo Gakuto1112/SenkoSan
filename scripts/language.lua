@@ -67,7 +67,8 @@ LanguageData = {
 		action_wheel__config__action_3__title = "Auto shake: ",
 		action_wheel__config__action_4__title = "Show armor: ",
 		action_wheel__config__action_5__title = "Show fox fire in first person: ",
-		action_wheel__config__action_6__title = "Umbrella sound："
+		action_wheel__config__action_6__title = "Umbrella sound：",
+		message__merry_christmas = "Merry Christmas!"
 	},
 	jp = {
 		language__en = "英語",
@@ -130,7 +131,8 @@ LanguageData = {
 		action_wheel__config__action_3__title = "自動ブルブル：",
 		action_wheel__config__action_4__title = "防具の表示：",
 		action_wheel__config__action_5__title = "一人称視点での狐火の表示：",
-		action_wheel__config__action_6__title = "傘の開閉音："
+		action_wheel__config__action_6__title = "傘の開閉音：",
+		message__merry_christmas = "メリークリスマスなのじゃ！"
 	}
 }
 LanguageClass.LanguageList = {"en", "jp"}
