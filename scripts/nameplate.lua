@@ -3,7 +3,7 @@
 
 NameplateClass = {}
 
-NameplateClass.NameList = {player:getName(), "Senko", "仙狐", "Senko_san", "仙狐さん"}
+NameplateClass.NameList = {player:getName(), "Senko", "仙狐", "Senko_san", "仙狐さん", "Sen", "仙", "セン"}
 
 ---プレイヤーの表示名を設定する。
 ---@param nameID integer 新しい表示名
