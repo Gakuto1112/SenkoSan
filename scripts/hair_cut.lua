@@ -78,7 +78,7 @@ events.TICK:register(function ()
 				particles:addParticle("minecraft:smoke", playerPos:copy():add((math.random() - 0.5) * 2, (math.random() - 0.5) * 2 + 1, (math.random() - 0.5) * 2))
 			end
 			sounds:playSound("entity.sheep.shear", player:getPos(), 1, 1)
-			FacePartsClass.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 60)
+			FacePartsClass.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 60, false)
 			models.models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairPiece:setVisible(true)
 		elseif HairCutAnimationCount == 276 then
 			sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
