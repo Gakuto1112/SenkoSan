@@ -111,7 +111,8 @@ events.TICK:register(function()
 			ArmorClass.ArmorVisible[1] = false
 		end
 		local chestplateOverlay = {models.models.armor.Avatar.Body.Chestplate.ChestplateOverlay, models.models.armor.Avatar.Body.BodyBottom.ChestplateBottom.ChestplateBottomOverlay, models.models.armor.Avatar.Body.Arms.RightArm.RightChestplate.RightChestplateOverlay, models.models.armor.Avatar.Body.Arms.LeftArm.LeftChestplate.LeftChestplateOverlay, models.models.armor.Avatar.Body.Arms.RightArm.RightChestplate.RightChestplateOverlay, models.models.armor.Avatar.Body.Arms.RightArm.RightArmBottom.RightChestplateBottom.RightChestplateBottomOverlay, models.models.armor.Avatar.Body.Arms.LeftArm.LeftChestplate.LeftChestplateOverlay, models.models.armor.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftChestplateBottom.LeftChestplateBottomOverlay}
-		if setArmor(player:getItem(5), "CHESTPLATE", chetplate, chestplateOverlay) and not isSleeping and not renderer:isFirstPerson() then
+		local chestplateEnabled = setArmor(player:getItem(5), "CHESTPLATE", chetplate, chestplateOverlay)
+		if chestplateEnabled and not isSleeping and not renderer:isFirstPerson() and not General.isAnimationPlaying("models.main", "kotatsu") then
 			for i = 1, 2 do
 				chetplate[i]:setVisible(true)
 			end
@@ -122,7 +123,7 @@ events.TICK:register(function()
 			for i = 1, 2 do
 				chetplate[i]:setVisible(false)
 			end
-			models.models.armor.Avatar.Body.BodyBottom.Tail:setVisible(false)
+			models.models.armor.Avatar.Body.BodyBottom.Tail:setVisible(chestplateEnabled and not isSleeping)
 			for _, modelPart in ipairs(chestplateOverlay) do
 				modelPart:setVisible(false)
 			end
@@ -130,7 +131,7 @@ events.TICK:register(function()
 			ArmorClass.ArmorVisible[2] = false
 		end
 		local leggingsOverlay = {models.models.armor.Avatar.Body.Leggings.LeggingsOverlay, models.models.armor.Avatar.Body.BodyBottom.LeggingsBottom.LeggingsBottomOverlay, models.models.armor.Avatar.Body.BodyBottom.Legs.RightLeg.RightLeggings.RightLeggingsOverlay, models.models.armor.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.RightLeggingsBottom.RightLeggingsBottomOverlay, models.models.armor.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLeggings.LeftLeggingsOverlay, models.models.armor.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.LeftLeggingsBottom.LeftLeggingsBottomOverlay}
-		if setArmor(player:getItem(4),"LEGGINGS", leggings, leggingsOverlay) and not isSleeping then
+		if setArmor(player:getItem(4),"LEGGINGS", leggings, leggingsOverlay) and not isSleeping and not General.isAnimationPlaying("models.main", "kotatsu") then
 			for _, armorPart in ipairs(leggings) do
 				armorPart:setVisible(true)
 			end
@@ -143,7 +144,7 @@ events.TICK:register(function()
 			for _, modelPart in ipairs(leggingsOverlay) do
 				modelPart:setVisible(false)
 			end
-			if (CostumeClass.CurrentCostume == "DEFAULT" or CostumeClass.CurrentCostume == "DISGUISE" or CostumeClass.CurrentCostume == "KAPPOGI") and not isSleeping then
+			if (CostumeClass.CurrentCostume == "DEFAULT" or CostumeClass.CurrentCostume == "DISGUISE" or CostumeClass.CurrentCostume == "KAPPOGI") and not isSleeping and not General.isAnimationPlaying("models.main", "kotatsu") then
 				ApronClass.IsVisible = true
 			end
 			ArmorClass.ArmorVisible[3] = false

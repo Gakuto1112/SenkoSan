@@ -109,7 +109,7 @@ events.TICK:register(function ()
 		local skirt = models.models.costume_maid_a.Avatar.Body.BodyBottom.Skirt
 		skirt:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
 		models.models.costume_maid_a.Avatar.Head:setVisible(not ArmorClass.ArmorVisible[1])
-		models.models.costume_maid_a.Avatar.Body:setVisible(not ArmorClass.ArmorVisible[3])
+		models.models.costume_maid_a.Avatar.Body:setVisible(not ArmorClass.ArmorVisible[3] and not General.isAnimationPlaying("models.main", "kotatsu"))
 		if player:getVehicle() then
 			if ArmorClass.ArmorVisible[3] then
 				models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
@@ -143,7 +143,7 @@ events.TICK:register(function ()
 		local skirt = models.models.costume_maid_b.Avatar.Body.BodyBottom.Skirt
 		skirt:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
 		models.models.costume_maid_b.Avatar.Head:setVisible(not ArmorClass.ArmorVisible[1])
-		models.models.costume_maid_b.Avatar.Body:setVisible(not ArmorClass.ArmorVisible[3])
+		models.models.costume_maid_b.Avatar.Body:setVisible(not ArmorClass.ArmorVisible[3] and not General.isAnimationPlaying("models.main", "kotatsu"))
 		if player:getVehicle() then
 			if ArmorClass.ArmorVisible[3] then
 				models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
@@ -170,7 +170,7 @@ events.TICK:register(function ()
 	if CostumeClass.CurrentCostume == "SWIMSUIT" then
 		models.models.costume_swimsuit.Avatar.Body.BodyBottom.Swimsuit:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
 		models.models.costume_swimsuit.Avatar.Head:setVisible(string.find(player:getItem(6).id, "^minecraft:.+_helmet$") ~= nil and not ArmorClass.ArmorVisible[1])
-		models.models.costume_swimsuit.Avatar.Body:setVisible(not ArmorClass.ArmorVisible[3])
+		models.models.costume_swimsuit.Avatar.Body:setVisible(not ArmorClass.ArmorVisible[3] and not General.isAnimationPlaying("models.main", "kotatsu"))
 	else
 		for _, modelsPart in ipairs({models.models.costume_swimsuit.Avatar.Head, models.models.costume_swimsuit.Avatar.Body}) do
 			modelsPart:setVisible(false)
@@ -178,7 +178,7 @@ events.TICK:register(function ()
 	end
 	if CostumeClass.CurrentCostume == "CHEERLEADER" then
 		models.models.costume_cheerleader.Avatar.Body.BodyBottom.Skirt:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
-		models.models.costume_cheerleader.Avatar.Body.BodyBottom.Skirt:setVisible(not ArmorClass.ArmorVisible[3])
+		models.models.costume_cheerleader.Avatar.Body.BodyBottom.Skirt:setVisible(not ArmorClass.ArmorVisible[3] and not General.isAnimationPlaying("models.main", "kotatsu"))
 		local rightPonPon = models.models.costume_cheerleader.Avatar.Body.Arms.RightArm.RightArmBottom.RightPonPon
 		local leftPonPon = models.models.costume_cheerleader.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftPonPon
 		if ActionWheelClass.ActionCount == 0 then

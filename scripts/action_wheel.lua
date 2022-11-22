@@ -201,6 +201,14 @@ function pings.main1_action6()
 	end)
 end
 
+function pings.main1_action7()
+	runAction(function ()
+		KotatsuClass.play()
+	end, function ()
+		KotatsuClass.stop()
+	end)
+end
+
 function pings.main2_action1_toggle()
 	runAction(function ()
 		SitDownClass.sitDown()
@@ -305,6 +313,7 @@ events.TICK:register(function ()
 		end
 		setActionEnabled(1, 5, ActionWheelClass.ActionCount == 0 and FoxJumpClass.CanFoxJump)
 		setActionEnabled(1, 6, ActionWheelClass.ActionCount == 0 and TailBrushClass.CanBrushTail)
+		setActionEnabled(1, 7, ActionWheelClass.ActionCount == 0 and KotatsuClass.CanKotatsu)
 		setActionEnabled(2, 1, ActionWheelClass.ActionCount == 0 and SitDownClass.CanSitDown)
 		setActionEnabled(2, 2, ActionWheelClass.ActionCount == 0 and TailCuddlingClass.CanCuddleTail)
 		for i = 3, 5 do
@@ -314,7 +323,7 @@ events.TICK:register(function ()
 		sitDownAction:toggled((ActionWheelClass.ActionCount == 0 or General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage") or (General.isAnimationPlaying("models.main", "sit_down") and General.isAnimationPlaying("models.main", "shake"))) and SitDownClass.CanSitDown and sitDownAction:isToggled())
 		setActionEnabled(3, 1, not WardenClass.WardenNearby)
 		if ActionWheelClass.ActionCount > 0 then
-			if (HurtClass.Damaged ~= "NONE" and ActionWheelClass.ActionCount > 0 and WardenClass.WardenNearby) or ((General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage")) and not General.isAnimationPlaying("models.main", "sit_down")) or (General.isAnimationPlaying("models.main", "tail_cuddling") and not TailCuddlingClass.CanCuddleTail) or ((General.isAnimationPlaying("models.main", "broom_cleaning") or General.isAnimationPlaying("models.main", "vacuum_cleaning") or General.isAnimationPlaying("models.main", "cloth_cleaning") or General.isAnimationPlaying("models.main", "hair_cut")) and not BroomCleaningClass.CanBroomCleaning) or (General.isAnimationPlaying("models.main", "fox_jump") and not FoxJumpClass.CanFoxJump) or (General.isAnimationPlaying("models.main", "tail_brush") and not TailBrushClass.CanBrushTail) then
+			if (HurtClass.Damaged ~= "NONE" and ActionWheelClass.ActionCount > 0 and WardenClass.WardenNearby) or ((General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage")) and not General.isAnimationPlaying("models.main", "sit_down")) or (General.isAnimationPlaying("models.main", "tail_cuddling") and not TailCuddlingClass.CanCuddleTail) or ((General.isAnimationPlaying("models.main", "broom_cleaning") or General.isAnimationPlaying("models.main", "vacuum_cleaning") or General.isAnimationPlaying("models.main", "cloth_cleaning") or General.isAnimationPlaying("models.main", "hair_cut")) and not BroomCleaningClass.CanBroomCleaning) or (General.isAnimationPlaying("models.main", "fox_jump") and not FoxJumpClass.CanFoxJump) or (General.isAnimationPlaying("models.main", "tail_brush") and not TailBrushClass.CanBrushTail) or (General.isAnimationPlaying("models.main", "kotatsu") and not KotatsuClass.CanKotatsu) then
 				ActionCancelFunction()
 				ActionWheelClass.ActionCount = 0
 			end
@@ -477,6 +486,19 @@ MainPages[1]:newAction(6):item("sponge"):onLeftClick(function ()
 			pings.refuse_emote()
 		else
 			print(LanguageClass.getTranslate("action_wheel__main_1__action_6__unavailable"))
+		end
+	end
+end)
+
+--アクション1-7. こたつ
+MainPages[1]:newAction(7):item("campfire"):onLeftClick(function ()
+	if ActionWheelClass.ActionCount == 0 then
+		if KotatsuClass.CanKotatsu then
+			pings.main1_action7()
+		elseif WardenClass.WardenNearby then
+			pings.refuse_emote()
+		else
+			print(LanguageClass.getTranslate("action_wheel__main_1__action_7__unavailable"))
 		end
 	end
 end)

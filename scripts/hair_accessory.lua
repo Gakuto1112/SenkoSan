@@ -7,7 +7,7 @@ HairAccessoryClass = {}
 function HairAccessoryClass.visible(visible)
 	local hairAccessory = models.models.main.Avatar.Head.HairAccessory
 	hairAccessory:setVisible(visible)
-	PhysicsClass.EnablePyhsics[2] = visible
+	PhysicsClass.EnablePyhsics[2] = visible and not General.isAnimationPlaying("models.main", "kotatsu")
 end
 
 return HairAccessoryClass
