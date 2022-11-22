@@ -10,7 +10,6 @@ function ClothCleaningClass.play()
 		modelPart:setVisible(true)
 	end
 	models.models.cloth_cleaning.Avatar.Body.Arms.RightArm:setParentType("None")
-	models.models.cloth_cleaning.Avatar.Body.Arms.RightArm.RightArmBottom.Cloth.Cloth:setUVPixels(0, 0)
 	General.setAnimations("PLAY", "cloth_cleaning")
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 	ClothCleaningAnimationCount = 198
@@ -51,7 +50,6 @@ events.TICK:register(function ()
 		end
 		if ClothCleaningAnimationCount == 91 then
 			models.models.cloth_cleaning.Stain:setVisible(false)
-			models.models.cloth_cleaning.Avatar.Body.Arms.RightArm.RightArmBottom.Cloth.Cloth:setUVPixels(0, 6)
 		elseif ClothCleaningAnimationCount == 41 then
 			FacePartsClass.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
 			local playerPos = player:getPos()

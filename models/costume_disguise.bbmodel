@@ -11,8 +11,8 @@
 	"variable_placeholder_buttons": [],
 	"timeline_setups": [],
 	"resolution": {
-		"width": 54,
-		"height": 13
+		"width": 28,
+		"height": 14
 	},
 	"elements": [
 		{
@@ -28,23 +28,23 @@
 			"origin": [-3, 30, -3],
 			"faces": {
 				"north": {
-					"uv": [0, 2, 8, 4],
+					"uv": [0, 10, 8, 12],
 					"texture": 0
 				},
 				"east": {
-					"uv": [0, 0, 8, 2],
+					"uv": [0, 8, 8, 10],
 					"texture": 0
 				},
 				"south": {
-					"uv": [0, 6, 8, 8],
+					"uv": [0, 10, 8, 12],
 					"texture": 0
 				},
 				"west": {
-					"uv": [0, 4, 8, 6],
+					"uv": [0, 8, 8, 10],
 					"texture": 0
 				},
 				"up": {
-					"uv": [8, 0, 16, 8],
+					"uv": [0, 0, 8, 8],
 					"texture": 0
 				},
 				"down": {
@@ -54,47 +54,6 @@
 			},
 			"type": "cube",
 			"uuid": "25d32b9f-ac43-79da-17c6-533f86c5671a"
-		},
-		{
-			"name": "HatBrim",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-4.5, 29.5, -7],
-			"to": [4.5, 30.5, -4],
-			"autouv": 0,
-			"color": 6,
-			"origin": [-3, 30, -3],
-			"faces": {
-				"north": {
-					"uv": [17, 0, 26, 1],
-					"texture": 0
-				},
-				"east": {
-					"uv": [16, 1, 17, 4],
-					"rotation": 90,
-					"texture": 0
-				},
-				"south": {
-					"uv": [26, 0, 35, 1],
-					"texture": 0
-				},
-				"west": {
-					"uv": [26, 1, 27, 4],
-					"rotation": 90,
-					"texture": 0
-				},
-				"up": {
-					"uv": [17, 1, 26, 4],
-					"texture": 0
-				},
-				"down": {
-					"uv": [27, 1, 36, 4],
-					"texture": 0
-				}
-			},
-			"type": "cube",
-			"uuid": "d2cbe219-93a1-6a25-3fc6-ca0f5f9c513b"
 		},
 		{
 			"name": "CoatTail1",
@@ -113,7 +72,7 @@
 					"texture": null
 				},
 				"east": {
-					"uv": [16, 8, 20, 13],
+					"uv": [8, 7, 12, 12],
 					"texture": 0
 				},
 				"south": {
@@ -121,11 +80,11 @@
 					"texture": null
 				},
 				"west": {
-					"uv": [28, 8, 32, 13],
+					"uv": [8, 7, 12, 12],
 					"texture": 0
 				},
 				"up": {
-					"uv": [20, 4, 28, 8],
+					"uv": [8, 3, 16, 7],
 					"texture": 0
 				},
 				"down": {
@@ -149,11 +108,11 @@
 			"origin": [1, 14.5, 2],
 			"faces": {
 				"north": {
-					"uv": [38, 6, 48, 13],
+					"uv": [17, 0, 27, 7],
 					"texture": 0
 				},
 				"east": {
-					"uv": [32, 6, 38, 13],
+					"uv": [22, 7, 28, 14],
 					"texture": 0
 				},
 				"south": {
@@ -161,11 +120,11 @@
 					"texture": null
 				},
 				"west": {
-					"uv": [48, 6, 54, 13],
+					"uv": [28, 7, 22, 14],
 					"texture": 0
 				},
 				"up": {
-					"uv": [38, 0, 48, 6],
+					"uv": [12, 7, 22, 13],
 					"texture": 0
 				},
 				"down": {
@@ -175,6 +134,48 @@
 			},
 			"type": "cube",
 			"uuid": "3a32356c-2cfc-3934-a401-54a470195c4b"
+		},
+		{
+			"name": "HatBrim",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"from": [-4.5, 29.5, -7],
+			"to": [4.5, 30.5, -4],
+			"autouv": 0,
+			"color": 6,
+			"origin": [-3, 30, -3],
+			"faces": {
+				"north": {
+					"uv": [8, 0, 17, 1],
+					"texture": 0
+				},
+				"east": {
+					"uv": [8, 0, 9, 3],
+					"rotation": 90,
+					"texture": 0
+				},
+				"south": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"west": {
+					"uv": [16, 0, 17, 3],
+					"rotation": 270,
+					"texture": 0
+				},
+				"up": {
+					"uv": [8, 0, 17, 3],
+					"texture": 0
+				},
+				"down": {
+					"uv": [8, 0, 17, 3],
+					"rotation": 180,
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "d2cbe219-93a1-6a25-3fc6-ca0f5f9c513b"
 		}
 	],
 	"outliner": [
@@ -293,7 +294,7 @@
 			"saved": true,
 			"uuid": "eef2688e-e1f4-7201-ca14-44df8237de24",
 			"relative_path": "../../textures/costume_disguise.png",
-			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAANCAYAAADi+J2zAAAAAXNSR0IArs4c6QAAAPtJREFUSEtj3FTn+p+BCPDt2zcGLi4usEpktl/TbkZizACpI8IauJLz+6dhuOvNmzcMIiIiKMYYOmZhNZdxXpYBXo+JiIhieAbZY6Q49s2b1wSVJ027AHYoxR6DhTauGIG5hJA8QRczMDDQ1WPUiDFiHAyKeWLUUT3GCIU4vjyGrBc9CaHnC1x5At1+ipMipTGGXihQy2O7VzcRVai5htZhLzwozWOUegzkAfSSDlvqwVYi4kplILUUl4q09BihZIstuYI8C/YYobxFSB7dcFIdgy8mSDUL5tZRj+GLtdEYg4YOoVITORAHNCmiF8u4il+YgyktxtFTDy7zAPepEG7iqK4RAAAAAElFTkSuQmCC"
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAOCAYAAAA8E3wEAAAAAXNSR0IArs4c6QAAAK1JREFUOE9j3FTn+p+BgYHh27dvDFxcXCAmChssQADIOgaiqHjz5g2DiIgIhi5DxyxGRmpZCDIMn7vO75/2nygL37x5TciDDIahaQxUs5BQcIEsgrmeKj4ctZBQ3KEHM8FUih6k2OIJWzbAlTXgFuKKcKpbOC/LAJzxcQFQkicEyPIhrpKG7j6UdQxC8SC2IoskHxIKLnT53aub8EYBsnpsjsNb/pHqGGT1uBwGAIF7t8i1TVUfAAAAAElFTkSuQmCC"
 		}
 	],
 	"animations": [
@@ -308,8 +309,7 @@
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
-			"loop_delay": "",
-			"animators": {}
+			"loop_delay": ""
 		},
 		{
 			"uuid": "30463ead-8825-7394-b445-952079925810",
@@ -5975,7 +5975,7 @@
 			"override": true,
 			"length": 15,
 			"snapping": 24,
-			"selected": true,
+			"selected": false,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
