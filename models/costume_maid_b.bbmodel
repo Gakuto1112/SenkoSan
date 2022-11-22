@@ -11,8 +11,8 @@
 	"variable_placeholder_buttons": [],
 	"timeline_setups": [],
 	"resolution": {
-		"width": 40,
-		"height": 38
+		"width": 16,
+		"height": 29
 	},
 	"elements": [
 		{
@@ -27,28 +27,30 @@
 			"origin": [0, 18, 2],
 			"faces": {
 				"north": {
-					"uv": [6, 14, 16, 17],
+					"uv": [0, 5, 10, 6],
 					"texture": 0
 				},
 				"east": {
-					"uv": [0, 14, 6, 17],
+					"uv": [0, 5, 1, 11],
+					"rotation": 90,
 					"texture": 0
 				},
 				"south": {
-					"uv": [22, 14, 32, 17],
+					"uv": [0, 10, 10, 11],
 					"texture": 0
 				},
 				"west": {
-					"uv": [16, 14, 22, 17],
+					"uv": [9, 5, 10, 11],
+					"rotation": 270,
 					"texture": 0
 				},
 				"up": {
-					"uv": [6, 8, 16, 14],
+					"uv": [0, 5, 10, 11],
 					"texture": 0
 				},
 				"down": {
 					"uv": [0, 0, 0, 0],
-					"texture": 0
+					"texture": null
 				}
 			},
 			"type": "cube",
@@ -66,28 +68,30 @@
 			"origin": [0, 18, 2],
 			"faces": {
 				"north": {
-					"uv": [7, 24, 18, 27],
+					"uv": [0, 11, 11, 12],
 					"texture": 0
 				},
 				"east": {
-					"uv": [0, 24, 7, 27],
+					"uv": [0, 11, 1, 18],
+					"rotation": 90,
 					"texture": 0
 				},
 				"south": {
-					"uv": [25, 24, 36, 27],
+					"uv": [0, 17, 11, 18],
 					"texture": 0
 				},
 				"west": {
-					"uv": [18, 24, 25, 27],
+					"uv": [10, 11, 11, 18],
+					"rotation": 270,
 					"texture": 0
 				},
 				"up": {
-					"uv": [7, 17, 18, 24],
+					"uv": [0, 11, 11, 18],
 					"texture": 0
 				},
 				"down": {
 					"uv": [0, 0, 0, 0],
-					"texture": 0
+					"texture": null
 				}
 			},
 			"type": "cube",
@@ -105,28 +109,30 @@
 			"origin": [0, 18, 2],
 			"faces": {
 				"north": {
-					"uv": [8, 35, 20, 38],
+					"uv": [0, 26, 12, 29],
 					"texture": 0
 				},
 				"east": {
-					"uv": [0, 35, 8, 38],
+					"uv": [12, 18, 15, 26],
+					"rotation": 90,
 					"texture": 0
 				},
 				"south": {
-					"uv": [28, 35, 40, 38],
+					"uv": [0, 25, 12, 26],
 					"texture": 0
 				},
 				"west": {
-					"uv": [20, 35, 28, 38],
+					"uv": [15, 18, 12, 26],
+					"rotation": 270,
 					"texture": 0
 				},
 				"up": {
-					"uv": [8, 27, 20, 35],
+					"uv": [0, 18, 12, 26],
 					"texture": 0
 				},
 				"down": {
 					"uv": [0, 0, 0, 0],
-					"texture": 0
+					"texture": null
 				}
 			},
 			"type": "cube",
@@ -144,28 +150,30 @@
 			"origin": [0, 18, 2],
 			"faces": {
 				"north": {
-					"uv": [5, 5, 14, 8],
+					"uv": [0, 0, 9, 1],
 					"texture": 0
 				},
 				"east": {
-					"uv": [0, 5, 5, 8],
+					"uv": [0, 0, 1, 5],
+					"rotation": 90,
 					"texture": 0
 				},
 				"south": {
-					"uv": [19, 5, 28, 8],
+					"uv": [0, 4, 9, 5],
 					"texture": 0
 				},
 				"west": {
-					"uv": [14, 5, 19, 8],
+					"uv": [8, 0, 9, 5],
+					"rotation": 270,
 					"texture": 0
 				},
 				"up": {
-					"uv": [5, 0, 14, 5],
+					"uv": [0, 0, 9, 5],
 					"texture": 0
 				},
 				"down": {
 					"uv": [0, 0, 0, 0],
-					"texture": 0
+					"texture": null
 				}
 			},
 			"type": "cube",
@@ -184,28 +192,26 @@
 			"origin": [0, 24, 2],
 			"faces": {
 				"north": {
-					"uv": [28, 0, 38, 3],
+					"uv": [13, 0, 10, 10],
+					"rotation": 90,
 					"texture": 0
 				},
 				"east": {
-					"uv": [0, 0, 0, 0],
-					"texture": 0
+					"uv": [0, 0, 0, 0]
 				},
 				"south": {
-					"uv": [38, 0, 28, 3],
+					"uv": [13, 10, 10, 0],
+					"rotation": 90,
 					"texture": 0
 				},
 				"west": {
-					"uv": [0, 0, 0, 0],
-					"texture": 0
+					"uv": [0, 0, 0, 0]
 				},
 				"up": {
-					"uv": [0, 0, 0, 0],
-					"texture": 0
+					"uv": [0, 0, 0, 0]
 				},
 				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": 0
+					"uv": [0, 0, 0, 0]
 				}
 			},
 			"type": "cube",
@@ -224,28 +230,30 @@
 			"origin": [0, 24, 2],
 			"faces": {
 				"north": {
-					"uv": [28, 3, 38, 6],
+					"uv": [16, 0, 13, 10],
+					"rotation": 90,
 					"texture": 0
 				},
 				"east": {
 					"uv": [0, 0, 0, 0],
-					"texture": 0
+					"texture": null
 				},
 				"south": {
-					"uv": [38, 3, 28, 6],
+					"uv": [16, 10, 13, 0],
+					"rotation": 90,
 					"texture": 0
 				},
 				"west": {
 					"uv": [0, 0, 0, 0],
-					"texture": 0
+					"texture": null
 				},
 				"up": {
 					"uv": [0, 0, 0, 0],
-					"texture": 0
+					"texture": null
 				},
 				"down": {
 					"uv": [0, 0, 0, 0],
-					"texture": 0
+					"texture": null
 				}
 			},
 			"type": "cube",
@@ -399,7 +407,7 @@
 			"saved": true,
 			"uuid": "bdcd8076-e0cf-b2d8-d522-165a209769b1",
 			"relative_path": "../../textures/costume_maid_b.png",
-			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAmCAYAAAC29NkdAAAAAXNSR0IArs4c6QAAAd9JREFUWEftWMFKAzEQ3b0UD8J6aPFfvAr+gODFHxB/QvwBj+IPiCB48yR49V9KPbjQg/SyMoUp0zjJe9k2SynNZZdkMnkzmbyX3bpy2mLx23n9tm80OqqRTWxc/LdtWzVNU3nPyeR05dtdZDabdtYoXAiNp4AzcyUATYAL8OLytvt4e4xmCI2nANrFY3Y2CBfE2flV9/X5GgWIxtHWK8jY086PZtAazX++q+OT8bJL31MZRgDR+NoWy3bpos9Pd8vCZZsU+PXN/Qq0DSD2/v7yUOUcsHpogLmZ332AKa5itjpnuxh/oU30pMpRR/UoNZjiyz6AaIBSm8wCuTXF+IQ0IwY7D1DIWLkvFrXQU4rQc7Pl2SflLCRocTAkYct6azQjHblkLXOUsBFR9wnwANCWRK8MpgqZubjq/FKEnbwVM2StNViKsJMAWS4UkKUIGwJkFt7kho24EgJEDnScCYT1RUmdGDFqotxXSlFgBr3r/pCfAP+Iuq+ahIqCVEX4kQn0ADC8XNjMUhlEJytHTcTXthUF/l9h1aSUokCAOWpSQlEogCwJl1CU/QCIDpIdZ7PN+oQZZOWulORBgPbfDaMOW89gCEBTLx9PmzT562WbR8pMwK7UMRNZGwW5twD/AALBOkv7lwWbAAAAAElFTkSuQmCC"
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAdCAYAAACjbey/AAAAAXNSR0IArs4c6QAAATdJREFUSEutVbEKwjAQbRZxEOpg8V9cBVcHQQR/QAQ/wm8Q/AYRHFwFV/9F6mDBQbpE3sGVeEmaBO3SkMu93r33LlV1/dZZ4Ol0ugrnqqrKimJIa+whTZXlXWPThyHjZjLWajJb68tp7wWQcQmoRuO5vl2PXgAZd1bwej6yXn9AXbjWZoVWBTEkAphJsyoAYp7nrTow+zhkVQCSQjIizm04OUgBcKrABPqAQOz5sMvQquSCfCCZB5BUxecVsmVMC6YS5nmyckgFJJhKfAHEqmAqYQG0zQIf9s0MkRjLgetDNEwhGXlGXEPnlBGAoaHiqpNkZDWWqy3lo6VoGTkZ7+liQwBoKYlESTZVELrSzCSp2P8AYn3gbCHWB+wFE6QhMXSpcrI0XCNjSgvyJ+R1ovwqVynn4WeADwGWJ9m+AAlrAAAAAElFTkSuQmCC"
 		}
 	],
 	"animations": [
@@ -9573,7 +9581,7 @@
 			"override": true,
 			"length": 15,
 			"snapping": 24,
-			"selected": true,
+			"selected": false,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
