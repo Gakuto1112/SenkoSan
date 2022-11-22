@@ -60,7 +60,7 @@ events.TICK:register(function ()
 		end
 		FacePartsClass.setEmotion("CLOSED", "CLOSED", "CLOSED", 1, true)
 		ActionWheelClass.ActionCount = 1
-		KotatsuAnimationCount = KotatsuAnimationCount == 300 and 1 or KotatsuAnimationCount + 1
+		KotatsuAnimationCount = KotatsuAnimationCount == 300 and 1 or (client:isPaused() and KotatsuAnimationCount or KotatsuAnimationCount + 1)
 	end
 	BodyYawPrev = bodyYaw
 end)
