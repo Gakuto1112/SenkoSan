@@ -11,7 +11,6 @@
 ---| "NORMAL"
 ---| "SURPLISED"
 ---| "TIRED"
----| "SLEEPY"
 ---| "CLOSED"
 ---| "UNEQUAL"
 ---| "NORMAL_INVERSED"
@@ -29,7 +28,7 @@
 
 FacePartsClass = {}
 
-EyeTypeID = {NONE = -1, NORMAL = 0, SURPLISED = 1, TIRED = 2, SLEEPY = 3, CLOSED = 4, UNEQUAL = 5, NORMAL_INVERSED = 6, TIRED_INVERSED = 7}
+EyeTypeID = {NONE = -1, NORMAL = 0, SURPLISED = 1, TIRED = 2, CLOSED = 3, UNEQUAL = 4, NORMAL_INVERSED = 5, TIRED_INVERSED = 6}
 MouthTypeID = {NONE = -1, CLOSED = 0, OPENED = 1}
 ComplexionID = {NORMAL = 0, PALE = 1, BLUSH = 2}
 EmotionCount = 0
@@ -51,8 +50,8 @@ function FacePartsClass.setEmotion(rightEye, leftEye, mouth, duration, force)
 			rightEyePart:setUVPixels(EyeTypeID[rightEye] * 6, 0)
 		end
 		--左目
-		if EyeTypeID[leftEye] >= 6 then
-			leftEyePart:setUVPixels((EyeTypeID[leftEye] - 5) * 6, 6)
+		if EyeTypeID[leftEye] >= 5 then
+			leftEyePart:setUVPixels((EyeTypeID[leftEye] - 4) * 6, 6)
 		elseif EyeTypeID[leftEye] >= 0 then
 			leftEyePart:setUVPixels(EyeTypeID[leftEye] * 6, EyeTypeID[leftEye] == 0 and 6 or 0)
 		end

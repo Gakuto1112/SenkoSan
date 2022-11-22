@@ -37,7 +37,7 @@ function CostumeClass.setCostume(costume)
 	elseif costume == "DISGUISE" then
 		models.models.costume_disguise:setVisible(true)
 		setCostumeTextureOffset(96)
-		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 8)
+		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(16, 0)
 	elseif costume == "MAID_A" then
 		setCostumeTextureOffset(144)
 		models.models.costume_maid_a:setVisible(true)
@@ -61,7 +61,7 @@ function CostumeClass.setCostume(costume)
 		ApronClass.IsVisible = false
 	elseif costume == "KAPPOGI" then
 		setCostumeTextureOffset(384)
-		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 16)
+		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(32, 0)
 	elseif costume == "SANTA" then
 		setCostumeTextureOffset(432)
 	end
