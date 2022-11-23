@@ -3,7 +3,7 @@
 ---@field CostumeClass.CurrentCostume CostumeType 現在のコスチューム
 
 CostumeClass = {}
-CostumeClass.CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "santa"}
+CostumeClass.CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "santa"}
 CostumeClass.CurrentCostume = string.upper(CostumeClass.CostumeList[ConfigClass.loadConfig("costume", 1)])
 
 ---@alias CostumeType
@@ -16,13 +16,14 @@ CostumeClass.CurrentCostume = string.upper(CostumeClass.CostumeList[ConfigClass.
 ---| "CHEERLEADER"
 ---| "PURIFICATION"
 ---| "KAPPOGI"
+---| "YUKATA"
 ---| "SANTA"
 
 ---メインモデルのテクスチャのオフセット値を設定する。
 ---@param offset integer オフセット値
 function setCostumeTextureOffset(offset)
 	for _, modelPart in ipairs({models.models.main.Avatar.Body.Body, models.models.main.Avatar.Body.BodyLayer, models.models.main.Avatar.Body.BodyBottom.BodyBottom, models.models.main.Avatar.Body.BodyBottom.BodyBottomLayer, models.models.main.Avatar.Body.Arms.RightArm.RightArm, models.models.main.Avatar.Body.Arms.RightArm.RightArmLayer, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightArmBottom, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightArmBottomLayer, models.models.main.Avatar.Body.Arms.LeftArm.LeftArm, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmLayer, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftArmBottom, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftArmBottomLayer, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLeg, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegLayer, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.RightLegBottom, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.RightLegBottomLayer, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLeg, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegLayer, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.LeftLegBottom, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.LeftLegBottomLayer}) do
-		modelPart:setUVPixels(0, offset)
+		modelPart:setUVPixels(0, offset * 48)
 	end
 end
 
@@ -32,38 +33,41 @@ function CostumeClass.setCostume(costume)
 	CostumeClass.resetCostume()
 	CostumeClass.CurrentCostume = costume
 	if costume == "NIGHTWEAR" then
-		setCostumeTextureOffset(48)
+		setCostumeTextureOffset(1)
 		ApronClass.IsVisible = false
 	elseif costume == "DISGUISE" then
 		models.models.costume_disguise:setVisible(true)
-		setCostumeTextureOffset(96)
+		setCostumeTextureOffset(2)
 		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(16, 0)
 	elseif costume == "MAID_A" then
-		setCostumeTextureOffset(144)
+		setCostumeTextureOffset(3)
 		models.models.costume_maid_a:setVisible(true)
 		ApronClass.IsVisible = false
 		LegsClass.ReducedLegSwing = true
 	elseif costume == "MAID_B" then
-		setCostumeTextureOffset(192)
+		setCostumeTextureOffset(4)
 		models.models.costume_maid_b:setVisible(true)
 		ApronClass.IsVisible = false
 		LegsClass.ReducedLegSwing = true
 	elseif costume == "SWIMSUIT" then
-		setCostumeTextureOffset(240)
+		setCostumeTextureOffset(5)
 		models.models.costume_swimsuit:setVisible(true)
 		ApronClass.IsVisible = false
 	elseif costume == "CHEERLEADER" then
-		setCostumeTextureOffset(288)
+		setCostumeTextureOffset(6)
 		models.models.costume_cheerleader:setVisible(true)
 		ApronClass.IsVisible = false
 	elseif costume == "PURIFICATION" then
-		setCostumeTextureOffset(336)
+		setCostumeTextureOffset(7)
 		ApronClass.IsVisible = false
 	elseif costume == "KAPPOGI" then
-		setCostumeTextureOffset(384)
+		setCostumeTextureOffset(8)
 		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(32, 0)
+	elseif costume == "YUKATA" then
+		setCostumeTextureOffset(9)
+		ApronClass.IsVisible = false
 	elseif costume == "SANTA" then
-		setCostumeTextureOffset(432)
+		setCostumeTextureOffset(10)
 	end
 end
 
@@ -194,6 +198,14 @@ events.TICK:register(function ()
 		for _, modelPart in ipairs({models.models.costume_cheerleader.Avatar.Body.BodyBottom.Skirt, models.models.costume_cheerleader.Avatar.Body.Arms.RightArm.RightArmBottom.RightPonPon, models.models.costume_cheerleader.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftPonPon}) do
 			modelPart:setVisible(false)
 		end
+	end
+	if CostumeClass.CurrentCostume == "YUKATA" then
+		local foxMask = models.models.fox_mask.Avatar.Head
+		local helmetItemID = player:getItem(6).id
+		foxMask:setVisible(string.find(helmetItemID, "^minecraft:.+_helmet$") ~= nil and not ArmorClass.ArmorVisible[1])
+		foxMask:setPrimaryTexture("RESOURCE", (helmetItemID == "minecraft:leather_helmet" or helmetItemID == "minecraft:chainmail_helmet" or helmetItemID == "minecraft:iron_helmet") and "textures/entity/fox/fox.png" or "textures/entity/fox/snow_fox.png")
+	else
+		models.models.fox_mask.Avatar.Head:setVisible(false)
 	end
 	if CostumeClass.CurrentCostume ~= "MAID_A" and CostumeClass.CurrentCostume ~= "MAID_B" then
 		if renderer:isFirstPerson() and player:getPose() == "SLEEPING" then
