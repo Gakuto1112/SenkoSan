@@ -11,6 +11,17 @@ function NameplateClass.setName(nameID)
 	nameplate.ALL:setText(NameplateClass.NameList[nameID])
 end
 
+---プレイヤー名前設定の初期処理
+function nameInit()
+	local loadedData = ConfigClass.loadConfig("name", 1)
+	if loadedData <= #NameplateClass.NameList then
+		NameplateClass.setName(loadedData)
+	else
+		NameplateClass.setName(1)
+		ConfigClass.saveConfig("name", 1)
+	end
+end
+
 events.TICK:register(function()
 	if General.isAnimationPlaying("models.main", "sit_down") then
 		nameplate.ENTITY:setPos(0, -0.5, 0)
@@ -19,7 +30,7 @@ events.TICK:register(function()
 	end
 end)
 
-NameplateClass.setName(ConfigClass.loadConfig("name", 1))
+nameInit()
 nameplate.ENTITY:setBackgroundColor(233 / 255, 160 / 255, 70 / 255)
 nameplate.ENTITY.shadow = true
 

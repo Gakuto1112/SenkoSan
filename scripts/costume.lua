@@ -4,7 +4,7 @@
 
 CostumeClass = {}
 CostumeClass.CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "santa"}
-CostumeClass.CurrentCostume = string.upper(CostumeClass.CostumeList[ConfigClass.loadConfig("costume", 1)])
+CostumeClass.CurrentCostume = "DEFAULT"
 
 ---@alias CostumeType
 ---| "DEFAULT"
@@ -92,6 +92,20 @@ function CostumeClass.resetCostume()
 	LegsClass.ReducedLegSwing = false
 	models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 0)
 	CostumeClass.CurrentCostume = "DEFAULT"
+end
+
+---コスチュームの初期処理
+function costumeInit()
+	local loadedData = ConfigClass.loadConfig("costume", 1)
+	if loadedData <= #CostumeClass.CostumeList then
+		CostumeClass.CurrentCostume = string.upper(CostumeClass.CostumeList[loadedData])
+		if CostumeClass.CurrentCostume ~= "DEFAULT" then
+			CostumeClass.setCostume(CostumeClass.CurrentCostume)
+		end
+	else
+		CostumeClass.CurrentCostume = "DEFAULT"
+		ConfigClass.saveConfig("costume", 1)
+	end
 end
 
 events.TICK:register(function ()
@@ -257,8 +271,6 @@ events.RENDER:register(function ()
 	end
 end)
 
-if CostumeClass.CurrentCostume ~= "DEFAULT" then
-	CostumeClass.setCostume(CostumeClass.CurrentCostume)
-end
+costumeInit()
 
 return CostumeClass
