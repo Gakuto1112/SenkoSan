@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"format_version": "4.0",
+		"format_version": "4.5",
 		"model_format": "free",
 		"box_uv": false
 	},
@@ -17,6 +17,7 @@
 	"elements": [
 		{
 			"name": "Body",
+			"box_uv": false,
 			"rescale": false,
 			"locked": false,
 			"from": [-17, 2, 6],
@@ -56,6 +57,7 @@
 		},
 		{
 			"name": "BodyLayer",
+			"box_uv": false,
 			"rescale": false,
 			"locked": false,
 			"from": [-17, 2, 6],
@@ -96,6 +98,7 @@
 		},
 		{
 			"name": "Head",
+			"box_uv": false,
 			"rescale": false,
 			"locked": false,
 			"from": [-17, 14, 4],
@@ -134,6 +137,7 @@
 		},
 		{
 			"name": "HatLayer",
+			"box_uv": false,
 			"rescale": false,
 			"locked": false,
 			"from": [-17, 14, 4],
@@ -174,6 +178,7 @@
 		},
 		{
 			"name": "RightArm",
+			"box_uv": false,
 			"rescale": false,
 			"locked": false,
 			"from": [-9, 2, 6],
@@ -213,6 +218,7 @@
 		},
 		{
 			"name": "RightArmLayer",
+			"box_uv": false,
 			"rescale": false,
 			"locked": false,
 			"from": [-9, 2, 6],
@@ -253,6 +259,7 @@
 		},
 		{
 			"name": "RightArm",
+			"box_uv": false,
 			"rescale": false,
 			"locked": false,
 			"from": [-9, 2, 6],
@@ -292,6 +299,7 @@
 		},
 		{
 			"name": "RightArmLayer",
+			"box_uv": false,
 			"rescale": false,
 			"locked": false,
 			"from": [-9, 2, 6],
@@ -332,6 +340,7 @@
 		},
 		{
 			"name": "LeftArm",
+			"box_uv": false,
 			"rescale": false,
 			"locked": false,
 			"from": [-21, 2, 6],
@@ -371,6 +380,7 @@
 		},
 		{
 			"name": "Left Arm Layer",
+			"box_uv": false,
 			"rescale": false,
 			"locked": false,
 			"from": [-21, 2, 6],
@@ -411,6 +421,7 @@
 		},
 		{
 			"name": "LeftArm",
+			"box_uv": false,
 			"rescale": false,
 			"locked": false,
 			"from": [-20, 2, 6],
@@ -450,6 +461,7 @@
 		},
 		{
 			"name": "Left Arm Layer",
+			"box_uv": false,
 			"rescale": false,
 			"locked": false,
 			"from": [-20, 2, 6],
@@ -490,6 +502,7 @@
 		},
 		{
 			"name": "RightLeg",
+			"box_uv": false,
 			"rescale": false,
 			"locked": false,
 			"from": [-13.1, -10, 6],
@@ -529,6 +542,7 @@
 		},
 		{
 			"name": "RightLegLayer",
+			"box_uv": false,
 			"rescale": false,
 			"locked": false,
 			"from": [-13.1, -10, 6],
@@ -569,6 +583,7 @@
 		},
 		{
 			"name": "LeftLeg",
+			"box_uv": false,
 			"rescale": false,
 			"locked": false,
 			"from": [-16.9, -10, 6],
@@ -608,6 +623,7 @@
 		},
 		{
 			"name": "LeftLegLayer",
+			"box_uv": false,
 			"rescale": false,
 			"locked": false,
 			"from": [-16.9, -10, 6],
@@ -655,6 +671,7 @@
 			"color": 0,
 			"uuid": "50d53fc8-2208-c756-69e1-ffd8584a0ea1",
 			"export": true,
+			"mirror_uv": false,
 			"isOpen": true,
 			"locked": false,
 			"visibility": true,
@@ -666,6 +683,7 @@
 					"color": 0,
 					"uuid": "22b3efee-3a91-1eba-d55e-03ed5e6be679",
 					"export": true,
+					"mirror_uv": false,
 					"isOpen": true,
 					"locked": false,
 					"visibility": true,
@@ -679,6 +697,7 @@
 							"color": 0,
 							"uuid": "91b684f7-8a57-8cae-c9f5-34c21efbfb15",
 							"export": true,
+							"mirror_uv": false,
 							"isOpen": true,
 							"locked": false,
 							"visibility": true,
@@ -691,6 +710,7 @@
 							"color": 0,
 							"uuid": "29c05772-ddc3-063b-9c85-3477c3ce9bf6",
 							"export": true,
+							"mirror_uv": false,
 							"isOpen": true,
 							"locked": false,
 							"visibility": true,
@@ -699,10 +719,10 @@
 								{
 									"name": "SittingPlayerRightArms",
 									"origin": [-9, 13, 8],
-									"rotation": [0, 0, 0],
 									"color": 0,
 									"uuid": "32e8c59d-fe7e-12de-398a-712364ecce63",
 									"export": true,
+									"mirror_uv": false,
 									"isOpen": true,
 									"locked": false,
 									"visibility": true,
@@ -714,6 +734,7 @@
 											"color": 0,
 											"uuid": "6fb6f1a7-bd1f-9251-8933-c96d8dc27634",
 											"export": true,
+											"mirror_uv": false,
 											"isOpen": false,
 											"locked": false,
 											"visibility": true,
@@ -726,6 +747,7 @@
 											"color": 0,
 											"uuid": "f55ad2cf-1adb-f441-91f5-40f351a12ef6",
 											"export": true,
+											"mirror_uv": false,
 											"isOpen": false,
 											"locked": false,
 											"visibility": true,
@@ -737,10 +759,10 @@
 								{
 									"name": "SittingPlayerLeftArms",
 									"origin": [-17, 13, 8],
-									"rotation": [0, 0, 0],
 									"color": 0,
 									"uuid": "a55b2fff-982f-aca7-c7cc-94dbe1337ffc",
 									"export": true,
+									"mirror_uv": false,
 									"isOpen": true,
 									"locked": false,
 									"visibility": true,
@@ -752,6 +774,7 @@
 											"color": 0,
 											"uuid": "39c09068-1964-9206-f7ba-ce23b1843f42",
 											"export": true,
+											"mirror_uv": false,
 											"isOpen": true,
 											"locked": false,
 											"visibility": true,
@@ -764,6 +787,7 @@
 											"color": 0,
 											"uuid": "48d748f8-8f4c-d5e1-1bc1-275bee594713",
 											"export": true,
+											"mirror_uv": false,
 											"isOpen": true,
 											"locked": false,
 											"visibility": true,
@@ -783,6 +807,7 @@
 					"color": 0,
 					"uuid": "d277d4a9-9c84-41f9-540a-4e003a6cf9ad",
 					"export": true,
+					"mirror_uv": false,
 					"isOpen": false,
 					"locked": false,
 					"visibility": true,
@@ -796,6 +821,7 @@
 					"color": 0,
 					"uuid": "0a63d744-c8c2-6bcf-afa6-aea2803e71a2",
 					"export": true,
+					"mirror_uv": false,
 					"isOpen": true,
 					"locked": false,
 					"visibility": true,
@@ -814,12 +840,16 @@
 			"id": "1",
 			"particle": false,
 			"render_mode": "default",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
 			"visible": true,
 			"mode": "bitmap",
-			"saved": false,
+			"saved": true,
 			"uuid": "5d1f6249-5eae-1ef0-4dcd-4b1227522325",
-			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAidJREFUeF7tW71KxEAQ3oCgkN4LRERR8AFsrre0s/ER7H0O7wqtrO4JtPIhDsHuGkHwBwM5sb3CSlmSg9y47mTdLLtJvmuumGQz+fab2W+ys5Fgfnez12/dJZPRlXaEm8lFxD3Dp511TgIw3N9S+jh9ehcSgHSQKO3ZPBcAAAxACLBhhhzgEQF2dpAEu74MHuUj7TqfzM60BL2+v9Ta104/tfaNvTHLQpcREkkAhoNN9To//xASgJ0kVtpf8oWQAMS720r74vlNSADW0wOl/St7FACgDQw4PywYcJsVE3mSFv/jh54woPcAIAd0PQnqlpnOL4P05Wn9T+t9rrx1/f3A1j/6vr9ESFX60nq/Tn3vWjrb+gcACAJKBlSv6XwI0FqAJj2q9am2P45LVVSiZpo0uVqBG5/zj5PaK7XAlGh/qvWptpdaXjq4rCXo/TTeuPHo9dz43Hh1ag0AUK0GwQCEwGr9XyfGkAOQBLEKYBmEDig/qrZWCFUVWO+ksMtv7m0Y2+umRAgAAYAQZsGnD2CAT/RDeDYYEMIs+PQBDPCJfgjPBgNCmAWfPoABPtEP4dlgQAiz4NOHxhlgu39ve78pmE4AWJ4vsO0v+M/9AMAQAScMaLK/wLQ/wfD9hTUArvsLbPf/OUAaAeCvfQHbvcU693MNEACAQQAM4CjC2V02WCAEyHkEVY8ScoDleQPkAC7GOTtyQOXMUdNdZkiCbUmCLvsLXEvhH3DxfIynINy/AAAAAElFTkSuQmCC",
-			"relative_path": "../../textures/steve.png"
+			"relative_path": "../../textures/steve.png",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAIRJREFUeF7t1QERADAMArHi33SFfOagHBm7+Fv8/hOABsQTQCBeAJ8gAgjEE0AgXgArgAAC8QQQiBfACiCAQDwBBOIFsAIIIBBPAIF4AawAAgjEE0AgXgArgAAC8QQQiBfACiCAQDwBBOIFsAIIIBBPAIF4AawAAgjEE0AgXgArgECdwANo2ABBrP9ggQAAAABJRU5ErkJggg=="
 		}
 	],
 	"animations": [
