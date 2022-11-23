@@ -3,7 +3,7 @@ TVアニメ「世話やきキツネの仙狐さん」（とその原作）に登
 
 <!-- SIMPLE_MESSAGE -->
 
-対応Figuraバージョン：[0.1.0-rc.10](https://www.curseforge.com/minecraft/mc-mods/figura/files/4073363)
+ターゲットFiguraバージョン：[0.1.0-rc.11](https://www.curseforge.com/minecraft/mc-mods/figura/files/4089700)
 
 <!-- REQUIRED_IMAGE -->
 ![メイン](../../README_images/メイン.jpg)
@@ -45,7 +45,7 @@ TVアニメ「世話やきキツネの仙狐さん」（とその原作）に登
 
 - あなたの表示名をキャラクターの名前に変更できます。
   - 他のプレイヤーがこの名前を見えるようにするには、**他のプレイヤーもFiguraを導入し、他のプレイヤー側であなたに対する信頼設定を十分上げる必要があります**。
-  - 0.1.0-rc10では、一時的にプレイヤーリストのアバター表示が無効になっています。
+  - 0.1.0-rc11では、一時的にプレイヤーリストのアバター表示が無効になっています。
     > added a new setting to toggle whether UI elements should render the avatar portrait instead of the vanilla skin, (default OFF)
 
     > currently locked as of the portrait rendering is VERY glitchy
@@ -193,7 +193,7 @@ Figuraには、アクションホイールキー（デフォルトは「B」キ�
 傘の開閉音を再生するかどうかを設定できます。傘の開閉音が煩わしいと感じる場合はオフにして下さい。
 
 ## 使用方法
-1. マインクラフト1.19.2に[Fabric](https://fabricmc.net/)をインストールし、[Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)と[Figura 0.1.0-rc.10+1.19.2](https://www.curseforge.com/minecraft/mc-mods/figura/files/4073363)を追加します。各Modの依存関係にご注意ください。
+1. マインクラフトに[Fabric](https://fabricmc.net/)をインストールし、[Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)と[Figura 0.1.0-rc.11](https://www.curseforge.com/minecraft/mc-mods/figura/files/4089700)を追加します。各Modの依存関係にご注意ください。
 2. ページ上部の緑色のボタン「**Code**」から「**Download ZIP**」からこのレポジトリのファイルをダウンロードします。（または、このレポジトリをクローンします。）
 3. 圧縮ファイルの場合は展開します。
    - 以下のファイル、フォルダはアバターの動作には不要なので削除しても構いません。
