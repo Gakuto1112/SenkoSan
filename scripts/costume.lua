@@ -3,7 +3,7 @@
 ---@field CostumeClass.CurrentCostume CostumeType 現在のコスチューム
 
 CostumeClass = {}
-CostumeClass.CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "santa"}
+CostumeClass.CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "santa"}
 CostumeClass.CurrentCostume = string.upper(CostumeClass.CostumeList[ConfigClass.loadConfig("costume", 1)])
 
 ---@alias CostumeType
@@ -18,6 +18,8 @@ CostumeClass.CurrentCostume = string.upper(CostumeClass.CostumeList[ConfigClass.
 ---| "KAPPOGI"
 ---| "YUKATA"
 ---| "KNIT"
+---| "FOX_HOODIE_RED"
+---| "FOX_HOODIE_WHITE"
 ---| "SANTA"
 
 ---メインモデルのテクスチャのオフセット値を設定する。
@@ -67,8 +69,16 @@ function CostumeClass.setCostume(costume)
 	elseif costume == "YUKATA" then
 		setCostumeTextureOffset(9)
 		ApronClass.IsVisible = false
-	elseif costume == "SANTA" then
+	elseif costume == "FOX_HOODIE_RED" then
 		setCostumeTextureOffset(10)
+		models.models.fox_hood:setUVPixels(0, 0)
+		ApronClass.IsVisible = false
+	elseif costume == "FOX_HOODIE_WHITE" then
+		setCostumeTextureOffset(11)
+		models.models.fox_hood:setUVPixels(0, 8)
+		ApronClass.IsVisible = false
+	elseif costume == "SANTA" then
+		setCostumeTextureOffset(12)
 	end
 end
 
@@ -107,7 +117,7 @@ events.TICK:register(function ()
 		end
 	else
 		hat:setVisible(false)
-		ears:setVisible(CostumeClass.CostumeList ~= "DISGUISE" or ArmorClass.ArmorVisible[1])
+		ears:setVisible((CostumeClass.CostumeList ~= "KNIT" and CostumeClass.CurrentCostume ~= "FOX_HOODIE_RED" and CostumeClass.CurrentCostume ~= "FOX_HOODIE_WHITE") or ArmorClass.ArmorVisible[1])
 		EarsClass.EnableJerkEar = true
 	end
 	if CostumeClass.CurrentCostume == "MAID_A" then
@@ -208,7 +218,17 @@ events.TICK:register(function ()
 	else
 		models.models.fox_mask.Avatar.Head:setVisible(false)
 	end
+	local santa = models.models.costume_santa
+	local leftEar = models.models.main.Avatar.Head.Ears.LeftEarPivot
+	if CostumeClass.CurrentCostume ~= "SANTA" or ArmorClass.ArmorVisible[1] then
+		santa:setVisible(false)
+		leftEar:setVisible(ears:getVisible())
+	else
+		santa:setVisible(true)
+		leftEar:setVisible(false)
+	end
 	models.models.knit:setVisible(CostumeClass.CurrentCostume == "KNIT" and not ArmorClass.ArmorVisible[1])
+	models.models.fox_hood:setVisible((CostumeClass.CurrentCostume == "FOX_HOODIE_RED" or CostumeClass.CurrentCostume == "FOX_HOODIE_WHITE") and not ArmorClass.ArmorVisible[1])
 	if CostumeClass.CurrentCostume ~= "MAID_A" and CostumeClass.CurrentCostume ~= "MAID_B" then
 		if renderer:isFirstPerson() and player:getPose() == "SLEEPING" then
 			models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(false)
@@ -216,17 +236,7 @@ events.TICK:register(function ()
 			models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
 		end
 	end
-	local santa = models.models.costume_santa
-	local leftEar = models.models.main.Avatar.Head.Ears.LeftEarPivot
-	if CostumeClass.CurrentCostume ~= "SANTA" or ArmorClass.ArmorVisible[1] then
-		santa:setVisible(false)
-		HairAccessoryClass.visible(true)
-		leftEar:setVisible(CostumeClass.CurrentCostume ~= "DISGUISE" or ArmorClass.ArmorVisible[1])
-	else
-		santa:setVisible(true)
-		HairAccessoryClass.visible(false)
-		leftEar:setVisible(false)
-	end
+	HairAccessoryClass.visible((CostumeClass.CurrentCostume ~= "FOX_HOODIE_RED" and CostumeClass.CurrentCostume ~= "FOX_HOODIE_WHITE" and CostumeClass.CurrentCostume ~= "SANTA") or ArmorClass.ArmorVisible[1])
 end)
 
 events.RENDER:register(function ()
