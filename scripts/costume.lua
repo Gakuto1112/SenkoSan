@@ -3,7 +3,7 @@
 ---@field CostumeClass.CurrentCostume CostumeType 現在のコスチューム
 
 CostumeClass = {}
-CostumeClass.CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "santa"}
+CostumeClass.CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "santa"}
 CostumeClass.CurrentCostume = string.upper(CostumeClass.CostumeList[ConfigClass.loadConfig("costume", 1)])
 
 ---@alias CostumeType
@@ -17,6 +17,7 @@ CostumeClass.CurrentCostume = string.upper(CostumeClass.CostumeList[ConfigClass.
 ---| "PURIFICATION"
 ---| "KAPPOGI"
 ---| "YUKATA"
+---| "KNIT"
 ---| "SANTA"
 
 ---メインモデルのテクスチャのオフセット値を設定する。
@@ -106,7 +107,7 @@ events.TICK:register(function ()
 		end
 	else
 		hat:setVisible(false)
-		ears:setVisible(true)
+		ears:setVisible(CostumeClass.CostumeList ~= "DISGUISE" or ArmorClass.ArmorVisible[1])
 		EarsClass.EnableJerkEar = true
 	end
 	if CostumeClass.CurrentCostume == "MAID_A" then
@@ -207,6 +208,7 @@ events.TICK:register(function ()
 	else
 		models.models.fox_mask.Avatar.Head:setVisible(false)
 	end
+	models.models.knit:setVisible(CostumeClass.CurrentCostume == "KNIT" and not ArmorClass.ArmorVisible[1])
 	if CostumeClass.CurrentCostume ~= "MAID_A" and CostumeClass.CurrentCostume ~= "MAID_B" then
 		if renderer:isFirstPerson() and player:getPose() == "SLEEPING" then
 			models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(false)
