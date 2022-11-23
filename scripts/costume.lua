@@ -219,7 +219,7 @@ events.TICK:register(function ()
 	if CostumeClass.CurrentCostume ~= "SANTA" or ArmorClass.ArmorVisible[1] then
 		santa:setVisible(false)
 		HairAccessoryClass.visible(true)
-		leftEar:setVisible(CostumeClass.CurrentCostume ~= "DISGUISE")
+		leftEar:setVisible(CostumeClass.CurrentCostume ~= "DISGUISE" or ArmorClass.ArmorVisible[1])
 	else
 		santa:setVisible(true)
 		HairAccessoryClass.visible(false)
