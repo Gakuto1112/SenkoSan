@@ -666,6 +666,9 @@ ConfigPage:newAction(1):item("leather_chestplate"):color(200 / 255, 200 / 255, 2
 		CostumeState = CostumeState == 1 and #CostumeClass.CostumeList or CostumeState - 1
 	end
 	setCostumeChangeActionTitle()
+end):onLeftClick(function ()
+	CostumeState = ActionWheelClass.CurrentCostumeState
+	setCostumeChangeActionTitle()
 end)
 
 --アクション2. プレイヤーの表示名変更
@@ -675,6 +678,9 @@ ConfigPage:newAction(2):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255):
 	else
 		PlayerNameState = PlayerNameState == 1 and #NameplateClass.NameList or PlayerNameState - 1
 	end
+	setNameChangeActionTitle()
+end):onLeftClick(function ()
+	PlayerNameState = ActionWheelClass.CurrentPlayerNameState
 	setNameChangeActionTitle()
 end)
 
