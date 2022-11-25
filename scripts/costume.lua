@@ -3,7 +3,7 @@
 ---@field CostumeClass.CurrentCostume CostumeType 現在のコスチューム
 
 CostumeClass = {}
-CostumeClass.CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "china_dress", "santa"}
+CostumeClass.CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "tracksuit", "china_dress", "santa"}
 CostumeClass.CurrentCostume = "DEFAULT"
 
 ---@alias CostumeType
@@ -20,6 +20,7 @@ CostumeClass.CurrentCostume = "DEFAULT"
 ---| "KNIT"
 ---| "FOX_HOODIE_RED"
 ---| "FOX_HOODIE_WHITE"
+---| "TRACKSUIT"
 ---| "CHINA_DRESS"
 ---| "SANTA"
 
@@ -78,11 +79,14 @@ function CostumeClass.setCostume(costume)
 		setCostumeTextureOffset(11)
 		models.models.fox_hood:setUVPixels(0, 8)
 		ApronClass.IsVisible = false
-	elseif costume == "CHINA_DRESS" then
+	elseif costume == "TRACKSUIT" then
 		setCostumeTextureOffset(12)
 		ApronClass.IsVisible = false
-	elseif costume == "SANTA" then
+	elseif costume == "CHINA_DRESS" then
 		setCostumeTextureOffset(13)
+		ApronClass.IsVisible = false
+	elseif costume == "SANTA" then
+		setCostumeTextureOffset(14)
 	end
 end
 
