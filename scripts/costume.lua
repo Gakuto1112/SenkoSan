@@ -3,7 +3,7 @@
 ---@field CostumeClass.CurrentCostume CostumeType 現在のコスチューム
 
 CostumeClass = {}
-CostumeClass.CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "tracksuit", "china_dress", "santa"}
+CostumeClass.CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "tracksuit", "casual", "china_dress", "santa"}
 CostumeClass.CurrentCostume = "DEFAULT"
 
 ---@alias CostumeType
@@ -21,6 +21,7 @@ CostumeClass.CurrentCostume = "DEFAULT"
 ---| "FOX_HOODIE_RED"
 ---| "FOX_HOODIE_WHITE"
 ---| "TRACKSUIT"
+---| "CASUAL"
 ---| "CHINA_DRESS"
 ---| "SANTA"
 
@@ -82,11 +83,15 @@ function CostumeClass.setCostume(costume)
 	elseif costume == "TRACKSUIT" then
 		setCostumeTextureOffset(12)
 		ApronClass.IsVisible = false
-	elseif costume == "CHINA_DRESS" then
+	elseif costume == "CASUAL" then
 		setCostumeTextureOffset(13)
+		models.models.costume_beret:setVisible(true)
+		ApronClass.IsVisible = false
+	elseif costume == "CHINA_DRESS" then
+		setCostumeTextureOffset(14)
 		ApronClass.IsVisible = false
 	elseif costume == "SANTA" then
-		setCostumeTextureOffset(14)
+		setCostumeTextureOffset(15)
 	end
 end
 
@@ -123,11 +128,9 @@ events.TICK:register(function ()
 		if ArmorClass.ArmorVisible[1] then
 			hat:setVisible(false)
 			ears:setVisible(true)
-			EarsClass.EnableJerkEar = true
 		else
 			hat:setVisible(true)
 			ears:setVisible(false)
-			EarsClass.EnableJerkEar = false
 		end
 		local bodyBottom = models.models.costume_disguise.Avatar.Body.BodyBottom
 		if player:getPose() == "CROUCHING" then
@@ -139,8 +142,7 @@ events.TICK:register(function ()
 		end
 	else
 		hat:setVisible(false)
-		ears:setVisible((CostumeClass.CostumeList ~= "KNIT" and CostumeClass.CurrentCostume ~= "FOX_HOODIE_RED" and CostumeClass.CurrentCostume ~= "FOX_HOODIE_WHITE") or ArmorClass.ArmorVisible[1])
-		EarsClass.EnableJerkEar = true
+		ears:setVisible((CostumeClass.CostumeList ~= "KNIT" and CostumeClass.CurrentCostume ~= "FOX_HOODIE_RED" and CostumeClass.CurrentCostume ~= "FOX_HOODIE_WHITE" and CostumeClass.CurrentCostume ~= "CASUAL") or ArmorClass.ArmorVisible[1])
 	end
 	if CostumeClass.CurrentCostume == "MAID_A" then
 		local skirt = models.models.costume_maid_a.Avatar.Body.BodyBottom.Skirt
@@ -251,6 +253,8 @@ events.TICK:register(function ()
 	end
 	models.models.costume_knit:setVisible(CostumeClass.CurrentCostume == "KNIT" and not ArmorClass.ArmorVisible[1])
 	models.models.costume_fox_hood:setVisible((CostumeClass.CurrentCostume == "FOX_HOODIE_RED" or CostumeClass.CurrentCostume == "FOX_HOODIE_WHITE") and not ArmorClass.ArmorVisible[1])
+	models.models.costume_beret:setVisible(CostumeClass.CurrentCostume == "CASUAL" and not ArmorClass.ArmorVisible[1])
+	EarsClass.EnableJerkEar = (CostumeClass.CurrentCostume ~= "DISGUISE" and CostumeClass.CurrentCostume ~= "CASUAL") or ArmorClass.ArmorVisible[1]
 	if CostumeClass.CurrentCostume ~= "MAID_A" and CostumeClass.CurrentCostume ~= "MAID_B" then
 		if renderer:isFirstPerson() and player:getPose() == "SLEEPING" then
 			models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(false)
