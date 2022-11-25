@@ -73,11 +73,11 @@ function CostumeClass.setCostume(costume)
 		ApronClass.IsVisible = false
 	elseif costume == "FOX_HOODIE_RED" then
 		setCostumeTextureOffset(10)
-		models.models.fox_hood:setUVPixels(0, 0)
+		models.models.costume_fox_hood:setUVPixels(0, 0)
 		ApronClass.IsVisible = false
 	elseif costume == "FOX_HOODIE_WHITE" then
 		setCostumeTextureOffset(11)
-		models.models.fox_hood:setUVPixels(0, 8)
+		models.models.costume_fox_hood:setUVPixels(0, 8)
 		ApronClass.IsVisible = false
 	elseif costume == "TRACKSUIT" then
 		setCostumeTextureOffset(12)
@@ -233,12 +233,12 @@ events.TICK:register(function ()
 		end
 	end
 	if CostumeClass.CurrentCostume == "YUKATA" then
-		local foxMask = models.models.fox_mask.Avatar.Head
+		local foxMask = models.models.costume_fox_mask.Avatar.Head
 		local helmetItemID = player:getItem(6).id
 		foxMask:setVisible(string.find(helmetItemID, "^minecraft:.+_helmet$") ~= nil and not ArmorClass.ArmorVisible[1])
 		foxMask:setPrimaryTexture("RESOURCE", (helmetItemID == "minecraft:leather_helmet" or helmetItemID == "minecraft:chainmail_helmet" or helmetItemID == "minecraft:iron_helmet") and "textures/entity/fox/fox.png" or "textures/entity/fox/snow_fox.png")
 	else
-		models.models.fox_mask.Avatar.Head:setVisible(false)
+		models.models.costume_fox_mask.Avatar.Head:setVisible(false)
 	end
 	local santa = models.models.costume_santa
 	local leftEar = models.models.main.Avatar.Head.Ears.LeftEarPivot
@@ -249,8 +249,8 @@ events.TICK:register(function ()
 		santa:setVisible(true)
 		leftEar:setVisible(false)
 	end
-	models.models.knit:setVisible(CostumeClass.CurrentCostume == "KNIT" and not ArmorClass.ArmorVisible[1])
-	models.models.fox_hood:setVisible((CostumeClass.CurrentCostume == "FOX_HOODIE_RED" or CostumeClass.CurrentCostume == "FOX_HOODIE_WHITE") and not ArmorClass.ArmorVisible[1])
+	models.models.costume_knit:setVisible(CostumeClass.CurrentCostume == "KNIT" and not ArmorClass.ArmorVisible[1])
+	models.models.costume_fox_hood:setVisible((CostumeClass.CurrentCostume == "FOX_HOODIE_RED" or CostumeClass.CurrentCostume == "FOX_HOODIE_WHITE") and not ArmorClass.ArmorVisible[1])
 	if CostumeClass.CurrentCostume ~= "MAID_A" and CostumeClass.CurrentCostume ~= "MAID_B" then
 		if renderer:isFirstPerson() and player:getPose() == "SLEEPING" then
 			models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(false)
