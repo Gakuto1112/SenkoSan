@@ -1,9 +1,11 @@
 ---@class NameplateClass ネームプレート（プレイヤーの名前）を制御するクラス
 ---@field NameplateClass.NameList table 利用可能な名前のリスト
+---@field NameplateClass.NamplateOffset number ネームプレートのオフセット
 
 NameplateClass = {}
 
 NameplateClass.NameList = {player:getName(), "Senko", "仙狐", "Senko_san", "仙狐さん", "Sen", "仙", "セン"}
+NameplateClass.NamePlateOffset = 0
 
 ---プレイヤーの表示名を設定する。
 ---@param nameID integer 新しい表示名
@@ -22,11 +24,17 @@ function nameInit()
 	end
 end
 
-events.TICK:register(function()
-	if General.isAnimationPlaying("models.main", "sit_down") then
-		nameplate.ENTITY:setPos(0, -0.5, 0)
+events.RENDER:register(function ()
+	local currentNameplateOffset = nameplate.ENTITY:getPos()
+	if currentNameplateOffset == nil then
+		currentNameplateOffset = 0
 	else
-		nameplate.ENTITY:setPos(0, 0, 0)
+		currentNameplateOffset = currentNameplateOffset.y
+	end
+	if currentNameplateOffset > NameplateClass.NamePlateOffset then
+		nameplate.ENTITY:setPos(0, math.max(currentNameplateOffset - 3 / client:getFPS(), NameplateClass.NamePlateOffset), 0)
+	elseif currentNameplateOffset < NameplateClass.NamePlateOffset then
+		nameplate.ENTITY:setPos(0, math.min(currentNameplateOffset + 3 / client:getFPS(), NameplateClass.NamePlateOffset), 0)
 	end
 end)
 

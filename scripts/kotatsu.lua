@@ -16,6 +16,8 @@ function KotatsuClass.play()
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 	print(LanguageClass.getTranslate("action_wheel__main_1__action_7__start"))
 	PhysicsClass.EnablePyhsics[1] = false
+	CameraClass.CameraOffset = -1
+	NameplateClass.NamePlateOffset = -1
 	KotatsuAnimationCount = 1
 end
 
@@ -29,6 +31,8 @@ function KotatsuClass.stop()
 	end
 	ArmsClass.ItemHeldContradicts = {false, false}
 	PhysicsClass.EnablePyhsics[1] = true
+	CameraClass.CameraOffset = 0
+	NameplateClass.NamePlateOffset = 0
 	KotatsuAnimationCount = 0
 end
 
