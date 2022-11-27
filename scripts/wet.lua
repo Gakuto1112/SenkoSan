@@ -41,7 +41,7 @@ events.TICK:register(function()
 		end
 	end
 	local tail = models.models.main.Avatar.Body.BodyBottom.Tail
-	WetClass.IsWet = (player:isInRain() and not UmbrellaClass.EnableUmbrella) or player:isInWater()
+	WetClass.IsWet = (player:isInRain() and not UmbrellaClass.Umbrella) or player:isInWater()
 	if WetClass.IsWet then
 		WetClass.WetCount = player:isInWater() and 1200 or WetClass.WetCount + 4
 		EarsClass.setEarsRot("DROOPING", 1, true)

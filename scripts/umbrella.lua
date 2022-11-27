@@ -1,9 +1,11 @@
 ---@class UmbrellaClass 傘を制御するクラス
----@field UmbrellaClass.EnableUmbrella boolean 傘をさせるかどうか（）
+---@field UmbrellaClass.Umbrella boolean 傘をさしているかどうか
+---@field UmbrellaClass.EnableUmbrella boolean 傘をさせるかどうか（他のクラスから操作）
 ---@field UmbrellaPrev boolean 前チックに傘をさしていたかどうか
 ---@field UmbrellaClass.UmbrellaSound boolean 傘の開閉音を再生するかどうか
 
 UmbrellaClass = {}
+UmbrellaClass.Umbrella = false
 UmbrellaClass.EnableUmbrella = true
 UmbrellaPrev = false
 UmbrellaClass.UmbrellaSound = ConfigClass.loadConfig("umbrellaSound", true)
@@ -12,13 +14,13 @@ events.TICK:register(function ()
 	local playerPose = player:getPose()
 	local activeItem = player:getActiveItem()
 	local mainHeldItem = player:getHeldItem()
-	local umbrellaCheck = player:isInRain() and not player:isUnderwater() and activeItem.id ~= "minecraft:bow" and activeItem.id ~= "minecraft:crossbow" and (mainHeldItem.id ~= "minecraft:crossbow" or mainHeldItem.tag["Charged"] == 0) and not player:getVehicle() and playerPose ~= "FALL_FLYING" and playerPose ~= "SWIMMING" and player:getHeldItem(true).id == "minecraft:air" and UmbrellaClass.EnableUmbrella
+	UmbrellaClass.Umbrella = player:isInRain() and not player:isUnderwater() and activeItem.id ~= "minecraft:bow" and activeItem.id ~= "minecraft:crossbow" and (mainHeldItem.id ~= "minecraft:crossbow" or mainHeldItem.tag["Charged"] == 0) and not player:getVehicle() and playerPose ~= "FALL_FLYING" and playerPose ~= "SWIMMING" and player:getHeldItem(true).id == "minecraft:air" and UmbrellaClass.EnableUmbrella
 	local umbrella = models.models.umbrella
 	local rightArm = models.models.main.Avatar.Body.Arms.RightArm
 	local leftArm = models.models.main.Avatar.Body.Arms.LeftArm
 	local rightArmorArm = models.models.armor.Avatar.Body.Arms.RightArm
 	local leftArmorArm = models.models.armor.Avatar.Body.Arms.LeftArm
-	if umbrellaCheck then
+	if UmbrellaClass.Umbrella then
 		if not UmbrellaPrev and UmbrellaClass.UmbrellaSound then
 			sounds:playSound("minecraft:entity.bat.takeoff", player:getPos(), 0.5, 1.5)
 		end
@@ -57,7 +59,7 @@ events.TICK:register(function ()
 		end
 		umbrella:setVisible(false)
 	end
-	UmbrellaPrev = umbrellaCheck
+	UmbrellaPrev = UmbrellaClass.Umbrella
 end)
 
 
