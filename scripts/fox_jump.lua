@@ -10,6 +10,7 @@ FoxJumpAnimationCount = 0
 ---キツネジャンプのアニメーションを再生する。
 function FoxJumpClass.play()
 	General.setAnimations("PLAY", "fox_jump")
+	UmbrellaClass.EnableUmbrella = false
 	FoxJumpAnimationCount = 128
 end
 
@@ -17,6 +18,7 @@ end
 function FoxJumpClass.stop()
 	General.setAnimations("STOP", "fox_jump")
 	FacePartsClass:resetEmotion()
+	UmbrellaClass.EnableUmbrella = true
 	FoxJumpAnimationCount = 0
 end
 

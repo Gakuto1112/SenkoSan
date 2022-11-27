@@ -18,6 +18,7 @@ function KotatsuClass.play()
 	PhysicsClass.EnablePyhsics[1] = false
 	CameraClass.CameraOffset = -1
 	NameplateClass.NamePlateOffset = -1
+	UmbrellaClass.EnableUmbrella = false
 	KotatsuAnimationCount = 1
 end
 
@@ -33,6 +34,7 @@ function KotatsuClass.stop()
 	PhysicsClass.EnablePyhsics[1] = true
 	CameraClass.CameraOffset = 0
 	NameplateClass.NamePlateOffset = 0
+	UmbrellaClass.EnableUmbrella = true
 	KotatsuAnimationCount = 0
 end
 

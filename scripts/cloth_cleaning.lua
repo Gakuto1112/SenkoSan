@@ -12,6 +12,7 @@ function ClothCleaningClass.play()
 	models.models.cloth_cleaning.Avatar.Body.Arms.RightArm:setParentType("None")
 	General.setAnimations("PLAY", "cloth_cleaning")
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+	UmbrellaClass.EnableUmbrella = false
 	ClothCleaningAnimationCount = 198
 end
 
@@ -28,6 +29,7 @@ function ClothCleaningClass.stop()
 		modelPart:setVisible(true)
 	end
 	ArmsClass.ItemHeldContradicts = {false, false}
+	UmbrellaClass.EnableUmbrella = true
 	ClothCleaningAnimationCount = 0
 end
 

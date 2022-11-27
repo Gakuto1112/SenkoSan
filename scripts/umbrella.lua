@@ -1,25 +1,25 @@
 ---@class UmbrellaClass 傘を制御するクラス
----@field UmbrellaClass.EnableUmbrella boolean 傘をさしているかどうか
----@field EnableUmbrellaPrev boolean 前チックに傘をさしていたかどうか
+---@field UmbrellaClass.EnableUmbrella boolean 傘をさせるかどうか（）
+---@field UmbrellaPrev boolean 前チックに傘をさしていたかどうか
 ---@field UmbrellaClass.UmbrellaSound boolean 傘の開閉音を再生するかどうか
 
 UmbrellaClass = {}
-UmbrellaClass.EnableUmbrella = false
-EnableUmbrellaPrev = false
+UmbrellaClass.EnableUmbrella = true
+UmbrellaPrev = false
 UmbrellaClass.UmbrellaSound = ConfigClass.loadConfig("umbrellaSound", true)
 
 events.TICK:register(function ()
 	local playerPose = player:getPose()
 	local activeItem = player:getActiveItem()
 	local mainHeldItem = player:getHeldItem()
-	UmbrellaClass.EnableUmbrella = player:isInRain() and not player:isUnderwater() and activeItem.id ~= "minecraft:bow" and activeItem.id ~= "minecraft:crossbow" and (mainHeldItem.id ~= "minecraft:crossbow" or mainHeldItem.tag["Charged"] == 0) and not player:getVehicle() and playerPose ~= "FALL_FLYING" and playerPose ~= "SWIMMING" and player:getHeldItem(true).id == "minecraft:air" and not General.isAnimationPlaying("models.main", "broom_cleaning") and not General.isAnimationPlaying("models.main", "vacuum_cleaning") and not General.isAnimationPlaying("models.main", "cloth_cleaning") and not General.isAnimationPlaying("models.main", "hair_cut") and not General.isAnimationPlaying("models.main", "fox_jump") and not General.isAnimationPlaying("models.main", "tail_cuddling") and not General.isAnimationPlaying("models.main", "earpick") and not General.isAnimationPlaying("models.main", "tea_time") and not General.isAnimationPlaying("models.main", "massage")
+	local umbrellaCheck = player:isInRain() and not player:isUnderwater() and activeItem.id ~= "minecraft:bow" and activeItem.id ~= "minecraft:crossbow" and (mainHeldItem.id ~= "minecraft:crossbow" or mainHeldItem.tag["Charged"] == 0) and not player:getVehicle() and playerPose ~= "FALL_FLYING" and playerPose ~= "SWIMMING" and player:getHeldItem(true).id == "minecraft:air" and UmbrellaClass.EnableUmbrella
 	local umbrella = models.models.umbrella
 	local rightArm = models.models.main.Avatar.Body.Arms.RightArm
 	local leftArm = models.models.main.Avatar.Body.Arms.LeftArm
 	local rightArmorArm = models.models.armor.Avatar.Body.Arms.RightArm
 	local leftArmorArm = models.models.armor.Avatar.Body.Arms.LeftArm
-	if UmbrellaClass.EnableUmbrella then
-		if not EnableUmbrellaPrev and UmbrellaClass.UmbrellaSound then
+	if umbrellaCheck then
+		if not UmbrellaPrev and UmbrellaClass.UmbrellaSound then
 			sounds:playSound("minecraft:entity.bat.takeoff", player:getPos(), 0.5, 1.5)
 		end
 		if player:isLeftHanded() then
@@ -43,7 +43,7 @@ events.TICK:register(function ()
 		end
 		umbrella:setVisible(true)
 	else
-		if EnableUmbrellaPrev and UmbrellaClass.UmbrellaSound then
+		if UmbrellaPrev and UmbrellaClass.UmbrellaSound then
 			sounds:playSound("minecraft:entity.bat.takeoff", player:getPos(), 0.5, 1.5)
 		end
 		rightArm:setParentType("RightArm")
@@ -57,7 +57,7 @@ events.TICK:register(function ()
 		end
 		umbrella:setVisible(false)
 	end
-	EnableUmbrellaPrev = UmbrellaClass.EnableUmbrella
+	UmbrellaPrev = umbrellaCheck
 end)
 
 

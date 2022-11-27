@@ -11,6 +11,7 @@ function EarpickClass.play()
 	General.setAnimations("PLAY", "earpick")
 	General.setAnimations("PLAY", "earpick_arm_fix")
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+	UmbrellaClass.EnableUmbrella = false
 	EarpickAnimationCount = 238
 end
 
@@ -25,6 +26,7 @@ function EarpickClass.stop()
 		modelPart:setVisible(true)
 	end
 	ArmsClass.ItemHeldContradicts = {false, false}
+	UmbrellaClass.EnableUmbrella = true
 	EarpickAnimationCount = 0
 end
 

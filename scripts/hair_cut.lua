@@ -16,6 +16,7 @@ function HairCutClass.play()
 	end
 	General.setAnimations("PLAY", "hair_cut")
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+	UmbrellaClass.EnableUmbrella = false
 	HairCutAnimationCount = 488
 end
 
@@ -32,6 +33,7 @@ function HairCutClass.stop()
 		modelPart:setVisible(true)
 	end
 	ArmsClass.ItemHeldContradicts = {false, false}
+	UmbrellaClass.EnableUmbrella = true
 	HairCutAnimationCount = 0
 end
 

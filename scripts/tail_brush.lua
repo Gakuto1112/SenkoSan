@@ -18,6 +18,7 @@ function TailBrushClass.play()
 	end
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 	PhysicsClass.EnablePyhsics[1] = false
+	UmbrellaClass.EnableUmbrella = false
 	TailBrushAnimationCount = 200
 end
 
@@ -37,6 +38,7 @@ function TailBrushClass.stop()
 	end
 	ArmsClass.ItemHeldContradicts = {false, false}
 	PhysicsClass.EnablePyhsics[1] = true
+	UmbrellaClass.EnableUmbrella = true
 	TailBrushAnimationCount = 0
 end
 

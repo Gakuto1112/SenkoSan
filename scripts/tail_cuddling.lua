@@ -15,6 +15,7 @@ function TailCuddlingClass.play()
 	General.setAnimations("PLAY", "tail_cuddling")
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 	PhysicsClass.EnablePyhsics[1] = false
+	UmbrellaClass.EnableUmbrella = false
 	TailCuddlingAnimationCount = 380
 end
 
@@ -32,6 +33,7 @@ function TailCuddlingClass.stop()
 		modelPart:setVisible(true)
 	end
 	PhysicsClass.EnablePyhsics[1] = true
+	UmbrellaClass.EnableUmbrella = true
 	TailCuddlingAnimationCount = 0
 end
 

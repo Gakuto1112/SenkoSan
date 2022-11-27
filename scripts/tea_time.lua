@@ -13,6 +13,7 @@ function TeaTimeClass.play()
 	General.setAnimations("PLAY", "tea_time")
 	General.setAnimations("PLAY", "earpick_arm_fix")
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+	UmbrellaClass.EnableUmbrella = false
 	TeaTimeAnimationCount = 250
 end
 
@@ -29,6 +30,7 @@ function TeaTimeClass.stop()
 		modelPart:setVisible(true)
 	end
 	ArmsClass.ItemHeldContradicts = {false, false}
+	UmbrellaClass.EnableUmbrella = true
 	TeaTimeAnimationCount = 0
 end
 

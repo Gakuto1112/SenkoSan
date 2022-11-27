@@ -10,6 +10,7 @@ function VacuumCleaningClass.play()
 	models.models.vacuum_cleaning:setVisible(true)
 	General.setAnimations("PLAY", "vacuum_cleaning")
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+	UmbrellaClass.EnableUmbrella = false
 	VacuumCleaningAnimationCount = 281
 end
 
@@ -26,6 +27,7 @@ function VacuumCleaningClass.stop()
 		modelPart:setVisible(true)
 	end
 	ArmsClass.ItemHeldContradicts = {false, false}
+	UmbrellaClass.EnableUmbrella = true
 	VacuumCleaningAnimationCount = 0
 end
 

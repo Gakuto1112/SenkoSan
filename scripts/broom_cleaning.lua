@@ -12,6 +12,7 @@ function BroomCleaningClass.play()
 	models.models.broom_cleaning.Avatar.Dust:setOpacity(1)
 	General.setAnimations("PLAY", "broom_cleaning")
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+	UmbrellaClass.EnableUmbrella = false
 	BroomCleaningAnimationCount = 169
 end
 
@@ -25,6 +26,7 @@ function BroomCleaningClass.stop()
 		modelPart:setVisible(true)
 	end
 	ArmsClass.ItemHeldContradicts = {false, false}
+	UmbrellaClass.EnableUmbrella = true
 	BroomCleaningAnimationCount = 0
 end
 

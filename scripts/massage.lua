@@ -11,6 +11,7 @@ function MassaseClass.play()
 	General.setAnimations("PLAY", "massage")
 	General.setAnimations("PLAY", "earpick_arm_fix")
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+	UmbrellaClass.EnableUmbrella = false
 	MassageAnimationCount = 426
 end
 
@@ -25,6 +26,7 @@ function MassaseClass.stop()
 		modelPart:setVisible(true)
 	end
 	ArmsClass.ItemHeldContradicts = {false, false}
+	UmbrellaClass.EnableUmbrella = true
 	MassageAnimationCount = 0
 end
 
