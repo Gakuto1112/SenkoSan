@@ -3,7 +3,7 @@
 ---@field CostumeClass.CurrentCostume CostumeType 現在のコスチューム
 
 CostumeClass = {}
-CostumeClass.CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "tracksuit", "casual", "china_dress", "santa"}
+CostumeClass.CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "tracksuit", "casual", "sailor", "china_dress", "santa"}
 CostumeClass.CurrentCostume = "DEFAULT"
 
 ---@alias CostumeType
@@ -22,6 +22,7 @@ CostumeClass.CurrentCostume = "DEFAULT"
 ---| "FOX_HOODIE_WHITE"
 ---| "TRACKSUIT"
 ---| "CASUAL"
+---| "SAILOR"
 ---| "CHINA_DRESS"
 ---| "SANTA"
 
@@ -93,11 +94,17 @@ function CostumeClass.setCostume(costume)
 		setCostumeTextureOffset(13)
 		models.models.costume_beret:setVisible(true)
 		ApronClass.IsVisible = false
-	elseif costume == "CHINA_DRESS" then
+	elseif costume == "SAILOR" then
 		setCostumeTextureOffset(14)
+		for _, modelPart in ipairs({models.models.costume_mini_skirt.Avatar.Body.BodyBottom.Skirt.Skirt1, models.models.costume_mini_skirt.Avatar.Body.BodyBottom.Skirt.Skirt2}) do
+			modelPart:setUVPixels(0, 28)
+		end
+		ApronClass.IsVisible = false
+	elseif costume == "CHINA_DRESS" then
+		setCostumeTextureOffset(15)
 		ApronClass.IsVisible = false
 	elseif costume == "SANTA" then
-		setCostumeTextureOffset(15)
+		setCostumeTextureOffset(16)
 	end
 end
 
@@ -258,7 +265,7 @@ events.TICK:register(function ()
 			models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
 		end
 	end
-	if CostumeClass.CurrentCostume == "SWIMSUIT" or CostumeClass.CurrentCostume == "CHEERLEADER" then
+	if CostumeClass.CurrentCostume == "SWIMSUIT" or CostumeClass.CurrentCostume == "CHEERLEADER" or CostumeClass.CurrentCostume == "SAILOR" then
 		local skirt = models.models.costume_mini_skirt.Avatar.Body.BodyBottom.Skirt
 		skirt:setVisible(not ArmorClass.ArmorVisible[3] and not General.isAnimationPlaying("models.main", "kotatsu"))
 		skirt:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
