@@ -1,5 +1,6 @@
 ---@class General 他の複数のクラスが参照するフィールドや関数を定義するクラス
 ---@field General.PlayerCondition ConditionLevel プレイヤーの体力・満腹度の度合い
+---@field General.IsSneaking boolean プレイがスニーク状態かどうか（RENDERでスニーク補正を行う為、TICKでスニークチェックをしたい）
 
 --[[
 	## General.playerConditionの値
@@ -28,6 +29,7 @@
 General = {}
 
 General.PlayerCondition = "HIGH"
+General.IsSneaking = false
 
 ---該当するキーのインデックスを返す。キーがテーブルに存在しない場合は-1を返す。
 ---@param targetTable table 調べるテーブル
@@ -95,6 +97,7 @@ events.TICK:register(function ()
 	local healthPercent = player:getHealth() / player:getMaxHealth()
 	local satisfactionPercent = player:getFood() / 20
 	General.PlayerCondition = player:getFrozenTicks() == 140 and "LOW" or (((healthPercent > 0.5 and satisfactionPercent > 0.3) or (gamemode == "CREATIVE" or gamemode == "SPECTATOR")) and "HIGH" or ((healthPercent > 0.2 and satisfactionPercent > 0) and "MEDIUM" or "LOW"))
+	General.IsSneaking = player:getPose() == "CROUCHING"
 end)
 
 return General

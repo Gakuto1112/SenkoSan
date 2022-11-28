@@ -12,7 +12,7 @@ end)
 events.RENDER:register(function ()
 	if ApronClass.IsVisible and not General.isAnimationPlaying("models.main", "sit_down") then
 		local apronBottom = models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom
-		if player:getPose() == "CROUCHING" then
+		if General.IsSneaking then
 			apronBottom:setRot(math.max(vanilla_model.RIGHT_LEG:getOriginRot().x, vanilla_model.LEFT_LEG:getOriginRot().x) + 30, 0, 0)
 			apronBottom:setPos(0, 4.5, 1.5)
 			apronBottom:setPivot(0, 14.5, -2)

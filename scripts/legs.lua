@@ -36,8 +36,8 @@ events.RENDER:register(function ()
 	local rightArmorLeg = models.models.armor.Avatar.Body.BodyBottom.Legs.RightLeg
 	local leftArmorLeg = models.models.armor.Avatar.Body.BodyBottom.Legs.LeftLeg
 	local playerPose = player:getPose()
-	local rightLegRot = playerPose == "CROUCHING" and 30 or 0
-	local leftLegRot = playerPose == "CROUCHING" and 30 or 0
+	local rightLegRot = General.IsSneaking and 30 or 0
+	local leftLegRot = General.IsSneaking and 30 or 0
 	if LegsClass.ReducedLegSwing then
 		rightLegRot = rightLegRot + vanilla_model.RIGHT_LEG:getOriginRot().x * -0.5
 		leftLegRot = leftLegRot + vanilla_model.LEFT_LEG:getOriginRot().x * -0.5
