@@ -25,7 +25,7 @@ events.TICK:register(function ()
 		end
 		FoxFirePos:add(vectorToPlayer:scale(0.25))
 		if not renderer:isFirstPerson() or FoxFireClass.FoxFireInFirstPerson then
-			particles:addParticle("minecraft:soul_fire_flame", FoxFirePos:copy():add((math.random() - 0.5) * 0.25, (math.random() - 0.5) * 0.25, (math.random() - 0.5) * 0.25))
+			particles:newParticle("minecraft:soul_fire_flame", FoxFirePos:copy():add((math.random() - 0.5) * 0.25, (math.random() - 0.5) * 0.25, (math.random() - 0.5) * 0.25))
 		end
 	else
 		if FoxFireEnableData[1] then

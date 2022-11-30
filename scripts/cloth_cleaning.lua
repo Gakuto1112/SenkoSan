@@ -57,7 +57,7 @@ events.TICK:register(function ()
 			local playerPos = player:getPos()
 			sounds:playSound("minecraft:entity.player.levelup", playerPos, 1, 1.5)
 			for _ = 1, 30 do
-				particles:addParticle("minecraft:happy_villager", playerPos:copy():add((math.random() - 0.5) * 4, (math.random() - 0.5) * 4 + 1, (math.random() - 0.5) * 4))
+				particles:newParticle("minecraft:happy_villager", playerPos:copy():add((math.random() - 0.5) * 4, (math.random() - 0.5) * 4 + 1, (math.random() - 0.5) * 4))
 			end
 		elseif ClothCleaningAnimationCount == 1 then
 			ClothCleaningClass.stop()

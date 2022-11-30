@@ -14,7 +14,7 @@ EarsClass = {}
 
 EarsRotTypeID = {STAND = 0, SLIGHTLY_DROOPING = -20, DROOPING = -40}
 EarsRotCount = 0
-JerkEarsKey = keybind:create(LanguageClass.getTranslate("key_name__jerk_ears"), ConfigClass.loadConfig("keybind.jerkEars", "key.keyboard.x"))
+JerkEarsKey = keybinds:newKeybind(LanguageClass.getTranslate("key_name__jerk_ears"), ConfigClass.loadConfig("keybind.jerkEars", "key.keyboard.x"))
 EarsClass.EnableJerkEar = true
 JerkEarsCount = 0
 

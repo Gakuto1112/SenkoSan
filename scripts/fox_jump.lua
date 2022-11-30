@@ -35,7 +35,7 @@ events.TICK:register(function ()
 		elseif FoxJumpAnimationCount == 87 or (FoxJumpAnimationCount <= 83 and FoxJumpAnimationCount >= 32 and (FoxJumpAnimationCount - 83) % 3 == 0) or FoxJumpAnimationCount == 18 then
 			sounds:playSound("block.snow.break", player:getPos(), 1, 1)
 			for _ = 1, 5 do
-				particles:addParticle("block minecraft:snow_block", targetPos)
+				particles:newParticle("block minecraft:snow_block", targetPos)
 			end
 			if FoxJumpAnimationCount == 87 then
 				FacePartsClass.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 69, true)

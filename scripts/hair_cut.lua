@@ -5,8 +5,8 @@
 
 HairCutClass = {}
 
-ChairBlock = models.models.hair_cut:addBlock("hair_cut.chair"):block("minecraft:oak_stairs"):pos(8, -6, -4):rot(0, 180, 0)
-ScissorsItem = models.models.hair_cut.Avatar.Body.Arms.RightArm.RightArmBottom.Scissors:addItem("hair_cut.scissors"):item("minecraft:shears"):pos(2, 0, -3):rot(-90, 45, 0):scale(0.5, 0.5, 0.5):enabled(false)
+ChairBlock = models.models.hair_cut:newBlock("hair_cut.chair"):block("minecraft:oak_stairs"):pos(8, -6, -4):rot(0, 180, 0)
+ScissorsItem = models.models.hair_cut.Avatar.Body.Arms.RightArm.RightArmBottom.Scissors:newItem("hair_cut.scissors"):item("minecraft:shears"):pos(2, 0, -3):rot(-90, 45, 0):scale(0.5, 0.5, 0.5):enabled(false)
 HairCutAnimationCount = 0
 
 ---散髪のアニメーションを再生する。
@@ -42,7 +42,7 @@ events.TICK:register(function ()
 		if HairCutAnimationCount > 296 or HairCutAnimationCount <= 206 then
 			local playerPos = player:getPos()
 			for _ = 1, 5 do
-				particles:addParticle("minecraft:end_rod", playerPos:copy():add((math.random() - 0.5) * 10, (math.random() - 0.5) * 10, (math.random() - 0.5) * 10))
+				particles:newParticle("minecraft:end_rod", playerPos:copy():add((math.random() - 0.5) * 10, (math.random() - 0.5) * 10, (math.random() - 0.5) * 10))
 			end
 		end
 		local leftHanded = player:isLeftHanded()
@@ -64,7 +64,7 @@ events.TICK:register(function ()
 			sounds:playSound("minecraft:entity.cat.hiss", player:getPos(), 0.25, 2)
 			local splashPos = vectors.rotateAroundAxis(-(player:getBodyYaw() % 360), 0, 0, 0.3, 0, 1, 0):add(player:getPos():add(0, 1, 0))
 			for _ = 1, 5 do
-				particles:addParticle("minecraft:splash", splashPos)
+				particles:newParticle("minecraft:splash", splashPos)
 			end
 		elseif HairCutAnimationCount == 383 then
 			for _, modelPart in ipairs({models.models.hair_cut.Avatar.Body.Arms.RightArm.RightArmBottom.Spray, models.models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.Comb}) do
@@ -77,7 +77,7 @@ events.TICK:register(function ()
 		elseif HairCutAnimationCount == 296 then
 			local playerPos = player:getPos()
 			for _ = 1, 30 do
-				particles:addParticle("minecraft:smoke", playerPos:copy():add((math.random() - 0.5) * 2, (math.random() - 0.5) * 2 + 1, (math.random() - 0.5) * 2))
+				particles:newParticle("minecraft:smoke", playerPos:copy():add((math.random() - 0.5) * 2, (math.random() - 0.5) * 2 + 1, (math.random() - 0.5) * 2))
 			end
 			sounds:playSound("entity.sheep.shear", player:getPos(), 1, 1)
 			FacePartsClass.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 60, false)
@@ -98,7 +98,7 @@ events.TICK:register(function ()
 			local playerPos = player:getPos()
 			sounds:playSound("minecraft:entity.player.levelup", playerPos, 1, 1.5)
 			for _ = 1, 30 do
-				particles:addParticle("minecraft:happy_villager", playerPos:copy():add((math.random() - 0.5) * 4, (math.random() - 0.5) * 4 + 1, (math.random() - 0.5) * 4))
+				particles:newParticle("minecraft:happy_villager", playerPos:copy():add((math.random() - 0.5) * 4, (math.random() - 0.5) * 4 + 1, (math.random() - 0.5) * 4))
 			end
 		end
 		if HairCutAnimationCount == 1 then

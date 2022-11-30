@@ -21,8 +21,8 @@
 ActionWheelClass = {}
 
 MainPages = {}
-WordPage = action_wheel:createPage()
-ConfigPage = action_wheel:createPage()
+WordPage = action_wheel:newPage()
+ConfigPage = action_wheel:newPage()
 IsOpenWordPage = false
 LanguageList = LanguageClass.getLanguages()
 ParentPage = nil
@@ -122,7 +122,7 @@ function pings.main1_action1(particle)
 			local playerPos = player:getPos()
 			sounds:playSound("minecraft:entity.player.levelup", playerPos, 1, 1.5)
 			for _ = 1, 30 do
-				particles:addParticle("minecraft:happy_villager", playerPos:copy():add((math.random() - 0.5) * 4, (math.random() - 0.5) * 4 + 1, (math.random() - 0.5) * 4))
+				particles:newParticle("minecraft:happy_villager", playerPos:copy():add((math.random() - 0.5) * 4, (math.random() - 0.5) * 4 + 1, (math.random() - 0.5) * 4))
 			end
 		end
 		ActionWheelClass.ActionCount = 40
@@ -365,14 +365,14 @@ events.TICK:register(function ()
 	if ShakeSplashCount > 0 then
 		if ShakeSplashCount % 5 == 0 then
 			for _ = 1, 4 do
-				particles:addParticle("minecraft:splash", player:getPos():add(math.random() - 0.5, math.random() + 0.5, math.random() - 0.5))
+				particles:newParticle("minecraft:splash", player:getPos():add(math.random() - 0.5, math.random() + 0.5, math.random() - 0.5))
 			end
 		end
 		ShakeSplashCount = ShakeSplashCount - 1
 	elseif ShakeSplashCount < 0 then
 		if ShakeSplashCount % 5 == 0 then
 			for _ = 1, 6 do
-				particles:addParticle("minecraft:block minecraft:snow_block", player:getPos():add(math.random() - 0.5, math.random() + 0.5, math.random() - 0.5))
+				particles:newParticle("minecraft:block minecraft:snow_block", player:getPos():add(math.random() - 0.5, math.random() + 0.5, math.random() - 0.5))
 			end
 		end
 		ShakeSplashCount = ShakeSplashCount + 1
@@ -380,7 +380,7 @@ events.TICK:register(function ()
 	if SweatCount > 0 then
 		if SweatCount % 5 == 0 then
 			for _ = 1, 4 do
-				particles:addParticle("minecraft:splash", player:getPos():add(0, 2, 0))
+				particles:newParticle("minecraft:splash", player:getPos():add(0, 2, 0))
 			end
 		end
 		SweatCount = SweatCount - 1
@@ -388,7 +388,7 @@ events.TICK:register(function ()
 end)
 
 for _ = 1, 3 do
-	table.insert(MainPages, action_wheel:createPage())
+	table.insert(MainPages, action_wheel:newPage())
 end
 
 --メインページのアクション設定

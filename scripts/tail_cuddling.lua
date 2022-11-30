@@ -43,7 +43,7 @@ events.TICK:register(function ()
 		if TailCuddlingAnimationCount <= 270 and TailCuddlingAnimationCount >= 20 then
 			local playerPos = player:getPos()
 			for _ = 1, 5 do
-				particles:addParticle("minecraft:end_rod", playerPos:copy():add((math.random() - 0.5) * 10, (math.random() - 0.5) * 10, (math.random() - 0.5) * 10))
+				particles:newParticle("minecraft:end_rod", playerPos:copy():add((math.random() - 0.5) * 10, (math.random() - 0.5) * 10, (math.random() - 0.5) * 10))
 			end
 		end
 		if TailCuddlingAnimationCount == 370 then
@@ -75,7 +75,7 @@ events.TICK:register(function ()
 				local playerPos = player:getPos()
 				sounds:playSound("minecraft:entity.player.levelup", playerPos, 1, 1.5)
 				for _ = 1, 30 do
-					particles:addParticle("minecraft:happy_villager", playerPos:copy():add((math.random() - 0.5) * 4, (math.random() - 0.5) * 4 + 1, (math.random() - 0.5) * 4))
+					particles:newParticle("minecraft:happy_villager", playerPos:copy():add((math.random() - 0.5) * 4, (math.random() - 0.5) * 4 + 1, (math.random() - 0.5) * 4))
 				end
 			elseif TailCuddlingAnimationCount == 20 then
 				models.models.tail_cuddling.SittingPlayer:setVisible(false)

@@ -4,7 +4,7 @@
 
 TailClass = {}
 
-WagTailKey = keybind:create(LanguageClass.getTranslate("key_name__wag_tail"), ConfigClass.loadConfig("keybind.wagTail", "key.keyboard.z"))
+WagTailKey = keybinds:newKeybind(LanguageClass.getTranslate("key_name__wag_tail"), ConfigClass.loadConfig("keybind.wagTail", "key.keyboard.z"))
 WagTailCount = -1
 
 --ping関数
