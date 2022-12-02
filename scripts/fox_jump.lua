@@ -27,7 +27,7 @@ events.TICK:register(function ()
 	local block1_1 = world.getBlockState(targetPos:copy():add(0, -1, 0))
 	local block10 = world.getBlockState(targetPos)
 	local block1_1SnowLayer = block1_1.id == "minecraft:snow" and tonumber(block1_1.properties["layers"]) >= 6 or false
-	FoxJumpClass.CanFoxJump = BroomCleaningClass.CanBroomCleaning and (block10.id == "minecraft:air" or block10.id == "minecraft:snow") and (block1_1.id == "minecraft:snow_block" or block1_1SnowLayer) and world.getBlockState(targetPos:copy():add(0, 1, 0)).id == "minecraft:air" and world.getBlockState(targetPos:copy():add(0, 2, 0)).id == "minecraft:air" and world.getBlockState(player:getPos():add(0, 2, 0)).id == "minecraft:air"
+	FoxJumpClass.CanFoxJump = BroomCleaning:checkAction() and (block10.id == "minecraft:air" or block10.id == "minecraft:snow") and (block1_1.id == "minecraft:snow_block" or block1_1SnowLayer) and world.getBlockState(targetPos:copy():add(0, 1, 0)).id == "minecraft:air" and world.getBlockState(targetPos:copy():add(0, 2, 0)).id == "minecraft:air" and world.getBlockState(player:getPos():add(0, 2, 0)).id == "minecraft:air"
 	if FoxJumpAnimationCount > 0 then
 		if FoxJumpAnimationCount == 98 then
 			sounds:playSound("entity.snowball.throw", player:getPos(), 1, 1.5)

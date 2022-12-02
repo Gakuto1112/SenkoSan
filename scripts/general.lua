@@ -76,6 +76,26 @@ function General.isAnimationPlaying(modelName, animationName)
 	return animations[modelName][animationName]:getPlayState() == "PLAYING"
 end
 
+---メイン以外にあるモデルファイルにある指定されたアニメーション名と同じアニメーションを取得する。
+---@param animationName string 取得するアニメーションの名前
+---@return table animationList 取得したアニメーションのリスト
+function General.getAnimationsOutOfMain(animationName)
+	local result = {}
+	local modelFiles = models.models:getChildren()
+	for _, modelPart in ipairs(modelFiles) do
+		local modelName = modelPart:getName()
+		if modelName ~= "main" then
+			local animationsInModel = animations["models."..modelName]
+			if animationsInModel then
+				if animationsInModel[animationName] then
+					table.insert(result, animationsInModel[animationName])
+				end
+			end
+		end
+	end
+	return result
+end
+
 --複数のモデルファイルのアニメーションを同時に制御する。
 ---@param animationState AnimationState アニメーションの設定値
 ---@param animationName string アニメーションの名前

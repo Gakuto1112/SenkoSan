@@ -40,7 +40,7 @@ end
 
 events.TICK:register(function ()
 	local bodyYaw = player:getBodyYaw()
-	KotatsuClass.CanKotatsu = BroomCleaningClass.CanBroomCleaning and bodyYaw == BodyYawPrev
+	KotatsuClass.CanKotatsu = BroomCleaning:checkAction() and bodyYaw == BodyYawPrev
 	if KotatsuAnimationCount > 0 then
 		local leftHanded = player:isLeftHanded()
 		if player:getHeldItem(leftHanded).id ~= "minecraft:air" then

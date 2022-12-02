@@ -46,39 +46,24 @@ AnimationAction = {
 				end
 			end
 		end
-		instace.HideHeldItem = true --アニメーション再生中に手持ちアイテムを隠すかどうか
+		instace.HideHeldItem = false --アニメーション再生中に手持ちアイテムを隠すかどうか
 		events.TICK:register(function ()
 			if instace.AnimationCount > 0 then
-				if instace.HideHeldItem then
-					for index, vanillaModelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
-						if player:getHeldItem(player:isLeftHanded() == (index == 1)) ~= "minecraft:air" then
-							vanillaModelPart:setVisible(false)
-							ArmsClass.ItemHeldContradicts[index] = true
-						else
-							vanillaModelPart:setVisible(true)
-							ArmsClass.ItemHeldContradicts[index] = false
-						end
-					end
-				else
-					for _, vanillaModelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
-						vanillaModelPart:setVisible(true)
-						ArmsClass.ItemHeldContradicts = {true, true}
-					end
-				end
 				instace:onAnimationTick()
-				instace.AnimationCount = (instace.AnimationCount > 0 and not client:isPaused()) and instace.AnimationCount - 1 or instace.AnimationCount
-				instace.AnimationChecked = false
 			end
+			instace.AnimationChecked = false
 		end)
 		return instace
 	end,
 
-	---アクションが再生可能か確認する。
-	actionCheck = function (self)
+	---アクションが再生可能かどうかを返す。
+	---@return boolean canPlayAction アクションが実行可能かどうか
+	checkAction = function (self)
 		if not self.AnimationChecked then
 			self.CanPlayAnimation = self.CheckFunction()
 			self.AnimationChecked = true
 		end
+		return self.CanPlayAnimation
 	end,
 
 	---アクションを再生する。
@@ -105,9 +90,26 @@ AnimationAction = {
 
 	---アニメーション再生中に毎チック実行される関数
 	onAnimationTick = function (self)
+		if self.HideHeldItem then
+			for index, vanillaModelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
+				if player:getHeldItem(player:isLeftHanded() == (index == 1)) ~= "minecraft:air" then
+					vanillaModelPart:setVisible(false)
+					ArmsClass.ItemHeldContradicts[index] = true
+				else
+					vanillaModelPart:setVisible(true)
+					ArmsClass.ItemHeldContradicts[index] = false
+				end
+			end
+		else
+			for _, vanillaModelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
+				vanillaModelPart:setVisible(true)
+				ArmsClass.ItemHeldContradicts = {true, true}
+			end
+		end
 		if self.AnimationCount == 1 then
 			self:stop()
 		end
+		self.AnimationCount = (self.AnimationCount > 0 and not client:isPaused()) and self.AnimationCount - 1 or self.AnimationCount
 	end
 }
 

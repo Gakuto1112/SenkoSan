@@ -143,10 +143,10 @@ end
 
 function pings.main1_action3_left()
 	runAction(function ()
-		BroomCleaningClass.play()
-		ActionWheelClass.ActionCount = 168
+		BroomCleaning:play()
+		ActionWheelClass.ActionCount = BroomCleaning.AnimationCount
 	end, function ()
-		BroomCleaningClass.stop()
+		BroomCleaning:stop()
 		ActionWheelClass.ActionCount = 0
 	end, false)
 end
@@ -309,7 +309,7 @@ events.TICK:register(function ()
 		setActionEnabled(1, 1, ActionWheelClass.ActionCount == 0 and not WardenClass.WardenNearby)
 		setActionEnabled(1, 2, ActionWheelClass.ActionCount == 0 and CanBodyShake)
 		for i = 3, 4 do
-			setActionEnabled(1, i, ActionWheelClass.ActionCount == 0 and BroomCleaningClass.CanBroomCleaning)
+			setActionEnabled(1, i, ActionWheelClass.ActionCount == 0 and BroomCleaning:checkAction())
 		end
 		setActionEnabled(1, 5, ActionWheelClass.ActionCount == 0 and FoxJumpClass.CanFoxJump)
 		setActionEnabled(1, 6, ActionWheelClass.ActionCount == 0 and TailBrushClass.CanBrushTail)
@@ -323,7 +323,7 @@ events.TICK:register(function ()
 		sitDownAction:toggled((ActionWheelClass.ActionCount == 0 or General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage") or (General.isAnimationPlaying("models.main", "sit_down") and General.isAnimationPlaying("models.main", "shake"))) and SitDownClass.CanSitDown and sitDownAction:isToggled())
 		setActionEnabled(3, 1, not WardenClass.WardenNearby)
 		if ActionWheelClass.ActionCount > 0 then
-			if (HurtClass.Damaged ~= "NONE" and ActionWheelClass.ActionCount > 0 and WardenClass.WardenNearby) or ((General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage")) and not General.isAnimationPlaying("models.main", "sit_down")) or (General.isAnimationPlaying("models.main", "tail_cuddling") and not TailCuddlingClass.CanCuddleTail) or ((General.isAnimationPlaying("models.main", "broom_cleaning") or General.isAnimationPlaying("models.main", "vacuum_cleaning") or General.isAnimationPlaying("models.main", "cloth_cleaning") or General.isAnimationPlaying("models.main", "hair_cut")) and not BroomCleaningClass.CanBroomCleaning) or (General.isAnimationPlaying("models.main", "fox_jump") and not FoxJumpClass.CanFoxJump) or (General.isAnimationPlaying("models.main", "tail_brush") and not TailBrushClass.CanBrushTail) or (General.isAnimationPlaying("models.main", "kotatsu") and not KotatsuClass.CanKotatsu) then
+			if (HurtClass.Damaged ~= "NONE" and ActionWheelClass.ActionCount > 0 and WardenClass.WardenNearby) or ((General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage")) and not General.isAnimationPlaying("models.main", "sit_down")) or (General.isAnimationPlaying("models.main", "tail_cuddling") and not TailCuddlingClass.CanCuddleTail) or ((General.isAnimationPlaying("models.main", "broom_cleaning") or General.isAnimationPlaying("models.main", "vacuum_cleaning") or General.isAnimationPlaying("models.main", "cloth_cleaning") or General.isAnimationPlaying("models.main", "hair_cut")) and not BroomCleaning:checkAction()) or (General.isAnimationPlaying("models.main", "fox_jump") and not FoxJumpClass.CanFoxJump) or (General.isAnimationPlaying("models.main", "tail_brush") and not TailBrushClass.CanBrushTail) or (General.isAnimationPlaying("models.main", "kotatsu") and not KotatsuClass.CanKotatsu) then
 				ActionCancelFunction()
 				ActionWheelClass.ActionCount = 0
 			end
@@ -427,7 +427,7 @@ end)
 --アクション1-3. お掃除
 MainPages[1]:newAction(3):item("amethyst_shard"):onLeftClick(function ()
 	if ActionWheelClass.ActionCount == 0 then
-		if BroomCleaningClass.CanBroomCleaning then
+		if BroomCleaning:checkAction() then
 			if math.random() > 0.9 then
 				pings.main1_action3_left_alt()
 			else
@@ -441,7 +441,7 @@ MainPages[1]:newAction(3):item("amethyst_shard"):onLeftClick(function ()
 	end
 end):onRightClick(function ()
 	if ActionWheelClass.ActionCount == 0 then
-		if BroomCleaningClass.CanBroomCleaning then
+		if BroomCleaning:checkAction() then
 			pings.main1_action3_right()
 		elseif WardenClass.WardenNearby then
 			pings.refuse_emote()
@@ -454,7 +454,7 @@ end)
 --アクション1-4. 散髪
 MainPages[1]:newAction(4):item("shears"):onLeftClick(function ()
 	if ActionWheelClass.ActionCount == 0 then
-		if BroomCleaningClass.CanBroomCleaning then
+		if BroomCleaning:checkAction() then
 			pings.main1_action4()
 		elseif WardenClass.WardenNearby then
 			pings.refuse_emote()

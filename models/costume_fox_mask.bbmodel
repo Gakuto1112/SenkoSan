@@ -299,21 +299,21 @@
 			"frame_interpolate": false,
 			"visible": true,
 			"mode": "bitmap",
-			"saved": true,
+			"saved": false,
 			"uuid": "4d472f35-9d2e-ae81-e95c-d5d5a7834a23",
-			"relative_path": "../../textures/fox.png",
-			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAgCAYAAABU1PscAAAAAXNSR0IArs4c6QAAAGJJREFUWEft0rENACAMxMBk/6UZ4goUyfR+gc3O8bPH7z894HfBClQADfSFUCDjFWCFOFABFMh4BVghDlQABTJeAVaIAxVAgYxXgBXiQAVQIOMVYIU4UAEUyHgFWCEOnC/wAKY/ACH39uxJAAAAAElFTkSuQmCC"
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAgCAYAAABU1PscAAAAAXNSR0IArs4c6QAAAGJJREFUWEft0rENACAMxMBk/6UZ4goUyfR+gc3O8bPH7z894HfBClQADfSFUCDjFWCFOFABFMh4BVghDlQABTJeAVaIAxVAgYxXgBXiQAVQIOMVYIU4UAEUyHgFWCEOnC/wAKY/ACH39uxJAAAAAElFTkSuQmCC",
+			"relative_path": "../../textures/fox.png"
 		}
 	],
 	"animations": [
 		{
 			"uuid": "30463ead-8825-7394-b445-952079925810",
 			"name": "broom_cleaning",
-			"loop": "once",
+			"loop": "hold",
 			"override": false,
-			"length": 8.41667,
+			"length": 6.66667,
 			"snapping": 24,
-			"selected": false,
+			"selected": true,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
