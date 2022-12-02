@@ -163,10 +163,10 @@ end
 
 function pings.main1_action3_right()
 	runAction(function ()
-		ClothCleaningClass.play()
-		ActionWheelClass.ActionCount = 198
+		ClothCleaning:play()
+		ActionWheelClass.ActionCount = ClothCleaning.AnimationCount
 	end, function ()
-		ClothCleaningClass.stop()
+		ClothCleaning:stop()
 		ActionWheelClass.ActionCount = 0
 	end, false)
 end
