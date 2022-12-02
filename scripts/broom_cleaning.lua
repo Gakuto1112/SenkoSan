@@ -2,6 +2,7 @@
 
 BroomCleaning = {
 	---コンストラクタ
+	---@return table instance インスタンス化されたクラス
 	new = function ()
 		local instance = General.instance(BroomCleaning, AnimationAction, function ()
 			return SitDownClass.CanSitDown and not General.isAnimationPlaying("models.main", "sit_down")
@@ -31,7 +32,7 @@ BroomCleaning = {
 			models.models.broom_cleaning.Avatar.Dust:setOpacity(models.models.broom_cleaning.Avatar.Dust:getOpacity() - 0.14)
 			local dustParticlePivot = models.models.broom_cleaning.Avatar.Dust.DustParticlePivot:partToWorldMatrix()
 			for _ = 1, 5 do
-				particles:newParticle("block minecraft:gravel", dustParticlePivot[4][1], dustParticlePivot[4][2], dustParticlePivot[4][3])
+				particles:newParticle("block gravel", dustParticlePivot[4][1], dustParticlePivot[4][2], dustParticlePivot[4][3])
 			end
 		elseif self.AnimationCount == 41 then
 			FacePartsClass.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)

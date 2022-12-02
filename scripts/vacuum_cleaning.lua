@@ -1,83 +1,60 @@
----@class VacuumCleaningClass 掃除機での掃除のアニメーションを制御するクラス
----@field VacuumCleaningAnimationCount integer アニメーションの再生時間を示すカウンター。
+---@class VacuumCleaning 掃除機での掃除のアニメーションを制御するクラス
 
-VacuumCleaningClass = {}
+VacuumCleaning = {
+	---コンストラクタ
+	---@return table instance インスタンス化されたクラス
+	new = function ()
+		local instance = General.instance(VacuumCleaning, AnimationAction, function ()
+			return BroomCleaning:checkAction()
+		end, models.models.vacuum_cleaning, models.models.vacuum_cleaning, animations["models.main"]["vacuum_cleaning"], General.getAnimationsOutOfMain("vacuum_cleaning"), 0)
+		return instance
+	end,
 
-VacuumCleaningAnimationCount = 0
-
----掃除機アニメーションを再生する。
-function VacuumCleaningClass.play()
-	models.models.vacuum_cleaning:setVisible(true)
-	General.setAnimations("PLAY", "vacuum_cleaning")
-	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-	UmbrellaClass.EnableUmbrella = false
-	VacuumCleaningAnimationCount = 281
-end
-
----掃除機アニメーションを停止する。
-function VacuumCleaningClass.stop()
-	if VacuumCleaningAnimationCount > 148 then
-		models.models.vacuum_cleaning:setVisible(false)
+	---掃除機アニメーションを再生する。
+	play = function (self)
+		AnimationAction.play(self)
+		self.HideHeldItem = true
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-	end
-	General.setAnimations("STOP", "vacuum_cleaning")
-	FacePartsClass:resetEmotion()
-	EarsClass.resetEarsRot()
-	for _, modelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
-		modelPart:setVisible(true)
-	end
-	ArmsClass.ItemHeldContradicts = {false, false}
-	UmbrellaClass.EnableUmbrella = true
-	VacuumCleaningAnimationCount = 0
-end
+	end,
 
-events.TICK:register(function ()
-	if VacuumCleaningAnimationCount > 0 then
-		local leftHanded = player:isLeftHanded()
-		if player:getHeldItem(leftHanded).id ~= "minecraft:air" then
-			vanilla_model.RIGHT_ITEM:setVisible(false)
-			ArmsClass.ItemHeldContradicts[1] = true
-		else
-			vanilla_model.RIGHT_ITEM:setVisible(true)
-			ArmsClass.ItemHeldContradicts[1] = false
+	---掃除機アニメーションを停止する。
+	stop = function (self)
+		AnimationAction.stop(self)
+		if self.AnimationCount > 148 then
+			sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 		end
-		if player:getHeldItem(not leftHanded).id ~= "minecraft:air" then
-			vanilla_model.LEFT_ITEM:setVisible(false)
-			ArmsClass.ItemHeldContradicts[2] = true
-		else
-			vanilla_model.LEFT_ITEM:setVisible(true)
-			ArmsClass.ItemHeldContradicts[2] = false
-		end
-		if VacuumCleaningAnimationCount == 236 then
+	end,
+
+	---アニメーション再生中に毎チック実行される関数
+	onAnimationTick = function (self)
+		AnimationAction.onAnimationTick(self)
+		if self.AnimationCount == 236 then
 			sounds:playSound("block.stone_button.click_on", player:getPos(), 1, 1.5)
-		elseif VacuumCleaningAnimationCount <= 231 and VacuumCleaningAnimationCount > 148 then
-			if VacuumCleaningAnimationCount <= 231 and VacuumCleaningAnimationCount > 192 then
-				if VacuumCleaningAnimationCount == 231 then
+		elseif self.AnimationCount <= 231 and self.AnimationCount > 148 then
+			if self.AnimationCount <= 231 and self.AnimationCount > 192 then
+				if self.AnimationCount == 231 then
 					FacePartsClass.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 39, true)
 					EarsClass.setEarsRot("DROOPING", 230, true)
 				end
 				sounds:playSound("entity.experience_orb.pickup", player:getPos(), 0.25, 1.5)
-			elseif VacuumCleaningAnimationCount <= 189 and VacuumCleaningAnimationCount >= 149 and (VacuumCleaningAnimationCount - 149) % 10 == 0 then
+			elseif self.AnimationCount <= 189 and self.AnimationCount >= 149 and (self.AnimationCount - 149) % 10 == 0 then
 				sounds:playSound("entity.iron_golem.step", player:getPos(), 1, 1)
 			end
-			if VacuumCleaningAnimationCount == 192 then
+			if self.AnimationCount == 192 then
 				FacePartsClass.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 76, true)
 			end
 			sounds:playSound("entity.minecart.riding", player:getPos(), 0.25, 2)
 			local exhaustParticlePivot = models.models.vacuum_cleaning.VeccumCleaner.ExhaustParticlePivot:partToWorldMatrix()
 			particles:newParticle("poof", exhaustParticlePivot[4][1], exhaustParticlePivot[4][2], exhaustParticlePivot[4][3]):scale(0.3)
-		elseif VacuumCleaningAnimationCount == 148 then
+		elseif self.AnimationCount == 148 then
 			models.models.vacuum_cleaning:setVisible(false)
 			sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-		elseif VacuumCleaningAnimationCount == 119 then
+		elseif self.AnimationCount == 119 then
 			FacePartsClass.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 85, true)
-		elseif VacuumCleaningAnimationCount == 34 then
+		elseif self.AnimationCount == 34 then
 			FacePartsClass.setEmotion("CLOSED", "CLOSED", "CLOSED", 30, true)
-		elseif VacuumCleaningAnimationCount == 1 then
-			VacuumCleaningClass.stop()
 		end
-		VacuumCleaningAnimationCount = VacuumCleaningAnimationCount > 0 and (client:isPaused() and VacuumCleaningAnimationCount or VacuumCleaningAnimationCount - 1) or 0
 	end
-end)
+}
 
-return VacuumCleaningClass
+return VacuumCleaning

@@ -8,7 +8,7 @@ AnimationAction = {
 	---@param primaryAnimation Animation 再生するメインのアニメーション。アニメーションの長さ取得にも使われる。
 	---@param secondaryAnimation Animation|table|nil メインのアニメーションと同時に再生するアニメーション
 	---@param additionalAnimationCount integer 追加のアニメーションカウント
-	---@return table インスタンス化されたクラス
+	---@return table instance インスタンス化されたクラス
 	new = function(canPlayAnimation, partToShow, partToHide, primaryAnimation, secondaryAnimation, additionalAnimationCount)
 		local instace = General.instance(AnimationAction)
 		instace.CheckFunction = canPlayAnimation --アニメーションが再生可能か確認する関数
@@ -74,6 +74,7 @@ AnimationAction = {
 		for _, animationElement in ipairs(self.Animations) do
 			animationElement:play()
 		end
+		UmbrellaClass.EnableUmbrella = false
 		self.AnimationCount = self.AnimationLength
 	end,
 
@@ -85,6 +86,12 @@ AnimationAction = {
 		for _, animationElement in ipairs(self.Animations) do
 			animationElement:stop()
 		end
+		self.HideHeldItem = false
+		for _, vanillaModelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
+			vanillaModelPart:setVisible(true)
+			ArmsClass.ItemHeldContradicts = {true, true}
+		end
+		UmbrellaClass.EnableUmbrella = true
 		self.AnimationCount = 0
 	end,
 

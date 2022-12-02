@@ -153,10 +153,10 @@ end
 
 function pings.main1_action3_left_alt()
 	runAction(function ()
-		VacuumCleaningClass.play()
-		ActionWheelClass.ActionCount = 281
+		VacuumCleaning:play()
+		ActionWheelClass.ActionCount = VacuumCleaning.AnimationCount
 	end, function ()
-		VacuumCleaningClass.stop()
+		VacuumCleaning:stop()
 		ActionWheelClass.ActionCount = 0
 	end, false)
 end
