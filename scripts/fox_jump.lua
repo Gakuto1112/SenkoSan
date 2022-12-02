@@ -43,6 +43,7 @@ events.TICK:register(function ()
 				sounds:playSound("entity.snowball.throw", player:getPos(), 1, 1.5)
 			end
 		elseif FoxJumpAnimationCount == 1 then
+			FoxJumpClass.stop()
 			ActionWheelClass.bodyShake(true)
 		end
 		FoxJumpAnimationCount = FoxJumpAnimationCount > 0 and (client:isPaused() and FoxJumpAnimationCount or FoxJumpAnimationCount - 1) or 0

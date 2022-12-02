@@ -74,10 +74,10 @@ function ActionWheelClass.bodyShake(snow)
 		FacePartsClass.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 20, true)
 		if WetClass.WetCount > 0 and not WetClass.IsWet then
 			ShakeSplashCount = 20
-			WetClass.WetCount = 20
 		elseif snow then
 			ShakeSplashCount = -20
 		end
+		WetClass.WetCount = 20
 		ActionWheelClass.ActionCount = 20
 	end, function ()
 		General.setAnimations("STOP", "shake")
