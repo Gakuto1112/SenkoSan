@@ -1,4 +1,4 @@
----@class HairCutClass 散髪のアニメーションを制御するクラス
+---@class HairCut 散髪のアニメーションを制御するクラス
 ---@field HairCut.ChairBlock BlockTask 椅子の代わりのオークの木の階段の描画を行うレンダータスク
 ---@field HairCut.ScissorsItem ItemTask はさみの描画を行うレンダータスク
 
