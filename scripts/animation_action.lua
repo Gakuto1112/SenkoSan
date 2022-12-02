@@ -91,6 +91,7 @@ AnimationAction = {
 			vanillaModelPart:setVisible(true)
 			ArmsClass.ItemHeldContradicts = {true, true}
 		end
+		FacePartsClass.resetEmotion()
 		UmbrellaClass.EnableUmbrella = true
 		self.AnimationCount = 0
 	end,
