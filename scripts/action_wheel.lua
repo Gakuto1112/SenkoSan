@@ -173,10 +173,10 @@ end
 
 function pings.main1_action4()
 	runAction(function ()
-		HairCutClass.play()
-		ActionWheelClass.ActionCount = 488
+		HairCut:play()
+		ActionWheelClass.ActionCount = HairCut.AnimationCount
 	end, function ()
-		HairCutClass.stop()
+		HairCut:stop()
 		ActionWheelClass.ActionCount = 0
 	end)
 end
