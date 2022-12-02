@@ -1,7 +1,7 @@
 ---@class BroomCleaning 箒掃除のアニメーションを制御するクラス
 
 BroomCleaning = General.instance({}, AnimationAction, function ()
-	return SitDownClass.CanSitDown and not General.isAnimationPlaying("models.main", "sit_down")
+	return SitDown:checkAction() and not General.isAnimationPlaying("models.main", "sit_down")
 end, models.models.broom_cleaning, models.models.broom_cleaning, animations["models.main"]["broom_cleaning"], General.getAnimationsOutOfMain("broom_cleaning"), 35)
 
 ---お掃除アニメーションを再生する。

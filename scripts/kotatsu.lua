@@ -12,9 +12,6 @@ Kotatsu.BodyYawPrev = 0
 
 function Kotatsu.onTickEvent(self)
 	PermanentAnimationAction.onTickEvent(self)
-	if self.IsAnimationPlaying then
-		self:onAnimationTick()
-	end
 	Kotatsu.BodyYawPrev = player:getBodyYaw()
 end
 

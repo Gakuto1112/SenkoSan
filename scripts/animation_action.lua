@@ -56,7 +56,7 @@ AnimationAction = {
 
 	---コンストラクタでtickイベントに登録される関数
 	onTickEvent = function (self)
-		if self.AnimationCount > 0 then
+		if self.IsAnimationPlaying then
 			self:onAnimationTick()
 		end
 		self.AnimationChecked = false

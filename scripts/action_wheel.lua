@@ -211,12 +211,12 @@ end
 
 function pings.main2_action1_toggle()
 	runAction(function ()
-		SitDownClass.sitDown()
+		SitDown:play()
 	end, nil, true)
 end
 
 function pings.main2_action1_untoggle()
-	SitDownClass.standUp()
+	SitDown:stop()
 end
 
 function pings.main2_action2()
@@ -314,13 +314,13 @@ events.TICK:register(function ()
 		setActionEnabled(1, 5, ActionWheelClass.ActionCount == 0 and FoxJump:checkAction())
 		setActionEnabled(1, 6, ActionWheelClass.ActionCount == 0 and TailBrush:checkAction())
 		setActionEnabled(1, 7, ActionWheelClass.ActionCount == 0 and Kotatsu:checkAction())
-		setActionEnabled(2, 1, ActionWheelClass.ActionCount == 0 and SitDownClass.CanSitDown)
+		setActionEnabled(2, 1, ActionWheelClass.ActionCount == 0 and SitDown:checkAction())
 		setActionEnabled(2, 2, ActionWheelClass.ActionCount == 0 and TailCuddlingClass.CanCuddleTail)
 		for i = 3, 5 do
 			setActionEnabled(2, i, General.isAnimationPlaying("models.main", "sit_down") and ActionWheelClass.ActionCount == 0 and not WardenClass.WardenNearby)
 		end
 		local sitDownAction = MainPages[2]:getAction(1)
-		sitDownAction:toggled((ActionWheelClass.ActionCount == 0 or General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage") or (General.isAnimationPlaying("models.main", "sit_down") and General.isAnimationPlaying("models.main", "shake"))) and SitDownClass.CanSitDown and sitDownAction:isToggled())
+		sitDownAction:toggled((ActionWheelClass.ActionCount == 0 or General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage") or (General.isAnimationPlaying("models.main", "sit_down") and General.isAnimationPlaying("models.main", "shake"))) and SitDown:checkAction() and sitDownAction:isToggled())
 		setActionEnabled(3, 1, not WardenClass.WardenNearby)
 		if ActionWheelClass.ActionCount > 0 then
 			if (HurtClass.Damaged ~= "NONE" and ActionWheelClass.ActionCount > 0 and WardenClass.WardenNearby) or ((General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage")) and not General.isAnimationPlaying("models.main", "sit_down")) or (General.isAnimationPlaying("models.main", "tail_cuddling") and not TailCuddlingClass.CanCuddleTail) or ((General.isAnimationPlaying("models.main", "broom_cleaning") or General.isAnimationPlaying("models.main", "vacuum_cleaning") or General.isAnimationPlaying("models.main", "cloth_cleaning") or General.isAnimationPlaying("models.main", "hair_cut")) and not BroomCleaning:checkAction()) or (General.isAnimationPlaying("models.main", "fox_jump") and not FoxJump:checkAction()) or (General.isAnimationPlaying("models.main", "tail_brush") and not TailBrush:checkAction()) or (General.isAnimationPlaying("models.main", "kotatsu") and not Kotatsu:checkAction()) then
@@ -506,7 +506,7 @@ end)
 --アクション2-1. おすわり（正座）
 MainPages[2]:newAction(1):toggleColor(233 / 255, 160 / 255, 69 / 255):item("oak_stairs"):onToggle(function ()
 	if ActionWheelClass.ActionCount == 0 then
-		if SitDownClass.CanSitDown then
+		if SitDown:checkAction() then
 			pings.main2_action1_toggle()
 		elseif WardenClass.WardenNearby then
 			pings.refuse_emote()

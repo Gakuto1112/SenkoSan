@@ -15,11 +15,6 @@ PermanentAnimationAction = {
 		return instance
 	end,
 
-	---コンストラクタでtickイベントに登録される関数
-	onTickEvent = function (self)
-		self.AnimationChecked = false
-	end,
-
 	---アクションを再生する。
 	play = function (self)
 		for _, modelPart in ipairs(self.PartToShow) do

@@ -1,29 +1,29 @@
----@class SitDownClass おすわりアクションを制御するクラス
+---@class SitDown おすわりアクションを制御するクラス
 ---@field SitDownClass.CanSitDown boolean 現在座れる状況かを返す。
 
-SitDownClass = {}
-SitDownClass.CanSitDown = false
+SitDown = General.instance({}, PermanentAnimationAction, function ()
+	return player:getPose() == "STANDING" and player:isOnGround() and not player:isInWater() and not player:isInLava() and player:getFrozenTicks() == 0 and not player:getVehicle() and player:getVelocity():length() == 0 and HurtClass.Damaged == "NONE" and not WardenClass.WardenNearby
+end, nil, nil, animations["models.main"]["sit_down"], General.getAnimationsOutOfMain("sit_down"))
 
----座る
-function SitDownClass.sitDown()
-	General.setAnimations("PLAY", "sit_down")
+---おすわりアニメーションが再生する。
+function SitDown.play(self)
+	PermanentAnimationAction.play(self)
 	CameraClass.CameraOffset = -0.5
 	NameplateClass.NamePlateOffset = -0.5
 end
 
---座っている状態から立ち上がる
-function SitDownClass.standUp()
+---おすわりアニメーションが停止する。
+function SitDown.stop(self)
+	PermanentAnimationAction.stop(self)
 	General.setAnimations("PLAY", "stand_up")
-	General.setAnimations("STOP", "sit_down")
 	CameraClass.CameraOffset = 0
 	NameplateClass.NamePlateOffset = 0
 end
 
-events.TICK:register(function ()
-	SitDownClass.CanSitDown = player:getPose() == "STANDING" and player:isOnGround() and not player:isInWater() and not player:isInLava() and player:getFrozenTicks() == 0 and not player:getVehicle() and player:getVelocity():length() == 0 and HurtClass.Damaged == "NONE" and not WardenClass.WardenNearby
-	if General.isAnimationPlaying("models.main", "sit_down") and not SitDownClass.CanSitDown then
-		SitDownClass.standUp()
+function SitDown.onAnimationTick(self)
+	if not self.CanPlayAnimation then
+		self:stop()
 	end
-end)
+end
 
-return SitDownClass
+return SitDown
