@@ -4,7 +4,7 @@ BroomCleaning = General.instance({}, AnimationAction, function ()
 	return SitDown:checkAction() and not General.isAnimationPlaying("models.main", "sit_down")
 end, models.models.broom_cleaning, models.models.broom_cleaning, animations["models.main"]["broom_cleaning"], General.getAnimationsOutOfMain("broom_cleaning"), 35)
 
----お掃除アニメーションを再生する。
+---箒掃除アニメーションを再生する。
 function BroomCleaning.play(self)
 	AnimationAction.play(self)
 	self.HideHeldItem = true
@@ -12,7 +12,7 @@ function BroomCleaning.play(self)
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 end
 
----お掃除アニメーションを停止する。
+---箒掃除アニメーションを停止する。
 function BroomCleaning.stop(self)
 	AnimationAction.stop(self)
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)

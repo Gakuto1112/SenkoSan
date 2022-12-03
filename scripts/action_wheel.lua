@@ -80,14 +80,8 @@ end
 
 --ping関数
 function pings.refuse_emote()
-	General.setAnimations("PLAY", "refuse_emote")
-	FacePartsClass.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 30, true)
-	ActionCancelFunction = nil
-	ActionWheelClass.ActionCount = 30
-	SweatCount = 30
-	if host:isHost() then
-		print("§7"..LanguageClass.getTranslate("action_wheel__refuse_action"))
-	end
+	RefuseEmote:play()
+	ActionWheelClass.ActionCount = RefuseEmote.AnimationLength
 end
 
 function pings.main1_action1_left()
