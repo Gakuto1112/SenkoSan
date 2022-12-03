@@ -82,6 +82,7 @@ AnimationAction = {
 		end
 		UmbrellaClass.EnableUmbrella = false
 		self.IsAnimationPlaying = true
+		ActionWheel.IsAnimationPlaying = true
 		self.AnimationCount = self.AnimationLength
 	end,
 
@@ -98,9 +99,14 @@ AnimationAction = {
 			vanillaModelPart:setVisible(true)
 			ArmsClass.ItemHeldContradicts = {true, true}
 		end
+		for _, vanillaModelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
+			vanillaModelPart:setVisible(true)
+			ArmsClass.ItemHeldContradicts = {false, false}
+		end
 		FacePartsClass.resetEmotion()
 		UmbrellaClass.EnableUmbrella = true
 		self.IsAnimationPlaying = false
+		ActionWheel.IsAnimationPlaying = false
 		self.AnimationCount = 0
 	end,
 
@@ -115,11 +121,6 @@ AnimationAction = {
 					vanillaModelPart:setVisible(true)
 					ArmsClass.ItemHeldContradicts[index] = false
 				end
-			end
-		else
-			for _, vanillaModelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
-				vanillaModelPart:setVisible(true)
-				ArmsClass.ItemHeldContradicts = {true, true}
 			end
 		end
 		if self.AnimationCount == 1 or not self:checkAction() then

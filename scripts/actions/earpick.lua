@@ -9,6 +9,7 @@ function Earpick.play(self)
 	AnimationAction.play(self)
 	General.setAnimations("PLAY", "earpick_arm_fix")
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+	self.HideHeldItem = true
 end
 
 ---耳かきアニメーションを停止する。

@@ -55,13 +55,13 @@ end
 ---@param umbrellaSound boolean 傘の開閉音を再生するかどうか
 function pings.syncAvatarConfig(nameID, costumeID, autoShake, showArmor, umbrellaSound)
 	if not IsSynced then
-		ActionWheelClass.CurrentPlayerNameState = nameID
-		ActionWheelClass.CurrentCostumeState = costumeID
+		ActionWheel.CurrentPlayerNameState = nameID
+		ActionWheel.CurrentCostumeState = costumeID
 		NameplateClass.setName(nameID)
-		if ActionWheelClass.CurrentCostumeState == 0 then
+		if ActionWheel.CurrentCostumeState == 0 then
 			CostumeClass.resetCostume()
 		else
-			CostumeClass.setCostume(string.upper(CostumeClass.CostumeList[ActionWheelClass.CurrentCostumeState]))
+			CostumeClass.setCostume(string.upper(CostumeClass.CostumeList[ActionWheel.CurrentCostumeState]))
 		end
 		WetClass.AutoShake = autoShake
 		ArmorClass.ShowArmor = showArmor
@@ -72,7 +72,7 @@ end
 
 events.TICK:register(function ()
 	if NextSyncCount == 0 then
-		pings.syncAvatarConfig(ActionWheelClass.CurrentPlayerNameState, ActionWheelClass.CurrentCostumeState, WetClass.AutoShake, ArmorClass.ShowArmor, UmbrellaClass.UmbrellaSound)
+		pings.syncAvatarConfig(ActionWheel.CurrentPlayerNameState, ActionWheel.CurrentCostumeState, WetClass.AutoShake, ArmorClass.ShowArmor, UmbrellaClass.UmbrellaSound)
 		NextSyncCount = 300
 	else
 		NextSyncCount = NextSyncCount - 1

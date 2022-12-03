@@ -16,6 +16,7 @@ function Smile.play(self, playSoundParticle)
 		end
 	end
 	self.IsAnimationPlaying = true
+	ActionWheel.IsAnimationPlaying = true
 	self.AnimationCount = self.AnimationLength
 end
 
@@ -23,6 +24,7 @@ end
 function Smile.stop(self)
 	FacePartsClass.resetEmotion()
 	self.IsAnimationPlaying = false
+	ActionWheel.IsAnimationPlaying = false
 	self.AnimationCount = 0
 end
 

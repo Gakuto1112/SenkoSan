@@ -10,6 +10,12 @@ end, nil, nil, animations["models.main"]["fox_jump"], General.getAnimationsOutOf
 
 FoxJump.TargetPos = vectors.vec3(0, 0, 0)
 
+---キツネジャンプアニメーションを再生する。
+function FoxJump.play(self)
+	AnimationAction.play(self)
+	self.HideHeldItem = true
+end
+
 ---アニメーション再生中に毎チック実行される関数
 function FoxJump.onAnimationTick(self)
 	AnimationAction.onAnimationTick(self)

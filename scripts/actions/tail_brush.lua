@@ -11,6 +11,7 @@ function TailBrush.play(self)
 		General.setAnimations("PLAY", "tail_brush_sitdown")
 	end
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+	self.HideHeldItem = true
 	PhysicsClass.EnablePyhsics[1] = false
 end
 

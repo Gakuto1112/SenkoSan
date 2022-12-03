@@ -7,9 +7,9 @@ end, {models.models.cloth_cleaning, models.models.cloth_cleaning.Stain}, {models
 ---雑巾がけアニメーションを再生する。
 function ClothCleaning.play(self)
 	AnimationAction.play(self)
-	self.HideHeldItem = true
 	models.models.cloth_cleaning.Avatar.Body.Arms.RightArm.RightArmBottom.Cloth.Cloth:setUVPixels(0, 0)
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+	self.HideHeldItem = true
 end
 
 ---雑巾がけアニメーションを停止する。

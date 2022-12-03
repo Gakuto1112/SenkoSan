@@ -12,8 +12,8 @@ HairCut.ScissorsItem = models.models.hair_cut.Avatar.Body.Arms.RightArm.RightArm
 ---散髪アニメーションを再生する。
 function HairCut.play(self)
 	AnimationAction.play(self)
-	self.HideHeldItem = true
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+	self.HideHeldItem = true
 end
 
 ---散髪アニメーションを停止する。

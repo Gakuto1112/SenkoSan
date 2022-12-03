@@ -48,7 +48,7 @@ function Kotatsu.onAnimationTick(self)
 		Kotatsu.AnimationCount = 1
 	end
 	FacePartsClass.setEmotion("CLOSED", "CLOSED", "CLOSED", 1, true)
-	ActionWheelClass.ActionCount = 1
+	ActionWheel.ActionCount = 1
 end
 
 return Kotatsu

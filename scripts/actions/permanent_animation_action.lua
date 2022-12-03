@@ -40,6 +40,10 @@ PermanentAnimationAction = {
 			vanillaModelPart:setVisible(true)
 			ArmsClass.ItemHeldContradicts = {true, true}
 		end
+		for _, vanillaModelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
+			vanillaModelPart:setVisible(true)
+			ArmsClass.ItemHeldContradicts = {false, false}
+		end
 		FacePartsClass.resetEmotion()
 		UmbrellaClass.EnableUmbrella = true
 		self.IsAnimationPlaying = false

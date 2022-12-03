@@ -7,8 +7,8 @@ end, models.models.vacuum_cleaning, models.models.vacuum_cleaning, animations["m
 ---掃除機アニメーションを再生する。
 function VacuumCleaning.play(self)
 	AnimationAction.play(self)
-	self.HideHeldItem = true
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+	self.HideHeldItem = true
 end
 
 ---掃除機アニメーションを停止する。

@@ -7,9 +7,9 @@ end, models.models.broom_cleaning, models.models.broom_cleaning, animations["mod
 ---箒掃除アニメーションを再生する。
 function BroomCleaning.play(self)
 	AnimationAction.play(self)
-	self.HideHeldItem = true
 	models.models.broom_cleaning.Avatar.Dust:setOpacity(1)
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+	self.HideHeldItem = true
 end
 
 ---箒掃除アニメーションを停止する。
