@@ -241,10 +241,10 @@ end
 
 function pings.main2_action4()
 	runAction(function ()
-		TeaTimeClass.play()
-		ActionWheelClass.ActionCount = 250
+		TeaTime:play()
+		ActionWheelClass.ActionCount = TeaTime.AnimationLength
 	end, function ()
-		TeaTimeClass.stop()
+		TeaTime:stop()
 		ActionWheelClass.ActionCount = 0
 	end, false)
 end

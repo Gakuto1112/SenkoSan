@@ -1,4 +1,4 @@
----@class EarpickClass 耳かきのアニメーションを制御するクラス
+---@class Earpick 耳かきのアニメーションを制御するクラス
 
 Earpick = General.instance({}, AnimationAction, function ()
 	return TailCuddling:checkAction()
