@@ -231,10 +231,10 @@ end
 
 function pings.main2_action3()
 	runAction(function ()
-		EarpickClass.play()
-		ActionWheelClass.ActionCount = 238
+		Earpick:play()
+		ActionWheelClass.ActionCount = Earpick.AnimationLength
 	end, function ()
-		EarpickClass.stop()
+		Earpick:stop()
 		ActionWheelClass.ActionCount = 0
 	end, false)
 end
