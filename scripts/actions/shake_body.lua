@@ -3,7 +3,7 @@
 
 ShakeBody = General.instance({}, AnimationAction, function ()
 	return not player:isUnderwater() and not player:isInLava() and not Warden.WardenNearby
-end, nil, nil, animations["models.main"]["shake"], General.getAnimationsOutOfMain("shake"), 0)
+end, nil, nil, animations["models.main"]["shake"], General.getAnimations("shake", false), 0)
 
 ShakeBody.SnowParticle = false
 

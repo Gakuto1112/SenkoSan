@@ -2,12 +2,12 @@
 
 TailBrush = General.instance({}, AnimationAction, function ()
 	return SitDown:checkAction() and not player:isWet()
-end, {models.models.tail_brush, models.models.tail_brush.Avatar.Body.Arms.RightArm.RightArmBottom.Brush}, {models.models.tail_brush, models.models.tail_brush.Avatar.Body.Arms.RightArm.RightArmBottom.Brush}, animations["models.main"]["tail_brush"], General.getAnimationsOutOfMain("tail_brush"), 0)
+end, {models.models.tail_brush, models.models.tail_brush.Avatar.Body.Arms.RightArm.RightArmBottom.Brush}, {models.models.tail_brush, models.models.tail_brush.Avatar.Body.Arms.RightArm.RightArmBottom.Brush}, animations["models.main"]["tail_brush"], General.getAnimations("tail_brush", false), 0)
 
 ---尻尾の手入れアニメーションを再生する。
 function TailBrush.play(self)
 	AnimationAction.play(self)
-	if General.isAnimationPlaying("models.main", "sit_down") then
+	if SitDown.IsAnimationPlaying then
 		General.setAnimations("PLAY", "tail_brush_sitdown")
 	end
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)

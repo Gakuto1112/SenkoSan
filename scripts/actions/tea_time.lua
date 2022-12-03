@@ -2,12 +2,11 @@
 
 TeaTime = General.instance({}, AnimationAction, function ()
 	return SitDown.IsAnimationPlaying
-end, {models.models.tea, models.models.tea.Avatar.Body.Yunomi1.Tea}, {models.models.tea, models.models.tea.Avatar.Body.Yunomi1.Tea}, animations["models.main"]["tea_time"], General.getAnimationsOutOfMain("tea_time"), 40)
+end, {models.models.tea, models.models.tea.Avatar.Body.Yunomi1.Tea}, {models.models.tea, models.models.tea.Avatar.Body.Yunomi1.Tea}, animations["models.main"]["tea_time"], General.mergeTable(General.getAnimations("tea_time", false), General.getAnimations("earpick_arm_fix", true)), 40)
 
 ---お茶飲みのアニメーションを再生する。
 function TeaTime:play()
 	AnimationAction.play(self)
-	General.setAnimations("PLAY", "earpick_arm_fix")
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 	self.HideHeldItem = true
 end
@@ -15,7 +14,6 @@ end
 ---お茶飲みのアニメーションを停止する。
 function TeaTime.stop(self)
 	AnimationAction.stop(self)
-	General.setAnimations("STOP", "earpick_arm_fix")
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 end
 

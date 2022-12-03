@@ -3,12 +3,11 @@
 
 Massage = General.instance({}, AnimationAction, function ()
 	return SitDown.IsAnimationPlaying
-end, models.models.massage, models.models.massage, animations["models.main"]["massage"], General.getAnimationsOutOfMain("massage"), 0)
+end, models.models.massage, models.models.massage, animations["models.main"]["massage"], General.mergeTable(General.getAnimations("massage", false), General.getAnimations("earpick_arm_fix", true)), 0)
 
 ---マッサージのアニメーションを再生する。
 function Massage.play(self)
 	AnimationAction.play(self)
-	General.setAnimations("PLAY", "earpick_arm_fix")
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 	self.HideHeldItem = true
 end
@@ -16,7 +15,6 @@ end
 ---マッサージのアニメーションを停止する。
 function Massage.stop(self)
 	AnimationAction.stop(self)
-	General.setAnimations("STOP", "earpick_arm_fix")
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 end
 

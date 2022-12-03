@@ -2,7 +2,7 @@
 
 VacuumCleaning = General.instance({}, AnimationAction, function ()
 	return BroomCleaning:checkAction()
-end, models.models.vacuum_cleaning, models.models.vacuum_cleaning, animations["models.main"]["vacuum_cleaning"], General.getAnimationsOutOfMain("vacuum_cleaning"), 0)
+end, models.models.vacuum_cleaning, models.models.vacuum_cleaning, animations["models.main"]["vacuum_cleaning"], General.getAnimations("vacuum_cleaning", false), 0)
 
 ---掃除機アニメーションを再生する。
 function VacuumCleaning.play(self)

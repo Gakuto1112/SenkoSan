@@ -5,7 +5,7 @@
 
 Kotatsu = General.instance({}, PermanentAnimationAction, function ()
 	return BroomCleaning:checkAction() and player:getBodyYaw() == Kotatsu.BodyYawPrev
-end, models.models.kotatsu, models.models.kotatsu, animations["models.main"]["kotatsu"], General.getAnimationsOutOfMain("kotatsu"))
+end, models.models.kotatsu, models.models.kotatsu, animations["models.main"]["kotatsu"], General.getAnimations("kotatsu", false))
 
 Kotatsu.AnimationCount = 0
 Kotatsu.BodyYawPrev = 0

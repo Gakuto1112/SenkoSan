@@ -2,7 +2,7 @@
 
 ClothCleaning = General.instance({}, AnimationAction, function ()
 	return BroomCleaning:checkAnimation()
-end, {models.models.cloth_cleaning, models.models.cloth_cleaning.Stain}, {models.models.cloth_cleaning, models.models.cloth_cleaning.Stain}, animations["models.main"]["cloth_cleaning"], General.getAnimationsOutOfMain("cloth_cleaning"), 40)
+end, {models.models.cloth_cleaning, models.models.cloth_cleaning.Stain}, {models.models.cloth_cleaning, models.models.cloth_cleaning.Stain}, animations["models.main"]["cloth_cleaning"], General.getAnimations("cloth_cleaning", false), 40)
 
 ---雑巾がけアニメーションを再生する。
 function ClothCleaning.play(self)
