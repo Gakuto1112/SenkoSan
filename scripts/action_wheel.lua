@@ -115,19 +115,22 @@ function pings.refuse_emote()
 	end
 end
 
-function pings.main1_action1(particle)
+function pings.main1_action1_left()
 	runAction(function ()
-		FacePartsClass.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
-		if particle then
-			local playerPos = player:getPos()
-			sounds:playSound("minecraft:entity.player.levelup", playerPos, 1, 1.5)
-			for _ = 1, 30 do
-				particles:newParticle("minecraft:happy_villager", playerPos:copy():add((math.random() - 0.5) * 4, (math.random() - 0.5) * 4 + 1, (math.random() - 0.5) * 4))
-			end
-		end
-		ActionWheelClass.ActionCount = 40
+		Smile:play(false)
+		ActionWheelClass.ActionCount = Smile.AnimationLength
 	end, function ()
-		FacePartsClass.resetEmotion()
+		Smile:stop()
+		ActionWheelClass.ActionCount = 0
+	end, false)
+end
+
+function pings.main1_action1_right()
+	runAction(function ()
+		Smile:play(true)
+		ActionWheelClass.ActionCount = Smile.AnimationLength
+	end, function ()
+		Smile:stop()
 		ActionWheelClass.ActionCount = 0
 	end, false)
 end
@@ -392,7 +395,7 @@ MainPages[1]:newAction(1):item("emerald"):onLeftClick(function ()
 		if WardenClass.WardenNearby then
 			pings.refuse_emote()
 		else
-			pings.main1_action1(false)
+			pings.main1_action1_left()
 		end
 	end
 end):onRightClick(function ()
@@ -400,7 +403,7 @@ end):onRightClick(function ()
 		if WardenClass.WardenNearby then
 			pings.refuse_emote()
 		else
-			pings.main1_action1(true)
+			pings.main1_action1_right()
 		end
 	end
 end)

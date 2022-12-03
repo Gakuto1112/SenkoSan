@@ -16,7 +16,7 @@ AnimationAction = {
 		instance.AnimationChecked = false --このチックでアニメーションが再生可能かどうかを確認したかどうか
 		instance.IsAnimationPlaying = false --アニメーションが再生中かどうか
 		instance.AnimationCount = 0 --アニメーションのタイミングを計るカウンター
-		instance.AnimationLength = primaryAnimation and math.ceil(primaryAnimation:getLength() * 20) + additionalAnimationCount or 0 --メインのアニメーションの長さ
+		instance.AnimationLength = primaryAnimation and math.ceil(primaryAnimation:getLength() * 20) + additionalAnimationCount or additionalAnimationCount --メインのアニメーションの長さ
 		instance.Animations = primaryAnimation and {primaryAnimation} or {} --再生・停止するアニメーションのリスト
 		if secondaryAnimation then
 			if type(secondaryAnimation) == "Animation" then
