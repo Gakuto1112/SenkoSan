@@ -10,7 +10,6 @@
 ---@field ActionCancelFunction function 現在再生中のアクションをキャンセルする処理
 ---@field IsOpenActionWheelPrev boolean 前チックにアクションホイールを開けていたかどうか
 ---@field CanBodyShake boolean ブルブルアクションができるかどうか
----@field ShakeSplashCount integer ブルブル時の水しぶきを出すタイミングを計るカウンター
 ---@field SweatCount integer 汗のタイミングを計るカウンター
 ---@field ActionWheelClass.CurrentCostumeState integer プレイヤーの現在のコスチュームの状態を示す：1. いつもの服, 2. 変装服, 3. メイド服A, 4. メイド服B, 5. 水着, 6. チアリーダーの服, 7. 清めの服, 8. 割烹着
 ---@field CurrentCostumeState integer プレイヤーのコスチュームの状態を示す：1. いつもの服, 2. 変装服, 3. メイド服A, 4. メイド服B, 5. 水着, 6. チアリーダーの服, 7. 清めの服, 8. 割烹着
@@ -31,7 +30,6 @@ ActionWheelClass.ActionCount = 0
 ActionCancelFunction = nil
 IsOpenActionWheelPrev = false
 CanBodyShake = false
-ShakeSplashCount = 0
 SweatCount = 0
 ActionWheelClass.CurrentCostumeState = ConfigClass.loadConfig("costume", 1)
 CostumeState = ActionWheelClass.CurrentCostumeState
@@ -60,29 +58,6 @@ function runAction(action, actionCancelFunction, ignoreCooldown)
 		action()
 		ActionCancelFunction = actionCancelFunction
 	end
-end
-
----ブルブル
----@param snow boolean アニメーションの際に雪のパーティクルを表示させるかどうか
-function ActionWheelClass.bodyShake(snow)
-	runAction(function ()
-		if ActionWheelClass.ActionCount > 0 then
-			ActionCancelFunction()
-		end
-		General.setAnimations("PLAY", "shake")
-		sounds:playSound("minecraft:entity.wolf.shake", player:getPos(), 1, 1.5)
-		FacePartsClass.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 20, true)
-		if WetClass.WetCount > 0 and not WetClass.IsWet then
-			ShakeSplashCount = 20
-		elseif snow then
-			ShakeSplashCount = -20
-		end
-		WetClass.WetCount = 20
-		ActionWheelClass.ActionCount = 20
-	end, function ()
-		General.setAnimations("STOP", "shake")
-		ShakeSplashCount = 0
-	end, true)
 end
 
 ---衣装変更のアクションの名称を変更する。
@@ -137,10 +112,11 @@ end
 
 function pings.main1_action2()
 	runAction(function()
-		ActionWheelClass.bodyShake(false)
+		ShakeBody:play(false)
+		ActionWheelClass.ActionCount = ShakeBody.AnimationLength
 	end, function()
-		General.setAnimations("STOP", "shake")
-		ShakeSplashCount = 0
+		ShakeBody:stop()
+		ActionWheelClass.ActionCount = ShakeBody.AnimationLength
 	end, false)
 end
 
@@ -358,29 +334,6 @@ events.TICK:register(function ()
 		ActionWheelClass.ActionCount = ActionWheelClass.ActionCount > 0 and ActionWheelClass.ActionCount - 1 or ActionWheelClass.ActionCount
 		IsOpenActionWheelPrev = isOpenActionWheel
 		IsWetPrev = WetClass.WetCount > 0
-	end
-	if ShakeSplashCount > 0 then
-		if ShakeSplashCount % 5 == 0 then
-			for _ = 1, 4 do
-				particles:newParticle("minecraft:splash", player:getPos():add(math.random() - 0.5, math.random() + 0.5, math.random() - 0.5))
-			end
-		end
-		ShakeSplashCount = ShakeSplashCount - 1
-	elseif ShakeSplashCount < 0 then
-		if ShakeSplashCount % 5 == 0 then
-			for _ = 1, 6 do
-				particles:newParticle("minecraft:block minecraft:snow_block", player:getPos():add(math.random() - 0.5, math.random() + 0.5, math.random() - 0.5))
-			end
-		end
-		ShakeSplashCount = ShakeSplashCount + 1
-	end
-	if SweatCount > 0 then
-		if SweatCount % 5 == 0 then
-			for _ = 1, 4 do
-				particles:newParticle("minecraft:splash", player:getPos():add(0, 2, 0))
-			end
-		end
-		SweatCount = SweatCount - 1
 	end
 end)
 

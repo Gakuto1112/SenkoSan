@@ -27,7 +27,8 @@ function FoxJump.onAnimationTick(self)
 			sounds:playSound("entity.snowball.throw", player:getPos(), 1, 1.5)
 		end
 	elseif self.AnimationCount == 1 then
-		ActionWheelClass.bodyShake(true)
+		self:stop()
+		ShakeBody:play(true)
 	end
 end
 
