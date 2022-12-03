@@ -122,7 +122,7 @@ AnimationAction = {
 				ArmsClass.ItemHeldContradicts = {true, true}
 			end
 		end
-		if self.AnimationCount == 1 then
+		if self.AnimationCount == 1 or not self:checkAction() then
 			self:stop()
 		end
 		self.AnimationCount = (self.AnimationCount > 0 and not client:isPaused()) and self.AnimationCount - 1 or self.AnimationCount

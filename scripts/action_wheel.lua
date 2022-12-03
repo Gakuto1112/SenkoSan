@@ -322,12 +322,6 @@ events.TICK:register(function ()
 		local sitDownAction = MainPages[2]:getAction(1)
 		sitDownAction:toggled((ActionWheelClass.ActionCount == 0 or General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage") or (General.isAnimationPlaying("models.main", "sit_down") and General.isAnimationPlaying("models.main", "shake"))) and SitDown:checkAction() and sitDownAction:isToggled())
 		setActionEnabled(3, 1, not WardenClass.WardenNearby)
-		if ActionWheelClass.ActionCount > 0 then
-			if (HurtClass.Damaged ~= "NONE" and ActionWheelClass.ActionCount > 0 and WardenClass.WardenNearby) or ((General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage")) and not General.isAnimationPlaying("models.main", "sit_down")) or (General.isAnimationPlaying("models.main", "tail_cuddling") and not TailCuddling:checkAction()) or ((General.isAnimationPlaying("models.main", "broom_cleaning") or General.isAnimationPlaying("models.main", "vacuum_cleaning") or General.isAnimationPlaying("models.main", "cloth_cleaning") or General.isAnimationPlaying("models.main", "hair_cut")) and not BroomCleaning:checkAction()) or (General.isAnimationPlaying("models.main", "fox_jump") and not FoxJump:checkAction()) or (General.isAnimationPlaying("models.main", "tail_brush") and not TailBrush:checkAction()) or (General.isAnimationPlaying("models.main", "kotatsu") and not Kotatsu:checkAction()) then
-				ActionCancelFunction()
-				ActionWheelClass.ActionCount = 0
-			end
-		end
 		local isOpenActionWheel = action_wheel:isEnabled()
 		if not isOpenActionWheel and IsOpenActionWheelPrev then
 			if CostumeState ~= ActionWheelClass.CurrentCostumeState then

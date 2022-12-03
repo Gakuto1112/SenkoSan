@@ -20,10 +20,4 @@ function SitDown.stop(self)
 	NameplateClass.NamePlateOffset = 0
 end
 
-function SitDown.onAnimationTick(self)
-	if not self.CanPlayAnimation then
-		self:stop()
-	end
-end
-
 return SitDown

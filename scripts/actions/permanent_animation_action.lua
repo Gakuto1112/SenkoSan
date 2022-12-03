@@ -63,6 +63,9 @@ PermanentAnimationAction = {
 				ArmsClass.ItemHeldContradicts = {true, true}
 			end
 		end
+		if not self:checkAction() then
+			self:stop()
+		end
 	end
 }
 
