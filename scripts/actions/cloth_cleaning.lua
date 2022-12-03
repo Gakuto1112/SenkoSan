@@ -26,7 +26,7 @@ function ClothCleaning.onAnimationTick(self)
 		models.models.cloth_cleaning.Stain:setVisible(false)
 		models.models.cloth_cleaning.Avatar.Body.Arms.RightArm.RightArmBottom.Cloth.Cloth:setUVPixels(0, 6)
 	elseif self.AnimationCount == 41 then
-		FacePartsClass.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
+		FaceParts.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
 		local playerPos = player:getPos()
 		sounds:playSound("entity.player.levelup", playerPos, 1, 1.5)
 		for _ = 1, 30 do

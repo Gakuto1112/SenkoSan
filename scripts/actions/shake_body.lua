@@ -2,7 +2,7 @@
 ---@field ShakeBody.SnowParticle boolean 雪のパーティクルを表示するかどうか
 
 ShakeBody = General.instance({}, AnimationAction, function ()
-	return not player:isUnderwater() and not player:isInLava() and not WardenClass.WardenNearby
+	return not player:isUnderwater() and not player:isInLava() and not Warden.WardenNearby
 end, nil, nil, animations["models.main"]["shake"], General.getAnimationsOutOfMain("shake"), 0)
 
 ShakeBody.SnowParticle = false
@@ -11,17 +11,17 @@ ShakeBody.SnowParticle = false
 ---@param snowParticle boolean 雪のパーティクルを表示するかどうか
 function ShakeBody.play(self, snowParticle)
 	AnimationAction.play(self)
-	UmbrellaClass.EnableUmbrella = true
+	Umbrella.EnableUmbrella = true
 	sounds:playSound("entity.wolf.shake", player:getPos(), 1, 1.5)
-	FacePartsClass.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 20, true)
+	FaceParts.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 20, true)
 	ShakeBody.SnowParticle = snowParticle
 end
 
 ---ブルブルアニメーションを停止する。
 function ShakeBody.stop(self)
 	AnimationAction.stop(self)
-	if not WetClass.IsWet then
-		WetClass.WetCount = 0
+	if not Wet.IsWet then
+		Wet.WetCount = 0
 	end
 end
 
@@ -33,7 +33,7 @@ function ShakeBody.onAnimationTick(self)
 			for _ = 1, 6 do
 				particles:newParticle("block snow_block", player:getPos():add(math.random() - 0.5, math.random() + 0.5, math.random() - 0.5))
 			end
-		elseif not WetClass.IsWet and WetClass.WetCount > 0 then
+		elseif not Wet.IsWet and Wet.WetCount > 0 then
 			for _ = 1, 4 do
 				particles:newParticle("splash", player:getPos():add(math.random() - 0.5, math.random() + 0.5, math.random() - 0.5))
 			end

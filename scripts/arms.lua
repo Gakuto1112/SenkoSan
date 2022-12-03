@@ -1,8 +1,9 @@
----@class ArmsClass 腕を制御するクラス
----@field ArmsClass.ItemHeldContradicts table アイテムを手に持った際の腕のズレを打ち消すかどうか：1. 右腕, 2. 左腕
+---@class Arms 腕を制御するクラス
+---@field Arms.ItemHeldContradicts table アイテムを手に持った際の腕のズレを打ち消すかどうか：1. 右腕, 2. 左腕
 
-ArmsClass = {}
-ArmsClass.ItemHeldContradicts = {false, false}
+Arms = {}
+
+Arms.ItemHeldContradicts = {false, false}
 
 events.TICK:register(function()
 	local rightArms = {models.models.main.Avatar.Body.Arms.RightArm, models.models.costume_cheerleader.Avatar.Body.Arms.RightArm}
@@ -12,9 +13,9 @@ events.TICK:register(function()
 	local playerPose = player:getPose()
 	local leftHanded = player:isLeftHanded()
 	if not renderer:isFirstPerson() then
-		local rightArmHeldContradict = player:getHeldItem(leftHanded).id ~= "minecraft:air" and ArmsClass.ItemHeldContradicts[1]
-		local leftArmHeldContradict = player:getHeldItem(not leftHanded).id ~= "minecraft:air" and ArmsClass.ItemHeldContradicts[2]
-		local umbrellaAdjust = UmbrellaClass.Umbrella and not General.isAnimationPlaying("models.main", "sit_down")
+		local rightArmHeldContradict = player:getHeldItem(leftHanded).id ~= "minecraft:air" and Arms.ItemHeldContradicts[1]
+		local leftArmHeldContradict = player:getHeldItem(not leftHanded).id ~= "minecraft:air" and Arms.ItemHeldContradicts[2]
+		local umbrellaAdjust = Umbrella.Umbrella and not General.isAnimationPlaying("models.main", "sit_down")
 		if playerPose == "CROUCHING" then
 			for _, rightArm in ipairs(rightArms) do
 				rightArm:setPos(0, 3, 0)
@@ -24,7 +25,7 @@ events.TICK:register(function()
 				leftArm:setPos(0, 3, 0)
 				leftArm:setRot(30 - (leftArmHeldContradict and 15 or 0) + ((umbrellaAdjust and not leftHanded) and 20 or 0), 0, 0)
 			end
-			if ArmorClass.ArmorVisible[2] then
+			if Armor.ArmorVisible[2] then
 				rightArmorArm:setPos(0, 3, 0)
 				rightArmorArm:setRot(30 - (rightArmHeldContradict and 15 or 0) + ((umbrellaAdjust and leftHanded) and 20 or 0), 0, 0)
 				leftArmorArm:setPos(0, 3, 0)
@@ -39,7 +40,7 @@ events.TICK:register(function()
 				leftArm:setPos(0, 0, 0)
 				leftArm:setRot((leftArmHeldContradict and -15 or 0) + ((umbrellaAdjust and not leftHanded) and 20 or 0), 0, 0)
 			end
-			if ArmorClass.ArmorVisible[2] then
+			if Armor.ArmorVisible[2] then
 				rightArmorArm:setPos(0, 0, 0)
 				rightArmorArm:setRot((rightArmHeldContradict and -15 or 0) + ((umbrellaAdjust and leftHanded) and 20 or 0), 0, 0)
 				leftArmorArm:setPos(0, 0, 0)
@@ -55,7 +56,7 @@ events.TICK:register(function()
 			leftArm:setPos(0, 0, 0)
 			leftArm:setRot(0, 0, 0)
 		end
-		if ArmorClass.ArmorVisible[2] then
+		if Armor.ArmorVisible[2] then
 			for _, modelPart in ipairs({rightArmorArm, leftArmorArm}) do
 				modelPart:setPos(0, 0, 0)
 				modelPart:setRot(0, 0, 0)
@@ -64,4 +65,4 @@ events.TICK:register(function()
 	end
 end)
 
-return ArmsClass
+return Arms

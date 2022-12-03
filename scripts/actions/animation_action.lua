@@ -80,7 +80,7 @@ AnimationAction = {
 		for _, animationElement in ipairs(self.Animations) do
 			animationElement:play()
 		end
-		UmbrellaClass.EnableUmbrella = false
+		Umbrella.EnableUmbrella = false
 		self.IsAnimationPlaying = true
 		ActionWheel.IsAnimationPlaying = true
 		self.AnimationCount = self.AnimationLength
@@ -97,14 +97,14 @@ AnimationAction = {
 		self.HideHeldItem = false
 		for _, vanillaModelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
 			vanillaModelPart:setVisible(true)
-			ArmsClass.ItemHeldContradicts = {true, true}
+			Arms.ItemHeldContradicts = {true, true}
 		end
 		for _, vanillaModelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
 			vanillaModelPart:setVisible(true)
-			ArmsClass.ItemHeldContradicts = {false, false}
+			Arms.ItemHeldContradicts = {false, false}
 		end
-		FacePartsClass.resetEmotion()
-		UmbrellaClass.EnableUmbrella = true
+		FaceParts.resetEmotion()
+		Umbrella.EnableUmbrella = true
 		self.IsAnimationPlaying = false
 		ActionWheel.IsAnimationPlaying = false
 		self.AnimationCount = 0
@@ -116,10 +116,10 @@ AnimationAction = {
 			for index, vanillaModelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
 				if player:getHeldItem(player:isLeftHanded() == (index == 1)) ~= "minecraft:air" then
 					vanillaModelPart:setVisible(false)
-					ArmsClass.ItemHeldContradicts[index] = true
+					Arms.ItemHeldContradicts[index] = true
 				else
 					vanillaModelPart:setVisible(true)
-					ArmsClass.ItemHeldContradicts[index] = false
+					Arms.ItemHeldContradicts[index] = false
 				end
 			end
 		end

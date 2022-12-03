@@ -29,7 +29,7 @@ function BroomCleaning.onAnimationTick(self)
 			particles:newParticle("block gravel", dustParticlePivot[4][1], dustParticlePivot[4][2], dustParticlePivot[4][3])
 		end
 	elseif self.AnimationCount == 41 then
-		FacePartsClass.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
+		FaceParts.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
 		local playerPos = player:getPos()
 		sounds:playSound("entity.player.levelup", playerPos, 1, 1.5)
 		for _ = 1, 30 do

@@ -30,13 +30,13 @@ function TeaTime.onAnimationTick(self)
 	end
 	if self.AnimationCount <= 210 and self.AnimationCount > 50 and (self.AnimationCount - 210) % 20 == 0 then
 		if self.AnimationCount == 210 then
-			FacePartsClass.setEmotion("CLOSED", "CLOSED", "CLOSED", 160, true)
+			FaceParts.setEmotion("CLOSED", "CLOSED", "CLOSED", 160, true)
 		end
 		sounds:playSound("entity.generic.drink", player:getPos(), 0.5, 1)
 	elseif self.AnimationCount == 50 then
 		models.models.tea.Avatar.Body.Yunomi1.Tea:setVisible(false)
 	elseif self.AnimationCount == 40 then
-		FacePartsClass.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
+		FaceParts.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
 		local playerPos = player:getPos()
 		sounds:playSound("entity.player.levelup", playerPos, 1, 1.5)
 		sounds:playSound("block.stone.break", player:getPos(), 0.5, 1)

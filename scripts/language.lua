@@ -1,9 +1,9 @@
----@class LanguageClass アバターの表示言語を管理するクラス
----@field LanguageData table 言語データ
+---@class Language アバターの表示言語を管理するクラス
+---@field Language.LanguageData table 言語データ
 
-LanguageClass = {}
+Language = {}
 
-LanguageData = {
+Language.LanguageData = {
 	en_us = {
 		language__en_us = "English",
 		language__ja_jp = "Japanese",
@@ -164,23 +164,23 @@ LanguageData = {
 ---@param keyName string 翻訳キー
 ---@param languageName string|nil 言語名。nilの場合は現在の言語になる。
 ---@return string translatedString 翻訳キーに対する翻訳データ。設定言語での翻訳が存在しない場合は英文が返される。英文すら存在しない場合は翻訳キーがそのまま返される。
-function LanguageClass.getTranslate(keyName, languageName)
+function Language.getTranslate(keyName, languageName)
 	if languageName then
-		return (LanguageData[languageName] and LanguageData[languageName][keyName]) and LanguageData[languageName][keyName] or (LanguageData["en_us"][keyName] and LanguageData["en_us"][keyName] or keyName)
+		return (Language.LanguageData[languageName] and Language.LanguageData[languageName][keyName]) and Language.LanguageData[languageName][keyName] or (Language.LanguageData["en_us"][keyName] and Language.LanguageData["en_us"][keyName] or keyName)
 	else
 		local activeLanguage = client:getActiveLang()
-		return (LanguageData[activeLanguage] and LanguageData[activeLanguage][keyName]) and LanguageData[activeLanguage][keyName] or (LanguageData["en_us"][keyName] and LanguageData["en_us"][keyName] or keyName)
+		return (Language.LanguageData[activeLanguage] and Language.LanguageData[activeLanguage][keyName]) and Language.LanguageData[activeLanguage][keyName] or (Language.LanguageData["en_us"][keyName] and Language.LanguageData["en_us"][keyName] or keyName)
 	end
 end
 
 ---利用可能な言語リストを返す。
 ---@return table
-function LanguageClass.getLanguages()
+function Language.getLanguages()
 	local result = {}
-	for languageName, _ in pairs(LanguageData) do
+	for languageName, _ in pairs(Language.LanguageData) do
 		table.insert(result, languageName)
 	end
 	return result
 end
 
-return LanguageClass
+return Language

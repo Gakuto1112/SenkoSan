@@ -53,13 +53,13 @@ function HairCut.onAnimationTick(self)
 				particles:newParticle("smoke", playerPos:copy():add((math.random() - 0.5) * 2, (math.random() - 0.5) * 2 + 1, (math.random() - 0.5) * 2))
 			end
 			sounds:playSound("entity.sheep.shear", player:getPos(), 1, 1)
-			FacePartsClass.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 60, false)
+			FaceParts.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 60, false)
 			models.models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairPiece:setVisible(true)
 		elseif self.AnimationCount == 276 then
 			sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 		elseif self.AnimationCount == 236 then
 			sounds:playSound("entity.wolf.shake", player:getPos(), 1, 1.5)
-			FacePartsClass.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 20, true)
+			FaceParts.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 20, true)
 		elseif self.AnimationCount == 216 then
 			models.models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairPiece:setVisible(false)
 		elseif self.AnimationCount == 90 then
@@ -67,7 +67,7 @@ function HairCut.onAnimationTick(self)
 		elseif self.AnimationCount <= 80 and self.AnimationCount >= 53 and (self.AnimationCount - 80) % 13 == 0 then
 			sounds:playSound("block.grass.step", player:getPos(), 0.5, 1)
 		elseif self.AnimationCount == 40 then
-			FacePartsClass.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
+			FaceParts.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
 			local playerPos = player:getPos()
 			sounds:playSound("entity.player.levelup", playerPos, 1, 1.5)
 			for _ = 1, 30 do

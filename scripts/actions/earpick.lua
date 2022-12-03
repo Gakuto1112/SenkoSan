@@ -27,9 +27,9 @@ function Earpick.onAnimationTick(self)
 		particles:newParticle("end_rod", playerPos:copy():add((math.random() - 0.5) * 10, (math.random() - 0.5) * 10, (math.random() - 0.5) * 10))
 	end
 	if self.AnimationCount == 184 then
-		FacePartsClass.setEmotion("CLOSED", "CLOSED", "CLOSED", 40, true)
+		FaceParts.setEmotion("CLOSED", "CLOSED", "CLOSED", 40, true)
 	elseif self.AnimationCount == 41 then
-		FacePartsClass.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
+		FaceParts.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
 		sounds:playSound("entity.player.levelup", playerPos, 1, 1.5)
 		for _ = 1, 30 do
 			particles:newParticle("happy_villager", playerPos:copy():add((math.random() - 0.5) * 4, (math.random() - 0.5) * 4 + 1, (math.random() - 0.5) * 4))

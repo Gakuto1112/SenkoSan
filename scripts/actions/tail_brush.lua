@@ -12,17 +12,17 @@ function TailBrush.play(self)
 	end
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 	self.HideHeldItem = true
-	PhysicsClass.EnablePyhsics[1] = false
+	Physics.EnablePyhsics[1] = false
 end
 
 ---尻尾の手入れアニメーションを停止する。
 function TailBrush.stop(self)
-	AnimationAction.stop(self)
-	General.setAnimations("STOP", "tail_brush_sitdown")
 	if self.AnimationCount > 90 then
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 	end
-	PhysicsClass.EnablePyhsics[1] = true
+	AnimationAction.stop(self)
+	General.setAnimations("STOP", "tail_brush_sitdown")
+	Physics.EnablePyhsics[1] = true
 end
 
 ---アニメーション再生中に毎チック実行される関数
@@ -35,7 +35,7 @@ function TailBrush.onAnimationTick(self)
 		models.models.tail_brush.Avatar.Body.Arms.RightArm.RightArmBottom.Brush:setVisible(false)
 	elseif (self.AnimationCount + 80) % 20 == 0 and self.AnimationCount <= 80 and self.AnimationCount >= 40  then
 		if self.AnimationCount == 80 then
-			FacePartsClass.setEmotion("CLOSED", "CLOSED", "CLOSED", 60, true)
+			FaceParts.setEmotion("CLOSED", "CLOSED", "CLOSED", 60, true)
 		end
 		sounds:playSound("block.grass.step", player:getPos(), 0.5, 1)
 	end

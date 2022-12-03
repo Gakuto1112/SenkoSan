@@ -19,10 +19,10 @@ end
 function Kotatsu.play(self)
 	PermanentAnimationAction.play(self)
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-	print(LanguageClass.getTranslate("action_wheel__main_1__action_7__start"))
-	PhysicsClass.EnablePyhsics[1] = false
-	CameraClass.CameraOffset = -1
-	NameplateClass.NamePlateOffset = -1
+	print(Language.getTranslate("action_wheel__main_1__action_7__start"))
+	Physics.EnablePyhsics[1] = false
+	Camera.CameraOffset = -1
+	Nameplate.NamePlateOffset = -1
 	self.HideHeldItem = true
 	self.AnimationCount = 1
 end
@@ -31,9 +31,9 @@ end
 function Kotatsu.stop(self)
 	PermanentAnimationAction.stop(self)
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-	PhysicsClass.EnablePyhsics[1] = true
-	CameraClass.CameraOffset = 0
-	NameplateClass.NamePlateOffset = 0
+	Physics.EnablePyhsics[1] = true
+	Camera.CameraOffset = 0
+	Nameplate.NamePlateOffset = 0
 	self.AnimationCount = 0
 end
 
@@ -47,7 +47,7 @@ function Kotatsu.onAnimationTick(self)
 	elseif Kotatsu.AnimationCount == 300 then
 		Kotatsu.AnimationCount = 1
 	end
-	FacePartsClass.setEmotion("CLOSED", "CLOSED", "CLOSED", 1, true)
+	FaceParts.setEmotion("CLOSED", "CLOSED", "CLOSED", 1, true)
 	ActionWheel.ActionCount = 1
 end
 

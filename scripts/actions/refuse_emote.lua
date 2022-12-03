@@ -7,9 +7,9 @@ end, nil, nil, animations["models.main"]["refuse_emote"], General.getAnimationsO
 ---エモート拒否アニメーションを再生する。
 function RefuseEmote.play(self)
 	AnimationAction.play(self)
-	FacePartsClass.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 30, true)
+	FaceParts.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 30, true)
 	if host:isHost() then
-		print("§7"..LanguageClass.getTranslate("action_wheel__refuse_action"))
+		print("§7"..Language.getTranslate("action_wheel__refuse_action"))
 	end
 end
 

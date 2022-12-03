@@ -1,37 +1,37 @@
----@class FoxFireClass 狐火を制御するクラス
----@field FoxFireEnableData table 狐火の開始。終了を検出する為に狐火が有効かどうかの情報が格納されているデータ
----@field FoxFirePos Vecotr3 狐火の座標
----@field FoxFireClass.FoxFireInFirstPerson boolean 一人称視点で狐火を表示するかどうか
+---@class FoxFire 狐火を制御するクラス
+---@field FoxFire.FoxFireEnableData table 狐火の開始。終了を検出する為に狐火が有効かどうかの情報が格納されているデータ
+---@field FoxFire.FoxFirePos Vector3 狐火の座標
+---@field FoxFire.FoxFireInFirstPerson boolean 一人称視点で狐火を表示するかどうか
 
-FoxFireClass = {}
-FoxFireEnableData = {}
-FoxFirePos = vectors.vec(0, 0, 0)
-FoxFireClass.FoxFireInFirstPerson = ConfigClass.loadConfig("foxFireInFirstPerson", true)
+FoxFire = {}
+FoxFire.FoxFireEnableData = {}
+FoxFire.FoxFirePos = vectors.vec(0, 0, 0)
+FoxFire.FoxFireInFirstPerson = Config.loadConfig("foxFireInFirstPerson", true)
 
 events.TICK:register(function ()
-	local isFoxFireEnabled = (General.getStatusEffect("night_vision") and true or false) and WetClass.WetCount == 0
-	table.insert(FoxFireEnableData, isFoxFireEnabled)
-	if #FoxFireEnableData == 3 then
-		table.remove(FoxFireEnableData, 1)
+	local isFoxFireEnabled = (General.getStatusEffect("night_vision") and true or false) and Wet.WetCount == 0
+	table.insert(FoxFire.FoxFireEnableData, isFoxFireEnabled)
+	if #FoxFire.FoxFireEnableData == 3 then
+		table.remove(FoxFire.FoxFireEnableData, 1)
 	end
 	if isFoxFireEnabled then
-		if not FoxFireEnableData[1] then
+		if not FoxFire.FoxFireEnableData[1] then
 			sounds:playSound("minecraft:item.firecharge.use", player:getPos(), 1, 2)
 		end
 		local playerTargetPos = player:getPos():add(0, 2.5, 0)
-		local vectorToPlayer = playerTargetPos:copy():sub(FoxFirePos)
+		local vectorToPlayer = playerTargetPos:copy():sub(FoxFire.FoxFirePos)
 		if vectorToPlayer:length() >= 16 then
-			FoxFirePos = playerTargetPos
+			FoxFire.FoxFirePos = playerTargetPos
 		end
-		FoxFirePos:add(vectorToPlayer:scale(0.25))
-		if not renderer:isFirstPerson() or FoxFireClass.FoxFireInFirstPerson then
-			particles:newParticle("minecraft:soul_fire_flame", FoxFirePos:copy():add((math.random() - 0.5) * 0.25, (math.random() - 0.5) * 0.25, (math.random() - 0.5) * 0.25))
+		FoxFire.FoxFirePos:add(vectorToPlayer:scale(0.25))
+		if not renderer:isFirstPerson() or FoxFire.FoxFireInFirstPerson then
+			particles:newParticle("minecraft:soul_fire_flame", FoxFire.FoxFirePos:copy():add((math.random() - 0.5) * 0.25, (math.random() - 0.5) * 0.25, (math.random() - 0.5) * 0.25))
 		end
 	else
-		if FoxFireEnableData[1] then
+		if FoxFire.FoxFireEnableData[1] then
 			sounds:playSound("minecraft:block.fire.extinguish", player:getPos(), 1, 2)
 		end
 	end
 end)
 
-return FoxFireClass
+return FoxFire

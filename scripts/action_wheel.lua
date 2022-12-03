@@ -21,13 +21,13 @@ ActionWheel.WordPage = action_wheel:newPage()
 ActionWheel.ConfigPage = action_wheel:newPage()
 ActionWheel.IsOpenWordPage = false
 ActionWheel.ParentPage = nil
-ActionWheel.LanguageList = LanguageClass.getLanguages()
+ActionWheel.LanguageList = Language.getLanguages()
 ActionWheel.CurrentWordLanguage = General.indexof(ActionWheel.LanguageList, client:getActiveLang())
 ActionWheel.IsAnimationPlaying = false
 ActionWheel.IsOpenActionWheelPrev = false
-ActionWheel.CurrentCostumeState = ConfigClass.loadConfig("costume", 1)
+ActionWheel.CurrentCostumeState = Config.loadConfig("costume", 1)
 ActionWheel.CostumeState = ActionWheel.CurrentCostumeState
-ActionWheel.CurrentPlayerNameState = ConfigClass.loadConfig("name", 1)
+ActionWheel.CurrentPlayerNameState = Config.loadConfig("name", 1)
 ActionWheel.PlayerNameState = ActionWheel.CurrentPlayerNameState
 ActionWheel.IsWetPrev = false
 
@@ -37,27 +37,27 @@ ActionWheel.IsWetPrev = false
 ---@param enabled boolean 有効色か無効色か
 function setActionEnabled(pageNumber, actionNumber, enabled)
 	if enabled then
-		ActionWheel.MainPages[pageNumber]:getAction(actionNumber):title(LanguageClass.getTranslate("action_wheel__main_"..pageNumber.."__action_"..actionNumber.."__title")):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1)
+		ActionWheel.MainPages[pageNumber]:getAction(actionNumber):title(Language.getTranslate("action_wheel__main_"..pageNumber.."__action_"..actionNumber.."__title")):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1)
 	else
-		ActionWheel.MainPages[pageNumber]:getAction(actionNumber):title("§7"..LanguageClass.getTranslate("action_wheel__main_"..pageNumber.."__action_"..actionNumber.."__title")):color(42 / 255, 42 / 255, 42 / 255):hoverColor(1, 85 / 255, 85 / 255)
+		ActionWheel.MainPages[pageNumber]:getAction(actionNumber):title("§7"..Language.getTranslate("action_wheel__main_"..pageNumber.."__action_"..actionNumber.."__title")):color(42 / 255, 42 / 255, 42 / 255):hoverColor(1, 85 / 255, 85 / 255)
 	end
 end
 
 ---衣装変更のアクションの名称を変更する。
 function setCostumeChangeActionTitle()
 	if ActionWheel.CostumeState == ActionWheel.CurrentCostumeState then
-		ActionWheel.ConfigPage:getAction(1):title(LanguageClass.getTranslate("action_wheel__config__action_1__title").."§b"..LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[ActionWheel.CostumeState]))
+		ActionWheel.ConfigPage:getAction(1):title(Language.getTranslate("action_wheel__config__action_1__title").."§b"..Language.getTranslate("costume__"..Costume.CostumeList[ActionWheel.CostumeState]))
 	else
-		ActionWheel.ConfigPage:getAction(1):title(LanguageClass.getTranslate("action_wheel__config__action_1__title").."§b"..LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[ActionWheel.CostumeState]).."\n§7"..LanguageClass.getTranslate("action_wheel__close_to_confirm"))
+		ActionWheel.ConfigPage:getAction(1):title(Language.getTranslate("action_wheel__config__action_1__title").."§b"..Language.getTranslate("costume__"..Costume.CostumeList[ActionWheel.CostumeState]).."\n§7"..Language.getTranslate("action_wheel__close_to_confirm"))
 	end
 end
 
 ---名前変更のアクションの名称を変更する。
 function setNameChangeActionTitle()
 	if ActionWheel.PlayerNameState == ActionWheel.CurrentPlayerNameState then
-		ActionWheel.ConfigPage:getAction(2):title(LanguageClass.getTranslate("action_wheel__config__action_2__title").."§b"..NameplateClass.NameList[ActionWheel.PlayerNameState])
+		ActionWheel.ConfigPage:getAction(2):title(Language.getTranslate("action_wheel__config__action_2__title").."§b"..Nameplate.NameList[ActionWheel.PlayerNameState])
 	else
-		ActionWheel.ConfigPage:getAction(2):title(LanguageClass.getTranslate("action_wheel__config__action_2__title").."§b"..NameplateClass.NameList[ActionWheel.PlayerNameState].."\n§7"..LanguageClass.getTranslate("action_wheel__close_to_confirm"))
+		ActionWheel.ConfigPage:getAction(2):title(Language.getTranslate("action_wheel__config__action_2__title").."§b"..Nameplate.NameList[ActionWheel.PlayerNameState].."\n§7"..Language.getTranslate("action_wheel__close_to_confirm"))
 	end
 end
 
@@ -132,9 +132,9 @@ end
 
 function pings.config_action1(costumeID)
 	if costumeID == 1 then
-		CostumeClass.resetCostume()
+		Costume.resetCostume()
 	else
-		CostumeClass.setCostume(string.upper(CostumeClass.CostumeList[costumeID]))
+		Costume.setCostume(string.upper(Costume.CostumeList[costumeID]))
 	end
 	ActionWheel.CurrentCostumeState = costumeID
 	if host:isHost() then
@@ -143,7 +143,7 @@ function pings.config_action1(costumeID)
 end
 
 function pings.config_action2(nameID)
-	NameplateClass.setName(nameID)
+	Nameplate.setName(nameID)
 	ActionWheel.CurrentPlayerNameState = nameID
 	if host:isHost() then
 		setNameChangeActionTitle()
@@ -151,27 +151,27 @@ function pings.config_action2(nameID)
 end
 
 function pings.config_action3_toggle()
-	WetClass.AutoShake = true
+	Wet.AutoShake = true
 end
 
 function pings.config_action3_untoggle()
-	WetClass.AutoShake = false
+	Wet.AutoShake = false
 end
 
 function pings.config_action4_toggle()
-	ArmorClass.ShowArmor = true
+	Armor.ShowArmor = true
 end
 
 function pings.config_action4_untoggle()
-	ArmorClass.ShowArmor = false
+	Armor.ShowArmor = false
 end
 
 function pings.config_action6_toggle()
-	UmbrellaClass.UmbrellaSound = true
+	Umbrella.UmbrellaSound = true
 end
 
 function pings.config_action6_untoggle()
-	UmbrellaClass.UmbrellaSound = false
+	Umbrella.UmbrellaSound = false
 end
 
 events.TICK:register(function ()
@@ -186,20 +186,20 @@ events.TICK:register(function ()
 					setActionEnabled(pageIndex, actionIndex, not ActionWheel.IsAnimationPlaying and actionClass:checkAction())
 				end
 			end
-			setActionEnabled(3, 1, not WardenClass.WardenNearby)
+			setActionEnabled(3, 1, not Warden.WardenNearby)
 		end
 		if not isOpenActionWheel and ActionWheel.IsOpenActionWheelPrev then
 			if ActionWheel.CostumeState ~= ActionWheel.CurrentCostumeState then
 				pings.config_action1(ActionWheel.CostumeState)
-				ConfigClass.saveConfig("costume", ActionWheel.CostumeState)
+				Config.saveConfig("costume", ActionWheel.CostumeState)
 				sounds:playSound("minecraft:item.armor.equip_leather", player:getPos())
-				print(LanguageClass.getTranslate("action_wheel__config__action_1__done_first")..LanguageClass.getTranslate("costume__"..CostumeClass.CostumeList[ActionWheel.CostumeState])..LanguageClass.getTranslate("action_wheel__config__action_1__done_last"))
+				print(Language.getTranslate("action_wheel__config__action_1__done_first")..Language.getTranslate("costume__"..Costume.CostumeList[ActionWheel.CostumeState])..Language.getTranslate("action_wheel__config__action_1__done_last"))
 			end
 			if ActionWheel.PlayerNameState ~= ActionWheel.CurrentPlayerNameState then
 				pings.config_action2(ActionWheel.PlayerNameState)
-				ConfigClass.saveConfig("name", ActionWheel.PlayerNameState)
+				Config.saveConfig("name", ActionWheel.PlayerNameState)
 				sounds:playSound("minecraft:ui.cartography_table.take_result", player:getPos(), 1, 1)
-				print(LanguageClass.getTranslate("action_wheel__config__action_2__done_first")..NameplateClass.NameList[ActionWheel.PlayerNameState]..LanguageClass.getTranslate("action_wheel__config__action_2__done_last"))
+				print(Language.getTranslate("action_wheel__config__action_2__done_first")..Nameplate.NameList[ActionWheel.PlayerNameState]..Language.getTranslate("action_wheel__config__action_2__done_last"))
 			end
 			if ActionWheel.ParentPage then
 				action_wheel:setPage(ActionWheel.ParentPage)
@@ -207,18 +207,18 @@ events.TICK:register(function ()
 				ActionWheel.ParentPage = nil
 			end
 		end
-		if WetClass.WetCount > 0 and not ActionWheel.IsWetPrev then
+		if Wet.WetCount > 0 and not ActionWheel.IsWetPrev then
 			ActionWheel.MainPages[1]:getAction(2):item("water_bucket")
-		elseif WetClass.WetCount == 0 and ActionWheel.IsWetPrev then
+		elseif Wet.WetCount == 0 and ActionWheel.IsWetPrev then
 			ActionWheel.MainPages[1]:getAction(2):item("bucket")
 		end
-		if WardenClass.WardenNearby and ActionWheel.IsOpenWordPage then
+		if Warden.WardenNearby and ActionWheel.IsOpenWordPage then
 			action_wheel:setPage(ActionWheel.ParentPage)
 			ActionWheel.IsOpenWordPage = false
 			ActionWheel.ParentPage = nil
 		end
 		ActionWheel.IsOpenActionWheelPrev = isOpenActionWheel
-		ActionWheel.IsWetPrev = WetClass.WetCount > 0
+		ActionWheel.IsWetPrev = Wet.WetCount > 0
 	end
 end)
 
@@ -231,7 +231,7 @@ if host:isHost() then
 	--アクション1-1. にっこり
 	ActionWheel.MainPages[1]:newAction(1):item("emerald"):onLeftClick(function ()
 		if not ActionWheel.IsAnimationPlaying then
-			if WardenClass.WardenNearby then
+			if Warden.WardenNearby then
 				pings.refuse_emote()
 			else
 				pings.main1_action1_left()
@@ -239,7 +239,7 @@ if host:isHost() then
 		end
 	end):onRightClick(function ()
 		if not ActionWheel.IsAnimationPlaying then
-			if WardenClass.WardenNearby then
+			if Warden.WardenNearby then
 				pings.refuse_emote()
 			else
 				pings.main1_action1_right()
@@ -252,10 +252,10 @@ if host:isHost() then
 		if not ActionWheel.IsAnimationPlaying then
 			if ShakeBody:checkAction() then
 				pings.main1_action2()
-			elseif WardenClass.WardenNearby then
+			elseif Warden.WardenNearby then
 				pings.refuse_emote()
 			else
-				print(LanguageClass.getTranslate("action_wheel__main_1__action_2__unavailable"))
+				print(Language.getTranslate("action_wheel__main_1__action_2__unavailable"))
 			end
 		end
 	end)
@@ -269,20 +269,20 @@ if host:isHost() then
 				else
 					pings.main1_action3_left()
 				end
-			elseif WardenClass.WardenNearby then
+			elseif Warden.WardenNearby then
 				pings.refuse_emote()
 			else
-				print(LanguageClass.getTranslate("action_wheel__main_1__action_3__unavailable"))
+				print(Language.getTranslate("action_wheel__main_1__action_3__unavailable"))
 			end
 		end
 	end):onRightClick(function ()
 		if not ActionWheel.IsAnimationPlaying then
 			if BroomCleaning:checkAction() then
 				pings.main1_action3_right()
-			elseif WardenClass.WardenNearby then
+			elseif Warden.WardenNearby then
 				pings.refuse_emote()
 			else
-				print(LanguageClass.getTranslate("action_wheel__main_1__action_3__unavailable"))
+				print(Language.getTranslate("action_wheel__main_1__action_3__unavailable"))
 			end
 		end
 	end)
@@ -292,10 +292,10 @@ if host:isHost() then
 		if not ActionWheel.IsAnimationPlaying then
 			if BroomCleaning:checkAction() then
 				pings.main1_action4()
-			elseif WardenClass.WardenNearby then
+			elseif Warden.WardenNearby then
 				pings.refuse_emote()
 			else
-				print(LanguageClass.getTranslate("action_wheel__main_1__action_4__unavailable"))
+				print(Language.getTranslate("action_wheel__main_1__action_4__unavailable"))
 			end
 		end
 	end)
@@ -305,10 +305,10 @@ if host:isHost() then
 		if not ActionWheel.IsAnimationPlaying then
 			if FoxJump:checkAction() then
 				pings.main1_action5()
-			elseif WardenClass.WardenNearby then
+			elseif Warden.WardenNearby then
 				pings.refuse_emote()
 			else
-				print(LanguageClass.getTranslate("action_wheel__main_1__action_5__unavailable"))
+				print(Language.getTranslate("action_wheel__main_1__action_5__unavailable"))
 			end
 		end
 	end)
@@ -318,10 +318,10 @@ if host:isHost() then
 		if not ActionWheel.IsAnimationPlaying then
 			if TailBrush:checkAction() then
 				pings.main1_action6()
-			elseif WardenClass.WardenNearby then
+			elseif Warden.WardenNearby then
 				pings.refuse_emote()
 			else
-				print(LanguageClass.getTranslate("action_wheel__main_1__action_6__unavailable"))
+				print(Language.getTranslate("action_wheel__main_1__action_6__unavailable"))
 			end
 		end
 	end)
@@ -331,10 +331,10 @@ if host:isHost() then
 		if not ActionWheel.IsAnimationPlaying then
 			if Kotatsu:checkAction() then
 				pings.main1_action7()
-			elseif WardenClass.WardenNearby then
+			elseif Warden.WardenNearby then
 				pings.refuse_emote()
 			else
-				print(LanguageClass.getTranslate("action_wheel__main_1__action_7__unavailable"))
+				print(Language.getTranslate("action_wheel__main_1__action_7__unavailable"))
 			end
 		end
 	end)
@@ -344,10 +344,10 @@ if host:isHost() then
 		if not ActionWheel.IsAnimationPlaying then
 			if SitDown:checkAction() then
 				pings.main2_action1_toggle()
-			elseif WardenClass.WardenNearby then
+			elseif Warden.WardenNearby then
 				pings.refuse_emote()
 			else
-				print(LanguageClass.getTranslate("action_wheel__main_2__action_1__unavailable"))
+				print(Language.getTranslate("action_wheel__main_2__action_1__unavailable"))
 			end
 		end
 	end):onUntoggle(function ()
@@ -359,10 +359,10 @@ if host:isHost() then
 		if not ActionWheel.IsAnimationPlaying then
 			if TailCuddling:checkAction() then
 				pings.main2_action2()
-			elseif WardenClass.WardenNearby then
+			elseif Warden.WardenNearby then
 				pings.refuse_emote()
 			else
-				print(LanguageClass.getTranslate("action_wheel__main_2__action_2__unavailable"))
+				print(Language.getTranslate("action_wheel__main_2__action_2__unavailable"))
 			end
 		end
 	end)
@@ -372,10 +372,10 @@ if host:isHost() then
 		if not ActionWheel.IsAnimationPlaying then
 			if General.isAnimationPlaying("models.main", "sit_down") then
 				pings.main2_action3()
-			elseif WardenClass.WardenNearby then
+			elseif Warden.WardenNearby then
 				pings.refuse_emote()
 			else
-				print(LanguageClass.getTranslate("action_wheel__main_2__action_3__unavailable"))
+				print(Language.getTranslate("action_wheel__main_2__action_3__unavailable"))
 			end
 		end
 	end)
@@ -385,10 +385,10 @@ if host:isHost() then
 		if not ActionWheel.IsAnimationPlaying then
 			if General.isAnimationPlaying("models.main", "sit_down") then
 				pings.main2_action4()
-			elseif WardenClass.WardenNearby then
+			elseif Warden.WardenNearby then
 				pings.refuse_emote()
 			else
-				print(LanguageClass.getTranslate("action_wheel__main_2__action_4__unavailable"))
+				print(Language.getTranslate("action_wheel__main_2__action_4__unavailable"))
 			end
 		end
 	end)
@@ -398,17 +398,17 @@ if host:isHost() then
 		if not ActionWheel.IsAnimationPlaying then
 			if General.isAnimationPlaying("models.main", "sit_down") then
 				pings.main2_action5()
-			elseif WardenClass.WardenNearby then
+			elseif Warden.WardenNearby then
 				pings.refuse_emote()
 			else
-				print(LanguageClass.getTranslate("action_wheel__main_2__action_5__unavailable"))
+				print(Language.getTranslate("action_wheel__main_2__action_5__unavailable"))
 			end
 		end
 	end)
 
 	--アクション3-1. 仙狐さんセリフ集
 	ActionWheel.MainPages[3]:newAction(1):item("book"):onLeftClick(function ()
-		if WardenClass.WardenNearby then
+		if Warden.WardenNearby then
 			if ActionWheel.IsAnimationPlaying then
 				pings.refuse_emote()
 			end
@@ -420,14 +420,14 @@ if host:isHost() then
 	end)
 
 	--アクション3-2. 設定ページ
-	ActionWheel.MainPages[3]:newAction(2):title(LanguageClass.getTranslate("action_wheel__main_3__action_2__title")):item("comparator"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+	ActionWheel.MainPages[3]:newAction(2):title(Language.getTranslate("action_wheel__main_3__action_2__title")):item("comparator"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
 		action_wheel:setPage(ActionWheel.ConfigPage)
 		ActionWheel.ParentPage = ActionWheel.MainPages[3]
 	end)
 
 	--アクション8（共通）. ページ切り替え
 	for index, mainPage in ipairs(ActionWheel.MainPages) do
-		mainPage:newAction(8):title(LanguageClass.getTranslate("action_wheel__main__action_8__title")..index.."/"..#ActionWheel.MainPages):item("arrow"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+		mainPage:newAction(8):title(Language.getTranslate("action_wheel__main__action_8__title")..index.."/"..#ActionWheel.MainPages):item("arrow"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
 			if ActionWheel.MainPages[index - direction] then
 				action_wheel:setPage(ActionWheel.MainPages[index - direction])
 			elseif index == 1 then
@@ -442,42 +442,42 @@ if host:isHost() then
 
 	--セリフのページのアクション設定
 	--アクション1. 「存分に甘やかしてくれよう！」
-	ActionWheel.WordPage:newAction(1):title(LanguageClass.getTranslate("action_wheel__word__action_1__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
-		host:sendChatMessage(LanguageClass.getTranslate("action_wheel__word__action_1__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
+	ActionWheel.WordPage:newAction(1):title(Language.getTranslate("action_wheel__word__action_1__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+		host:sendChatMessage(Language.getTranslate("action_wheel__word__action_1__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
 	end)
 
 	--アクション2. 「存分にもふるがよい」
-	ActionWheel.WordPage:newAction(2):title(LanguageClass.getTranslate("action_wheel__word__action_2__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
-		host:sendChatMessage(LanguageClass.getTranslate("action_wheel__word__action_2__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
+	ActionWheel.WordPage:newAction(2):title(Language.getTranslate("action_wheel__word__action_2__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+		host:sendChatMessage(Language.getTranslate("action_wheel__word__action_2__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
 	end)
 
 	--アクション3. 「おかえりなのじゃ」
-	ActionWheel.WordPage:newAction(3):title(LanguageClass.getTranslate("action_wheel__word__action_3__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
-		host:sendChatMessage(LanguageClass.getTranslate("action_wheel__word__action_3__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
+	ActionWheel.WordPage:newAction(3):title(Language.getTranslate("action_wheel__word__action_3__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+		host:sendChatMessage(Language.getTranslate("action_wheel__word__action_3__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
 	end)
 
 	--アクション4. 「お疲れ様じゃ」
-	ActionWheel.WordPage:newAction(4):title(LanguageClass.getTranslate("action_wheel__word__action_4__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
-		host:sendChatMessage(LanguageClass.getTranslate("action_wheel__word__action_4__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
+	ActionWheel.WordPage:newAction(4):title(Language.getTranslate("action_wheel__word__action_4__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+		host:sendChatMessage(Language.getTranslate("action_wheel__word__action_4__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
 	end)
 
 	--アクション5. 「今日も大変だったのう」
-	ActionWheel.WordPage:newAction(5):title(LanguageClass.getTranslate("action_wheel__word__action_5__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
-		host:sendChatMessage(LanguageClass.getTranslate("action_wheel__word__action_5__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
+	ActionWheel.WordPage:newAction(5):title(Language.getTranslate("action_wheel__word__action_5__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+		host:sendChatMessage(Language.getTranslate("action_wheel__word__action_5__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
 	end)
 
 	--アクション6. 「うやん♪」
-	ActionWheel.WordPage:newAction(6):title(LanguageClass.getTranslate("action_wheel__word__action_6__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
-		host:sendChatMessage(LanguageClass.getTranslate("action_wheel__word__action_6__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
+	ActionWheel.WordPage:newAction(6):title(Language.getTranslate("action_wheel__word__action_6__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+		host:sendChatMessage(Language.getTranslate("action_wheel__word__action_6__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
 	end)
 
 	--アクション7. 「わらわはただの動く毛玉じゃ...」
-	ActionWheel.WordPage:newAction(7):title(LanguageClass.getTranslate("action_wheel__word__action_7__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
-		host:sendChatMessage(LanguageClass.getTranslate("action_wheel__word__action_7__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
+	ActionWheel.WordPage:newAction(7):title(Language.getTranslate("action_wheel__word__action_7__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+		host:sendChatMessage(Language.getTranslate("action_wheel__word__action_7__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
 	end)
 
 	--アクション8. 言語切り替え
-	ActionWheel.WordPage:newAction(8):title(LanguageClass.getTranslate("action_wheel__word__action_8__title")..LanguageClass.getTranslate("language__"..ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage])):item("paper"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+	ActionWheel.WordPage:newAction(8):title(Language.getTranslate("action_wheel__word__action_8__title")..Language.getTranslate("language__"..ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage])):item("paper"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
 		if ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage - direction] then
 			ActionWheel.CurrentWordLanguage = ActionWheel.CurrentWordLanguage - direction
 		elseif ActionWheel.CurrentWordLanguage == 1 then
@@ -488,18 +488,18 @@ if host:isHost() then
 		local motherLanguage = General.indexof(ActionWheel.LanguageList, client:getActiveLang())
 		motherLanguage = motherLanguage == -1 and General.indexof(ActionWheel.LanguageList, "en_us") or motherLanguage
 		for i = 1, 7 do
-			ActionWheel.WordPage:getAction(i):title(ActionWheel.CurrentWordLanguage == motherLanguage and LanguageClass.getTranslate("action_wheel__word__action_"..i.."__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]) or LanguageClass.getTranslate("action_wheel__word__action_"..i.."__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]).."\n§7"..LanguageClass.getTranslate("action_wheel__word__action_8__bracket_begin")..LanguageClass.getTranslate("action_wheel__word__action_"..i.."__title")..LanguageClass.getTranslate("action_wheel__word__action_8__bracket_end"))
+			ActionWheel.WordPage:getAction(i):title(ActionWheel.CurrentWordLanguage == motherLanguage and Language.getTranslate("action_wheel__word__action_"..i.."__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]) or Language.getTranslate("action_wheel__word__action_"..i.."__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]).."\n§7"..Language.getTranslate("action_wheel__word__action_8__bracket_begin")..Language.getTranslate("action_wheel__word__action_"..i.."__title")..Language.getTranslate("action_wheel__word__action_8__bracket_end"))
 		end
-		ActionWheel.WordPage:getAction(8):title(LanguageClass.getTranslate("action_wheel__word__action_8__title")..LanguageClass.getTranslate("language__"..ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
+		ActionWheel.WordPage:getAction(8):title(Language.getTranslate("action_wheel__word__action_8__title")..Language.getTranslate("language__"..ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
 	end)
 
 	--設定のページのアクション設定
 	--アクション1. 着替え
 	ActionWheel.ConfigPage:newAction(1):item("leather_chestplate"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
 		if direction == -1 then
-			ActionWheel.CostumeState = ActionWheel.CostumeState == #CostumeClass.CostumeList and 1 or ActionWheel.CostumeState + 1
+			ActionWheel.CostumeState = ActionWheel.CostumeState == #Costume.CostumeList and 1 or ActionWheel.CostumeState + 1
 		else
-			ActionWheel.CostumeState = ActionWheel.CostumeState == 1 and #CostumeClass.CostumeList or ActionWheel.CostumeState - 1
+			ActionWheel.CostumeState = ActionWheel.CostumeState == 1 and #Costume.CostumeList or ActionWheel.CostumeState - 1
 		end
 		setCostumeChangeActionTitle()
 	end):onLeftClick(function ()
@@ -510,9 +510,9 @@ if host:isHost() then
 	--アクション2. プレイヤーの表示名変更
 	ActionWheel.ConfigPage:newAction(2):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
 		if direction == -1 then
-			ActionWheel.PlayerNameState = ActionWheel.PlayerNameState == #NameplateClass.NameList and 1 or ActionWheel.PlayerNameState + 1
+			ActionWheel.PlayerNameState = ActionWheel.PlayerNameState == #Nameplate.NameList and 1 or ActionWheel.PlayerNameState + 1
 		else
-			ActionWheel.PlayerNameState = ActionWheel.PlayerNameState == 1 and #NameplateClass.NameList or ActionWheel.PlayerNameState - 1
+			ActionWheel.PlayerNameState = ActionWheel.PlayerNameState == 1 and #Nameplate.NameList or ActionWheel.PlayerNameState - 1
 		end
 		setNameChangeActionTitle()
 	end):onLeftClick(function ()
@@ -521,64 +521,64 @@ if host:isHost() then
 	end)
 
 	--アクション3. 自動ブルブル
-	ActionWheel.ConfigPage:newAction(3):title(LanguageClass.getTranslate("action_wheel__config__action_3__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__config__action_3__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("water_bucket"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+	ActionWheel.ConfigPage:newAction(3):title(Language.getTranslate("action_wheel__config__action_3__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__config__action_3__title")..Language.getTranslate("action_wheel__toggle_on")):item("water_bucket"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
 		pings.config_action3_toggle()
 		ActionWheel.ConfigPage:getAction(3):hoverColor(85 / 255, 1, 85 / 255)
-		ConfigClass.saveConfig("autoShake", true)
+		Config.saveConfig("autoShake", true)
 	end):onUntoggle(function ()
 		pings.config_action3_untoggle()
 		ActionWheel.ConfigPage:getAction(3):hoverColor(1, 85 / 255, 85 / 255)
-		ConfigClass.saveConfig("autoShake", false)
+		Config.saveConfig("autoShake", false)
 	end)
-	if ConfigClass.loadConfig("autoShake", true) then
+	if Config.loadConfig("autoShake", true) then
 		local action = ActionWheel.ConfigPage:getAction(3)
 		action:toggled(true)
 		action:hoverColor(85 / 255, 1, 85 / 255)
 	end
 
 	--アクション4. 防具の非表示
-	ActionWheel.ConfigPage:newAction(4):title(LanguageClass.getTranslate("action_wheel__config__action_4__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__config__action_4__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("iron_chestplate"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+	ActionWheel.ConfigPage:newAction(4):title(Language.getTranslate("action_wheel__config__action_4__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__config__action_4__title")..Language.getTranslate("action_wheel__toggle_on")):item("iron_chestplate"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
 		pings.config_action4_toggle()
 		ActionWheel.ConfigPage:getAction(4):hoverColor(85 / 255, 1, 85 / 255)
-		ConfigClass.saveConfig("showArmor", true)
+		Config.saveConfig("showArmor", true)
 	end):onUntoggle(function ()
 		pings.config_action4_untoggle()
 		ActionWheel.ConfigPage:getAction(4):hoverColor(1, 85 / 255, 85 / 255)
-		ConfigClass.saveConfig("showArmor", false)
+		Config.saveConfig("showArmor", false)
 	end)
-	if ConfigClass.loadConfig("showArmor", false) then
+	if Config.loadConfig("showArmor", false) then
 		local action = ActionWheel.ConfigPage:getAction(4)
 		action:toggled(true)
 		action:hoverColor(85 / 255, 1, 85 / 255)
 	end
 
 	--アクション5. 一人称視点での狐火の表示の切り替え
-	ActionWheel.ConfigPage:newAction(5):title(LanguageClass.getTranslate("action_wheel__config__action_5__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__config__action_5__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("soul_torch"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
-		FoxFireClass.FoxFireInFirstPerson = true
+	ActionWheel.ConfigPage:newAction(5):title(Language.getTranslate("action_wheel__config__action_5__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__config__action_5__title")..Language.getTranslate("action_wheel__toggle_on")):item("soul_torch"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+		FoxFire.FoxFireInFirstPerson = true
 		ActionWheel.ConfigPage:getAction(5):hoverColor(85 / 255, 1, 85 / 255)
-		ConfigClass.saveConfig("foxFireInFirstPerson", true)
+		Config.saveConfig("foxFireInFirstPerson", true)
 	end):onUntoggle(function ()
-		FoxFireClass.FoxFireInFirstPerson = false
+		FoxFire.FoxFireInFirstPerson = false
 		ActionWheel.ConfigPage:getAction(5):hoverColor(1, 85 / 255, 85 / 255)
-		ConfigClass.saveConfig("foxFireInFirstPerson", false)
+		Config.saveConfig("foxFireInFirstPerson", false)
 	end)
-	if ConfigClass.loadConfig("foxFireInFirstPerson", true) then
+	if Config.loadConfig("foxFireInFirstPerson", true) then
 		local action = ActionWheel.ConfigPage:getAction(5)
 		action:toggled(true)
 		action:hoverColor(85 / 255, 1, 85 / 255)
 	end
 
 	--アクション6. 傘の開閉音
-	ActionWheel.ConfigPage:newAction(6):title(LanguageClass.getTranslate("action_wheel__config__action_6__title")..LanguageClass.getTranslate("action_wheel__toggle_off")):toggleTitle(LanguageClass.getTranslate("action_wheel__config__action_6__title")..LanguageClass.getTranslate("action_wheel__toggle_on")):item("red_carpet"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+	ActionWheel.ConfigPage:newAction(6):title(Language.getTranslate("action_wheel__config__action_6__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__config__action_6__title")..Language.getTranslate("action_wheel__toggle_on")):item("red_carpet"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
 		pings.config_action6_toggle()
 		ActionWheel.ConfigPage:getAction(6):hoverColor(85 / 255, 1, 85 / 255)
-		ConfigClass.saveConfig("umbrellaSound", true)
+		Config.saveConfig("umbrellaSound", true)
 	end):onUntoggle(function ()
 		pings.config_action6_untoggle()
 		ActionWheel.ConfigPage:getAction(6):hoverColor(1, 85 / 255, 85 / 255)
-		ConfigClass.saveConfig("umbrellaSound", false)
+		Config.saveConfig("umbrellaSound", false)
 	end)
-	if ConfigClass.loadConfig("umbrellaSound", true) then
+	if Config.loadConfig("umbrellaSound", true) then
 		local action = ActionWheel.ConfigPage:getAction(6)
 		action:toggled(true)
 		action:hoverColor(85 / 255, 1, 85 / 255)

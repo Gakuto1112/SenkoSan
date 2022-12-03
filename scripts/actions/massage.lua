@@ -30,7 +30,7 @@ function Massage.onAnimationTick(self)
 	if (self.AnimationCount <= 403 and self.AnimationCount >= 373 and (self.AnimationCount - 403) % 15 == 0) or (self.AnimationCount <= 341 and self.AnimationCount >= 311 and (self.AnimationCount - 341) % 15 == 0) or (self.AnimationCount <= 279 and self.AnimationCount >= 249 and (self.AnimationCount - 279) % 15 == 0) or (self.AnimationCount <= 151 and self.AnimationCount >= 59 and (self.AnimationCount - 151) % 8 == 0) then
 		sounds:playSound("block.wool.step", player:getPos(), 0.5, 1)
 		if self.AnimationCount == 95 then
-			FacePartsClass.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
+			FaceParts.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
 			sounds:playSound("entity.player.levelup", playerPos, 1, 1.5)
 			for _ = 1, 30 do
 				particles:newParticle("happy_villager", playerPos:copy():add((math.random() - 0.5) * 4, (math.random() - 0.5) * 4 + 1, (math.random() - 0.5) * 4))

@@ -1,13 +1,13 @@
 ---@class Smile 笑顔のアニメーションを制御するクラス
 
 Smile = General.instance({}, AnimationAction, function ()
-	return not WardenClass.WardenNearby
+	return not Warden.WardenNearby
 end, nil, nil, nil, nil, 40)
 
 ---笑顔アニメーションを再生する。
 ---@param playSoundParticle boolean パーティクルと効果音を再生するかどうか
 function Smile.play(self, playSoundParticle)
-	FacePartsClass.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
+	FaceParts.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
 	if playSoundParticle then
 		local playerPos = player:getPos()
 		sounds:playSound("entity.player.levelup", playerPos, 1, 1.5)
@@ -22,7 +22,7 @@ end
 
 ---笑顔アニメーションを停止する。
 function Smile.stop(self)
-	FacePartsClass.resetEmotion()
+	FaceParts.resetEmotion()
 	self.IsAnimationPlaying = false
 	ActionWheel.IsAnimationPlaying = false
 	self.AnimationCount = 0
