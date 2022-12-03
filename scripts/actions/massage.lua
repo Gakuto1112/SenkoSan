@@ -1,72 +1,42 @@
----@class MassageClass マッサージのアニメーションを制御するクラス
----@field MassageAnimationCount integer アニメーションの再生時間を示すカウンター。
+---@class Massage マッサージのアニメーションを制御するクラス
+---@field self.AnimationCount integer アニメーションの再生時間を示すカウンター。
 
-MassaseClass = {}
-
-MassageAnimationCount = 0
+Massage = General.instance({}, AnimationAction, function ()
+	return TailCuddling:checkAction()
+end, models.models.massage, models.models.massage, animations["models.main"]["massage"], General.getAnimationsOutOfMain("massage"), 0)
 
 ---マッサージのアニメーションを再生する。
-function MassaseClass.play()
-	models.models.massage:setVisible(true)
-	General.setAnimations("PLAY", "massage")
+function Massage.play(self)
+	AnimationAction.play(self)
 	General.setAnimations("PLAY", "earpick_arm_fix")
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-	UmbrellaClass.EnableUmbrella = false
-	MassageAnimationCount = 426
 end
 
 ---マッサージのアニメーションを停止する。
-function MassaseClass.stop()
-	models.models.massage:setVisible(false)
-	General.setAnimations("STOP", "massage")
+function Massage.stop(self)
+	AnimationAction.stop(self)
 	General.setAnimations("STOP", "earpick_arm_fix")
-	FacePartsClass:resetEmotion()
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-	for _, modelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
-		modelPart:setVisible(true)
-	end
-	ArmsClass.ItemHeldContradicts = {false, false}
-	UmbrellaClass.EnableUmbrella = true
-	MassageAnimationCount = 0
 end
 
-events.TICK:register(function ()
-	if MassageAnimationCount > 0 then
-		local playerPos = player:getPos()
-		for _ = 1, 5 do
-			particles:newParticle("minecraft:end_rod", playerPos:copy():add((math.random() - 0.5) * 10, (math.random() - 0.5) * 10, (math.random() - 0.5) * 10))
-		end
-		local leftHanded = player:isLeftHanded()
-		if player:getHeldItem(leftHanded).id ~= "minecraft:air" then
-			vanilla_model.RIGHT_ITEM:setVisible(false)
-			ArmsClass.ItemHeldContradicts[1] = true
-		else
-			vanilla_model.RIGHT_ITEM:setVisible(true)
-			ArmsClass.ItemHeldContradicts[1] = false
-		end
-		if player:getHeldItem(not leftHanded).id ~= "minecraft:air" then
-			vanilla_model.LEFT_ITEM:setVisible(false)
-			ArmsClass.ItemHeldContradicts[2] = true
-		else
-			vanilla_model.LEFT_ITEM:setVisible(true)
-			ArmsClass.ItemHeldContradicts[2] = false
-		end
-		if (MassageAnimationCount <= 403 and MassageAnimationCount >= 373 and (MassageAnimationCount - 403) % 15 == 0) or (MassageAnimationCount <= 341 and MassageAnimationCount >= 311 and (MassageAnimationCount - 341) % 15 == 0) or (MassageAnimationCount <= 279 and MassageAnimationCount >= 249 and (MassageAnimationCount - 279) % 15 == 0) or (MassageAnimationCount <= 151 and MassageAnimationCount >= 59 and (MassageAnimationCount - 151) % 8 == 0) then
-			sounds:playSound("minecraft:block.wool.step", player:getPos(), 0.5, 1)
-			if MassageAnimationCount == 95 then
-				FacePartsClass.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
-				local playerPos = player:getPos()
-				sounds:playSound("minecraft:entity.player.levelup", playerPos, 1, 1.5)
-				for _ = 1, 30 do
-					particles:newParticle("minecraft:happy_villager", playerPos:copy():add((math.random() - 0.5) * 4, (math.random() - 0.5) * 4 + 1, (math.random() - 0.5) * 4))
-				end
-			end
-		elseif MassageAnimationCount == 1 then
-			MassaseClass.stop()
-		end
-		MassageAnimationCount = MassageAnimationCount > 0 and (client:isPaused() and MassageAnimationCount or MassageAnimationCount - 1) or 0
+---アニメーション再生中に毎チック実行される関数
+function Massage.onAnimationTick(self)
+	AnimationAction.onAnimationTick(self)
+	local playerPos = player:getPos()
+	for _ = 1, 5 do
+		particles:newParticle("end_rod", playerPos:copy():add((math.random() - 0.5) * 10, (math.random() - 0.5) * 10, (math.random() - 0.5) * 10))
 	end
-end)
+	if (self.AnimationCount <= 403 and self.AnimationCount >= 373 and (self.AnimationCount - 403) % 15 == 0) or (self.AnimationCount <= 341 and self.AnimationCount >= 311 and (self.AnimationCount - 341) % 15 == 0) or (self.AnimationCount <= 279 and self.AnimationCount >= 249 and (self.AnimationCount - 279) % 15 == 0) or (self.AnimationCount <= 151 and self.AnimationCount >= 59 and (self.AnimationCount - 151) % 8 == 0) then
+		sounds:playSound("block.wool.step", player:getPos(), 0.5, 1)
+		if self.AnimationCount == 95 then
+			FacePartsClass.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
+			sounds:playSound("entity.player.levelup", playerPos, 1, 1.5)
+			for _ = 1, 30 do
+				particles:newParticle("happy_villager", playerPos:copy():add((math.random() - 0.5) * 4, (math.random() - 0.5) * 4 + 1, (math.random() - 0.5) * 4))
+			end
+		end
+	end
+end
 
 models.models.massage.LyingPlayer:setPrimaryTexture("SKIN")
 if player:getModelType() == "DEFAULT" then
@@ -79,4 +49,4 @@ else
 	end
 end
 
-return MassaseClass
+return Massage

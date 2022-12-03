@@ -251,10 +251,10 @@ end
 
 function pings.main2_action5()
 	runAction(function ()
-		MassaseClass.play()
-		ActionWheelClass.ActionCount = 426
+		Massage:play()
+		ActionWheelClass.ActionCount = Massage.AnimationLength
 	end, function ()
-		MassaseClass.stop()
+		Massage:stop()
 		ActionWheelClass.ActionCount = 0
 	end, false)
 end
