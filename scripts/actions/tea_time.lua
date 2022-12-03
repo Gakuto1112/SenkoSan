@@ -1,7 +1,7 @@
 ---@class TeaTime お茶飲みのアニメーションを制御するクラス
 
 TeaTime = General.instance({}, AnimationAction, function ()
-	return TailCuddling:checkAction()
+	return SitDown.IsAnimationPlaying
 end, {models.models.tea, models.models.tea.Avatar.Body.Yunomi1.Tea}, {models.models.tea, models.models.tea.Avatar.Body.Yunomi1.Tea}, animations["models.main"]["tea_time"], General.getAnimationsOutOfMain("tea_time"), 40)
 
 ---お茶飲みのアニメーションを再生する。

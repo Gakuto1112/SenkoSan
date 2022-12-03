@@ -1,7 +1,7 @@
 ---@class Earpick 耳かきのアニメーションを制御するクラス
 
 Earpick = General.instance({}, AnimationAction, function ()
-	return TailCuddling:checkAction()
+	return SitDown.IsAnimationPlaying
 end, models.models.ear_cleaning, models.models.ear_cleaning, animations["models.main"]["earpick"], General.getAnimationsOutOfMain("earpick"), 0)
 
 ---耳かきアニメーションを再生する。

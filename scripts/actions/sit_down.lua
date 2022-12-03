@@ -8,6 +8,7 @@ end, nil, nil, animations["models.main"]["sit_down"], General.getAnimationsOutOf
 ---おすわりアニメーションが再生する。
 function SitDown.play(self)
 	PermanentAnimationAction.play(self)
+	UmbrellaClass.EnableUmbrella = true
 	CameraClass.CameraOffset = -0.5
 	NameplateClass.NamePlateOffset = -0.5
 end

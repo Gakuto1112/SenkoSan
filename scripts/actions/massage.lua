@@ -2,7 +2,7 @@
 ---@field self.AnimationCount integer アニメーションの再生時間を示すカウンター。
 
 Massage = General.instance({}, AnimationAction, function ()
-	return TailCuddling:checkAction()
+	return SitDown.IsAnimationPlaying
 end, models.models.massage, models.models.massage, animations["models.main"]["massage"], General.getAnimationsOutOfMain("massage"), 0)
 
 ---マッサージのアニメーションを再生する。
