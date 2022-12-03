@@ -4,7 +4,7 @@
 		"model_format": "free",
 		"box_uv": false
 	},
-	"name": "fox_mask",
+	"name": "costume_fox_mask",
 	"model_identifier": "",
 	"visible_box": [1, 1, 0],
 	"variable_placeholders": "",
@@ -299,19 +299,19 @@
 			"frame_interpolate": false,
 			"visible": true,
 			"mode": "bitmap",
-			"saved": true,
+			"saved": false,
 			"uuid": "4d472f35-9d2e-ae81-e95c-d5d5a7834a23",
-			"relative_path": "../../textures/fox.png",
-			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAgCAYAAABU1PscAAAAAXNSR0IArs4c6QAAAGJJREFUWEft0rENACAMxMBk/6UZ4goUyfR+gc3O8bPH7z894HfBClQADfSFUCDjFWCFOFABFMh4BVghDlQABTJeAVaIAxVAgYxXgBXiQAVQIOMVYIU4UAEUyHgFWCEOnC/wAKY/ACH39uxJAAAAAElFTkSuQmCC"
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAgCAYAAABU1PscAAAAAXNSR0IArs4c6QAAAGJJREFUWEft0rENACAMxMBk/6UZ4goUyfR+gc3O8bPH7z894HfBClQADfSFUCDjFWCFOFABFMh4BVghDlQABTJeAVaIAxVAgYxXgBXiQAVQIOMVYIU4UAEUyHgFWCEOnC/wAKY/ACH39uxJAAAAAElFTkSuQmCC",
+			"relative_path": "../../textures/fox.png"
 		}
 	],
 	"animations": [
 		{
 			"uuid": "30463ead-8825-7394-b445-952079925810",
 			"name": "broom_cleaning",
-			"loop": "once",
+			"loop": "hold",
 			"override": false,
-			"length": 8.41667,
+			"length": 6.66667,
 			"snapping": 24,
 			"selected": false,
 			"anim_time_update": "",
@@ -826,7 +826,7 @@
 		{
 			"uuid": "69ff0e46-712d-4c90-700f-4038523084c1",
 			"name": "vacuum_cleaning",
-			"loop": "once",
+			"loop": "hold",
 			"override": false,
 			"length": 14,
 			"snapping": 24,
@@ -2181,9 +2181,9 @@
 		{
 			"uuid": "759948bb-eb1c-81d6-ab0f-a5373d76234f",
 			"name": "cloth_cleaning",
-			"loop": "once",
+			"loop": "hold",
 			"override": false,
-			"length": 9.8333,
+			"length": 7.83333,
 			"snapping": 24,
 			"selected": false,
 			"anim_time_update": "",
@@ -2872,9 +2872,9 @@
 		{
 			"uuid": "271dbdac-5bae-9b7f-0de5-387f180b3ba3",
 			"name": "hair_cut",
-			"loop": "once",
+			"loop": "hold",
 			"override": false,
-			"length": 24.4167,
+			"length": 24,
 			"snapping": 24,
 			"selected": false,
 			"anim_time_update": "",
@@ -5652,7 +5652,7 @@
 		{
 			"uuid": "07387adb-b9cd-a909-6ee2-68cfacf059fc",
 			"name": "fox_jump",
-			"loop": "once",
+			"loop": "hold",
 			"override": false,
 			"length": 5.875,
 			"snapping": 24,
@@ -7329,7 +7329,7 @@
 		{
 			"uuid": "b1f48113-9b7a-79c5-6804-89c08b75beba",
 			"name": "tail_brush",
-			"loop": "once",
+			"loop": "hold",
 			"override": false,
 			"length": 10,
 			"snapping": 24,
@@ -8580,7 +8580,7 @@
 		{
 			"uuid": "e2c2d4bd-73d3-5ed9-0918-7a6713a897b2",
 			"name": "tail_cuddling",
-			"loop": "once",
+			"loop": "hold",
 			"override": false,
 			"length": 19,
 			"snapping": 24,
@@ -10065,9 +10065,9 @@
 		{
 			"uuid": "eef41500-d17e-9ae7-12c6-88d2a4f5d721",
 			"name": "earpick",
-			"loop": "once",
+			"loop": "hold",
 			"override": false,
-			"length": 11.9167,
+			"length": 1.25,
 			"snapping": 24,
 			"selected": false,
 			"anim_time_update": "",
@@ -10456,9 +10456,9 @@
 		{
 			"uuid": "460ea4df-6a4d-e4f9-a827-6c94b3a2afef",
 			"name": "tea_time",
-			"loop": "once",
+			"loop": "hold",
 			"override": false,
-			"length": 12.5,
+			"length": 10.5,
 			"snapping": 24,
 			"selected": false,
 			"anim_time_update": "",
@@ -11095,11 +11095,11 @@
 		{
 			"uuid": "7df3de14-8ab4-4e78-eef9-c73f7c5a3e5c",
 			"name": "massage",
-			"loop": "once",
+			"loop": "hold",
 			"override": false,
 			"length": 21.25,
 			"snapping": 24,
-			"selected": false,
+			"selected": true,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",

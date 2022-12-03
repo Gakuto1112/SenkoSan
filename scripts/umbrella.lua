@@ -1,33 +1,33 @@
----@class UmbrellaClass 傘を制御するクラス
----@field UmbrellaClass.Umbrella boolean 傘をさしているかどうか
----@field UmbrellaClass.EnableUmbrella boolean 傘をさせるかどうか（他のクラスから操作）
----@field UmbrellaPrev boolean 前チックに傘をさしていたかどうか
----@field UmbrellaClass.UmbrellaSound boolean 傘の開閉音を再生するかどうか
+---@class Umbrella 傘を制御するクラス
+---@field Umbrella.Umbrella boolean 傘をさしているかどうか
+---@field Umbrella.EnableUmbrella boolean 傘をさせるかどうか（他のクラスから操作）
+---@field Umbrella.UmbrellaPrev boolean 前チックに傘をさしていたかどうか
+---@field Umbrella.UmbrellaSound boolean 傘の開閉音を再生するかどうか
 
-UmbrellaClass = {}
-UmbrellaClass.Umbrella = false
-UmbrellaClass.EnableUmbrella = true
-UmbrellaPrev = false
-UmbrellaClass.UmbrellaSound = ConfigClass.loadConfig("umbrellaSound", true)
+Umbrella = {}
+Umbrella.Umbrella = false
+Umbrella.EnableUmbrella = true
+Umbrella.UmbrellaPrev = false
+Umbrella.UmbrellaSound = Config.loadConfig("umbrellaSound", true)
 
 events.TICK:register(function ()
 	local playerPose = player:getPose()
 	local activeItem = player:getActiveItem()
 	local mainHeldItem = player:getHeldItem()
-	UmbrellaClass.Umbrella = player:isInRain() and not player:isUnderwater() and activeItem.id ~= "minecraft:bow" and activeItem.id ~= "minecraft:crossbow" and (mainHeldItem.id ~= "minecraft:crossbow" or mainHeldItem.tag["Charged"] == 0) and not player:getVehicle() and playerPose ~= "FALL_FLYING" and playerPose ~= "SWIMMING" and player:getHeldItem(true).id == "minecraft:air" and UmbrellaClass.EnableUmbrella
+	Umbrella.Umbrella = player:isInRain() and not player:isUnderwater() and activeItem.id ~= "minecraft:bow" and activeItem.id ~= "minecraft:crossbow" and (mainHeldItem.id ~= "minecraft:crossbow" or mainHeldItem.tag["Charged"] == 0) and not player:getVehicle() and playerPose ~= "FALL_FLYING" and playerPose ~= "SWIMMING" and player:getHeldItem(true).id == "minecraft:air" and Umbrella.EnableUmbrella
 	local umbrella = models.models.umbrella
 	local rightArm = models.models.main.Avatar.Body.Arms.RightArm
 	local leftArm = models.models.main.Avatar.Body.Arms.LeftArm
 	local rightArmorArm = models.models.armor.Avatar.Body.Arms.RightArm
 	local leftArmorArm = models.models.armor.Avatar.Body.Arms.LeftArm
-	if UmbrellaClass.Umbrella then
-		if not UmbrellaPrev and UmbrellaClass.UmbrellaSound then
+	if Umbrella.Umbrella then
+		if not Umbrella.UmbrellaPrev and Umbrella.UmbrellaSound then
 			sounds:playSound("minecraft:entity.bat.takeoff", player:getPos(), 0.5, 1.5)
 		end
 		if player:isLeftHanded() then
 			rightArm:setParentType("Body")
 			leftArm:setParentType("LeftArm")
-			if ArmorClass.ArmorVisible[2] then
+			if Armor.ArmorVisible[2] then
 				rightArmorArm:setParentType("Body")
 				leftArmorArm:setParentType("LeftArm")
 			end
@@ -36,7 +36,7 @@ events.TICK:register(function ()
 		else
 			leftArm:setParentType("Body")
 			rightArm:setParentType("RightArm")
-			if ArmorClass.ArmorVisible[2] then
+			if Armor.ArmorVisible[2] then
 				leftArmorArm:setParentType("Body")
 				rightArmorArm:setParentType("RightArm")
 			end
@@ -45,12 +45,12 @@ events.TICK:register(function ()
 		end
 		umbrella:setVisible(true)
 	else
-		if UmbrellaPrev and UmbrellaClass.UmbrellaSound then
+		if Umbrella.UmbrellaPrev and Umbrella.UmbrellaSound then
 			sounds:playSound("minecraft:entity.bat.takeoff", player:getPos(), 0.5, 1.5)
 		end
 		rightArm:setParentType("RightArm")
 		leftArm:setParentType("LeftArm")
-		if ArmorClass.ArmorVisible[2] then
+		if Armor.ArmorVisible[2] then
 			rightArmorArm:setParentType("RightArm")
 			leftArmorArm:setParentType("LeftArm")
 		end
@@ -59,8 +59,8 @@ events.TICK:register(function ()
 		end
 		umbrella:setVisible(false)
 	end
-	UmbrellaPrev = UmbrellaClass.Umbrella
+	Umbrella.UmbrellaPrev = Umbrella.Umbrella
 end)
 
 
-return UmbrellaClass
+return Umbrella

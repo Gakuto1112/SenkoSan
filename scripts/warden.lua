@@ -1,29 +1,29 @@
----@class WardenClass ウォーデンに怯える機能を制御するクラス
----@field WardenNearbyData table 前チックにウォーデンが近くにいたかどうかを調べる為にウォーデン情報を格納するテーブル
----@field WardenClass.WardenNearby boolean ウォーデンが近くにいるかどうか（=暗闇デバフを受けているかどうか）
+---@class Warden ウォーデンに怯える機能を制御するクラス
+---@field Warden.WardenNearbyData table 前チックにウォーデンが近くにいたかどうかを調べる為にウォーデン情報を格納するテーブル
+---@field Warden.WardenNearby boolean ウォーデンが近くにいるかどうか（=暗闇デバフを受けているかどうか）
 
-WardenClass = {}
+Warden = {}
 
-WardenNearbyData = {}
-WardenClass.WardenNearby = false
+Warden.WardenNearbyData = {}
+Warden.WardenNearby = false
 
 events.TICK:register(function()
-	WardenClass.WardenNearby = General.getStatusEffect("darkness") and true or false
-	if WardenClass.WardenNearby then
-		if not WardenNearbyData[1] and player:getPose() ~= "SLEEPING" then
+	Warden.WardenNearby = General.getStatusEffect("darkness") and true or false
+	if Warden.WardenNearby then
+		if not Warden.WardenNearbyData[1] and player:getPose() ~= "SLEEPING" then
 			General.setAnimations("PLAY", "afraid")
 		end
-		EarsClass.setEarsRot("DROOPING", 1, true)
-		FacePartsClass.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 0, false)
+		Ears.setEarsRot("DROOPING", 1, true)
+		FaceParts.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 0, false)
 	else
 		General.setAnimations("STOP", "afraid")
 		General.setAnimations("STOP", "right_hide_bell")
 		General.setAnimations("STOP", "left_hide_bell")
 	end
-	table.insert(WardenNearbyData, WardenClass.WardenNearby)
-	if #WardenNearbyData == 2 then
-		table.remove(WardenNearbyData, 1)
+	table.insert(Warden.WardenNearbyData, Warden.WardenNearby)
+	if #Warden.WardenNearbyData == 2 then
+		table.remove(Warden.WardenNearbyData, 1)
 	end
 end)
 
-return WardenClass
+return Warden

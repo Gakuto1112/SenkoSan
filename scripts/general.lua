@@ -31,6 +31,18 @@ General = {}
 General.PlayerCondition = "HIGH"
 General.IsSneaking = false
 
+---クラスのインスタンス化
+---@param class table 継承先のクラス
+---@param super table|nil 継承元のクラス
+---@param ... any クラスの引数
+---@return table instancedClass インスタンス化されたクラス
+function General.instance(class, super, ...)
+	local instance = super and super.new(...) or {}
+	setmetatable(instance, {__index = class})
+	setmetatable(class, {__index = super})
+	return instance
+end
+
 ---該当するキーのインデックスを返す。キーがテーブルに存在しない場合は-1を返す。
 ---@param targetTable table 調べるテーブル
 ---@param key any 見つけ出す要素
@@ -62,6 +74,26 @@ end
 ---@return boolean isAnimationPlaying アニメーションが再生中かどうか
 function General.isAnimationPlaying(modelName, animationName)
 	return animations[modelName][animationName]:getPlayState() == "PLAYING"
+end
+
+---メイン以外にあるモデルファイルにある指定されたアニメーション名と同じアニメーションを取得する。
+---@param animationName string 取得するアニメーションの名前
+---@return table animationList 取得したアニメーションのリスト
+function General.getAnimationsOutOfMain(animationName)
+	local result = {}
+	local modelFiles = models.models:getChildren()
+	for _, modelPart in ipairs(modelFiles) do
+		local modelName = modelPart:getName()
+		if modelName ~= "main" then
+			local animationsInModel = animations["models."..modelName]
+			if animationsInModel then
+				if animationsInModel[animationName] then
+					table.insert(result, animationsInModel[animationName])
+				end
+			end
+		end
+	end
+	return result
 end
 
 --複数のモデルファイルのアニメーションを同時に制御する。

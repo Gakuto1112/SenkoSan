@@ -1,35 +1,35 @@
 ---@class クリスマスメッセージを制御するクラス
----@field MelodyCount integer メロディー再生のタイミングを計るカウンター
+---@field Christmas.MelodyCount integer メロディー再生のタイミングを計るカウンター
 
-ChristmasClass = {}
+Christmas = {}
 
-MelodyCount = -1
+Christmas.MelodyCount = -1
 
 events.TICK:register(function ()
-	if MelodyCount >= 0 then
-		if MelodyCount == 0 or MelodyCount == 8 or MelodyCount == 16 or MelodyCount == 28 or MelodyCount == 32 or MelodyCount == 80 then
+	if Christmas.MelodyCount >= 0 then
+		if Christmas.MelodyCount == 0 or Christmas.MelodyCount == 8 or Christmas.MelodyCount == 16 or Christmas.MelodyCount == 28 or Christmas.MelodyCount == 32 or Christmas.MelodyCount == 80 then
 			--シ♭
 			sounds:playSound("block.note_block.chime", player:getPos(), 1, 1.259921)
-		elseif MelodyCount == 40 or MelodyCount == 48 or MelodyCount == 56 then
+		elseif Christmas.MelodyCount == 40 or Christmas.MelodyCount == 48 or Christmas.MelodyCount == 56 then
 			--ラ
 			sounds:playSound("block.note_block.chime", player:getPos(), 1, 1.189207)
-		elseif MelodyCount == 64 or MelodyCount == 72 then
+		elseif Christmas.MelodyCount == 64 or Christmas.MelodyCount == 72 then
 			--ド
 			sounds:playSound("block.note_block.chime", player:getPos(), 1, 1.414214)
-		elseif MelodyCount == 88 then
+		elseif Christmas.MelodyCount == 88 then
 			--ソ
 			sounds:playSound("block.note_block.chime", player:getPos(), 1, 1.059463)
-		elseif MelodyCount == 96 then
+		elseif Christmas.MelodyCount == 96 then
 			--ファ
 			sounds:playSound("block.note_block.chime", player:getPos(), 1, 0.943874)
-			MelodyCount = -1
+			Christmas.MelodyCount = -1
 			return
 		end
-		MelodyCount = MelodyCount + 1
+		Christmas.MelodyCount = Christmas.MelodyCount + 1
 	end
 end)
 
-if host:isHost() and CostumeClass.CurrentCostume == "SANTA" then
+if host:isHost() and Costume.CurrentCostume == "SANTA" then
 	---西暦1年1月1日からの経過日数を返す。
 	---@param year integer
 	---@param month integer
@@ -44,9 +44,9 @@ if host:isHost() and CostumeClass.CurrentCostume == "SANTA" then
 	local year = 1970 + math.floor(day / 365.2425)
 	local daysElapsedFromNewYear = day - getDaysElapsed(year, 1, 1) + getDaysElapsed(1970, 1, 1)
 	if daysElapsedFromNewYear >= 357 and daysElapsedFromNewYear <= 359 then
-		print(LanguageClass.getTranslate("message__merry_christmas"))
-		MelodyCount = 0
+		print(Language.getTranslate("message__merry_christmas"))
+		Christmas.MelodyCount = 0
 	end
 end
 
-return ChristmasClass
+return Christmas

@@ -1,16 +1,16 @@
----@class ApronClass エプロンの挙動を制御するクラス
----@field ApronClass.IsVisible boolean エプロンが可視化状態かどうか
+---@class Apron エプロンの挙動を制御するクラス
+---@field Apron.IsVisible boolean エプロンが可視化状態かどうか
 
-ApronClass = {}
+Apron = {}
 
-ApronClass.IsVisible = true
+Apron.IsVisible = true
 
 events.TICK:register(function ()
-	models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setVisible(ApronClass.IsVisible)
+	models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setVisible(Apron.IsVisible)
 end)
 
 events.RENDER:register(function ()
-	if ApronClass.IsVisible and not General.isAnimationPlaying("models.main", "sit_down") then
+	if Apron.IsVisible and not General.isAnimationPlaying("models.main", "sit_down") then
 		local apronBottom = models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom
 		if General.IsSneaking then
 			apronBottom:setRot(math.max(vanilla_model.RIGHT_LEG:getOriginRot().x, vanilla_model.LEFT_LEG:getOriginRot().x) + 30, 0, 0)
@@ -24,4 +24,4 @@ events.RENDER:register(function ()
 	end
 end)
 
-return ApronClass
+return Apron

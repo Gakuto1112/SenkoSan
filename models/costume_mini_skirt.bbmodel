@@ -179,7 +179,7 @@
 		{
 			"uuid": "69ff0e46-712d-4c90-700f-4038523084c1",
 			"name": "vacuum_cleaning",
-			"loop": "once",
+			"loop": "hold",
 			"override": false,
 			"length": 14,
 			"snapping": 24,
@@ -1310,9 +1310,9 @@
 		{
 			"uuid": "759948bb-eb1c-81d6-ab0f-a5373d76234f",
 			"name": "cloth_cleaning",
-			"loop": "once",
+			"loop": "hold",
 			"override": false,
-			"length": 9.8333,
+			"length": 7.83333,
 			"snapping": 24,
 			"selected": false,
 			"anim_time_update": "",
@@ -1951,7 +1951,7 @@
 		{
 			"uuid": "f5590a55-9e3c-947e-c223-a813636ab309",
 			"name": "fox_jump",
-			"loop": "once",
+			"loop": "hold",
 			"override": false,
 			"length": 5.875,
 			"snapping": 24,
@@ -3946,7 +3946,7 @@
 		{
 			"uuid": "74234f01-6344-64a0-b3b3-7aa0653305e2",
 			"name": "tail_cuddling",
-			"loop": "once",
+			"loop": "hold",
 			"override": false,
 			"length": 19,
 			"snapping": 24,
@@ -5131,11 +5131,11 @@
 		{
 			"uuid": "2d18e92f-87a4-151b-3737-b2f57080d601",
 			"name": "massage",
-			"loop": "once",
+			"loop": "hold",
 			"override": false,
 			"length": 21.25,
 			"snapping": 24,
-			"selected": false,
+			"selected": true,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",

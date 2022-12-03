@@ -1,28 +1,21 @@
----@class ConfigClass アバター設定を管理するクラス
----@field DefaultValues table 読み込んだ値のデフォルト値を保持するテーブル
----@field IsSynced boolean アバターの設定がホストと同期されたかどうか
----@field NextSyncCount integer 次の同期pingまでのカウンター
----@field ConfigClass.DefaultCostume integer デフォルト（初期状態）のコスチューム
----@field ConfigClass.DefaultName integer デフォルトのプレイヤーの表示名
----@field ConfigClass.AutoShake boolean 水から上がった際に自動でブルブルアクションを実行するかどうか
----@field ConfigClass.ShowArmor boolean 防具を表示するどうか
----@field ConfigClass.FoxFireInFirstPerson boolean 一人称視点で狐火を表示するかどうか
----@field ConfigClass.UmbrellaSound boolean 傘の開閉音を再生するかどうか
----@field ConfigClass.KiyBinds table アバター固有アクションのキーバインドのテーブル
+---@class Config アバター設定を管理するクラス
+---@field Config.DefaultValues table 読み込んだ値のデフォルト値を保持するテーブル
+---@field Config.IsSynced boolean アバターの設定がホストと同期されたかどうか
+---@field Config.NextSyncCount integer 次の同期pingまでのカウンター
 
-ConfigClass = {}
-DefaultValues = {}
-IsSynced = host:isHost()
-NextSyncCount = 0
+Config = {}
+Config.DefaultValues = {}
+Config.IsSynced = host:isHost()
+Config.NextSyncCount = 0
 
 ---設定を読み出す
 ---@param keyName string 読み出す設定の名前
 ---@param defaultValue any 該当の設定が無い場合や、ホスト外での実行の場合はこの値が返される。
 ---@return any data 読み出した値
-function ConfigClass.loadConfig(keyName, defaultValue)
+function Config.loadConfig(keyName, defaultValue)
 	if host:isHost() then
 		local data = config:load(keyName)
-		DefaultValues[keyName] = defaultValue
+		Config.DefaultValues[keyName] = defaultValue
 		if data ~= nil then
 			return data
 		else
@@ -36,9 +29,9 @@ end
 ---設定を保存する
 ---@param keyName string 保存する設定の名前
 ---@param value any 保存する値
-function ConfigClass.saveConfig(keyName, value)
+function Config.saveConfig(keyName, value)
 	if host:isHost() then
-		if DefaultValues[keyName] == value then
+		if Config.DefaultValues[keyName] == value then
 			config:save(keyName, nil)
 		else
 			config:save(keyName, value)
@@ -54,28 +47,28 @@ end
 ---@param showArmor boolean 防具を表示するかどうか
 ---@param umbrellaSound boolean 傘の開閉音を再生するかどうか
 function pings.syncAvatarConfig(nameID, costumeID, autoShake, showArmor, umbrellaSound)
-	if not IsSynced then
-		ActionWheelClass.CurrentPlayerNameState = nameID
-		ActionWheelClass.CurrentCostumeState = costumeID
-		NameplateClass.setName(nameID)
-		if ActionWheelClass.CurrentCostumeState == 0 then
-			CostumeClass.resetCostume()
+	if not Config.IsSynced then
+		ActionWheel.CurrentPlayerNameState = nameID
+		ActionWheel.CurrentCostumeState = costumeID
+		Nameplate.setName(nameID)
+		if ActionWheel.CurrentCostumeState == 0 then
+			Costume.resetCostume()
 		else
-			CostumeClass.setCostume(string.upper(CostumeClass.CostumeList[ActionWheelClass.CurrentCostumeState]))
+			Costume.setCostume(string.upper(Costume.CostumeList[ActionWheel.CurrentCostumeState]))
 		end
-		WetClass.AutoShake = autoShake
-		ArmorClass.ShowArmor = showArmor
-		UmbrellaClass.UmbrellaSound = umbrellaSound
-		IsSynced = true
+		Wet.AutoShake = autoShake
+		Armor.ShowArmor = showArmor
+		Umbrella.UmbrellaSound = umbrellaSound
+		Config.IsSynced = true
 	end
 end
 
 events.TICK:register(function ()
-	if NextSyncCount == 0 then
-		pings.syncAvatarConfig(ActionWheelClass.CurrentPlayerNameState, ActionWheelClass.CurrentCostumeState, WetClass.AutoShake, ArmorClass.ShowArmor, UmbrellaClass.UmbrellaSound)
-		NextSyncCount = 300
+	if Config.NextSyncCount == 0 then
+		pings.syncAvatarConfig(ActionWheel.CurrentPlayerNameState, ActionWheel.CurrentCostumeState, Wet.AutoShake, Armor.ShowArmor, Umbrella.UmbrellaSound)
+		Config.NextSyncCount = 300
 	else
-		NextSyncCount = NextSyncCount - 1
+		Config.NextSyncCount = Config.NextSyncCount - 1
 	end
 end)
 
@@ -83,4 +76,4 @@ if host:isHost() then
 	config:name("Senko_san")
 end
 
-return ConfigClass
+return Config

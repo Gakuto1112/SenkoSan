@@ -1,16 +1,16 @@
----@class HurtClass プレイヤーのダメージを管理するクラス
+---@class Hurt プレイヤーのダメージを管理するクラス
 ---@field HealthData table ダメージを受けたかどうか判定する為にHP情報を格納するテーブル
----@field HurtClass.Damaged HurtClass プレイヤーのダメージの検証結果
+---@field Hurt.Damaged DamageType プレイヤーのダメージの検証結果
 
 ---@alias DamageType
 ---| "NONE"
 ---| "DAMAGED"
 ---| "DIED"
 
-HurtClass = {}
+Hurt = {}
 
 HealthData = {}
-HurtClass.Damaged = "NONE"
+Hurt.Damaged = "NONE"
 
 events.TICK:register(function ()
 	local health = player:getHealth()
@@ -20,15 +20,15 @@ events.TICK:register(function ()
 	end
 	if health < HealthData[1] then
 		if health == 0 then
-			FacePartsClass.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 20, true)
-			HurtClass.Damaged = "DIED"
+			FaceParts.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 20, true)
+			Hurt.Damaged = "DIED"
 		else
-			FacePartsClass.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 8, true)
-			HurtClass.Damaged = "DAMAGED"
+			FaceParts.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 8, true)
+			Hurt.Damaged = "DAMAGED"
 		end
 	else
-		HurtClass.Damaged = "NONE"
+		Hurt.Damaged = "NONE"
 	end
 end)
 
-return HurtClass
+return Hurt

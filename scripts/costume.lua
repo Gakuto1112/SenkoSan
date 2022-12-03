@@ -1,10 +1,10 @@
----@class CostumeClass キャラクターのコスチュームを管理し、円滑に切り替えられるようにするクラス
----@field CostumeClass.CostumeList table 利用可能なコスチュームのリスト
----@field CostumeClass.CurrentCostume CostumeType 現在のコスチューム
+---@class Costume キャラクターのコスチュームを管理し、円滑に切り替えられるようにするクラス
+---@field Costume.CostumeList table 利用可能なコスチュームのリスト
+---@field Costume.CurrentCostume CostumeType 現在のコスチューム
 
-CostumeClass = {}
-CostumeClass.CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "tracksuit", "casual", "sailor", "china_dress", "santa"}
-CostumeClass.CurrentCostume = "DEFAULT"
+Costume = {}
+Costume.CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "tracksuit", "casual", "sailor", "china_dress", "santa"}
+Costume.CurrentCostume = "DEFAULT"
 
 ---@alias CostumeType
 ---| "DEFAULT"
@@ -36,12 +36,12 @@ end
 
 ---コスチュームを設定する。
 ---@param costume CostumeType 設定するコスチューム
-function CostumeClass.setCostume(costume)
-	CostumeClass.resetCostume()
-	CostumeClass.CurrentCostume = costume
+function Costume.setCostume(costume)
+	Costume.resetCostume()
+	Costume.CurrentCostume = costume
 	if costume == "NIGHTWEAR" then
 		setCostumeTextureOffset(1)
-		ApronClass.IsVisible = false
+		Apron.IsVisible = false
 	elseif costume == "DISGUISE" then
 		models.models.costume_disguise:setVisible(true)
 		setCostumeTextureOffset(2)
@@ -49,96 +49,96 @@ function CostumeClass.setCostume(costume)
 	elseif costume == "MAID_A" then
 		setCostumeTextureOffset(3)
 		models.models.costume_maid_a:setVisible(true)
-		ApronClass.IsVisible = false
-		LegsClass.ReducedLegSwing = true
+		Apron.IsVisible = false
+		Legs.ReducedLegSwing = true
 	elseif costume == "MAID_B" then
 		setCostumeTextureOffset(4)
 		models.models.costume_maid_b:setVisible(true)
-		ApronClass.IsVisible = false
-		LegsClass.ReducedLegSwing = true
+		Apron.IsVisible = false
+		Legs.ReducedLegSwing = true
 	elseif costume == "SWIMSUIT" then
 		setCostumeTextureOffset(5)
 		models.models.costume_swimsuit:setVisible(true)
 		for _, modelPart in ipairs({models.models.costume_mini_skirt.Avatar.Body.BodyBottom.Skirt.Skirt1, models.models.costume_mini_skirt.Avatar.Body.BodyBottom.Skirt.Skirt2}) do
 			modelPart:setUVPixels(0, 0)
 		end
-		ApronClass.IsVisible = false
+		Apron.IsVisible = false
 	elseif costume == "CHEERLEADER" then
 		setCostumeTextureOffset(6)
 		models.models.costume_cheerleader:setVisible(true)
 		for _, modelPart in ipairs({models.models.costume_mini_skirt.Avatar.Body.BodyBottom.Skirt.Skirt1, models.models.costume_mini_skirt.Avatar.Body.BodyBottom.Skirt.Skirt2}) do
 			modelPart:setUVPixels(0, 14)
 		end
-		ApronClass.IsVisible = false
+		Apron.IsVisible = false
 	elseif costume == "PURIFICATION" then
 		setCostumeTextureOffset(7)
-		ApronClass.IsVisible = false
+		Apron.IsVisible = false
 	elseif costume == "KAPPOGI" then
 		setCostumeTextureOffset(8)
 		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(32, 0)
 	elseif costume == "YUKATA" then
 		setCostumeTextureOffset(9)
-		ApronClass.IsVisible = false
+		Apron.IsVisible = false
 	elseif costume == "FOX_HOODIE_RED" then
 		setCostumeTextureOffset(10)
 		models.models.costume_fox_hood:setUVPixels(0, 0)
-		ApronClass.IsVisible = false
+		Apron.IsVisible = false
 	elseif costume == "FOX_HOODIE_WHITE" then
 		setCostumeTextureOffset(11)
 		models.models.costume_fox_hood:setUVPixels(0, 8)
-		ApronClass.IsVisible = false
+		Apron.IsVisible = false
 	elseif costume == "TRACKSUIT" then
 		setCostumeTextureOffset(12)
-		ApronClass.IsVisible = false
+		Apron.IsVisible = false
 	elseif costume == "CASUAL" then
 		setCostumeTextureOffset(13)
 		models.models.costume_beret:setVisible(true)
-		ApronClass.IsVisible = false
+		Apron.IsVisible = false
 	elseif costume == "SAILOR" then
 		setCostumeTextureOffset(14)
 		for _, modelPart in ipairs({models.models.costume_mini_skirt.Avatar.Body.BodyBottom.Skirt.Skirt1, models.models.costume_mini_skirt.Avatar.Body.BodyBottom.Skirt.Skirt2}) do
 			modelPart:setUVPixels(0, 28)
 		end
-		ApronClass.IsVisible = false
+		Apron.IsVisible = false
 	elseif costume == "CHINA_DRESS" then
 		setCostumeTextureOffset(15)
-		ApronClass.IsVisible = false
+		Apron.IsVisible = false
 	elseif costume == "SANTA" then
 		setCostumeTextureOffset(16)
 	end
 end
 
 ---コスチュームをリセットし、デフォルトのコスチュームにする。
-function CostumeClass.resetCostume()
+function Costume.resetCostume()
 	setCostumeTextureOffset(0)
 	for _, modelPart in ipairs({models.models.costume_disguise, models.models.costume_maid_a, models.models.costume_maid_b, models.models.costume_swimsuit, models.models.costume_cheerleader}) do
 		modelPart:setVisible(false)
 	end
-	ApronClass.IsVisible = true
-	LegsClass.ReducedLegSwing = false
+	Apron.IsVisible = true
+	Legs.ReducedLegSwing = false
 	models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 0)
-	CostumeClass.CurrentCostume = "DEFAULT"
+	Costume.CurrentCostume = "DEFAULT"
 end
 
 ---コスチュームの初期処理
 function costumeInit()
-	local loadedData = ConfigClass.loadConfig("costume", 1)
-	if loadedData <= #CostumeClass.CostumeList then
-		CostumeClass.CurrentCostume = string.upper(CostumeClass.CostumeList[loadedData])
-		if CostumeClass.CurrentCostume ~= "DEFAULT" then
-			CostumeClass.setCostume(CostumeClass.CurrentCostume)
+	local loadedData = Config.loadConfig("costume", 1)
+	if loadedData <= #Costume.CostumeList then
+		Costume.CurrentCostume = string.upper(Costume.CostumeList[loadedData])
+		if Costume.CurrentCostume ~= "DEFAULT" then
+			Costume.setCostume(Costume.CurrentCostume)
 		end
 	else
-		CostumeClass.CurrentCostume = "DEFAULT"
-		ConfigClass.saveConfig("costume", 1)
+		Costume.CurrentCostume = "DEFAULT"
+		Config.saveConfig("costume", 1)
 	end
 end
 
 events.TICK:register(function ()
 	local hat = models.models.costume_disguise.Avatar.Head.Hat
 	local ears = models.models.main.Avatar.Head.Ears
-	if CostumeClass.CurrentCostume == "DISGUISE" then
-		if ArmorClass.ArmorVisible[1] then
+	if Costume.CurrentCostume == "DISGUISE" then
+		if Armor.ArmorVisible[1] then
 			hat:setVisible(false)
 			ears:setVisible(true)
 		else
@@ -155,15 +155,15 @@ events.TICK:register(function ()
 		end
 	else
 		hat:setVisible(false)
-		ears:setVisible((CostumeClass.CostumeList ~= "KNIT" and CostumeClass.CurrentCostume ~= "FOX_HOODIE_RED" and CostumeClass.CurrentCostume ~= "FOX_HOODIE_WHITE" and CostumeClass.CurrentCostume ~= "CASUAL") or ArmorClass.ArmorVisible[1])
+		ears:setVisible((Costume.CostumeList ~= "KNIT" and Costume.CurrentCostume ~= "FOX_HOODIE_RED" and Costume.CurrentCostume ~= "FOX_HOODIE_WHITE" and Costume.CurrentCostume ~= "CASUAL") or Armor.ArmorVisible[1])
 	end
-	if CostumeClass.CurrentCostume == "MAID_A" then
+	if Costume.CurrentCostume == "MAID_A" then
 		local skirt = models.models.costume_maid_a.Avatar.Body.BodyBottom.Skirt
 		skirt:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
-		models.models.costume_maid_a.Avatar.Head:setVisible(not ArmorClass.ArmorVisible[1])
-		models.models.costume_maid_a.Avatar.Body:setVisible(not ArmorClass.ArmorVisible[3] and not General.isAnimationPlaying("models.main", "kotatsu"))
+		models.models.costume_maid_a.Avatar.Head:setVisible(not Armor.ArmorVisible[1])
+		models.models.costume_maid_a.Avatar.Body:setVisible(not Armor.ArmorVisible[3] and not General.isAnimationPlaying("models.main", "kotatsu"))
 		if player:getVehicle() then
-			if ArmorClass.ArmorVisible[3] then
+			if Armor.ArmorVisible[3] then
 				models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
 			else
 				models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(false)
@@ -191,13 +191,13 @@ events.TICK:register(function ()
 			modelsPart:setVisible(false)
 		end
 	end
-	if CostumeClass.CurrentCostume == "MAID_B" then
+	if Costume.CurrentCostume == "MAID_B" then
 		local skirt = models.models.costume_maid_b.Avatar.Body.BodyBottom.Skirt
 		skirt:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
-		models.models.costume_maid_b.Avatar.Head:setVisible(not ArmorClass.ArmorVisible[1])
-		models.models.costume_maid_b.Avatar.Body:setVisible(not ArmorClass.ArmorVisible[3] and not General.isAnimationPlaying("models.main", "kotatsu"))
+		models.models.costume_maid_b.Avatar.Head:setVisible(not Armor.ArmorVisible[1])
+		models.models.costume_maid_b.Avatar.Body:setVisible(not Armor.ArmorVisible[3] and not General.isAnimationPlaying("models.main", "kotatsu"))
 		if player:getVehicle() then
-			if ArmorClass.ArmorVisible[3] then
+			if Armor.ArmorVisible[3] then
 				models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
 			else
 				models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(false)
@@ -219,14 +219,14 @@ events.TICK:register(function ()
 			modelsPart:setVisible(false)
 		end
 	end
-	models.models.costume_swimsuit.Avatar.Head:setVisible(CostumeClass.CurrentCostume == "SWIMSUIT" and string.find(player:getItem(6).id, "^minecraft:.+_helmet$") ~= nil and not ArmorClass.ArmorVisible[1])
-	if CostumeClass.CurrentCostume == "CHEERLEADER" then
+	models.models.costume_swimsuit.Avatar.Head:setVisible(Costume.CurrentCostume == "SWIMSUIT" and string.find(player:getItem(6).id, "^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1])
+	if Costume.CurrentCostume == "CHEERLEADER" then
 		local rightPonPon = models.models.costume_cheerleader.Avatar.Body.Arms.RightArm.RightArmBottom.RightPonPon
 		local leftPonPon = models.models.costume_cheerleader.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftPonPon
-		if ActionWheelClass.ActionCount == 0 then
+		if ActionWheel.ActionCount == 0 then
 			local leftHanded = player:isLeftHanded()
-			rightPonPon:setVisible(player:getHeldItem(leftHanded).id == "minecraft:air" and (not UmbrellaClass.Umbrella or not leftHanded))
-			leftPonPon:setVisible(player:getHeldItem(not leftHanded).id == "minecraft:air" and (not UmbrellaClass.Umbrella or leftHanded))
+			rightPonPon:setVisible(player:getHeldItem(leftHanded).id == "minecraft:air" and (not Umbrella.Umbrella or not leftHanded))
+			leftPonPon:setVisible(player:getHeldItem(not leftHanded).id == "minecraft:air" and (not Umbrella.Umbrella or leftHanded))
 		else
 			for _, modelPart in ipairs({rightPonPon, leftPonPon}) do
 				modelPart:setVisible(false)
@@ -237,55 +237,55 @@ events.TICK:register(function ()
 			modelPart:setVisible(false)
 		end
 	end
-	if CostumeClass.CurrentCostume == "YUKATA" then
+	if Costume.CurrentCostume == "YUKATA" then
 		local foxMask = models.models.costume_fox_mask.Avatar.Head
 		local helmetItemID = player:getItem(6).id
-		foxMask:setVisible(string.find(helmetItemID, "^minecraft:.+_helmet$") ~= nil and not ArmorClass.ArmorVisible[1])
+		foxMask:setVisible(string.find(helmetItemID, "^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1])
 		foxMask:setPrimaryTexture("RESOURCE", (helmetItemID == "minecraft:leather_helmet" or helmetItemID == "minecraft:chainmail_helmet" or helmetItemID == "minecraft:iron_helmet") and "textures/entity/fox/fox.png" or "textures/entity/fox/snow_fox.png")
 	else
 		models.models.costume_fox_mask.Avatar.Head:setVisible(false)
 	end
 	local santa = models.models.costume_santa
 	local leftEar = models.models.main.Avatar.Head.Ears.LeftEarPivot
-	if CostumeClass.CurrentCostume ~= "SANTA" or ArmorClass.ArmorVisible[1] then
+	if Costume.CurrentCostume ~= "SANTA" or Armor.ArmorVisible[1] then
 		santa:setVisible(false)
 		leftEar:setVisible(ears:getVisible())
 	else
 		santa:setVisible(true)
 		leftEar:setVisible(false)
 	end
-	models.models.costume_knit:setVisible(CostumeClass.CurrentCostume == "KNIT" and not ArmorClass.ArmorVisible[1])
-	models.models.costume_fox_hood:setVisible((CostumeClass.CurrentCostume == "FOX_HOODIE_RED" or CostumeClass.CurrentCostume == "FOX_HOODIE_WHITE") and not ArmorClass.ArmorVisible[1])
-	models.models.costume_beret:setVisible(CostumeClass.CurrentCostume == "CASUAL" and not ArmorClass.ArmorVisible[1])
-	EarsClass.EnableJerkEar = (CostumeClass.CurrentCostume ~= "DISGUISE" and CostumeClass.CurrentCostume ~= "CASUAL") or ArmorClass.ArmorVisible[1]
-	if CostumeClass.CurrentCostume ~= "MAID_A" and CostumeClass.CurrentCostume ~= "MAID_B" then
+	models.models.costume_knit:setVisible(Costume.CurrentCostume == "KNIT" and not Armor.ArmorVisible[1])
+	models.models.costume_fox_hood:setVisible((Costume.CurrentCostume == "FOX_HOODIE_RED" or Costume.CurrentCostume == "FOX_HOODIE_WHITE") and not Armor.ArmorVisible[1])
+	models.models.costume_beret:setVisible(Costume.CurrentCostume == "CASUAL" and not Armor.ArmorVisible[1])
+	Ears.EnableJerkEar = (Costume.CurrentCostume ~= "DISGUISE" and Costume.CurrentCostume ~= "CASUAL") or Armor.ArmorVisible[1]
+	if Costume.CurrentCostume ~= "MAID_A" and Costume.CurrentCostume ~= "MAID_B" then
 		if renderer:isFirstPerson() and player:getPose() == "SLEEPING" then
 			models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(false)
 		else
 			models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
 		end
 	end
-	if CostumeClass.CurrentCostume == "SWIMSUIT" or CostumeClass.CurrentCostume == "CHEERLEADER" or CostumeClass.CurrentCostume == "SAILOR" then
+	if Costume.CurrentCostume == "SWIMSUIT" or Costume.CurrentCostume == "CHEERLEADER" or Costume.CurrentCostume == "SAILOR" then
 		local skirt = models.models.costume_mini_skirt.Avatar.Body.BodyBottom.Skirt
-		skirt:setVisible(not ArmorClass.ArmorVisible[3] and not General.isAnimationPlaying("models.main", "kotatsu"))
+		skirt:setVisible(not Armor.ArmorVisible[3] and not General.isAnimationPlaying("models.main", "kotatsu"))
 		skirt:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
 	else
 		models.models.costume_mini_skirt.Avatar.Body.BodyBottom.Skirt:setVisible(false)
 	end
 
-	HairAccessoryClass.visible((CostumeClass.CurrentCostume ~= "FOX_HOODIE_RED" and CostumeClass.CurrentCostume ~= "FOX_HOODIE_WHITE" and CostumeClass.CurrentCostume ~= "SANTA") or ArmorClass.ArmorVisible[1])
+	HairAccessory.visible((Costume.CurrentCostume ~= "FOX_HOODIE_RED" and Costume.CurrentCostume ~= "FOX_HOODIE_WHITE" and Costume.CurrentCostume ~= "SANTA") or Armor.ArmorVisible[1])
 end)
 
 events.RENDER:register(function ()
 	local legAngle = math.abs(vanilla_model.RIGHT_LEG:getOriginRot().x) / 80
-	if CostumeClass.CurrentCostume == "MAID_A" then
+	if Costume.CurrentCostume == "MAID_A" then
 		local skirt = models.models.costume_maid_a.Avatar.Body.BodyBottom.Skirt
 		skirt.Skirt2:setScale(1, 1, 1 + 0.1 * legAngle)
 		skirt.Skirt2.Skirt3:setScale(1, 1, 1 + 0.09 * legAngle)
 		skirt.Skirt2.Skirt3.Skirt4:setScale(1, 1, 1 + 0.05 * legAngle)
 		skirt.Skirt2.Skirt3.Skirt4.Skirt5:setScale(1, 1, 1 + 0.05 * legAngle)
 		skirt.Skirt2.Skirt3.Skirt4.Skirt5.Skirt6:setScale(1, 1, 1 + 0.02 * legAngle)
-	elseif CostumeClass.CurrentCostume == "MAID_B" then
+	elseif Costume.CurrentCostume == "MAID_B" then
 		local skirt = models.models.costume_maid_b.Avatar.Body.BodyBottom.Skirt
 		skirt:setScale(1, 1, 1 + 0.5 * legAngle)
 		skirt.Skirt2:setScale(1, 1, 1 + 0.25 * legAngle)
@@ -296,4 +296,4 @@ end)
 
 costumeInit()
 
-return CostumeClass
+return Costume
