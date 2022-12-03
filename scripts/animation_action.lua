@@ -5,7 +5,7 @@ AnimationAction = {
 	---@param canPlayAnimation function アニメーションが再生可能かどうかを判断し、booleanで返す関数
 	---@param partToShow ModelPart|table|nil アニメーションの再生時に表示させるモデルパーツ
 	---@param partToHide ModelPart|table|nil アニメーション停止時に非表示にするモデルパーツ
-	---@param primaryAnimation Animation 再生するメインのアニメーション。アニメーションの長さ取得にも使われる。
+	---@param primaryAnimation Animation|nil 再生するメインのアニメーション。アニメーションの長さ取得にも使われる。
 	---@param secondaryAnimation Animation|table|nil メインのアニメーションと同時に再生するアニメーション
 	---@param additionalAnimationCount integer 追加のアニメーションカウント
 	---@return table instance インスタンス化されたクラス
@@ -16,8 +16,8 @@ AnimationAction = {
 		instance.AnimationChecked = false --このチックでアニメーションが再生可能かどうかを確認したかどうか
 		instance.IsAnimationPlaying = false --アニメーションが再生中かどうか
 		instance.AnimationCount = 0 --アニメーションのタイミングを計るカウンター
-		instance.AnimationLength = math.ceil(primaryAnimation:getLength() * 20) + additionalAnimationCount --メインのアニメーションの長さ
-		instance.Animations = {primaryAnimation} --再生・停止するアニメーションのリスト
+		instance.AnimationLength = primaryAnimation and math.ceil(primaryAnimation:getLength() * 20) + additionalAnimationCount or 0 --メインのアニメーションの長さ
+		instance.Animations = primaryAnimation and {primaryAnimation} or {} --再生・停止するアニメーションのリスト
 		if secondaryAnimation then
 			if type(secondaryAnimation) == "Animation" then
 				table.insert(instance.Animations, secondaryAnimation)
