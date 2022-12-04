@@ -2757,45 +2757,6 @@
 			},
 			"type": "cube",
 			"uuid": "ebb3aff4-f0e4-a0ac-b199-c754ef45a348"
-		},
-		{
-			"name": "Head",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-4, 24, -4],
-			"to": [4, 32, 4],
-			"autouv": 0,
-			"color": 5,
-			"origin": [0, 32, 0],
-			"faces": {
-				"north": {
-					"uv": [0, 0, 8, 8],
-					"texture": 0
-				},
-				"east": {
-					"uv": [24, 0, 16, 8],
-					"texture": 0
-				},
-				"south": {
-					"uv": [8, 0, 16, 8],
-					"texture": 0
-				},
-				"west": {
-					"uv": [16, 0, 24, 8],
-					"texture": 0
-				},
-				"up": {
-					"uv": [24, 0, 32, 8],
-					"texture": 0
-				},
-				"down": {
-					"uv": [32, 0, 40, 8],
-					"texture": 0
-				}
-			},
-			"type": "cube",
-			"uuid": "4c1a3a29-018b-083d-a00e-19082ede88ff"
 		}
 	],
 	"outliner": [
@@ -3090,19 +3051,6 @@
 									]
 								}
 							]
-						},
-						{
-							"name": "LeftElytra",
-							"origin": [0, 37, 0],
-							"color": 0,
-							"uuid": "8fd17305-7b2b-5309-768b-58bce13785e0",
-							"export": true,
-							"mirror_uv": false,
-							"isOpen": true,
-							"locked": false,
-							"visibility": true,
-							"autouv": 0,
-							"children": ["4c1a3a29-018b-083d-a00e-19082ede88ff"]
 						}
 					]
 				},
@@ -12459,7 +12407,7 @@
 			"override": false,
 			"length": 5.875,
 			"snapping": 24,
-			"selected": true,
+			"selected": false,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
