@@ -3,7 +3,6 @@ events.ENTITY_INIT:register(function ()
 	General = require("scripts/general")
 	Config = require("scripts/config")
 	Language = require("scripts/language")
-	Nameplate = require("scripts/nameplate")
 
 	--抽象クラス
 	AnimationAction = require("scripts/actions/animation_action")
@@ -21,6 +20,8 @@ events.ENTITY_INIT:register(function ()
 	HairAccessory = require("scripts/hair_accessory")
 	Umbrella = require("scripts/umbrella")
 	Armor = require("scripts/armor")
+	Skull = require("scripts/skull")
+	Nameplate = require("scripts/nameplate")
 
 	--機能別クラス
 	Costume = require("scripts/costume")

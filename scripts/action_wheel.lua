@@ -12,6 +12,8 @@
 ---@field ActionWheel.CostumeState integer プレイヤーのコスチュームの状態を示す：1. いつもの服, 2. 変装服, 3. メイド服A, 4. メイド服B, 5. 水着, 6. チアリーダーの服, 7. 清めの服, 8. 割烹着
 ---@field ActionWheel.CurrentPlayerNameState integer プレイヤーの現在の表示名の状態を示す：1. プレイヤー名, 2. Senko, 3. 仙狐, 4. Senko_san, 5. 仙狐さん, 6. Sen, 7. 仙, 8. セン
 ---@field ActionWheel.PlayerNameState integer プレイヤーの表示名の状態を示す：1. プレイヤー名, 2. Senko, 3. 仙狐, 4. Senko_san, 5. 仙狐さん, 6. Sen, 7. 仙, 8. セン
+---@field ActionWheel.CurrentSKullState integer 現在の頭モデルの状態を示す：1. デフォルト, 2. フィギュアA, 3. フィギュアB
+---@field ActionWheel.SkullState integer 頭モデルの状態を示す：1. デフォルト, 2. フィギュアA, 3. フィギュアB
 ---@field ActionWheel.IsWetPrev boolean 前チックに濡れていたかどうか
 
 ActionWheel = {}
@@ -29,6 +31,8 @@ ActionWheel.CurrentCostumeState = Config.loadConfig("costume", 1)
 ActionWheel.CostumeState = ActionWheel.CurrentCostumeState
 ActionWheel.CurrentPlayerNameState = Config.loadConfig("name", 1)
 ActionWheel.PlayerNameState = ActionWheel.CurrentPlayerNameState
+ActionWheel.CurrentSkullState = Config.loadConfig("skull", 1)
+ActionWheel.SkullState = ActionWheel.CurrentSkullState
 ActionWheel.IsWetPrev = false
 
 ---アクションの色の有効色/無効色の切り替え
@@ -58,6 +62,15 @@ function setNameChangeActionTitle()
 		ActionWheel.ConfigPage:getAction(2):title(Language.getTranslate("action_wheel__config__action_2__title").."§b"..Nameplate.NameList[ActionWheel.PlayerNameState])
 	else
 		ActionWheel.ConfigPage:getAction(2):title(Language.getTranslate("action_wheel__config__action_2__title").."§b"..Nameplate.NameList[ActionWheel.PlayerNameState].."\n§7"..Language.getTranslate("action_wheel__close_to_confirm"))
+	end
+end
+
+---頭変更のアクションの名称を変更する。
+function setSkullChangeActionTitle()
+	if ActionWheel.SkullState == ActionWheel.CurrentSkullState then
+		ActionWheel.ConfigPage:getAction(3):title(Language.getTranslate("action_wheel__config__action_3__title").."§b"..Language.getTranslate("skull__"..Skull.SkullList[ActionWheel.SkullState]))
+	else
+		ActionWheel.ConfigPage:getAction(3):title(Language.getTranslate("action_wheel__config__action_3__title").."§b"..Language.getTranslate("skull__"..Skull.SkullList[ActionWheel.SkullState]).."\n§7"..Language.getTranslate("action_wheel__close_to_confirm"))
 	end
 end
 
@@ -150,27 +163,35 @@ function pings.config_action2(nameID)
 	end
 end
 
-function pings.config_action3_toggle()
-	Wet.AutoShake = true
-end
-
-function pings.config_action3_untoggle()
-	Wet.AutoShake = false
+function pings.config_action3(skullID)
+	Skull.setSkull(skullID)
+	ActionWheel.CurrentSkullState = skullID
+	if host:isHost() then
+		setSkullChangeActionTitle()
+	end
 end
 
 function pings.config_action4_toggle()
-	Armor.ShowArmor = true
+	Wet.AutoShake = true
 end
 
 function pings.config_action4_untoggle()
+	Wet.AutoShake = false
+end
+
+function pings.config_action5_toggle()
+	Armor.ShowArmor = true
+end
+
+function pings.config_action5_untoggle()
 	Armor.ShowArmor = false
 end
 
-function pings.config_action6_toggle()
+function pings.config_action7_toggle()
 	Umbrella.UmbrellaSound = true
 end
 
-function pings.config_action6_untoggle()
+function pings.config_action7_untoggle()
 	Umbrella.UmbrellaSound = false
 end
 
@@ -200,6 +221,11 @@ events.TICK:register(function ()
 				Config.saveConfig("name", ActionWheel.PlayerNameState)
 				sounds:playSound("minecraft:ui.cartography_table.take_result", player:getPos(), 1, 1)
 				print(Language.getTranslate("action_wheel__config__action_2__done_first")..Nameplate.NameList[ActionWheel.PlayerNameState]..Language.getTranslate("action_wheel__config__action_2__done_last"))
+			end
+			if ActionWheel.SkullState ~= ActionWheel.CurrentSkullState then
+				pings.config_action3(ActionWheel.SkullState)
+				Config.saveConfig("skull", ActionWheel.SkullState)
+				print(Language.getTranslate("action_wheel__config__action_3__done_first")..Language.getTranslate("skull__"..Skull.SkullList[ActionWheel.SkullState])..Language.getTranslate("action_wheel__config__action_3__done_last"))
 			end
 			if ActionWheel.ParentPage then
 				action_wheel:setPage(ActionWheel.ParentPage)
@@ -520,72 +546,86 @@ if host:isHost() then
 		setNameChangeActionTitle()
 	end)
 
-	--アクション3. 自動ブルブル
-	ActionWheel.ConfigPage:newAction(3):title(Language.getTranslate("action_wheel__config__action_3__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__config__action_3__title")..Language.getTranslate("action_wheel__toggle_on")):item("water_bucket"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
-		pings.config_action3_toggle()
-		ActionWheel.ConfigPage:getAction(3):hoverColor(85 / 255, 1, 85 / 255)
-		Config.saveConfig("autoShake", true)
-	end):onUntoggle(function ()
-		pings.config_action3_untoggle()
-		ActionWheel.ConfigPage:getAction(3):hoverColor(1, 85 / 255, 85 / 255)
-		Config.saveConfig("autoShake", false)
+	---アクション3. プレイヤーの頭のタイプ変更
+	ActionWheel.ConfigPage:newAction(3):item("player_head{SkullOwner: \""..player:getName().."\"}"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+		if direction == -1 then
+			ActionWheel.SkullState = ActionWheel.SkullState == #Skull.SkullList and 1 or ActionWheel.SkullState + 1
+		else
+			ActionWheel.SkullState = ActionWheel.SkullState == 1 and #Skull.SkullList or ActionWheel.SkullState - 1
+		end
+		setSkullChangeActionTitle()
+	end):onLeftClick(function ()
+		ActionWheel.SkullState = ActionWheel.CurrentSkullState
+		setSkullChangeActionTitle()
 	end)
-	if Config.loadConfig("autoShake", true) then
-		local action = ActionWheel.ConfigPage:getAction(3)
-		action:toggled(true)
-		action:hoverColor(85 / 255, 1, 85 / 255)
-	end
 
-	--アクション4. 防具の非表示
-	ActionWheel.ConfigPage:newAction(4):title(Language.getTranslate("action_wheel__config__action_4__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__config__action_4__title")..Language.getTranslate("action_wheel__toggle_on")):item("iron_chestplate"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+	--アクション4. 自動ブルブル
+	ActionWheel.ConfigPage:newAction(4):title(Language.getTranslate("action_wheel__config__action_4__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__config__action_4__title")..Language.getTranslate("action_wheel__toggle_on")):item("water_bucket"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
 		pings.config_action4_toggle()
 		ActionWheel.ConfigPage:getAction(4):hoverColor(85 / 255, 1, 85 / 255)
-		Config.saveConfig("showArmor", true)
+		Config.saveConfig("autoShake", true)
 	end):onUntoggle(function ()
 		pings.config_action4_untoggle()
 		ActionWheel.ConfigPage:getAction(4):hoverColor(1, 85 / 255, 85 / 255)
-		Config.saveConfig("showArmor", false)
+		Config.saveConfig("autoShake", false)
 	end)
-	if Config.loadConfig("showArmor", false) then
+	if Config.loadConfig("autoShake", true) then
 		local action = ActionWheel.ConfigPage:getAction(4)
 		action:toggled(true)
 		action:hoverColor(85 / 255, 1, 85 / 255)
 	end
 
-	--アクション5. 一人称視点での狐火の表示の切り替え
-	ActionWheel.ConfigPage:newAction(5):title(Language.getTranslate("action_wheel__config__action_5__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__config__action_5__title")..Language.getTranslate("action_wheel__toggle_on")):item("soul_torch"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
-		FoxFire.FoxFireInFirstPerson = true
+	--アクション5. 防具の非表示
+	ActionWheel.ConfigPage:newAction(5):title(Language.getTranslate("action_wheel__config__action_5__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__config__action_5__title")..Language.getTranslate("action_wheel__toggle_on")):item("iron_chestplate"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+		pings.config_action5_toggle()
 		ActionWheel.ConfigPage:getAction(5):hoverColor(85 / 255, 1, 85 / 255)
-		Config.saveConfig("foxFireInFirstPerson", true)
+		Config.saveConfig("showArmor", true)
 	end):onUntoggle(function ()
-		FoxFire.FoxFireInFirstPerson = false
+		pings.config_action5_untoggle()
 		ActionWheel.ConfigPage:getAction(5):hoverColor(1, 85 / 255, 85 / 255)
-		Config.saveConfig("foxFireInFirstPerson", false)
+		Config.saveConfig("showArmor", false)
 	end)
-	if Config.loadConfig("foxFireInFirstPerson", true) then
+	if Config.loadConfig("showArmor", false) then
 		local action = ActionWheel.ConfigPage:getAction(5)
 		action:toggled(true)
 		action:hoverColor(85 / 255, 1, 85 / 255)
 	end
 
-	--アクション6. 傘の開閉音
-	ActionWheel.ConfigPage:newAction(6):title(Language.getTranslate("action_wheel__config__action_6__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__config__action_6__title")..Language.getTranslate("action_wheel__toggle_on")):item("red_carpet"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
-		pings.config_action6_toggle()
+	--アクション6. 一人称視点での狐火の表示の切り替え
+	ActionWheel.ConfigPage:newAction(6):title(Language.getTranslate("action_wheel__config__action_6__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__config__action_6__title")..Language.getTranslate("action_wheel__toggle_on")):item("soul_torch"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+		FoxFire.FoxFireInFirstPerson = true
 		ActionWheel.ConfigPage:getAction(6):hoverColor(85 / 255, 1, 85 / 255)
+		Config.saveConfig("foxFireInFirstPerson", true)
+	end):onUntoggle(function ()
+		FoxFire.FoxFireInFirstPerson = false
+		ActionWheel.ConfigPage:getAction(6):hoverColor(1, 85 / 255, 85 / 255)
+		Config.saveConfig("foxFireInFirstPerson", false)
+	end)
+	if Config.loadConfig("foxFireInFirstPerson", true) then
+		local action = ActionWheel.ConfigPage:getAction(6)
+		action:toggled(true)
+		action:hoverColor(85 / 255, 1, 85 / 255)
+	end
+
+	--アクション7. 傘の開閉音
+	ActionWheel.ConfigPage:newAction(7):title(Language.getTranslate("action_wheel__config__action_7__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__config__action_7__title")..Language.getTranslate("action_wheel__toggle_on")):item("red_carpet"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+		pings.config_action7_toggle()
+		ActionWheel.ConfigPage:getAction(7):hoverColor(85 / 255, 1, 85 / 255)
 		Config.saveConfig("umbrellaSound", true)
 	end):onUntoggle(function ()
-		pings.config_action6_untoggle()
-		ActionWheel.ConfigPage:getAction(6):hoverColor(1, 85 / 255, 85 / 255)
+		pings.config_action7_untoggle()
+		ActionWheel.ConfigPage:getAction(7):hoverColor(1, 85 / 255, 85 / 255)
 		Config.saveConfig("umbrellaSound", false)
 	end)
 	if Config.loadConfig("umbrellaSound", true) then
-		local action = ActionWheel.ConfigPage:getAction(6)
+		local action = ActionWheel.ConfigPage:getAction(7)
 		action:toggled(true)
 		action:hoverColor(85 / 255, 1, 85 / 255)
 	end
 
 	setCostumeChangeActionTitle()
 	setNameChangeActionTitle()
+	setSkullChangeActionTitle()
 	action_wheel:setPage(ActionWheel.MainPages[1])
 end
 

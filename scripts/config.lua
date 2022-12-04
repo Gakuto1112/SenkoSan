@@ -43,19 +43,22 @@ end
 ---アバター設定を他Figuraクライアントと同期する。
 ---@param nameID integer 名前ID
 ---@param costumeID integer 衣装ID
+---@param skullID integer 頭モデルID
 ---@param autoShake boolean 自動ブルブル
 ---@param showArmor boolean 防具を表示するかどうか
 ---@param umbrellaSound boolean 傘の開閉音を再生するかどうか
-function pings.syncAvatarConfig(nameID, costumeID, autoShake, showArmor, umbrellaSound)
+function pings.syncAvatarConfig(nameID, costumeID, skullID, autoShake, showArmor, umbrellaSound)
 	if not Config.IsSynced then
 		ActionWheel.CurrentPlayerNameState = nameID
 		ActionWheel.CurrentCostumeState = costumeID
+		ActionWheel.CurrentSkullState = skullID
 		Nameplate.setName(nameID)
 		if ActionWheel.CurrentCostumeState == 0 then
 			Costume.resetCostume()
 		else
 			Costume.setCostume(string.upper(Costume.CostumeList[ActionWheel.CurrentCostumeState]))
 		end
+		Skull.setSkull(skullID)
 		Wet.AutoShake = autoShake
 		Armor.ShowArmor = showArmor
 		Umbrella.UmbrellaSound = umbrellaSound
@@ -65,7 +68,7 @@ end
 
 events.TICK:register(function ()
 	if Config.NextSyncCount == 0 then
-		pings.syncAvatarConfig(ActionWheel.CurrentPlayerNameState, ActionWheel.CurrentCostumeState, Wet.AutoShake, Armor.ShowArmor, Umbrella.UmbrellaSound)
+		pings.syncAvatarConfig(ActionWheel.CurrentPlayerNameState, ActionWheel.CurrentCostumeState, ActionWheel.CurrentSkullState, Wet.AutoShake, Armor.ShowArmor, Umbrella.UmbrellaSound)
 		Config.NextSyncCount = 300
 	else
 		Config.NextSyncCount = Config.NextSyncCount - 1
