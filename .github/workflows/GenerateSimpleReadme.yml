@@ -2,7 +2,9 @@ name: 簡易版README生成
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
+      - extra
     paths:
       - ".github/workflows/**"
       - "README_images/**"
