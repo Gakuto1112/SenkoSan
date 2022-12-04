@@ -7,6 +7,13 @@ TVアニメ「世話やきキツネの仙狐さん」（とその原作）に登
 
 ![メイン](README_images/メイン.jpg)
 
+## このブランチについて
+このブランチでは、残念ながら、アバターのアップロード制限（100kb）のオーバーによって実装できなかった要素が実装されています。ローカル環境では、このアバターも使用できますが、アバターのアップロードができないため、マルチプレイ環境では使用できません。
+
+今後、アバターのアップロード制限内に納めることができる場合、メインブランチに統合しようと思います。
+
+メインブランチは[こちら](https://github.com/Gakuto1112/SenkoSan)です。
+
 ## 特徴
 - 耳と尻尾のモデルが生えています。
   - 尻尾はプレイヤーの動きに合わせて揺れます。
@@ -43,8 +50,9 @@ TVアニメ「世話やきキツネの仙狐さん」（とその原作）に登
 
   [[画像] 名前変更](README_images/名前変更.jpg)
 - プレイヤーの頭ブロックが仙狐さんのフィギュアになります（[設定](#アバター設定)で変更できます）。
-  - [画像中央のフィギュア](https://www.goodsmile.info/ja/product/9273/仙狐.html)
-  - [画像右のフィギュア](https://www.geestore.com/detail/id/00000093048)
+  - [画像左のフィギュア](https://www.goodsmile.info/ja/product/9273/仙狐.html)
+  - [画像中央のフィギュア](https://www.geestore.com/detail/id/00000093048)
+  - [画像右のフィギュア](https://www.amazon.co.jp/gp/product/B07XZ6754D)
 
   [[画像] プレイヤーの頭](README_images/プレイヤーの頭.jpg)
 - 水に触れると濡れてしまいます。
@@ -169,7 +177,8 @@ Figuraには、アクションホイールキー（デフォルトは「B」キ�
 
 - デフォルト
 - フィギュア（[参考](https://www.goodsmile.info/ja/product/9273/仙狐.html)）
-- メイドフィギュア（[参考](https://www.geestore.com/detail/id/00000093048)）
+- メイドのフィギュア（[参考](https://www.geestore.com/detail/id/00000093048)）
+- チアリーダーのフィギュア（[参考](https://www.amazon.co.jp/gp/product/B07XZ6754D)）
 
 因みに、プレイヤーの頭は以下のコマンドで入手できます：`/give @p minecraft:player_head{SkullOwner: "<プレイヤー名>"} 1`
 
