@@ -14,7 +14,6 @@
 ---@field ActionWheel.PlayerNameState integer プレイヤーの表示名の状態を示す：1. プレイヤー名, 2. Senko, 3. 仙狐, 4. Senko_san, 5. 仙狐さん, 6. Sen, 7. 仙, 8. セン
 ---@field ActionWheel.CurrentSKullState integer 現在の頭モデルの状態を示す：1. デフォルト, 2. フィギュアA, 3. フィギュアB
 ---@field ActionWheel.SkullState integer 頭モデルの状態を示す：1. デフォルト, 2. フィギュアA, 3. フィギュアB
----@field ActionWheel.IsWetPrev boolean 前チックに濡れていたかどうか
 
 ActionWheel = {}
 
@@ -33,7 +32,6 @@ ActionWheel.CurrentPlayerNameState = Config.loadConfig("name", 1)
 ActionWheel.PlayerNameState = ActionWheel.CurrentPlayerNameState
 ActionWheel.CurrentSkullState = Config.loadConfig("skull", 1)
 ActionWheel.SkullState = ActionWheel.CurrentSkullState
-ActionWheel.IsWetPrev = false
 
 ---アクションの色の有効色/無効色の切り替え
 ---@param pageNumber integer メインアクションのページ番号
@@ -72,6 +70,11 @@ function setSkullChangeActionTitle()
 	else
 		ActionWheel.ConfigPage:getAction(3):title(Language.getTranslate("action_wheel__config__action_3__title").."§b"..Language.getTranslate("skull__"..Skull.SkullList[ActionWheel.SkullState]).."\n§7"..Language.getTranslate("action_wheel__close_to_confirm"))
 	end
+end
+
+---立ち上がった時に呼ばれる関数（SitDownから呼び出し）
+function ActionWheel.onStandUp()
+	ActionWheel.MainPages[2]:getAction(1):toggled(false)
 end
 
 --ping関数
@@ -197,17 +200,26 @@ end
 
 events.TICK:register(function ()
 	if host:isHost() then
-		local sitDownAction = ActionWheel.MainPages[2]:getAction(1)
-		sitDownAction:toggled((ActionWheel.IsAnimationPlaying or General.isAnimationPlaying("models.main", "earpick") or General.isAnimationPlaying("models.main", "tea_time") or General.isAnimationPlaying("models.main", "massage") or (General.isAnimationPlaying("models.main", "sit_down") and General.isAnimationPlaying("models.main", "shake"))) and SitDown:checkAction() and sitDownAction:isToggled())
 		local isOpenActionWheel = action_wheel:isEnabled()
-		if isOpenActionWheel and not ActionWheel.ParentPage then
-			local animationClasses = {{Smile, ShakeBody, BroomCleaning, HairCut, FoxJump, TailBrush, Kotatsu}, {SitDown, TailCuddling, Earpick, TeaTime, Massage}}
-			for pageIndex, pageAnimationClasses in ipairs(animationClasses) do
-				for actionIndex, actionClass in ipairs(pageAnimationClasses) do
-					setActionEnabled(pageIndex, actionIndex, not ActionWheel.IsAnimationPlaying and actionClass:checkAction())
+		if isOpenActionWheel then
+			if not ActionWheel.ParentPage then
+				local animationClasses = {{Smile, ShakeBody, BroomCleaning, HairCut, FoxJump, TailBrush, Kotatsu}, {SitDown, TailCuddling, Earpick, TeaTime, Massage}}
+				for pageIndex, pageAnimationClasses in ipairs(animationClasses) do
+					for actionIndex, actionClass in ipairs(pageAnimationClasses) do
+						setActionEnabled(pageIndex, actionIndex, not ActionWheel.IsAnimationPlaying and actionClass:checkAction())
+					end
 				end
+				setActionEnabled(3, 1, not Warden.WardenNearby)
+				if Wet.WetCount > 0 then
+					ActionWheel.MainPages[1]:getAction(2):item("water_bucket")
+				else
+					ActionWheel.MainPages[1]:getAction(2):item("bucket")
+				end
+			elseif Warden.WardenNearby and ActionWheel.IsOpenWordPage then
+				action_wheel:setPage(ActionWheel.ParentPage)
+				ActionWheel.IsOpenWordPage = false
+				ActionWheel.ParentPage = nil
 			end
-			setActionEnabled(3, 1, not Warden.WardenNearby)
 		end
 		if not isOpenActionWheel and ActionWheel.IsOpenActionWheelPrev then
 			if ActionWheel.CostumeState ~= ActionWheel.CurrentCostumeState then
@@ -233,18 +245,7 @@ events.TICK:register(function ()
 				ActionWheel.ParentPage = nil
 			end
 		end
-		if Wet.WetCount > 0 and not ActionWheel.IsWetPrev then
-			ActionWheel.MainPages[1]:getAction(2):item("water_bucket")
-		elseif Wet.WetCount == 0 and ActionWheel.IsWetPrev then
-			ActionWheel.MainPages[1]:getAction(2):item("bucket")
-		end
-		if Warden.WardenNearby and ActionWheel.IsOpenWordPage then
-			action_wheel:setPage(ActionWheel.ParentPage)
-			ActionWheel.IsOpenWordPage = false
-			ActionWheel.ParentPage = nil
-		end
 		ActionWheel.IsOpenActionWheelPrev = isOpenActionWheel
-		ActionWheel.IsWetPrev = Wet.WetCount > 0
 	end
 end)
 
@@ -370,11 +371,16 @@ if host:isHost() then
 		if not ActionWheel.IsAnimationPlaying then
 			if SitDown:checkAction() then
 				pings.main2_action1_toggle()
-			elseif Warden.WardenNearby then
-				pings.refuse_emote()
 			else
-				print(Language.getTranslate("action_wheel__main_2__action_1__unavailable"))
+				if Warden.WardenNearby then
+					pings.refuse_emote()
+				else
+					print(Language.getTranslate("action_wheel__main_2__action_1__unavailable"))
+				end
+				ActionWheel.MainPages[2]:getAction(1):toggled(false)
 			end
+		else
+			ActionWheel.MainPages[2]:getAction(1):toggled(false)
 		end
 	end):onUntoggle(function ()
 		pings.main2_action1_untoggle()
@@ -435,7 +441,7 @@ if host:isHost() then
 	--アクション3-1. 仙狐さんセリフ集
 	ActionWheel.MainPages[3]:newAction(1):item("book"):onLeftClick(function ()
 		if Warden.WardenNearby then
-			if ActionWheel.IsAnimationPlaying then
+			if not ActionWheel.IsAnimationPlaying then
 				pings.refuse_emote()
 			end
 		else

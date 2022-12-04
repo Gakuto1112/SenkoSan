@@ -16,6 +16,7 @@ end
 function SitDown.stop(self)
 	PermanentAnimationAction.stop(self)
 	General.setAnimations("PLAY", "stand_up")
+	ActionWheel.onStandUp()
 	Camera.CameraOffset = 0
 	Nameplate.NamePlateOffset = 0
 end
