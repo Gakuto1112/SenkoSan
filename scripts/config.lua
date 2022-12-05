@@ -58,7 +58,7 @@ function pings.syncAvatarConfig(nameID, costumeID, skullID, autoShake, showArmor
 		else
 			Costume.setCostume(string.upper(Costume.CostumeList[ActionWheel.CurrentCostumeState]))
 		end
-		Skull.setSkull(skullID)
+		Skull.CurrentSkull = skullID
 		Wet.AutoShake = autoShake
 		Armor.ShowArmor = showArmor
 		Umbrella.UmbrellaSound = umbrellaSound

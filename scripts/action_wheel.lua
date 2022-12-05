@@ -167,7 +167,7 @@ function pings.config_action2(nameID)
 end
 
 function pings.config_action3(skullID)
-	Skull.setSkull(skullID)
+	Skull.CurrentSkull = skullID
 	ActionWheel.CurrentSkullState = skullID
 	if host:isHost() then
 		setSkullChangeActionTitle()
