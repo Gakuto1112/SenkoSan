@@ -402,7 +402,7 @@ if host:isHost() then
 	--アクション2-3. 耳かき
 	ActionWheel.MainPages[2]:newAction(3):item("feather"):onLeftClick(function ()
 		if not ActionWheel.IsAnimationPlaying then
-			if General.isAnimationPlaying("models.main", "sit_down") then
+			if SitDown.IsAnimationPlaying then
 				pings.main2_action3()
 			elseif Warden.WardenNearby then
 				pings.refuse_emote()
@@ -415,7 +415,7 @@ if host:isHost() then
 	--アクション2-4. ティータイム
 	ActionWheel.MainPages[2]:newAction(4):item("flower_pot"):onLeftClick(function ()
 		if not ActionWheel.IsAnimationPlaying then
-			if General.isAnimationPlaying("models.main", "sit_down") then
+			if SitDown.IsAnimationPlaying then
 				pings.main2_action4()
 			elseif Warden.WardenNearby then
 				pings.refuse_emote()
@@ -428,7 +428,7 @@ if host:isHost() then
 	--アクション2-5. マッサージ
 	ActionWheel.MainPages[2]:newAction(5):item("yellow_bed"):onLeftClick(function ()
 		if not ActionWheel.IsAnimationPlaying then
-			if General.isAnimationPlaying("models.main", "sit_down") then
+			if SitDown.IsAnimationPlaying then
 				pings.main2_action5()
 			elseif Warden.WardenNearby then
 				pings.refuse_emote()

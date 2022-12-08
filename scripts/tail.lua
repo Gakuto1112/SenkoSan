@@ -31,7 +31,7 @@ events.TICK:register(function ()
 end)
 
 Tail.WagTailKey.onPress = function ()
-	if Tail.WagTailCount == 0 and not General.isAnimationPlaying("models.main", "kotatsu") then
+	if Tail.WagTailCount == 0 and not Kotatsu.IsAnimationPlaying then
 		pings.wag_tail()
 	end
 end

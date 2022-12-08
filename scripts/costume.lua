@@ -161,7 +161,7 @@ events.TICK:register(function ()
 		local skirt = models.models.costume_maid_a.Avatar.Body.BodyBottom.Skirt
 		skirt:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
 		models.models.costume_maid_a.Avatar.Head:setVisible(not Armor.ArmorVisible[1])
-		models.models.costume_maid_a.Avatar.Body:setVisible(not Armor.ArmorVisible[3] and not General.isAnimationPlaying("models.main", "kotatsu"))
+		models.models.costume_maid_a.Avatar.Body:setVisible(not Armor.ArmorVisible[3] and not Kotatsu.IsAnimationPlaying)
 		if player:getVehicle() then
 			if Armor.ArmorVisible[3] then
 				models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
@@ -195,7 +195,7 @@ events.TICK:register(function ()
 		local skirt = models.models.costume_maid_b.Avatar.Body.BodyBottom.Skirt
 		skirt:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
 		models.models.costume_maid_b.Avatar.Head:setVisible(not Armor.ArmorVisible[1])
-		models.models.costume_maid_b.Avatar.Body:setVisible(not Armor.ArmorVisible[3] and not General.isAnimationPlaying("models.main", "kotatsu"))
+		models.models.costume_maid_b.Avatar.Body:setVisible(not Armor.ArmorVisible[3] and not Kotatsu.IsAnimationPlaying)
 		if player:getVehicle() then
 			if Armor.ArmorVisible[3] then
 				models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
@@ -267,7 +267,7 @@ events.TICK:register(function ()
 	end
 	if Costume.CurrentCostume == "SWIMSUIT" or Costume.CurrentCostume == "CHEERLEADER" or Costume.CurrentCostume == "SAILOR" then
 		local skirt = models.models.costume_mini_skirt.Avatar.Body.BodyBottom.Skirt
-		skirt:setVisible(not Armor.ArmorVisible[3] and not General.isAnimationPlaying("models.main", "kotatsu"))
+		skirt:setVisible(not Armor.ArmorVisible[3] and not Kotatsu.IsAnimationPlaying)
 		skirt:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
 	else
 		models.models.costume_mini_skirt.Avatar.Body.BodyBottom.Skirt:setVisible(false)

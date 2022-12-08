@@ -32,7 +32,7 @@ events.TICK:register(function ()
 				leftArmorArm:setParentType("LeftArm")
 			end
 			umbrella:setPos(5.5, 0, 0)
-			General.setAnimations(General.isAnimationPlaying("models.main", "sit_down") and "PLAY" or "STOP", "sit_down_right_umbrella")
+			General.setAnimations(SitDown.IsAnimationPlaying and "PLAY" or "STOP", "sit_down_right_umbrella")
 		else
 			leftArm:setParentType("Body")
 			rightArm:setParentType("RightArm")
@@ -41,7 +41,7 @@ events.TICK:register(function ()
 				rightArmorArm:setParentType("RightArm")
 			end
 			umbrella:setPos(-5.5, 0, 0)
-			General.setAnimations(General.isAnimationPlaying("models.main", "sit_down") and "PLAY" or "STOP", "sit_down_left_umbrella")
+			General.setAnimations(SitDown.IsAnimationPlaying and "PLAY" or "STOP", "sit_down_left_umbrella")
 		end
 		umbrella:setVisible(true)
 	else

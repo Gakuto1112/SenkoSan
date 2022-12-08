@@ -7,7 +7,7 @@ HairAccessory = {}
 function HairAccessory.visible(visible)
 	local hairAccessory = models.models.main.Avatar.Head.HairAccessory
 	hairAccessory:setVisible(visible)
-	Physics.EnablePyhsics[2] = visible and not General.isAnimationPlaying("models.main", "kotatsu")
+	Physics.EnablePyhsics[2] = visible and not Kotatsu.IsAnimationPlaying
 end
 
 return HairAccessory

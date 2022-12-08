@@ -58,7 +58,7 @@ events.RENDER:register(function ()
 	if (not renderer:isFirstPerson() or client:hasIrisShader()) and (Physics.EnablePyhsics[1] or Physics.EnablePyhsics[2]) then
 		local rotLimit = {{{-60, 60}, {-30, 30}}, {{0, 180}, {-90, 90}}} --物理演算の可動範囲：1. 尻尾：{1-1. 上下方向, 1-2. 左右方向}, 2. 髪飾りのヒモ：{2-1. 前後方向, 2-2. 左右方向}
 		local playerPose = player:getPose()
-		if General.isAnimationPlaying("models.main", "sit_down") or player:getVehicle() then
+		if SitDown.IsAnimationPlaying or player:getVehicle() then
 			rotLimit[1][1][2] = 10
 		end
 		if playerPose == "FALL_FLYING" then
@@ -102,7 +102,7 @@ events.RENDER:register(function ()
 				local tailXMoveXZ = (Physics.VelocityAverage[1] + math.abs(Physics.VelocityAverage[3])) * 160
 				local tailXMoveY = Physics.VelocityAverage[2] * 80
 				local tailXAngleMove = math.abs(Physics.VelocityAverage[4]) * 0.05
-				local tailXConditionAngle = (General.PlayerCondition == "LOW" or General.isAnimationPlaying("models.main", "sit_down") or player:getVehicle() or Warden.WardenNearby) and 0 or (General.PlayerCondition == "MEDIUM" and 15 or 30)
+				local tailXConditionAngle = (General.PlayerCondition == "LOW" or SitDown.IsAnimationPlaying or player:getVehicle() or Warden.WardenNearby) and 0 or (General.PlayerCondition == "MEDIUM" and 15 or 30)
 				tailRot = vectors.vec3(math.clamp(rotLimit[1][1][2] - math.min(tailXMoveXZ, math.max(rotLimit[1][1][2] - tailXMoveY - tailXAngleMove - tailXConditionAngle, 0)) + tailXMoveY - math.min(tailXAngleMove, math.max(rotLimit[1][1][2] - tailXMoveXZ - tailXMoveY - tailXConditionAngle, 0)) - tailXConditionAngle, rotLimit[1][1][1], rotLimit[1][1][2]) + (General.IsSneaking and 30 or 0), math.clamp(-Physics.VelocityAverage[3] * 160 + Physics.VelocityAverage[4] * 0.05, rotLimit[1][2][1], rotLimit[1][2][2]), 0)
 			end
 			tail:setRot(tailRot)
