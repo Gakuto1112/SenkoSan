@@ -55,7 +55,7 @@ events.TICK:register(function()
 		if Wet.JumpKey:isPressed() and Wet.OnGroundData[1] and velocity.y > 0 and Wet.VelocityYData[1] <= 0 then
 			sounds:playSound("minecraft:entity.cod.flop", playerPos, Wet.WetCount / 1200, 1)
 		end
-		if Wet.AutoShake and not General.isAnimationPlaying("models.main", "shake") then
+		if Wet.AutoShake and not ShakeBody.IsAnimationPlaying then
 			if Wet.AutoShakeCount == 20 then
 				ShakeBody:play(false)
 				Wet.AutoShakeCount = 0

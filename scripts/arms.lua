@@ -15,7 +15,7 @@ events.TICK:register(function()
 	if not renderer:isFirstPerson() then
 		local rightArmHeldContradict = player:getHeldItem(leftHanded).id ~= "minecraft:air" and Arms.ItemHeldContradicts[1]
 		local leftArmHeldContradict = player:getHeldItem(not leftHanded).id ~= "minecraft:air" and Arms.ItemHeldContradicts[2]
-		local umbrellaAdjust = Umbrella.Umbrella and not General.isAnimationPlaying("models.main", "sit_down")
+		local umbrellaAdjust = Umbrella.Umbrella and not SitDown.IsAnimationPlaying
 		if playerPose == "CROUCHING" then
 			for _, rightArm in ipairs(rightArms) do
 				rightArm:setPos(0, 3, 0)
