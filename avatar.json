@@ -7,34 +7,82 @@
 		"scripts/main.lua"
 	],
 	"customizations": {
-		"models.armor": {
+		"models.armor.Avatar.Head": {
+			"parentType": "None"
+		},
+		"models.armor.Avatar.Head.ArmorH": {
+			"moveTo": "models.main.Avatar.Head",
+			"visible": false
+		},
+		"models.armor.Avatar.Body.ArmorB": {
+			"moveTo": "models.main.Avatar.Body",
+			"visible": false
+		},
+		"models.armor.Avatar.Body.Arms.RightArm.ArmorRA": {
+			"moveTo": "models.main.Avatar.Body.Arms.RightArm",
+			"visible": false
+		},
+		"models.armor.Avatar.Body.Arms.RightArm.RightArmBottom": {
+			"parentType": "None"
+		},
+		"models.armor.Avatar.Body.Arms.RightArm.RightArmBottom.ArmorRAB": {
+			"moveTo": "models.main.Avatar.Body.Arms.RightArm.RightArmBottom",
+			"visible": false
+		},
+		"models.armor.Avatar.Body.Arms.LeftArm.ArmorLA": {
+			"moveTo": "models.main.Avatar.Body.Arms.LeftArm",
+			"visible": false
+		},
+		"models.armor.Avatar.Body.Arms.LeftArm.LeftArmBottom": {
+			"parentType": "None"
+		},
+		"models.armor.Avatar.Body.Arms.LeftArm.LeftArmBottom.ArmorLAB": {
+			"moveTo": "models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom",
 			"visible": false
 		},
 		"models.armor.Avatar.Body.BodyBottom": {
 			"parentType": "None"
 		},
-		"models.armor.Avatar.Body.Arms.RightArm.RightArmBottom": {
-			"parentType": "None"
+		"models.armor.Avatar.Body.BodyBottom.ArmorBB": {
+			"moveTo": "models.main.Avatar.Body.BodyBottom",
+			"visible": false
 		},
-		"models.armor.Avatar.Body.Arms.LeftArm.LeftArmBottom": {
-			"parentType": "None"
+		"models.armor.Avatar.Body.BodyBottom.Tail.ArmorT": {
+			"moveTo": "models.main.Avatar.Body.BodyBottom.Tail",
+			"visible": false
 		},
-		"models.armor.Avatar.Body.BodyBottom.Legs.RightLeg.RightLeggings": {
+		"models.armor.Avatar.Body.BodyBottom.Legs.RightLeg.ArmorRL": {
+			"moveTo": "models.main.Avatar.Body.BodyBottom.Legs.RightLeg",
+			"visible": false
+		},
+		"models.armor.Avatar.Body.BodyBottom.Legs.RightLeg.ArmorRL.RightLeggings": {
 			"parentType": "None"
 		},
 		"models.armor.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom": {
 			"parentType": "None"
 		},
-		"models.armor.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.RightLeggingsBottom": {
+		"models.armor.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.ArmorRLB": {
+			"moveTo": "models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom",
+			"visible": false
+		},
+		"models.armor.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.ArmorRLB.RightLeggingsBottom": {
 			"parentType": "None"
 		},
-		"models.armor.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLeggings": {
+		"models.armor.Avatar.Body.BodyBottom.Legs.LeftLeg.ArmorLL": {
+			"moveTo": "models.main.Avatar.Body.BodyBottom.Legs.LeftLeg",
+			"visible": false
+		},
+		"models.armor.Avatar.Body.BodyBottom.Legs.LeftLeg.ArmorLL.LeftLeggings": {
 			"parentType": "None"
 		},
 		"models.armor.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom": {
 			"parentType": "None"
 		},
-		"models.armor.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.LeftLeggingsBottom": {
+		"models.armor.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.ArmorLLB": {
+			"moveTo": "models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom",
+			"visible": false
+		},
+		"models.armor.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.ArmorLLB.LeftLeggingsBottom": {
 			"parentType": "None"
 		},
 		"models.broom_cleaning": {

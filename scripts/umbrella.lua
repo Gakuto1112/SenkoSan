@@ -18,8 +18,6 @@ events.TICK:register(function ()
 	local umbrella = models.models.umbrella
 	local rightArm = models.models.main.Avatar.Body.Arms.RightArm
 	local leftArm = models.models.main.Avatar.Body.Arms.LeftArm
-	local rightArmorArm = models.models.armor.Avatar.Body.Arms.RightArm
-	local leftArmorArm = models.models.armor.Avatar.Body.Arms.LeftArm
 	if Umbrella.Umbrella then
 		if not Umbrella.UmbrellaPrev and Umbrella.UmbrellaSound then
 			sounds:playSound("minecraft:entity.bat.takeoff", player:getPos(), 0.5, 1.5)
@@ -27,19 +25,11 @@ events.TICK:register(function ()
 		if player:isLeftHanded() then
 			rightArm:setParentType("Body")
 			leftArm:setParentType("LeftArm")
-			if Armor.ArmorVisible[2] then
-				rightArmorArm:setParentType("Body")
-				leftArmorArm:setParentType("LeftArm")
-			end
 			umbrella:setPos(5.5, 0, 0)
 			General.setAnimations(SitDown.IsAnimationPlaying and "PLAY" or "STOP", "sit_down_right_umbrella")
 		else
 			leftArm:setParentType("Body")
 			rightArm:setParentType("RightArm")
-			if Armor.ArmorVisible[2] then
-				leftArmorArm:setParentType("Body")
-				rightArmorArm:setParentType("RightArm")
-			end
 			umbrella:setPos(-5.5, 0, 0)
 			General.setAnimations(SitDown.IsAnimationPlaying and "PLAY" or "STOP", "sit_down_left_umbrella")
 		end
@@ -50,10 +40,6 @@ events.TICK:register(function ()
 		end
 		rightArm:setParentType("RightArm")
 		leftArm:setParentType("LeftArm")
-		if Armor.ArmorVisible[2] then
-			rightArmorArm:setParentType("RightArm")
-			leftArmorArm:setParentType("LeftArm")
-		end
 		for _, animationName in ipairs({"sit_down_right_umbrella", "sit_down_left_umbrella"}) do
 			General.setAnimations("STOP", animationName)
 		end

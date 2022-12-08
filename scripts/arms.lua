@@ -8,8 +8,6 @@ Arms.ItemHeldContradicts = {false, false}
 events.TICK:register(function()
 	local rightArms = {models.models.main.Avatar.Body.Arms.RightArm, models.models.costume_cheerleader.Avatar.Body.Arms.RightArm}
 	local leftArms = {models.models.main.Avatar.Body.Arms.LeftArm, models.models.costume_cheerleader.Avatar.Body.Arms.LeftArm}
-	local rightArmorArm = models.models.armor.Avatar.Body.Arms.RightArm
-	local leftArmorArm = models.models.armor.Avatar.Body.Arms.LeftArm
 	local playerPose = player:getPose()
 	local leftHanded = player:isLeftHanded()
 	if not renderer:isFirstPerson() then
@@ -25,12 +23,6 @@ events.TICK:register(function()
 				leftArm:setPos(0, 3, 0)
 				leftArm:setRot(30 - (leftArmHeldContradict and 15 or 0) + ((umbrellaAdjust and not leftHanded) and 20 or 0), 0, 0)
 			end
-			if Armor.ArmorVisible[2] then
-				rightArmorArm:setPos(0, 3, 0)
-				rightArmorArm:setRot(30 - (rightArmHeldContradict and 15 or 0) + ((umbrellaAdjust and leftHanded) and 20 or 0), 0, 0)
-				leftArmorArm:setPos(0, 3, 0)
-				leftArmorArm:setRot(30 - (leftArmHeldContradict and 15 or 0) + ((umbrellaAdjust and not leftHanded) and 20 or 0), 0, 0)
-			end
 		else
 			for _, rightArm in ipairs(rightArms) do
 				rightArm:setPos(0, 0, 0)
@@ -39,12 +31,6 @@ events.TICK:register(function()
 			for _, leftArm in ipairs(leftArms) do
 				leftArm:setPos(0, 0, 0)
 				leftArm:setRot((leftArmHeldContradict and -15 or 0) + ((umbrellaAdjust and not leftHanded) and 20 or 0), 0, 0)
-			end
-			if Armor.ArmorVisible[2] then
-				rightArmorArm:setPos(0, 0, 0)
-				rightArmorArm:setRot((rightArmHeldContradict and -15 or 0) + ((umbrellaAdjust and leftHanded) and 20 or 0), 0, 0)
-				leftArmorArm:setPos(0, 0, 0)
-				leftArmorArm:setRot((leftArmHeldContradict and -15 or 0) + ((umbrellaAdjust and not leftHanded) and 20 or 0), 0, 0)
 			end
 		end
 	else
@@ -55,12 +41,6 @@ events.TICK:register(function()
 		for _, leftArm in ipairs(leftArms) do
 			leftArm:setPos(0, 0, 0)
 			leftArm:setRot(0, 0, 0)
-		end
-		if Armor.ArmorVisible[2] then
-			for _, modelPart in ipairs({rightArmorArm, leftArmorArm}) do
-				modelPart:setPos(0, 0, 0)
-				modelPart:setRot(0, 0, 0)
-			end
 		end
 	end
 end)
