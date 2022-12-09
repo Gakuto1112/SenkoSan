@@ -58,7 +58,6 @@ function Costume.setCostume(costume)
 		Legs.ReducedLegSwing = true
 	elseif costume == "SWIMSUIT" then
 		setCostumeTextureOffset(5)
-		models.models.costume_swimsuit:setVisible(true)
 		models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB.Skirt:setUVPixels(0, 0)
 		Apron.IsVisible = false
 	elseif costume == "CHEERLEADER" then
@@ -105,7 +104,7 @@ end
 ---コスチュームをリセットし、デフォルトのコスチュームにする。
 function Costume.resetCostume()
 	setCostumeTextureOffset(0)
-	for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT, models.models.costume_swimsuit, models.models.costume_cheerleader}) do
+	for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT, models.models.costume_cheerleader}) do
 		modelPart:setVisible(false)
 	end
 	Apron.IsVisible = true
@@ -205,7 +204,7 @@ events.TICK:register(function ()
 			modelsPart:setVisible(false)
 		end
 	end
-	models.models.costume_swimsuit.Avatar.Head:setVisible(Costume.CurrentCostume == "SWIMSUIT" and string.find(player:getItem(6).id, "^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1])
+	models.models.main.Avatar.Head.CSwimsuitH:setVisible(Costume.CurrentCostume == "SWIMSUIT" and string.find(player:getItem(6).id, "^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1])
 	if Costume.CurrentCostume == "CHEERLEADER" then
 		local rightPonPon = models.models.costume_cheerleader.Avatar.Body.Arms.RightArm.RightArmBottom.RightPonPon
 		local leftPonPon = models.models.costume_cheerleader.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftPonPon
