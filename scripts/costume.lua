@@ -43,7 +43,9 @@ function Costume.setCostume(costume)
 		setCostumeTextureOffset(1)
 		Apron.IsVisible = false
 	elseif costume == "DISGUISE" then
-		models.models.costume_disguise:setVisible(true)
+		for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT}) do
+			modelPart:setVisible(true)
+		end
 		setCostumeTextureOffset(2)
 		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(16, 0)
 	elseif costume == "MAID_A" then
@@ -111,7 +113,7 @@ end
 ---コスチュームをリセットし、デフォルトのコスチュームにする。
 function Costume.resetCostume()
 	setCostumeTextureOffset(0)
-	for _, modelPart in ipairs({models.models.costume_disguise, models.models.costume_maid_a, models.models.costume_maid_b, models.models.costume_swimsuit, models.models.costume_cheerleader}) do
+	for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT, models.models.costume_maid_a, models.models.costume_maid_b, models.models.costume_swimsuit, models.models.costume_cheerleader}) do
 		modelPart:setVisible(false)
 	end
 	Apron.IsVisible = true
@@ -135,7 +137,7 @@ function costumeInit()
 end
 
 events.TICK:register(function ()
-	local hat = models.models.costume_disguise.Avatar.Head.Hat
+	local hat = models.models.main.Avatar.Head.CDisguiseH.Hat
 	local ears = models.models.main.Avatar.Head.Ears
 	if Costume.CurrentCostume == "DISGUISE" then
 		if Armor.ArmorVisible[1] then
@@ -144,14 +146,6 @@ events.TICK:register(function ()
 		else
 			hat:setVisible(true)
 			ears:setVisible(false)
-		end
-		local bodyBottom = models.models.costume_disguise.Avatar.Body.BodyBottom
-		if player:getPose() == "CROUCHING" then
-			bodyBottom:setPos(0, 4, 0)
-			bodyBottom:setRot(30, 0, 0)
-		else
-			bodyBottom:setPos(0, 0, 0)
-			bodyBottom:setRot(0, 0, 0)
 		end
 	else
 		hat:setVisible(false)

@@ -97,9 +97,14 @@
 		"models.cloth_cleaning.Avatar.Body.Arms.RightArm.RightArmBottom": {
 			"parentType": "None"
 		},
-		"models.costume_disguise": {
+		"models.costume_disguise.Avatar.Head.CDisguiseH": {
+			"moveTo": "models.main.Avatar.Head",
 			"visible": false
 		},
+		"models.costume_disguise.Avatar.Body.BodyBottom.Tail.CDisguiseT": {
+			"moveTo": "models.main.Avatar.Body.BodyBottom.Tail",
+			"visible": false
+		} ,
 		"models.costume_maid_a": {
 			"visible": false
 		},
