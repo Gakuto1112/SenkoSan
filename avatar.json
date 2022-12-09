@@ -111,23 +111,16 @@
 			"moveTo": "models.main.Avatar.Head",
 			"visible": false
 		},
-		"models.costume_cheerleader": {
+		"models.costume_cheerleader.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB": {
+			"moveTo": "models.main.Avatar.Body.Arms.RightArm.RightArmBottom",
+			"visible": false
+		},
+		"models.costume_cheerleader.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB": {
+			"moveTo": "models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom",
 			"visible": false
 		},
 		"models.costume_santa": {
 			"visible": false
-		},
-		"models.costume_maid_a.Avatar.Body.BodyBottom": {
-			"parentType": "None"
-		},
-		"models.costume_maid_b.Avatar.Body.BodyBottom": {
-			"parentType": "None"
-		},
-		"models.costume_cheerleader.Avatar.Body.Arms.RightArm.RightArmBottom": {
-			"parentType": "None"
-		},
-		"models.costume_cheerleader.Avatar.Body.Arms.LeftArm.LeftArmBottom": {
-			"parentType": "None"
 		},
 		"models.costume_fox_mask": {
 			"visible": false

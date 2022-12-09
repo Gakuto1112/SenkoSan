@@ -206,9 +206,9 @@ events.TICK:register(function ()
 	end
 	models.models.main.Avatar.Head.CSwimsuitH:setVisible(Costume.CurrentCostume == "SWIMSUIT" and string.find(player:getItem(6).id, "^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1])
 	if Costume.CurrentCostume == "CHEERLEADER" then
-		local rightPonPon = models.models.costume_cheerleader.Avatar.Body.Arms.RightArm.RightArmBottom.RightPonPon
-		local leftPonPon = models.models.costume_cheerleader.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftPonPon
-		if ActionWheel.ActionCount == 0 then
+		local rightPonPon = models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB.RightPonPon
+		local leftPonPon = models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB.LeftPonPon
+		if not ActionWheel.IsAnimationPlaying then
 			local leftHanded = player:isLeftHanded()
 			rightPonPon:setVisible(player:getHeldItem(leftHanded).id == "minecraft:air" and (not Umbrella.Umbrella or not leftHanded))
 			leftPonPon:setVisible(player:getHeldItem(not leftHanded).id == "minecraft:air" and (not Umbrella.Umbrella or leftHanded))
@@ -218,7 +218,7 @@ events.TICK:register(function ()
 			end
 		end
 	else
-		for _, modelPart in ipairs({models.models.costume_cheerleader.Avatar.Body.Arms.RightArm.RightArmBottom.RightPonPon, models.models.costume_cheerleader.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftPonPon}) do
+		for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB.RightPonPon, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB.LeftPonPon}) do
 			modelPart:setVisible(false)
 		end
 	end
