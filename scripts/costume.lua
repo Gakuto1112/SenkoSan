@@ -87,7 +87,6 @@ function Costume.setCostume(costume)
 		Apron.IsVisible = false
 	elseif costume == "CASUAL" then
 		setCostumeTextureOffset(13)
-		models.models.costume_beret:setVisible(true)
 		Apron.IsVisible = false
 	elseif costume == "SAILOR" then
 		setCostumeTextureOffset(14)
@@ -241,7 +240,7 @@ events.TICK:register(function ()
 	end
 	models.models.main.Avatar.Head.CKnitH:setVisible(Costume.CurrentCostume == "KNIT" and not Armor.ArmorVisible[1])
 	models.models.main.Avatar.Head.CFoxHoodH:setVisible((Costume.CurrentCostume == "FOX_HOODIE_RED" or Costume.CurrentCostume == "FOX_HOODIE_WHITE") and not Armor.ArmorVisible[1])
-	models.models.costume_beret:setVisible(Costume.CurrentCostume == "CASUAL" and not Armor.ArmorVisible[1])
+	models.models.main.Avatar.Head.CBeretH:setVisible(Costume.CurrentCostume == "CASUAL" and not Armor.ArmorVisible[1])
 	Ears.EnableJerkEar = (Costume.CurrentCostume ~= "DISGUISE" and Costume.CurrentCostume ~= "CASUAL") or Armor.ArmorVisible[1]
 	if Costume.CurrentCostume ~= "MAID_A" and Costume.CurrentCostume ~= "MAID_B" then
 		if renderer:isFirstPerson() and player:getPose() == "SLEEPING" then
