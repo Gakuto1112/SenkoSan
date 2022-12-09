@@ -3014,7 +3014,7 @@
 			"autouv": 0,
 			"children": [
 				{
-					"name": "Head",
+					"name": "H",
 					"origin": [0, 10.6, 0],
 					"rotation": [0, 0, -5],
 					"color": 0,
@@ -3240,7 +3240,7 @@
 					]
 				},
 				{
-					"name": "Body",
+					"name": "B",
 					"origin": [0, 10.6, 0],
 					"color": 0,
 					"uuid": "5c3d82d1-20f2-bbae-5f4b-9f5dc39f4708",
@@ -3266,7 +3266,7 @@
 							"autouv": 0,
 							"children": [
 								{
-									"name": "RightArm",
+									"name": "RA",
 									"origin": [2, 10.2, 0],
 									"rotation": [36.26197, -24.65026, 17.82794],
 									"color": 0,
@@ -3281,7 +3281,7 @@
 										"658047a4-4f13-b570-62bb-770bb88ca4a6",
 										"8b9efce9-badc-2b5e-7123-3bdf71445902",
 										{
-											"name": "RightArmBottom",
+											"name": "RAB",
 											"origin": [2.8, 8.2, 0.8],
 											"rotation": [57.5, 0, 0],
 											"color": 0,
@@ -3297,7 +3297,7 @@
 									]
 								},
 								{
-									"name": "LeftArm",
+									"name": "LA",
 									"origin": [-2, 10.2, 0],
 									"rotation": [69.3531, 14.0761, -5.23619],
 									"color": 0,
@@ -3312,7 +3312,7 @@
 										"3c0eee6d-fae6-e517-46a2-b417d1d7b745",
 										"c5057cf9-c408-2395-edb3-5789f7dd7d7a",
 										{
-											"name": "LeftArmBottom",
+											"name": "LAB",
 											"origin": [-2.8, 8.2, 0.8],
 											"rotation": [65, 0, 0],
 											"color": 0,
@@ -3330,7 +3330,7 @@
 							]
 						},
 						{
-							"name": "BodyBottom",
+							"name": "BB",
 							"origin": [0, 8.2, 0.8],
 							"color": 0,
 							"uuid": "e8434444-438a-7d00-7e72-cd2de9fbd7af",
@@ -3344,7 +3344,7 @@
 								"e2a9c599-71f1-f2ae-bd79-3f537b1e7203",
 								"56a46675-bc0c-2fe0-b3c3-27503d41a221",
 								{
-									"name": "Tail",
+									"name": "T",
 									"origin": [2, 6.4, 0.8],
 									"rotation": [137.94574, 7.2606, -167.62261],
 									"color": 0,
@@ -3412,7 +3412,7 @@
 											]
 										},
 										{
-											"name": "RightLeg",
+											"name": "RL",
 											"origin": [0.8, 5.8, 0],
 											"rotation": [-19.71975, 3.40487, 9.40804],
 											"color": 0,
@@ -3427,7 +3427,7 @@
 												"588dd98b-95e7-0207-2900-519a3cd9cc9d",
 												"1b4a3132-88b4-1bb5-fa68-43c8e1e04af1",
 												{
-													"name": "RightLegBottom",
+													"name": "RLB",
 													"origin": [0.8, 3.4, 0],
 													"rotation": [-20, 0, 0],
 													"color": 0,
@@ -3443,7 +3443,7 @@
 											]
 										},
 										{
-											"name": "LeftLeg",
+											"name": "LL",
 											"origin": [-0.8, 5.8, 0],
 											"rotation": [5.04292, -7.4713, -0.6574],
 											"color": 0,
@@ -3458,7 +3458,7 @@
 												"3e850021-ae31-12e6-13de-06eeb5057cbf",
 												"d9fea07f-5849-e34b-ee00-cc549e9f0be4",
 												{
-													"name": "LeftLegBottom",
+													"name": "LLB",
 													"origin": [-0.8, 3.4, 0],
 													"rotation": [-10, 0, 0],
 													"color": 0,

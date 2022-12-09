@@ -3528,14 +3528,14 @@
 			"autouv": 0,
 			"children": [
 				{
-					"name": "Head",
+					"name": "H",
 					"origin": [0, 10.6, 0],
 					"rotation": [0, 0, 5],
 					"color": 0,
 					"uuid": "2911c5ac-a42b-434c-9d91-becfa17fd255",
 					"export": true,
 					"mirror_uv": false,
-					"isOpen": true,
+					"isOpen": false,
 					"locked": false,
 					"visibility": true,
 					"autouv": 0,
@@ -3768,7 +3768,7 @@
 					]
 				},
 				{
-					"name": "Body",
+					"name": "B",
 					"origin": [0, 10.6, 0],
 					"color": 0,
 					"uuid": "5c3d82d1-20f2-bbae-5f4b-9f5dc39f4708",
@@ -3794,7 +3794,7 @@
 							"autouv": 0,
 							"children": [
 								{
-									"name": "RightArm",
+									"name": "RA",
 									"origin": [2, 10.2, 0],
 									"rotation": [0, -30, 0],
 									"color": 0,
@@ -3809,7 +3809,7 @@
 										"658047a4-4f13-b570-62bb-770bb88ca4a6",
 										"8b9efce9-badc-2b5e-7123-3bdf71445902",
 										{
-											"name": "RightArmBottom",
+											"name": "RAB",
 											"origin": [2.8, 8.2, 0.8],
 											"rotation": [40, 0, 0],
 											"color": 0,
@@ -3825,7 +3825,7 @@
 									]
 								},
 								{
-									"name": "LeftArm",
+									"name": "LA",
 									"origin": [-2, 10.2, 0],
 									"rotation": [0, 30, 0],
 									"color": 0,
@@ -3840,7 +3840,7 @@
 										"3c0eee6d-fae6-e517-46a2-b417d1d7b745",
 										"c5057cf9-c408-2395-edb3-5789f7dd7d7a",
 										{
-											"name": "LeftArmBottom",
+											"name": "LAB",
 											"origin": [-2.8, 8.2, 0.8],
 											"rotation": [40, 0, 0],
 											"color": 0,
@@ -3858,7 +3858,7 @@
 							]
 						},
 						{
-							"name": "BodyBottom",
+							"name": "BB",
 							"origin": [0, 8.2, 0.8],
 							"color": 0,
 							"uuid": "e8434444-438a-7d00-7e72-cd2de9fbd7af",
@@ -3964,7 +3964,7 @@
 									]
 								},
 								{
-									"name": "Tail",
+									"name": "T",
 									"origin": [0, 6.8, 0.8],
 									"rotation": [44.09531, 22.52101, 20.36057],
 									"color": 0,
@@ -4002,7 +4002,7 @@
 									"autouv": 0,
 									"children": [
 										{
-											"name": "RightLeg",
+											"name": "RL",
 											"origin": [0.8, 5.8, 0],
 											"color": 0,
 											"uuid": "875bef9d-135e-c45f-e9d5-5a1c774743f6",
@@ -4016,7 +4016,7 @@
 												"588dd98b-95e7-0207-2900-519a3cd9cc9d",
 												"1b4a3132-88b4-1bb5-fa68-43c8e1e04af1",
 												{
-													"name": "RightLegBottom",
+													"name": "RLB",
 													"origin": [0.8, 3.4, 0],
 													"color": 0,
 													"uuid": "c3e74adf-9ad7-1fc8-f266-b5b8889e22bf",
@@ -4031,7 +4031,7 @@
 											]
 										},
 										{
-											"name": "LeftLeg",
+											"name": "LL",
 											"origin": [-0.8, 5.8, 0],
 											"color": 0,
 											"uuid": "e2b4c895-68c0-b786-a5ac-ee58a3bad955",
@@ -4045,7 +4045,7 @@
 												"3e850021-ae31-12e6-13de-06eeb5057cbf",
 												"d9fea07f-5849-e34b-ee00-cc549e9f0be4",
 												{
-													"name": "LeftLegBottom",
+													"name": "LLB",
 													"origin": [-0.8, 3.4, 0],
 													"color": 0,
 													"uuid": "9250ed07-47bc-8363-6b9e-23edbbb61eb0",
