@@ -119,10 +119,8 @@
 			"moveTo": "models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom",
 			"visible": false
 		},
-		"models.costume_santa": {
-			"visible": false
-		},
-		"models.costume_fox_mask": {
+		"models.costume_fox_mask.Avatar.Head.CFoxMaskH": {
+			"moveTo": "models.main.Avatar.Head",
 			"visible": false
 		},
 		"models.costume_knit": {
@@ -132,6 +130,9 @@
 			"visible": false
 		},
 		"models.costume_beret": {
+			"visible": false
+		},
+		"models.costume_santa": {
 			"visible": false
 		},
 		"models.ear_cleaning": {

@@ -223,12 +223,12 @@ events.TICK:register(function ()
 		end
 	end
 	if Costume.CurrentCostume == "YUKATA" then
-		local foxMask = models.models.costume_fox_mask.Avatar.Head
+		local foxMask = models.models.main.Avatar.Head.CFoxMaskH
 		local helmetItemID = player:getItem(6).id
 		foxMask:setVisible(string.find(helmetItemID, "^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1])
 		foxMask:setPrimaryTexture("RESOURCE", (helmetItemID == "minecraft:leather_helmet" or helmetItemID == "minecraft:chainmail_helmet" or helmetItemID == "minecraft:iron_helmet") and "textures/entity/fox/fox.png" or "textures/entity/fox/snow_fox.png")
 	else
-		models.models.costume_fox_mask.Avatar.Head:setVisible(false)
+		models.models.main.Avatar.Head.CFoxMaskH:setVisible(false)
 	end
 	local santa = models.models.costume_santa
 	local leftEar = models.models.main.Avatar.Head.Ears.LeftEarPivot
