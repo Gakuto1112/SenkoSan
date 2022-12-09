@@ -145,21 +145,7 @@
 									"locked": false,
 									"visibility": true,
 									"autouv": 0,
-									"children": [
-										{
-											"name": "Skirt",
-											"origin": [0, 15, 0],
-											"color": 0,
-											"uuid": "0f195b25-dc16-c3df-1334-5487151a5636",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": ["462cfa8e-d803-daf8-79e2-07a818922f6d", "0c018cd9-79a3-a970-84e6-c27b6447dcbd"]
-										}
-									]
+									"children": ["462cfa8e-d803-daf8-79e2-07a818922f6d", "0c018cd9-79a3-a970-84e6-c27b6447dcbd"]
 								}
 							]
 						}
@@ -197,47 +183,11 @@
 			"override": false,
 			"length": 0.16667,
 			"snapping": 24,
-			"selected": true,
+			"selected": false,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
-			"loop_delay": "",
-			"animators": {
-				"0f195b25-dc16-c3df-1334-5487151a5636": {
-					"name": "Skirt",
-					"type": "bone",
-					"keyframes": [
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "0",
-									"y": "0",
-									"z": "0"
-								}
-							],
-							"uuid": "7b14f13e-dc97-9e21-0eb2-95331f6520a5",
-							"time": 0,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "-27.5\n",
-									"y": 0,
-									"z": 0
-								}
-							],
-							"uuid": "87ae3517-d8f6-b55d-e6a3-573cf8b0b4b0",
-							"time": 0.16667,
-							"color": -1,
-							"interpolation": "linear"
-						}
-					]
-				}
-			}
+			"loop_delay": ""
 		},
 		{
 			"uuid": "b14fc554-d954-e73c-3ee7-a7245954360e",
@@ -250,43 +200,7 @@
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
-			"loop_delay": "",
-			"animators": {
-				"0f195b25-dc16-c3df-1334-5487151a5636": {
-					"name": "Skirt",
-					"type": "bone",
-					"keyframes": [
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "0",
-									"y": "0",
-									"z": "0"
-								}
-							],
-							"uuid": "87443748-67be-c2f1-efe5-1005619ea0aa",
-							"time": 0.16667,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "-27.5",
-									"y": 0,
-									"z": 0
-								}
-							],
-							"uuid": "3c1005c9-7341-5607-9f80-5c6c99d43ad6",
-							"time": 0,
-							"color": -1,
-							"interpolation": "linear"
-						}
-					]
-				}
-			}
+			"loop_delay": ""
 		}
 	]
 }

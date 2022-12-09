@@ -292,25 +292,11 @@
 							"uuid": "72414c1d-3b3e-3bcb-41d2-cd6ce9f32142",
 							"export": true,
 							"mirror_uv": false,
-							"isOpen": false,
+							"isOpen": true,
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
-							"children": [
-								{
-									"name": "Brim",
-									"origin": [0, 24, 0],
-									"color": 0,
-									"uuid": "d589af99-269c-f1fd-d450-03faf6625f90",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": true,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": ["5308da27-03f0-c4f7-71cc-b5a6b9e70a2e", "167222e5-566a-bdb8-0c73-0fd0a56ad364"]
-								}
-							]
+							"children": ["5308da27-03f0-c4f7-71cc-b5a6b9e70a2e", "167222e5-566a-bdb8-0c73-0fd0a56ad364"]
 						}
 					]
 				},
@@ -350,11 +336,12 @@
 									"visibility": true,
 									"autouv": 0,
 									"children": [
+										"5815a060-4032-1ad4-bee7-6f2912b086a1",
 										{
-											"name": "Skirt",
+											"name": "Skirt2",
 											"origin": [0, 15, 0],
 											"color": 0,
-											"uuid": "e780a161-2aaa-1015-a593-84b737427684",
+											"uuid": "b465a220-0cb2-1159-131b-f2e07f716ae0",
 											"export": true,
 											"mirror_uv": false,
 											"isOpen": true,
@@ -362,12 +349,12 @@
 											"visibility": true,
 											"autouv": 0,
 											"children": [
-												"5815a060-4032-1ad4-bee7-6f2912b086a1",
+												"3aad4906-46e3-f5a7-626d-62f591f42df4",
 												{
-													"name": "Skirt2",
+													"name": "Skirt3",
 													"origin": [0, 15, 0],
 													"color": 0,
-													"uuid": "b465a220-0cb2-1159-131b-f2e07f716ae0",
+													"uuid": "0de06bf9-2abf-b5a2-6054-1c0aea2ba105",
 													"export": true,
 													"mirror_uv": false,
 													"isOpen": true,
@@ -375,34 +362,19 @@
 													"visibility": true,
 													"autouv": 0,
 													"children": [
-														"3aad4906-46e3-f5a7-626d-62f591f42df4",
+														"547a5c12-c8bc-74ed-0357-9bbb3ddfa597",
 														{
-															"name": "Skirt3",
+															"name": "Skirt4",
 															"origin": [0, 15, 0],
 															"color": 0,
-															"uuid": "0de06bf9-2abf-b5a2-6054-1c0aea2ba105",
+															"uuid": "0639b846-d1f5-3603-57d6-4b2740b208f3",
 															"export": true,
 															"mirror_uv": false,
 															"isOpen": true,
 															"locked": false,
 															"visibility": true,
 															"autouv": 0,
-															"children": [
-																"547a5c12-c8bc-74ed-0357-9bbb3ddfa597",
-																{
-																	"name": "Skirt4",
-																	"origin": [0, 15, 0],
-																	"color": 0,
-																	"uuid": "0639b846-d1f5-3603-57d6-4b2740b208f3",
-																	"export": true,
-																	"mirror_uv": false,
-																	"isOpen": true,
-																	"locked": false,
-																	"visibility": true,
-																	"autouv": 0,
-																	"children": ["ec7d26df-156f-c1fd-4ea5-3a727e963e69"]
-																}
-															]
+															"children": ["ec7d26df-156f-c1fd-4ea5-3a727e963e69"]
 														}
 													]
 												}
@@ -823,68 +795,6 @@
 							],
 							"uuid": "a4548cd3-60b2-50d2-6691-84be407270ed",
 							"time": 6.58333,
-							"color": -1,
-							"interpolation": "linear"
-						}
-					]
-				},
-				"e780a161-2aaa-1015-a593-84b737427684": {
-					"name": "Skirt",
-					"type": "bone",
-					"keyframes": [
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "0",
-									"y": "0",
-									"z": "0"
-								}
-							],
-							"uuid": "14eac97f-210d-5b43-7ee7-9b3b409281d1",
-							"time": 4.45833,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "-15",
-									"y": 0,
-									"z": 0
-								}
-							],
-							"uuid": "8b382c2f-772c-317d-25ee-1b4e994bf6ae",
-							"time": 4.58333,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "0",
-									"y": 0,
-									"z": 0
-								}
-							],
-							"uuid": "cbdd6b19-8a04-2bc6-e3d5-d230d3568cdf",
-							"time": 14,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": -15,
-									"y": 0,
-									"z": 0
-								}
-							],
-							"uuid": "e336f290-f63c-1f10-69b5-f28f2a280b2c",
-							"time": 13.83333,
 							"color": -1,
 							"interpolation": "linear"
 						}
@@ -1712,68 +1622,6 @@
 							],
 							"uuid": "4518fd5f-3642-d8ba-f179-2a34c8285e27",
 							"time": 7.83333,
-							"color": -1,
-							"interpolation": "linear"
-						}
-					]
-				},
-				"e780a161-2aaa-1015-a593-84b737427684": {
-					"name": "Skirt",
-					"type": "bone",
-					"keyframes": [
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "0",
-									"y": "0",
-									"z": "0"
-								}
-							],
-							"uuid": "4927ce22-582a-cfba-ec58-50465119f51d",
-							"time": 0,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": -40,
-									"y": 0,
-									"z": 0
-								}
-							],
-							"uuid": "2fc208dc-9485-0dc9-5ad1-52be50a1a43b",
-							"time": 0.5,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "0",
-									"y": 0,
-									"z": 0
-								}
-							],
-							"uuid": "8a096c93-d61c-0977-9a26-b4a9e7b39428",
-							"time": 7.83333,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": -40,
-									"y": 0,
-									"z": 0
-								}
-							],
-							"uuid": "b03f16af-b03d-c581-d320-24faab688bbc",
-							"time": 7.33333,
 							"color": -1,
 							"interpolation": "linear"
 						}
@@ -6030,7 +5878,7 @@
 			"override": false,
 			"length": 0.16667,
 			"snapping": 24,
-			"selected": true,
+			"selected": false,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",

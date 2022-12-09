@@ -560,56 +560,42 @@
 							"visibility": true,
 							"autouv": 0,
 							"children": [
+								"d9eaeb97-01e1-3d92-9f65-edfa70c5710b",
 								{
-									"name": "SummerHat",
-									"origin": [0, 30.75, 0],
+									"name": "Bottoms",
+									"origin": [0, 24, 0],
 									"color": 0,
-									"uuid": "09541788-d1f1-b707-4f55-cd45a992ba03",
+									"uuid": "7a6b2e2d-dd25-b03a-a0c4-1512deda9e0b",
 									"export": true,
 									"mirror_uv": false,
-									"isOpen": false,
+									"isOpen": true,
 									"locked": false,
 									"visibility": true,
 									"autouv": 0,
 									"children": [
-										"d9eaeb97-01e1-3d92-9f65-edfa70c5710b",
-										{
-											"name": "Bottoms",
-											"origin": [0, 24, 0],
-											"color": 0,
-											"uuid": "7a6b2e2d-dd25-b03a-a0c4-1512deda9e0b",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": [
-												"e493c37f-f2ff-4311-b009-00c27581c5a4",
-												"d647ff1d-4026-93fb-33f6-c1bcd1cbc384",
-												"6647b546-b223-288a-1079-84ea2f63d56f",
-												"b70339cf-6132-cc27-07d9-c6db9c2a328e",
-												"af8949e1-8794-47a1-3e12-a9091047af09",
-												"9a790db9-e115-e0a9-c3b3-1c161d516dd6",
-												"e1703055-1317-32f2-e6b3-f832c45d701d",
-												"21940dfb-9053-aa55-49c3-3d8e855b697b"
-											]
-										},
-										{
-											"name": "Flower",
-											"origin": [-5.5, 30, -5.5],
-											"rotation": [20, 30, 0],
-											"color": 0,
-											"uuid": "3c4132dc-6f00-841e-ed96-b6733e84084d",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": ["04572d36-2cf3-9219-df5c-7518eae9daba", "d7c0249c-bf3e-7c0a-6016-39d05537fe94", "40e1f535-86aa-0301-4063-901124d0e67c"]
-										}
+										"e493c37f-f2ff-4311-b009-00c27581c5a4",
+										"d647ff1d-4026-93fb-33f6-c1bcd1cbc384",
+										"6647b546-b223-288a-1079-84ea2f63d56f",
+										"b70339cf-6132-cc27-07d9-c6db9c2a328e",
+										"af8949e1-8794-47a1-3e12-a9091047af09",
+										"9a790db9-e115-e0a9-c3b3-1c161d516dd6",
+										"e1703055-1317-32f2-e6b3-f832c45d701d",
+										"21940dfb-9053-aa55-49c3-3d8e855b697b"
 									]
+								},
+								{
+									"name": "Flower",
+									"origin": [-5.5, 30, -5.5],
+									"rotation": [20, 30, 0],
+									"color": 0,
+									"uuid": "3c4132dc-6f00-841e-ed96-b6733e84084d",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"children": ["04572d36-2cf3-9219-df5c-7518eae9daba", "d7c0249c-bf3e-7c0a-6016-39d05537fe94", "40e1f535-86aa-0301-4063-901124d0e67c"]
 								}
 							]
 						}

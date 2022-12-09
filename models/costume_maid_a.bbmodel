@@ -611,21 +611,7 @@
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
-							"children": [
-								{
-									"name": "Brim",
-									"origin": [0, 24, 0],
-									"color": 0,
-									"uuid": "c3c32a89-5453-f258-211a-964c5def7da3",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": true,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": ["844f1bb2-9679-0305-7b4f-8d47ff2886ef", "f3636758-9589-57c5-b5c4-8fd3e045c1b9"]
-								}
-							]
+							"children": ["844f1bb2-9679-0305-7b4f-8d47ff2886ef", "f3636758-9589-57c5-b5c4-8fd3e045c1b9"]
 						}
 					]
 				},
@@ -665,24 +651,26 @@
 									"visibility": true,
 									"autouv": 0,
 									"children": [
+										"2250928b-a018-69a4-16f8-e07e3233dfa7",
 										{
-											"name": "Skirt",
+											"name": "Skirt2",
 											"origin": [0, 15, 0],
 											"color": 0,
-											"uuid": "5e91e820-2d19-a9a9-611e-d67c9f706d30",
+											"uuid": "9329c4e5-8dbe-3e12-9316-363dd9e4bc93",
 											"export": true,
 											"mirror_uv": false,
-											"isOpen": false,
+											"isOpen": true,
 											"locked": false,
 											"visibility": true,
 											"autouv": 0,
 											"children": [
-												"2250928b-a018-69a4-16f8-e07e3233dfa7",
+												"66a1fbe6-47ca-6251-4660-72f09224d9aa",
+												"03a89c59-4ae2-3ef5-2673-6f080f4990c0",
 												{
-													"name": "Skirt2",
-													"origin": [0, 15, 0],
+													"name": "Skirt3",
+													"origin": [0, 24, 0],
 													"color": 0,
-													"uuid": "9329c4e5-8dbe-3e12-9316-363dd9e4bc93",
+													"uuid": "9086728b-b8cc-2af9-139e-f22d158c9277",
 													"export": true,
 													"mirror_uv": false,
 													"isOpen": true,
@@ -690,13 +678,13 @@
 													"visibility": true,
 													"autouv": 0,
 													"children": [
-														"66a1fbe6-47ca-6251-4660-72f09224d9aa",
-														"03a89c59-4ae2-3ef5-2673-6f080f4990c0",
+														"6973d5aa-0749-3ce5-b63c-3444b1f8bbce",
+														"aac480a3-6700-77fc-afdf-30ef0e2f5656",
 														{
-															"name": "Skirt3",
+															"name": "Skirt4",
 															"origin": [0, 24, 0],
 															"color": 0,
-															"uuid": "9086728b-b8cc-2af9-139e-f22d158c9277",
+															"uuid": "b3ef4d34-c3fa-5c53-7a03-fb467f238ac5",
 															"export": true,
 															"mirror_uv": false,
 															"isOpen": true,
@@ -704,13 +692,13 @@
 															"visibility": true,
 															"autouv": 0,
 															"children": [
-																"6973d5aa-0749-3ce5-b63c-3444b1f8bbce",
-																"aac480a3-6700-77fc-afdf-30ef0e2f5656",
+																"d73c08f1-1247-7553-da03-414e1167810c",
+																"3a79c3bd-3e87-2736-5976-73f475feb97b",
 																{
-																	"name": "Skirt4",
+																	"name": "Skirt5",
 																	"origin": [0, 24, 0],
 																	"color": 0,
-																	"uuid": "b3ef4d34-c3fa-5c53-7a03-fb467f238ac5",
+																	"uuid": "a9be2f28-07d6-4a14-2fb3-6f9e8c0ddfb7",
 																	"export": true,
 																	"mirror_uv": false,
 																	"isOpen": true,
@@ -718,36 +706,20 @@
 																	"visibility": true,
 																	"autouv": 0,
 																	"children": [
-																		"d73c08f1-1247-7553-da03-414e1167810c",
-																		"3a79c3bd-3e87-2736-5976-73f475feb97b",
+																		"642d98c3-7206-8e00-3b8c-9df207d225fa",
+																		"6fe346a2-f014-6325-5e44-82e65a21ff44",
 																		{
-																			"name": "Skirt5",
+																			"name": "Skirt6",
 																			"origin": [0, 24, 0],
 																			"color": 0,
-																			"uuid": "a9be2f28-07d6-4a14-2fb3-6f9e8c0ddfb7",
+																			"uuid": "e55b9bbe-00b4-cb2d-ae3b-8fa9fb1e1b75",
 																			"export": true,
 																			"mirror_uv": false,
 																			"isOpen": true,
 																			"locked": false,
 																			"visibility": true,
 																			"autouv": 0,
-																			"children": [
-																				"642d98c3-7206-8e00-3b8c-9df207d225fa",
-																				"6fe346a2-f014-6325-5e44-82e65a21ff44",
-																				{
-																					"name": "Skirt6",
-																					"origin": [0, 24, 0],
-																					"color": 0,
-																					"uuid": "e55b9bbe-00b4-cb2d-ae3b-8fa9fb1e1b75",
-																					"export": true,
-																					"mirror_uv": false,
-																					"isOpen": true,
-																					"locked": false,
-																					"visibility": true,
-																					"autouv": 0,
-																					"children": ["552045f8-dbcf-d168-e131-d6a6d57ff4ff", "5b1da683-afe8-e088-c871-77bcebfcb5d2"]
-																				}
-																			]
+																			"children": ["552045f8-dbcf-d168-e131-d6a6d57ff4ff", "5b1da683-afe8-e088-c871-77bcebfcb5d2"]
 																		}
 																	]
 																}
@@ -1172,68 +1144,6 @@
 							],
 							"uuid": "a4548cd3-60b2-50d2-6691-84be407270ed",
 							"time": 6.58333,
-							"color": -1,
-							"interpolation": "linear"
-						}
-					]
-				},
-				"5e91e820-2d19-a9a9-611e-d67c9f706d30": {
-					"name": "Skirt",
-					"type": "bone",
-					"keyframes": [
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "0",
-									"y": "0",
-									"z": "0"
-								}
-							],
-							"uuid": "3ba2fecb-46b3-c437-80e5-dd3357671716",
-							"time": 4.45833,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "-15",
-									"y": 0,
-									"z": 0
-								}
-							],
-							"uuid": "cf2e7017-7183-3ea3-03b5-d9934c1b26e9",
-							"time": 4.58333,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": -15,
-									"y": 0,
-									"z": 0
-								}
-							],
-							"uuid": "40156f66-fdd3-4a7d-7a49-b5164a66720b",
-							"time": 13.83333,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "0",
-									"y": 0,
-									"z": 0
-								}
-							],
-							"uuid": "cc17331c-d23c-9830-0d76-7efff6583ef7",
-							"time": 14,
 							"color": -1,
 							"interpolation": "linear"
 						}
@@ -2304,124 +2214,6 @@
 								}
 							],
 							"uuid": "4518fd5f-3642-d8ba-f179-2a34c8285e27",
-							"time": 7.83333,
-							"color": -1,
-							"interpolation": "linear"
-						}
-					]
-				},
-				"5e91e820-2d19-a9a9-611e-d67c9f706d30": {
-					"name": "Skirt",
-					"type": "bone",
-					"keyframes": [
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "0",
-									"y": "0",
-									"z": "0"
-								}
-							],
-							"uuid": "414e56e2-73d2-0e5f-adce-2f8aa38692e8",
-							"time": 0,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "-40",
-									"y": 0,
-									"z": 0
-								}
-							],
-							"uuid": "e44d16e7-1191-271b-f1ce-3925372e2d92",
-							"time": 0.5,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": -40,
-									"y": 0,
-									"z": 0
-								}
-							],
-							"uuid": "f4ae2aad-8f4b-97ac-16e2-eef583e5c56f",
-							"time": 7.33333,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "0",
-									"y": 0,
-									"z": 0
-								}
-							],
-							"uuid": "290b03fc-0a47-140e-63b4-58104f9d8c69",
-							"time": 7.83333,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "position",
-							"data_points": [
-								{
-									"x": "0",
-									"y": "0",
-									"z": "0"
-								}
-							],
-							"uuid": "885ad887-2409-289f-e448-d2298dc8a96a",
-							"time": 0,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "position",
-							"data_points": [
-								{
-									"x": 0,
-									"y": 1,
-									"z": 0
-								}
-							],
-							"uuid": "6f453410-8610-1996-6604-5a17fe11b9b5",
-							"time": 0.5,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "position",
-							"data_points": [
-								{
-									"x": 0,
-									"y": 1,
-									"z": 0
-								}
-							],
-							"uuid": "e1e04320-a912-2d76-7bdb-e96342830216",
-							"time": 7.33333,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "position",
-							"data_points": [
-								{
-									"x": 0,
-									"y": "0",
-									"z": 0
-								}
-							],
-							"uuid": "c2bf9061-393f-6b16-34a4-b0bcced28851",
 							"time": 7.83333,
 							"color": -1,
 							"interpolation": "linear"
@@ -7295,7 +7087,7 @@
 			"override": false,
 			"length": 0.16667,
 			"snapping": 24,
-			"selected": true,
+			"selected": false,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
