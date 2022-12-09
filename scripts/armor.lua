@@ -144,7 +144,7 @@ events.TICK:register(function()
 			for _, modelPart in ipairs(leggingsOverlay) do
 				modelPart:setVisible(false)
 			end
-			if (Costume.CurrentCostume == "DEFAULT" or Costume.CurrentCostume == "DISGUISE" or Costume.CurrentCostume == "KAPPOGI") and not isSleeping and not Kotatsu.IsAnimationPlaying then
+			if (Costume.CurrentCostume == "DEFAULT" or Costume.CurrentCostume == "DISGUISE" or Costume.CurrentCostume == "KAPPOGI" or Costume.CurrentCostume == "KNIT") and not isSleeping and not Kotatsu.IsAnimationPlaying then
 				Apron.IsVisible = true
 			end
 			Armor.ArmorVisible[3] = false

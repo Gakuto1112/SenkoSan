@@ -239,7 +239,7 @@ events.TICK:register(function ()
 		santa:setVisible(true)
 		leftEar:setVisible(false)
 	end
-	models.models.costume_knit:setVisible(Costume.CurrentCostume == "KNIT" and not Armor.ArmorVisible[1])
+	models.models.main.Avatar.Head.CKnitH:setVisible(Costume.CurrentCostume == "KNIT" and not Armor.ArmorVisible[1])
 	models.models.costume_fox_hood:setVisible((Costume.CurrentCostume == "FOX_HOODIE_RED" or Costume.CurrentCostume == "FOX_HOODIE_WHITE") and not Armor.ArmorVisible[1])
 	models.models.costume_beret:setVisible(Costume.CurrentCostume == "CASUAL" and not Armor.ArmorVisible[1])
 	Ears.EnableJerkEar = (Costume.CurrentCostume ~= "DISGUISE" and Costume.CurrentCostume ~= "CASUAL") or Armor.ArmorVisible[1]

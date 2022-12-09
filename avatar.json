@@ -73,12 +73,6 @@
 		"models.armor.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.ArmorLLB.LeftLeggingsBottom": {
 			"parentType": "None"
 		},
-		"models.broom_cleaning": {
-			"visible": false
-		},
-		"models.cloth_cleaning": {
-			"visible": false
-		},
 		"models.costume_disguise.Avatar.Head.CDisguiseH": {
 			"moveTo": "models.main.Avatar.Head",
 			"visible": false
@@ -123,7 +117,8 @@
 			"moveTo": "models.main.Avatar.Head",
 			"visible": false
 		},
-		"models.costume_knit": {
+		"models.costume_knit.Avatar.Head.CKnitH": {
+			"moveTo": "models.main.Avatar.Head",
 			"visible": false
 		},
 		"models.costume_fox_hood": {
@@ -141,6 +136,12 @@
 		"models.main.Avatar.Head.Glasses": {
 			"visible": false,
 			"primaryRenderType": "TRANSLUCENT"
+		},
+		"models.broom_cleaning": {
+			"visible": false
+		},
+		"models.cloth_cleaning": {
+			"visible": false
 		},
 		"models.hair_cut": {
 			"visible": false
