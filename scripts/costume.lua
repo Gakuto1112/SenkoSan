@@ -59,16 +59,12 @@ function Costume.setCostume(costume)
 	elseif costume == "SWIMSUIT" then
 		setCostumeTextureOffset(5)
 		models.models.costume_swimsuit:setVisible(true)
-		for _, modelPart in ipairs({models.models.costume_mini_skirt.Avatar.Body.BodyBottom.Skirt.Skirt1, models.models.costume_mini_skirt.Avatar.Body.BodyBottom.Skirt.Skirt2}) do
-			modelPart:setUVPixels(0, 0)
-		end
+		models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB.Skirt:setUVPixels(0, 0)
 		Apron.IsVisible = false
 	elseif costume == "CHEERLEADER" then
 		setCostumeTextureOffset(6)
 		models.models.costume_cheerleader:setVisible(true)
-		for _, modelPart in ipairs({models.models.costume_mini_skirt.Avatar.Body.BodyBottom.Skirt.Skirt1, models.models.costume_mini_skirt.Avatar.Body.BodyBottom.Skirt.Skirt2}) do
-			modelPart:setUVPixels(0, 14)
-		end
+		models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB.Skirt:setUVPixels(0, 14)
 		Apron.IsVisible = false
 	elseif costume == "PURIFICATION" then
 		setCostumeTextureOffset(7)
@@ -96,9 +92,7 @@ function Costume.setCostume(costume)
 		Apron.IsVisible = false
 	elseif costume == "SAILOR" then
 		setCostumeTextureOffset(14)
-		for _, modelPart in ipairs({models.models.costume_mini_skirt.Avatar.Body.BodyBottom.Skirt.Skirt1, models.models.costume_mini_skirt.Avatar.Body.BodyBottom.Skirt.Skirt2}) do
-			modelPart:setUVPixels(0, 28)
-		end
+		models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB.Skirt:setUVPixels(0, 28)
 		Apron.IsVisible = false
 	elseif costume == "CHINA_DRESS" then
 		setCostumeTextureOffset(15)
@@ -258,11 +252,11 @@ events.TICK:register(function ()
 		end
 	end
 	if Costume.CurrentCostume == "SWIMSUIT" or Costume.CurrentCostume == "CHEERLEADER" or Costume.CurrentCostume == "SAILOR" then
-		local skirt = models.models.costume_mini_skirt.Avatar.Body.BodyBottom.Skirt
+		local skirt = models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB.Skirt
 		skirt:setVisible(not Armor.ArmorVisible[3] and not Kotatsu.IsAnimationPlaying)
-		skirt:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
+		skirt:setRot((player:getPose() == "CROUCHING" or player:getVehicle()) and 27.5 or 0, 0, 0)
 	else
-		models.models.costume_mini_skirt.Avatar.Body.BodyBottom.Skirt:setVisible(false)
+		models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB.Skirt:setVisible(false)
 	end
 
 	HairAccessory.visible((Costume.CurrentCostume ~= "FOX_HOODIE_RED" and Costume.CurrentCostume ~= "FOX_HOODIE_WHITE" and Costume.CurrentCostume ~= "SANTA") or Armor.ArmorVisible[1])
