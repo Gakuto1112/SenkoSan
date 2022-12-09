@@ -32,6 +32,7 @@ events.TICK:register(function()
 			end
 			Wet.WalkDistance = 0
 		end
+		Wet.WetCount = Wet.IsWet and (player:isInWater() and 1200 or math.min(Wet.WetCount + 4, 1200)) or math.max(Wet.WetCount - 1, 0)
 	end
 	table.insert(Wet.VelocityYData, velocity.y)
 	table.insert(Wet.OnGroundData, onGround)
@@ -42,7 +43,6 @@ events.TICK:register(function()
 	end
 	Wet.IsWet = (player:isInRain() and not Umbrella.Umbrella) or player:isInWater()
 	if Wet.IsWet then
-		Wet.WetCount = player:isInWater() and 1200 or Wet.WetCount + 4
 		Ears.setEarsRot("DROOPING", 1, true)
 		Wet.AutoShakeCount = 0
 	elseif Wet.WetCount > 0 then
@@ -62,9 +62,6 @@ events.TICK:register(function()
 			elseif not paused then
 				Wet.AutoShakeCount = Wet.AutoShakeCount + 1
 			end
-		end
-		if not paused then
-			Wet.WetCount = Wet.WetCount - 1
 		end
 	end
 	local tailScale = (1200 - Wet.WetCount) / 1200 * 0.5 + 0.5
