@@ -76,11 +76,11 @@ function Costume.setCostume(costume)
 		Apron.IsVisible = false
 	elseif costume == "FOX_HOODIE_RED" then
 		setCostumeTextureOffset(10)
-		models.models.costume_fox_hood:setUVPixels(0, 0)
+		models.models.main.Avatar.Head.CFoxHoodH:setUVPixels(0, 0)
 		Apron.IsVisible = false
 	elseif costume == "FOX_HOODIE_WHITE" then
 		setCostumeTextureOffset(11)
-		models.models.costume_fox_hood:setUVPixels(0, 8)
+		models.models.main.Avatar.Head.CFoxHoodH:setUVPixels(0, 8)
 		Apron.IsVisible = false
 	elseif costume == "TRACKSUIT" then
 		setCostumeTextureOffset(12)
@@ -240,7 +240,7 @@ events.TICK:register(function ()
 		leftEar:setVisible(false)
 	end
 	models.models.main.Avatar.Head.CKnitH:setVisible(Costume.CurrentCostume == "KNIT" and not Armor.ArmorVisible[1])
-	models.models.costume_fox_hood:setVisible((Costume.CurrentCostume == "FOX_HOODIE_RED" or Costume.CurrentCostume == "FOX_HOODIE_WHITE") and not Armor.ArmorVisible[1])
+	models.models.main.Avatar.Head.CFoxHoodH:setVisible((Costume.CurrentCostume == "FOX_HOODIE_RED" or Costume.CurrentCostume == "FOX_HOODIE_WHITE") and not Armor.ArmorVisible[1])
 	models.models.costume_beret:setVisible(Costume.CurrentCostume == "CASUAL" and not Armor.ArmorVisible[1])
 	Ears.EnableJerkEar = (Costume.CurrentCostume ~= "DISGUISE" and Costume.CurrentCostume ~= "CASUAL") or Armor.ArmorVisible[1]
 	if Costume.CurrentCostume ~= "MAID_A" and Costume.CurrentCostume ~= "MAID_B" then
