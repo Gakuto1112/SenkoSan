@@ -7,9 +7,6 @@
 		"scripts/main.lua"
 	],
 	"customizations": {
-		"models.armor.Avatar.Head": {
-			"parentType": "None"
-		},
 		"models.armor.Avatar.Head.ArmorH": {
 			"moveTo": "models.main.Avatar.Head",
 			"visible": false
@@ -40,9 +37,6 @@
 			"moveTo": "models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom",
 			"visible": false
 		},
-		"models.armor.Avatar.Body.BodyBottom": {
-			"parentType": "None"
-		},
 		"models.armor.Avatar.Body.BodyBottom.ArmorBB": {
 			"moveTo": "models.main.Avatar.Body.BodyBottom",
 			"visible": false
@@ -56,9 +50,6 @@
 			"visible": false
 		},
 		"models.armor.Avatar.Body.BodyBottom.Legs.RightLeg.ArmorRL.RightLeggings": {
-			"parentType": "None"
-		},
-		"models.armor.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom": {
 			"parentType": "None"
 		},
 		"models.armor.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.ArmorRLB": {
@@ -75,9 +66,6 @@
 		"models.armor.Avatar.Body.BodyBottom.Legs.LeftLeg.ArmorLL.LeftLeggings": {
 			"parentType": "None"
 		},
-		"models.armor.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom": {
-			"parentType": "None"
-		},
 		"models.armor.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.ArmorLLB": {
 			"moveTo": "models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom",
 			"visible": false
@@ -88,14 +76,8 @@
 		"models.broom_cleaning": {
 			"visible": false
 		},
-		"models.broom_cleaning.Avatar.Body.Arms.RightArm.RightArmBottom": {
-			"parentType": "None"
-		},
 		"models.cloth_cleaning": {
 			"visible": false
-		},
-		"models.cloth_cleaning.Avatar.Body.Arms.RightArm.RightArmBottom": {
-			"parentType": "None"
 		},
 		"models.costume_disguise.Avatar.Head.CDisguiseH": {
 			"moveTo": "models.main.Avatar.Head",
