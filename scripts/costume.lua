@@ -229,7 +229,7 @@ events.TICK:register(function ()
 	else
 		models.models.main.Avatar.Head.CFoxMaskH:setVisible(false)
 	end
-	local santa = models.models.costume_santa
+	local santa = models.models.main.Avatar.Head.CSantaH
 	local leftEar = models.models.main.Avatar.Head.Ears.LeftEarPivot
 	if Costume.CurrentCostume ~= "SANTA" or Armor.ArmorVisible[1] then
 		santa:setVisible(false)
