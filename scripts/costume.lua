@@ -54,7 +54,6 @@ function Costume.setCostume(costume)
 		Legs.ReducedLegSwing = true
 	elseif costume == "MAID_B" then
 		setCostumeTextureOffset(4)
-		models.models.costume_maid_b:setVisible(true)
 		Apron.IsVisible = false
 		Legs.ReducedLegSwing = true
 	elseif costume == "SWIMSUIT" then
@@ -112,7 +111,7 @@ end
 ---コスチュームをリセットし、デフォルトのコスチュームにする。
 function Costume.resetCostume()
 	setCostumeTextureOffset(0)
-	for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT, models.models.costume_maid_b, models.models.costume_swimsuit, models.models.costume_cheerleader}) do
+	for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT, models.models.costume_swimsuit, models.models.costume_cheerleader}) do
 		modelPart:setVisible(false)
 	end
 	Apron.IsVisible = true
@@ -185,10 +184,10 @@ events.TICK:register(function ()
 		end
 	end
 	if Costume.CurrentCostume == "MAID_B" then
-		local skirt = models.models.costume_maid_b.Avatar.Body.BodyBottom.Skirt
+		local skirt = models.models.main.Avatar.Body.BodyBottom.CMaidBBB.Skirt
 		skirt:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
-		models.models.costume_maid_b.Avatar.Head:setVisible(not Armor.ArmorVisible[1])
-		models.models.costume_maid_b.Avatar.Body:setVisible(not Armor.ArmorVisible[3] and not Kotatsu.IsAnimationPlaying)
+		models.models.main.Avatar.Head.CMaidBH:setVisible(not Armor.ArmorVisible[1])
+		skirt:setVisible(not Armor.ArmorVisible[3] and not Kotatsu.IsAnimationPlaying)
 		if player:getVehicle() then
 			if Armor.ArmorVisible[3] then
 				models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
@@ -208,7 +207,7 @@ events.TICK:register(function ()
 			skirt.Skirt2.Skirt3.Skirt4:setPos(0, 0, 0)
 		end
 	else
-		for _, modelsPart in ipairs({models.models.costume_maid_b.Avatar.Head, models.models.costume_maid_b.Avatar.Body}) do
+		for _, modelsPart in ipairs({models.models.main.Avatar.Head.CMaidBH, models.models.main.Avatar.Body.BodyBottom.CMaidBBB.Skirt}) do
 			modelsPart:setVisible(false)
 		end
 	end
@@ -279,7 +278,7 @@ events.RENDER:register(function ()
 		skirt.Skirt2.Skirt3.Skirt4.Skirt5:setScale(1, 1, 1 + 0.05 * legAngle)
 		skirt.Skirt2.Skirt3.Skirt4.Skirt5.Skirt6:setScale(1, 1, 1 + 0.02 * legAngle)
 	elseif Costume.CurrentCostume == "MAID_B" then
-		local skirt = models.models.costume_maid_b.Avatar.Body.BodyBottom.Skirt
+		local skirt = models.models.main.Avatar.Body.BodyBottom.CMaidBBB.Skirt
 		skirt:setScale(1, 1, 1 + 0.5 * legAngle)
 		skirt.Skirt2:setScale(1, 1, 1 + 0.25 * legAngle)
 		skirt.Skirt2.Skirt3:setScale(1, 1, 1 + 0.15 * legAngle)
