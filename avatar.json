@@ -19,9 +19,6 @@
 			"moveTo": "models.main.Avatar.Body.Arms.RightArm",
 			"visible": false
 		},
-		"models.armor.Avatar.Body.Arms.RightArm.RightArmBottom": {
-			"parentType": "None"
-		},
 		"models.armor.Avatar.Body.Arms.RightArm.RightArmBottom.ArmorRAB": {
 			"moveTo": "models.main.Avatar.Body.Arms.RightArm.RightArmBottom",
 			"visible": false
@@ -29,9 +26,6 @@
 		"models.armor.Avatar.Body.Arms.LeftArm.ArmorLA": {
 			"moveTo": "models.main.Avatar.Body.Arms.LeftArm",
 			"visible": false
-		},
-		"models.armor.Avatar.Body.Arms.LeftArm.LeftArmBottom": {
-			"parentType": "None"
 		},
 		"models.armor.Avatar.Body.Arms.LeftArm.LeftArmBottom.ArmorLAB": {
 			"moveTo": "models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom",
@@ -140,8 +134,14 @@
 		"models.broom_cleaning": {
 			"visible": false
 		},
+		"models.broom_cleaning.Avatar.Body.Arms.RightArm.RightArmBottom": {
+			"parentType": "None"
+		},
 		"models.cloth_cleaning": {
 			"visible": false
+		},
+		"models.cloth_cleaning.Avatar.Body.Arms.RightArm.RightArmBottom": {
+			"parentType": "None"
 		},
 		"models.hair_cut": {
 			"visible": false
