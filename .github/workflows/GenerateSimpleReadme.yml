@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - extra
     paths:
       - ".github/workflows/**"
       - "README_images/**"
