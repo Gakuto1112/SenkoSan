@@ -133,9 +133,6 @@
 			"moveTo": "models.main.Avatar.Head",
 			"visible": false
 		},
-		"models.ear_cleaning": {
-			"visible": false
-		},
 		"models.main.Avatar.Head.Glasses": {
 			"visible": false,
 			"primaryRenderType": "TRANSLUCENT"
@@ -157,6 +154,9 @@
 		},
 		"models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom": {
 			"parentType": "None"
+		},
+		"models.ear_cleaning": {
+			"visible": false
 		},
 		"models.massage": {
 			"visible": false
@@ -182,7 +182,8 @@
 		"models.vacuum_cleaning": {
 			"visible": false
 		},
-		"models.umbrella": {
+		"models.umbrella.Avatar.Body.UmbrellaB": {
+			"moveTo": "models.main.Avatar.Body",
 			"visible": false
 		},
 		"models.skull_figure_a": {

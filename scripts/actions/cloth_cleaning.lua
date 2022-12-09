@@ -1,8 +1,8 @@
 ---@class ClothCleaning 雑巾がけのアニメーションを制御するクラス
 
 ClothCleaning = General.instance({}, AnimationAction, function ()
-	return BroomCleaning:checkAnimation()
-end, {models.models.cloth_cleaning, models.models.cloth_cleaning.Stain}, {models.models.cloth_cleaning, models.models.cloth_cleaning.Stain}, animations["models.main"]["cloth_cleaning"], General.getAnimations("cloth_cleaning", false), 40)
+	return BroomCleaning:checkAction()
+end, {models.models.cloth_cleaning, models.models.cloth_cleaning.Stain}, {models.models.cloth_cleaning, models.models.cloth_cleaning.Stain}, animations["models.main"]["cloth_cleaning"], {animations["models.cloth_cleaning"]["cloth_cleaning"], animations["models.costume_maid_a"]["cloth_cleaning"], animations["models.costume_maid_b"]["cloth_cleaning"]}, 40)
 
 ---雑巾がけアニメーションを再生する。
 function ClothCleaning.play(self)

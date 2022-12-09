@@ -11,14 +11,12 @@ events.TICK:register(function()
 	Warden.WardenNearby = General.getStatusEffect("darkness") and true or false
 	if Warden.WardenNearby then
 		if not Warden.WardenNearbyData[1] and player:getPose() ~= "SLEEPING" then
-			General.setAnimations("PLAY", "afraid")
+			animations["models.main"]["afraid"]:play()
 		end
 		Ears.setEarsRot("DROOPING", 1, true)
 		FaceParts.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 0, false)
 	else
-		General.setAnimations("STOP", "afraid")
-		General.setAnimations("STOP", "right_hide_bell")
-		General.setAnimations("STOP", "left_hide_bell")
+		animations["models.main"]["afraid"]:stop()
 	end
 	table.insert(Warden.WardenNearbyData, Warden.WardenNearby)
 	if #Warden.WardenNearbyData == 2 then

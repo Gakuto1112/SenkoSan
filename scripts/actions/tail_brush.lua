@@ -2,13 +2,15 @@
 
 TailBrush = General.instance({}, AnimationAction, function ()
 	return SitDown:checkAction() and not player:isWet()
-end, {models.models.tail_brush, models.models.tail_brush.Avatar.Body.Arms.RightArm.RightArmBottom.Brush}, {models.models.tail_brush, models.models.tail_brush.Avatar.Body.Arms.RightArm.RightArmBottom.Brush}, animations["models.main"]["tail_brush"], General.getAnimations("tail_brush", false), 0)
+end, {models.models.tail_brush, models.models.tail_brush.Avatar.Body.Arms.RightArm.RightArmBottom.Brush}, {models.models.tail_brush, models.models.tail_brush.Avatar.Body.Arms.RightArm.RightArmBottom.Brush}, animations["models.main"]["tail_brush"], animations["models.tail_brush"]["tail_brush"], 0)
 
 ---尻尾の手入れアニメーションを再生する。
 function TailBrush.play(self)
 	AnimationAction.play(self)
 	if SitDown.IsAnimationPlaying then
-		General.setAnimations("PLAY", "tail_brush_sitdown")
+		for _, animation in ipairs({animations["models.main"]["tail_brush_sitdown"], animations["models.tail_brush"]["tail_brush_sitdown"]}) do
+			animation:play()
+		end
 	end
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 	self.HideHeldItem = true
@@ -21,8 +23,10 @@ function TailBrush.stop(self)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 	end
 	AnimationAction.stop(self)
-	General.setAnimations("STOP", "tail_brush_sitdown")
-	Physics.EnablePyhsics[1] = true
+	for _, animation in ipairs({animations["models.main"]["tail_brush_sitdown"], animations["models.tail_brush"]["tail_brush_sitdown"]}) do
+		animation:stop()
+	end
+Physics.EnablePyhsics[1] = true
 end
 
 ---アニメーション再生中に毎チック実行される関数

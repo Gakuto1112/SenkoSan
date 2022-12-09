@@ -10,7 +10,7 @@ Tail.WagTailCount = -1
 --ping関数
 ---尻尾を振る
 function pings.wag_tail()
-	General.setAnimations("PLAY", "wag_tail")
+	animations["models.main"]["wag_tail"]:play()
 	Tail.WagTailCount = 25
 end
 

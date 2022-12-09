@@ -36,7 +36,9 @@ end
 
 --ping関数
 function pings.jerk_ears()
-	General.setAnimations("PLAY", "jerk_ears")
+	for _, animation in ipairs({animations["models.main"]["jerk_ears"], animations["models.costume_knit"]["jerk_ears"], animations["models.costume_fox_hood"]["jerk_ears"]}) do
+		animation:play()
+	end
 	sounds:playSound("entity.egg.throw", player:getPos(), 0.25, 2)
 	Ears.JerkEarsCount = 5
 end

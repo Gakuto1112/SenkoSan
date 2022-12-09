@@ -56,17 +56,6 @@ function General.indexof(targetTable, key)
 	return -1
 end
 
----テーブルBをテーブルBに統合する。
----@param tableA table 統合先のテーブル
----@param tableB table 統合元のテーブル
----@return table mergedTableA 統合されたテーブルA
-function General.mergeTable(tableA, tableB)
-	for _, element in ipairs(tableB) do
-		table.insert(tableA, element)
-	end
-	return tableA
-end
-
 ---指定されたステータス効果の情報を返す。指定されたステータス効果が付与されていない場合はnilが返される。
 ---@param name string ステータス効果
 ---@return table|nil status ステータス効果の情報（該当のステータスを受けていない場合はnilが返る。）
@@ -77,55 +66,6 @@ function General.getStatusEffect(name)
 		end
 	end
 	return nil
-end
-
----全てのモデルファイルから指定されたアニメーション名と同じアニメーションを取得する。
----@param animationName string 取得するアニメーションの名前
----@param includeMain boolean メインモデルのアニメーションを含めるかどうか
----@return table animationList 取得したアニメーションのリスト
-function General.getAnimations(animationName, includeMain)
-	local result = {}
-	local modelFiles = models.models:getChildren()
-	for _, modelPart in ipairs(modelFiles) do
-		local modelName = modelPart:getName()
-		if modelName ~= "main" or includeMain then
-			local animationsInModel = animations["models."..modelName]
-			if animationsInModel then
-				if animationsInModel[animationName] then
-					table.insert(result, animationsInModel[animationName])
-				end
-			end
-		end
-	end
-	return result
-end
-
---複数のモデルファイルのアニメーションを同時に制御する。
----@param animationState AnimationState アニメーションの設定値
----@param animationName string アニメーションの名前
-function General.setAnimations(animationState, animationName)
-	local modelFiles = models.models:getChildren()
-	if animationState == "PLAY" then
-		for _, modelPart in ipairs(modelFiles) do
-			local animationsInModel = animations["models."..modelPart:getName()]
-			if animationsInModel then
-				local targetAnimation = animations["models."..modelPart:getName()][animationName]
-				if targetAnimation then
-					targetAnimation:play()
-				end
-			end
-		end
-	else
-		for _, modelPart in ipairs(modelFiles) do
-			local animationsInModel = animations["models."..modelPart:getName()]
-			if animationsInModel then
-				local targetAnimation = animations["models."..modelPart:getName()][animationName]
-				if targetAnimation then
-					targetAnimation:stop()
-				end
-			end
-		end
-	end
 end
 
 events.TICK:register(function ()

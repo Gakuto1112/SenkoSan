@@ -21,10 +21,10 @@ events.TICK:register(function()
 		if not Sleep.SleepData[1] then
 			Physics.EnablePyhsics[1] = false
 			if Warden.WardenNearby then
-				General.setAnimations("STOP", "afraid")
-				General.setAnimations("PLAY", "sleep_afraid")
+				animations["models.main"]["afraid"]:stop()
+				animations["models.main"]["sleep_afraid"]:play()
 			else
-				General.setAnimations("PLAY", "sleep")
+				animations["models.main"]["sleep"]:play()
 			end
 			Sleep.CostumeBeforeSleeping = Costume.CurrentCostume
 			Costume.setCostume("NIGHTWEAR")
@@ -46,11 +46,11 @@ events.TICK:register(function()
 			end
 		end
 		if Warden.WardenNearby and not Sleep.WardenNearbyPrev then
-			General.setAnimations("STOP", "sleep")
-			General.setAnimations("PLAY", "sleep_afraid")
+			animations["models.main"]["sleep"]:stop()
+			animations["models.main"]["sleep_afraid"]:play()
 		elseif not Warden.WardenNearby and Sleep.WardenNearbyPrev then
-			General.setAnimations("PLAY", "sleep")
-			General.setAnimations("STOP", "sleep_afraid")
+			animations["models.main"]["sleep"]:play()
+			animations["models.main"]["sleep_afraid"]:stop()
 		end
 		Ears.setEarsRot("DROOPING", 1, true)
 		if not Warden.WardenNearby then
@@ -60,10 +60,10 @@ events.TICK:register(function()
 		if Sleep.SleepData[1] then
 			Physics.EnablePyhsics[1] = true
 			if Warden.WardenNearby then
-				General.setAnimations("PLAY", "afraid")
+				animations["models.main"]["afraid"]:play()
 			end
-			General.setAnimations("STOP", "sleep")
-			General.setAnimations("STOP", "sleep_afraid")
+			animations["models.main"]["sleep"]:stop()
+			animations["models.main"]["sleep_afraid"]:stop()
 			if Sleep.CostumeBeforeSleeping == "DEFAULT" then
 				Costume.resetCostume()
 			else

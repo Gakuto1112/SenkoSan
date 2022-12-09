@@ -2,7 +2,7 @@
 
 RefuseEmote = General.instance({}, AnimationAction, function ()
 	return true
-end, nil, nil, animations["models.main"]["refuse_emote"], General.getAnimations("refuse_emote", false), 0)
+end, nil, nil, animations["models.main"]["refuse_emote"], nil, 0)
 
 ---エモート拒否アニメーションを再生する。
 function RefuseEmote.play(self)

@@ -4,7 +4,7 @@
 
 HairCut = General.instance({}, AnimationAction, function ()
 	return BroomCleaning:checkAction()
-end, {models.models.hair_cut, models.models.hair_cut.Avatar.Body.Arms.RightArm.RightArmBottom.Spray, models.models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.Comb}, {models.models.hair_cut, models.models.hair_cut.Avatar.Body.Arms.RightArm.RightArmBottom.Spray, models.models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.Comb, models.models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairPiece}, animations["models.main"]["hair_cut"], General.getAnimations("hair_cut", false), 8)
+end, {models.models.hair_cut, models.models.hair_cut.Avatar.Body.Arms.RightArm.RightArmBottom.Spray, models.models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.Comb}, {models.models.hair_cut, models.models.hair_cut.Avatar.Body.Arms.RightArm.RightArmBottom.Spray, models.models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.Comb, models.models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairPiece}, animations["models.main"]["hair_cut"], animations["models.hair_cut"]["hair_cut"], 8)
 
 HairCut.ChairBlock = models.models.hair_cut:newBlock("hair_cut.chair"):block("minecraft:oak_stairs"):pos(8, -6, -4):rot(0, 180, 0) --椅子代わりの階段ブロックのレンダータスク
 HairCut.ScissorsItem = models.models.hair_cut.Avatar.Body.Arms.RightArm.RightArmBottom.Scissors:newItem("hair_cut.scissors"):item("minecraft:shears"):pos(2, 0, -3):rot(-90, 45, 0):scale(0.5, 0.5, 0.5):enabled(false) --鋏のアイテムレンダータスク。

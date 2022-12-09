@@ -3,7 +3,7 @@
 
 Massage = General.instance({}, AnimationAction, function ()
 	return SitDown.IsAnimationPlaying
-end, models.models.massage, models.models.massage, animations["models.main"]["massage"], General.mergeTable(General.getAnimations("massage", false), General.getAnimations("earpick_arm_fix", true)), 0)
+end, models.models.massage, models.models.massage, animations["models.main"]["massage"], {animations["models.massage"]["massage"], animations["models.costume_maid_a"]["massage"], animations["models.costume_maid_b"]["massage"], animations["models.main"]["earpick_arm_fix"]}, 0)
 
 ---マッサージのアニメーションを再生する。
 function Massage.play(self)

@@ -2,7 +2,7 @@
 
 TailCuddling = General.instance({}, AnimationAction, function ()
 	return SitDown.IsAnimationPlaying and Costume.CurrentCostume ~= "DISGUISE" and (not Armor.ShowArmor or not Armor.ArmorVisible[2]) and not player:isWet() and Wet.WetCount == 0
-end, {models.models.tail_cuddling, models.models.tail_cuddling.SittingPlayer}, {models.models.tail_cuddling, models.models.tail_cuddling.SittingPlayer}, animations["models.main"]["tail_cuddling"], General.getAnimations("tail_cuddling", false), 0)
+end, {models.models.tail_cuddling, models.models.tail_cuddling.SittingPlayer}, {models.models.tail_cuddling, models.models.tail_cuddling.SittingPlayer}, animations["models.main"]["tail_cuddling"], animations["models.tail_cuddling"]["tail_cuddling"], 0)
 
 ---尻尾モフモフアニメーションを再生する。
 function TailCuddling.play(self)

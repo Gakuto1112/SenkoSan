@@ -2,7 +2,7 @@
 
 Earpick = General.instance({}, AnimationAction, function ()
 	return SitDown.IsAnimationPlaying
-end, models.models.ear_cleaning, models.models.ear_cleaning, animations["models.main"]["earpick"], General.mergeTable(General.getAnimations("earpick", false), General.getAnimations("earpick_arm_fix", true)), 0)
+end, models.models.ear_cleaning, models.models.ear_cleaning, animations["models.main"]["earpick"], {animations["models.ear_cleaning"]["earpick"], animations["models.main"]["earpick_arm_fix"]}, 0)
 
 ---耳かきアニメーションを再生する。
 function Earpick.play(self)
