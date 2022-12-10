@@ -2,12 +2,11 @@
 
 ClothCleaning = General.instance({}, AnimationAction, function ()
 	return BroomCleaning:checkAction()
-end, {models.models.cloth_cleaning, models.models.cloth_cleaning.Stain}, {models.models.cloth_cleaning, models.models.cloth_cleaning.Stain}, animations["models.main"]["cloth_cleaning"], {animations["models.cloth_cleaning"]["cloth_cleaning"], animations["models.costume_maid_a"]["cloth_cleaning"], animations["models.costume_maid_b"]["cloth_cleaning"]}, 40)
+end, {models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.ClothRAB, models.models.cloth_cleaning.Stain}, {models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.ClothRAB, models.models.cloth_cleaning.Stain}, animations["models.main"]["cloth_cleaning"], {animations["models.cloth_cleaning"]["cloth_cleaning"], animations["models.costume_maid_a"]["cloth_cleaning"], animations["models.costume_maid_b"]["cloth_cleaning"]}, 40)
 
 ---雑巾がけアニメーションを再生する。
 function ClothCleaning.play(self)
 	AnimationAction.play(self)
-	models.models.cloth_cleaning.Avatar.Body.Arms.RightArm.RightArmBottom.Cloth.Cloth:setUVPixels(0, 0)
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 	self.HideHeldItem = true
 end
@@ -24,7 +23,6 @@ function ClothCleaning.onAnimationTick(self)
 	AnimationAction.onAnimationTick(self)
 	if self.AnimationCount == 91 then
 		models.models.cloth_cleaning.Stain:setVisible(false)
-		models.models.cloth_cleaning.Avatar.Body.Arms.RightArm.RightArmBottom.Cloth.Cloth:setUVPixels(0, 6)
 	elseif self.AnimationCount == 41 then
 		FaceParts.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
 		local playerPos = player:getPos()

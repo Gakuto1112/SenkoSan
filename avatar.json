@@ -134,28 +134,36 @@
 		"models.broom_cleaning": {
 			"visible": false
 		},
-		"models.broom_cleaning.Avatar.Body.Arms.RightArm.RightArmBottom": {
-			"parentType": "None"
+		"models.broom_cleaning.Avatar.Body.Arms.RightArm.RightArmBottom.BroomRAB": {
+			"moveTo": "models.main.Avatar.Body.Arms.RightArm.RightArmBottom",
+			"visible": false
 		},
 		"models.cloth_cleaning": {
 			"visible": false
 		},
-		"models.cloth_cleaning.Avatar.Body.Arms.RightArm.RightArmBottom": {
-			"parentType": "None"
+		"models.cloth_cleaning.Avatar.Body.Arms.RightArm.RightArmBottom.ClothRAB": {
+			"moveTo": "models.main.Avatar.Body.Arms.RightArm.RightArmBottom",
+			"visible": false
 		},
 		"models.hair_cut": {
 			"visible": false
 		},
-		"models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairPiece": {
+		"models.hair_cut.Avatar.Body.Arms.RightArm.RightArmBottom.HairCutRAB": {
+			"moveTo": "models.main.Avatar.Body.Arms.RightArm.RightArmBottom",
 			"visible": false
 		},
-		"models.hair_cut.Avatar.Body.Arms.RightArm.RightArmBottom": {
-			"parentType": "None"
+		"models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairCutLAB": {
+			"moveTo": "models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom",
+			"visible": false
 		},
-		"models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom": {
-			"parentType": "None"
+		"models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairCutLAB.HairPiece": {
+			"visible": false
 		},
 		"models.ear_cleaning": {
+			"visible": false
+		},
+		"models.ear_cleaning.Avatar.RightArm.EarpickRA": {
+			"moveTo": "models.main.Avatar.Body.Arms.RightArm",
 			"visible": false
 		},
 		"models.massage": {

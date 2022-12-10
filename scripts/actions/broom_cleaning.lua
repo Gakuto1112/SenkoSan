@@ -2,7 +2,7 @@
 
 BroomCleaning = General.instance({}, AnimationAction, function ()
 	return SitDown:checkAction() and not SitDown.IsAnimationPlaying
-end, models.models.broom_cleaning, models.models.broom_cleaning, animations["models.main"]["broom_cleaning"], animations["models.broom_cleaning"]["broom_cleaning"], 35)
+end, {models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.BroomRAB, models.models.broom_cleaning}, {models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.BroomRAB, models.models.broom_cleaning}, animations["models.main"]["broom_cleaning"], animations["models.broom_cleaning"]["broom_cleaning"], 35)
 
 ---箒掃除アニメーションを再生する。
 function BroomCleaning.play(self)

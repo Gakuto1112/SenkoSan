@@ -4,10 +4,10 @@
 
 HairCut = General.instance({}, AnimationAction, function ()
 	return BroomCleaning:checkAction()
-end, {models.models.hair_cut, models.models.hair_cut.Avatar.Body.Arms.RightArm.RightArmBottom.Spray, models.models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.Comb}, {models.models.hair_cut, models.models.hair_cut.Avatar.Body.Arms.RightArm.RightArmBottom.Spray, models.models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.Comb, models.models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairPiece}, animations["models.main"]["hair_cut"], animations["models.hair_cut"]["hair_cut"], 8)
+end, {models.models.hair_cut, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.HairCutRAB.Spray, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.HairCutRAB.Scissors, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairCutLAB.Comb}, {models.models.hair_cut, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.HairCutRAB.Spray, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.HairCutRAB.Scissors, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairCutLAB.Comb}, animations["models.main"]["hair_cut"], animations["models.hair_cut"]["hair_cut"], 8)
 
 HairCut.ChairBlock = models.models.hair_cut:newBlock("hair_cut.chair"):block("minecraft:oak_stairs"):pos(8, -6, -4):rot(0, 180, 0) --椅子代わりの階段ブロックのレンダータスク
-HairCut.ScissorsItem = models.models.hair_cut.Avatar.Body.Arms.RightArm.RightArmBottom.Scissors:newItem("hair_cut.scissors"):item("minecraft:shears"):pos(2, 0, -3):rot(-90, 45, 0):scale(0.5, 0.5, 0.5):enabled(false) --鋏のアイテムレンダータスク。
+HairCut.ScissorsItem = models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.HairCutRAB.Scissors:newItem("hair_cut.scissors"):item("minecraft:shears"):pos(2, 0, -3):rot(-90, 45, 0):scale(0.5, 0.5, 0.5):enabled(false) --鋏のアイテムレンダータスク。
 
 ---散髪アニメーションを再生する。
 function HairCut.play(self)
@@ -40,7 +40,7 @@ function HairCut.onAnimationTick(self)
 				particles:newParticle("splash", splashPos)
 			end
 		elseif self.AnimationCount == 383 then
-			for _, modelPart in ipairs({models.models.hair_cut.Avatar.Body.Arms.RightArm.RightArmBottom.Spray, models.models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.Comb}) do
+			for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.HairCutRAB.Spray, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairCutLAB.Comb}) do
 				modelPart:setVisible(false)
 			end
 			HairCut.ScissorsItem:enabled(true)
@@ -54,14 +54,14 @@ function HairCut.onAnimationTick(self)
 			end
 			sounds:playSound("entity.sheep.shear", player:getPos(), 1, 1)
 			FaceParts.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 60, false)
-			models.models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairPiece:setVisible(true)
+			models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairCutLAB.HairPiece:setVisible(true)
 		elseif self.AnimationCount == 276 then
 			sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 		elseif self.AnimationCount == 236 then
 			sounds:playSound("entity.wolf.shake", player:getPos(), 1, 1.5)
 			FaceParts.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 20, true)
 		elseif self.AnimationCount == 216 then
-			models.models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairPiece:setVisible(false)
+			models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairCutLAB.HairPiece:setVisible(false)
 		elseif self.AnimationCount == 90 then
 			HairCut.ScissorsItem:enabled(false)
 		elseif self.AnimationCount <= 80 and self.AnimationCount >= 53 and (self.AnimationCount - 80) % 13 == 0 then
@@ -77,7 +77,7 @@ function HairCut.onAnimationTick(self)
 	end
 end
 
-for _, modelPart in ipairs({models.models.hair_cut.SittingPlayer, models.models.hair_cut.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairPiece}) do
+for _, modelPart in ipairs({models.models.hair_cut.SittingPlayer, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairCutLAB.HairPiece}) do
 	modelPart:setPrimaryTexture("SKIN")
 end
 if player:getModelType() == "DEFAULT" then
