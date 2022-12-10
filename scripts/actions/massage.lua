@@ -9,7 +9,7 @@ end, models.models.massage, models.models.massage, animations["models.main"]["ma
 function Massage.play(self)
 	AnimationAction.play(self)
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-	self.HideHeldItem = true
+	Arms.hideHeldItem(true)
 end
 
 ---マッサージのアニメーションを停止する。

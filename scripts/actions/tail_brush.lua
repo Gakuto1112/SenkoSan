@@ -2,18 +2,16 @@
 
 TailBrush = General.instance({}, AnimationAction, function ()
 	return SitDown:checkAction() and not player:isWet()
-end, {models.models.tail_brush, models.models.tail_brush.Avatar.Body.Arms.RightArm.RightArmBottom.Brush}, {models.models.tail_brush, models.models.tail_brush.Avatar.Body.Arms.RightArm.RightArmBottom.Brush}, animations["models.main"]["tail_brush"], animations["models.tail_brush"]["tail_brush"], 0)
+end, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.BrushRAB, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.BrushRAB, animations["models.main"]["tail_brush"], nil, 0)
 
 ---尻尾の手入れアニメーションを再生する。
 function TailBrush.play(self)
 	AnimationAction.play(self)
 	if SitDown.IsAnimationPlaying then
-		for _, animation in ipairs({animations["models.main"]["tail_brush_sitdown"], animations["models.tail_brush"]["tail_brush_sitdown"]}) do
-			animation:play()
-		end
+		animations["models.main"]["tail_brush_sitdown"]:play()
 	end
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-	self.HideHeldItem = true
+	Arms.hideHeldItem(true)
 	Physics.EnablePyhsics[1] = false
 end
 
@@ -23,10 +21,8 @@ function TailBrush.stop(self)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 	end
 	AnimationAction.stop(self)
-	for _, animation in ipairs({animations["models.main"]["tail_brush_sitdown"], animations["models.tail_brush"]["tail_brush_sitdown"]}) do
-		animation:stop()
-	end
-Physics.EnablePyhsics[1] = true
+	animations["models.main"]["tail_brush_sitdown"]:stop()
+	Physics.EnablePyhsics[1] = true
 end
 
 ---アニメーション再生中に毎チック実行される関数
@@ -36,7 +32,7 @@ function TailBrush.onAnimationTick(self)
 		sounds:playSound("block.grass.step", player:getPos(), 1, 1)
 	elseif self.AnimationCount == 90 then
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-		models.models.tail_brush.Avatar.Body.Arms.RightArm.RightArmBottom.Brush:setVisible(false)
+		models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.BrushRAB:setVisible(false)
 	elseif (self.AnimationCount + 80) % 20 == 0 and self.AnimationCount <= 80 and self.AnimationCount >= 40  then
 		if self.AnimationCount == 80 then
 			FaceParts.setEmotion("CLOSED", "CLOSED", "CLOSED", 60, true)

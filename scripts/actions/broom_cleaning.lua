@@ -9,7 +9,7 @@ function BroomCleaning.play(self)
 	AnimationAction.play(self)
 	models.models.broom_cleaning.Avatar.Dust:setOpacity(1)
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-	self.HideHeldItem = true
+	Arms.hideHeldItem(true)
 end
 
 ---箒掃除アニメーションを停止する。

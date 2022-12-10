@@ -35,15 +35,7 @@ PermanentAnimationAction = {
 		for _, animationElement in ipairs(self.Animations) do
 			animationElement:stop()
 		end
-		self.HideHeldItem = false
-		for _, vanillaModelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
-			vanillaModelPart:setVisible(true)
-			Arms.ItemHeldContradicts = {true, true}
-		end
-		for _, vanillaModelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
-			vanillaModelPart:setVisible(true)
-			Arms.ItemHeldContradicts = {false, false}
-		end
+		Arms.hideHeldItem(false)
 		FaceParts.resetEmotion()
 		Umbrella.EnableUmbrella = true
 		self.IsAnimationPlaying = false
@@ -51,22 +43,6 @@ PermanentAnimationAction = {
 
 	---アニメーション再生中に毎チック実行される関数
 	onAnimationTick = function (self)
-		if self.HideHeldItem then
-			for index, vanillaModelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
-				if player:getHeldItem(player:isLeftHanded() == (index == 1)) ~= "minecraft:air" then
-					vanillaModelPart:setVisible(false)
-					Arms.ItemHeldContradicts[index] = true
-				else
-					vanillaModelPart:setVisible(true)
-					Arms.ItemHeldContradicts[index] = false
-				end
-			end
-		else
-			for _, vanillaModelPart in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
-				vanillaModelPart:setVisible(true)
-				Arms.ItemHeldContradicts = {true, true}
-			end
-		end
 		if not self:checkAction() then
 			self:stop()
 		end

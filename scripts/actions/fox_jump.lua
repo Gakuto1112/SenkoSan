@@ -13,7 +13,7 @@ FoxJump.TargetPos = vectors.vec3(0, 0, 0)
 ---キツネジャンプアニメーションを再生する。
 function FoxJump.play(self)
 	AnimationAction.play(self)
-	self.HideHeldItem = true
+	Arms.hideHeldItem(true)
 end
 
 ---アニメーション再生中に毎チック実行される関数

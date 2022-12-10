@@ -23,7 +23,7 @@ function Kotatsu.play(self)
 	Physics.EnablePyhsics[1] = false
 	Camera.CameraOffset = -1
 	Nameplate.NamePlateOffset = -1
-	self.HideHeldItem = true
+	Arms.hideHeldItem(true)
 	self.AnimationCount = 1
 end
 

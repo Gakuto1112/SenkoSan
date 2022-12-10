@@ -8,7 +8,7 @@ end, {models.models.main.Avatar.Body.Arms.RightArm.EarpickRA, models.models.ear_
 function Earpick.play(self)
 	AnimationAction.play(self)
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-	self.HideHeldItem = true
+	Arms.hideHeldItem(true)
 end
 
 ---耳かきアニメーションを停止する。

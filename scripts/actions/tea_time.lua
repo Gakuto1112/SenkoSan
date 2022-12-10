@@ -8,7 +8,7 @@ end, {models.models.tea, models.models.tea.Avatar.Body.Yunomi1.Tea}, {models.mod
 function TeaTime:play()
 	AnimationAction.play(self)
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-	self.HideHeldItem = true
+	Arms.hideHeldItem(true)
 end
 
 ---お茶飲みのアニメーションを停止する。

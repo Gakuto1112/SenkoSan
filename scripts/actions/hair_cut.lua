@@ -13,7 +13,7 @@ HairCut.ScissorsItem = models.models.main.Avatar.Body.Arms.RightArm.RightArmBott
 function HairCut.play(self)
 	AnimationAction.play(self)
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-	self.HideHeldItem = true
+	Arms.hideHeldItem(true)
 end
 
 ---散髪アニメーションを停止する。
