@@ -47,7 +47,7 @@
 					"texture": 0
 				},
 				"down": {
-					"uv": [4, 63, 8, 67],
+					"uv": [8, 67, 4, 71],
 					"texture": 0
 				}
 			},
@@ -86,7 +86,7 @@
 					"texture": 0
 				},
 				"down": {
-					"uv": [20, 95, 24, 99],
+					"uv": [24, 99, 20, 103],
 					"texture": 0
 				}
 			},
@@ -1350,7 +1350,8 @@
 					"texture": 0
 				},
 				"up": {
-					"uv": [4, 63, 8, 67],
+					"uv": [4, 67, 8, 71],
+					"rotation": 180,
 					"texture": 0
 				},
 				"down": {
@@ -1469,7 +1470,8 @@
 					"texture": 0
 				},
 				"up": {
-					"uv": [20, 95, 24, 99],
+					"uv": [20, 99, 24, 103],
+					"rotation": 180,
 					"texture": 0
 				},
 				"down": {
@@ -3219,7 +3221,7 @@
 							"uuid": "e8434444-438a-7d00-7e72-cd2de9fbd7af",
 							"export": true,
 							"mirror_uv": false,
-							"isOpen": false,
+							"isOpen": true,
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
