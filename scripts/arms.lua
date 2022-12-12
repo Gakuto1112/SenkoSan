@@ -18,7 +18,7 @@ events.TICK:register(function()
 	local rightArm = models.models.main.Avatar.Body.Arms.RightArm
 	local leftArm = models.models.main.Avatar.Body.Arms.LeftArm
 	local isFirstPerson = renderer:isFirstPerson()
-	local armPos = vectors.vec3(0, player:getPose() == "CROUCHING" and not isFirstPerson and 3 or 0, 0)
+	local armPos = vectors.vec3(0, General.IsSneaking and not isFirstPerson and 3 or 0, 0)
 	rightArm:setPos(armPos)
 	leftArm:setPos(armPos)
 	if isFirstPerson then

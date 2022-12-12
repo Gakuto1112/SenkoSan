@@ -143,7 +143,7 @@ events.TICK:register(function ()
 	end
 	if Costume.CurrentCostume == "MAID_A" then
 		local skirt = models.models.main.Avatar.Body.BodyBottom.CMaidABB
-		skirt:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
+		skirt:setRot(General.IsSneaking and 27.5 or 0, 0, 0)
 		models.models.main.Avatar.Head.CMaidAH:setVisible(not Armor.ArmorVisible[1])
 		skirt:setVisible(not Armor.ArmorVisible[3] and not Kotatsu.IsAnimationPlaying)
 		if player:getVehicle() then
@@ -177,7 +177,7 @@ events.TICK:register(function ()
 	end
 	if Costume.CurrentCostume == "MAID_B" then
 		local skirt = models.models.main.Avatar.Body.BodyBottom.CMaidBBB
-		skirt:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
+		skirt:setRot(General.IsSneaking and 27.5 or 0, 0, 0)
 		models.models.main.Avatar.Head.CMaidBH:setVisible(not Armor.ArmorVisible[1])
 		skirt:setVisible(not Armor.ArmorVisible[3] and not Kotatsu.IsAnimationPlaying)
 		if player:getVehicle() then
@@ -252,7 +252,8 @@ events.TICK:register(function ()
 	if Costume.CurrentCostume == "SWIMSUIT" or Costume.CurrentCostume == "CHEERLEADER" or Costume.CurrentCostume == "SAILOR" then
 		local skirt = models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB
 		skirt:setVisible(not Armor.ArmorVisible[3] and not Kotatsu.IsAnimationPlaying)
-		skirt:setRot((player:getPose() == "CROUCHING" or player:getVehicle()) and 27.5 or 0, 0, 0)
+		skirt:setRot((General.IsSneaking or player:getVehicle()) and 27.5 or 0, 0, 0)
+		skirt:setPos(0, 0, General.IsSneaking and 1.25 or 0)
 	else
 		models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setVisible(false)
 	end
