@@ -28,7 +28,6 @@ events.TICK:register(function()
 			end
 			Sleep.CostumeBeforeSleeping = Costume.CurrentCostume
 			Costume.setCostume("NIGHTWEAR")
-			head:setParentType("None")
 			if isFirstPerson then
 				mainModel:setVisible(false)
 				Apron.IsVisible = false
@@ -68,7 +67,6 @@ events.TICK:register(function()
 			else
 				Costume.setCostume(Sleep.CostumeBeforeSleeping)
 			end
-			head:setParentType("Head")
 			mainModel:setVisible(true)
 			Apron.IsVisible = (Sleep.CostumeBeforeSleeping == "DEFAULT" or Sleep.CostumeBeforeSleeping == "DISGUISE" or Costume.CurrentCostume == "KAPPOGI") and not Armor.ArmorVisible[3]
 			renderer:setCameraRot()
