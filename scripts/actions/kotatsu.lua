@@ -19,7 +19,9 @@ end
 function Kotatsu.play(self)
 	PermanentAnimationAction.play(self)
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-	print(Language.getTranslate("action_wheel__main_1__action_7__start"))
+	if host:isHost() then
+		print(Language.getTranslate("action_wheel__main_1__action_7__start"))
+	end
 	Physics.EnablePyhsics[1] = false
 	Camera.CameraOffset = -1
 	Nameplate.NamePlateOffset = -1

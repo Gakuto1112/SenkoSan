@@ -74,7 +74,9 @@ end
 
 ---立ち上がった時に呼ばれる関数（SitDownから呼び出し）
 function ActionWheel.onStandUp()
-	ActionWheel.MainPages[2]:getAction(1):toggled(false)
+	if host:isHost() then
+		ActionWheel.MainPages[2]:getAction(1):toggled(false)
+	end
 end
 
 --ping関数
