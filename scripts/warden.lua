@@ -1,27 +1,37 @@
 ---@class Warden ウォーデンに怯える機能を制御するクラス
----@field Warden.WardenNearbyData table 前チックにウォーデンが近くにいたかどうかを調べる為にウォーデン情報を格納するテーブル
 ---@field Warden.WardenNearby boolean ウォーデンが近くにいるかどうか（=暗闇デバフを受けているかどうか）
+---@field Warden.WardenNearbyPrev boolean 前チックにウォーデンが近くにいたかどうか
 
 Warden = {}
 
-Warden.WardenNearbyData = {}
 Warden.WardenNearby = false
+Warden.WardenNearPrev = false
+
+--ping関数
+function pings.setWardenNearby(newValue)
+	Warden.WardenNearby = newValue
+end
 
 events.TICK:register(function()
-	Warden.WardenNearby = General.getStatusEffect("darkness") and true or false
+	if host:isHost() then
+		Warden.WardenNearby = General.getStatusEffect("darkness") and true or false
+	end
 	if Warden.WardenNearby then
-		if not Warden.WardenNearbyData[1] and player:getPose() ~= "SLEEPING" then
-			animations["models.main"]["afraid"]:play()
+		if not Warden.WardenNearPrev and player:getPose() ~= "SLEEPING" then
+			pings.setWardenNearby(true)
+			if player:getPose() ~= "SLEEPING" then
+				animations["models.main"]["afraid"]:play()
+			end
 		end
 		Ears.setEarsRot("DROOPING", 1, true)
 		FaceParts.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 0, false)
 	else
+		if Warden.WardenNearPrev then
+			pings.setWardenNearby(false)
+		end
 		animations["models.main"]["afraid"]:stop()
 	end
-	table.insert(Warden.WardenNearbyData, Warden.WardenNearby)
-	if #Warden.WardenNearbyData == 2 then
-		table.remove(Warden.WardenNearbyData, 1)
-	end
+	Warden.WardenNearPrev = Warden.WardenNearby
 end)
 
 return Warden
