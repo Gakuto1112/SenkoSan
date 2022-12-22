@@ -1,7 +1,7 @@
 ---@class Smile 笑顔のアニメーションを制御するクラス
 
 Smile = General.instance({}, AnimationAction, function ()
-	return not Warden.WardenNearby
+	return not player:isUsingItem() and not Warden.WardenNearby
 end, nil, nil, nil, nil, 40)
 
 ---笑顔アニメーションを再生する。

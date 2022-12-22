@@ -2,7 +2,7 @@
 ---@field self.AnimationCount integer アニメーションの再生時間を示すカウンター。
 
 Massage = General.instance({}, AnimationAction, function ()
-	return SitDown.IsAnimationPlaying
+	return Earpick:checkAction()
 end, models.models.massage, models.models.massage, animations["models.main"]["massage"], {animations["models.massage"]["massage"], animations["models.costume_maid_a"]["massage"], animations["models.costume_maid_b"]["massage"], animations["models.main"]["earpick_arm_fix"]}, 0)
 
 ---マッサージのアニメーションを再生する。

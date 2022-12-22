@@ -1,7 +1,7 @@
 ---@class TailBrush 尻尾の手入れアニメーションを制御するクラス
 
 TailBrush = General.instance({}, AnimationAction, function ()
-	return SitDown:checkAction() and not player:isWet()
+	return SitDown:checkAction() and not player:isWet() and not player:isUsingItem()
 end, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.BrushRAB, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.BrushRAB, animations["models.main"]["tail_brush"], nil, 0)
 
 ---尻尾の手入れアニメーションを再生する。

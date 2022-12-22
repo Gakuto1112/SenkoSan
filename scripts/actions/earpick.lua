@@ -1,7 +1,7 @@
 ---@class Earpick 耳かきのアニメーションを制御するクラス
 
 Earpick = General.instance({}, AnimationAction, function ()
-	return SitDown.IsAnimationPlaying
+	return SitDown.IsAnimationPlaying and not player:isUsingItem()
 end, {models.models.main.Avatar.Body.Arms.RightArm.EarpickRA, models.models.ear_cleaning}, {models.models.main.Avatar.Body.Arms.RightArm.EarpickRA, models.models.ear_cleaning}, animations["models.main"]["earpick"], {animations["models.ear_cleaning"]["earpick"], animations["models.main"]["earpick_arm_fix"]}, 0)
 
 ---耳かきアニメーションを再生する。
