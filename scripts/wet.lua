@@ -1,5 +1,4 @@
 ---@class Wet 濡れ機能を制御するクラス
----@field Wet.JumpKey Keybind ジャンプボタン（ジャンプ時に鈴を鳴らす用）
 ---@field Wet.WalkDistance number 鈴を鳴らす用の歩いた距離
 ---@field Wet.VelocityYData table ジャンプしたかどうかを判定する為にy方向の速度を格納するテーブル
 ---@field Wet.OnGroundData table 前チックに着地していたかを判定する為に着地情報を格納するテーブル
@@ -10,7 +9,6 @@
 
 Wet = {}
 
-Wet.JumpKey = keybinds:newKeybind(Language.getTranslate("key_name__jump"), keybinds:getVanillaKey("key.jump"))
 Wet.WalkDistance = 0
 Wet.VelocityYData = {}
 Wet.OnGroundData = {}
@@ -18,6 +16,11 @@ Wet.IsWet = false
 Wet.WetCount = 0
 Wet.AutoShake = Config.loadConfig("autoShake", true)
 Wet.AutoShakeCount = 0
+
+--ping関数
+function pings.wetJumpSound()
+	sounds:playSound("minecraft:entity.cod.flop", player:getPos(), Wet.WetCount / 1200, 1)
+end
 
 events.TICK:register(function()
 	local velocity = player:getVelocity()
@@ -52,8 +55,8 @@ events.TICK:register(function()
 			end
 		end
 		Ears.setEarsRot("DROOPING", 1, true)
-		if Wet.JumpKey:isPressed() and Wet.OnGroundData[1] and velocity.y > 0 and Wet.VelocityYData[1] <= 0 then
-			sounds:playSound("minecraft:entity.cod.flop", playerPos, Wet.WetCount / 1200, 1)
+		if host:isJumping() and Wet.OnGroundData[1] and velocity.y > 0 and Wet.VelocityYData[1] <= 0 then
+			pings.wetJumpSound()
 		end
 		if Wet.AutoShake and not ShakeBody.IsAnimationPlaying then
 			if Wet.AutoShakeCount == 20 then
