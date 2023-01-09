@@ -1,8 +1,8 @@
 ---@class Hurt プレイヤーのダメージを管理するクラス
 ---@field HealthData table ダメージを受けたかどうか判定する為にHP情報を格納するテーブル
----@field Hurt.Damaged DamageType プレイヤーのダメージの検証結果
+---@field Hurt.Damaged Hurt.DamageType プレイヤーのダメージの検証結果
 
----@alias DamageType
+---@alias Hurt.DamageType
 ---| "NONE"
 ---| "DAMAGED"
 ---| "DIED"

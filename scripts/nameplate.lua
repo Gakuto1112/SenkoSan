@@ -39,7 +39,5 @@ events.RENDER:register(function ()
 end)
 
 nameInit()
-nameplate.ENTITY:setBackgroundColor(233 / 255, 160 / 255, 70 / 255)
-nameplate.ENTITY.shadow = true
 
 return Nameplate

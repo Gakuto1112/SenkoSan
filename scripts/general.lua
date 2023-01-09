@@ -22,9 +22,6 @@
 ---| "MEDIUM"
 ---| "HIGH"
 
----@alias AnimationState
----| "PLAY"
----| "STOP"
 
 General = {}
 
@@ -59,8 +56,8 @@ end
 ---指定されたステータス効果の情報を返す。指定されたステータス効果が付与されていない場合はnilが返される。
 ---@param name string ステータス効果
 ---@return table|nil status ステータス効果の情報（該当のステータスを受けていない場合はnilが返る。）
-function General.getStatusEffect(name)
-	for _, effect in ipairs(player:getStatusEffects()) do
+function General.getTargetEffect(name)
+	for _, effect in ipairs(host:getStatusEffects()) do
 		if effect.name == "effect.minecraft."..name then
 			return effect
 		end

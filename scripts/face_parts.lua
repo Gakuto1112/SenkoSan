@@ -1,12 +1,12 @@
 ---@class FaceParts 目と口を制御するクラス
 ---@field FaceParts.EyeTypeID table EyeTypeとIDを紐付けるテーブル
 ---@field FaceParts.MouthTypeID table MouthTypeとIDを紐付けるテーブル
----@field FaceParts.ComplexionID ComplexionType 顔色とIDを紐付けるテーブル
+---@field FaceParts.ComplexionID table 顔色とIDを紐付けるテーブル
 ---@field FaceParts.EmotionCount integer エモートの時間を計るカウンター
 ---@field FaceParts.ComplexionCount integer 顔色の時間を計るカウンター
 ---@field FaceParts.BlinkCount integer 瞬きのタイミングを計るカウンター
 
----@alias EyeType
+---@alias FaceParts.EyeType
 ---| "NONE"
 ---| "NORMAL"
 ---| "SURPLISED"
@@ -16,12 +16,12 @@
 ---| "NORMAL_INVERSED"
 ---| "TIRED_INVERSED"
 
----@alias MouthType
+---@alias FaceParts.MouthType
 ---| "NONE"
 ---| "CLOSED"
 ---| "OPENED"
 
----@alias ComplexionType
+---@alias FaceParts.ComplexionType
 ---| "NORMAL"
 ---| "PALE"
 ---| "BLUSH"
@@ -36,9 +36,9 @@ FaceParts.ComplexionCount = 0
 FaceParts.BlinkCount = 0
 
 ---表情を設定する。
----@param rightEye EyeType 設定する右目の名前（"NONE"にすると変更されない）
----@param leftEye EyeType 設定する左目の名前（"NONE"にすると変更されない）
----@param mouth MouthType 設定する口の名前（"NONE"にすると変更されない）
+---@param rightEye FaceParts.EyeType 設定する右目の名前（"NONE"にすると変更されない）
+---@param leftEye FaceParts.EyeType 設定する左目の名前（"NONE"にすると変更されない）
+---@param mouth FaceParts.MouthType 設定する口の名前（"NONE"にすると変更されない）
 ---@param duration integer この表情を有効にする時間
 ---@param force boolean trueにすると以前のエモーションが再生中でも強制的に現在のエモーションを適用させる。
 function FaceParts.setEmotion(rightEye, leftEye, mouth, duration, force)
@@ -64,7 +64,7 @@ function FaceParts.setEmotion(rightEye, leftEye, mouth, duration, force)
 end
 
 ---顔色を設定する。
----@param complextion ComplexionType 設定する顔色の名前
+---@param complextion FaceParts.ComplexionType 設定する顔色の名前
 ---@param duration integer この顔色を有効にする時間
 ---@param force boolean trueにすると以前の顔色が再生中でも強制的に現在の顔色を適用させる。
 function FaceParts.setComplexion(complextion, duration, force)

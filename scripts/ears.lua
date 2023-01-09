@@ -56,10 +56,10 @@ events.TICK:register(function ()
 	Ears.JerkEarsCount = Ears.JerkEarsCount > 0 and (client:isPaused() and Ears.JerkEarsCount or Ears.JerkEarsCount - 1) or 0
 end)
 
-Ears.JerkEarsKey.onPress = function ()
+Ears.JerkEarsKey:onPress(function ()
 	if Ears.JerkEarsCount == 0 and Ears.EnableJerkEar then
 		pings.jerk_ears()
 	end
-end
+end)
 
 return Ears

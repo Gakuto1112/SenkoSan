@@ -19,7 +19,7 @@ end
 
 events.TICK:register(function ()
 	if host:isHost() then
-		FoxFire.NightVision = General.getStatusEffect("night_vision") and true or false
+		FoxFire.NightVision = General.getTargetEffect("night_vision") and true or false
 	end
 	if FoxFire.NightVision and not FoxFire.NightVisionPrev then
 		pings.setNightVision(true)

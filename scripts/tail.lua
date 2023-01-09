@@ -30,10 +30,10 @@ events.TICK:register(function ()
 	Tail.WagTailCount = Tail.WagTailCount > 0 and Tail.WagTailCount - 1 or 0
 end)
 
-Tail.WagTailKey.onPress = function ()
+Tail.WagTailKey:onPress(function ()
 	if Tail.WagTailCount == 0 and not Kotatsu.IsAnimationPlaying then
 		pings.wag_tail()
 	end
-end
+end)
 
 return Tail

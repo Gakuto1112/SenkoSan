@@ -14,7 +14,7 @@ end
 
 events.TICK:register(function()
 	if host:isHost() then
-		Warden.WardenNearby = General.getStatusEffect("darkness") and true or false
+		Warden.WardenNearby = General.getTargetEffect("darkness") and true or false
 	end
 	if Warden.WardenNearby then
 		if not Warden.WardenNearPrev and player:getPose() ~= "SLEEPING" then
