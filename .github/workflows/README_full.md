@@ -286,3 +286,14 @@ Mobが被っているプレイヤーの頭は設定に関わらず、デフォ�
 - [TVアニメ「世話やきキツネの仙狐さん」オフィシャルサイト](http://senkosan.com/)
 - [Amazon.co.jp_ 世話やきキツネの仙狐さんを観る _ Prime Video](https://www.amazon.co.jp/gp/video/detail/B07QJG9NP7)
 - [世話やきキツネの仙狐さん - Webで漫画が無料で読める！コミックNewtype](https://comic.webnewtype.com/contents/sewayaki/)
+
+***
+
+<!-- REQUIRED_IMAGE -->
+![仙狐とシロ1](../../README_images/仙狐とシロ1.jpg)
+
+<!-- REQUIRED_IMAGE -->
+![仙狐とシロ2](../../README_images/仙狐とシロ2.jpg)
+
+<!-- REQUIRED_IMAGE -->
+![仙狐とシロ3](../../README_images/仙狐とシロ3.jpg)

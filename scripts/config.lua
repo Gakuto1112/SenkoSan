@@ -55,7 +55,7 @@ function pings.syncAvatarConfig(nameID, costumeID, skullID, autoShake, showArmor
 		ActionWheel.CurrentPlayerNameState = nameID
 		ActionWheel.CurrentCostumeState = costumeID
 		ActionWheel.CurrentSkullState = skullID
-		Nameplate.setName(nameID)
+		nameplate.ALL:setText(Nameplate.NameList[nameID])
 		if ActionWheel.CurrentCostumeState == 0 then
 			Costume.resetCostume()
 		else
