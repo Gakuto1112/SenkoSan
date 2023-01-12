@@ -1,7 +1,7 @@
 # SenkoSan（仙狐さん）
 TVアニメ「世話やきキツネの仙狐さん」（とその原作）に登場するキャラクターを再現した、MinecraftのスキンMod「[Figura](https://www.curseforge.com/minecraft/mc-mods/figura)」向けスキン「SenkoSan（仙狐さん）」です。
 
-**このREADMEには本来、大量の画像（約78MB）を添付していますが、通信量の軽減のため、必要最低限以外の画像は添付されおりません。画像を確認するには、それぞれの画像のリンクをクリックするか、[README（完全版）](./.github/workflows/README_full.md)をご覧ください。**
+**このREADMEには本来、大量の画像（約79MB）を添付していますが、通信量の軽減のため、必要最低限以外の画像は添付されおりません。画像を確認するには、それぞれの画像のリンクをクリックするか、[README（完全版）](./.github/workflows/README_full.md)をご覧ください。**
 
 ターゲットFiguraバージョン：[0.1.0-rc.13](https://www.curseforge.com/minecraft/mc-mods/figura/files/4300619)
 
@@ -249,3 +249,11 @@ Mobが被っているプレイヤーの頭は設定に関わらず、デフォ�
 - [TVアニメ「世話やきキツネの仙狐さん」オフィシャルサイト](http://senkosan.com/)
 - [Amazon.co.jp_ 世話やきキツネの仙狐さんを観る _ Prime Video](https://www.amazon.co.jp/gp/video/detail/B07QJG9NP7)
 - [世話やきキツネの仙狐さん - Webで漫画が無料で読める！コミックNewtype](https://comic.webnewtype.com/contents/sewayaki/)
+
+***
+
+![仙狐とシロ1](README_images/仙狐とシロ1.jpg)
+
+![仙狐とシロ2](README_images/仙狐とシロ2.jpg)
+
+![仙狐とシロ3](README_images/仙狐とシロ3.jpg)
