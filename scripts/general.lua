@@ -23,47 +23,47 @@
 ---| "HIGH"
 
 
-General = {}
+General = {
+	PlayerCondition = "HIGH",
+	IsSneaking = false,
 
-General.PlayerCondition = "HIGH"
-General.IsSneaking = false
+	---クラスのインスタンス化
+	---@param class table 継承先のクラス
+	---@param super table|nil 継承元のクラス
+	---@param ... any クラスの引数
+	---@return table instancedClass インスタンス化されたクラス
+	instance = function (class, super, ...)
+		local instance = super and super.new(...) or {}
+		setmetatable(instance, {__index = class})
+		setmetatable(class, {__index = super})
+		return instance
+	end,
 
----クラスのインスタンス化
----@param class table 継承先のクラス
----@param super table|nil 継承元のクラス
----@param ... any クラスの引数
----@return table instancedClass インスタンス化されたクラス
-function General.instance(class, super, ...)
-	local instance = super and super.new(...) or {}
-	setmetatable(instance, {__index = class})
-	setmetatable(class, {__index = super})
-	return instance
-end
-
----該当するキーのインデックスを返す。キーがテーブルに存在しない場合は-1を返す。
----@param targetTable table 調べるテーブル
----@param key any 見つけ出す要素
----@return integer index targetTable内のkeyがあるインデックス。存在しない場合は-1を返す。
-function General.indexof(targetTable, key)
-	for index, element in ipairs(targetTable) do
-		if element == key then
-			return index
+	---該当するキーのインデックスを返す。キーがテーブルに存在しない場合は-1を返す。
+	---@param targetTable table 調べるテーブル
+	---@param key any 見つけ出す要素
+	---@return integer index targetTable内のkeyがあるインデックス。存在しない場合は-1を返す。
+	indexof = function (targetTable, key)
+		for index, element in ipairs(targetTable) do
+			if element == key then
+				return index
+			end
 		end
-	end
-	return -1
-end
+		return -1
+	end,
 
----指定されたステータス効果の情報を返す。指定されたステータス効果が付与されていない場合はnilが返される。
----@param name string ステータス効果
----@return table|nil status ステータス効果の情報（該当のステータスを受けていない場合はnilが返る。）
-function General.getTargetEffect(name)
-	for _, effect in ipairs(host:getStatusEffects()) do
-		if effect.name == "effect.minecraft."..name then
-			return effect
+	---指定されたステータス効果の情報を返す。指定されたステータス効果が付与されていない場合はnilが返される。
+	---@param name string ステータス効果
+	---@return table|nil status ステータス効果の情報（該当のステータスを受けていない場合はnilが返る。）
+	getTargetEffect = function (name)
+		for _, effect in ipairs(host:getStatusEffects()) do
+			if effect.name == "effect.minecraft."..name then
+				return effect
+			end
 		end
+		return nil
 	end
-	return nil
-end
+}
 
 events.TICK:register(function ()
 	local gamemode = player:getGamemode()

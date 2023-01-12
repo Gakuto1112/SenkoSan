@@ -1,9 +1,9 @@
 ---@class クリスマスメッセージを制御するクラス
 ---@field Christmas.MelodyCount integer メロディー再生のタイミングを計るカウンター
 
-Christmas = {}
-
-Christmas.MelodyCount = -1
+Christmas = {
+	MelodyCount = -1
+}
 
 events.TICK:register(function ()
 	if Christmas.MelodyCount >= 0 then

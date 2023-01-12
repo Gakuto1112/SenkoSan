@@ -2,20 +2,20 @@
 ---@field Skull.SkullList table 利用可能な頭モデルのリスト
 ---@field Skull.CurrentSkull integer 現在の頭モデルのID
 
-Skull = {}
+Skull = {
+	SkullList = {"default", "figure_a", "figure_b", "figure_c"},
+	CurrentSkull = 1,
 
-Skull.SkullList = {"default", "figure_a", "figure_b", "figure_c"}
-Skull.CurrentSkull = 1
-
----頭モデル設定の初期処理
-function skullInit()
-	local loadedData = Config.loadConfig("skull", 1)
-	if loadedData <= #Skull.SkullList then
-		Skull.CurrentSkull = loadedData
-	else
-		Config.saveConfig("skull", 1)
+	---頭モデル設定の初期処理
+	skullInit = function ()
+		local loadedData = Config.loadConfig("skull", 1)
+		if loadedData <= #Skull.SkullList then
+			Skull.CurrentSkull = loadedData
+		else
+			Config.saveConfig("skull", 1)
+		end
 	end
-end
+}
 
 events.SKULL_RENDER:register(function (delta, block, item)
 	models.models.skull:setVisible((block == nil and item == nil) or Skull.CurrentSkull == 1)
@@ -24,6 +24,6 @@ events.SKULL_RENDER:register(function (delta, block, item)
 	models.models.skull_figure_c:setVisible((block ~= nil or item ~= nil) and Skull.CurrentSkull == 4)
 end)
 
-skullInit()
+Skull.skullInit()
 
 return Skull

@@ -1,8 +1,9 @@
 ---@class Glasses 眼鏡を制御するクラス
 ---@field Glasses.GlassesWorePrev boolean 前チックに眼鏡をかけていたかどうか
 
-Glasses = {}
-Glasses.GlassesWorePrev = false
+Glasses = {
+	GlassesWorePrev = false
+}
 
 --ping関数
 function pings.setGlassVisible(visible)

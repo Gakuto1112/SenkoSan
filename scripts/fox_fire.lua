@@ -5,12 +5,13 @@
 ---@field FoxFire.FoxFirePos Vector3 狐火の座標
 ---@field FoxFire.FoxFireInFirstPerson boolean 一人称視点で狐火を表示するかどうか
 
-FoxFire = {}
-FoxFire.NightVision = false
-FoxFire.NightVisionPrev = false
-FoxFire.FoxFireEnabledPrev = false
-FoxFire.FoxFirePos = vectors.vec(0, 0, 0)
-FoxFire.FoxFireInFirstPerson = Config.loadConfig("foxFireInFirstPerson", true)
+FoxFire = {
+	NightVision = false,
+	NightVisionPrev = false,
+	FoxFireEnabledPrev = false,
+	FoxFirePos = vectors.vec(0, 0, 0),
+	FoxFireInFirstPerson = Config.loadConfig("foxFireInFirstPerson", true)
+}
 
 --ping関数
 function pings.setNightVision(newValue)

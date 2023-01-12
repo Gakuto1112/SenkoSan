@@ -2,10 +2,10 @@
 ---@field Tail.WagTailKey Keybind 尻尾振りをするキー
 ---@field Tail.WagTailCount integer 尻尾振りの時間を計るカウンター
 
-Tail = {}
-
-Tail.WagTailKey = keybinds:newKeybind(Language.getTranslate("key_name__wag_tail"), Config.loadConfig("keybind.wagTail", "key.keyboard.z"))
-Tail.WagTailCount = -1
+Tail = {
+	WagTailKey = keybinds:newKeybind(Language.getTranslate("key_name__wag_tail"), Config.loadConfig("keybind.wagTail", "key.keyboard.z")),
+	WagTailCount = -1
+}
 
 --ping関数
 ---尻尾を振る

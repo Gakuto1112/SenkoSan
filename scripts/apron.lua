@@ -1,9 +1,9 @@
 ---@class Apron エプロンの挙動を制御するクラス
 ---@field Apron.IsVisible boolean エプロンが可視化状態かどうか
 
-Apron = {}
-
-Apron.IsVisible = true
+Apron = {
+	IsVisible = true
+}
 
 events.TICK:register(function ()
 	models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setVisible(Apron.IsVisible)

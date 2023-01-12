@@ -15,69 +15,69 @@
 ---@field ActionWheel.CurrentSKullState integer 現在の頭モデルの状態を示す：1. デフォルト, 2. フィギュアA, 3. フィギュアB
 ---@field ActionWheel.SkullState integer 頭モデルの状態を示す：1. デフォルト, 2. フィギュアA, 3. フィギュアB
 
-ActionWheel = {}
+ActionWheel = {
+	MainPages = {},
+	WordPage = action_wheel:newPage(),
+	ConfigPage = action_wheel:newPage(),
+	IsOpenWordPage = false,
+	ParentPage = nil,
+	LanguageList = Language.getLanguages(),
+	CurrentWordLanguage = General.indexof(Language.getLanguages(), client:getActiveLang()),
+	IsAnimationPlaying = false,
+	IsOpenActionWheelPrev = false,
+	CurrentCostumeState = Config.loadConfig("costume", 1),
+	CostumeState = Config.loadConfig("costume", 1),
+	CurrentPlayerNameState = Config.loadConfig("name", 1),
+	PlayerNameState = Config.loadConfig("name", 1),
+	CurrentSkullState = Config.loadConfig("skull", 1),
+	SkullState = Config.loadConfig("skull", 1),
 
-ActionWheel.MainPages = {}
-ActionWheel.WordPage = action_wheel:newPage()
-ActionWheel.ConfigPage = action_wheel:newPage()
-ActionWheel.IsOpenWordPage = false
-ActionWheel.ParentPage = nil
-ActionWheel.LanguageList = Language.getLanguages()
-ActionWheel.CurrentWordLanguage = General.indexof(ActionWheel.LanguageList, client:getActiveLang())
-ActionWheel.IsAnimationPlaying = false
-ActionWheel.IsOpenActionWheelPrev = false
-ActionWheel.CurrentCostumeState = Config.loadConfig("costume", 1)
-ActionWheel.CostumeState = ActionWheel.CurrentCostumeState
-ActionWheel.CurrentPlayerNameState = Config.loadConfig("name", 1)
-ActionWheel.PlayerNameState = ActionWheel.CurrentPlayerNameState
-ActionWheel.CurrentSkullState = Config.loadConfig("skull", 1)
-ActionWheel.SkullState = ActionWheel.CurrentSkullState
+	---アクションの色の有効色/無効色の切り替え
+	---@param pageNumber integer メインアクションのページ番号
+	---@param actionNumber integer pageNumber内のアクションの番号
+	---@param enabled boolean 有効色か無効色か
+	setActionEnabled = function(pageNumber, actionNumber, enabled)
+		if enabled then
+			ActionWheel.MainPages[pageNumber]:getAction(actionNumber):title(Language.getTranslate("action_wheel__main_"..pageNumber.."__action_"..actionNumber.."__title")):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1)
+		else
+			ActionWheel.MainPages[pageNumber]:getAction(actionNumber):title("§7"..Language.getTranslate("action_wheel__main_"..pageNumber.."__action_"..actionNumber.."__title")):color(42 / 255, 42 / 255, 42 / 255):hoverColor(1, 85 / 255, 85 / 255)
+		end
+	end,
 
----アクションの色の有効色/無効色の切り替え
----@param pageNumber integer メインアクションのページ番号
----@param actionNumber integer pageNumber内のアクションの番号
----@param enabled boolean 有効色か無効色か
-function setActionEnabled(pageNumber, actionNumber, enabled)
-	if enabled then
-		ActionWheel.MainPages[pageNumber]:getAction(actionNumber):title(Language.getTranslate("action_wheel__main_"..pageNumber.."__action_"..actionNumber.."__title")):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1)
-	else
-		ActionWheel.MainPages[pageNumber]:getAction(actionNumber):title("§7"..Language.getTranslate("action_wheel__main_"..pageNumber.."__action_"..actionNumber.."__title")):color(42 / 255, 42 / 255, 42 / 255):hoverColor(1, 85 / 255, 85 / 255)
+	---衣装変更のアクションの名称を変更する。
+	setCostumeChangeActionTitle = function ()
+		if ActionWheel.CostumeState == ActionWheel.CurrentCostumeState then
+			ActionWheel.ConfigPage:getAction(1):title(Language.getTranslate("action_wheel__config__action_1__title").."§b"..Language.getTranslate("costume__"..Costume.CostumeList[ActionWheel.CostumeState]))
+		else
+			ActionWheel.ConfigPage:getAction(1):title(Language.getTranslate("action_wheel__config__action_1__title").."§b"..Language.getTranslate("costume__"..Costume.CostumeList[ActionWheel.CostumeState]).."\n§7"..Language.getTranslate("action_wheel__close_to_confirm"))
+		end
+	end,
+
+	---名前変更のアクションの名称を変更する。
+	setNameChangeActionTitle = function ()
+		if ActionWheel.PlayerNameState == ActionWheel.CurrentPlayerNameState then
+			ActionWheel.ConfigPage:getAction(2):title(Language.getTranslate("action_wheel__config__action_2__title").."§b"..Nameplate.NameList[ActionWheel.PlayerNameState])
+		else
+			ActionWheel.ConfigPage:getAction(2):title(Language.getTranslate("action_wheel__config__action_2__title").."§b"..Nameplate.NameList[ActionWheel.PlayerNameState].."\n§7"..Language.getTranslate("action_wheel__close_to_confirm"))
+		end
+	end,
+
+	---頭変更のアクションの名称を変更する。
+	setSkullChangeActionTitle = function ()
+		if ActionWheel.SkullState == ActionWheel.CurrentSkullState then
+			ActionWheel.ConfigPage:getAction(3):title(Language.getTranslate("action_wheel__config__action_3__title").."§b"..Language.getTranslate("skull__"..Skull.SkullList[ActionWheel.SkullState]))
+		else
+			ActionWheel.ConfigPage:getAction(3):title(Language.getTranslate("action_wheel__config__action_3__title").."§b"..Language.getTranslate("skull__"..Skull.SkullList[ActionWheel.SkullState]).."\n§7"..Language.getTranslate("action_wheel__close_to_confirm"))
+		end
+	end,
+
+	---立ち上がった時に呼ばれる関数（SitDownから呼び出し）
+	onStandUp = function ()
+		if host:isHost() then
+			ActionWheel.MainPages[2]:getAction(1):toggled(false)
+		end
 	end
-end
-
----衣装変更のアクションの名称を変更する。
-function setCostumeChangeActionTitle()
-	if ActionWheel.CostumeState == ActionWheel.CurrentCostumeState then
-		ActionWheel.ConfigPage:getAction(1):title(Language.getTranslate("action_wheel__config__action_1__title").."§b"..Language.getTranslate("costume__"..Costume.CostumeList[ActionWheel.CostumeState]))
-	else
-		ActionWheel.ConfigPage:getAction(1):title(Language.getTranslate("action_wheel__config__action_1__title").."§b"..Language.getTranslate("costume__"..Costume.CostumeList[ActionWheel.CostumeState]).."\n§7"..Language.getTranslate("action_wheel__close_to_confirm"))
-	end
-end
-
----名前変更のアクションの名称を変更する。
-function setNameChangeActionTitle()
-	if ActionWheel.PlayerNameState == ActionWheel.CurrentPlayerNameState then
-		ActionWheel.ConfigPage:getAction(2):title(Language.getTranslate("action_wheel__config__action_2__title").."§b"..Nameplate.NameList[ActionWheel.PlayerNameState])
-	else
-		ActionWheel.ConfigPage:getAction(2):title(Language.getTranslate("action_wheel__config__action_2__title").."§b"..Nameplate.NameList[ActionWheel.PlayerNameState].."\n§7"..Language.getTranslate("action_wheel__close_to_confirm"))
-	end
-end
-
----頭変更のアクションの名称を変更する。
-function setSkullChangeActionTitle()
-	if ActionWheel.SkullState == ActionWheel.CurrentSkullState then
-		ActionWheel.ConfigPage:getAction(3):title(Language.getTranslate("action_wheel__config__action_3__title").."§b"..Language.getTranslate("skull__"..Skull.SkullList[ActionWheel.SkullState]))
-	else
-		ActionWheel.ConfigPage:getAction(3):title(Language.getTranslate("action_wheel__config__action_3__title").."§b"..Language.getTranslate("skull__"..Skull.SkullList[ActionWheel.SkullState]).."\n§7"..Language.getTranslate("action_wheel__close_to_confirm"))
-	end
-end
-
----立ち上がった時に呼ばれる関数（SitDownから呼び出し）
-function ActionWheel.onStandUp()
-	if host:isHost() then
-		ActionWheel.MainPages[2]:getAction(1):toggled(false)
-	end
-end
+}
 
 --ping関数
 function pings.refuse_emote()
@@ -156,7 +156,7 @@ function pings.config_action1(costumeID)
 	end
 	ActionWheel.CurrentCostumeState = costumeID
 	if host:isHost() then
-		setCostumeChangeActionTitle()
+		ActionWheel.setCostumeChangeActionTitle()
 	end
 end
 
@@ -164,7 +164,7 @@ function pings.config_action2(nameID)
 	Nameplate.setName(nameID)
 	ActionWheel.CurrentPlayerNameState = nameID
 	if host:isHost() then
-		setNameChangeActionTitle()
+		ActionWheel.setNameChangeActionTitle()
 	end
 end
 
@@ -172,7 +172,7 @@ function pings.config_action3(skullID)
 	Skull.CurrentSkull = skullID
 	ActionWheel.CurrentSkullState = skullID
 	if host:isHost() then
-		setSkullChangeActionTitle()
+		ActionWheel.setSkullChangeActionTitle()
 	end
 end
 
@@ -208,10 +208,10 @@ events.TICK:register(function ()
 				local animationClasses = {{Smile, ShakeBody, BroomCleaning, HairCut, FoxJump, TailBrush, Kotatsu}, {SitDown, TailCuddling, Earpick, TeaTime, Massage}}
 				for pageIndex, pageAnimationClasses in ipairs(animationClasses) do
 					for actionIndex, actionClass in ipairs(pageAnimationClasses) do
-						setActionEnabled(pageIndex, actionIndex, not ActionWheel.IsAnimationPlaying and actionClass:checkAction())
+						ActionWheel.setActionEnabled(pageIndex, actionIndex, not ActionWheel.IsAnimationPlaying and actionClass:checkAction())
 					end
 				end
-				setActionEnabled(3, 1, not Warden.WardenNearby)
+				ActionWheel.setActionEnabled(3, 1, not Warden.WardenNearby)
 				if Wet.WetCount > 0 then
 					ActionWheel.MainPages[1]:getAction(2):item("water_bucket")
 				else
@@ -535,10 +535,10 @@ if host:isHost() then
 		else
 			ActionWheel.CostumeState = ActionWheel.CostumeState == 1 and #Costume.CostumeList or ActionWheel.CostumeState - 1
 		end
-		setCostumeChangeActionTitle()
+		ActionWheel.setCostumeChangeActionTitle()
 	end):onLeftClick(function ()
 		ActionWheel.CostumeState = ActionWheel.CurrentCostumeState
-		setCostumeChangeActionTitle()
+		ActionWheel.setCostumeChangeActionTitle()
 	end)
 
 	--アクション2. プレイヤーの表示名変更
@@ -548,10 +548,10 @@ if host:isHost() then
 		else
 			ActionWheel.PlayerNameState = ActionWheel.PlayerNameState == 1 and #Nameplate.NameList or ActionWheel.PlayerNameState - 1
 		end
-		setNameChangeActionTitle()
+		ActionWheel.setNameChangeActionTitle()
 	end):onLeftClick(function ()
 		ActionWheel.PlayerNameState = ActionWheel.CurrentPlayerNameState
-		setNameChangeActionTitle()
+		ActionWheel.setNameChangeActionTitle()
 	end)
 
 	---アクション3. プレイヤーの頭のタイプ変更
@@ -561,10 +561,10 @@ if host:isHost() then
 		else
 			ActionWheel.SkullState = ActionWheel.SkullState == 1 and #Skull.SkullList or ActionWheel.SkullState - 1
 		end
-		setSkullChangeActionTitle()
+		ActionWheel.setSkullChangeActionTitle()
 	end):onLeftClick(function ()
 		ActionWheel.SkullState = ActionWheel.CurrentSkullState
-		setSkullChangeActionTitle()
+		ActionWheel.setSkullChangeActionTitle()
 	end)
 
 	--アクション4. 自動ブルブル
@@ -631,9 +631,9 @@ if host:isHost() then
 		action:hoverColor(85 / 255, 1, 85 / 255)
 	end
 
-	setCostumeChangeActionTitle()
-	setNameChangeActionTitle()
-	setSkullChangeActionTitle()
+	ActionWheel.setCostumeChangeActionTitle()
+	ActionWheel.setNameChangeActionTitle()
+	ActionWheel.setSkullChangeActionTitle()
 	action_wheel:setPage(ActionWheel.MainPages[1])
 end
 

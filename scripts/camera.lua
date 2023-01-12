@@ -1,9 +1,9 @@
 ---@class Camera カメラ（のオフセット移動）を制御するクラス
 ---@field Camera.CameraOffset number カメラのオフセット
 
-Camera = {}
-
-Camera.CameraOffset = 0
+Camera = {
+	CameraOffset = 0
+}
 
 events.WORLD_RENDER:register(function ()
 	local currentCameraOffset = renderer:getCameraOffsetPivot()

@@ -2,11 +2,11 @@
 ---@field Sleep.SleepData table 寝た瞬間を検出する為にポーズデータを格納するテーブル
 ---@field Sleep.CostumeBeforeSleeping CostumeType 寝る前のコスチュームを保持する変数
 
-Sleep = {}
-
-Sleep.SleepData = {}
-Sleep.WardenNearbyPrev = false
-Sleep.CostumeBeforeSleeping = "DEFAULT"
+Sleep = {
+	SleepData = {},
+	WardenNearbyPrev = false,
+	CostumeBeforeSleeping = "DEFAULT"
+}
 
 events.TICK:register(function()
 	local mainModel = models.models.main

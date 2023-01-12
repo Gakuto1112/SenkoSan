@@ -17,7 +17,7 @@ function VacuumCleaning.stop(self)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 	end
 	AnimationAction.stop(self)
-	Ears.resetEarsRot()
+	Ears.EarsRotCount = 0
 end
 
 ---アニメーション再生中に毎チック実行される関数

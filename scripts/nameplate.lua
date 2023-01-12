@@ -2,27 +2,21 @@
 ---@field Nameplate.NameList table 利用可能な名前のリスト
 ---@field Nameplate.NamplateOffset number ネームプレートのオフセット
 
-Nameplate = {}
+Nameplate = {
+	NameList = {player:getName(), "Senko", "仙狐", "Senko_san", "仙狐さん", "Sen", "仙", "セン"},
+	NamePlateOffset = 0,
 
-Nameplate.NameList = {player:getName(), "Senko", "仙狐", "Senko_san", "仙狐さん", "Sen", "仙", "セン"}
-Nameplate.NamePlateOffset = 0
-
----プレイヤーの表示名を設定する。
----@param nameID integer 新しい表示名
-function Nameplate.setName(nameID)
-	nameplate.ALL:setText(Nameplate.NameList[nameID])
-end
-
----プレイヤー名前設定の初期処理
-function nameInit()
-	local loadedData = Config.loadConfig("name", 1)
-	if loadedData <= #Nameplate.NameList then
-		Nameplate.setName(loadedData)
-	else
-		Nameplate.setName(1)
-		Config.saveConfig("name", 1)
+	---プレイヤー名前設定の初期処理
+	nameInit = function ()
+		local loadedData = Config.loadConfig("name", 1)
+		if loadedData <= #Nameplate.NameList then
+			nameplate.ALL:setText(Nameplate.NameList[loadedData])
+		else
+			nameplate.ALL:setText(Nameplate.NameList[1])
+			Config.saveConfig("name", 1)
+		end
 	end
-end
+}
 
 events.RENDER:register(function ()
 	local currentNameplateOffset = nameplate.ENTITY:getPos()
@@ -38,6 +32,6 @@ events.RENDER:register(function ()
 	end
 end)
 
-nameInit()
+Nameplate.nameInit()
 
 return Nameplate

@@ -7,15 +7,15 @@
 ---@field Wet.AutoShake boolean 自動ブルブルが有効かどうか
 ---@field Wet.AutoShakeCount integer 自動ブルブルまでの時間を計るカウンター
 
-Wet = {}
-
-Wet.WalkDistance = 0
-Wet.VelocityYData = {}
-Wet.OnGroundData = {}
-Wet.IsWet = false
-Wet.WetCount = 0
-Wet.AutoShake = Config.loadConfig("autoShake", true)
-Wet.AutoShakeCount = 0
+Wet = {
+	WalkDistance = 0,
+	VelocityYData = {},
+	OnGroundData = {},
+	IsWet = false,
+	WetCount = 0,
+	AutoShake = Config.loadConfig("autoShake", true),
+	AutoShakeCount = 0
+}
 
 --ping関数
 function pings.wetJumpSound()

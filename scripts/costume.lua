@@ -2,10 +2,6 @@
 ---@field Costume.CostumeList table 利用可能なコスチュームのリスト
 ---@field Costume.CurrentCostume CostumeType 現在のコスチューム
 
-Costume = {}
-Costume.CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "tracksuit", "casual", "sailor", "china_dress", "santa"}
-Costume.CurrentCostume = "DEFAULT"
-
 ---@alias CostumeType
 ---| "DEFAULT"
 ---| "NIGHTWEAR"
@@ -26,105 +22,110 @@ Costume.CurrentCostume = "DEFAULT"
 ---| "CHINA_DRESS"
 ---| "SANTA"
 
----メインモデルのテクスチャのオフセット値を設定する。
----@param offset integer オフセット値
-function setCostumeTextureOffset(offset)
-	for _, modelPart in ipairs({models.models.main.Avatar.Body.Body, models.models.main.Avatar.Body.BodyLayer, models.models.main.Avatar.Body.BodyBottom.BodyBottom, models.models.main.Avatar.Body.BodyBottom.BodyBottomLayer, models.models.main.Avatar.Body.Arms.RightArm.RightArm, models.models.main.Avatar.Body.Arms.RightArm.RightArmLayer, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightArmBottom, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightArmBottomLayer, models.models.main.Avatar.Body.Arms.LeftArm.LeftArm, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmLayer, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftArmBottom, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftArmBottomLayer, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLeg, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegLayer, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.RightLegBottom, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.RightLegBottomLayer, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLeg, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegLayer, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.LeftLegBottom, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.LeftLegBottomLayer}) do
-		modelPart:setUVPixels(0, offset * 48)
-	end
-end
+Costume = {
+	CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "tracksuit", "casual", "sailor", "china_dress", "santa"},
+	CurrentCostume = "DEFAULT",
 
----コスチュームを設定する。
----@param costume CostumeType 設定するコスチューム
-function Costume.setCostume(costume)
-	Costume.resetCostume()
-	Costume.CurrentCostume = costume
-	if costume == "NIGHTWEAR" then
-		setCostumeTextureOffset(1)
-		Apron.IsVisible = false
-	elseif costume == "DISGUISE" then
-		for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT}) do
-			modelPart:setVisible(true)
+	---メインモデルのテクスチャのオフセット値を設定する。
+	---@param offset integer オフセット値
+	setCostumeTextureOffset = function (offset)
+		for _, modelPart in ipairs({models.models.main.Avatar.Body.Body, models.models.main.Avatar.Body.BodyLayer, models.models.main.Avatar.Body.BodyBottom.BodyBottom, models.models.main.Avatar.Body.BodyBottom.BodyBottomLayer, models.models.main.Avatar.Body.Arms.RightArm.RightArm, models.models.main.Avatar.Body.Arms.RightArm.RightArmLayer, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightArmBottom, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightArmBottomLayer, models.models.main.Avatar.Body.Arms.LeftArm.LeftArm, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmLayer, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftArmBottom, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftArmBottomLayer, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLeg, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegLayer, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.RightLegBottom, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom.RightLegBottomLayer, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLeg, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegLayer, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.LeftLegBottom, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom.LeftLegBottomLayer}) do
+			modelPart:setUVPixels(0, offset * 48)
 		end
-		setCostumeTextureOffset(2)
-		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(16, 0)
-	elseif costume == "MAID_A" then
-		setCostumeTextureOffset(3)
-		Apron.IsVisible = false
-		Legs.ReducedLegSwing = true
-	elseif costume == "MAID_B" then
-		setCostumeTextureOffset(4)
-		Apron.IsVisible = false
-		Legs.ReducedLegSwing = true
-	elseif costume == "SWIMSUIT" then
-		setCostumeTextureOffset(5)
-		models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setUVPixels(0, 0)
-		Apron.IsVisible = false
-	elseif costume == "CHEERLEADER" then
-		setCostumeTextureOffset(6)
-		models.models.costume_cheerleader:setVisible(true)
-		models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setUVPixels(0, 14)
-		Apron.IsVisible = false
-	elseif costume == "PURIFICATION" then
-		setCostumeTextureOffset(7)
-		Apron.IsVisible = false
-	elseif costume == "KAPPOGI" then
-		setCostumeTextureOffset(8)
-		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(32, 0)
-	elseif costume == "YUKATA" then
-		setCostumeTextureOffset(9)
-		Apron.IsVisible = false
-	elseif costume == "FOX_HOODIE_RED" then
-		setCostumeTextureOffset(10)
-		models.models.main.Avatar.Head.CFoxHoodH:setUVPixels(0, 0)
-		Apron.IsVisible = false
-	elseif costume == "FOX_HOODIE_WHITE" then
-		setCostumeTextureOffset(11)
-		models.models.main.Avatar.Head.CFoxHoodH:setUVPixels(0, 8)
-		Apron.IsVisible = false
-	elseif costume == "TRACKSUIT" then
-		setCostumeTextureOffset(12)
-		Apron.IsVisible = false
-	elseif costume == "CASUAL" then
-		setCostumeTextureOffset(13)
-		Apron.IsVisible = false
-	elseif costume == "SAILOR" then
-		setCostumeTextureOffset(14)
-		models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setUVPixels(0, 28)
-		Apron.IsVisible = false
-	elseif costume == "CHINA_DRESS" then
-		setCostumeTextureOffset(15)
-		Apron.IsVisible = false
-	elseif costume == "SANTA" then
-		setCostumeTextureOffset(16)
-	end
-end
+	end,
 
----コスチュームをリセットし、デフォルトのコスチュームにする。
-function Costume.resetCostume()
-	setCostumeTextureOffset(0)
-	for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT, models.models.costume_cheerleader}) do
-		modelPart:setVisible(false)
-	end
-	Apron.IsVisible = true
-	Legs.ReducedLegSwing = false
-	models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 0)
-	Costume.CurrentCostume = "DEFAULT"
-end
-
----コスチュームの初期処理
-function costumeInit()
-	local loadedData = Config.loadConfig("costume", 1)
-	if loadedData <= #Costume.CostumeList then
-		Costume.CurrentCostume = string.upper(Costume.CostumeList[loadedData])
-		if Costume.CurrentCostume ~= "DEFAULT" then
-			Costume.setCostume(Costume.CurrentCostume)
+	---コスチュームを設定する。
+	---@param costume CostumeType 設定するコスチューム
+	setCostume = function (costume)
+		Costume.resetCostume()
+		Costume.CurrentCostume = costume
+		if costume == "NIGHTWEAR" then
+			Costume.setCostumeTextureOffset(1)
+			Apron.IsVisible = false
+		elseif costume == "DISGUISE" then
+			for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT}) do
+				modelPart:setVisible(true)
+			end
+			Costume.setCostumeTextureOffset(2)
+			models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(16, 0)
+		elseif costume == "MAID_A" then
+			Costume.setCostumeTextureOffset(3)
+			Apron.IsVisible = false
+			Legs.ReducedLegSwing = true
+		elseif costume == "MAID_B" then
+			Costume.setCostumeTextureOffset(4)
+			Apron.IsVisible = false
+			Legs.ReducedLegSwing = true
+		elseif costume == "SWIMSUIT" then
+			Costume.setCostumeTextureOffset(5)
+			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setUVPixels(0, 0)
+			Apron.IsVisible = false
+		elseif costume == "CHEERLEADER" then
+			Costume.setCostumeTextureOffset(6)
+			models.models.costume_cheerleader:setVisible(true)
+			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setUVPixels(0, 14)
+			Apron.IsVisible = false
+		elseif costume == "PURIFICATION" then
+			Costume.setCostumeTextureOffset(7)
+			Apron.IsVisible = false
+		elseif costume == "KAPPOGI" then
+			Costume.setCostumeTextureOffset(8)
+			models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(32, 0)
+		elseif costume == "YUKATA" then
+			Costume.setCostumeTextureOffset(9)
+			Apron.IsVisible = false
+		elseif costume == "FOX_HOODIE_RED" then
+			Costume.setCostumeTextureOffset(10)
+			models.models.main.Avatar.Head.CFoxHoodH:setUVPixels(0, 0)
+			Apron.IsVisible = false
+		elseif costume == "FOX_HOODIE_WHITE" then
+			Costume.setCostumeTextureOffset(11)
+			models.models.main.Avatar.Head.CFoxHoodH:setUVPixels(0, 8)
+			Apron.IsVisible = false
+		elseif costume == "TRACKSUIT" then
+			Costume.setCostumeTextureOffset(12)
+			Apron.IsVisible = false
+		elseif costume == "CASUAL" then
+			Costume.setCostumeTextureOffset(13)
+			Apron.IsVisible = false
+		elseif costume == "SAILOR" then
+			Costume.setCostumeTextureOffset(14)
+			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setUVPixels(0, 28)
+			Apron.IsVisible = false
+		elseif costume == "CHINA_DRESS" then
+			Costume.setCostumeTextureOffset(15)
+			Apron.IsVisible = false
+		elseif costume == "SANTA" then
+			Costume.setCostumeTextureOffset(16)
 		end
-	else
+	end,
+
+	---コスチュームをリセットし、デフォルトのコスチュームにする。
+	resetCostume = function ()
+		Costume.setCostumeTextureOffset(0)
+		for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT, models.models.costume_cheerleader}) do
+			modelPart:setVisible(false)
+		end
+		Apron.IsVisible = true
+		Legs.ReducedLegSwing = false
+		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 0)
 		Costume.CurrentCostume = "DEFAULT"
-		Config.saveConfig("costume", 1)
+	end,
+
+	---コスチュームの初期処理
+	costumeInit = function()
+		local loadedData = Config.loadConfig("costume", 1)
+		if loadedData <= #Costume.CostumeList then
+			Costume.CurrentCostume = string.upper(Costume.CostumeList[loadedData])
+			if Costume.CurrentCostume ~= "DEFAULT" then
+				Costume.setCostume(Costume.CurrentCostume)
+			end
+		else
+			Costume.CurrentCostume = "DEFAULT"
+			Config.saveConfig("costume", 1)
+		end
 	end
-end
+}
 
 events.TICK:register(function ()
 	if Costume.CurrentCostume == "DISGUISE" then
@@ -278,6 +279,6 @@ events.RENDER:register(function ()
 	end
 end)
 
-costumeInit()
+Costume.costumeInit()
 
 return Costume

@@ -4,11 +4,12 @@
 ---@field Umbrella.UmbrellaPrev boolean 前チックに傘をさしていたかどうか
 ---@field Umbrella.UmbrellaSound boolean 傘の開閉音を再生するかどうか
 
-Umbrella = {}
-Umbrella.Umbrella = false
-Umbrella.EnableUmbrella = true
-Umbrella.UmbrellaPrev = false
-Umbrella.UmbrellaSound = Config.loadConfig("umbrellaSound", true)
+Umbrella = {
+	Umbrella = false,
+	EnableUmbrella = true,
+	UmbrellaPrev = false,
+	UmbrellaSound = Config.loadConfig("umbrellaSound", true)
+}
 
 events.TICK:register(function ()
 	local playerPose = player:getPose()

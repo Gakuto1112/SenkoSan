@@ -2,10 +2,10 @@
 ---@field Warden.WardenNearby boolean ウォーデンが近くにいるかどうか（=暗闇デバフを受けているかどうか）
 ---@field Warden.WardenNearbyPrev boolean 前チックにウォーデンが近くにいたかどうか
 
-Warden = {}
-
-Warden.WardenNearby = false
-Warden.WardenNearPrev = false
+Warden = {
+	WardenNearby = false,
+	WardenNearbyPrev = false
+}
 
 --ping関数
 function pings.setWardenNearby(newValue)
@@ -17,7 +17,7 @@ events.TICK:register(function()
 		Warden.WardenNearby = General.getTargetEffect("darkness") and true or false
 	end
 	if Warden.WardenNearby then
-		if not Warden.WardenNearPrev and player:getPose() ~= "SLEEPING" then
+		if not Warden.WardenNearbyPrev and player:getPose() ~= "SLEEPING" then
 			pings.setWardenNearby(true)
 			if player:getPose() ~= "SLEEPING" then
 				animations["models.main"]["afraid"]:play()
@@ -26,12 +26,12 @@ events.TICK:register(function()
 		Ears.setEarsRot("DROOPING", 1, true)
 		FaceParts.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 0, false)
 	else
-		if Warden.WardenNearPrev then
+		if Warden.WardenNearbyPrev then
 			pings.setWardenNearby(false)
 		end
 		animations["models.main"]["afraid"]:stop()
 	end
-	Warden.WardenNearPrev = Warden.WardenNearby
+	Warden.WardenNearbyPrev = Warden.WardenNearby
 end)
 
 return Warden

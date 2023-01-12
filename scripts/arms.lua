@@ -1,18 +1,18 @@
 ---@class Arms 腕を制御するクラス
 ---@field Arms.ItemHeldContradicts boolean アイテムを手に持った際の腕のズレを打ち消すかどうか：1. 右腕, 2. 左腕
 
-Arms = {}
+Arms = {
+	ItemHeldContradicts = false,
 
-Arms.ItemHeldContradicts = false
-
----手持ちアイテムを隠し、手のズレを補正する。
----@param hide boolean 手のアイテムを隠すかどうか
-function Arms.hideHeldItem(hide)
-	for _, vanillaModel in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
-		vanillaModel:setVisible(not hide)
+	---手持ちアイテムを隠し、手のズレを補正する。
+	---@param hide boolean 手のアイテムを隠すかどうか
+	hideHeldItem = function(hide)
+		for _, vanillaModel in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
+			vanillaModel:setVisible(not hide)
+		end
+		Arms.ItemHeldContradicts = hide
 	end
-	Arms.ItemHeldContradicts = hide
-end
+}
 
 events.TICK:register(function()
 	local rightArm = models.models.main.Avatar.Body.Arms.RightArm

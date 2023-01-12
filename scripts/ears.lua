@@ -10,29 +10,24 @@
 ---| "SLIGHTLY_DROOPING"
 ---| "DROOPING"
 
-Ears = {}
+Ears = {
+	EarsRotTypeID = {STAND = 0, SLIGHTLY_DROOPING = -20, DROOPING = -40},
+	EarsRotCount = 0,
+	JerkEarsKey = keybinds:newKeybind(Language.getTranslate("key_name__jerk_ears"), Config.loadConfig("keybind.jerkEars", "key.keyboard.x")),
+	EnableJerkEar = true,
+	JerkEarsCount = 0,
 
-Ears.EarsRotTypeID = {STAND = 0, SLIGHTLY_DROOPING = -20, DROOPING = -40}
-Ears.EarsRotCount = 0
-Ears.JerkEarsKey = keybinds:newKeybind(Language.getTranslate("key_name__jerk_ears"), Config.loadConfig("keybind.jerkEars", "key.keyboard.x"))
-Ears.EnableJerkEar = true
-Ears.JerkEarsCount = 0
-
----耳の角度を設定する。
----@param earRot EarsRotType 設定する耳の垂れ具合
----@param duration integer この耳の角度をを有効にする時間
----@param force boolean trueにすると以前のタイマーが残っていても強制的に適用する。
-function Ears.setEarsRot(earRot, duration, force)
-	if Ears.EarsRotCount == 0 or force then
-		models.models.main.Avatar.Head.Ears:setRot(Ears.EarsRotTypeID[earRot], 0, 0)
-		Ears.EarsRotCount = duration
+	---耳の角度を設定する。
+	---@param earRot EarsRotType 設定する耳の垂れ具合
+	---@param duration integer この耳の角度をを有効にする時間
+	---@param force boolean trueにすると以前のタイマーが残っていても強制的に適用する。
+	setEarsRot = function (earRot, duration, force)
+		if Ears.EarsRotCount == 0 or force then
+			models.models.main.Avatar.Head.Ears:setRot(Ears.EarsRotTypeID[earRot], 0, 0)
+			Ears.EarsRotCount = duration
+		end
 	end
-end
-
----耳の角度をリセットする。
-function Ears.resetEarsRot()
-	Ears.EarsRotCount = 0
-end
+}
 
 --ping関数
 function pings.jerk_ears()

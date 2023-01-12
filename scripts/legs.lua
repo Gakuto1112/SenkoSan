@@ -1,8 +1,9 @@
 ---@class Legs 脚を制御するクラス
 ---@field Legs.ReducedLegSwing boolean 脚の動きを軽減するかどうか（軽減時は0.5になる）
 
-Legs = {}
-Legs.ReducedLegSwing = false
+Legs = {
+	ReducedLegSwing = false
+}
 
 events.TICK:register(function ()
 	local rightLeg = models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg

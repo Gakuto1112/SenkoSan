@@ -5,13 +5,13 @@
 ---@field Physics.LookRotDeltaPrevRender number 前レンダーチックのlookRotDelta
 ---@field Physics.EnablePyhsics boolean 物理演算を有効にするかどうか：1. 尻尾, 2. 髪飾り
 
-Physics = {}
-
-Physics.VelocityData = {{}, {}, {}, {}}
-Physics.VelocityAverage = {0, 0, 0, 0}
-Physics.LookRotPrevRender = 0
-Physics.LookRotDeltaPrevRender = 0
-Physics.EnablePyhsics = {true, true}
+Physics = {
+	VelocityData = {{}, {}, {}, {}},
+	VelocityAverage = {0, 0, 0, 0},
+	LookRotPrevRender = 0,
+	LookRotDeltaPrevRender = 0,
+	EnablePyhsics = {true, true}
+}
 
 events.RENDER:register(function ()
 	local lookDir = player:getLookDir()
