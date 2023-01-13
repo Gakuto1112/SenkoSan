@@ -52,26 +52,34 @@ events.RENDER:register(function ()
 	end
 	--求めた平均速度から尻尾の角度を計算
 	local tail = models.models.main.Avatar.Body.BodyBottom.Tail
+	local frontHair = models.models.main.Avatar.Body.Hairs.FrontHair
+	local backHair = models.models.main.Avatar.Body.Hairs.BackHair
 	if (not renderer:isFirstPerson() or client:hasIrisShader()) and (Physics.EnablePyhsics[1] or Physics.EnablePyhsics[2]) then
-		local rotLimit = {{{-60, 60}, {-30, 30}}, {{0, 180}, {-90, 90}}} --物理演算の可動範囲：1. 尻尾：{1-1. 上下方向, 1-2. 左右方向}, 2. 髪飾りのヒモ：{2-1. 前後方向, 2-2. 左右方向}
+		local rotLimit = {{{-60, 60}, {-30, 30}}, {{2, 80}, {-80, -2}}} --物理演算の可動範囲：1. 尻尾：{1-1. 上下方向, 1-2. 左右方向}, 2. 長髪：{2-1. 前髪, 2-2. 後髪}
 		local playerPose = player:getPose()
 		if SitDown.IsAnimationPlaying or player:getVehicle() then
 			rotLimit[1][1][2] = 10
 		end
+		local tailRot = vectors.vec3(0, 0, 0)
+		local frontHairRot = vectors.vec3(0, 0, 0)
+		local backHairRot = vectors.vec3(0, 0, 0)
 		if playerPose == "FALL_FLYING" then
-			local tailRot = vectors.vec3(0, 0, 0)
 			if Physics.EnablePyhsics[1] then
 				tailRot = vectors.vec3(math.clamp(Physics.VelocityAverage[1] * 80, rotLimit[1][1][1], rotLimit[1][1][2]), math.clamp(-Physics.VelocityAverage[4] * 0.1, rotLimit[1][2][1], rotLimit[1][2][2]), 0)
 			end
-			tail:setRot(tailRot)
+			if Physics.EnablePyhsics[2] then
+				frontHairRot = vectors.vec3(math.clamp(rotLimit[2][1][2] - math.sqrt(Physics.VelocityAverage[1] ^ 2 + Physics.VelocityAverage[2] ^ 2) * 80, rotLimit[2][1][1], rotLimit[2][1][2]), 0, 0)
+				backHairRot = vectors.vec3(rotLimit[2][2][2])
+			end
 		elseif playerPose == "SWIMMING" then
-			local tailRot = vectors.vec3(0, 0, 0)
 			if Physics.EnablePyhsics[1] then
 				tailRot = vectors.vec3(math.clamp(Physics.VelocityAverage[1] * 320, rotLimit[1][1][1], rotLimit[1][1][2]), math.clamp(-Physics.VelocityAverage[4] * 0.2, rotLimit[1][2][1], rotLimit[1][2][2]), 0)
 			end
-			tail:setRot(tailRot)
+			if Physics.EnablePyhsics[2] then
+				frontHairRot = vectors.vec3(math.clamp(rotLimit[2][1][2] - math.sqrt(Physics.VelocityAverage[1] ^ 2 + Physics.VelocityAverage[2] ^ 2) * 320, rotLimit[2][1][1], rotLimit[2][1][2]), 0, 0)
+				backHairRot = vectors.vec3(rotLimit[2][2][2])
+			end
 		else
-			local tailRot = vectors.vec3(0, 0, 0)
 			if Physics.EnablePyhsics[1] then
 				local tailXMoveXZ = (Physics.VelocityAverage[1] + math.abs(Physics.VelocityAverage[3])) * 160
 				local tailXMoveY = Physics.VelocityAverage[2] * 80
@@ -79,8 +87,17 @@ events.RENDER:register(function ()
 				local tailXConditionAngle = (General.PlayerCondition == "LOW" or SitDown.IsAnimationPlaying or player:getVehicle() or Warden.WardenNearby) and 0 or (General.PlayerCondition == "MEDIUM" and 15 or 30)
 				tailRot = vectors.vec3(math.clamp(rotLimit[1][1][2] - math.min(tailXMoveXZ, math.max(rotLimit[1][1][2] - tailXMoveY - tailXAngleMove - tailXConditionAngle, 0)) + tailXMoveY - math.min(tailXAngleMove, math.max(rotLimit[1][1][2] - tailXMoveXZ - tailXMoveY - tailXConditionAngle, 0)) - tailXConditionAngle, rotLimit[1][1][1], rotLimit[1][1][2]) + (General.IsSneaking and 30 or 0), math.clamp(-Physics.VelocityAverage[3] * 160 + Physics.VelocityAverage[4] * 0.05, rotLimit[1][2][1], rotLimit[1][2][2]), 0)
 			end
-			tail:setRot(tailRot)
+			if Physics.EnablePyhsics[2] then
+				local hairXMoveX = Physics.VelocityAverage[1] * -160
+				local hairXMoveY = Physics.VelocityAverage[2] * 80
+				local hairXAngleMove = math.abs(Physics.VelocityAverage[4]) * 0.05
+				frontHairRot = vectors.vec3(math.clamp(hairXMoveX - hairXMoveY + hairXAngleMove, rotLimit[2][1][1], rotLimit[2][1][2]), 0, 0)
+				backHairRot = vectors.vec3(math.clamp(hairXMoveX + hairXMoveY - hairXAngleMove, rotLimit[2][2][1], rotLimit[2][2][2]), 0, 0)
+			end
 		end
+		tail:setRot(tailRot)
+		frontHair:setRot(frontHairRot)
+		backHair:setRot(backHairRot)
 	else
 		tail:setRot(0, 0, 0)
 	end
