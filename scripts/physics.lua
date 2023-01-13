@@ -60,6 +60,15 @@ events.RENDER:register(function ()
 		if SitDown.IsAnimationPlaying or player:getVehicle() then
 			rotLimit[1][1][2] = 10
 		end
+		if not Armor.ArmorVisible[3] then
+			if Costume.CurrentCostume == "MAID_A" then
+				rotLimit[2][2][2] = -15
+			elseif Costume.CurrentCostume == "MAID_B" then
+				rotLimit[2][2][2] = -5
+			elseif Costume.CurrentCostume == "SWIMSUIT" or Costume.CurrentCostume == "CHEERLEADER" or Costume.CurrentCostume == "SAILOR" then
+				rotLimit[2][2][2] = -10
+			end
+		end
 		local tailRot = vectors.vec3(0, 0, 0)
 		local frontHairRot = vectors.vec3(0, 0, 0)
 		local backHairRot = vectors.vec3(0, 0, 0)
