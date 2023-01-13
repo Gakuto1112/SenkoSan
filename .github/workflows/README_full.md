@@ -5,6 +5,7 @@ TVアニメ「世話やきキツネの仙狐さん」（とその原作）に登
 
 ターゲットFiguraバージョン：[0.1.0-rc.13](https://www.curseforge.com/minecraft/mc-mods/figura/files/4300619)
 
+<!-- REQUIRED_IMAGE -->
 ![メイン](../../README_images/メイン.jpg)
 
 このブランチは**シロ**のブランチです。また、シロは作成途中であり、アニメーションや衣装の多くは、仙狐さんのものとなっています。また、READMEの画像は仙狐さんのものです。
