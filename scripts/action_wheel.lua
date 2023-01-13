@@ -161,7 +161,7 @@ function pings.config_action1(costumeID)
 end
 
 function pings.config_action2(nameID)
-	Nameplate.setName(nameID)
+	nameplate.ALL:setText(Nameplate.NameList[nameID])
 	ActionWheel.CurrentPlayerNameState = nameID
 	if host:isHost() then
 		ActionWheel.setNameChangeActionTitle()

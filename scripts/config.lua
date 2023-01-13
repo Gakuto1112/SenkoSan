@@ -81,7 +81,7 @@ events.TICK:register(function ()
 end)
 
 if host:isHost() then
-	config:name("Senko_san")
+	config:name("Shiro")
 end
 
 return Config
