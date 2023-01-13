@@ -1,11 +1,8 @@
 ---@class ActionWheel アクションホイールを制御するクラス
 ---@field ActionWheel.MainPages table アクションホイールのメインページ
----@field ActionWheel.WordPage Page セリフ一覧のページ
 ---@field ActionWheel.ConfigPage Page 設定のページ
----@field ActionWheel.IsOpenWordPage boolean セリフ集のページを開いているかどうか
 ---@field ActionWheel.ParentPage Page 現在開いているページの親ページ。アクションホイールを閉じた際に設定するページ。
 ---@field ActionWheel.LanguageList table 利用可能な言語のリスト（セリフ集に使う）
----@field ActionWheel.CurrentWordLanguage integer 現在のセリフの言語
 ---@field ActionWheel.IsAnimationPlaying boolean アニメーションが再生中かどうか
 ---@field ActionWheel.IsOpenActionWheelPrev boolean 前チックにアクションホイールを開けていたかどうか
 ---@field ActionWheel.CurrentCostumeState integer プレイヤーの現在のコスチュームの状態を示す：1. いつもの服, 2. 変装服, 3. メイド服A, 4. メイド服B, 5. 水着, 6. チアリーダーの服, 7. 清めの服, 8. 割烹着
@@ -17,12 +14,9 @@
 
 ActionWheel = {
 	MainPages = {},
-	WordPage = action_wheel:newPage(),
 	ConfigPage = action_wheel:newPage(),
-	IsOpenWordPage = false,
 	ParentPage = nil,
 	LanguageList = Language.getLanguages(),
-	CurrentWordLanguage = General.indexof(Language.getLanguages(), client:getActiveLang()),
 	IsAnimationPlaying = false,
 	IsOpenActionWheelPrev = false,
 	CurrentCostumeState = Config.loadConfig("costume", 1),
@@ -211,16 +205,11 @@ events.TICK:register(function ()
 						ActionWheel.setActionEnabled(pageIndex, actionIndex, not ActionWheel.IsAnimationPlaying and actionClass:checkAction())
 					end
 				end
-				ActionWheel.setActionEnabled(3, 1, not Warden.WardenNearby)
 				if Wet.WetCount > 0 then
 					ActionWheel.MainPages[1]:getAction(2):item("water_bucket")
 				else
 					ActionWheel.MainPages[1]:getAction(2):item("bucket")
 				end
-			elseif Warden.WardenNearby and ActionWheel.IsOpenWordPage then
-				action_wheel:setPage(ActionWheel.ParentPage)
-				ActionWheel.IsOpenWordPage = false
-				ActionWheel.ParentPage = nil
 			end
 		end
 		if not isOpenActionWheel and ActionWheel.IsOpenActionWheelPrev then
@@ -243,7 +232,6 @@ events.TICK:register(function ()
 			end
 			if ActionWheel.ParentPage then
 				action_wheel:setPage(ActionWheel.ParentPage)
-				ActionWheel.IsOpenWordPage = false
 				ActionWheel.ParentPage = nil
 			end
 		end
@@ -440,21 +428,8 @@ if host:isHost() then
 		end
 	end)
 
-	--アクション3-1. 仙狐さんセリフ集
-	ActionWheel.MainPages[3]:newAction(1):item("book"):onLeftClick(function ()
-		if Warden.WardenNearby then
-			if not ActionWheel.IsAnimationPlaying then
-				pings.refuse_emote()
-			end
-		else
-			action_wheel:setPage(ActionWheel.WordPage)
-			ActionWheel.IsOpenWordPage = true
-			ActionWheel.ParentPage = ActionWheel.MainPages[3]
-		end
-	end)
-
-	--アクション3-2. 設定ページ
-	ActionWheel.MainPages[3]:newAction(2):title(Language.getTranslate("action_wheel__main_3__action_2__title")):item("comparator"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
+	--アクション3-1. 設定ページ
+	ActionWheel.MainPages[3]:newAction(1):title(Language.getTranslate("action_wheel__main_3__action_1__title")):item("comparator"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
 		action_wheel:setPage(ActionWheel.ConfigPage)
 		ActionWheel.ParentPage = ActionWheel.MainPages[3]
 	end)
@@ -471,61 +446,6 @@ if host:isHost() then
 			end
 		end)
 	end
-
-	ActionWheel.CurrentWordLanguage = ActionWheel.CurrentWordLanguage == -1 and General.indexof(ActionWheel.LanguageList, "en_us") or ActionWheel.CurrentWordLanguage
-
-	--セリフのページのアクション設定
-	--アクション1. 「存分に甘やかしてくれよう！」
-	ActionWheel.WordPage:newAction(1):title(Language.getTranslate("action_wheel__word__action_1__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
-		host:sendChatMessage(Language.getTranslate("action_wheel__word__action_1__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
-	end)
-
-	--アクション2. 「存分にもふるがよい」
-	ActionWheel.WordPage:newAction(2):title(Language.getTranslate("action_wheel__word__action_2__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
-		host:sendChatMessage(Language.getTranslate("action_wheel__word__action_2__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
-	end)
-
-	--アクション3. 「おかえりなのじゃ」
-	ActionWheel.WordPage:newAction(3):title(Language.getTranslate("action_wheel__word__action_3__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
-		host:sendChatMessage(Language.getTranslate("action_wheel__word__action_3__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
-	end)
-
-	--アクション4. 「お疲れ様じゃ」
-	ActionWheel.WordPage:newAction(4):title(Language.getTranslate("action_wheel__word__action_4__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
-		host:sendChatMessage(Language.getTranslate("action_wheel__word__action_4__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
-	end)
-
-	--アクション5. 「今日も大変だったのう」
-	ActionWheel.WordPage:newAction(5):title(Language.getTranslate("action_wheel__word__action_5__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
-		host:sendChatMessage(Language.getTranslate("action_wheel__word__action_5__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
-	end)
-
-	--アクション6. 「うやん♪」
-	ActionWheel.WordPage:newAction(6):title(Language.getTranslate("action_wheel__word__action_6__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
-		host:sendChatMessage(Language.getTranslate("action_wheel__word__action_6__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
-	end)
-
-	--アクション7. 「わらわはただの動く毛玉じゃ...」
-	ActionWheel.WordPage:newAction(7):title(Language.getTranslate("action_wheel__word__action_7__title")):item("book"):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1):onLeftClick(function ()
-		host:sendChatMessage(Language.getTranslate("action_wheel__word__action_7__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
-	end)
-
-	--アクション8. 言語切り替え
-	ActionWheel.WordPage:newAction(8):title(Language.getTranslate("action_wheel__word__action_8__title")..Language.getTranslate("language__"..ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage])):item("paper"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
-		if ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage - direction] then
-			ActionWheel.CurrentWordLanguage = ActionWheel.CurrentWordLanguage - direction
-		elseif ActionWheel.CurrentWordLanguage == 1 then
-			ActionWheel.CurrentWordLanguage = #ActionWheel.LanguageList
-		else
-			ActionWheel.CurrentWordLanguage = 1
-		end
-		local motherLanguage = General.indexof(ActionWheel.LanguageList, client:getActiveLang())
-		motherLanguage = motherLanguage == -1 and General.indexof(ActionWheel.LanguageList, "en_us") or motherLanguage
-		for i = 1, 7 do
-			ActionWheel.WordPage:getAction(i):title(ActionWheel.CurrentWordLanguage == motherLanguage and Language.getTranslate("action_wheel__word__action_"..i.."__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]) or Language.getTranslate("action_wheel__word__action_"..i.."__title", ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]).."\n§7"..Language.getTranslate("action_wheel__word__action_8__bracket_begin")..Language.getTranslate("action_wheel__word__action_"..i.."__title")..Language.getTranslate("action_wheel__word__action_8__bracket_end"))
-		end
-		ActionWheel.WordPage:getAction(8):title(Language.getTranslate("action_wheel__word__action_8__title")..Language.getTranslate("language__"..ActionWheel.LanguageList[ActionWheel.CurrentWordLanguage]))
-	end)
 
 	--設定のページのアクション設定
 	--アクション1. 着替え
