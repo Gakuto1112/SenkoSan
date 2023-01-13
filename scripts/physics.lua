@@ -55,7 +55,7 @@ events.RENDER:register(function ()
 	local frontHair = models.models.main.Avatar.Body.Hairs.FrontHair
 	local backHair = models.models.main.Avatar.Body.Hairs.BackHair
 	if (not renderer:isFirstPerson() or client:hasIrisShader()) and (Physics.EnablePyhsics[1] or Physics.EnablePyhsics[2]) then
-		local rotLimit = {{{-60, 60}, {-30, 30}}, {{2, 80}, {-80, -2}}} --物理演算の可動範囲：1. 尻尾：{1-1. 上下方向, 1-2. 左右方向}, 2. 長髪：{2-1. 前髪, 2-2. 後髪}
+		local rotLimit = {{{-60, 60}, {-30, 30}}, {{0, 80}, {-80, 0}}} --物理演算の可動範囲：1. 尻尾：{1-1. 上下方向, 1-2. 左右方向}, 2. 長髪：{2-1. 前髪, 2-2. 後髪}
 		local playerPose = player:getPose()
 		if SitDown.IsAnimationPlaying or player:getVehicle() then
 			rotLimit[1][1][2] = 10
