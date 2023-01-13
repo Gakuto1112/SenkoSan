@@ -8,6 +8,8 @@ TVアニメ「世話やきキツネの仙狐さん」（とその原作）に登
 <!-- REQUIRED_IMAGE -->
 ![メイン](../../README_images/メイン.jpg)
 
+**シロのアバターは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/Shiro)からダウンロードできます。**
+
 ## 特徴
 - 耳と尻尾のモデルが生えています。
   - 尻尾はプレイヤーの動きに合わせて揺れます。
