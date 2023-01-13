@@ -258,7 +258,6 @@ events.TICK:register(function ()
 	else
 		models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setVisible(false)
 	end
-	HairAccessory.visible((Costume.CurrentCostume ~= "FOX_HOODIE_RED" and Costume.CurrentCostume ~= "FOX_HOODIE_WHITE" and Costume.CurrentCostume ~= "SANTA") or Armor.ArmorVisible[1])
 end)
 
 events.RENDER:register(function ()

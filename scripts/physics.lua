@@ -52,7 +52,6 @@ events.RENDER:register(function ()
 	end
 	--求めた平均速度から尻尾の角度を計算
 	local tail = models.models.main.Avatar.Body.BodyBottom.Tail
-	local hairAccessoryLines = models.models.main.Avatar.Head.HairAccessory.HairAccessoryLines:getChildren()
 	if (not renderer:isFirstPerson() or client:hasIrisShader()) and (Physics.EnablePyhsics[1] or Physics.EnablePyhsics[2]) then
 		local rotLimit = {{{-60, 60}, {-30, 30}}, {{0, 180}, {-90, 90}}} --物理演算の可動範囲：1. 尻尾：{1-1. 上下方向, 1-2. 左右方向}, 2. 髪飾りのヒモ：{2-1. 前後方向, 2-2. 左右方向}
 		local playerPose = player:getPose()
@@ -65,26 +64,12 @@ events.RENDER:register(function ()
 				tailRot = vectors.vec3(math.clamp(Physics.VelocityAverage[1] * 80, rotLimit[1][1][1], rotLimit[1][1][2]), math.clamp(-Physics.VelocityAverage[4] * 0.1, rotLimit[1][2][1], rotLimit[1][2][2]), 0)
 			end
 			tail:setRot(tailRot)
-			local hairAccessoryLineRot = vectors.vec3(0, 0, 0)
-			if Physics.EnablePyhsics[2] then
-				hairAccessoryLineRot = vectors.vec3(math.clamp(60 - Physics.VelocityAverage[1] * 80, rotLimit[2][1][1], rotLimit[2][1][2]), 0, math.clamp(-Physics.VelocityAverage[4] * 0.1, rotLimit[2][2][1], rotLimit[2][2][2]))
-			end
-			for _, modelPart in ipairs(hairAccessoryLines) do
-				modelPart:setRot(hairAccessoryLineRot)
-			end
 		elseif playerPose == "SWIMMING" then
 			local tailRot = vectors.vec3(0, 0, 0)
 			if Physics.EnablePyhsics[1] then
 				tailRot = vectors.vec3(math.clamp(Physics.VelocityAverage[1] * 320, rotLimit[1][1][1], rotLimit[1][1][2]), math.clamp(-Physics.VelocityAverage[4] * 0.2, rotLimit[1][2][1], rotLimit[1][2][2]), 0)
 			end
 			tail:setRot(tailRot)
-			local hairAccessoryLineRot = vectors.vec3(0, 0, 0)
-			if Physics.EnablePyhsics[2] then
-				hairAccessoryLineRot = vectors.vec3(math.clamp(60 - Physics.VelocityAverage[1] * 320, rotLimit[2][1][1], rotLimit[2][1][2]), 0, math.clamp(-Physics.VelocityAverage[4] * 0.2, rotLimit[2][2][1], rotLimit[2][2][2]))
-			end
-			for _, modelPart in ipairs(hairAccessoryLines) do
-				modelPart:setRot(hairAccessoryLineRot)
-			end
 		else
 			local tailRot = vectors.vec3(0, 0, 0)
 			if Physics.EnablePyhsics[1] then
@@ -95,22 +80,9 @@ events.RENDER:register(function ()
 				tailRot = vectors.vec3(math.clamp(rotLimit[1][1][2] - math.min(tailXMoveXZ, math.max(rotLimit[1][1][2] - tailXMoveY - tailXAngleMove - tailXConditionAngle, 0)) + tailXMoveY - math.min(tailXAngleMove, math.max(rotLimit[1][1][2] - tailXMoveXZ - tailXMoveY - tailXConditionAngle, 0)) - tailXConditionAngle, rotLimit[1][1][1], rotLimit[1][1][2]) + (General.IsSneaking and 30 or 0), math.clamp(-Physics.VelocityAverage[3] * 160 + Physics.VelocityAverage[4] * 0.05, rotLimit[1][2][1], rotLimit[1][2][2]), 0)
 			end
 			tail:setRot(tailRot)
-			local hairAccessoryLineRot = vectors.vec3(0, 0, 0)
-			if Physics.EnablePyhsics[2] then
-				local hairAccessoryLineXMoveX = -Physics.VelocityAverage[1] * 160
-				local hairAccessoryLineXMoveY = -Physics.VelocityAverage[2] * 160
-				local hairAccessoryLineXAngleMove = math.abs(Physics.VelocityAverage[4]) * 0.05
-				hairAccessoryLineRot = vectors.vec3(math.clamp(math.min(hairAccessoryLineXMoveX, math.max(90 - hairAccessoryLineXMoveY / 2 - hairAccessoryLineXAngleMove, 0)) + math.clamp(hairAccessoryLineXMoveY, math.min(hairAccessoryLineXMoveX + hairAccessoryLineXAngleMove, 0), math.max(rotLimit[2][1][2] - hairAccessoryLineXMoveX - hairAccessoryLineXAngleMove, 0)) + math.min(hairAccessoryLineXAngleMove, math.max(90 - hairAccessoryLineXMoveX - hairAccessoryLineXMoveY / 2, 0)) - lookDir.y * 90, rotLimit[2][1][1], rotLimit[2][1][2]), 0, math.clamp(-Physics.VelocityAverage[3] * 90, rotLimit[2][2][1], rotLimit[2][2][2]))
-			end
-			for _, modelPart in ipairs(hairAccessoryLines) do
-				modelPart:setRot(hairAccessoryLineRot)
-			end
 		end
 	else
 		tail:setRot(0, 0, 0)
-		for _, modelPart in ipairs(hairAccessoryLines) do
-			modelPart:setRot(0, 0, 0)
-		end
 	end
 	Physics.LookRotDeltaPrevRender = lookRotDelta
 	Physics.LookRotPrevRender = lookRot
