@@ -4,6 +4,7 @@ SitDown = General.instance({
 	---おすわりアニメーションを再生する。
 	play = function (self)
 		PermanentAnimationAction.play(self)
+		Kotatsu:stop()
 		Umbrella.EnableUmbrella = true
 		Camera.CameraOffset = -0.5
 		Nameplate.NamePlateOffset = -0.5

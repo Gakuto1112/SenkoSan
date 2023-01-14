@@ -47,6 +47,7 @@ events.ENTITY_INIT:register(function ()
 	FoxFire = require("scripts/fox_fire")
 	Sleep = require("scripts/sleep")
 	Warden = require("scripts/warden")
+	Afk = require("scripts/afk")
 	Christmas = require("scripts/christmas")
 
 	--初期化処理

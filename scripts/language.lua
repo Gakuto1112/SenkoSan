@@ -73,6 +73,7 @@ Language = {
 			action_wheel__config__action_5__title = "Show armor: ",
 			action_wheel__config__action_6__title = "Show fox fire in first person: ",
 			action_wheel__config__action_7__title = "Umbrella sound：",
+			message__afk_too_long = "You! Whre have you been, leaving me alone? Possibly, you left me, the messanger of God, alone and cuddled other fluffy things again? ...well, I don't mind but Sen will miss you... Don't leave her alone for too long, okay?",
 			message__merry_christmas = "Merry Christmas!"
 		},
 		ja_jp = {
@@ -145,6 +146,7 @@ Language = {
 			action_wheel__config__action_5__title = "防具の表示：",
 			action_wheel__config__action_6__title = "一人称視点での狐火の表示：",
 			action_wheel__config__action_7__title = "傘の開閉音：",
+			message__afk_too_long = "アンタ！アタシを放ってどこに行ってたのよ！？もしかして、アンタ、この神使のアタシを放っておいて、またよそのもふもふに行ってたんじゃ？...まあ、アタシは別にいいけど、センは寂しがるから...、あまり長い間放っておかないでよね。",
 			message__merry_christmas = "めりーくりすます！"
 		}
 	},
