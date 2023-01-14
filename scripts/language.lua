@@ -84,6 +84,7 @@ Language = {
 			action_wheel__config__action_5__title = "Show armor: ",
 			action_wheel__config__action_6__title = "Show fox fire in first person: ",
 			action_wheel__config__action_7__title = "Umbrella sound：",
+			message__afk_too_long = "You! Whre have you been? Possibly, you might have been cuddling other fluffy things even you have me, a fox... sigh... You mean you aren't satisfied even you always cuddle me ...",
 			message__merry_christmas = "Merry Christmas!"
 		},
 		ja_jp = {
@@ -167,6 +168,7 @@ Language = {
 			action_wheel__config__action_5__title = "防具の表示：",
 			action_wheel__config__action_6__title = "一人称視点での狐火の表示：",
 			action_wheel__config__action_7__title = "傘の開閉音：",
+			message__afk_too_long = "お主！わらわを放ってどこに行ってたのじゃ！？もしや、お主、わらわという狐がありながら、またよそのもふもふにうつつを抜かしよったのか...。はぁ...、普段からあれだけもふっておきながら、まだ足りんと言うのか、お主は...。",
 			message__merry_christmas = "めりーくりすますなのじゃ！"
 		}
 	},
