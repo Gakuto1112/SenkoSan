@@ -240,7 +240,9 @@ events.TICK:register(function ()
 		leftEar:setVisible(false)
 	end
 	models.models.main.Avatar.Head.CKnitH:setVisible(Costume.CurrentCostume == "KNIT" and not Armor.ArmorVisible[1])
-	models.models.main.Avatar.Head.CFoxHoodH:setVisible((Costume.CurrentCostume == "FOX_HOODIE_RED" or Costume.CurrentCostume == "FOX_HOODIE_WHITE") and not Armor.ArmorVisible[1])
+	local hoodieVisible = (Costume.CurrentCostume == "FOX_HOODIE_RED" or Costume.CurrentCostume == "FOX_HOODIE_WHITE") and not Armor.ArmorVisible[1]
+	models.models.main.Avatar.Head.CFoxHoodH:setVisible(hoodieVisible)
+	models.models.main.Avatar.Body.Hairs.BackHair:setVisible(not hoodieVisible)
 	models.models.main.Avatar.Head.CBeretH:setVisible(Costume.CurrentCostume == "CASUAL" and not Armor.ArmorVisible[1])
 	Ears.EnableJerkEar = (Costume.CurrentCostume ~= "DISGUISE" and Costume.CurrentCostume ~= "CASUAL") or Armor.ArmorVisible[1]
 	if Costume.CurrentCostume ~= "MAID_A" and Costume.CurrentCostume ~= "MAID_B" then

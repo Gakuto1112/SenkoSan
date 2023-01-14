@@ -72,13 +72,16 @@ events.RENDER:register(function ()
 		local tailRot = vectors.vec3(0, 0, 0)
 		local frontHairRot = vectors.vec3(0, 0, 0)
 		local backHairRot = vectors.vec3(0, 0, 0)
+		local backHairVisible = backHair:getVisible()
 		if playerPose == "FALL_FLYING" then
 			if Physics.EnablePyhsics[1] then
 				tailRot = vectors.vec3(math.clamp(Physics.VelocityAverage[1] * 80, rotLimit[1][1][1], rotLimit[1][1][2]), math.clamp(-Physics.VelocityAverage[4] * 0.1, rotLimit[1][2][1], rotLimit[1][2][2]), 0)
 			end
 			if Physics.EnablePyhsics[2] then
 				frontHairRot = vectors.vec3(math.clamp(rotLimit[2][1][2] - math.sqrt(Physics.VelocityAverage[1] ^ 2 + Physics.VelocityAverage[2] ^ 2) * 80, rotLimit[2][1][1], rotLimit[2][1][2]), 0, 0)
-				backHairRot = vectors.vec3(rotLimit[2][2][2])
+				if backHairVisible then
+					backHairRot = vectors.vec3(rotLimit[2][2][2])
+				end
 			end
 		elseif playerPose == "SWIMMING" then
 			if Physics.EnablePyhsics[1] then
@@ -86,7 +89,9 @@ events.RENDER:register(function ()
 			end
 			if Physics.EnablePyhsics[2] then
 				frontHairRot = vectors.vec3(math.clamp(rotLimit[2][1][2] - math.sqrt(Physics.VelocityAverage[1] ^ 2 + Physics.VelocityAverage[2] ^ 2) * 320, rotLimit[2][1][1], rotLimit[2][1][2]), 0, 0)
-				backHairRot = vectors.vec3(rotLimit[2][2][2])
+				if backHairVisible then
+					backHairRot = vectors.vec3(rotLimit[2][2][2])
+				end
 			end
 		else
 			if Physics.EnablePyhsics[1] then
@@ -101,12 +106,16 @@ events.RENDER:register(function ()
 				local hairXMoveY = Physics.VelocityAverage[2] * 80
 				local hairXAngleMove = math.abs(Physics.VelocityAverage[4]) * 0.05
 				frontHairRot = vectors.vec3(math.clamp(hairXMoveX - hairXMoveY + hairXAngleMove, rotLimit[2][1][1], rotLimit[2][1][2]), 0, 0)
-				backHairRot = vectors.vec3(math.clamp(hairXMoveX + hairXMoveY - hairXAngleMove, rotLimit[2][2][1], rotLimit[2][2][2]), 0, 0)
+				if backHairVisible then
+					backHairRot = vectors.vec3(math.clamp(hairXMoveX + hairXMoveY - hairXAngleMove, rotLimit[2][2][1], rotLimit[2][2][2]), 0, 0)
+				end
 			end
 		end
 		tail:setRot(tailRot)
 		frontHair:setRot(frontHairRot)
-		backHair:setRot(backHairRot)
+		if backHairVisible then
+			backHair:setRot(backHairRot)
+		end
 	else
 		tail:setRot(0, 0, 0)
 	end
