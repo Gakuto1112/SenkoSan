@@ -7,14 +7,10 @@ Kotatsu = General.instance({
 	AnimationCount = 0,
 	BodyYawPrev = 0,
 
-	onTickEvent = function (self)
-		PermanentAnimationAction.onTickEvent(self)
-		Kotatsu.BodyYawPrev = player:getBodyYaw()
-	end,
-
 	---こたつアニメーションを再生する。
 	play = function (self)
 		PermanentAnimationAction.play(self)
+		SitDown:stop()
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 		if host:isHost() then
 			print(Language.getTranslate("action_wheel__main_1__action_7__start"))
@@ -50,7 +46,9 @@ Kotatsu = General.instance({
 		ActionWheel.ActionCount = 1
 	end
 }, PermanentAnimationAction, function ()
-	return BroomCleaning:checkAction() and player:getBodyYaw() == Kotatsu.BodyYawPrev
+	local isNotPlayerYawChanged = player:getBodyYaw() == Kotatsu.BodyYawPrev
+	Kotatsu.BodyYawPrev = player:getBodyYaw()
+	return SitDown:checkAction() and isNotPlayerYawChanged and not player:isUsingItem()
 end, models.models.kotatsu, models.models.kotatsu, animations["models.main"]["kotatsu"], nil)
 
 return Kotatsu
