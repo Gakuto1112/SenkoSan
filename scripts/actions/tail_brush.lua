@@ -38,7 +38,7 @@ TailBrush = General.instance({
 		end
 	end
 }, AnimationAction, function ()
-	return SitDown:checkAction() and not player:isWet() and not player:isUsingItem()
+	return player:getPose() == "STANDING" and not player:isInLava() and player:getFrozenTicks() == 0 and not player:getVehicle() and player:getVelocity():length() == 0 and Hurt.Damaged == "NONE" and not Warden.WardenNearby and Wet.WetCount == 0 and not player:isUsingItem()
 end, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.BrushRAB, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.BrushRAB, animations["models.main"]["tail_brush"], nil, 0)
 
 return TailBrush
