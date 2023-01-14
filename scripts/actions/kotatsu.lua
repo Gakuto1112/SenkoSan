@@ -7,6 +7,12 @@ Kotatsu = General.instance({
 	AnimationCount = 0,
 	BodyYawPrev = 0,
 
+	---コンストラクタでtickイベントに登録される関数
+	onTickEvent = function (self)
+		PermanentAnimationAction.onTickEvent(self)
+		Kotatsu.BodyYawPrev = player:getBodyYaw()
+	end,
+
 	---こたつアニメーションを再生する。
 	play = function (self)
 		PermanentAnimationAction.play(self)
@@ -24,8 +30,10 @@ Kotatsu = General.instance({
 
 	---こたつアニメーションを停止する。
 	stop = function (self)
+		if Kotatsu.IsAnimationPlaying then
+			sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+		end
 		PermanentAnimationAction.stop(self)
-		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 		Physics.EnablePyhsics[1] = true
 		Camera.CameraOffset = 0
 		Nameplate.NamePlateOffset = 0
