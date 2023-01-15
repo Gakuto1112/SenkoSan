@@ -275,7 +275,6 @@ Mobが被っているプレイヤーの頭は設定に関わらず、デフォ�
 | Tablist customizations Δ | "Script" または "Script + Badges" | |
 | Print Output Δ | "Chat" | |
 | First Person Hands Δ | 無効 | |
-| Chat Emojis Δ | 無効 | 一部のメッセージの文字色が意図しないものになってしまいます。 |
 | Chat Messages | 有効 | セリフ集からチャット発言するのに必要です。また、**安全のため、他のアバターに切り替える際は無効にして下さい。** |
 
 ### マインクラフト設定
@@ -307,3 +306,9 @@ Mobが被っているプレイヤーの頭は設定に関わらず、デフォ�
 
 <!-- REQUIRED_IMAGE -->
 ![仙狐とシロ3](../../README_images/仙狐とシロ3.jpg)
+
+<!-- REQUIRED_IMAGE -->
+![仙狐とシロ4](../../README_images/仙狐とシロ4.jpg)
+
+<!-- REQUIRED_IMAGE -->
+![仙狐とシロ5](../../README_images/仙狐とシロ5.jpg)
