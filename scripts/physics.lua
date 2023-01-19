@@ -3,14 +3,14 @@
 ---@field Physics.VelocityAverage table 速度の平均値：1. 前後, 2. 上下, 3. 左右, 4. 角速度
 ---@field Physics.LookRotPrevRender number 前レンダーチックのlookRot
 ---@field Physics.LookRotDeltaPrevRender number 前レンダーチックのlookRotDelta
----@field Physics.EnablePyhsics boolean 物理演算を有効にするかどうか：1. 尻尾, 2. 髪飾り
+---@field Physics.EnablePyhsics boolean 物理演算を有効にするかどうか：1. 尻尾, 2. 髪飾り, 3. 袖
 
 Physics = {
 	VelocityData = {{}, {}, {}, {}},
 	VelocityAverage = {0, 0, 0, 0},
 	LookRotPrevRender = 0,
 	LookRotDeltaPrevRender = 0,
-	EnablePyhsics = {true, true}
+	EnablePyhsics = {true, true, true}
 }
 
 events.RENDER:register(function ()
@@ -53,8 +53,9 @@ events.RENDER:register(function ()
 	--求めた平均速度から尻尾の角度を計算
 	local tailRot = vectors.vec3(0, 0, 0)
 	local hairAccessoryLineRot = vectors.vec3(0, 0, 0)
+	local sleeveRot = {vectors.vec3(0, 0, 0), vectors.vec3(0, 0, 0)}
+	local rotLimit = {{{-60, 60}, {-30, 30}}, {{0, 180}, {-90, 90}}, {{-20, 20}, {-40, 40}}} --物理演算の可動範囲：1. 尻尾：{1-1. 上下方向, 1-2. 左右方向}, 2. 髪飾りのヒモ：{2-1. 前後方向, 2-2. 左右方向}, 3. 袖：{3-1. ベース部分, 3-2. メイン部分}
 	if (not renderer:isFirstPerson() or client:hasIrisShader()) and (Physics.EnablePyhsics[1] or Physics.EnablePyhsics[2]) then
-		local rotLimit = {{{-60, 60}, {-30, 30}}, {{0, 180}, {-90, 90}}} --物理演算の可動範囲：1. 尻尾：{1-1. 上下方向, 1-2. 左右方向}, 2. 髪飾りのヒモ：{2-1. 前後方向, 2-2. 左右方向}
 		local playerPose = player:getPose()
 		if SitDown.IsAnimationPlaying or player:getVehicle() then
 			rotLimit[1][1][2] = 10
@@ -87,11 +88,34 @@ events.RENDER:register(function ()
 				local hairAccessoryLineXAngleMove = math.abs(Physics.VelocityAverage[4]) * 0.05
 				hairAccessoryLineRot = vectors.vec3(math.clamp(math.min(hairAccessoryLineXMoveX, math.max(90 - hairAccessoryLineXMoveY / 2 - hairAccessoryLineXAngleMove, 0)) + math.clamp(hairAccessoryLineXMoveY, math.min(hairAccessoryLineXMoveX + hairAccessoryLineXAngleMove, 0), math.max(rotLimit[2][1][2] - hairAccessoryLineXMoveX - hairAccessoryLineXAngleMove, 0)) + math.min(hairAccessoryLineXAngleMove, math.max(90 - hairAccessoryLineXMoveX - hairAccessoryLineXMoveY / 2, 0)) - lookDir.y * 90, rotLimit[2][1][1], rotLimit[2][1][2]), 0, math.clamp(-Physics.VelocityAverage[3] * 90, rotLimit[2][2][1], rotLimit[2][2][2]))
 			end
+			if Physics.EnablePyhsics[3] then
+				sleeveRot = {vectors.vec3(math.clamp(90 - vanilla_model.RIGHT_ARM:getOriginRot().x, rotLimit[3][1][1] + rotLimit[3][2][1], rotLimit[3][1][2] + rotLimit[3][2][2])), vectors.vec3(math.clamp(90 - vanilla_model.LEFT_ARM:getOriginRot().x, rotLimit[3][1][1] + rotLimit[3][2][1], rotLimit[3][1][2] + rotLimit[3][2][2]))}
+			end
 		end
 	end
 	models.models.main.Avatar.Body.BodyBottom.Tail:setRot(tailRot)
 	for _, modelPart in ipairs(models.models.main.Avatar.Head.HairAccessory.HairAccessoryLines:getChildren()) do
 		modelPart:setRot(hairAccessoryLineRot)
+	end
+	for index, sleeveBase in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase}) do
+		sleeveBase:setPivot(index == 1 and 6.5 or -6.5, sleeveRot[index].x >= 0 and 19 or 14, 2)
+		sleeveBase:setRot(sleeveRot[index]:copy():applyFunc(function (element, vectorIndex)
+			return vectorIndex == 1 and math.clamp(element, rotLimit[3][1][1], rotLimit[3][1][2]) or element
+		end))
+	end
+	for index, sleeve in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve}) do
+		sleeve:setPivot(index == 1 and 6 or -6, sleeveRot[index].x >= 0 and 19 or 14, 4)
+		sleeve:setRot(sleeveRot[index]:applyFunc(function (element, vectorIndex)
+			if vectorIndex == 1 then
+				if element >= 0 then
+					return math.max(element + rotLimit[3][1][1], 0)
+				else
+					return math.min(element + rotLimit[3][1][2], 0)
+				end
+			else
+				return element
+			end
+		end))
 	end
 	Physics.LookRotDeltaPrevRender = lookRotDelta
 	Physics.LookRotPrevRender = lookRot
