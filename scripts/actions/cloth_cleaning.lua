@@ -5,6 +5,7 @@ ClothCleaning = General.instance({
 	play = function (self)
 		AnimationAction.play(self)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+		Physics.EnablePyhsics[3] = false
 		Arms.hideHeldItem(true)
 	end,
 
@@ -12,14 +13,19 @@ ClothCleaning = General.instance({
 	stop = function (self)
 		AnimationAction.stop(self)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+		Physics.EnablePyhsics[3] = true
 	end,
 
 	---アニメーション再生中に毎チック実行される関数
 	onAnimationTick = function (self)
 		AnimationAction.onAnimationTick(self)
-		if self.AnimationCount == 91 then
+		if self.AnimationCount == 187 then
+			Sleeve.movePivot("BOTH", "UPPER")
+		elseif self.AnimationCount == 90 then
 			models.models.cloth_cleaning.Stain:setVisible(false)
-		elseif self.AnimationCount == 41 then
+		elseif self.AnimationCount == 50 then
+			Sleeve.movePivot("BOTH", "LOWER")
+		elseif self.AnimationCount == 40 then
 			FaceParts.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
 			local playerPos = player:getPos()
 			sounds:playSound("entity.player.levelup", playerPos, 1, 1.5)
