@@ -7,7 +7,14 @@ FoxJump = General.instance({
 	---キツネジャンプアニメーションを再生する。
 	play = function (self)
 		AnimationAction.play(self)
+		Physics.EnablePyhsics[3] = false
 		Arms.hideHeldItem(true)
+	end,
+
+	---キツネジャンプアニメーションを停止する。
+	stop = function (self)
+		AnimationAction.stop(self)
+		Physics.EnablePyhsics[3] = true
 	end,
 
 	---アニメーション再生中に毎チック実行される関数
