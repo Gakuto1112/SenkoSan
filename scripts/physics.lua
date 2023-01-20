@@ -107,13 +107,14 @@ events.RENDER:register(function ()
 		modelPart:setRot(hairAccessoryLineRot)
 	end
 	for index, sleeveBase in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase}) do
-		sleeveBase:setPivot(index == 1 and 6.5 or -6.5, sleeveRot[index].x >= 0 and 19 or 14, 2)
+		if Physics.EnablePyhsics[3] then
+			Sleeve.movePivot(index == 1 and "RIGHT" or "LEFT", sleeveRot[index].x >= 0 and "LOWER" or "UPPER")
+		end
 		sleeveBase:setRot(sleeveRot[index]:copy():applyFunc(function (element, vectorIndex)
 			return vectorIndex == 1 and math.clamp(element, rotLimit[3][1][1], rotLimit[3][1][2]) or element
 		end))
 	end
 	for index, sleeve in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve}) do
-		sleeve:setPivot(index == 1 and 6 or -6, sleeveRot[index].x >= 0 and 19 or 14, 4)
 		sleeve:setRot(sleeveRot[index]:applyFunc(function (element, vectorIndex)
 			if vectorIndex == 1 then
 				if element >= 0 then

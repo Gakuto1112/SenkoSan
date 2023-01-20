@@ -15,7 +15,7 @@ AnimationAction = {
 		instance.CanPlayAnimation = false --アニメーションが再生可能かどうか
 		instance.AnimationChecked = false --このチックでアニメーションが再生可能かどうかを確認したかどうか
 		instance.IsAnimationPlaying = false --アニメーションが再生中かどうか
-		instance.AnimationCount = 0 --アニメーションのタイミングを計るカウンター
+		instance.AnimationCount = -1 --アニメーションのタイミングを計るカウンター
 		instance.AnimationLength = primaryAnimation and math.ceil(primaryAnimation:getLength() * 20) + additionalAnimationCount or additionalAnimationCount --メインのアニメーションの長さ
 		instance.Animations = primaryAnimation and {primaryAnimation} or {} --再生・停止するアニメーションのリスト
 		if secondaryAnimation then
@@ -98,12 +98,12 @@ AnimationAction = {
 		Umbrella.EnableUmbrella = true
 		self.IsAnimationPlaying = false
 		ActionWheel.IsAnimationPlaying = false
-		self.AnimationCount = 0
+		self.AnimationCount = -1
 	end,
 
 	---アニメーション再生中に毎チック実行される関数
 	onAnimationTick = function (self)
-		if self.AnimationCount == 1 or not self:checkAction() then
+		if self.AnimationCount == 0 or not self:checkAction() then
 			self:stop()
 		end
 		self.AnimationCount = (self.AnimationCount > 0 and not client:isPaused()) and self.AnimationCount - 1 or self.AnimationCount

@@ -8,6 +8,7 @@ end, models.models.vacuum_cleaning, models.models.vacuum_cleaning, animations["m
 function VacuumCleaning.play(self)
 	AnimationAction.play(self)
 	sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+	Physics.EnablePyhsics[3] = false
 	Arms.hideHeldItem(true)
 end
 
@@ -18,6 +19,7 @@ function VacuumCleaning.stop(self)
 	end
 	AnimationAction.stop(self)
 	Ears.EarsRotCount = 0
+	Physics.EnablePyhsics[3] = true
 end
 
 ---アニメーション再生中に毎チック実行される関数
@@ -30,6 +32,8 @@ function VacuumCleaning.onAnimationTick(self)
 			if self.AnimationCount == 231 then
 				FaceParts.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 39, true)
 				Ears.setEarsRot("DROOPING", 230, true)
+			elseif self.AnimationCount == 230 then
+				Sleeve.movePivot("BOTH", "UPPER")
 			end
 			sounds:playSound("entity.experience_orb.pickup", player:getPos(), 0.25, 1.5)
 		elseif self.AnimationCount <= 189 and self.AnimationCount >= 149 and (self.AnimationCount - 149) % 10 == 0 then
@@ -46,8 +50,11 @@ function VacuumCleaning.onAnimationTick(self)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 	elseif self.AnimationCount == 119 then
 		FaceParts.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 85, true)
+		Sleeve.movePivot("BOTH", "UPPER")
 	elseif self.AnimationCount == 34 then
 		FaceParts.setEmotion("CLOSED", "CLOSED", "CLOSED", 30, true)
+	elseif self.AnimationCount == 4 then
+		Sleeve.movePivot("BOTH", "LOWER")
 	end
 end
 
