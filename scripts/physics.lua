@@ -67,12 +67,20 @@ events.RENDER:register(function ()
 			if Physics.EnablePyhsics[2] then
 				hairAccessoryLineRot = vectors.vec3(math.clamp(60 - Physics.VelocityAverage[1] * 80, rotLimit[2][1][1], rotLimit[2][1][2]), 0, math.clamp(-Physics.VelocityAverage[4] * 0.1, rotLimit[2][2][1], rotLimit[2][2][2]))
 			end
+			if Physics.EnablePyhsics[3] then
+				sleeveRot = {vectors.vec3(math.clamp(90 - vanilla_model.RIGHT_ARM:getOriginRot().x, rotLimit[3][1][1] + rotLimit[3][2][1], rotLimit[3][1][2] + rotLimit[3][2][2])), vectors.vec3(math.clamp(90 - vanilla_model.LEFT_ARM:getOriginRot().x, rotLimit[3][1][1] + rotLimit[3][2][1], rotLimit[3][1][2] + rotLimit[3][2][2]))}
+			end
 		elseif playerPose == "SWIMMING" then
 			if Physics.EnablePyhsics[1] then
 				tailRot = vectors.vec3(math.clamp(Physics.VelocityAverage[1] * 320, rotLimit[1][1][1], rotLimit[1][1][2]), math.clamp(-Physics.VelocityAverage[4] * 0.2, rotLimit[1][2][1], rotLimit[1][2][2]), 0)
 			end
 			if Physics.EnablePyhsics[2] then
 				hairAccessoryLineRot = vectors.vec3(math.clamp(60 - Physics.VelocityAverage[1] * 320, rotLimit[2][1][1], rotLimit[2][1][2]), 0, math.clamp(-Physics.VelocityAverage[4] * 0.2, rotLimit[2][2][1], rotLimit[2][2][2]))
+			end
+			if Physics.EnablePyhsics[3] then
+				local rightOriginArmRot = vanilla_model.RIGHT_ARM:getOriginRot()
+				local leftOriginArmRot = vanilla_model.LEFT_ARM:getOriginRot()
+				sleeveRot = {vectors.vec3(math.clamp(rightOriginArmRot.x >= 90 and -rightOriginArmRot.x + 180 or -rightOriginArmRot.x, rotLimit[3][1][1] + rotLimit[3][2][1], rotLimit[3][1][2] + rotLimit[3][2][2])), vectors.vec3(math.clamp(leftOriginArmRot.x >= 90 and -leftOriginArmRot.x + 180 or -leftOriginArmRot.x, rotLimit[3][1][1] + rotLimit[3][2][1], rotLimit[3][1][2] + rotLimit[3][2][2]))}
 			end
 		else
 			if Physics.EnablePyhsics[1] then
