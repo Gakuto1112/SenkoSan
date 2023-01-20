@@ -10,6 +10,7 @@ HairCut = General.instance({
 	play = function (self)
 		AnimationAction.play(self)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+		Physics.EnablePyhsics[3] = false
 		Arms.hideHeldItem(true)
 	end,
 
@@ -18,6 +19,7 @@ HairCut = General.instance({
 		AnimationAction.stop(self)
 		HairCut.ScissorsItem:enabled(false)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+		Physics.EnablePyhsics[3] = true
 	end,
 
 	---アニメーション再生中に毎チック実行される関数
