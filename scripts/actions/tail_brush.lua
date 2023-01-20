@@ -21,7 +21,9 @@ TailBrush = General.instance({
 		AnimationAction.stop(self)
 		animations["models.main"]["tail_brush_sitdown"]:stop()
 		Physics.EnablePyhsics[1] = true
-		Physics.EnablePyhsics[3] = true
+		if not SitDown.IsAnimationPlaying then
+			Physics.EnablePyhsics[3] = true
+		end
 	end,
 
 	---アニメーション再生中に毎チック実行される関数

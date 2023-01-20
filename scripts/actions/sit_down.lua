@@ -5,6 +5,7 @@ SitDown = General.instance({
 	play = function (self)
 		PermanentAnimationAction.play(self)
 		Kotatsu:stop()
+		Physics.EnablePyhsics[3] = false
 		Umbrella.EnableUmbrella = true
 		Camera.CameraOffset = -0.5
 		Nameplate.NamePlateOffset = -0.5
@@ -17,6 +18,7 @@ SitDown = General.instance({
 			animation:play()
 		end
 		ActionWheel.onStandUp()
+		Physics.EnablePyhsics[3] = true
 		Camera.CameraOffset = 0
 		Nameplate.NamePlateOffset = 0
 	end
