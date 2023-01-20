@@ -19,12 +19,8 @@ ClothCleaning = General.instance({
 	---アニメーション再生中に毎チック実行される関数
 	onAnimationTick = function (self)
 		AnimationAction.onAnimationTick(self)
-		if self.AnimationCount == 187 then
-			Sleeve.movePivot("BOTH", "UPPER")
-		elseif self.AnimationCount == 90 then
+		if self.AnimationCount == 90 then
 			models.models.cloth_cleaning.Stain:setVisible(false)
-		elseif self.AnimationCount == 50 then
-			Sleeve.movePivot("BOTH", "LOWER")
 		elseif self.AnimationCount == 40 then
 			FaceParts.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
 			local playerPos = player:getPos()

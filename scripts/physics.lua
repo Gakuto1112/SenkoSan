@@ -107,9 +107,6 @@ events.RENDER:register(function ()
 		modelPart:setRot(hairAccessoryLineRot)
 	end
 	for index, sleeveBase in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase}) do
-		if Physics.EnablePyhsics[3] then
-			Sleeve.movePivot(index == 1 and "RIGHT" or "LEFT", sleeveRot[index].x >= 0 and "LOWER" or "UPPER")
-		end
 		sleeveBase:setRot(sleeveRot[index]:copy():applyFunc(function (element, vectorIndex)
 			return vectorIndex == 1 and math.clamp(element, rotLimit[3][1][1], rotLimit[3][1][2]) or element
 		end))
