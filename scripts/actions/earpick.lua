@@ -4,10 +4,9 @@ Earpick = General.instance({
 	---耳かきアニメーションを再生する。
 	play = function (self)
 		AnimationAction.play(self)
-		Arms.AutoArmAdjust = false
-		models.models.main.Avatar.Body.Arms.RightArm:setRot(-20, -10, 15)
-		models.models.main.Avatar.Body.Arms.LeftArm:setRot(-20, 10, -15)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+		Arms.RightArmRotOffset = vectors.vec3(-20, -10, 15)
+		Arms.LeftArmRotOffset = vectors.vec3(-20, 10, -15)
 		Arms.hideHeldItem(true)
 	end,
 
@@ -15,7 +14,7 @@ Earpick = General.instance({
 	stop = function (self)
 		AnimationAction.stop(self)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-		Arms.AutoArmAdjust = true
+		Arms.resetArmRotOffset()
 	end,
 
 	---アニメーション再生中に毎チック実行される関数
