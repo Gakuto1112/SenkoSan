@@ -4,6 +4,9 @@ Earpick = General.instance({
 	---耳かきアニメーションを再生する。
 	play = function (self)
 		AnimationAction.play(self)
+		Arms.AutoArmAdjust = false
+		models.models.main.Avatar.Body.Arms.RightArm:setRot(-20, -10, 15)
+		models.models.main.Avatar.Body.Arms.LeftArm:setRot(-20, 10, -15)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 		Arms.hideHeldItem(true)
 	end,
@@ -12,6 +15,7 @@ Earpick = General.instance({
 	stop = function (self)
 		AnimationAction.stop(self)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+		Arms.AutoArmAdjust = true
 	end,
 
 	---アニメーション再生中に毎チック実行される関数
@@ -33,7 +37,7 @@ Earpick = General.instance({
 	end
 }, AnimationAction, function ()
 	return SitDown.IsAnimationPlaying and not player:isUsingItem()
-end, {models.models.main.Avatar.Body.Arms.RightArm.EarpickRA, models.models.ear_cleaning}, {models.models.main.Avatar.Body.Arms.RightArm.EarpickRA, models.models.ear_cleaning}, animations["models.main"]["earpick"], {animations["models.ear_cleaning"]["earpick"], animations["models.main"]["earpick_arm_fix"]}, 0)
+end, {models.models.main.Avatar.Body.Arms.RightArm.EarpickRA, models.models.ear_cleaning}, {models.models.main.Avatar.Body.Arms.RightArm.EarpickRA, models.models.ear_cleaning}, animations["models.main"]["earpick"], {animations["models.ear_cleaning"]["earpick"]}, 0)
 
 models.models.ear_cleaning.LyingPlayer:setPrimaryTexture("SKIN")
 if player:getModelType() == "DEFAULT" then
