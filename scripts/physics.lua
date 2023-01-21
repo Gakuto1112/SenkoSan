@@ -54,7 +54,7 @@ events.RENDER:register(function ()
 	local tailRot = vectors.vec3(0, 0, 0)
 	local hairAccessoryLineRot = vectors.vec3(0, 0, 0)
 	local sleeveRot = {vectors.vec3(0, 0, 0), vectors.vec3(0, 0, 0)}
-	local rotLimit = {{{-60, 60}, {-30, 30}}, {{0, 180}, {-90, 90}}, {{-20, 20}, {-60, 60}}} --物理演算の可動範囲：1. 尻尾：{1-1. 上下方向, 1-2. 左右方向}, 2. 髪飾りのヒモ：{2-1. 前後方向, 2-2. 左右方向}, 3. 袖：{3-1. ベース部分, 3-2. メイン部分}
+	local rotLimit = {{{-60, 60}, {-30, 30}}, {{0, 180}, {-90, 90}}, {{-20, 20}, {-20, 20}}, {{-60, 60}, {-70, 70}}} --物理演算の可動範囲：1. 尻尾：{1-1. 上下方向, 1-2. 左右方向}, 2. 髪飾りのヒモ：{2-1. 前後方向, 2-2. 左右方向}, 3. 袖ベース：{3-1. 前後方向, 3-2. 左右方向}, 4. 袖：{4-1. 前後方向, 4-2. 左右方向}
 	if (not renderer:isFirstPerson() or client:hasIrisShader()) and (Physics.EnablePyhsics[1] or Physics.EnablePyhsics[2]) then
 		local playerPose = player:getPose()
 		if SitDown.IsAnimationPlaying or player:getVehicle() then
@@ -68,7 +68,7 @@ events.RENDER:register(function ()
 				hairAccessoryLineRot = vectors.vec3(math.clamp(60 - Physics.VelocityAverage[1] * 80, rotLimit[2][1][1], rotLimit[2][1][2]), 0, math.clamp(-Physics.VelocityAverage[4] * 0.1, rotLimit[2][2][1], rotLimit[2][2][2]))
 			end
 			if Physics.EnablePyhsics[3] then
-				sleeveRot = {vectors.vec3(math.clamp(90 - vanilla_model.RIGHT_ARM:getOriginRot().x, rotLimit[3][1][1] + rotLimit[3][2][1], rotLimit[3][1][2] + rotLimit[3][2][2])), vectors.vec3(math.clamp(90 - vanilla_model.LEFT_ARM:getOriginRot().x, rotLimit[3][1][1] + rotLimit[3][2][1], rotLimit[3][1][2] + rotLimit[3][2][2]))}
+				sleeveRot = {vectors.vec3(math.clamp(90 - vanilla_model.RIGHT_ARM:getOriginRot().x, rotLimit[3][1][1] + rotLimit[3][2][1], rotLimit[3][1][2] + rotLimit[4][1][2])), vectors.vec3(math.clamp(90 - vanilla_model.LEFT_ARM:getOriginRot().x, rotLimit[3][1][1] + rotLimit[4][1][1], rotLimit[3][1][2] + rotLimit[4][1][2]))}
 			end
 		elseif playerPose == "SWIMMING" then
 			if Physics.EnablePyhsics[1] then
@@ -80,7 +80,7 @@ events.RENDER:register(function ()
 			if Physics.EnablePyhsics[3] then
 				local rightOriginArmRot = vanilla_model.RIGHT_ARM:getOriginRot()
 				local leftOriginArmRot = vanilla_model.LEFT_ARM:getOriginRot()
-				sleeveRot = {vectors.vec3(math.clamp(rightOriginArmRot.x >= 90 and -rightOriginArmRot.x + 180 or -rightOriginArmRot.x, rotLimit[3][1][1] + rotLimit[3][2][1], rotLimit[3][1][2] + rotLimit[3][2][2])), vectors.vec3(math.clamp(leftOriginArmRot.x >= 90 and -leftOriginArmRot.x + 180 or -leftOriginArmRot.x, rotLimit[3][1][1] + rotLimit[3][2][1], rotLimit[3][1][2] + rotLimit[3][2][2]))}
+				sleeveRot = {vectors.vec3(math.clamp(rightOriginArmRot.x >= 90 and -rightOriginArmRot.x + 180 or -rightOriginArmRot.x, rotLimit[3][1][1] + rotLimit[4][1][1], rotLimit[3][1][2] + rotLimit[4][1][2])), vectors.vec3(math.clamp(leftOriginArmRot.x >= 90 and -leftOriginArmRot.x + 180 or -leftOriginArmRot.x, rotLimit[3][1][1] + rotLimit[4][1][1], rotLimit[3][1][2] + rotLimit[4][1][2]))}
 			end
 		else
 			if Physics.EnablePyhsics[1] then
@@ -98,7 +98,7 @@ events.RENDER:register(function ()
 			end
 			if Physics.EnablePyhsics[3] then
 				local leftHanded = player:isLeftHanded()
-				sleeveRot = {vectors.vec3(math.clamp((Umbrella.Umbrella and leftHanded) and 70 or (90 - vanilla_model.RIGHT_ARM:getOriginRot().x), rotLimit[3][1][1] + rotLimit[3][2][1], rotLimit[3][1][2] + rotLimit[3][2][2])), vectors.vec3(math.clamp((Umbrella.Umbrella and not leftHanded) and 70 or (90 - vanilla_model.LEFT_ARM:getOriginRot().x), rotLimit[3][1][1] + rotLimit[3][2][1], rotLimit[3][1][2] + rotLimit[3][2][2]))}
+				sleeveRot = {vectors.vec3(math.clamp((Umbrella.Umbrella and leftHanded) and 70 or (90 - vanilla_model.RIGHT_ARM:getOriginRot().x), rotLimit[3][1][1] + rotLimit[4][1][1], rotLimit[3][1][2] + rotLimit[4][1][2])), vectors.vec3(math.clamp((Umbrella.Umbrella and not leftHanded) and 70 or (90 - vanilla_model.LEFT_ARM:getOriginRot().x), rotLimit[3][1][1] + rotLimit[4][1][1], rotLimit[3][1][2] + rotLimit[4][1][2]))}
 			end
 		end
 	end
