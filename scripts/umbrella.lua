@@ -26,12 +26,12 @@ events.TICK:register(function ()
 		if player:isLeftHanded() then
 			rightArm:setParentType("Body")
 			leftArm:setParentType("LeftArm")
-			umbrella:setPos(5.5, 0, 0)
+			umbrella:setPos(5.5)
 			animations["models.main"]["sit_down_right_umbrella"]:setPlaying(SitDown.IsAnimationPlaying)
 		else
 			leftArm:setParentType("Body")
 			rightArm:setParentType("RightArm")
-			umbrella:setPos(-5.5, 0, 0)
+			umbrella:setPos(-5.5)
 			animations["models.main"]["sit_down_left_umbrella"]:setPlaying(SitDown.IsAnimationPlaying)
 		end
 		umbrella:setVisible(true)

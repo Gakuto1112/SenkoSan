@@ -10,6 +10,7 @@
 	"variable_placeholders": "",
 	"variable_placeholder_buttons": [],
 	"timeline_setups": [],
+	"unhandled_root_fields": {},
 	"resolution": {
 		"width": 20,
 		"height": 42
@@ -163,6 +164,7 @@
 			"id": "0",
 			"particle": false,
 			"render_mode": "default",
+			"render_sides": "auto",
 			"frame_time": 1,
 			"frame_order_type": "loop",
 			"frame_order": "",
@@ -187,20 +189,8 @@
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
-			"loop_delay": ""
-		},
-		{
-			"uuid": "b14fc554-d954-e73c-3ee7-a7245954360e",
-			"name": "stand_up",
-			"loop": "once",
-			"override": false,
-			"length": 0.16667,
-			"snapping": 24,
-			"selected": false,
-			"anim_time_update": "",
-			"blend_weight": "",
-			"start_delay": "",
-			"loop_delay": ""
+			"loop_delay": "",
+			"animators": {}
 		}
 	]
 }

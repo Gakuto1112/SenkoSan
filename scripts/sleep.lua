@@ -1,24 +1,18 @@
 ---@class Sleep ベッドで寝る時の挙動を制御するクラス
----@field Sleep.SleepData table 寝た瞬間を検出する為にポーズデータを格納するテーブル
+---@field Sleep.IsSleepingPrev boolean 前チックに寝ていたかどうか
 ---@field Sleep.CostumeBeforeSleeping CostumeType 寝る前のコスチュームを保持する変数
 
 Sleep = {
-	SleepData = {},
+	IsSleepingPrev = false,
 	WardenNearbyPrev = false,
 	CostumeBeforeSleeping = "DEFAULT"
 }
 
 events.TICK:register(function()
-	local mainModel = models.models.main
-	local head = mainModel.Avatar.Head
 	local isSleeping = player:getPose() == "SLEEPING"
 	local isFirstPerson = renderer:isFirstPerson()
-	table.insert(Sleep.SleepData, isSleeping)
-	if #Sleep.SleepData == 3 then
-		table.remove(Sleep.SleepData, 1)
-	end
 	if isSleeping then
-		if not Sleep.SleepData[1] then
+		if not Sleep.IsSleepingPrev  then
 			Physics.EnablePyhsics[1] = false
 			if Warden.WardenNearby then
 				animations["models.main"]["afraid"]:stop()
@@ -28,17 +22,18 @@ events.TICK:register(function()
 			end
 			Sleep.CostumeBeforeSleeping = Costume.CurrentCostume
 			Costume.setCostume("NIGHTWEAR")
+			Physics.EnablePyhsics[3] = false
 			if isFirstPerson then
-				mainModel:setVisible(false)
+				models.models.main:setVisible(false)
 				Apron.IsVisible = false
 			else
 				local sleepBlock = world.getBlockState(player:getPos())
 				if string.find(sleepBlock.id, "^minecraft:.+bed$") then
 					local facingValue = {north = 180, east = -90, south = 0, west = 90}
 					if renderer:isCameraBackwards() then
-						renderer:setCameraRot(10, facingValue[sleepBlock.properties["facing"]] + 160, 0)
+						renderer:setCameraRot(10, facingValue[sleepBlock.properties["facing"]] + 160)
 					else
-						renderer:setCameraRot(10, facingValue[sleepBlock.properties["facing"]] + 20, 0)
+						renderer:setCameraRot(10, facingValue[sleepBlock.properties["facing"]] + 20)
 					end
 				end
 			end
@@ -55,7 +50,7 @@ events.TICK:register(function()
 			FaceParts.setEmotion("CLOSED", "CLOSED", "CLOSED", 1, false)
 		end
 	else
-		if Sleep.SleepData[1] then
+		if Sleep.IsSleepingPrev then
 			Physics.EnablePyhsics[1] = true
 			if Warden.WardenNearby then
 				animations["models.main"]["afraid"]:play()
@@ -67,11 +62,13 @@ events.TICK:register(function()
 			else
 				Costume.setCostume(Sleep.CostumeBeforeSleeping)
 			end
-			mainModel:setVisible(true)
+			Physics.EnablePyhsics[3] = true
+			models.models.main:setVisible(true)
 			Apron.IsVisible = (Sleep.CostumeBeforeSleeping == "DEFAULT" or Sleep.CostumeBeforeSleeping == "DISGUISE" or Costume.CurrentCostume == "KAPPOGI") and not Armor.ArmorVisible[3]
 			renderer:setCameraRot()
 		end
 	end
+	Sleep.IsSleepingPrev = isSleeping
 	Sleep.WardenNearbyPrev = Warden.WardenNearby
 end)
 

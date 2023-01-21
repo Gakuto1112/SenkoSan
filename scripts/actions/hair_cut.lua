@@ -3,13 +3,14 @@
 ---@field HairCut.ScissorsItem ItemTask はさみの描画を行うレンダータスク
 
 HairCut = General.instance({
-	ChairBlock = models.models.hair_cut:newBlock("hair_cut.chair"):block("minecraft:oak_stairs"):pos(8, -6, -4):rot(0, 180, 0), --椅子代わりの階段ブロックのレンダータスク
+	ChairBlock = models.models.hair_cut:newBlock("hair_cut.chair"):block("minecraft:oak_stairs"):pos(8, -6, -4):rot(0, 180), --椅子代わりの階段ブロックのレンダータスク
 	ScissorsItem = models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.HairCutRAB.Scissors:newItem("hair_cut.scissors"):item("minecraft:shears"):pos(2, 0, -3):rot(-90, 45, 0):scale(0.5, 0.5, 0.5):enabled(false), --鋏のアイテムレンダータスク。
 
 	---散髪アニメーションを再生する。
 	play = function (self)
 		AnimationAction.play(self)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+		Physics.EnablePyhsics[3] = false
 		Arms.hideHeldItem(true)
 	end,
 
@@ -18,6 +19,7 @@ HairCut = General.instance({
 		AnimationAction.stop(self)
 		HairCut.ScissorsItem:enabled(false)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+		Physics.EnablePyhsics[3] = true
 	end,
 
 	---アニメーション再生中に毎チック実行される関数
@@ -32,7 +34,7 @@ HairCut = General.instance({
 			end
 			if self.AnimationCount <= 468 and self.AnimationCount >= 398 and (self.AnimationCount - 468) % 15 == 0 then
 				sounds:playSound("entity.cat.hiss", player:getPos(), 0.25, 2)
-				local splashPos = vectors.rotateAroundAxis(-(player:getBodyYaw() % 360), 0, 0, 0.3, 0, 1, 0):add(player:getPos():add(0, 1, 0))
+				local splashPos = vectors.rotateAroundAxis(-(player:getBodyYaw() % 360), 0, 0, 0.3, 0, 1):add(player:getPos():add(0, 1))
 				for _ = 1, 5 do
 					particles:newParticle("splash", splashPos)
 				end
