@@ -6,6 +6,8 @@ Massage = General.instance({
 	play = function (self)
 		AnimationAction.play(self)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+		Arms.RightArmRotOffset = vectors.vec3(-20, -10, 15)
+		Arms.LeftArmRotOffset = vectors.vec3(-20, 10, -15)
 		Arms.hideHeldItem(true)
 	end,
 
@@ -13,6 +15,7 @@ Massage = General.instance({
 	stop = function (self)
 		AnimationAction.stop(self)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+		Arms.resetArmRotOffset()
 	end,
 
 	---アニメーション再生中に毎チック実行される関数
