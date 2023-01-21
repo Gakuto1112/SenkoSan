@@ -94,6 +94,7 @@ AnimationAction = {
 			animationElement:stop()
 		end
 		Arms.hideHeldItem(false)
+		Arms.resetArmRotOffset()
 		FaceParts.resetEmotion()
 		Umbrella.EnableUmbrella = true
 		self.IsAnimationPlaying = false

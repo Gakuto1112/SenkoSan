@@ -5,6 +5,8 @@ TeaTime = General.instance({
 	play = function (self)
 		AnimationAction.play(self)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
+		Arms.RightArmRotOffset = vectors.vec3(-20, -10, 15)
+		Arms.LeftArmRotOffset = vectors.vec3(-20, 10, -15)
 		Arms.hideHeldItem(true)
 	end,
 

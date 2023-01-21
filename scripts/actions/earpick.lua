@@ -14,7 +14,6 @@ Earpick = General.instance({
 	stop = function (self)
 		AnimationAction.stop(self)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-		Arms.resetArmRotOffset()
 	end,
 
 	---アニメーション再生中に毎チック実行される関数
