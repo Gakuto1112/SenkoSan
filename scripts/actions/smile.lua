@@ -25,7 +25,7 @@ Smile = General.instance({
 		self.AnimationCount = 0
 	end
 }, AnimationAction, function ()
-	return not player:isUsingItem() and not Warden.WardenNearby
+	return not player:isUsingItem() and not Warden.WardenNearby and not Kotatsu.IsAnimationPlaying
 end, nil, nil, nil, nil, 40)
 
 return Smile

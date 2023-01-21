@@ -71,6 +71,14 @@ ActionWheel = {
 		end
 	end,
 
+	---こたつアニメーションのトグルを切り替える。
+	---@param toggleValue boolean 切り替える値
+	setKotatsuToggle = function (toggleValue)
+		if host:isHost() then
+			ActionWheel.MainPages[1]:getAction(7):toggled(toggleValue)
+		end
+	end,
+
 	---立ち上がった時に呼ばれる関数（SitDownから呼び出し）
 	onStandUp = function ()
 		if host:isHost() then
@@ -120,8 +128,12 @@ function pings.main1_action6()
 	TailBrush:play()
 end
 
-function pings.main1_action7()
+function pings.main1_action7_toggle()
 	Kotatsu:play()
+end
+
+function pings.main1_action7_untoggle()
+	Kotatsu:stop()
 end
 
 function pings.main2_action1_toggle()
@@ -261,10 +273,10 @@ if host:isHost() then
 	--アクション1-1. にっこり
 	ActionWheel.MainPages[1]:newAction(1):item("emerald"):onLeftClick(function ()
 		if not ActionWheel.IsAnimationPlaying then
-			if Warden.WardenNearby then
-				pings.refuse_emote()
-			else
+			if Smile:checkAction() then
 				pings.main1_action1_left()
+			elseif Warden.WardenNearby then
+				pings.refuse_emote()
 			end
 		end
 	end):onRightClick(function ()
@@ -357,16 +369,23 @@ if host:isHost() then
 	end)
 
 	--アクション1-7. こたつ
-	ActionWheel.MainPages[1]:newAction(7):item("campfire"):onLeftClick(function ()
+	ActionWheel.MainPages[1]:newAction(7):toggleColor(233 / 255, 160 / 255, 69 / 255):item("campfire"):onToggle(function ()
 		if not ActionWheel.IsAnimationPlaying then
 			if Kotatsu:checkAction() then
-				pings.main1_action7()
-			elseif Warden.WardenNearby then
-				pings.refuse_emote()
+				pings.main1_action7_toggle()
 			else
-				print(Language.getTranslate("action_wheel__main_1__action_7__unavailable"))
+				if Warden.WardenNearby then
+					pings.refuse_emote()
+				else
+					print(Language.getTranslate("action_wheel__main_1__action_7__unavailable"))
+				end
+				ActionWheel.MainPages[1]:getAction(7):toggled(false)
 			end
+		else
+			ActionWheel.MainPages[1]:getAction(7):toggled(false)
 		end
+	end):onUntoggle(function ()
+		pings.main1_action7_untoggle()
 	end)
 
 	--アクション2-1. おすわり（正座）

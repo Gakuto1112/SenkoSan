@@ -25,6 +25,7 @@ Kotatsu = General.instance({
 		Camera.CameraOffset = -1
 		Nameplate.NamePlateOffset = -1
 		Arms.hideHeldItem(true)
+		ActionWheel.setKotatsuToggle(true)
 		self.AnimationCount = 1
 	end,
 
@@ -37,6 +38,7 @@ Kotatsu = General.instance({
 		Physics.EnablePyhsics[1] = true
 		Camera.CameraOffset = 0
 		Nameplate.NamePlateOffset = 0
+		ActionWheel.setKotatsuToggle(false)
 		self.AnimationCount = 0
 	end,
 
