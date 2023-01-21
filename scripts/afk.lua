@@ -21,12 +21,10 @@ events.TICK:register(function ()
 			end
 			Afk.AfkCount = 0
 		end
-		if not Kotatsu.IsAnimationPlaying then
-			if Afk.AfkCount == 6000 then
-				Kotatsu:play()
-			elseif Afk.AfkCount < 6000 and Afk.AfkCount > 0 and Afk.AfkCount % 1200 == 0 then
-				TailBrush:play()
-			end
+		if Afk.AfkCount == 6000 and Kotatsu:checkAction() then
+			Kotatsu:play()
+		elseif Afk.AfkCount > 0 and Afk.AfkCount % 1200 == 0 and not Umbrella.Umbrella and not Kotatsu.IsAnimationPlaying then
+			TailBrush:play()
 		end
 		Afk.LookDIrPrev = lookDir
 	end
