@@ -30,8 +30,8 @@ events.TICK:register(function()
 	models.models.main.Avatar.Body.Arms.RightArm:setPos(armPos)
 	models.models.main.Avatar.Body.Arms.LeftArm:setPos(armPos)
 	if isFirstPerson then
-		models.models.main.Avatar.Body.Arms.RightArm:setRot(0, 0, 0)
-		models.models.main.Avatar.Body.Arms.LeftArm:setRot(0, 0, 0)
+		models.models.main.Avatar.Body.Arms.RightArm:setRot()
+		models.models.main.Avatar.Body.Arms.LeftArm:setRot()
 	end
 end)
 
@@ -45,8 +45,8 @@ events.RENDER:register(function ()
 		models.models.main.Avatar.Body.Arms.RightArm:setRot(-rightOriginRot.x + ((umbrellaAdjust and leftHanded) and 20 or 0) + sneakAdjust + Arms.RightArmRotOffset.x, -rightOriginRot.y + Arms.RightArmRotOffset.y, -rightOriginRot.z + Arms.RightArmRotOffset.z)
 		models.models.main.Avatar.Body.Arms.LeftArm:setRot(-leftOriginRot.x+ ((umbrellaAdjust and not leftHanded) and 20 or 0) + sneakAdjust + Arms.LeftArmRotOffset.x, -leftOriginRot.y + Arms.LeftArmRotOffset.y, -leftOriginRot.z + Arms.LeftArmRotOffset.z)
 	else
-		models.models.main.Avatar.Body.Arms.RightArm:setRot(((umbrellaAdjust and leftHanded) and 20 or 0) + sneakAdjust, 0, 0)
-		models.models.main.Avatar.Body.Arms.LeftArm:setRot(((umbrellaAdjust and not leftHanded) and 20 or 0) + sneakAdjust, 0, 0)
+		models.models.main.Avatar.Body.Arms.RightArm:setRot(((umbrellaAdjust and leftHanded) and 20 or 0) + sneakAdjust + Arms.RightArmRotOffset.x, Arms.RightArmRotOffset.y, Arms.RightArmRotOffset.z)
+		models.models.main.Avatar.Body.Arms.LeftArm:setRot(((umbrellaAdjust and not leftHanded) and 20 or 0) + sneakAdjust + Arms.RightArmRotOffset.x, Arms.RightArmRotOffset.y, Arms.RightArmRotOffset.z)
 	end
 end)
 
