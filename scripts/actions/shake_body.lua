@@ -38,7 +38,7 @@ ShakeBody = General.instance({
 		end
 	end
 }, AnimationAction, function ()
-	return not player:isUnderwater() and not player:isInLava() and not Warden.WardenNearby
+	return not player:isUnderwater() and not player:isInLava() and not Warden.WardenNearby and not Kotatsu.IsAnimationPlaying
 end, nil, nil, animations["models.main"]["shake"], nil, 0)
 
 return ShakeBody
