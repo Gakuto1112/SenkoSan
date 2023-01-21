@@ -239,6 +239,7 @@ events.TICK:register(function ()
 			if ActionWheel.SkullState ~= ActionWheel.CurrentSkullState then
 				pings.config_action3(ActionWheel.SkullState)
 				Config.saveConfig("skull", ActionWheel.SkullState)
+				sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 				print(Language.getTranslate("action_wheel__config__action_3__done_first")..Language.getTranslate("skull__"..Skull.SkullList[ActionWheel.SkullState])..Language.getTranslate("action_wheel__config__action_3__done_last"))
 			end
 			if ActionWheel.ParentPage then
