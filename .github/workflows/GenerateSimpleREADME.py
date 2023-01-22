@@ -29,7 +29,7 @@ with open(INPUT_FILE, mode="r", encoding="utf-8") as input_file:
 					image_before = re.search(r"^ +", line)
 					image_title = re.search(r"!\[.+\]", line).group()[2:-1]
 					image_path = re.search(r"\(.+\)", line).group()[1:-1].replace("../../", "")
-					output_file.write(f"{image_before.group() if not image_before is None else ''}[[画像] {image_title}]({image_path})")
+					output_file.write(f"{image_before.group() if not image_before is None else ''}[[画像] {image_title}]({image_path})\n")
 				else:
 					output_file.write(line.replace("../../", ""))
 			line_prev = line

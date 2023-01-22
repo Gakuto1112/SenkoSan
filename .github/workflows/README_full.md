@@ -1,5 +1,5 @@
 # Shiro（シロ）
-TVアニメ「世話やきキツネの仙狐さん」（とその原作）に登場するキャラクターを再現した、MinecraftのスキンMod「[Figura](https://www.curseforge.com/minecraft/mc-mods/figura)」向けスキン「Shiro（シロ）」です。
+TVアニメ「世話やきキツネの仙狐さん」とその原作に登場するキャラクターを再現した、MinecraftのスキンMod「[Figura](https://www.curseforge.com/minecraft/mc-mods/figura)」向けスキン「Shiro（シロ）」です。
 
 <!-- SIMPLE_MESSAGE -->
 
