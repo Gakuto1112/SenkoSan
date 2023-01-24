@@ -8,7 +8,7 @@ Afk = {
 
 	---AFKが停止された時に呼ばれる関数
 	onStopAfk = function ()
-		if Afk.AfkCount >= 216000 and host:isHost() then
+		if Afk.AfkCount >= 72000 and host:isHost() then
 			print(Language.getTranslate("message__afk_too_long"))
 		end
 		if Afk.AfkAnimationCount >= 6000 then
