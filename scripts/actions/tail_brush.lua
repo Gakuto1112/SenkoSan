@@ -24,6 +24,7 @@ TailBrush = General.instance({
 		if not SitDown.IsAnimationPlaying then
 			Physics.EnablePyhsics[3] = true
 		end
+		Afk.TailBrushByAfk = false
 	end,
 
 	---アニメーション再生中に毎チック実行される関数
