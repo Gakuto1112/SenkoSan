@@ -82,7 +82,9 @@ FaceParts = {
 
 events.TICK:register(function ()
 	if FaceParts.EmotionCount == 0 then
-		if General.PlayerCondition == "LOW" then
+		if player:getAir() <= 0 then
+			FaceParts.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 0, false)
+		elseif General.PlayerCondition == "LOW" then
 			FaceParts.setEmotion("TIRED", "TIRED", "CLOSED", 0, false)
 		else
 			FaceParts.setEmotion("NORMAL", "NORMAL", "CLOSED", 0, false)
@@ -97,7 +99,7 @@ events.TICK:register(function ()
 		FaceParts.BlinkCount = FaceParts.BlinkCount + 1
 	end
 	if FaceParts.ComplexionCount == 0 then
-		FaceParts.setComplexion(Warden.WardenNearby and "PALE" or "NORMAL", 0, false)
+		FaceParts.setComplexion((Warden.WardenNearby or player:getFrozenTicks() == 140) and "PALE" or "NORMAL", 0, false)
 	end
 	FaceParts.EmotionCount = (FaceParts.EmotionCount > 0 and not client:isPaused()) and FaceParts.EmotionCount - 1 or FaceParts.EmotionCount
 	FaceParts.ComplexionCount = (FaceParts.ComplexionCount > 0 and not client:isPaused()) and FaceParts.ComplexionCount - 1 or FaceParts.ComplexionCount

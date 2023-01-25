@@ -121,7 +121,8 @@ events.RENDER:register(function ()
 			end
 			if Physics.EnablePyhsics[3] then
 				local leftHanded = player:isLeftHanded()
-				sleeveRot = {vectors.vec3(math.clamp((Umbrella.Umbrella and leftHanded) and 70 or (90 - vanilla_model.RIGHT_ARM:getOriginRot().x), rotLimit[3][1][1] + rotLimit[4][1][1], rotLimit[3][1][2] + rotLimit[4][1][2])), vectors.vec3(math.clamp((Umbrella.Umbrella and not leftHanded) and 70 or (90 - vanilla_model.LEFT_ARM:getOriginRot().x), rotLimit[3][1][1] + rotLimit[4][1][1], rotLimit[3][1][2] + rotLimit[4][1][2]))}
+				local vehicle = player:getVehicle()
+				sleeveRot = {vectors.vec3(math.clamp((Umbrella.Umbrella and leftHanded) and 70 or (90 - vanilla_model.RIGHT_ARM:getOriginRot().x), rotLimit[3][1][1] + rotLimit[4][1][1], rotLimit[3][1][2] + rotLimit[4][1][2]), vehicle and 20 or 0), vectors.vec3(math.clamp((Umbrella.Umbrella and not leftHanded) and 70 or (90 - vanilla_model.LEFT_ARM:getOriginRot().x), rotLimit[3][1][1] + rotLimit[4][1][1], rotLimit[3][1][2] + rotLimit[4][1][2]), vehicle and -20 or 0)}
 			end
 		end
 	end

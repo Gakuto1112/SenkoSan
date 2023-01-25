@@ -35,7 +35,7 @@ events.TICK:register(function()
 			end
 			Wet.WalkDistance = 0
 		end
-		Wet.WetCount = Wet.IsWet and (player:isInWater() and 1200 or math.min(Wet.WetCount + 4, 1200)) or math.max(Wet.WetCount - 1, 0)
+		Wet.WetCount = player:getDeathTime() == 19 and 0 or (Wet.IsWet and (player:isInWater() and 1200 or math.min(Wet.WetCount + 4, 1200)) or math.max(Wet.WetCount - 1, 0))
 	end
 	table.insert(Wet.VelocityYData, velocity.y)
 	table.insert(Wet.OnGroundData, onGround)
