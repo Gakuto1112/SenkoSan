@@ -38,17 +38,6 @@ Massage = General.instance({
 	end
 }, AnimationAction, function ()
 	return Earpick:checkAction()
-end, models.models.massage, models.models.massage, animations["models.main"]["massage"], {animations["models.massage"]["massage"], animations["models.costume_maid_a"]["massage"], animations["models.costume_maid_b"]["massage"], animations["models.main"]["earpick_arm_fix"]}, 0)
-
-models.models.massage.LyingPlayer:setPrimaryTexture("SKIN")
-if player:getModelType() == "DEFAULT" then
-	for _, modelPart in ipairs({models.models.massage.LyingPlayer.LyingPlayerBody.LyingPlayerArms.LyingPlayerRightArms.LyingPlayerRightArmSlim, models.models.massage.LyingPlayer.LyingPlayerBody.LyingPlayerArms.LyingPlayerLeftArms.LyingPlayerLeftArmSlim}) do
-		modelPart:setVisible(false)
-	end
-else
-	for _, modelPart in ipairs({models.models.massage.LyingPlayer.LyingPlayerBody.LyingPlayerArms.LyingPlayerRightArms.LyingPlayerRightArmClassic, models.models.massage.LyingPlayer.LyingPlayerBody.LyingPlayerArms.LyingPlayerLeftArms.LyingPlayerLeftArmClassic}) do
-		modelPart:setVisible(false)
-	end
-end
+end, models.models.dummy_player, models.models.dummy_player, animations["models.main"]["massage"], {animations["models.dummy_player"]["massage"], animations["models.costume_maid_a"]["massage"], animations["models.costume_maid_b"]["massage"]}, 0)
 
 return Massage
