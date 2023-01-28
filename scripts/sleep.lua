@@ -10,7 +10,6 @@ Sleep = {
 
 events.TICK:register(function()
 	local isSleeping = player:getPose() == "SLEEPING"
-	local isFirstPerson = renderer:isFirstPerson()
 	if isSleeping then
 		if not Sleep.IsSleepingPrev  then
 			Physics.EnablePyhsics[1] = false
@@ -23,7 +22,7 @@ events.TICK:register(function()
 			Sleep.CostumeBeforeSleeping = Costume.CurrentCostume
 			Costume.setCostume("NIGHTWEAR")
 			Physics.EnablePyhsics[3] = false
-			if isFirstPerson then
+			if renderer:isFirstPerson() then
 				models.models.main:setVisible(false)
 				Apron.IsVisible = false
 			else
