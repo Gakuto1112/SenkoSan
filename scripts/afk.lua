@@ -54,8 +54,8 @@ events.TICK:register(function ()
 				Afk.AfkAnimationCount = (player:getVelocity():length() == 0 and lookDir == Afk.LookDIrPrev and Hurt.Damaged == "NONE" and not General.IsSneaking and Wet.WetCount == 0 and not Umbrella.Umbrella and not Warden.WardenNearby and type(player:getVehicle()) == "nil") and Afk.AfkAnimationCount + 1 or 0
 				Afk.LookDIrPrev = lookDir
 			end
-			Afk.AfkCount = Afk.AfkCount + 1
 		end
+		Afk.AfkCount = Afk.AfkCount + 1
 	end
 end)
 
