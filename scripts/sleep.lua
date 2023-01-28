@@ -53,23 +53,46 @@ events.TICK:register(function()
 			end
 		end
 		if sleepState ~= Sleep.SleepStatePrev or not Sleep.IsSleepingPrev then
-			for _, animation in ipairs({animations["models.main"]["sleep"], animations["models.main"]["sleep_afraid"]}) do
-				animation:stop()
+			if sleepState ~= Sleep.SleepStatePrev then
+				for _, animation in ipairs({animations["models.main"]["sleep"], animations["models.main"]["sleep_afraid"], animations["models.main"]["sleep_together_left"], animations["models.dummy_player"]["sleep_together_left"]}) do
+					animation:stop()
+				end
+				models.models.dummy_player:setVisible(false)
+				renderer:offsetCameraPivot()
+				renderer:setCameraRot()
 			end
 			if sleepState == 0 then
 				--0. 添い寝なし
 				animations["models.main"]["sleep"]:play()
-				if facing then
-					local cameraYaw = facing == "north" and 160 or (facing == "east" and -110 or (facing == "south" and -20 or 70))
-					renderer:setCameraRot(10, cameraYaw + (renderer:isCameraBackwards() and 180 or 0))
+				if facing and not renderer:isFirstPerson() then
+					renderer:setCameraRot(10, (facing == "north" and 160 or (facing == "east" and -110 or (facing == "south" and -20 or 70))) + (renderer:isCameraBackwards() and 180 or 0))
 				end
 			elseif sleepState == 1 then
 				--1. 左側にプレイヤー
+				animations["models.main"]["sleep_together_left"]:play()
+				local isFirstPerson = renderer:isFirstPerson()
+				models.models.dummy_player:setVisible(not isFirstPerson)
+				animations["models.dummy_player"]["sleep_together_left"]:play()
+				if facing and not isFirstPerson then
+					if facing == "north" then
+						renderer:offsetCameraPivot(-0.5, 0, 0.5)
+					elseif facing == "east" then
+						renderer:offsetCameraPivot(-0.5, 0, -0.5)
+					elseif facing == "south" then
+						renderer:offsetCameraPivot(0.5, 0, -0.5)
+					else
+						renderer:offsetCameraPivot(0.5, 0, 0.5)
+					end
+					renderer:setCameraRot(90, facing == "north" and 180 or (facing == "east" and -90 or (facing == "south" and 0 or 90)))
+				end
 			elseif sleepState == 2 then
 				--2. 右側にプレイヤー
 			elseif sleepState == 3 then
 				--3. ウォーデン
 				animations["models.main"]["sleep_afraid"]:play()
+				if facing and not renderer:isFirstPerson() then
+					renderer:setCameraRot(10, (facing == "north" and 160 or (facing == "east" and -110 or (facing == "south" and -20 or 70))) + (renderer:isCameraBackwards() and 180 or 0))
+				end
 			end
 		end
 		Ears.setEarsRot("DROOPING", 1, true)
@@ -83,8 +106,10 @@ events.TICK:register(function()
 			if Warden.WardenNearby then
 				animations["models.main"]["afraid"]:play()
 			end
-			animations["models.main"]["sleep"]:stop()
-			animations["models.main"]["sleep_afraid"]:stop()
+			for _, animation in ipairs({animations["models.main"]["sleep"], animations["models.main"]["sleep_afraid"], animations["models.main"]["sleep_together_left"], animations["models.dummy_player"]["sleep_together_left"]}) do
+				animation:stop()
+			end
+			models.models.dummy_player:setVisible(false)
 			if Sleep.CostumeBeforeSleeping == "DEFAULT" then
 				Costume.resetCostume()
 			else
@@ -95,6 +120,7 @@ events.TICK:register(function()
 			Apron.IsVisible = (Sleep.CostumeBeforeSleeping == "DEFAULT" or Sleep.CostumeBeforeSleeping == "DISGUISE" or Costume.CurrentCostume == "KAPPOGI") and not Armor.ArmorVisible[3]
 			Sleep.PlayerCheckCount = 0
 			renderer:setCameraRot()
+			renderer:offsetCameraPivot()
 		end
 	end
 	Sleep.IsSleepingPrev = isSleeping
