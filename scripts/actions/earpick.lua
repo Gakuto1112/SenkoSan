@@ -35,17 +35,6 @@ Earpick = General.instance({
 	end
 }, AnimationAction, function ()
 	return SitDown.IsAnimationPlaying and not player:isUsingItem()
-end, {models.models.main.Avatar.Body.Arms.RightArm.EarpickRA, models.models.ear_cleaning}, {models.models.main.Avatar.Body.Arms.RightArm.EarpickRA, models.models.ear_cleaning}, animations["models.main"]["earpick"], {animations["models.ear_cleaning"]["earpick"]}, 0)
-
-models.models.ear_cleaning.LyingPlayer:setPrimaryTexture("SKIN")
-if player:getModelType() == "DEFAULT" then
-	for _, modelPart in ipairs({models.models.ear_cleaning.LyingPlayer.LyingPlayerBody.LyingPlayerArms.LyingPlayerRightArms.LyingPlayerRightArmSlim, models.models.ear_cleaning.LyingPlayer.LyingPlayerBody.LyingPlayerArms.LyingPlayerLeftArms.LyingPlayerLeftArmSlim}) do
-		modelPart:setVisible(false)
-	end
-else
-	for _, modelPart in ipairs({models.models.ear_cleaning.LyingPlayer.LyingPlayerBody.LyingPlayerArms.LyingPlayerRightArms.LyingPlayerRightArmClassic, models.models.ear_cleaning.LyingPlayer.LyingPlayerBody.LyingPlayerArms.LyingPlayerLeftArms.LyingPlayerLeftArmClassic}) do
-		modelPart:setVisible(false)
-	end
-end
+end, {models.models.main.Avatar.Body.Arms.RightArm.EarpickRA, models.models.ear_cleaning, models.models.dummy_player}, {models.models.main.Avatar.Body.Arms.RightArm.EarpickRA, models.models.ear_cleaning, models.models.dummy_player}, animations["models.main"]["earpick"], {animations["models.ear_cleaning"]["earpick"], animations["models.dummy_player"]["earpick"]}, 0)
 
 return Earpick
