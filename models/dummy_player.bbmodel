@@ -510,7 +510,6 @@
 			"to": [8, 24, 2],
 			"autouv": 0,
 			"color": 0,
-			"visibility": false,
 			"origin": [0, 0, 0],
 			"uv_offset": [40, 16],
 			"faces": {
@@ -551,7 +550,6 @@
 			"to": [8, 24, 2],
 			"autouv": 0,
 			"color": 0,
-			"visibility": false,
 			"inflate": 0.25,
 			"origin": [0, 0, 0],
 			"uv_offset": [40, 32],
@@ -593,7 +591,6 @@
 			"to": [-4, 24, 2],
 			"autouv": 0,
 			"color": 0,
-			"visibility": false,
 			"origin": [0, 0, 0],
 			"uv_offset": [32, 48],
 			"faces": {
@@ -634,7 +631,6 @@
 			"to": [-4, 24, 2],
 			"autouv": 0,
 			"color": 0,
-			"visibility": false,
 			"inflate": 0.25,
 			"origin": [0, 0, 0],
 			"uv_offset": [48, 48],
@@ -729,7 +725,7 @@
 									"mirror_uv": false,
 									"isOpen": true,
 									"locked": false,
-									"visibility": false,
+									"visibility": true,
 									"autouv": 0,
 									"children": ["e473fc3d-68cd-4016-56b6-25e34f7a8817", "4a8a0230-afbf-9f8c-9aca-1a88137d2f68"]
 								},
@@ -769,7 +765,7 @@
 									"mirror_uv": false,
 									"isOpen": true,
 									"locked": false,
-									"visibility": false,
+									"visibility": true,
 									"autouv": 0,
 									"children": ["521f1bff-814f-af35-88c7-4e5b91e54a7e", "dc11b575-3f74-8720-9266-8de468a8dfc0"]
 								},
@@ -797,7 +793,7 @@
 					"uuid": "b78d9cc2-764d-fe16-4b03-026cdd1b07a8",
 					"export": true,
 					"mirror_uv": false,
-					"isOpen": false,
+					"isOpen": true,
 					"locked": false,
 					"visibility": true,
 					"autouv": 0,
@@ -835,10 +831,10 @@
 			"frame_interpolate": false,
 			"visible": true,
 			"mode": "bitmap",
-			"saved": true,
+			"saved": false,
 			"uuid": "2d2d5ef0-b1da-d50f-1f42-3e5a22a64084",
-			"relative_path": "../../textures/steve.png",
-			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAIRJREFUeF7t1QERADAMArHi33SFfOagHBm7+Fv8/hOABsQTQCBeAJ8gAgjEE0AgXgArgAAC8QQQiBfACiCAQDwBBOIFsAIIIBBPAIF4AawAAgjEE0AgXgArgAAC8QQQiBfACiCAQDwBBOIFsAIIIBBPAIF4AawAAgjEE0AgXgArgECdwANo2ABBrP9ggQAAAABJRU5ErkJggg=="
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAIRJREFUeF7t1QERADAMArHi33SFfOagHBm7+Fv8/hOABsQTQCBeAJ8gAgjEE0AgXgArgAAC8QQQiBfACiCAQDwBBOIFsAIIIBBPAIF4AawAAgjEE0AgXgArgAAC8QQQiBfACiCAQDwBBOIFsAIIIBBPAIF4AawAAgjEE0AgXgArgECdwANo2ABBrP9ggQAAAABJRU5ErkJggg==",
+			"relative_path": "../../textures/steve.png"
 		}
 	],
 	"animations": [
@@ -5226,7 +5222,7 @@
 			"override": false,
 			"length": 24,
 			"snapping": 24,
-			"selected": true,
+			"selected": false,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
