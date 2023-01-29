@@ -58,24 +58,13 @@ TailCuddling = General.instance({
 					particles:newParticle("minecraft:happy_villager", playerPos:copy():add((math.random() - 0.5) * 4, (math.random() - 0.5) * 4 + 1, (math.random() - 0.5) * 4))
 				end
 			elseif TailCuddling.AnimationCount == 20 then
-				models.models.tail_cuddling.SittingPlayer:setVisible(false)
+				models.models.dummy_player:setVisible(false)
 				sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 			end
 		end
 	end
 }, AnimationAction, function ()
 	return Earpick:checkAction() and Costume.CurrentCostume ~= "DISGUISE" and (not Armor.ShowArmor or not Armor.ArmorVisible[2]) and not player:isWet() and Wet.WetCount == 0
-end, {models.models.tail_cuddling, models.models.tail_cuddling.SittingPlayer}, {models.models.tail_cuddling, models.models.tail_cuddling.SittingPlayer}, animations["models.main"]["tail_cuddling"], animations["models.tail_cuddling"]["tail_cuddling"], 0)
-
-models.models.tail_cuddling.SittingPlayer:setPrimaryTexture("SKIN")
-if player:getModelType() == "DEFAULT" then
-	for _, modelPart in ipairs({models.models.tail_cuddling.SittingPlayer.SittingPlayerBody.SittingPlayerArms.SittingPlayerRightArms.SittingPlayerRightArmSlim, models.models.tail_cuddling.SittingPlayer.SittingPlayerBody.SittingPlayerArms.SittingPlayerLeftArms.SittingPlayerLeftArmSlim}) do
-		modelPart:setVisible(false)
-	end
-else
-	for _, modelPart in ipairs({models.models.tail_cuddling.SittingPlayer.SittingPlayerBody.SittingPlayerArms.SittingPlayerRightArms.SittingPlayerRightArmClassic, models.models.tail_cuddling.SittingPlayer.SittingPlayerBody.SittingPlayerArms.SittingPlayerLeftArms.SittingPlayerLeftArmClassic}) do
-		modelPart:setVisible(false)
-	end
-end
+end, models.models.dummy_player, models.models.dummy_player, animations["models.main"]["tail_cuddling"], animations["models.dummy_player"]["tail_cuddling"], 0)
 
 return TailCuddling

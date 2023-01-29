@@ -130,6 +130,21 @@
 		"models.main.Avatar.Head.Glasses": {
 			"visible": false
 		},
+		"models.dummy_player": {
+			"visible": false
+		},
+		"models.dummy_player.DummyPlayer.Body.RightArm.RightArmClassic": {
+			"parentType": "None"
+		},
+		"models.dummy_player.DummyPlayer.Body.RightArm.RightArmSlim": {
+			"parentType": "None"
+		},
+		"models.dummy_player.DummyPlayer.Body.LeftArm.LeftArmClassic": {
+			"parentType": "None"
+		},
+		"models.dummy_player.DummyPlayer.Body.LeftArm.LeftArmSlim": {
+			"parentType": "None"
+		},
 		"models.broom_cleaning": {
 			"visible": false
 		},
@@ -165,17 +180,11 @@
 			"moveTo": "models.main.Avatar.Body.Arms.RightArm",
 			"visible": false
 		},
-		"models.massage": {
-			"visible": false
-		},
 		"models.tail_brush.Avatar.Body.Arms.RightArm.RightArmBottom.BrushRAB": {
 			"moveTo": "models.main.Avatar.Body.Arms.RightArm.RightArmBottom",
 			"visible": false
 		},
 		"models.kotatsu": {
-			"visible": false
-		},
-		"models.tail_cuddling": {
 			"visible": false
 		},
 		"models.tea": {

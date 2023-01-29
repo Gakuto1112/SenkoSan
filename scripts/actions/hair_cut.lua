@@ -77,19 +77,8 @@ HairCut = General.instance({
 	end
 }, AnimationAction, function ()
 	return BroomCleaning:checkAction()
-end, {models.models.hair_cut, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.HairCutRAB.Spray, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.HairCutRAB.Scissors, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairCutLAB.Comb}, {models.models.hair_cut, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.HairCutRAB.Spray, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.HairCutRAB.Scissors, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairCutLAB.Comb}, animations["models.main"]["hair_cut"], animations["models.hair_cut"]["hair_cut"], 8)
+end, {models.models.hair_cut, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.HairCutRAB.Spray, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.HairCutRAB.Scissors, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairCutLAB.Comb, models.models.dummy_player}, {models.models.hair_cut, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.HairCutRAB.Spray, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.HairCutRAB.Scissors, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairCutLAB.Comb, models.models.dummy_player}, animations["models.main"]["hair_cut"], {animations["models.hair_cut"]["hair_cut"], animations["models.dummy_player"]["hair_cut"]}, 8)
 
-for _, modelPart in ipairs({models.models.hair_cut.SittingPlayer, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairCutLAB.HairPiece}) do
-	modelPart:setPrimaryTexture("SKIN")
-end
-if player:getModelType() == "DEFAULT" then
-	for _, modelPart in ipairs({models.models.hair_cut.SittingPlayer.SittingPlayerBody.SittingPlayerArms.SittingPlayerRightArms.SittingPlayerRightArmSlim, models.models.hair_cut.SittingPlayer.SittingPlayerBody.SittingPlayerArms.SittingPlayerLeftArms.SittingPlayerLeftArmSlim}) do
-		modelPart:setVisible(false)
-	end
-else
-	for _, modelPart in ipairs({models.models.hair_cut.SittingPlayer.SittingPlayerBody.SittingPlayerArms.SittingPlayerRightArms.SittingPlayerRightArmClassic, models.models.hair_cut.SittingPlayer.SittingPlayerBody.SittingPlayerArms.SittingPlayerLeftArms.SittingPlayerLeftArmClassic}) do
-		modelPart:setVisible(false)
-	end
-end
+models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairCutLAB.HairPiece:setPrimaryTexture("SKIN")
 
 return HairCut
