@@ -84,7 +84,7 @@ events.RENDER:register(function ()
 					backHairRot = vectors.vec3(rotLimit[2][2][2])
 				end
 			end
-			if Physics.EnablePyhsics[3] then
+			if Physics.EnablePyhsics[3] and not renderer:isFirstPerson() then
 				sleeveRot = {vectors.vec3(math.clamp(90 - vanilla_model.RIGHT_ARM:getOriginRot().x, rotLimit[3][1][1] + rotLimit[3][2][1], rotLimit[3][1][2] + rotLimit[4][1][2])), vectors.vec3(math.clamp(90 - vanilla_model.LEFT_ARM:getOriginRot().x, rotLimit[3][1][1] + rotLimit[4][1][1], rotLimit[3][1][2] + rotLimit[4][1][2]))}
 			end
 		elseif playerPose == "SWIMMING" then
@@ -97,7 +97,7 @@ events.RENDER:register(function ()
 					backHairRot = vectors.vec3(rotLimit[2][2][2])
 				end
 			end
-			if Physics.EnablePyhsics[3] then
+			if Physics.EnablePyhsics[3] and not renderer:isFirstPerson() then
 				local rightOriginArmRot = vanilla_model.RIGHT_ARM:getOriginRot()
 				local leftOriginArmRot = vanilla_model.LEFT_ARM:getOriginRot()
 				sleeveRot = {vectors.vec3(math.clamp(rightOriginArmRot.x >= 90 and -rightOriginArmRot.x + 180 or -rightOriginArmRot.x, rotLimit[3][1][1] + rotLimit[4][1][1], rotLimit[3][1][2] + rotLimit[4][1][2])), vectors.vec3(math.clamp(leftOriginArmRot.x >= 90 and -leftOriginArmRot.x + 180 or -leftOriginArmRot.x, rotLimit[3][1][1] + rotLimit[4][1][1], rotLimit[3][1][2] + rotLimit[4][1][2]))}
@@ -119,7 +119,7 @@ events.RENDER:register(function ()
 					backHairRot = vectors.vec3(math.clamp(hairXMoveX + hairXMoveY - hairXAngleMove, rotLimit[2][2][1], rotLimit[2][2][2]))
 				end
 			end
-			if Physics.EnablePyhsics[3] then
+			if Physics.EnablePyhsics[3] and not renderer:isFirstPerson() then
 				local leftHanded = player:isLeftHanded()
 				local vehicle = player:getVehicle()
 				sleeveRot = {vectors.vec3(math.clamp((Umbrella.Umbrella and leftHanded) and 70 or (90 - vanilla_model.RIGHT_ARM:getOriginRot().x), rotLimit[3][1][1] + rotLimit[4][1][1], rotLimit[3][1][2] + rotLimit[4][1][2]), vehicle and 20 or 0), vectors.vec3(math.clamp((Umbrella.Umbrella and not leftHanded) and 70 or (90 - vanilla_model.LEFT_ARM:getOriginRot().x), rotLimit[3][1][1] + rotLimit[4][1][1], rotLimit[3][1][2] + rotLimit[4][1][2]), vehicle and -20 or 0)}
