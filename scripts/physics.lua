@@ -51,13 +51,10 @@ events.RENDER:register(function ()
 		end
 	end
 	--求めた平均速度から尻尾の角度を計算
-	local tail = models.models.main.Avatar.Body.BodyBottom.Tail
-	local frontHair = models.models.main.Avatar.Body.Hairs.FrontHair
-	local backHair = models.models.main.Avatar.Body.Hairs.BackHair
 	local tailRot = vectors.vec3()
 	local frontHairRot = vectors.vec3()
 	local backHairRot = vectors.vec3()
-	local backHairVisible = backHair:getVisible()
+	local backHairVisible = models.models.main.Avatar.Body.Hairs.BackHair:getVisible()
 	local sleeveRot = {vectors.vec3(), vectors.vec3()}
 	local rotLimit = {{{-60, 60}, {-30, 30}}, {{0, 80}, {-80, 0}}, {{-20, 20}, {-20, 20}}, {{-60, 60}, {-70, 70}}} --物理演算の可動範囲：1. 尻尾：{1-1. 上下方向, 1-2. 左右方向}, 2. 長髪：{2-1. 前髪, 2-2. 後髪}, 3. 袖ベース：{3-1. 前後方向, 3-2. 左右方向}, 4. 袖：{4-1. 前後方向, 4-2. 左右方向}
 	if (not renderer:isFirstPerson() or client:hasIrisShader()) and (Physics.EnablePyhsics[1] or Physics.EnablePyhsics[2]) then
@@ -70,7 +67,9 @@ events.RENDER:register(function ()
 				rotLimit[2][2][2] = -15
 			elseif Costume.CurrentCostume == "MAID_B" then
 				rotLimit[2][2][2] = -5
-			elseif Costume.CurrentCostume == "SWIMSUIT" or Costume.CurrentCostume == "CHEERLEADER" or Costume.CurrentCostume == "SAILOR" then
+			elseif Costume.CurrentCostume == "SWIMSUIT" then
+				rotLimit[2][2] = {lookDir.y * -90 - 90, 0}
+			elseif Costume.CurrentCostume == "CHEERLEADER" or Costume.CurrentCostume == "SAILOR" then
 				rotLimit[2][2][2] = -10
 			end
 		end
@@ -80,7 +79,9 @@ events.RENDER:register(function ()
 			end
 			if Physics.EnablePyhsics[2] then
 				frontHairRot = vectors.vec3(math.clamp(rotLimit[2][1][2] - math.sqrt(Physics.VelocityAverage[1] ^ 2 + Physics.VelocityAverage[2] ^ 2) * 80, rotLimit[2][1][1], rotLimit[2][1][2]))
-				if backHairVisible then
+				if Costume.CurrentCostume == "SWIMSUIT" then
+					backHairRot = vectors.vec3(-30)
+				elseif backHairVisible then
 					backHairRot = vectors.vec3(rotLimit[2][2][2])
 				end
 			end
@@ -93,7 +94,9 @@ events.RENDER:register(function ()
 			end
 			if Physics.EnablePyhsics[2] then
 				frontHairRot = vectors.vec3(math.clamp(rotLimit[2][1][2] - math.sqrt(Physics.VelocityAverage[1] ^ 2 + Physics.VelocityAverage[2] ^ 2) * 320, rotLimit[2][1][1], rotLimit[2][1][2]))
-				if backHairVisible then
+				if Costume.CurrentCostume == "SWIMSUIT" then
+					backHairRot = vectors.vec3(-30)
+				elseif backHairVisible then
 					backHairRot = vectors.vec3(rotLimit[2][2][2])
 				end
 			end
@@ -115,7 +118,9 @@ events.RENDER:register(function ()
 				local hairXMoveY = Physics.VelocityAverage[2] * 80
 				local hairXAngleMove = math.abs(Physics.VelocityAverage[4]) * 0.05
 				frontHairRot = vectors.vec3(math.clamp(hairXMoveX - hairXMoveY + hairXAngleMove, rotLimit[2][1][1], rotLimit[2][1][2]))
-				if backHairVisible then
+				if Costume.CurrentCostume == "SWIMSUIT" then
+					backHairRot = vectors.vec3(math.clamp(hairXMoveX + hairXMoveY - hairXAngleMove - lookDir.y * 90, rotLimit[2][2][1], rotLimit[2][2][2]))
+				elseif backHairVisible then
 					backHairRot = vectors.vec3(math.clamp(hairXMoveX + hairXMoveY - hairXAngleMove, rotLimit[2][2][1], rotLimit[2][2][2]))
 				end
 			end
@@ -126,10 +131,12 @@ events.RENDER:register(function ()
 			end
 		end
 	end
-	tail:setRot(tailRot)
-	frontHair:setRot(frontHairRot)
-	if backHairVisible then
-		backHair:setRot(backHairRot)
+	models.models.main.Avatar.Body.BodyBottom.Tail:setRot(tailRot)
+	models.models.main.Avatar.Body.Hairs.FrontHair:setRot(frontHairRot)
+	if Costume.CurrentCostume == "SWIMSUIT" then
+		models.models.main.Avatar.Head.CSwimsuitH.Ponytail.PonytailHair:setRot(backHairRot)
+	elseif backHairVisible then
+		models.models.main.Avatar.Body.Hairs.BackHair:setRot(backHairRot)
 	end
 	for index, sleeveBase in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase}) do
 		sleeveBase:setRot(sleeveRot[index]:copy():applyFunc(function (element, vectorIndex)

@@ -59,7 +59,6 @@ Costume = {
 			Legs.ReducedLegSwing = true
 		elseif costume == "SWIMSUIT" then
 			Costume.setCostumeTextureOffset(5)
-			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setUVPixels(0, 0)
 			Apron.IsVisible = false
 		elseif costume == "CHEERLEADER" then
 			Costume.setCostumeTextureOffset(6)
@@ -208,7 +207,7 @@ events.TICK:register(function ()
 			modelsPart:setVisible(false)
 		end
 	end
-	models.models.main.Avatar.Head.CSwimsuitH:setVisible(Costume.CurrentCostume == "SWIMSUIT" and string.find(player:getItem(6).id, "^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1])
+	models.models.main.Avatar.Head.CSwimsuitH:setVisible(Costume.CurrentCostume == "SWIMSUIT" and not Armor.ArmorVisible[1])
 	if Costume.CurrentCostume == "CHEERLEADER" then
 		local rightPonPon = models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB
 		local leftPonPon = models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB
@@ -246,7 +245,7 @@ events.TICK:register(function ()
 	models.models.main.Avatar.Head.CKnitH:setVisible(Costume.CurrentCostume == "KNIT" and not Armor.ArmorVisible[1])
 	local hoodieVisible = (Costume.CurrentCostume == "FOX_HOODIE_RED" or Costume.CurrentCostume == "FOX_HOODIE_WHITE") and not Armor.ArmorVisible[1]
 	models.models.main.Avatar.Head.CFoxHoodH:setVisible(hoodieVisible)
-	models.models.main.Avatar.Body.Hairs.BackHair:setVisible(not hoodieVisible)
+	models.models.main.Avatar.Body.Hairs.BackHair:setVisible(not hoodieVisible and Costume.CurrentCostume ~= "SWIMSUIT")
 	models.models.main.Avatar.Head.CBeretH:setVisible(Costume.CurrentCostume == "CASUAL" and not Armor.ArmorVisible[1])
 	Ears.EnableJerkEar = (Costume.CurrentCostume ~= "DISGUISE" and Costume.CurrentCostume ~= "CASUAL") or Armor.ArmorVisible[1]
 	if Costume.CurrentCostume ~= "MAID_A" and Costume.CurrentCostume ~= "MAID_B" then
@@ -256,7 +255,7 @@ events.TICK:register(function ()
 			models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
 		end
 	end
-	if Costume.CurrentCostume == "SWIMSUIT" or Costume.CurrentCostume == "CHEERLEADER" or Costume.CurrentCostume == "SAILOR" then
+	if Costume.CurrentCostume == "CHEERLEADER" or Costume.CurrentCostume == "SAILOR" then
 		local skirt = models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB
 		skirt:setVisible(not Armor.ArmorVisible[3] and not Kotatsu.IsAnimationPlaying)
 		skirt:setRot((General.IsSneaking or player:getVehicle()) and 27.5 or 0, 0, 0)

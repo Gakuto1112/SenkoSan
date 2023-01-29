@@ -173,39 +173,6 @@
 			"uuid": "17756963-08a9-88fe-6f9a-736328592446"
 		},
 		{
-			"name": "Head",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-4, 24, -4],
-			"to": [4, 32, 4],
-			"autouv": 1,
-			"color": 0,
-			"origin": [0, 24, 0],
-			"faces": {
-				"north": {
-					"uv": [0, 0, 8, 8]
-				},
-				"east": {
-					"uv": [0, 0, 8, 8]
-				},
-				"south": {
-					"uv": [0, 0, 8, 8]
-				},
-				"west": {
-					"uv": [0, 0, 8, 8]
-				},
-				"up": {
-					"uv": [0, 0, 8, 8]
-				},
-				"down": {
-					"uv": [0, 0, 8, 8]
-				}
-			},
-			"type": "cube",
-			"uuid": "2173b487-1910-0993-72ec-cafd77daa126"
-		},
-		{
 			"name": "Sunglasses",
 			"box_uv": false,
 			"rescale": false,
@@ -271,7 +238,6 @@
 					"visibility": true,
 					"autouv": 0,
 					"children": [
-						"2173b487-1910-0993-72ec-cafd77daa126",
 						{
 							"name": "CSwimsuitH",
 							"origin": [0, 24, 0],
@@ -300,7 +266,7 @@
 										"17756963-08a9-88fe-6f9a-736328592446",
 										{
 											"name": "PonytailHair",
-											"origin": [0, 31, 5],
+											"origin": [0, 30, 5],
 											"color": 0,
 											"uuid": "4cfd15ad-ce50-3c8a-c6a3-59a8688cff97",
 											"export": true,
