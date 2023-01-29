@@ -1,12 +1,13 @@
 ---@class Sleep ベッドで寝る時の挙動を制御するクラス
 ---@field Sleep.IsSleepingPrev boolean 前チックに寝ていたかどうか
----@field Sleep.PlayerCheckCount integer 添い寝チェックのカウンター
 ---@field Sleep.SleepStatePrev integer 前チックの睡眠の状態：0. 添い寝なし, 1. 左側にプレイヤー, 2. 右側にプレイヤー, 3. ウォーデン
+---@field Sleep.CoSleepMessageCount integer 添い寝専用メッセージを表示するまでのカウント
 ---@field Sleep.CostumeBeforeSleeping CostumeType 寝る前のコスチュームを保持する変数
 
 Sleep = {
 	IsSleepingPrev = false,
 	SleepStatePrev = 0,
+	CoSleepMessageCount = 0,
 	CostumeBeforeSleeping = "DEFAULT"
 }
 
@@ -67,6 +68,9 @@ events.TICK:register(function()
 				if facing and not renderer:isFirstPerson() then
 					renderer:setCameraRot(10, (facing == "north" and 160 or (facing == "east" and -110 or (facing == "south" and -20 or 70))) + (renderer:isCameraBackwards() and 180 or 0))
 				end
+				if not Sleep.IsSleepingPrev and host:isHost() then
+					print(Language.getTranslate("message__sleep"))
+				end
 			elseif sleepState == 1 then
 				--1. 左側にプレイヤー
 				animations["models.main"]["sleep_together_left"]:play()
@@ -84,6 +88,10 @@ events.TICK:register(function()
 						renderer:offsetCameraPivot(0.5, 0, 0.5)
 					end
 					renderer:setCameraRot(90, facing == "north" and 180 or (facing == "east" and -90 or (facing == "south" and 0 or 90)))
+				end
+				if not Sleep.IsSleepingPrev and host:isHost() then
+					print(Language.getTranslate("message__sleep"))
+					Sleep.CoSleepMessageCount = 40
 				end
 			elseif sleepState == 2 then
 				--2. 右側にプレイヤー
@@ -103,6 +111,10 @@ events.TICK:register(function()
 					end
 					renderer:setCameraRot(90, facing == "north" and 180 or (facing == "east" and -90 or (facing == "south" and 0 or 90)))
 				end
+				if not Sleep.IsSleepingPrev and host:isHost() then
+					print(Language.getTranslate("message__sleep"))
+					Sleep.CoSleepMessageCount = 40
+				end
 			elseif sleepState == 3 then
 				--3. ウォーデン
 				animations["models.main"]["sleep_afraid"]:play()
@@ -114,6 +126,12 @@ events.TICK:register(function()
 		Ears.setEarsRot("DROOPING", 1, true)
 		if not Warden.WardenNearby then
 			FaceParts.setEmotion("CLOSED", "CLOSED", "CLOSED", 1, false)
+		end
+		if Sleep.CoSleepMessageCount > 0 then
+			if Sleep.CoSleepMessageCount == 1 and Sleep.SleepStatePrev >= 1 and Sleep.SleepStatePrev <= 2 and host:isHost() then
+				print(Language.getTranslate("message__sleep_together"))
+			end
+			Sleep.CoSleepMessageCount = Sleep.CoSleepMessageCount - 1
 		end
 		Sleep.SleepStatePrev = sleepState
 	else
@@ -134,7 +152,7 @@ events.TICK:register(function()
 			Physics.EnablePyhsics[3] = true
 			models.models.main:setVisible(true)
 			Apron.IsVisible = (Sleep.CostumeBeforeSleeping == "DEFAULT" or Sleep.CostumeBeforeSleeping == "DISGUISE" or Costume.CurrentCostume == "KAPPOGI") and not Armor.ArmorVisible[3]
-			Sleep.PlayerCheckCount = 0
+			Sleep.CoSleepMessageCount = 0
 			renderer:setCameraRot()
 			renderer:offsetCameraPivot()
 		end
