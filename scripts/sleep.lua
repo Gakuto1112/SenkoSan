@@ -54,7 +54,7 @@ events.TICK:register(function()
 		end
 		if sleepState ~= Sleep.SleepStatePrev or not Sleep.IsSleepingPrev then
 			if sleepState ~= Sleep.SleepStatePrev then
-				for _, animation in ipairs({animations["models.main"]["sleep"], animations["models.main"]["sleep_afraid"], animations["models.main"]["sleep_together_left"], animations["models.dummy_player"]["sleep_together_left"]}) do
+				for _, animation in ipairs({animations["models.main"]["sleep"], animations["models.main"]["sleep_afraid"], animations["models.main"]["sleep_together_left"], animations["models.dummy_player"]["sleep_together_left"], animations["models.main"]["sleep_together_right"], animations["models.dummy_player"]["sleep_together_right"]}) do
 					animation:stop()
 				end
 				models.models.dummy_player:setVisible(false)
@@ -87,6 +87,22 @@ events.TICK:register(function()
 				end
 			elseif sleepState == 2 then
 				--2. 右側にプレイヤー
+				animations["models.main"]["sleep_together_right"]:play()
+				local isFirstPerson = renderer:isFirstPerson()
+				models.models.dummy_player:setVisible(not isFirstPerson)
+				animations["models.dummy_player"]["sleep_together_right"]:play()
+				if facing and not isFirstPerson then
+					if facing == "north" then
+						renderer:offsetCameraPivot(0.5, 0, 0.5)
+					elseif facing == "east" then
+						renderer:offsetCameraPivot(-0.5, 0, 0.5)
+					elseif facing == "south" then
+						renderer:offsetCameraPivot(-0.5, 0, -0.5)
+					else
+						renderer:offsetCameraPivot(0.5, 0, -0.5)
+					end
+					renderer:setCameraRot(90, facing == "north" and 180 or (facing == "east" and -90 or (facing == "south" and 0 or 90)))
+				end
 			elseif sleepState == 3 then
 				--3. ウォーデン
 				animations["models.main"]["sleep_afraid"]:play()
@@ -106,7 +122,7 @@ events.TICK:register(function()
 			if Warden.WardenNearby then
 				animations["models.main"]["afraid"]:play()
 			end
-			for _, animation in ipairs({animations["models.main"]["sleep"], animations["models.main"]["sleep_afraid"], animations["models.main"]["sleep_together_left"], animations["models.dummy_player"]["sleep_together_left"]}) do
+			for _, animation in ipairs({animations["models.main"]["sleep"], animations["models.main"]["sleep_afraid"], animations["models.main"]["sleep_together_left"], animations["models.dummy_player"]["sleep_together_left"], animations["models.main"]["sleep_together_right"], animations["models.dummy_player"]["sleep_together_right"]}) do
 				animation:stop()
 			end
 			models.models.dummy_player:setVisible(false)
