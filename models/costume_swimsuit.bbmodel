@@ -12,8 +12,8 @@
 	"timeline_setups": [],
 	"unhandled_root_fields": {},
 	"resolution": {
-		"width": 64,
-		"height": 64
+		"width": 15,
+		"height": 10
 	},
 	"elements": [
 		{
@@ -28,23 +28,23 @@
 			"origin": [-1, 28, 5],
 			"faces": {
 				"north": {
-					"uv": [2, 7, 4, 12],
+					"uv": [2, 4, 4, 9],
 					"texture": 0
 				},
 				"east": {
-					"uv": [0, 7, 2, 12],
+					"uv": [0, 4, 2, 9],
 					"texture": 0
 				},
 				"south": {
-					"uv": [6, 7, 8, 12],
+					"uv": [0, 4, 2, 9],
 					"texture": 0
 				},
 				"west": {
-					"uv": [4, 7, 6, 12],
+					"uv": [0, 4, 2, 9],
 					"texture": 0
 				},
 				"up": {
-					"uv": [2, 5, 4, 7],
+					"uv": [0, 4, 2, 6],
 					"texture": 0
 				},
 				"down": {
@@ -67,23 +67,23 @@
 			"origin": [-1, 28, 5],
 			"faces": {
 				"north": {
-					"uv": [2, 14, 6, 19],
+					"uv": [8, 4, 4, 9],
 					"texture": 0
 				},
 				"east": {
-					"uv": [0, 14, 2, 19],
+					"uv": [7, 4, 8, 9],
 					"texture": 0
 				},
 				"south": {
-					"uv": [8, 14, 12, 19],
+					"uv": [4, 4, 8, 9],
 					"texture": 0
 				},
 				"west": {
-					"uv": [6, 14, 8, 19],
+					"uv": [4, 4, 5, 9],
 					"texture": 0
 				},
 				"up": {
-					"uv": [2, 12, 6, 14],
+					"uv": [4, 4, 8, 5],
 					"texture": 0
 				},
 				"down": {
@@ -106,27 +106,27 @@
 			"origin": [-1, 28, 5],
 			"faces": {
 				"north": {
-					"uv": [2, 21, 8, 27],
+					"uv": [14, 4, 8, 10],
 					"texture": 0
 				},
 				"east": {
-					"uv": [0, 21, 2, 27],
+					"uv": [13, 4, 14, 10],
 					"texture": 0
 				},
 				"south": {
-					"uv": [10, 21, 16, 27],
+					"uv": [8, 4, 14, 10],
 					"texture": 0
 				},
 				"west": {
-					"uv": [8, 21, 10, 27],
+					"uv": [8, 4, 9, 10],
 					"texture": 0
 				},
 				"up": {
-					"uv": [2, 19, 8, 21],
+					"uv": [8, 4, 14, 5],
 					"texture": 0
 				},
 				"down": {
-					"uv": [8, 19, 14, 21],
+					"uv": [4, 0, 10, 2],
 					"texture": 0
 				}
 			},
@@ -149,23 +149,23 @@
 					"texture": null
 				},
 				"east": {
-					"uv": [0, 1, 1, 5],
+					"uv": [0, 0, 1, 4],
 					"texture": 0
 				},
 				"south": {
-					"uv": [6, 1, 10, 5],
+					"uv": [0, 0, 4, 4],
 					"texture": 0
 				},
 				"west": {
-					"uv": [5, 1, 6, 5],
+					"uv": [3, 0, 4, 4],
 					"texture": 0
 				},
 				"up": {
-					"uv": [1, 0, 5, 1],
+					"uv": [0, 0, 4, 1],
 					"texture": 0
 				},
 				"down": {
-					"uv": [5, 0, 9, 1],
+					"uv": [0, 3, 4, 4],
 					"texture": 0
 				}
 			},
@@ -185,28 +185,28 @@
 			"origin": [0, 24, 0],
 			"faces": {
 				"north": {
-					"uv": [13, 3, 21, 5],
+					"uv": [7, 2, 15, 4],
 					"texture": 0
 				},
 				"east": {
-					"uv": [10, 3, 13, 5],
+					"uv": [4, 2, 7, 4],
 					"texture": 0
 				},
 				"south": {
-					"uv": [24, 3, 32, 5],
-					"texture": 0
+					"uv": [0, 0, 0, 0],
+					"texture": null
 				},
 				"west": {
-					"uv": [21, 3, 24, 5],
+					"uv": [7, 2, 4, 4],
 					"texture": 0
 				},
 				"up": {
-					"uv": [13, 0, 21, 3],
-					"texture": 0
+					"uv": [0, 0, 0, 0],
+					"texture": null
 				},
 				"down": {
-					"uv": [21, 0, 29, 3],
-					"texture": 0
+					"uv": [0, 0, 0, 0],
+					"texture": null
 				}
 			},
 			"type": "cube",
@@ -305,7 +305,7 @@
 			"saved": true,
 			"uuid": "5f18611a-98ae-c9f8-f470-673bbc8ae5d2",
 			"relative_path": "../../textures/costume_swimsuit.png",
-			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAdNJREFUeF7tmLFKA0EQhnfBBGPAQhAULZSkULAJCNb6Bj6Ej+Bz+QjWgmAjaGHQQlEQRQJJypNZnSOGveUiU9zM/tfcsQfDzPf/M8Odd8654uahoHvV5Qd9n3qv+Z2n4ucLjAGxCiEJYNLbCuKuDF8cAAz6/vjwNLTK09t96fqdjb3wHDu7vL5ofOvUboGTs3PHBe1u75cz4/H5LhQZOyNgTYdQKjQeTUNR3dVO41WTHLoAwMpXUbXuCF8FoL3cCkxa7SXTLVEJgIonCFkCmIynP/u/2zE/FJMOyGErlP39/vpZXPUOgvJHw1u3vrlmuvd56AMAKc80qOfp4hkQO7fmDF8XAG2Er4+RudYAgDoO4JVIrZFtC/BsMAeABx05Yb44dgcNR1J/dkhaAfFnDaYAzH4sWWqF6BDkYmPr0JoT/g3AylpcGAC7I3sAVrbCwg7ADPhdhzwgta/DLD55U3+RAUDyH7vGWHCARtUkc4YDJGlqjAUHaFRNMmc4QJKmxlhwgEbVJHOGAyRpaowFB2hUTTJnOECSpsZYcIBG1SRzhgMkaWqMBQdoVE0yZzhAkqbGWHCARtUkc4YDJGlqjAUHaFRNMmc4QJKmxlhwgEbVJHP+BgaSA1A1/ex8AAAAAElFTkSuQmCC"
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAKCAYAAABrGwT5AAAAAXNSR0IArs4c6QAAALVJREFUKFNj/H/+zn8GJPBGQoiBi5uT4dvX72AaBEBsUUkhRmR1IDYjSPM3ZWmwONfdpwwwzcgKidbMaKjC6GgSCHbNgxc34GYoSGiA2chiYJuRbXFKLWXYf2Y92ImKMppwuftPrmOIMX799B1FM7pfwd7BEQZwzWwcrGAHfHj7CawYxAex0TXDxEEBiGIzTAKbZpjXsGqGORdEI9sGY2MLfcr8jB7x6PzXz9/9Rw4wmMtAfgYAK7yH1f20i4QAAAAASUVORK5CYII="
 		}
 	]
 }

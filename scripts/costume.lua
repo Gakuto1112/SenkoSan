@@ -63,7 +63,7 @@ Costume = {
 		elseif costume == "CHEERLEADER" then
 			Costume.setCostumeTextureOffset(6)
 			models.models.costume_cheerleader:setVisible(true)
-			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setUVPixels(0, 14)
+			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setUVPixels(0, 0)
 			Apron.IsVisible = false
 		elseif costume == "PURIFICATION" then
 			Costume.setCostumeTextureOffset(7)
@@ -90,7 +90,7 @@ Costume = {
 			Apron.IsVisible = false
 		elseif costume == "SAILOR" then
 			Costume.setCostumeTextureOffset(14)
-			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setUVPixels(0, 28)
+			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setUVPixels(0, 14)
 			Apron.IsVisible = false
 		elseif costume == "CHINA_DRESS" then
 			Costume.setCostumeTextureOffset(15)
