@@ -1,4 +1,6 @@
 ---@class General 他の複数のクラスが参照するフィールドや関数を定義するクラス
+---@field General.EffectChecked boolean このチックにステータスエフェクトを取得したかどうか
+---@field General.EffectTable table ステータスエフェクトを保持する変数
 ---@field General.PlayerCondition ConditionLevel プレイヤーの体力・満腹度の度合い
 ---@field General.IsSneaking boolean プレイがスニーク状態かどうか（RENDERでスニーク補正を行う為、TICKでスニークチェックをしたい）
 
@@ -24,6 +26,8 @@
 
 
 General = {
+	EffectChecked = false,
+	EffectTable = {},
 	PlayerCondition = "HIGH",
 	IsSneaking = false,
 
@@ -56,12 +60,14 @@ General = {
 	---@param name string ステータス効果
 	---@return table|nil status ステータス効果の情報（該当のステータスを受けていない場合はnilが返る。）
 	getTargetEffect = function (name)
-		for _, effect in ipairs(host:getStatusEffects()) do
-			if effect.name == "effect.minecraft."..name then
-				return effect
+		if not General.EffectChecked and host:isHost() then
+			General.EffectTable = {}
+			for _, effect in ipairs(host:getStatusEffects()) do
+				General.EffectTable[effect.name:match("^effect%.minecraft%.(.+)$")] = {duration = effect.duration, amplifier = effect.amplifier, visible = effect.visible}
 			end
+			General.EffectChecked = true
 		end
-		return nil
+		return General.EffectTable[name]
 	end
 }
 
@@ -71,6 +77,9 @@ events.TICK:register(function ()
 	local satisfactionPercent = player:getFood() / 20
 	General.PlayerCondition = player:getFrozenTicks() == 140 and "LOW" or (((healthPercent > 0.5 and satisfactionPercent > 0.3) or (gamemode == "CREATIVE" or gamemode == "SPECTATOR")) and "HIGH" or ((healthPercent > 0.2 and satisfactionPercent > 0) and "MEDIUM" or "LOW"))
 	General.IsSneaking = player:getPose() == "CROUCHING"
+	if not client:isPaused() then
+		General.EffectChecked = false
+	end
 end)
 
 return General
