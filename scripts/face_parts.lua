@@ -5,6 +5,8 @@
 ---@field FaceParts.EmotionCount integer エモートの時間を計るカウンター
 ---@field FaceParts.ComplexionCount integer 顔色の時間を計るカウンター
 ---@field FaceParts.BlinkCount integer 瞬きのタイミングを計るカウンター
+---@field FaceParts.Drowned boolean 溺れているかどうか
+---@field FaceParts.DrownedPrev boolean 前チックに溺れていたかどうか
 
 ---@alias FaceParts.EyeType
 ---| "NONE"
@@ -33,6 +35,8 @@ FaceParts = {
 	EmotionCount = 0,
 	ComplexionCount = 0,
 	BlinkCount = 0,
+	Drowned = false,
+	DrownedPrev = false,
 
 	---表情を設定する。
 	---@param rightEye FaceParts.EyeType 設定する右目の名前（"NONE"にすると変更されない）
@@ -80,9 +84,14 @@ FaceParts = {
 	end
 }
 
+--ping関数
+function pings.setDrowned(newValue)
+	FaceParts.Drowned = newValue
+end
+
 events.TICK:register(function ()
 	if FaceParts.EmotionCount == 0 then
-		if player:getAir() <= 0 then
+		if FaceParts.Drowned then
 			FaceParts.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 0, false)
 		elseif General.PlayerCondition == "LOW" then
 			FaceParts.setEmotion("TIRED", "TIRED", "CLOSED", 0, false)
@@ -100,6 +109,13 @@ events.TICK:register(function ()
 	end
 	if FaceParts.ComplexionCount == 0 then
 		FaceParts.setComplexion((Warden.WardenNearby or player:getFrozenTicks() == 140) and "PALE" or "NORMAL", 0, false)
+	end
+	if host:isHost() then
+		FaceParts.Drowned = player:getAir() <= 0 and type(General.getTargetEffect("water_breathing")) == "nil"
+		if FaceParts.Drowned ~= FaceParts.DrownedPrev then
+			pings.setDrowned(FaceParts.Drowned)
+			FaceParts.DrownedPrev = FaceParts.Drowned
+		end
 	end
 	FaceParts.EmotionCount = (FaceParts.EmotionCount > 0 and not client:isPaused()) and FaceParts.EmotionCount - 1 or FaceParts.EmotionCount
 	FaceParts.ComplexionCount = (FaceParts.ComplexionCount > 0 and not client:isPaused()) and FaceParts.ComplexionCount - 1 or FaceParts.ComplexionCount
