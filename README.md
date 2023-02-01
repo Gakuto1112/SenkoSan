@@ -1,7 +1,7 @@
 # Shiro（シロ）
 TVアニメ「世話やきキツネの仙狐さん」とその原作に登場するキャラクターを再現した、MinecraftのスキンMod「[Figura](https://www.curseforge.com/minecraft/mc-mods/figura)」向けスキン「Shiro（シロ）」です。
 
-**このREADMEには本来、大量の画像（約77MB）を添付していますが、通信量の軽減のため、必要最低限以外の画像は添付されおりません。画像を確認するには、それぞれの画像のリンクをクリックするか、[README（完全版）](./.github/workflows/README_full.md)をご覧ください。**
+**このREADMEには本来、大量の画像（約78MB）を添付していますが、通信量の軽減のため、必要最低限以外の画像は添付されおりません。画像を確認するには、それぞれの画像のリンクをクリックするか、[README（完全版）](./.github/workflows/README_full.md)をご覧ください。**
 
 ターゲットFiguraバージョン：[0.1.0-rc.13](https://www.curseforge.com/minecraft/mc-mods/figura/files/4300619)
 
@@ -72,8 +72,9 @@ TVアニメ「世話やきキツネの仙狐さん」とその原作に登場す
 
 - プレイヤーの頭ブロックがシロのフィギュアになります（[設定](#アバター設定)で変更できます）。
   - [画像左のフィギュア](https://www.goodsmile.info/ja/product/9273/仙狐.html)
-  - [画像中央のフィギュア](https://www.geestore.com/detail/id/00000093048)
-  - [画像右のフィギュア](https://www.amazon.co.jp/gp/product/B07XZ6754D)
+  - [画像中央左のフィギュア](https://www.geestore.com/detail/id/00000093048)
+  - [画像中央右のフィギュア](https://www.amazon.co.jp/gp/product/B07XZ6754D)
+  - 画像右のフィギュアは、漫画10巻裏のイラストを基に作成しました。
 
   [[画像] プレイヤーの頭](README_images/プレイヤーの頭.jpg)
 
@@ -214,6 +215,7 @@ Figuraには、アクションホイールキー（デフォルトは「B」キ�
 - フィギュア（[参考](https://www.goodsmile.info/ja/product/9273/仙狐.html)）
 - メイドのフィギュア（[参考](https://www.geestore.com/detail/id/00000093048)）
 - チアリーダーのフィギュア（[参考](https://www.amazon.co.jp/gp/product/B07XZ6754D)）
+- きつねパーカーのフィギュアは、漫画10巻裏のイラストを基に作成しました。
 
 Mobが被っているプレイヤーの頭は設定に関わらず、デフォルトの頭になります。ただし、この処理は[rc.13のバグ](https://discord.com/channels/805969743466332191/1047331739678281728)を利用しているので、今後この仕様は変更される可能性があります。
 
