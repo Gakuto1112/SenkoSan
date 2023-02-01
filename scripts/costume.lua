@@ -44,11 +44,9 @@ Costume = {
 			Costume.setCostumeTextureOffset(1)
 			Apron.IsVisible = false
 		elseif costume == "DISGUISE" then
-			for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT}) do
-				modelPart:setVisible(true)
-			end
 			Costume.setCostumeTextureOffset(2)
-			models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(16, 0)
+			models.models.main.Avatar.Head.CFoxHoodH:setUVPixels(0, 0)
+			Apron.IsVisible = false
 		elseif costume == "MAID_A" then
 			Costume.setCostumeTextureOffset(3)
 			Apron.IsVisible = false
@@ -70,17 +68,17 @@ Costume = {
 			Apron.IsVisible = false
 		elseif costume == "KAPPOGI" then
 			Costume.setCostumeTextureOffset(8)
-			models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(32, 0)
+			models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(16, 0)
 		elseif costume == "YUKATA" then
 			Costume.setCostumeTextureOffset(9)
 			Apron.IsVisible = false
 		elseif costume == "FOX_HOODIE_RED" then
 			Costume.setCostumeTextureOffset(10)
-			models.models.main.Avatar.Head.CFoxHoodH:setUVPixels(0, 0)
+			models.models.main.Avatar.Head.CFoxHoodH:setUVPixels(0, 8)
 			Apron.IsVisible = false
 		elseif costume == "FOX_HOODIE_WHITE" then
 			Costume.setCostumeTextureOffset(11)
-			models.models.main.Avatar.Head.CFoxHoodH:setUVPixels(0, 8)
+			models.models.main.Avatar.Head.CFoxHoodH:setUVPixels(0, 16)
 			Apron.IsVisible = false
 		elseif costume == "TRACKSUIT" then
 			Costume.setCostumeTextureOffset(12)
@@ -99,16 +97,14 @@ Costume = {
 			Costume.setCostumeTextureOffset(16)
 		elseif costume == "PARTNER" then
 			Costume.setCostumeTextureOffset(17)
-			models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(48, 0)
+			models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(32, 0)
 		end
 	end,
 
 	---コスチュームをリセットし、デフォルトのコスチュームにする。
 	resetCostume = function ()
 		Costume.setCostumeTextureOffset(0)
-		for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT, models.models.costume_cheerleader}) do
-			modelPart:setVisible(false)
-		end
+		models.models.costume_cheerleader:setVisible(false)
 		Apron.IsVisible = true
 		Legs.ReducedLegSwing = false
 		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 0)
@@ -131,20 +127,7 @@ Costume = {
 }
 
 events.TICK:register(function ()
-	if Costume.CurrentCostume == "DISGUISE" then
-		local hat = models.models.main.Avatar.Head.CDisguiseH
-		local ears = models.models.main.Avatar.Head.Ears
-		if Armor.ArmorVisible[1] then
-			hat:setVisible(false)
-			ears:setVisible(true)
-		else
-			hat:setVisible(true)
-			ears:setVisible(false)
-		end
-	else
-		models.models.main.Avatar.Head.CDisguiseH:setVisible(false)
-		models.models.main.Avatar.Head.Ears:setVisible((Costume.CostumeList ~= "KNIT" and Costume.CurrentCostume ~= "FOX_HOODIE_RED" and Costume.CurrentCostume ~= "FOX_HOODIE_WHITE" and Costume.CurrentCostume ~= "CASUAL") or Armor.ArmorVisible[1])
-	end
+	models.models.main.Avatar.Head.Ears:setVisible((Costume.CurrentCostume ~= "DISGUISE" and Costume.CostumeList ~= "KNIT" and Costume.CurrentCostume ~= "FOX_HOODIE_RED" and Costume.CurrentCostume ~= "FOX_HOODIE_WHITE" and Costume.CurrentCostume ~= "CASUAL") or Armor.ArmorVisible[1])
 	if Costume.CurrentCostume == "MAID_A" then
 		local skirt = models.models.main.Avatar.Body.BodyBottom.CMaidABB
 		skirt:setRot(General.IsSneaking and 27.5 or 0, 0, 0)
@@ -243,7 +226,7 @@ events.TICK:register(function ()
 		leftEar:setVisible(false)
 	end
 	models.models.main.Avatar.Head.CKnitH:setVisible(Costume.CurrentCostume == "KNIT" and not Armor.ArmorVisible[1])
-	local hoodieVisible = (Costume.CurrentCostume == "FOX_HOODIE_RED" or Costume.CurrentCostume == "FOX_HOODIE_WHITE") and not Armor.ArmorVisible[1]
+	local hoodieVisible = (Costume.CurrentCostume == "DISGUISE" or Costume.CurrentCostume == "FOX_HOODIE_RED" or Costume.CurrentCostume == "FOX_HOODIE_WHITE") and not Armor.ArmorVisible[1]
 	models.models.main.Avatar.Head.CFoxHoodH:setVisible(hoodieVisible)
 	models.models.main.Avatar.Body.Hairs.BackHair:setVisible(not hoodieVisible and Costume.CurrentCostume ~= "SWIMSUIT")
 	models.models.main.Avatar.Head.CBeretH:setVisible(Costume.CurrentCostume == "CASUAL" and not Armor.ArmorVisible[1])
