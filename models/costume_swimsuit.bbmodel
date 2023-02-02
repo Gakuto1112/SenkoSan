@@ -10,8 +10,9 @@
 	"variable_placeholders": "",
 	"variable_placeholder_buttons": [],
 	"timeline_setups": [],
+	"unhandled_root_fields": {},
 	"resolution": {
-		"width": 56,
+		"width": 32,
 		"height": 10
 	},
 	"elements": [
@@ -613,6 +614,7 @@
 			"id": "1",
 			"particle": false,
 			"render_mode": "default",
+			"render_sides": "auto",
 			"frame_time": 1,
 			"frame_order_type": "loop",
 			"frame_order": "",
@@ -622,7 +624,7 @@
 			"saved": true,
 			"uuid": "7fad28a3-5b3e-5aee-f150-c20cb3c5f2dd",
 			"relative_path": "../../textures/costume_swimsuit.png",
-			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAAKCAYAAADhNJ24AAAAAXNSR0IArs4c6QAAAZdJREFUSEtjZEADj47O/I8uhsyXs05n/HZzLV41yOq/ffvGwMXFxbBYM5tBQ0OD4c2bNwwiIiJgJcSyQWqx6cFnhv21A4wgeTABAjCPwQzC5Ul0R2FTh2wGsgdB4sGvrsDtRNe7VkznP0gNzHG43HBQywEewLgCCcWDIM+hOwqb4aCYgAGQwcghi0scPQbxOR7kcJC5+AIBZA8oIOyu7gVb+fr1awZRUVEMtqioOCQGkT0HcgwIIHsEPbnB5LHFJLZkRKoHQeYTG4PEuAEjueyaW4g3f7kl94PzIMxwbEkEWYyWSZQkD8I8RkwetLGxgRcQpHiQmEKGlCSKnjxBsY+eXMExCPIcKXkQm0NxlXTIMZj+7wXjWwOd/0KiIgyMuw8w/v+v+p+R8TZKKgLlQ2KSKCE1sKzFiOw5YvOgkZEROAZJLWRC9CDVw7pP7xiC+ITAbOELqKUqrKBBzs/YAo9oD+IqivGJw+pBmCfR1eKqJtKcNRjm3L0F9hwoFkHs1HvPcFYb5LgNXQ9ZhpNb0aMnUWp4gJAZAP4LWCxOgiI7AAAAAElFTkSuQmCC"
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAKCAYAAADVTVykAAAAAXNSR0IArs4c6QAAAP5JREFUOE9jZEADj47O/I8uhsyXs05n/HZzLV41yOq/ffvGwMXFxfBHxoeBj5udEd1suADMYhEREXz2M7x584YBpgbExgaQzSDKASDL0TVhMxjkExiAWY7uYHRxgg5AthykGASQLUIPTpg8tpBADhkYm6AD0H26a24h3vh1S+4HpwGYA9AdArIYWYxoB8AsJiYN2NjYwC2higNAlpOSBjQ0NLAmRmKi4K2Bzn8hUREGxt0HGP//V/3PiGw5sWnAyMgI7AAQICUR/rY2ButZ9+kdQxCfEJiNkS/x5kGoJKwcIDUb8ga4M8y5ewtsOSgUQGyKHECUY9EKIuQoAOkHALt9wUsvIQlUAAAAAElFTkSuQmCC"
 		}
 	]
 }
