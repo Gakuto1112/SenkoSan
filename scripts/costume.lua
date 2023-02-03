@@ -49,53 +49,43 @@ Costume = {
 			end
 			Costume.setCostumeTextureOffset(2)
 			models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(16, 0)
+			Apron.IsVisible = true
 		elseif costume == "MAID_A" then
 			Costume.setCostumeTextureOffset(3)
-			Apron.IsVisible = false
 			Legs.ReducedLegSwing = true
 		elseif costume == "MAID_B" then
 			Costume.setCostumeTextureOffset(4)
-			Apron.IsVisible = false
 			Legs.ReducedLegSwing = true
 		elseif costume == "SWIMSUIT" then
 			Costume.setCostumeTextureOffset(5)
 			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setUVPixels(0, 0)
-			Apron.IsVisible = false
 		elseif costume == "CHEERLEADER" then
 			Costume.setCostumeTextureOffset(6)
 			models.models.costume_cheerleader:setVisible(true)
 			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setUVPixels(0, 14)
-			Apron.IsVisible = false
 		elseif costume == "PURIFICATION" then
 			Costume.setCostumeTextureOffset(7)
-			Apron.IsVisible = false
 		elseif costume == "KAPPOGI" then
 			Costume.setCostumeTextureOffset(8)
 			models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(32, 0)
+			Apron.IsVisible = true
 		elseif costume == "YUKATA" then
 			Costume.setCostumeTextureOffset(9)
-			Apron.IsVisible = false
 		elseif costume == "FOX_HOODIE_RED" then
 			Costume.setCostumeTextureOffset(10)
 			models.models.main.Avatar.Head.CFoxHoodH:setUVPixels(0, 0)
-			Apron.IsVisible = false
 		elseif costume == "FOX_HOODIE_WHITE" then
 			Costume.setCostumeTextureOffset(11)
 			models.models.main.Avatar.Head.CFoxHoodH:setUVPixels(0, 8)
-			Apron.IsVisible = false
 		elseif costume == "TRACKSUIT" then
 			Costume.setCostumeTextureOffset(12)
-			Apron.IsVisible = false
 		elseif costume == "CASUAL" then
 			Costume.setCostumeTextureOffset(13)
-			Apron.IsVisible = false
 		elseif costume == "SAILOR" then
 			Costume.setCostumeTextureOffset(14)
 			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setUVPixels(0, 28)
-			Apron.IsVisible = false
 		elseif costume == "CHINA_DRESS" then
 			Costume.setCostumeTextureOffset(15)
-			Apron.IsVisible = false
 		elseif costume == "SANTA" then
 			Costume.setCostumeTextureOffset(16)
 		elseif costume == "PARTNER" then
@@ -110,7 +100,7 @@ Costume = {
 		for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT, models.models.costume_cheerleader}) do
 			modelPart:setVisible(false)
 		end
-		Apron.IsVisible = true
+		Apron.IsVisible = false
 		Legs.ReducedLegSwing = false
 		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 0)
 		Costume.CurrentCostume = "DEFAULT"
@@ -128,10 +118,12 @@ Costume = {
 			Costume.CurrentCostume = "DEFAULT"
 			Config.saveConfig("costume", 1)
 		end
+		Apron.IsVisible = false
 	end
 }
 
 events.TICK:register(function ()
+	models.models.main.Avatar.Body.BodyBottom.Bells:setVisible(Costume.CurrentCostume == "DEFAULT" and not Armor.ArmorVisible[2] and not Armor.ArmorVisible[3])
 	if Costume.CurrentCostume == "DISGUISE" then
 		local hat = models.models.main.Avatar.Head.CDisguiseH
 		local ears = models.models.main.Avatar.Head.Ears
@@ -208,7 +200,8 @@ events.TICK:register(function ()
 			modelsPart:setVisible(false)
 		end
 	end
-	models.models.main.Avatar.Head.CSwimsuitH:setVisible(Costume.CurrentCostume == "SWIMSUIT" and string.find(player:getItem(6).id, "^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1])
+	local summerHatVisible = Costume.CurrentCostume == "SWIMSUIT" and string.find(player:getItem(6).id, "^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1]
+	models.models.main.Avatar.Head.CSwimsuitH:setVisible(summerHatVisible)
 	if Costume.CurrentCostume == "CHEERLEADER" then
 		local rightPonPon = models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB
 		local leftPonPon = models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB
@@ -263,6 +256,10 @@ events.TICK:register(function ()
 		skirt:setPos(0, 0, General.IsSneaking and 1.25 or 0)
 	else
 		models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setVisible(false)
+	end
+	local hairAccessoryVisible = (Costume.CurrentCostume ~= "DISGUISE" and Costume.CurrentCostume ~= "KNIT" and Costume.CurrentCostume ~= "FOX_HOODIE_RED" and Costume.CurrentCostume ~= "FOX_HOODIE_WHITE" and Costume.CurrentCostume ~= "CASUAL" and Costume.CurrentCostume ~= "SANTA" and not summerHatVisible) or Armor.ArmorVisible[1]
+	for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Head.Cowlick}) do
+		modelPart:setVisible(hairAccessoryVisible)
 	end
 end)
 
