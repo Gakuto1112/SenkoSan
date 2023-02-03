@@ -1,13 +1,9 @@
 ---@class Sleeve 袖を操作するクラス
 
 events.TICK:register(function ()
-	local sleeveVisible = (Costume.CurrentCostume == "NIGHTWEAR" or Costume.CurrentCostume == "MAID_B" or Costume.CurrentCostume == "PURIFICATION" or Costume.CurrentCostume == "YUKATA" or Costume.CurrentCostume == "PARTNER") and not Kotatsu.IsAnimationPlaying and (not renderer:isFirstPerson() or player:getPose() ~= "SLEEPING")
+	local sleeveVisible = (Costume.CurrentCostume == "DEFAULT" or Costume.CurrentCostume == "NIGHTWEAR" or Costume.CurrentCostume == "MAID_B" or Costume.CurrentCostume == "PURIFICATION" or Costume.CurrentCostume == "YUKATA" or Costume.CurrentCostume == "KNIT" or Costume.CurrentCostume == "SANTA") and not Kotatsu.IsAnimationPlaying and (not renderer:isFirstPerson() or player:getPose() ~= "SLEEPING")
 	for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase}) do
 		modelPart:setVisible(sleeveVisible)
-	end
-	local sleeveRibbonVisible = Costume.CurrentCostume == "PARTNER"
-	for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do
-		modelPart:setVisible(sleeveVisible and sleeveRibbonVisible)
 	end
 end)
 
