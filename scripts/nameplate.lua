@@ -3,7 +3,7 @@
 ---@field Nameplate.NamplateOffset number ネームプレートのオフセット
 
 Nameplate = {
-	NameList = {player:getName(), "Shiro", "シロ"},
+	NameList = {player:getName(), "Suzu", "鈴", "スズ"},
 	NamePlateOffset = 0,
 
 	---プレイヤー名前設定の初期処理
