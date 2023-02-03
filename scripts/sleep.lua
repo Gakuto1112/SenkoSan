@@ -132,7 +132,6 @@ events.TICK:register(function()
 			end
 			Physics.EnablePyhsics[3] = true
 			models.models.main:setVisible(true)
-			Apron.IsVisible = (Sleep.CostumeBeforeSleeping == "DEFAULT" or Sleep.CostumeBeforeSleeping == "DISGUISE" or Costume.CurrentCostume == "KAPPOGI") and not Armor.ArmorVisible[3]
 			renderer:setCameraRot()
 			renderer:offsetCameraPivot()
 		end
