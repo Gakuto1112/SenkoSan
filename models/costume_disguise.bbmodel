@@ -10,6 +10,7 @@
 	"variable_placeholders": "",
 	"variable_placeholder_buttons": [],
 	"timeline_setups": [],
+	"unhandled_root_fields": {},
 	"resolution": {
 		"width": 28,
 		"height": 14
@@ -60,12 +61,12 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
-			"from": [-4, 12, 1],
-			"to": [4, 17, 5],
+			"from": [-2.725, 12.825, 1.375],
+			"to": [2.725, 16.175, 4.025],
 			"autouv": 0,
 			"color": 5,
 			"inflate": 0.25,
-			"origin": [1, 14.5, 2],
+			"origin": [0.7, 14.5, 2],
 			"faces": {
 				"north": {
 					"uv": [0, 0, 0, 0],
@@ -100,12 +101,12 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
-			"from": [-5, 11, 5],
-			"to": [5, 18, 11],
+			"from": [-3.425, 12.125, 4.175],
+			"to": [3.425, 16.875, 8.225],
 			"autouv": 0,
 			"color": 5,
 			"inflate": 0.25,
-			"origin": [1, 14.5, 2],
+			"origin": [0.7, 14.5, 2],
 			"faces": {
 				"north": {
 					"uv": [17, 0, 27, 7],
@@ -256,7 +257,7 @@
 									"children": [
 										{
 											"name": "CDisguiseT",
-											"origin": [0, 14.5, 2],
+											"origin": [0, 10.15, 1.4],
 											"color": 0,
 											"uuid": "70bea18b-d27d-571a-677c-56c266e51903",
 											"export": true,
@@ -285,6 +286,7 @@
 			"id": "1",
 			"particle": false,
 			"render_mode": "default",
+			"render_sides": "auto",
 			"frame_time": 1,
 			"frame_order_type": "loop",
 			"frame_order": "",

@@ -42,14 +42,11 @@ Costume = {
 		Costume.CurrentCostume = costume
 		if costume == "NIGHTWEAR" then
 			Costume.setCostumeTextureOffset(1)
-			Apron.IsVisible = false
 		elseif costume == "DISGUISE" then
 			for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT}) do
 				modelPart:setVisible(true)
 			end
 			Costume.setCostumeTextureOffset(2)
-			models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(16, 0)
-			Apron.IsVisible = true
 		elseif costume == "MAID_A" then
 			Costume.setCostumeTextureOffset(3)
 			Legs.ReducedLegSwing = true
@@ -67,7 +64,6 @@ Costume = {
 			Costume.setCostumeTextureOffset(7)
 		elseif costume == "KAPPOGI" then
 			Costume.setCostumeTextureOffset(8)
-			models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(32, 0)
 			Apron.IsVisible = true
 		elseif costume == "YUKATA" then
 			Costume.setCostumeTextureOffset(9)
@@ -90,7 +86,6 @@ Costume = {
 			Costume.setCostumeTextureOffset(16)
 		elseif costume == "PARTNER" then
 			Costume.setCostumeTextureOffset(17)
-			models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(48, 0)
 		end
 	end,
 
@@ -113,12 +108,14 @@ Costume = {
 			Costume.CurrentCostume = string.upper(Costume.CostumeList[loadedData])
 			if Costume.CurrentCostume ~= "DEFAULT" then
 				Costume.setCostume(Costume.CurrentCostume)
+			else
+				Apron.IsVisible = false
 			end
 		else
 			Costume.CurrentCostume = "DEFAULT"
+			Apron.IsVisible = false
 			Config.saveConfig("costume", 1)
 		end
-		Apron.IsVisible = false
 	end
 }
 
