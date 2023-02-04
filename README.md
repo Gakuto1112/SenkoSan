@@ -1,7 +1,7 @@
 # SenkoSan（仙狐さん）
 TVアニメ「世話やきキツネの仙狐さん」とその原作に登場するキャラクターを再現した、MinecraftのスキンMod「[Figura](https://www.curseforge.com/minecraft/mc-mods/figura)」向けスキン「SenkoSan（仙狐さん）」です。
 
-**このREADMEには本来、大量の画像（約78MB）を添付していますが、通信量の軽減のため、必要最低限以外の画像は添付されおりません。画像を確認するには、それぞれの画像のリンクをクリックするか、[README（完全版）](./.github/workflows/README_full.md)をご覧ください。**
+**このREADMEには本来、大量の画像（約77MB）を添付していますが、通信量の軽減のため、必要最低限以外の画像は添付されおりません。画像を確認するには、それぞれの画像のリンクをクリックするか、[README（完全版）](./.github/workflows/README_full.md)をご覧ください。**
 
 ターゲットFiguraバージョン：[0.1.0-rc.13](https://www.curseforge.com/minecraft/mc-mods/figura/files/4300619)
 
