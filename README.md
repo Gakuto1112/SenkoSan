@@ -1,3 +1,14 @@
+# ごあんない
+[[画像] 仙狐さんの頭](README_images/仙狐さん頭.png)
+ここは、**仙狐さん**のブランチです。
+
+![シロの頭](README_images/シロ頭.png)
+**シロ**のブランチは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/Shiro)
+
+![スズの頭](README_images/鈴頭.png)
+**鈴**のブランチは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/Suzu)
+
+***
 # SenkoSan（仙狐さん）
 TVアニメ「世話やきキツネの仙狐さん」とその原作に登場するキャラクターを再現した、MinecraftのスキンMod「[Figura](https://www.curseforge.com/minecraft/mc-mods/figura)」向けスキン「SenkoSan（仙狐さん）」です。
 
@@ -6,8 +17,6 @@ TVアニメ「世話やきキツネの仙狐さん」とその原作に登場す
 ターゲットFiguraバージョン：[0.1.0-rc.13](https://www.curseforge.com/minecraft/mc-mods/figura/files/4300619)
 
 ![メイン](README_images/メイン.jpg)
-
-**シロのアバターは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/Shiro)からダウンロードできます。**
 
 ## 特徴
 - 耳と尻尾のモデルが生えています。
