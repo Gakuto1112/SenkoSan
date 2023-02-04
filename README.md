@@ -1,5 +1,5 @@
 # ごあんない
-[[画像] 仙狐さんの頭](README_images/仙狐さん頭.png)
+![仙狐さんの頭](README_images/仙狐さん頭.png)
 ここは、**仙狐さん**のブランチです。
 
 ![シロの頭](README_images/シロ頭.png)
