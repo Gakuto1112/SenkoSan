@@ -2337,80 +2337,6 @@
 			"uuid": "19d9d8b1-1bae-af10-f5e3-199acfb6ddab"
 		},
 		{
-			"name": "LeftSleeveRibbon",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-6.25, 14, 17.75],
-			"to": [-4.75, 14, 18.75],
-			"autouv": 0,
-			"color": 0,
-			"inflate": 0.01,
-			"origin": [-6, 19, 4],
-			"faces": {
-				"north": {
-					"uv": [0, 0, 3, 0]
-				},
-				"east": {
-					"uv": [0, 0, 2, 0]
-				},
-				"south": {
-					"uv": [0, 0, 3, 0]
-				},
-				"west": {
-					"uv": [0, 0, 2, 0]
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"down": {
-					"uv": [32, 49, 35, 51],
-					"rotation": 180,
-					"texture": 0
-				}
-			},
-			"type": "cube",
-			"uuid": "86676667-b7a6-1471-330c-268938436735"
-		},
-		{
-			"name": "RightSleeveRibbon",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [4.75, 14, 17.75],
-			"to": [6.25, 14, 18.75],
-			"autouv": 0,
-			"color": 0,
-			"inflate": 0.01,
-			"origin": [-6, 19, 4],
-			"faces": {
-				"north": {
-					"uv": [0, 0, 3, 0]
-				},
-				"east": {
-					"uv": [0, 0, 2, 0]
-				},
-				"south": {
-					"uv": [0, 0, 3, 0]
-				},
-				"west": {
-					"uv": [0, 0, 2, 0]
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"down": {
-					"uv": [32, 49, 35, 51],
-					"rotation": 180,
-					"texture": 0
-				}
-			},
-			"type": "cube",
-			"uuid": "8ed44e2f-b192-25b6-1ea7-5dfd13349772"
-		},
-		{
 			"name": "1",
 			"box_uv": false,
 			"rescale": false,
@@ -2940,7 +2866,7 @@
 					"uuid": "5c3d82d1-20f2-bbae-5f4b-9f5dc39f4708",
 					"export": true,
 					"mirror_uv": false,
-					"isOpen": false,
+					"isOpen": true,
 					"locked": false,
 					"visibility": true,
 					"autouv": 0,
@@ -3058,7 +2984,7 @@
 															"locked": false,
 															"visibility": true,
 															"autouv": 0,
-															"children": ["a518457c-4445-671e-f55c-4d59bd1f40c7", "8ed44e2f-b192-25b6-1ea7-5dfd13349772"]
+															"children": ["a518457c-4445-671e-f55c-4d59bd1f40c7"]
 														}
 													]
 												},
@@ -3131,7 +3057,7 @@
 															"locked": false,
 															"visibility": true,
 															"autouv": 0,
-															"children": ["19d9d8b1-1bae-af10-f5e3-199acfb6ddab", "86676667-b7a6-1471-330c-268938436735"]
+															"children": ["19d9d8b1-1bae-af10-f5e3-199acfb6ddab"]
 														}
 													]
 												},
