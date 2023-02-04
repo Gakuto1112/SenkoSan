@@ -1,3 +1,14 @@
+# ごあんない
+![シロの頭](README_images/シロ頭.png)
+ここは、**シロ**のブランチです。
+
+![仙狐さんの頭](README_images/仙狐さん頭.png)
+**仙狐さん**のブランチは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/main)
+
+![鈴の頭](README_images/鈴頭.png)
+**鈴**のブランチは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/Suzu)
+
+***
 # Shiro（シロ）
 TVアニメ「世話やきキツネの仙狐さん」とその原作に登場するキャラクターを再現した、MinecraftのスキンMod「[Figura](https://www.curseforge.com/minecraft/mc-mods/figura)」向けスキン「Shiro（シロ）」です。
 
@@ -6,10 +17,6 @@ TVアニメ「世話やきキツネの仙狐さん」とその原作に登場す
 ターゲットFiguraバージョン：[0.1.0-rc.13](https://www.curseforge.com/minecraft/mc-mods/figura/files/4300619)
 
 ![メイン](README_images/メイン.jpg)
-
-このブランチは**シロ**のブランチです。また、シロは作成途中であり、アニメーションや衣装の多くは、仙狐さんのものとなっています。また、READMEの画像は仙狐さんのものです。
-
-**仙狐さんのモデルは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/main)**
 
 ## 特徴
 - 耳と尻尾のモデルが生えています。
