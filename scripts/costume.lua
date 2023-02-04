@@ -21,10 +21,9 @@
 ---| "SAILOR"
 ---| "CHINA_DRESS"
 ---| "SANTA"
----| "PARTNER"
 
 Costume = {
-	CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "tracksuit", "casual", "sailor", "china_dress", "santa", "partner"},
+	CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "tracksuit", "casual", "sailor", "china_dress", "santa"},
 	CurrentCostume = "DEFAULT",
 
 	---メインモデルのテクスチャのオフセット値を設定する。
@@ -84,8 +83,6 @@ Costume = {
 			Costume.setCostumeTextureOffset(15)
 		elseif costume == "SANTA" then
 			Costume.setCostumeTextureOffset(16)
-		elseif costume == "PARTNER" then
-			Costume.setCostumeTextureOffset(17)
 		end
 	end,
 
