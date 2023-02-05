@@ -24,18 +24,12 @@ Arms = {
 	end
 }
 
-events.TICK:register(function()
-	local isFirstPerson = renderer:isFirstPerson()
-	local armPos = vectors.vec3(0, player:isCrouching() and not isFirstPerson and 3 or 0)
-	models.models.main.Avatar.Body.Arms.RightArm:setPos(armPos)
-	models.models.main.Avatar.Body.Arms.LeftArm:setPos(armPos)
-	if isFirstPerson then
-		models.models.main.Avatar.Body.Arms.RightArm:setRot()
-		models.models.main.Avatar.Body.Arms.LeftArm:setRot()
-	end
-end)
-
 events.RENDER:register(function ()
+	local armPos = vectors.vec3(0, player:isCrouching() and 3 or 0)
+	for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.RightArm, models.models.main.Avatar.Body.Arms.LeftArm}) do
+		modelPart:setPos(armPos)
+	end
+
 	local leftHanded = player:isLeftHanded()
 	local rightOriginRot = vanilla_model.RIGHT_ARM:getOriginRot()
 	local leftOriginRot = vanilla_model.LEFT_ARM:getOriginRot()
