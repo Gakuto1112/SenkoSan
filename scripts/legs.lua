@@ -5,37 +5,20 @@ Legs = {
 	ReducedLegSwing = false
 }
 
-events.TICK:register(function ()
-	local rightLeg = models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg
-	local leftLeg = models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg
-	if player:getPose() == "CROUCHING" then
-		for _, legPart in ipairs({rightLeg, leftLeg}) do
-			legPart:setPos(0, 4, -4)
-		end
-	else
-		for _, legPart in ipairs({rightLeg, leftLeg}) do
-			legPart:setPos(0, 0, 0)
-		end
-	end
-end)
-
 events.RENDER:register(function ()
-	local rightLeg = models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg
-	local leftLeg = models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg
-	local playerPose = player:getPose()
-	local rightLegRot = General.IsSneaking and 30 or 0
-	local leftLegRot = General.IsSneaking and 30 or 0
-	if Legs.ReducedLegSwing then
-		rightLegRot = rightLegRot + vanilla_model.RIGHT_LEG:getOriginRot().x * -0.5
-		leftLegRot = leftLegRot + vanilla_model.LEFT_LEG:getOriginRot().x * -0.5
+	local legPos = vectors.vec3()
+	local legLot = {0, 0} --脚の角度：1. 右, 2. 左
+	if player:isCrouching() then
+		legPos = vectors.vec3(0, 4, -4)
+		legLot = {30, 30}
 	end
-	if (playerPose == "STANDING" or playerPose == "CROUCHING" or playerPose == "SWIMMING" or playerPose == "FALL_FLYING") and not player:getVehicle() then
-		rightLeg:setRot(rightLegRot, 0, 0)
-		leftLeg:setRot(leftLegRot, 0, 0)
-	else
-		for _, modelPart in ipairs({rightLeg, leftLeg}) do
-			modelPart:setRot()
-		end
+	if Legs.ReducedLegSwing and not player:getVehicle() then
+		legLot[1] = legLot[1] + vanilla_model.RIGHT_LEG:getOriginRot().x * -0.5
+		legLot[2] = legLot[2] + vanilla_model.LEFT_LEG:getOriginRot().x * -0.5
+	end
+	for index, legPart in ipairs({models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg}) do
+		legPart:setPos(legPos)
+		legPart:setRot(legLot[index])
 	end
 end)
 

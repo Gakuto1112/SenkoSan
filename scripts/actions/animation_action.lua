@@ -10,7 +10,7 @@ AnimationAction = {
 	---@param additionalAnimationCount integer 追加のアニメーションカウント
 	---@return table instance インスタンス化されたクラス
 	new = function(canPlayAnimation, partToShow, partToHide, primaryAnimation, secondaryAnimation, additionalAnimationCount)
-		local instance = General.instance(AnimationAction)
+		local instance = {}
 		instance.CheckFunction = canPlayAnimation --アニメーションが再生可能か確認する関数
 		instance.CanPlayAnimation = false --アニメーションが再生可能かどうか
 		instance.AnimationChecked = false --このチックでアニメーションが再生可能かどうかを確認したかどうか

@@ -2,7 +2,6 @@
 ---@field General.EffectChecked boolean このチックにステータスエフェクトを取得したかどうか
 ---@field General.EffectTable table ステータスエフェクトを保持する変数
 ---@field General.PlayerCondition ConditionLevel プレイヤーの体力・満腹度の度合い
----@field General.IsSneaking boolean プレイがスニーク状態かどうか（RENDERでスニーク補正を行う為、TICKでスニークチェックをしたい）
 
 --[[
 	## General.playerConditionの値
@@ -29,7 +28,6 @@ General = {
 	EffectChecked = false,
 	EffectTable = {},
 	PlayerCondition = "HIGH",
-	IsSneaking = false,
 
 	---クラスのインスタンス化
 	---@param class table 継承先のクラス
@@ -76,7 +74,6 @@ events.TICK:register(function ()
 	local healthPercent = player:getHealth() / player:getMaxHealth()
 	local satisfactionPercent = player:getFood() / 20
 	General.PlayerCondition = player:getFrozenTicks() == 140 and "LOW" or (((healthPercent > 0.5 and satisfactionPercent > 0.3) or (gamemode == "CREATIVE" or gamemode == "SPECTATOR")) and "HIGH" or ((healthPercent > 0.2 and satisfactionPercent > 0) and "MEDIUM" or "LOW"))
-	General.IsSneaking = player:getPose() == "CROUCHING"
 	if not client:isPaused() then
 		General.EffectChecked = false
 	end
