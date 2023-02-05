@@ -53,8 +53,7 @@ events.RENDER:register(function ()
 	--求めた平均速度から尻尾の角度を計算
 	local tailRot = vectors.vec3(0, 0, 0)
 	local hairAccessoryLineRot = vectors.vec3(0, 0, 0)
-	local sleeveRot = {vectors.vec3(0, 0, 0), vectors.vec3(0, 0, 0)}
-	local rotLimit = {{{-60, 60}, {-30, 30}}, {{0, 180}, {-90, 90}}, {{-20, 20}, {-20, 20}}, {{-60, 60}, {-70, 70}}} --物理演算の可動範囲：1. 尻尾：{1-1. 上下方向, 1-2. 左右方向}, 2. 髪飾りのヒモ：{2-1. 前後方向, 2-2. 左右方向}, 3. 袖ベース：{3-1. 前後方向, 3-2. 左右方向}, 4. 袖：{4-1. 前後方向, 4-2. 左右方向}
+	local rotLimit = {{{-60, 60}, {-30, 30}}, {{0, 180}, {-90, 90}}} --物理演算の可動範囲：1. 尻尾：{1-1. 上下方向, 1-2. 左右方向}, 2. 髪飾りのヒモ：{2-1. 前後方向, 2-2. 左右方向}
 	if (not renderer:isFirstPerson() or client:hasIrisShader()) and (Physics.EnablePyhsics[1] or Physics.EnablePyhsics[2]) then
 		local playerPose = player:getPose()
 		if SitDown.IsAnimationPlaying or player:getVehicle() then
@@ -67,20 +66,12 @@ events.RENDER:register(function ()
 			if Physics.EnablePyhsics[2] then
 				hairAccessoryLineRot = vectors.vec3(math.clamp(60 - Physics.VelocityAverage[1] * 80, rotLimit[2][1][1], rotLimit[2][1][2]), 0, math.clamp(-Physics.VelocityAverage[4] * 0.1, rotLimit[2][2][1], rotLimit[2][2][2]))
 			end
-			if Physics.EnablePyhsics[3] and not renderer:isFirstPerson() then
-				sleeveRot = {vectors.vec3(math.clamp(90 - vanilla_model.RIGHT_ARM:getOriginRot().x, rotLimit[3][1][1] + rotLimit[3][2][1], rotLimit[3][1][2] + rotLimit[4][1][2])), vectors.vec3(math.clamp(90 - vanilla_model.LEFT_ARM:getOriginRot().x, rotLimit[3][1][1] + rotLimit[4][1][1], rotLimit[3][1][2] + rotLimit[4][1][2]))}
-			end
 		elseif playerPose == "SWIMMING" then
 			if Physics.EnablePyhsics[1] then
 				tailRot = vectors.vec3(math.clamp(Physics.VelocityAverage[1] * 320, rotLimit[1][1][1], rotLimit[1][1][2]), math.clamp(-Physics.VelocityAverage[4] * 0.2, rotLimit[1][2][1], rotLimit[1][2][2]))
 			end
 			if Physics.EnablePyhsics[2] then
 				hairAccessoryLineRot = vectors.vec3(math.clamp(60 - Physics.VelocityAverage[1] * 320, rotLimit[2][1][1], rotLimit[2][1][2]), 0, math.clamp(-Physics.VelocityAverage[4] * 0.2, rotLimit[2][2][1], rotLimit[2][2][2]))
-			end
-			if Physics.EnablePyhsics[3] and not renderer:isFirstPerson() then
-				local rightOriginArmRot = vanilla_model.RIGHT_ARM:getOriginRot()
-				local leftOriginArmRot = vanilla_model.LEFT_ARM:getOriginRot()
-				sleeveRot = {vectors.vec3(math.clamp(rightOriginArmRot.x >= 90 and -rightOriginArmRot.x + 180 or -rightOriginArmRot.x, rotLimit[3][1][1] + rotLimit[4][1][1], rotLimit[3][1][2] + rotLimit[4][1][2])), vectors.vec3(math.clamp(leftOriginArmRot.x >= 90 and -leftOriginArmRot.x + 180 or -leftOriginArmRot.x, rotLimit[3][1][1] + rotLimit[4][1][1], rotLimit[3][1][2] + rotLimit[4][1][2]))}
 			end
 		else
 			if Physics.EnablePyhsics[1] then
@@ -96,34 +87,11 @@ events.RENDER:register(function ()
 				local hairAccessoryLineXAngleMove = math.abs(Physics.VelocityAverage[4]) * 0.05
 				hairAccessoryLineRot = vectors.vec3(math.clamp(math.min(hairAccessoryLineXMoveX, math.max(90 - hairAccessoryLineXMoveY / 2 - hairAccessoryLineXAngleMove, 0)) + math.clamp(hairAccessoryLineXMoveY, math.min(hairAccessoryLineXMoveX + hairAccessoryLineXAngleMove, 0), math.max(rotLimit[2][1][2] - hairAccessoryLineXMoveX - hairAccessoryLineXAngleMove, 0)) + math.min(hairAccessoryLineXAngleMove, math.max(90 - hairAccessoryLineXMoveX - hairAccessoryLineXMoveY / 2, 0)) - lookDir.y * 90, rotLimit[2][1][1], rotLimit[2][1][2]), 0, math.clamp(-Physics.VelocityAverage[3] * 90, rotLimit[2][2][1], rotLimit[2][2][2]))
 			end
-			if Physics.EnablePyhsics[3] and not renderer:isFirstPerson() then
-				local leftHanded = player:isLeftHanded()
-				local vehicle = player:getVehicle()
-				sleeveRot = {vectors.vec3(math.clamp((Umbrella.Umbrella and leftHanded) and 70 or (90 - vanilla_model.RIGHT_ARM:getOriginRot().x), rotLimit[3][1][1] + rotLimit[4][1][1], rotLimit[3][1][2] + rotLimit[4][1][2]), vehicle and 20 or 0), vectors.vec3(math.clamp((Umbrella.Umbrella and not leftHanded) and 70 or (90 - vanilla_model.LEFT_ARM:getOriginRot().x), rotLimit[3][1][1] + rotLimit[4][1][1], rotLimit[3][1][2] + rotLimit[4][1][2]), vehicle and -20 or 0)}
-			end
 		end
 	end
 	models.models.main.Avatar.Body.BodyBottom.Tail:setRot(tailRot)
 	for _, modelPart in ipairs(models.models.main.Avatar.Head.HairAccessory.HairAccessoryLines:getChildren()) do
 		modelPart:setRot(hairAccessoryLineRot)
-	end
-	for index, sleeveBase in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase}) do
-		sleeveBase:setRot(sleeveRot[index]:copy():applyFunc(function (element, vectorIndex)
-			return vectorIndex == 1 and math.clamp(element, rotLimit[3][1][1], rotLimit[3][1][2]) or element
-		end))
-	end
-	for index, sleeve in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve}) do
-		sleeve:setRot(sleeveRot[index]:applyFunc(function (element, vectorIndex)
-			if vectorIndex == 1 then
-				if element >= 0 then
-					return math.max(element + rotLimit[3][1][1], 0)
-				else
-					return math.min(element + rotLimit[3][1][2], 0)
-				end
-			else
-				return element
-			end
-		end))
 	end
 	Physics.LookRotDeltaPrevRender = lookRotDelta
 	Physics.LookRotPrevRender = lookRot

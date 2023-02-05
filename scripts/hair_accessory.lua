@@ -4,9 +4,8 @@ HairAccessory = {
 	---髪飾りを表示するかどうか
 	---@param visible boolean 髪飾りを表示するかどうか
 	visible = function(visible)
-		local hairAccessory = models.models.main.Avatar.Head.HairAccessory
-		hairAccessory:setVisible(visible)
-		Physics.EnablePyhsics[2] = visible and not Kotatsu.IsAnimationPlaying
+		models.models.main.Avatar.Head.HairAccessory:setVisible(visible)
+		Physics.EnablePyhsics[2] = visible
 	end
 }
 
