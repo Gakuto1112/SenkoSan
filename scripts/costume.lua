@@ -25,6 +25,103 @@
 Costume = {
 	CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "tracksuit", "casual", "sailor", "china_dress", "santa"},
 	CurrentCostume = "DEFAULT",
+	CostumeEvents = {
+		---メイド服Aのチック処理
+		MaidATick = function ()
+			models.models.main.Avatar.Body.BodyBottom.CMaidABB:setRot(player:isCrouching() and 27.5 or 0)
+			if player:getVehicle() then
+				if not Armor.ArmorVisible[3] then
+					models.models.main.Avatar.Body.BodyBottom.CMaidABB.Skirt2:setPos(0, 0.75)
+					models.models.main.Avatar.Body.BodyBottom.CMaidABB.Skirt2:setScale(1.05, 1, 1.05)
+					models.models.main.Avatar.Body.BodyBottom.CMaidABB.Skirt2.Skirt3:setPos(0, 0.75)
+					models.models.main.Avatar.Body.BodyBottom.CMaidABB.Skirt2.Skirt3:setScale(1.05, 1, 1.05)
+					models.models.main.Avatar.Body.BodyBottom.CMaidABB.Skirt2.Skirt3.Skirt4:setPos(0, 1.5)
+					models.models.main.Avatar.Body.BodyBottom.CMaidABB.Skirt2.Skirt3.Skirt4:setScale(1.05, 1, 1.05)
+					models.models.main.Avatar.Body.BodyBottom.CMaidABB.Skirt2.Skirt3.Skirt4.Skirt5:setPos(0, 2.5)
+					models.models.main.Avatar.Body.BodyBottom.CMaidABB.Skirt2.Skirt3.Skirt4.Skirt5:setScale(1.05, 1, 1.05)
+					models.models.main.Avatar.Body.BodyBottom.CMaidABB.Skirt2.Skirt3.Skirt4.Skirt5.Skirt6:setPos(0, 2.5)
+					models.models.main.Avatar.Body.BodyBottom.CMaidABB.Skirt2.Skirt3.Skirt4.Skirt5.Skirt6:setScale(1.05, 1, 1.05)
+				end
+			else
+				models.models.main.Avatar.Body.BodyBottom.CMaidABB.Skirt2:setPos()
+				models.models.main.Avatar.Body.BodyBottom.CMaidABB.Skirt2.Skirt3:setPos()
+				models.models.main.Avatar.Body.BodyBottom.CMaidABB.Skirt2.Skirt3.Skirt4:setPos()
+				models.models.main.Avatar.Body.BodyBottom.CMaidABB.Skirt2.Skirt3.Skirt4.Skirt5:setPos()
+				models.models.main.Avatar.Body.BodyBottom.CMaidABB.Skirt2.Skirt3.Skirt4.Skirt5.Skirt6:setPos()
+			end
+		end,
+
+		---メイド服Aのレンダー処理
+		MaidARender = function ()
+			local legAngle = math.abs(vanilla_model.RIGHT_LEG:getOriginRot().x) / 80
+			models.models.main.Avatar.Body.BodyBottom.CMaidABB.Skirt2:setScale(1, 1, 1 + 0.1 * legAngle)
+			models.models.main.Avatar.Body.BodyBottom.CMaidABB.Skirt2.Skirt3:setScale(1, 1, 1 + 0.09 * legAngle)
+			models.models.main.Avatar.Body.BodyBottom.CMaidABB.Skirt2.Skirt3.Skirt4:setScale(1, 1, 1 + 0.05 * legAngle)
+			models.models.main.Avatar.Body.BodyBottom.CMaidABB.Skirt2.Skirt3.Skirt4.Skirt5:setScale(1, 1, 1 + 0.05 * legAngle)
+			models.models.main.Avatar.Body.BodyBottom.CMaidABB.Skirt2.Skirt3.Skirt4.Skirt5.Skirt6:setScale(1, 1, 1 + 0.02 * legAngle)
+		end,
+
+		---メイド服Bのチック処理
+		MaidBTick = function ()
+			models.models.main.Avatar.Body.BodyBottom.CMaidBBB:setRot(player:isCrouching() and 27.5 or 0, 0, 0)
+			if player:getVehicle() then
+				if not Armor.ArmorVisible[3] then
+					models.models.main.Avatar.Body.BodyBottom.CMaidBBB.Skirt2:setPos(0, 2.5)
+					models.models.main.Avatar.Body.BodyBottom.CMaidBBB.Skirt2:setScale(1.05, 1, 1.2)
+					models.models.main.Avatar.Body.BodyBottom.CMaidBBB.Skirt2.Skirt3:setPos(0, 2.5)
+					models.models.main.Avatar.Body.BodyBottom.CMaidBBB.Skirt2.Skirt3:setScale(1.05, 1, 1.2)
+					models.models.main.Avatar.Body.BodyBottom.CMaidBBB.Skirt2.Skirt3.Skirt4:setPos(0, 2.5)
+					models.models.main.Avatar.Body.BodyBottom.CMaidBBB.Skirt2.Skirt3.Skirt4:setScale(1.05, 1, 1.2)
+				end
+			else
+				models.models.main.Avatar.Body.BodyBottom.CMaidBBB.Skirt2:setPos()
+				models.models.main.Avatar.Body.BodyBottom.CMaidBBB.Skirt2.Skirt3:setPos()
+				models.models.main.Avatar.Body.BodyBottom.CMaidBBB.Skirt2.Skirt3.Skirt4:setPos()
+			end
+		end,
+
+		---メイド服Bのレンダー処理
+		MaidBRender = function ()
+			local legAngle = math.abs(vanilla_model.RIGHT_LEG:getOriginRot().x) / 80
+			models.models.main.Avatar.Body.BodyBottom.CMaidBBB:setScale(1, 1, 1 + 0.5 * legAngle)
+			models.models.main.Avatar.Body.BodyBottom.CMaidBBB.Skirt2:setScale(1, 1, 1 + 0.25 * legAngle)
+			models.models.main.Avatar.Body.BodyBottom.CMaidBBB.Skirt2.Skirt3:setScale(1, 1, 1 + 0.15 * legAngle)
+			models.models.main.Avatar.Body.BodyBottom.CMaidBBB.Skirt2.Skirt3.Skirt4:setScale(1, 1, 1 + 0.1 * legAngle)
+		end,
+
+		---麦わら帽子のチック処理
+		SummerHatTick = function ()
+			local summerHatVisible = string.find(player:getItem(6).id, "^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1]
+			models.models.main.Avatar.Head.CSwimsuitH:setVisible(summerHatVisible)
+			models.models.main.Avatar.Head.HairAccessory:setVisible(not summerHatVisible)
+		end,
+
+		---ポンポンのチック処理
+		PonPonTick = function ()
+			if not ActionWheel.IsAnimationPlaying then
+				local leftHanded = player:isLeftHanded()
+				models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB:setVisible(player:getHeldItem(leftHanded).id == "minecraft:air" and (not Umbrella.Umbrella or not leftHanded))
+				models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB:setVisible(player:getHeldItem(not leftHanded).id == "minecraft:air" and (not Umbrella.Umbrella or leftHanded))
+			else
+				for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB,  models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB}) do
+					modelPart:setVisible(false)
+				end
+			end
+		end,
+
+		---浴衣のチック処理
+		YukataTick = function ()
+			local helmetItemID = player:getItem(6).id
+			models.models.main.Avatar.Head.CFoxMaskH:setVisible(string.find(helmetItemID, "^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1])
+			models.models.main.Avatar.Head.CFoxMaskH:setPrimaryTexture("RESOURCE", (helmetItemID == "minecraft:leather_helmet" or helmetItemID == "minecraft:chainmail_helmet" or helmetItemID == "minecraft:iron_helmet") and "textures/entity/fox/fox.png" or "textures/entity/fox/snow_fox.png")
+		end,
+
+		---ミニスカートのチック処理
+		MiniskirtTick = function ()
+			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setRot((player:isCrouching() or player:getVehicle()) and 27.5 or 0, 0, 0)
+			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setPos(0, 0, player:isCrouching() and 1.25 or 0)
+		end
+	},
 
 	---メインモデルのテクスチャのオフセット値を設定する。
 	---@param offset integer オフセット値
@@ -40,241 +137,275 @@ Costume = {
 		Costume.resetCostume()
 		Costume.CurrentCostume = costume
 		if costume == "NIGHTWEAR" then
+			models.models.main.Avatar.Body.BodyBottom.Bells:setVisible(false)
 			Costume.setCostumeTextureOffset(1)
 		elseif costume == "DISGUISE" then
-			for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT}) do
-				modelPart:setVisible(true)
+			for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot}) do
+				modelPart:setVisible(Armor.ArmorVisible[1])
 			end
+			for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Body.BodyBottom.Bells}) do
+				modelPart:setVisible(false)
+			end
+			models.models.main.Avatar.Head.CDisguiseH:setVisible(not Armor.ArmorVisible[1])
+			models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT:setVisible(not Armor.ArmorVisible[2])
+			Sleeve.disable()
 			Costume.setCostumeTextureOffset(2)
+			models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(16, 0)
+			Ears.EnableJerkEar = Armor.ArmorVisible[1]
 		elseif costume == "MAID_A" then
+			models.models.main.Avatar.Head.CMaidAH:setVisible(not Armor.ArmorVisible[1])
+			models.models.main.Avatar.Body.BodyBottom.CMaidABB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
+			models.models.main.Avatar.Body.BodyBottom.Bells:setVisible(false)
+			Sleeve.disable()
 			Costume.setCostumeTextureOffset(3)
+			events.TICK:register(Costume.CostumeEvents.MaidATick, "costume_maid_a_tick")
+			events.RENDER:register(Costume.CostumeEvents.MaidARender, "costume_maid_a_render")
 			Legs.ReducedLegSwing = true
 		elseif costume == "MAID_B" then
+			models.models.main.Avatar.Head.CMaidBH:setVisible(not Armor.ArmorVisible[1])
+			models.models.main.Avatar.Body.BodyBottom.CMaidBBB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
+			models.models.main.Avatar.Body.BodyBottom.Bells:setVisible(false)
 			Costume.setCostumeTextureOffset(4)
+			events.TICK:register(Costume.CostumeEvents.MaidBTick, "costume_maid_b_tick")
+			events.RENDER:register(Costume.CostumeEvents.MaidBRender, "costume_maid_b_render")
 			Legs.ReducedLegSwing = true
 		elseif costume == "SWIMSUIT" then
+			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
+			models.models.main.Avatar.Body.BodyBottom.Bells:setVisible(false)
+			Sleeve.disable()
 			Costume.setCostumeTextureOffset(5)
 			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setUVPixels(0, 0)
+			events.TICK:register(Costume.CostumeEvents.SummerHatTick, "costume_summer_hat_tick")
+			events.TICK:register(Costume.CostumeEvents.MiniskirtTick, "costume_miniskirt_tick")
 		elseif costume == "CHEERLEADER" then
+			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
+			models.models.main.Avatar.Body.BodyBottom.Bells:setVisible(false)
+			Sleeve.disable()
 			Costume.setCostumeTextureOffset(6)
-			models.models.costume_cheerleader:setVisible(true)
 			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setUVPixels(0, 14)
+			events.TICK:register(Costume.CostumeEvents.PonPonTick, "costume_ponpon_tick")
+			events.TICK:register(Costume.CostumeEvents.MiniskirtTick, "costume_miniskirt_tick")
 		elseif costume == "PURIFICATION" then
+			models.models.main.Avatar.Body.BodyBottom.Bells:setVisible(false)
 			Costume.setCostumeTextureOffset(7)
 		elseif costume == "KAPPOGI" then
+			models.models.main.Avatar.Body.BodyBottom.Bells:setVisible(false)
+			Sleeve.disable()
+			Apron.enable()
 			Costume.setCostumeTextureOffset(8)
 			Apron.IsVisible = true
 		elseif costume == "YUKATA" then
+			models.models.main.Avatar.Body.BodyBottom.Bells:setVisible(false)
+			events.TICK:register(Costume.CostumeEvents.YukataTick, "costume_yukata_tick")
 			Costume.setCostumeTextureOffset(9)
+		elseif costume == "KNIT" then
+			for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot}) do
+				modelPart:setVisible(Armor.ArmorVisible[1])
+			end
+			models.models.main.Avatar.Head.HairAccessory:setVisible(false)
+			models.models.main.Avatar.Head.CKnitH:setVisible(not Armor.ArmorVisible[1])
 		elseif costume == "FOX_HOODIE_RED" then
+			for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot, models.models.main.Avatar.Body.Hairs.BackHair}) do
+				modelPart:setVisible(Armor.ArmorVisible[1])
+			end
+			for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Body.BodyBottom.Bells}) do
+				modelPart:setVisible(false)
+			end
+			models.models.main.Avatar.Head.CFoxHoodH:setVisible(not Armor.ArmorVisible[1])
+			Sleeve.disable()
 			Costume.setCostumeTextureOffset(10)
 			models.models.main.Avatar.Head.CFoxHoodH:setUVPixels(0, 0)
 		elseif costume == "FOX_HOODIE_WHITE" then
+			for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot, models.models.main.Avatar.Body.Hairs.BackHair}) do
+				modelPart:setVisible(Armor.ArmorVisible[1])
+			end
+			for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Body.BodyBottom.Bells}) do
+				modelPart:setVisible(false)
+			end
+			models.models.main.Avatar.Head.CFoxHoodH:setVisible(not Armor.ArmorVisible[1])
+			Sleeve.disable()
 			Costume.setCostumeTextureOffset(11)
 			models.models.main.Avatar.Head.CFoxHoodH:setUVPixels(0, 8)
 		elseif costume == "TRACKSUIT" then
+			models.models.main.Avatar.Body.BodyBottom.Bells:setVisible(false)
+			Sleeve.disable()
 			Costume.setCostumeTextureOffset(12)
 		elseif costume == "CASUAL" then
+			for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot}) do
+				modelPart:setVisible(Armor.ArmorVisible[1])
+			end
+			for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Body.BodyBottom.Bells}) do
+				modelPart:setVisible(false)
+			end
+			models.models.main.Avatar.Head.CBeretH:setVisible(not Armor.ArmorVisible[1])
+			Sleeve.disable()
 			Costume.setCostumeTextureOffset(13)
+			Ears.EnableJerkEar = Armor.ArmorVisible[1]
 		elseif costume == "SAILOR" then
+			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
+			models.models.main.Avatar.Body.BodyBottom.Bells:setVisible(false)
+			Sleeve.disable()
 			Costume.setCostumeTextureOffset(14)
 			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setUVPixels(0, 28)
+			events.TICK:register(Costume.CostumeEvents.MiniskirtTick, "costume_miniskirt_tick")
 		elseif costume == "CHINA_DRESS" then
+			models.models.main.Avatar.Body.BodyBottom.Bells:setVisible(false)
+			Sleeve.disable()
 			Costume.setCostumeTextureOffset(15)
 		elseif costume == "SANTA" then
+			models.models.main.Avatar.Head.Ears.LeftEarPivot:setVisible(Armor.ArmorVisible[1])
+			models.models.main.Avatar.Head.CSantaH:setVisible(not Armor.ArmorVisible[1])
 			Costume.setCostumeTextureOffset(16)
 		end
 	end,
 
 	---コスチュームをリセットし、デフォルトのコスチュームにする。
 	resetCostume = function ()
-		Costume.setCostumeTextureOffset(0)
-		for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT, models.models.costume_cheerleader}) do
+		for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot, models.models.main.Avatar.Body.Hairs.BackHair}) do
+			modelPart:setVisible(true)
+		end
+		models.models.main.Avatar.Head.HairAccessory:setVisible(not Armor.ArmorVisible[1])
+		models.models.main.Avatar.Body.BodyBottom.Bells:setVisible(not (Armor.ArmorVisible[2] or Armor.ArmorVisible[3]))
+		for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT, models.models.main.Avatar.Head.CMaidAH, models.models.main.Avatar.Body.BodyBottom.CMaidABB, models.models.main.Avatar.Head.CMaidBH, models.models.main.Avatar.Body.BodyBottom.CMaidBBB, models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB,  models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH}) do
 			modelPart:setVisible(false)
 		end
-		Apron.IsVisible = false
+		for _, tickEventName in ipairs({"costume_maid_a_tick", "costume_maid_b_tick", "costume_summer_hat_tick", "costume_miniskirt_tick", "costume_ponpon_tick", "costume_yukata_tick"}) do
+			events.TICK:remove(tickEventName)
+		end
+		for _, renderEventName in ipairs({"costume_maid_a_render", "costume_maid_b_render"}) do
+			events.RENDER:remove(renderEventName)
+		end
+		Costume.setCostumeTextureOffset(0)
+		Sleeve.enable()
+		Apron.disable()
 		Legs.ReducedLegSwing = false
+		Ears.EnableJerkEar = true
 		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 0)
 		Costume.CurrentCostume = "DEFAULT"
 	end,
 
-	---コスチュームの初期処理
-	costumeInit = function()
-		local loadedData = Config.loadConfig("costume", 1)
-		if loadedData <= #Costume.CostumeList then
-			Costume.CurrentCostume = string.upper(Costume.CostumeList[loadedData])
-			if Costume.CurrentCostume ~= "DEFAULT" then
-				Costume.setCostume(Costume.CurrentCostume)
+	---防具が更新された時にArmorから呼び出される関数
+	---@param armorIndex integer 防具のインデックス: 1. ヘルメット, 2. チェストプレート, 3. レギンス, 4. ブーツ
+	onArmorChenge = function (armorIndex)
+		if armorIndex == 1 then
+			if Armor.ArmorVisible[1] then
+				for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot, models.models.main.Avatar.Body.Hairs.BackHair}) do
+					modelPart:setVisible(true)
+				end
+				for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Head.CMaidAH, models.models.main.Avatar.Head.CMaidBH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH}) do
+					modelPart:setVisible(false)
+				end
+				for _, tickEventName in ipairs({"costume_summer_hat_tick", "costume_yukata_tick"}) do
+					events.TICK:remove(tickEventName)
+				end
+				Ears.EnableJerkEar = true
 			else
-				Apron.IsVisible = false
+				if Costume.CurrentCostume == "DISGUISE" then
+					for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot}) do
+						modelPart:setVisible(false)
+					end
+					models.models.main.Avatar.Head.CDisguiseH:setVisible(true)
+					Ears.EnableJerkEar = false
+				elseif Costume.CurrentCostume == "MAID_A" then
+					for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Head.CMaidAH}) do
+						modelPart:setVisible(true)
+					end
+				elseif Costume.CurrentCostume == "MAID_B" then
+					for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Head.CMaidBH}) do
+						modelPart:setVisible(true)
+					end
+					models.models.main.Avatar.Head.CMaidBH:setVisible(true)
+				elseif Costume.CurrentCostume == "SWIMSUIT" then
+					events.TICK:register(Costume.CostumeEvents.SummerHatTick, "costume_summer_hat_tick")
+				elseif Costume.CurrentCostume == "YUKATA" then
+					models.models.main.Avatar.Head.HairAccessory:setVisible(true)
+					events.TICK:register(Costume.CostumeEvents.YukataTick, "costume_yukata_tick")
+				elseif Costume.CurrentCostume == "KNIT" then
+					for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot}) do
+						modelPart:setVisible(false)
+					end
+					models.models.main.Avatar.Head.CKnitH:setVisible(true)
+				elseif Costume.CurrentCostume == "FOX_HOODIE_RED" or Costume.CurrentCostume == "FOX_HOODIE_WHITE" then
+					for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot, models.models.main.Avatar.Body.Hairs.BackHair}) do
+						modelPart:setVisible(false)
+					end
+					models.models.main.Avatar.Head.CFoxHoodH:setVisible(true)
+				elseif Costume.CurrentCostume == "CASUAL" then
+					for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot}) do
+						modelPart:setVisible(false)
+					end
+					models.models.main.Avatar.Head.CBeretH:setVisible(true)
+					Ears.EnableJerkEar = false
+				elseif Costume.CurrentCostume == "SANTA" then
+					models.models.main.Avatar.Head.Ears.LeftEarPivot:setVisible(false)
+					for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Head.CSantaH}) do
+						modelPart:setVisible(true)
+					end
+				else
+					models.models.main.Avatar.Head.HairAccessory:setVisible(true)
+				end
 			end
-		else
-			Costume.CurrentCostume = "DEFAULT"
-			Apron.IsVisible = false
-			Config.saveConfig("costume", 1)
+		elseif armorIndex == 2 then
+			if Armor.ArmorVisible[2] then
+				for _, modelPart in ipairs({models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT, models.models.main.Avatar.Body.BodyBottom.Bells}) do
+					modelPart:setVisible(false)
+				end
+				models.models.main.Avatar.Body.Hairs.FrontHair:setPos(0, 0, -1)
+				models.models.main.Avatar.Body.Hairs.BackHair:setPos(0, 0, 1)
+			else
+				models.models.main.Avatar.Body.BodyBottom.Bells:setVisible((Costume.CurrentCostume == "DEFAULT" or Costume.CurrentCostume == "KNIT" or Costume.CurrentCostume == "SANTA") and not Armor.ArmorVisible[3])
+				if Costume.CurrentCostume == "DISGUISE" then
+					models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT:setVisible(true)
+				end
+				models.models.main.Avatar.Body.Hairs.FrontHair:setPos()
+				models.models.main.Avatar.Body.Hairs.BackHair:setPos()
+			end
+		elseif armorIndex == 3 then
+			if Armor.ArmorVisible[3] then
+				for _, modelPart in ipairs({models.models.main.Avatar.Body.BodyBottom.Bells, models.models.main.Avatar.Body.BodyBottom.CMaidABB, models.models.main.Avatar.Body.BodyBottom.CMaidBBB, models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB}) do
+					modelPart:setVisible(false)
+				end
+				for _, tickEventName in ipairs({"costume_maid_a_tick", "costume_maid_b_tick", "costume_miniskirt_tick"}) do
+					events.TICK:remove(tickEventName)
+				end
+				for _, renderEventName in ipairs({"costume_maid_a_render", "costume_maid_b_render"}) do
+					events.RENDER:remove(renderEventName)
+				end
+				Apron.disable()
+				Legs.ReducedLegSwing = false
+			else
+				models.models.main.Avatar.Body.BodyBottom.Bells:setVisible((Costume.CurrentCostume == "DEFAULT" or Costume.CurrentCostume == "KNIT" or Costume.CurrentCostume == "SANTA") and not Armor.ArmorVisible[2])
+				if Costume.CurrentCostume == "MAID_A" then
+					models.models.main.Avatar.Body.BodyBottom.CMaidABB:setVisible(true)
+					events.TICK:register(Costume.CostumeEvents.MaidATick, "costume_maid_a_tick")
+					events.RENDER:register(Costume.CostumeEvents.MaidARender, "costume_maid_a_render")
+				elseif Costume.CurrentCostume == "MAID_B" then
+					models.models.main.Avatar.Body.BodyBottom.CMaidBBB:setVisible(true)
+					events.TICK:register(Costume.CostumeEvents.MaidATick, "costume_maid_b_tick")
+					events.RENDER:register(Costume.CostumeEvents.MaidARender, "costume_maid_b_render")
+				elseif Costume.CurrentCostume == "SWIMSUIT" or Costume.CurrentCostume == "CHEERLEADER" or Costume.CurrentCostume == "SAILOR" then
+					models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setVisible(true)
+					events.TICK:register(Costume.CostumeEvents.MiniskirtTick, "costume_miniskirt_tick")
+				elseif Costume.CurrentCostume == "KAPPOGI" then
+					Apron.enable()
+				end
+				Legs.ReducedLegSwing = Costume.CurrentCostume == "MAID_A" or Costume.CurrentCostume == "MAID_B"
+			end
 		end
 	end
 }
 
-events.TICK:register(function ()
-	models.models.main.Avatar.Body.BodyBottom.Bells:setVisible(Costume.CurrentCostume == "DEFAULT" and not Armor.ArmorVisible[2] and not Armor.ArmorVisible[3])
-	if Costume.CurrentCostume == "DISGUISE" then
-		local hat = models.models.main.Avatar.Head.CDisguiseH
-		local ears = models.models.main.Avatar.Head.Ears
-		if Armor.ArmorVisible[1] then
-			hat:setVisible(false)
-			ears:setVisible(true)
-		else
-			hat:setVisible(true)
-			ears:setVisible(false)
-		end
+local loadedData = Config.loadConfig("costume", 1)
+if loadedData <= #Costume.CostumeList then
+	Costume.CurrentCostume = string.upper(Costume.CostumeList[loadedData])
+	if Costume.CurrentCostume ~= "DEFAULT" then
+		Costume.setCostume(Costume.CurrentCostume)
 	else
-		models.models.main.Avatar.Head.CDisguiseH:setVisible(false)
-		models.models.main.Avatar.Head.Ears:setVisible((Costume.CostumeList ~= "KNIT" and Costume.CurrentCostume ~= "FOX_HOODIE_RED" and Costume.CurrentCostume ~= "FOX_HOODIE_WHITE" and Costume.CurrentCostume ~= "CASUAL") or Armor.ArmorVisible[1])
+		Costume.resetCostume()
 	end
-	if Costume.CurrentCostume == "MAID_A" then
-		local skirt = models.models.main.Avatar.Body.BodyBottom.CMaidABB
-		skirt:setRot(General.IsSneaking and 27.5 or 0, 0, 0)
-		models.models.main.Avatar.Head.CMaidAH:setVisible(not Armor.ArmorVisible[1])
-		skirt:setVisible(not Armor.ArmorVisible[3] and not Kotatsu.IsAnimationPlaying)
-		if player:getVehicle() then
-			if Armor.ArmorVisible[3] then
-				models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
-			else
-				models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(false)
-				skirt.Skirt2:setPos(0, 0.75, 0)
-				skirt.Skirt2:setScale(1.05, 1, 1.05)
-				skirt.Skirt2.Skirt3:setPos(0, 0.75, 0)
-				skirt.Skirt2.Skirt3:setScale(1.05, 1, 1.05)
-				skirt.Skirt2.Skirt3.Skirt4:setPos(0, 1.5, 0)
-				skirt.Skirt2.Skirt3.Skirt4:setScale(1.05, 1, 1.05)
-				skirt.Skirt2.Skirt3.Skirt4.Skirt5:setPos(0, 2.5, 0)
-				skirt.Skirt2.Skirt3.Skirt4.Skirt5:setScale(1.05, 1, 1.05)
-				skirt.Skirt2.Skirt3.Skirt4.Skirt5.Skirt6:setPos(0, 2.5, 0)
-				skirt.Skirt2.Skirt3.Skirt4.Skirt5.Skirt6:setScale(1.05, 1, 1.05)
-			end
-		else
-			models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
-			skirt.Skirt2:setPos(0, 0, 0)
-			skirt.Skirt2.Skirt3:setPos(0, 0, 0)
-			skirt.Skirt2.Skirt3.Skirt4:setPos(0, 0, 0)
-			skirt.Skirt2.Skirt3.Skirt4.Skirt5:setPos(0, 0, 0)
-			skirt.Skirt2.Skirt3.Skirt4.Skirt5.Skirt6:setPos(0, 0, 0)
-		end
-	else
-		for _, modelsPart in ipairs({models.models.main.Avatar.Head.CMaidAH, models.models.main.Avatar.Body.BodyBottom.CMaidABB}) do
-			modelsPart:setVisible(false)
-		end
-	end
-	if Costume.CurrentCostume == "MAID_B" then
-		local skirt = models.models.main.Avatar.Body.BodyBottom.CMaidBBB
-		skirt:setRot(General.IsSneaking and 27.5 or 0, 0, 0)
-		models.models.main.Avatar.Head.CMaidBH:setVisible(not Armor.ArmorVisible[1])
-		skirt:setVisible(not Armor.ArmorVisible[3] and not Kotatsu.IsAnimationPlaying)
-		if player:getVehicle() then
-			if Armor.ArmorVisible[3] then
-				models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
-			else
-				models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(false)
-				skirt.Skirt2:setPos(0, 2.5, 0)
-				skirt.Skirt2:setScale(1.05, 1, 1.2)
-				skirt.Skirt2.Skirt3:setPos(0, 2.5, 0)
-				skirt.Skirt2.Skirt3:setScale(1.05, 1, 1.2)
-				skirt.Skirt2.Skirt3.Skirt4:setPos(0, 2.5, 0)
-				skirt.Skirt2.Skirt3.Skirt4:setScale(1.05, 1, 1.2)
-			end
-		else
-			models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
-			skirt.Skirt2:setPos(0, 0, 0)
-			skirt.Skirt2.Skirt3:setPos(0, 0, 0)
-			skirt.Skirt2.Skirt3.Skirt4:setPos(0, 0, 0)
-		end
-	else
-		for _, modelsPart in ipairs({models.models.main.Avatar.Head.CMaidBH, models.models.main.Avatar.Body.BodyBottom.CMaidBBB}) do
-			modelsPart:setVisible(false)
-		end
-	end
-	local summerHatVisible = Costume.CurrentCostume == "SWIMSUIT" and string.find(player:getItem(6).id, "^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1]
-	models.models.main.Avatar.Head.CSwimsuitH:setVisible(summerHatVisible)
-	if Costume.CurrentCostume == "CHEERLEADER" then
-		local rightPonPon = models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB
-		local leftPonPon = models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB
-		if not ActionWheel.IsAnimationPlaying then
-			local leftHanded = player:isLeftHanded()
-			rightPonPon:setVisible(player:getHeldItem(leftHanded).id == "minecraft:air" and (not Umbrella.Umbrella or not leftHanded))
-			leftPonPon:setVisible(player:getHeldItem(not leftHanded).id == "minecraft:air" and (not Umbrella.Umbrella or leftHanded))
-		else
-			for _, modelPart in ipairs({rightPonPon, leftPonPon}) do
-				modelPart:setVisible(false)
-			end
-		end
-	else
-		for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB}) do
-			modelPart:setVisible(false)
-		end
-	end
-	if Costume.CurrentCostume == "YUKATA" then
-		local foxMask = models.models.main.Avatar.Head.CFoxMaskH
-		local helmetItemID = player:getItem(6).id
-		foxMask:setVisible(string.find(helmetItemID, "^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1])
-		foxMask:setPrimaryTexture("RESOURCE", (helmetItemID == "minecraft:leather_helmet" or helmetItemID == "minecraft:chainmail_helmet" or helmetItemID == "minecraft:iron_helmet") and "textures/entity/fox/fox.png" or "textures/entity/fox/snow_fox.png")
-	else
-		models.models.main.Avatar.Head.CFoxMaskH:setVisible(false)
-	end
-	local santa = models.models.main.Avatar.Head.CSantaH
-	local leftEar = models.models.main.Avatar.Head.Ears.LeftEarPivot
-	if Costume.CurrentCostume ~= "SANTA" or Armor.ArmorVisible[1] then
-		santa:setVisible(false)
-		leftEar:setVisible(models.models.main.Avatar.Head.Ears:getVisible())
-	else
-		santa:setVisible(true)
-		leftEar:setVisible(false)
-	end
-	models.models.main.Avatar.Head.CKnitH:setVisible(Costume.CurrentCostume == "KNIT" and not Armor.ArmorVisible[1])
-	local hoodieVisible = (Costume.CurrentCostume == "FOX_HOODIE_RED" or Costume.CurrentCostume == "FOX_HOODIE_WHITE") and not Armor.ArmorVisible[1]
-	models.models.main.Avatar.Head.CFoxHoodH:setVisible(hoodieVisible)
-	models.models.main.Avatar.Body.Hairs.BackHair:setVisible(not hoodieVisible)
-	models.models.main.Avatar.Head.CBeretH:setVisible(Costume.CurrentCostume == "CASUAL" and not Armor.ArmorVisible[1])
-	Ears.EnableJerkEar = (Costume.CurrentCostume ~= "DISGUISE" and Costume.CurrentCostume ~= "CASUAL") or Armor.ArmorVisible[1]
-	if Costume.CurrentCostume ~= "MAID_A" and Costume.CurrentCostume ~= "MAID_B" then
-		if renderer:isFirstPerson() and player:getPose() == "SLEEPING" then
-			models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(false)
-		else
-			models.models.main.Avatar.Body.BodyBottom.Legs:setVisible(true)
-		end
-	end
-	if Costume.CurrentCostume == "SWIMSUIT" or Costume.CurrentCostume == "CHEERLEADER" or Costume.CurrentCostume == "SAILOR" then
-		local skirt = models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB
-		skirt:setVisible(not Armor.ArmorVisible[3] and not Kotatsu.IsAnimationPlaying)
-		skirt:setRot((General.IsSneaking or player:getVehicle()) and 27.5 or 0, 0, 0)
-		skirt:setPos(0, 0, General.IsSneaking and 1.25 or 0)
-	else
-		models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setVisible(false)
-	end
-	local hairAccessoryVisible = (Costume.CurrentCostume ~= "DISGUISE" and Costume.CurrentCostume ~= "KNIT" and Costume.CurrentCostume ~= "FOX_HOODIE_RED" and Costume.CurrentCostume ~= "FOX_HOODIE_WHITE" and Costume.CurrentCostume ~= "CASUAL" and Costume.CurrentCostume ~= "SANTA" and not summerHatVisible) or Armor.ArmorVisible[1]
-	for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Head.Cowlick}) do
-		modelPart:setVisible(hairAccessoryVisible)
-	end
-end)
-
-events.RENDER:register(function ()
-	local legAngle = math.abs(vanilla_model.RIGHT_LEG:getOriginRot().x) / 80
-	if Costume.CurrentCostume == "MAID_A" then
-		local skirt = models.models.main.Avatar.Body.BodyBottom.CMaidABB
-		skirt.Skirt2:setScale(1, 1, 1 + 0.1 * legAngle)
-		skirt.Skirt2.Skirt3:setScale(1, 1, 1 + 0.09 * legAngle)
-		skirt.Skirt2.Skirt3.Skirt4:setScale(1, 1, 1 + 0.05 * legAngle)
-		skirt.Skirt2.Skirt3.Skirt4.Skirt5:setScale(1, 1, 1 + 0.05 * legAngle)
-		skirt.Skirt2.Skirt3.Skirt4.Skirt5.Skirt6:setScale(1, 1, 1 + 0.02 * legAngle)
-	elseif Costume.CurrentCostume == "MAID_B" then
-		local skirt = models.models.main.Avatar.Body.BodyBottom.CMaidBBB
-		skirt:setScale(1, 1, 1 + 0.5 * legAngle)
-		skirt.Skirt2:setScale(1, 1, 1 + 0.25 * legAngle)
-		skirt.Skirt2.Skirt3:setScale(1, 1, 1 + 0.15 * legAngle)
-		skirt.Skirt2.Skirt3.Skirt4:setScale(1, 1, 1 + 0.1 * legAngle)
-	end
-end)
-
-Costume.costumeInit()
+else
+	Costume.resetCostume()
+	Config.saveConfig("costume", 1)
+end
 
 return Costume

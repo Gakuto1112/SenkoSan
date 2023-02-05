@@ -17,7 +17,7 @@ events.TICK:register(function()
 			Sleep.CostumeBeforeSleeping = Costume.CurrentCostume
 			Costume.setCostume("NIGHTWEAR")
 			Physics.EnablePyhsics[1] = false
-			Physics.EnablePyhsics[3] = false
+			Sleeve.Moving = false
 			if renderer:isFirstPerson() then
 				models.models.main:setVisible(false)
 				Apron.IsVisible = false
@@ -130,7 +130,7 @@ events.TICK:register(function()
 			else
 				Costume.setCostume(Sleep.CostumeBeforeSleeping)
 			end
-			Physics.EnablePyhsics[3] = true
+			Sleeve.Moving = true
 			models.models.main:setVisible(true)
 			renderer:setCameraRot()
 			renderer:offsetCameraPivot()
