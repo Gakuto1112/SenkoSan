@@ -6,7 +6,7 @@ BroomCleaning = General.instance({
 		AnimationAction.play(self)
 		models.models.broom_cleaning.Avatar.Dust:setOpacity(1)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-		Physics.EnablePyhsics[3] = false
+		Sleeve.Moving = false
 		Arms.hideHeldItem(true)
 	end,
 
@@ -14,7 +14,7 @@ BroomCleaning = General.instance({
 	stop = function(self)
 		AnimationAction.stop(self)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-		Physics.EnablePyhsics[3] = true
+		Sleeve.Moving = true
 	end,
 
 	---アニメーション再生中に毎チック実行される関数

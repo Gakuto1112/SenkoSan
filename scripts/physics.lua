@@ -3,14 +3,14 @@
 ---@field Physics.VelocityAverage table 速度の平均値：1. 前後, 2. 上下, 3. 左右, 4. 角速度
 ---@field Physics.LookRotPrevRender number 前レンダーチックのlookRot
 ---@field Physics.LookRotDeltaPrevRender number 前レンダーチックのlookRotDelta
----@field Physics.EnablePyhsics boolean 物理演算を有効にするかどうか：1. 尻尾, 2. 髪飾り, 3. 袖
+---@field Physics.EnablePyhsics boolean 物理演算を有効にするかどうか：1. 尻尾, 2. 髪飾り
 
 Physics = {
 	VelocityData = {{}, {}, {}, {}},
 	VelocityAverage = {0, 0, 0, 0},
 	LookRotPrevRender = 0,
 	LookRotDeltaPrevRender = 0,
-	EnablePyhsics = {true, true, true}
+	EnablePyhsics = {true, true}
 }
 
 events.RENDER:register(function ()

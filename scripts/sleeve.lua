@@ -1,6 +1,9 @@
 ---@class Sleeve 袖を操作するクラス
+---@field Sleeve.Moving boolean 袖の動きが有効かどうか
 
 Sleeve = {
+	Moving = true,
+
 	---袖を有効にする。
 	enable = function ()
 		for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase}) do
@@ -10,7 +13,7 @@ Sleeve = {
 		events.RENDER:register(function ()
 			local sleeveRot = {vectors.vec3(), vectors.vec3()}
 			local rotLimit = {{{-20, 20}, {-20, 20}}, {{-60, 60}, {-70, 70}}} --袖の可動範囲：1. 袖ベース：{1-1. 前後方向, 1-2. 左右方向}, 2. 袖：{2-1. 前後方向, 2-2. 左右方向}
-			if not renderer:isFirstPerson() then
+			if not renderer:isFirstPerson() and Sleeve.Moving then
 				local playerPose = player:getPose()
 				if playerPose == "FALL_FLYING" then
 					sleeveRot = {vectors.vec3(math.clamp(90 - vanilla_model.RIGHT_ARM:getOriginRot().x, rotLimit[1][1][1] + rotLimit[1][2][1], rotLimit[1][1][2] + rotLimit[3][1][2])), vectors.vec3(math.clamp(90 - vanilla_model.LEFT_ARM:getOriginRot().x, rotLimit[1][1][1] + rotLimit[2][1][1], rotLimit[1][1][2] + rotLimit[2][1][2]))}

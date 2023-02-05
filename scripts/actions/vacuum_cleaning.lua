@@ -5,7 +5,7 @@ VacuumCleaning = General.instance({
 	play = function (self)
 		AnimationAction.play(self)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-		Physics.EnablePyhsics[3] = false
+		Sleeve.Moving = false
 		Arms.hideHeldItem(true)
 	end,
 
@@ -16,7 +16,7 @@ VacuumCleaning = General.instance({
 		end
 		AnimationAction.stop(self)
 		Ears.EarsRotCount = 0
-		Physics.EnablePyhsics[3] = true
+		Sleeve.Moving = true
 	end,
 
 	---アニメーション再生中に毎チック実行される関数

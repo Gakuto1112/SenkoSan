@@ -11,7 +11,7 @@ SitDown = General.instance({
 		end
 		PermanentAnimationAction.play(self)
 		Kotatsu:stop()
-		Physics.EnablePyhsics[3] = false
+		Sleeve.Moving = false
 		Umbrella.EnableUmbrella = true
 		Camera.CameraOffset = -0.5
 		Nameplate.NamePlateOffset = -0.5
@@ -35,7 +35,7 @@ SitDown = General.instance({
 		PermanentAnimationAction.onTickEvent(self)
 		if self.StandUpCount >= 0 then
 			if self.StandUpCount == 0 then
-				Physics.EnablePyhsics[3] = true
+				Sleeve.Moving = true
 			end
 			self.StandUpCount = self.StandUpCount - 1
 		end
