@@ -336,7 +336,7 @@ Costume = {
 			else
 				if Costume.CurrentCostume == "DISGUISE" then
 					for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot}) do
-						modelPart:setVisible(Armor.ArmorVisible[1])
+						modelPart:setVisible(false)
 					end
 					models.models.main.Avatar.Head.CDisguiseH:setVisible(true)
 					Ears.EnableJerkEar = false
@@ -349,10 +349,14 @@ Costume = {
 				elseif Costume.CurrentCostume == "YUKATA" then
 					events.TICK:register(Costume.CostumeEvents.YukataTick, "costume_yukata_tick")
 				elseif Costume.CurrentCostume == "KNIT" then
-					models.models.main.Avatar.Head.Ears:setVisible(false)
+					for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot}) do
+						modelPart:setVisible(false)
+					end
 					models.models.main.Avatar.Head.CKnitH:setVisible(true)
 				elseif Costume.CurrentCostume == "FOX_HOODIE_RED" or Costume.CurrentCostume == "FOX_HOODIE_WHITE" then
-					models.models.main.Avatar.Head.Ears:setVisible(false)
+					for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot}) do
+						modelPart:setVisible(false)
+					end
 					models.models.main.Avatar.Head.CFoxHoodH:setVisible(true)
 					HairAccessory.visible(false)
 				elseif Costume.CurrentCostume == "CASUAL" then
