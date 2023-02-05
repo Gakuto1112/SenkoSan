@@ -10,7 +10,9 @@ SitDown = General.instance({
 			animation:setSpeed(1)
 		end
 		PermanentAnimationAction.play(self)
-		Kotatsu:stop()
+		if Kotatsu.IsAnimationPlaying then
+			Kotatsu:stop()
+		end
 		Sleeve.Moving = false
 		Umbrella.EnableUmbrella = true
 		Camera.CameraOffset = -0.5
