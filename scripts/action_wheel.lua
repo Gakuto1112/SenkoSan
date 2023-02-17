@@ -143,14 +143,18 @@ function pings.main2_action2()
 end
 
 function pings.main2_action3()
-	Earpick:play()
+	EarCuddling:play()
 end
 
 function pings.main2_action4()
-	TeaTime:play()
+	Earpick:play()
 end
 
 function pings.main2_action5()
+	TeaTime:play()
+end
+
+function pings.main2_action6()
 	Massage:play()
 end
 
@@ -211,7 +215,7 @@ events.TICK:register(function ()
 		local isOpenActionWheel = action_wheel:isEnabled()
 		if isOpenActionWheel then
 			if not ActionWheel.ParentPage then
-				local animationClasses = {{Smile, ShakeBody, BroomCleaning, HairCut, FoxJump, TailBrush, Kotatsu}, {SitDown, TailCuddling, Earpick, TeaTime, Massage}}
+				local animationClasses = {{Smile, ShakeBody, BroomCleaning, HairCut, FoxJump, TailBrush, Kotatsu}, {SitDown, TailCuddling, EarCuddling, Earpick, TeaTime, Massage}}
 				for pageIndex, pageAnimationClasses in ipairs(animationClasses) do
 					for actionIndex, actionClass in ipairs(pageAnimationClasses) do
 						ActionWheel.setActionEnabled(pageIndex, actionIndex, not ActionWheel.IsAnimationPlaying and actionClass:checkAction())
@@ -409,10 +413,10 @@ if host:isHost() then
 		end
 	end)
 
-	--アクション2-3. 耳かき
-	ActionWheel.MainPages[2]:newAction(3):item("feather"):onLeftClick(function ()
+	--アクション2-3. お耳モフモフ
+	ActionWheel.MainPages[2]:newAction(3):item("yellow_wool"):onLeftClick(function ()
 		if not ActionWheel.IsAnimationPlaying then
-			if SitDown.IsAnimationPlaying then
+			if EarCuddling:checkAction() then
 				pings.main2_action3()
 			elseif Warden.WardenNearby then
 				pings.refuse_emote()
@@ -422,8 +426,8 @@ if host:isHost() then
 		end
 	end)
 
-	--アクション2-4. ティータイム
-	ActionWheel.MainPages[2]:newAction(4):item("flower_pot"):onLeftClick(function ()
+	--アクション2-4. 耳かき
+	ActionWheel.MainPages[2]:newAction(4):item("feather"):onLeftClick(function ()
 		if not ActionWheel.IsAnimationPlaying then
 			if SitDown.IsAnimationPlaying then
 				pings.main2_action4()
@@ -435,8 +439,8 @@ if host:isHost() then
 		end
 	end)
 
-	--アクション2-5. マッサージ
-	ActionWheel.MainPages[2]:newAction(5):item("yellow_bed"):onLeftClick(function ()
+	--アクション2-5. ティータイム
+	ActionWheel.MainPages[2]:newAction(5):item("flower_pot"):onLeftClick(function ()
 		if not ActionWheel.IsAnimationPlaying then
 			if SitDown.IsAnimationPlaying then
 				pings.main2_action5()
@@ -444,6 +448,19 @@ if host:isHost() then
 				pings.refuse_emote()
 			else
 				print(Language.getTranslate("action_wheel__main_2__action_5__unavailable"))
+			end
+		end
+	end)
+
+	--アクション2-6. マッサージ
+	ActionWheel.MainPages[2]:newAction(6):item("yellow_bed"):onLeftClick(function ()
+		if not ActionWheel.IsAnimationPlaying then
+			if SitDown.IsAnimationPlaying then
+				pings.main2_action6()
+			elseif Warden.WardenNearby then
+				pings.refuse_emote()
+			else
+				print(Language.getTranslate("action_wheel__main_2__action_6__unavailable"))
 			end
 		end
 	end)
