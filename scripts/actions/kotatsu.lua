@@ -57,12 +57,12 @@ Kotatsu = General.instance({
 	---アニメーション再生中に毎チック実行される関数
 	onAnimationTick = function (self)
 		PermanentAnimationAction.onAnimationTick(self)
-		if Kotatsu.AnimationCount == 282 then
+		if self.AnimationCount == 282 then
 			sounds:playSound("block.grass.step", player:getPos(), 1, 1)
-		elseif Kotatsu.AnimationCount == 275 or Kotatsu.AnimationCount == 287 then
+		elseif self.AnimationCount == 275 or self.AnimationCount == 287 then
 			sounds:playSound("block.grass.step", player:getPos(), 0.5, 1)
-		elseif Kotatsu.AnimationCount == 300 then
-			Kotatsu.AnimationCount = 1
+		elseif self.AnimationCount == 300 then
+			self.AnimationCount = 1
 		end
 		FaceParts.setEmotion("CLOSED", "CLOSED", "CLOSED", 1, true)
 		ActionWheel.ActionCount = 1
