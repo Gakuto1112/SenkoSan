@@ -11,17 +11,20 @@
 ---@alias FaceParts.EyeType
 ---| "NONE"
 ---| "NORMAL"
+---| "NORMAL_INVERSED"
 ---| "SURPLISED"
 ---| "TIRED"
+---| "TIRED_INVERSED"
+---| "ANGRY"
+---| "TEAR"
 ---| "CLOSED"
 ---| "UNEQUAL"
----| "NORMAL_INVERSED"
----| "TIRED_INVERSED"
 
 ---@alias FaceParts.MouthType
 ---| "NONE"
 ---| "CLOSED"
 ---| "OPENED"
+---| "TRIANGLE"
 
 ---@alias FaceParts.ComplexionType
 ---| "NORMAL"
@@ -29,8 +32,8 @@
 ---| "BLUSH"
 
 FaceParts = {
-	EyeTypeID = {NONE = -1, NORMAL = 0, SURPLISED = 1, TIRED = 2, CLOSED = 3, UNEQUAL = 4, NORMAL_INVERSED = 5, TIRED_INVERSED = 6},
-	MouthTypeID = {NONE = -1, CLOSED = 0, OPENED = 1},
+	EyeTypeID = {NONE = -1, NORMAL = 0, SURPLISED = 1, TIRED = 2, ANGRY = 3, TEAR = 4, CLOSED = 5, UNEQUAL = 6, NORMAL_INVERSED = 7, TIRED_INVERSED = 8},
+	MouthTypeID = {NONE = -1, CLOSED = 0, OPENED = 1, TRIANGLE = 2},
 	ComplexionID = {NORMAL = 0, PALE = 1, BLUSH = 2},
 	EmotionCount = 0,
 	ComplexionCount = 0,
@@ -53,14 +56,14 @@ FaceParts = {
 				rightEyePart:setUVPixels(FaceParts.EyeTypeID[rightEye] * 6, 0)
 			end
 			--左目
-			if FaceParts.EyeTypeID[leftEye] >= 5 then
-				leftEyePart:setUVPixels((FaceParts.EyeTypeID[leftEye] - 4) * 6, 6)
+			if FaceParts.EyeTypeID[leftEye] >= 7 then
+				leftEyePart:setUVPixels((FaceParts.EyeTypeID[leftEye] - 6) * 6, 6)
 			elseif FaceParts.EyeTypeID[leftEye] >= 0 then
-				leftEyePart:setUVPixels(FaceParts.EyeTypeID[leftEye] * 6, FaceParts.EyeTypeID[leftEye] == 0 and 6 or 0)
+				leftEyePart:setUVPixels(FaceParts.EyeTypeID[leftEye] * 6, (FaceParts.EyeTypeID[leftEye] == 0 or FaceParts.EyeTypeID[leftEye] == 3 or FaceParts.EyeTypeID[leftEye] == 4) and 6 or 0)
 			end
 			--口
 			if FaceParts.MouthTypeID[mouth] >= 0 then
-				models.models.main.Avatar.Head.FaceParts.Mouth:setUVPixels(FaceParts.MouthTypeID[mouth] * 2, 0)
+				models.models.main.Avatar.Head.FaceParts.Mouth:setUVPixels(FaceParts.MouthTypeID[mouth] * 4, 0)
 			end
 			FaceParts.EmotionCount = duration
 		end
