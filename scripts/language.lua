@@ -62,18 +62,7 @@ Language = {
 			action_wheel__main_2__action_5__unavailable = "I will sip tea after I sit down!",
 			action_wheel__main_2__action_6__title = "Massage",
 			action_wheel__main_2__action_6__unavailable = "I will massage you after I sit down!",
-			action_wheel__main_3__action_1__title = "Senko san line collection",
-			action_wheel__main_3__action_2__title = "Senko san config",
-			action_wheel__word__action_1__title = "I am Senko, a divine messenger fox who has lived for 800 years.",
-			action_wheel__word__action_2__title = "Let you pamper me as much as you like!",
-			action_wheel__word__action_3__title = "Let you cuddle my tail as much as you like!",
-			action_wheel__word__action_4__title = "Welcome back!",
-			action_wheel__word__action_5__title = "You must be tired!",
-			action_wheel__word__action_6__title = "It must have been a tough day for you. Good work today.",
-			action_wheel__word__action_7__title = "Uyan♪",
-			action_wheel__word__action_8__title = "I will try other languages §7(scroll)§r: §b",
-			action_wheel__word__action_8__bracket_begin = "(",
-			action_wheel__word__action_8__bracket_end = ")",
+			action_wheel__main_3__action_1__title = "Senko san config",
 			action_wheel__config__action_1__title = "What costume should I wear? §7(scroll)§r: ",
 			action_wheel__config__action_1__done_first = "I changed my clothers to §b",
 			action_wheel__config__action_1__done_last = "§r!",
@@ -149,18 +138,7 @@ Language = {
 			action_wheel__main_2__action_5__unavailable = "座ってからお茶をすすろうかのう。",
 			action_wheel__main_2__action_6__title = "まっさーじ",
 			action_wheel__main_2__action_6__unavailable = "座ってからお主をほぐそうかのう。",
-			action_wheel__main_3__action_1__title = "仙狐さんせりふ集",
-			action_wheel__main_3__action_2__title = "仙狐さん設定",
-			action_wheel__word__action_1__title = "わらわは仙狐。800年の時を生きる神使の狐じゃ。",
-			action_wheel__word__action_2__title = "存分に甘やかしてくれよう！",
-			action_wheel__word__action_3__title = "存分にもふるがよい！",
-			action_wheel__word__action_4__title = "おかえりなのじゃ～",
-			action_wheel__word__action_5__title = "お疲れ様じゃ。",
-			action_wheel__word__action_6__title = "今日も大変だったのう～",
-			action_wheel__word__action_7__title = "うやん♪",
-			action_wheel__word__action_8__title = "わらわもよその国の言葉に挑戦しようかのう§7（すくろーる）§r: §b",
-			action_wheel__word__action_8__bracket_begin = "（",
-			action_wheel__word__action_8__bracket_end = "）",
+			action_wheel__main_3__action_1__title = "仙狐さん設定",
 			action_wheel__config__action_1__title = "わらわは何を着ればよいのじゃ？§7（すくろーる）§r：",
 			action_wheel__config__action_1__done_first = "§b",
 			action_wheel__config__action_1__done_last = "§rに着替えたのじゃ。",
@@ -181,15 +159,10 @@ Language = {
 
 	---翻訳キーに対する訳文を返す。設定言語が存在しない場合は英語の文が返される。また、指定したキーの訳が無い場合は英語->キーそのままが返される。
 	---@param keyName string 翻訳キー
-	---@param languageName string|nil 言語名。nilの場合は現在の言語になる。
 	---@return string translatedString 翻訳キーに対する翻訳データ。設定言語での翻訳が存在しない場合は英文が返される。英文すら存在しない場合は翻訳キーがそのまま返される。
-	getTranslate = function(keyName, languageName)
-		if languageName then
-			return (Language.LanguageData[languageName] and Language.LanguageData[languageName][keyName]) and Language.LanguageData[languageName][keyName] or (Language.LanguageData["en_us"][keyName] and Language.LanguageData["en_us"][keyName] or keyName)
-		else
-			local activeLanguage = client:getActiveLang()
-			return (Language.LanguageData[activeLanguage] and Language.LanguageData[activeLanguage][keyName]) and Language.LanguageData[activeLanguage][keyName] or (Language.LanguageData["en_us"][keyName] and Language.LanguageData["en_us"][keyName] or keyName)
-		end
+	getTranslate = function(keyName)
+		local activeLanguage = client:getActiveLang()
+		return (Language.LanguageData[activeLanguage] and Language.LanguageData[activeLanguage][keyName]) and Language.LanguageData[activeLanguage][keyName] or (Language.LanguageData["en_us"][keyName] and Language.LanguageData["en_us"][keyName] or keyName)
 	end,
 
 	---利用可能な言語リストを返す。
