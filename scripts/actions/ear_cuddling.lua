@@ -54,7 +54,7 @@ EarCuddling = General.instance({
     end
 
 }, AnimationAction, function ()
-    return Earpick:checkAction() and ((Costume.CurrentCostume ~= "DISGUISE" and Costume.CurrentCostume == "KNIT" and Costume.CurrentCostume == "FOX_HOODIE_RED" and Costume.CurrentCostume == "FOX_HOODIE_WHITE" and Costume.CurrentCostume == "CASUAL" and Costume.CurrentCostume == "SANTA") or Armor.ArmorVisible[1])
+    return Earpick:checkAction() and ((Costume.CurrentCostume ~= "DISGUISE" and Costume.CurrentCostume ~= "KNIT" and Costume.CurrentCostume ~= "FOX_HOODIE_RED" and Costume.CurrentCostume ~= "FOX_HOODIE_WHITE" and Costume.CurrentCostume ~= "CASUAL" and Costume.CurrentCostume ~= "SANTA") or Armor.ArmorVisible[1])
 end, models.models.dummy_player, models.models.dummy_player, animations["models.main"]["ear_cuddling"], {animations["models.dummy_player"]["ear_cuddling"], animations["models.costume_maid_a"]["ear_cuddling"], animations["models.costume_maid_b"]["ear_cuddling"]}, 60)
 
 return EarCuddling
