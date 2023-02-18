@@ -466,6 +466,9 @@ if host:isHost() then
 	end):onLeftClick(function ()
 		ActionWheel.CostumeState = ActionWheel.CurrentCostumeState
 		ActionWheel.setCostumeChangeActionTitle()
+	end):onRightClick(function ()
+		ActionWheel.CostumeState = 1
+		ActionWheel.setCostumeChangeActionTitle()
 	end)
 
 	--アクション3-2. プレイヤーの表示名変更
@@ -479,6 +482,9 @@ if host:isHost() then
 	end):onLeftClick(function ()
 		ActionWheel.PlayerNameState = ActionWheel.CurrentPlayerNameState
 		ActionWheel.setNameChangeActionTitle()
+	end):onRightClick(function ()
+		ActionWheel.PlayerNameState = 1
+		ActionWheel.setNameChangeActionTitle()
 	end)
 
 	---アクション3-3. プレイヤーの頭のタイプ変更
@@ -491,6 +497,9 @@ if host:isHost() then
 		ActionWheel.setSkullChangeActionTitle()
 	end):onLeftClick(function ()
 		ActionWheel.SkullState = ActionWheel.CurrentSkullState
+		ActionWheel.setSkullChangeActionTitle()
+	end):onRightClick(function ()
+		ActionWheel.SkullState = 1
 		ActionWheel.setSkullChangeActionTitle()
 	end)
 
