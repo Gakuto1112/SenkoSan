@@ -77,7 +77,7 @@ Language = {
 			action_wheel__main_3__action_4__title = "Auto shake: ",
 			action_wheel__main_3__action_5__title = "Show armor: ",
 			action_wheel__main_3__action_6__title = "Show fox fire in first person: ",
-			action_wheel__main_3__action_7__title = "Umbrella sound：",
+			action_wheel__main_3__action_7__title = "Umbrella sound: ",
 			message__afk_too_long = "You! Whre have you been? Possibly, you might have been cuddling other fluffy things even you have me, a fox... sigh... You mean you aren't satisfied even you always cuddle me ...",
 			message__merry_christmas = "Merry Christmas!"
 		},
