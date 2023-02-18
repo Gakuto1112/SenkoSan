@@ -36,6 +36,7 @@ Language = {
 			action_wheel__refuse_action = "(It is not the time... I have a strong feeling bad sign...)",
 			action_wheel__close_to_confirm = "(Close action wheel to confirm.)",
 			action_wheel__main__action_8__title = "Change pages §7(scroll)§r: §b",
+			action_wheel__main_1__title = "Standing actions",
 			action_wheel__main_1__action_1__title = "Uyan♪",
 			action_wheel__main_1__action_2__title = "Body shake",
 			action_wheel__main_1__action_2__unavailable = "I cannot do body shake now.",
@@ -50,6 +51,7 @@ Language = {
 			action_wheel__main_1__action_7__title = "Kotatsu",
 			action_wheel__main_1__action_7__unavailable = "I cannot feel at home now.",
 			action_wheel__main_1__action_7__start = "Loosely",
+			action_wheel__main_2__title = "Sitting actions",
 			action_wheel__main_2__action_1__title = "Sit down",
 			action_wheel__main_2__action_1__unavailable = "I cannot sit down now.",
 			action_wheel__main_2__action_2__title = "Cuddle tail",
@@ -62,20 +64,20 @@ Language = {
 			action_wheel__main_2__action_5__unavailable = "I will sip tea after I sit down!",
 			action_wheel__main_2__action_6__title = "Massage",
 			action_wheel__main_2__action_6__unavailable = "I will massage you after I sit down!",
-			action_wheel__main_3__action_1__title = "Suzu config",
-			action_wheel__config__action_1__title = "What costume should I wear? §7(scroll)§r: ",
-			action_wheel__config__action_1__done_first = "I changed my clothers to §b",
-			action_wheel__config__action_1__done_last = "§r!",
-			action_wheel__config__action_2__title = "What should I be called? §7(scroll)§r: ",
-			action_wheel__config__action_2__done_first = "I changed my name to §b",
-			action_wheel__config__action_2__done_last = "§r!",
-			action_wheel__config__action_3__title = "What types of my head block should I choose? §7(scroll)§r: ",
-			action_wheel__config__action_3__done_first = "I changed my head block to §b",
-			action_wheel__config__action_3__done_last = "§r!",
-			action_wheel__config__action_4__title = "Auto shake: ",
-			action_wheel__config__action_5__title = "Show armor: ",
-			action_wheel__config__action_6__title = "Show fox fire in first person: ",
-			action_wheel__config__action_7__title = "Umbrella sound：",
+			action_wheel__main_3__title = "Avatar config",
+			action_wheel__main_3__action_1__title = "What costume should I wear? §7(scroll)§r: ",
+			action_wheel__main_3__action_1__done_first = "I changed my clothers to §b",
+			action_wheel__main_3__action_1__done_last = "§r!",
+			action_wheel__main_3__action_2__title = "What should I be called? §7(scroll)§r: ",
+			action_wheel__main_3__action_2__done_first = "I changed my name to §b",
+			action_wheel__main_3__action_2__done_last = "§r!",
+			action_wheel__main_3__action_3__title = "What types of my head block should I choose? §7(scroll)§r: ",
+			action_wheel__main_3__action_3__done_first = "I changed my head block to §b",
+			action_wheel__main_3__action_3__done_last = "§r!",
+			action_wheel__main_3__action_4__title = "Auto shake: ",
+			action_wheel__main_3__action_5__title = "Show armor: ",
+			action_wheel__main_3__action_6__title = "Show fox fire in first person: ",
+			action_wheel__main_3__action_7__title = "Umbrella sound: ",
 			message__afk_too_long = "Ah! Welcome back! You seemed to have left the room quite a bit, where were you going?... But just having you back here like this again makes me happy!",
 			message__merry_christmas = "Merry Christmas!"
 		},
@@ -112,6 +114,7 @@ Language = {
 			action_wheel__refuse_action = "（今はそれどころじゃないです...何かよくない気配を強く感じるんです...）",
 			action_wheel__close_to_confirm = "（あくしょんほいーるを閉じて確定です！）",
 			action_wheel__main__action_8__title = "ぺーじ切り替え§7（すくろーる）§r：§b",
+			action_wheel__main_1__title = "立ちあくしょん",
 			action_wheel__main_1__action_1__title = "うやん♪",
 			action_wheel__main_1__action_2__title = "ぶるぶる",
 			action_wheel__main_1__action_2__unavailable = "今はぶるぶるできないんです！",
@@ -126,6 +129,7 @@ Language = {
 			action_wheel__main_1__action_7__title = "こたつ",
 			action_wheel__main_1__action_7__unavailable = "今はだらーんできないんです！",
 			action_wheel__main_1__action_7__start = "だら～ん",
+			action_wheel__main_2__title = "座りあくしょん",
 			action_wheel__main_2__action_1__title = "おすわり",
 			action_wheel__main_2__action_1__unavailable = "今は座れないんです！",
 			action_wheel__main_2__action_2__title = "尻尾もふもふ",
@@ -138,20 +142,20 @@ Language = {
 			action_wheel__main_2__action_5__unavailable = "座ってからお茶を飲みましょうかしら。",
 			action_wheel__main_2__action_6__title = "まっさーじ",
 			action_wheel__main_2__action_6__unavailable = "座ってからあなたをほぐしますね！",
-			action_wheel__main_3__action_1__title = "鈴設定",
-			action_wheel__config__action_1__title = "わたしは何を着ればよいですか？§7（すくろーる）§r：",
-			action_wheel__config__action_1__done_first = "§b",
-			action_wheel__config__action_1__done_last = "§rに着替えました！",
-			action_wheel__config__action_2__title = "わたしは何と呼ばれればよいですか？§7（すくろーる）§r: ",
-			action_wheel__config__action_2__done_first = "わたしの呼び名を§b",
-			action_wheel__config__action_2__done_last = "§rに変更しました！",
-			action_wheel__config__action_3__title = "わたしの頭ぶろっくはどれがよいですか？§7（すくろーる）§r: ",
-			action_wheel__config__action_3__done_first = "わたしの頭ぶろっくを§b",
-			action_wheel__config__action_3__done_last = "§rに変更しました！",
-			action_wheel__config__action_4__title = "自動ぶるぶる：",
-			action_wheel__config__action_5__title = "防具の表示：",
-			action_wheel__config__action_6__title = "一人称視点での狐火の表示：",
-			action_wheel__config__action_7__title = "傘の開閉音：",
+			action_wheel__main_3__title = "あばたー設定",
+			action_wheel__main_3__action_1__title = "わたしは何を着ればよいですか？§7（すくろーる）§r：",
+			action_wheel__main_3__action_1__done_first = "§b",
+			action_wheel__main_3__action_1__done_last = "§rに着替えました！",
+			action_wheel__main_3__action_2__title = "わたしは何と呼ばれればよいですか？§7（すくろーる）§r: ",
+			action_wheel__main_3__action_2__done_first = "わたしの呼び名を§b",
+			action_wheel__main_3__action_2__done_last = "§rに変更しました！",
+			action_wheel__main_3__action_3__title = "わたしの頭ぶろっくはどれがよいですか？§7（すくろーる）§r: ",
+			action_wheel__main_3__action_3__done_first = "わたしの頭ぶろっくを§b",
+			action_wheel__main_3__action_3__done_last = "§rに変更しました！",
+			action_wheel__main_3__action_4__title = "自動ぶるぶる：",
+			action_wheel__main_3__action_5__title = "防具の表示：",
+			action_wheel__main_3__action_6__title = "一人称視点での狐火の表示：",
+			action_wheel__main_3__action_7__title = "傘の開閉音：",
 			message__afk_too_long = "あっ！お帰りなさい！かなり退席されていたようですけど、どこに行かれていたのですか？...でも、あなたがまた、こうやってここに戻って来てくれるだけで私は嬉しいです！",
 			message__merry_christmas = "めりーくりすますです！"
 		}
@@ -159,15 +163,10 @@ Language = {
 
 	---翻訳キーに対する訳文を返す。設定言語が存在しない場合は英語の文が返される。また、指定したキーの訳が無い場合は英語->キーそのままが返される。
 	---@param keyName string 翻訳キー
-	---@param languageName string|nil 言語名。nilの場合は現在の言語になる。
 	---@return string translatedString 翻訳キーに対する翻訳データ。設定言語での翻訳が存在しない場合は英文が返される。英文すら存在しない場合は翻訳キーがそのまま返される。
-	getTranslate = function(keyName, languageName)
-		if languageName then
-			return (Language.LanguageData[languageName] and Language.LanguageData[languageName][keyName]) and Language.LanguageData[languageName][keyName] or (Language.LanguageData["en_us"][keyName] and Language.LanguageData["en_us"][keyName] or keyName)
-		else
-			local activeLanguage = client:getActiveLang()
-			return (Language.LanguageData[activeLanguage] and Language.LanguageData[activeLanguage][keyName]) and Language.LanguageData[activeLanguage][keyName] or (Language.LanguageData["en_us"][keyName] and Language.LanguageData["en_us"][keyName] or keyName)
-		end
+	getTranslate = function(keyName)
+		local activeLanguage = client:getActiveLang()
+		return (Language.LanguageData[activeLanguage] and Language.LanguageData[activeLanguage][keyName]) and Language.LanguageData[activeLanguage][keyName] or (Language.LanguageData["en_us"][keyName] and Language.LanguageData["en_us"][keyName] or keyName)
 	end,
 
 	---利用可能な言語リストを返す。
