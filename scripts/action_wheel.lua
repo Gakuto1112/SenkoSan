@@ -209,16 +209,18 @@ end
 events.TICK:register(function ()
 	if host:isHost() then
 		local isOpenActionWheel = action_wheel:isEnabled()
-		if ActionWheel.CurrentPage <= 2 then
-			local animationClasses = ActionWheel.CurrentPage == 1 and {Smile, ShakeBody, BroomCleaning, HairCut, FoxJump, TailBrush, Kotatsu} or {SitDown, TailCuddling, EarCuddling, Earpick, TeaTime, Massage}
-			for actionIndex, actionClass in ipairs(animationClasses) do
-				ActionWheel.setActionEnabled(ActionWheel.CurrentPage, actionIndex, not ActionWheel.IsAnimationPlaying and actionClass:checkAction())
-			end
-			if ActionWheel.CurrentPage == 1 then
-				if Wet.WetCount > 0 then
-					ActionWheel.Pages[1]:getAction(2):item("water_bucket")
-				else
-					ActionWheel.Pages[1]:getAction(2):item("bucket")
+		if isOpenActionWheel then
+			if ActionWheel.CurrentPage <= 2 then
+				local animationClasses = ActionWheel.CurrentPage == 1 and {Smile, ShakeBody, BroomCleaning, HairCut, FoxJump, TailBrush, Kotatsu} or {SitDown, TailCuddling, EarCuddling, Earpick, TeaTime, Massage}
+				for actionIndex, actionClass in ipairs(animationClasses) do
+					ActionWheel.setActionEnabled(ActionWheel.CurrentPage, actionIndex, not ActionWheel.IsAnimationPlaying and actionClass:checkAction())
+				end
+				if ActionWheel.CurrentPage == 1 then
+					if Wet.WetCount > 0 then
+						ActionWheel.Pages[1]:getAction(2):item("water_bucket")
+					else
+						ActionWheel.Pages[1]:getAction(2):item("bucket")
+					end
 				end
 			end
 		end
