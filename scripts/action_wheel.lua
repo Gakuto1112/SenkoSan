@@ -560,7 +560,7 @@ if host:isHost() then
 
 	--アクション8（共通）. ページ切り替え
 	for index, mainPage in ipairs(ActionWheel.Pages) do
-		mainPage:newAction(8):title(Language.getTranslate("action_wheel__main__action_8__title")..index.."/"..#ActionWheel.Pages):item("arrow"):color(0, 0.67, 0.67):hoverColor(0.33, 1, 1):onScroll(function (direction)
+		mainPage:newAction(8):title(Language.getTranslate("action_wheel__main__action_8__title")..index.."/"..#ActionWheel.Pages.."\n§6"..Language.getTranslate("action_wheel__main_"..index.."__title")):item("arrow"):color(0, 0.67, 0.67):hoverColor(0.33, 1, 1):onScroll(function (direction)
 			ActionWheel.CurrentPage = ActionWheel.Pages[index - direction] and (index - direction) or (index == 1 and #ActionWheel.Pages or 1)
 			action_wheel:setPage(ActionWheel.Pages[ActionWheel.CurrentPage])
 		end)
