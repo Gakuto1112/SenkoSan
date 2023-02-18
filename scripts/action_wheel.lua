@@ -28,9 +28,9 @@ ActionWheel = {
 	---@param enabled boolean 有効色か無効色か
 	setActionEnabled = function(pageNumber, actionNumber, enabled)
 		if enabled then
-			ActionWheel.Pages[pageNumber]:getAction(actionNumber):title(Language.getTranslate("action_wheel__main_"..pageNumber.."__action_"..actionNumber.."__title")):color(233 / 255, 160 / 255, 69 / 255):hoverColor(1, 1, 1)
+			ActionWheel.Pages[pageNumber]:getAction(actionNumber):title(Language.getTranslate("action_wheel__main_"..pageNumber.."__action_"..actionNumber.."__title")):color(0.91, 0.67, 0.27):hoverColor(1, 1, 1)
 		else
-			ActionWheel.Pages[pageNumber]:getAction(actionNumber):title("§7"..Language.getTranslate("action_wheel__main_"..pageNumber.."__action_"..actionNumber.."__title")):color(42 / 255, 42 / 255, 42 / 255):hoverColor(1, 85 / 255, 85 / 255)
+			ActionWheel.Pages[pageNumber]:getAction(actionNumber):title("§7"..Language.getTranslate("action_wheel__main_"..pageNumber.."__action_"..actionNumber.."__title")):color(0.16, 0.16, 0.16):hoverColor(1, 0.33, 0.33)
 		end
 	end,
 
@@ -351,7 +351,7 @@ if host:isHost() then
 	end)
 
 	--アクション1-7. こたつ
-	ActionWheel.Pages[1]:newAction(7):toggleColor(233 / 255, 160 / 255, 69 / 255):item("campfire"):onToggle(function ()
+	ActionWheel.Pages[1]:newAction(7):toggleColor(0.91, 0.67, 0.27):item("campfire"):onToggle(function ()
 		if not ActionWheel.IsAnimationPlaying then
 			if Kotatsu:checkAction() then
 				pings.main1_action7_toggle()
@@ -371,7 +371,7 @@ if host:isHost() then
 	end)
 
 	--アクション2-1. おすわり（正座）
-	ActionWheel.Pages[2]:newAction(1):toggleColor(233 / 255, 160 / 255, 69 / 255):item("oak_stairs"):onToggle(function ()
+	ActionWheel.Pages[2]:newAction(1):toggleColor(0.91, 0.67, 0.27):item("oak_stairs"):onToggle(function ()
 		if not ActionWheel.IsAnimationPlaying then
 			if SitDown:checkAction() then
 				pings.main2_action1_toggle()
@@ -456,7 +456,7 @@ if host:isHost() then
 	end)
 
 	--アクション3-1. 着替え
-	ActionWheel.Pages[3]:newAction(1):item("leather_chestplate"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+	ActionWheel.Pages[3]:newAction(1):item("leather_chestplate"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onScroll(function (direction)
 		if direction == -1 then
 			ActionWheel.CostumeState = ActionWheel.CostumeState == #Costume.CostumeList and 1 or ActionWheel.CostumeState + 1
 		else
@@ -469,7 +469,7 @@ if host:isHost() then
 	end)
 
 	--アクション3-2. プレイヤーの表示名変更
-	ActionWheel.Pages[3]:newAction(2):item("name_tag"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+	ActionWheel.Pages[3]:newAction(2):item("name_tag"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onScroll(function (direction)
 		if direction == -1 then
 			ActionWheel.PlayerNameState = ActionWheel.PlayerNameState == #Nameplate.NameList and 1 or ActionWheel.PlayerNameState + 1
 		else
@@ -482,7 +482,7 @@ if host:isHost() then
 	end)
 
 	---アクション3-3. プレイヤーの頭のタイプ変更
-	ActionWheel.Pages[3]:newAction(3):item("player_head{SkullOwner: \""..player:getName().."\"}"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+	ActionWheel.Pages[3]:newAction(3):item("player_head{SkullOwner: \""..player:getName().."\"}"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onScroll(function (direction)
 		if direction == -1 then
 			ActionWheel.SkullState = ActionWheel.SkullState == #Skull.SkullList and 1 or ActionWheel.SkullState + 1
 		else
@@ -495,72 +495,72 @@ if host:isHost() then
 	end)
 
 	--アクション3-4. 自動ブルブル
-	ActionWheel.Pages[3]:newAction(4):title(Language.getTranslate("action_wheel__main_3__action_4__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__main_3__action_4__title")..Language.getTranslate("action_wheel__toggle_on")):item("water_bucket"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+	ActionWheel.Pages[3]:newAction(4):title(Language.getTranslate("action_wheel__main_3__action_4__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__main_3__action_4__title")..Language.getTranslate("action_wheel__toggle_on")):item("water_bucket"):color(0.67, 0, 0):hoverColor(1, 0.33, 0.33):toggleColor(0, 0.67, 0):onToggle(function ()
 		pings.main3_action4_toggle()
-		ActionWheel.Pages[3]:getAction(4):hoverColor(85 / 255, 1, 85 / 255)
+		ActionWheel.Pages[3]:getAction(4):hoverColor(0.33, 1, 0.33)
 		Config.saveConfig("autoShake", true)
 	end):onUntoggle(function ()
 		pings.main3_action4_untoggle()
-		ActionWheel.Pages[3]:getAction(4):hoverColor(1, 85 / 255, 85 / 255)
+		ActionWheel.Pages[3]:getAction(4):hoverColor(1, 0.33, 0.33)
 		Config.saveConfig("autoShake", false)
 	end)
 	if Config.loadConfig("autoShake", true) then
 		local action = ActionWheel.Pages[3]:getAction(4)
 		action:toggled(true)
-		action:hoverColor(85 / 255, 1, 85 / 255)
+		action:hoverColor(0.33, 1, 0.33)
 	end
 
 	--アクション3-5. 防具の非表示
-	ActionWheel.Pages[3]:newAction(5):title(Language.getTranslate("action_wheel__main_3__action_5__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__main_3__action_5__title")..Language.getTranslate("action_wheel__toggle_on")):item("iron_chestplate"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+	ActionWheel.Pages[3]:newAction(5):title(Language.getTranslate("action_wheel__main_3__action_5__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__main_3__action_5__title")..Language.getTranslate("action_wheel__toggle_on")):item("iron_chestplate"):color(0.67, 0, 0):hoverColor(1, 0.33, 0.33):toggleColor(0, 0.67, 0):onToggle(function ()
 		pings.main3_action5_toggle()
-		ActionWheel.Pages[3]:getAction(5):hoverColor(85 / 255, 1, 85 / 255)
+		ActionWheel.Pages[3]:getAction(5):hoverColor(0.33, 1, 0.33)
 		Config.saveConfig("showArmor", true)
 	end):onUntoggle(function ()
 		pings.main3_action5_untoggle()
-		ActionWheel.Pages[3]:getAction(5):hoverColor(1, 85 / 255, 85 / 255)
+		ActionWheel.Pages[3]:getAction(5):hoverColor(1, 0.33, 0.33)
 		Config.saveConfig("showArmor", false)
 	end)
 	if Config.loadConfig("showArmor", false) then
 		local action = ActionWheel.Pages[3]:getAction(5)
 		action:toggled(true)
-		action:hoverColor(85 / 255, 1, 85 / 255)
+		action:hoverColor(0.33, 1, 0.33)
 	end
 
 	--アクション3-6. 一人称視点での狐火の表示の切り替え
-	ActionWheel.Pages[3]:newAction(6):title(Language.getTranslate("action_wheel__main_3__action_6__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__main_3__action_6__title")..Language.getTranslate("action_wheel__toggle_on")):item("soul_torch"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+	ActionWheel.Pages[3]:newAction(6):title(Language.getTranslate("action_wheel__main_3__action_6__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__main_3__action_6__title")..Language.getTranslate("action_wheel__toggle_on")):item("soul_torch"):color(0.67, 0, 0):hoverColor(1, 0.33, 0.33):toggleColor(0, 0.67, 0):onToggle(function ()
 		FoxFire.FoxFireInFirstPerson = true
-		ActionWheel.Pages[3]:getAction(6):hoverColor(85 / 255, 1, 85 / 255)
+		ActionWheel.Pages[3]:getAction(6):hoverColor(0.33, 1, 0.33)
 		Config.saveConfig("foxFireInFirstPerson", true)
 	end):onUntoggle(function ()
 		FoxFire.FoxFireInFirstPerson = false
-		ActionWheel.Pages[3]:getAction(6):hoverColor(1, 85 / 255, 85 / 255)
+		ActionWheel.Pages[3]:getAction(6):hoverColor(1, 0.33, 0.33)
 		Config.saveConfig("foxFireInFirstPerson", false)
 	end)
 	if Config.loadConfig("foxFireInFirstPerson", true) then
 		local action = ActionWheel.Pages[3]:getAction(6)
 		action:toggled(true)
-		action:hoverColor(85 / 255, 1, 85 / 255)
+		action:hoverColor(0.33, 1, 0.33)
 	end
 
 	--アクション3-7. 傘の開閉音
-	ActionWheel.Pages[3]:newAction(7):title(Language.getTranslate("action_wheel__main_3__action_7__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__main_3__action_7__title")..Language.getTranslate("action_wheel__toggle_on")):item("red_carpet"):color(170 / 255, 0, 0):hoverColor(1, 85 / 255, 85 / 255):toggleColor(0, 170 / 255, 0):onToggle(function ()
+	ActionWheel.Pages[3]:newAction(7):title(Language.getTranslate("action_wheel__main_3__action_7__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__main_3__action_7__title")..Language.getTranslate("action_wheel__toggle_on")):item("red_carpet"):color(0.67, 0, 0):hoverColor(1, 0.33, 0.33):toggleColor(0, 0.67, 0):onToggle(function ()
 		pings.main3_action7_toggle()
-		ActionWheel.Pages[3]:getAction(7):hoverColor(85 / 255, 1, 85 / 255)
+		ActionWheel.Pages[3]:getAction(7):hoverColor(0.33, 1, 0.33)
 		Config.saveConfig("umbrellaSound", true)
 	end):onUntoggle(function ()
 		pings.main3_action7_untoggle()
-		ActionWheel.Pages[3]:getAction(7):hoverColor(1, 85 / 255, 85 / 255)
+		ActionWheel.Pages[3]:getAction(7):hoverColor(1, 0.33, 0.33)
 		Config.saveConfig("umbrellaSound", false)
 	end)
 	if Config.loadConfig("umbrellaSound", true) then
 		local action = ActionWheel.Pages[3]:getAction(7)
 		action:toggled(true)
-		action:hoverColor(85 / 255, 1, 85 / 255)
+		action:hoverColor(0.33, 1, 0.33)
 	end
 
 	--アクション8（共通）. ページ切り替え
 	for index, mainPage in ipairs(ActionWheel.Pages) do
-		mainPage:newAction(8):title(Language.getTranslate("action_wheel__main__action_8__title")..index.."/"..#ActionWheel.Pages):item("arrow"):color(200 / 255, 200 / 255, 200 / 255):hoverColor(1, 1, 1):onScroll(function (direction)
+		mainPage:newAction(8):title(Language.getTranslate("action_wheel__main__action_8__title")..index.."/"..#ActionWheel.Pages):item("arrow"):color(0, 0.67, 0.67):hoverColor(0.33, 1, 1):onScroll(function (direction)
 			ActionWheel.CurrentPage = ActionWheel.Pages[index - direction] and (index - direction) or (index == 1 and #ActionWheel.Pages or 1)
 			action_wheel:setPage(ActionWheel.Pages[ActionWheel.CurrentPage])
 		end)
