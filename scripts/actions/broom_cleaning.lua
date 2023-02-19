@@ -4,7 +4,7 @@ BroomCleaning = General.instance({
 	---箒掃除アニメーションを再生する。
 	play = function(self)
 		AnimationAction.play(self)
-		models.models.broom_cleaning.Avatar.Dust:setOpacity(1)
+		models.models.broom_cleaning.Dust:setOpacity(1)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 		Sleeve.Moving = false
 		Arms.hideHeldItem(true)
@@ -22,8 +22,8 @@ BroomCleaning = General.instance({
 		AnimationAction.onAnimationTick(self)
 		if (self.AnimationCount + 8) % 17 == 0 and self.AnimationCount > 49 then
 			sounds:playSound("entity.cat.hiss", player:getPos(), 0.5, 2)
-			models.models.broom_cleaning.Avatar.Dust:setOpacity(models.models.broom_cleaning.Avatar.Dust:getOpacity() - 0.14)
-			local dustParticlePivot = models.models.broom_cleaning.Avatar.Dust.DustParticlePivot:partToWorldMatrix()
+			models.models.broom_cleaning.Dust:setOpacity(models.models.broom_cleaning.Dust:getOpacity() - 0.14)
+			local dustParticlePivot = models.models.broom_cleaning.Dust.DustParticlePivot:partToWorldMatrix()
 			for _ = 1, 5 do
 				particles:newParticle("block gravel", dustParticlePivot[4][1], dustParticlePivot[4][2], dustParticlePivot[4][3])
 			end
