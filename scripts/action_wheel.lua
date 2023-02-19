@@ -199,11 +199,19 @@ function pings.main3_action5_untoggle()
 end
 
 function pings.main3_action7_toggle()
-	Umbrella.UmbrellaSound = true
+	Umbrella.Sound = true
 end
 
 function pings.main3_action7_untoggle()
-	Umbrella.UmbrellaSound = false
+	Umbrella.Sound = false
+end
+
+function pings.main4_action1_toggle()
+	Umbrella.AlwaysUse = true
+end
+
+function pings.main4_action1_untoggle()
+	Umbrella.AlwaysUse = false
 end
 
 events.TICK:register(function ()
@@ -249,7 +257,7 @@ events.TICK:register(function ()
 end)
 
 if host:isHost() then
-	for _ = 1, 3 do
+	for _ = 1, 4 do
 		table.insert(ActionWheel.Pages, action_wheel:newPage())
 	end
 
@@ -406,7 +414,7 @@ if host:isHost() then
 	end)
 
 	--アクション2-3. お耳モフモフ
-	ActionWheel.Pages[2]:newAction(3):item("yellow_wool"):onLeftClick(function ()
+	ActionWheel.Pages[2]:newAction(3):item("white_wool"):onLeftClick(function ()
 		if not ActionWheel.IsAnimationPlaying then
 			if EarCuddling:checkAction() then
 				pings.main2_action3()
@@ -554,7 +562,7 @@ if host:isHost() then
 	end
 
 	--アクション3-7. 傘の開閉音
-	ActionWheel.Pages[3]:newAction(7):title(Language.getTranslate("action_wheel__main_3__action_7__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__main_3__action_7__title")..Language.getTranslate("action_wheel__toggle_on")):item("red_carpet"):color(0.67, 0, 0):hoverColor(1, 0.33, 0.33):toggleColor(0, 0.67, 0):onToggle(function ()
+	ActionWheel.Pages[3]:newAction(7):title(Language.getTranslate("action_wheel__main_3__action_7__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__main_3__action_7__title")..Language.getTranslate("action_wheel__toggle_on")):item("note_block"):color(0.67, 0, 0):hoverColor(1, 0.33, 0.33):toggleColor(0, 0.67, 0):onToggle(function ()
 		pings.main3_action7_toggle()
 		ActionWheel.Pages[3]:getAction(7):hoverColor(0.33, 1, 0.33)
 		Config.saveConfig("umbrellaSound", true)
@@ -565,6 +573,22 @@ if host:isHost() then
 	end)
 	if Config.loadConfig("umbrellaSound", true) then
 		local action = ActionWheel.Pages[3]:getAction(7)
+		action:toggled(true)
+		action:hoverColor(0.33, 1, 0.33)
+	end
+
+	--アクション4-1. 傘を常にさす
+	ActionWheel.Pages[4]:newAction(1):title(Language.getTranslate("action_wheel__main_4__action_1__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__main_4__action_1__title")..Language.getTranslate("action_wheel__toggle_on")):item("red_carpet"):color(0.67, 0, 0):hoverColor(1, 0.33, 0.33):toggleColor(0, 0.67, 0):onToggle(function ()
+		pings.main4_action1_toggle()
+		ActionWheel.Pages[4]:getAction(1):hoverColor(0.33, 1, 0.33)
+		Config.saveConfig("alwaysUmbrella", true)
+	end):onUntoggle(function ()
+		pings.main4_action1_untoggle()
+		ActionWheel.Pages[4]:getAction(1):hoverColor(1, 0.33, 0.33)
+		Config.saveConfig("alwaysUmbrella", false)
+	end)
+	if Config.loadConfig("alwaysUmbrella", false) then
+		local action = ActionWheel.Pages[4]:getAction(1)
 		action:toggled(true)
 		action:hoverColor(0.33, 1, 0.33)
 	end

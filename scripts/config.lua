@@ -48,10 +48,11 @@ Config = {
 ---@param autoShake boolean 自動ブルブル
 ---@param showArmor boolean 防具を表示するかどうか
 ---@param umbrellaSound boolean 傘の開閉音を再生するかどうか
+---@param alwaysUmbrella boolean 傘をずっとさしているかどうか
 ---@param nightVisiton boolean 暗視が付与されているかどうか
 ---@param wardenNearby boolean ウォーデンが付近にいるかどうか
 ---@param drowned boolean 溺れているかどうか
-function pings.syncAvatarConfig(nameID, costumeID, skullID, autoShake, showArmor, umbrellaSound, nightVisiton, wardenNearby, drowned)
+function pings.syncAvatarConfig(nameID, costumeID, skullID, autoShake, showArmor, umbrellaSound, alwaysUmbrella, nightVisiton, wardenNearby, drowned)
 	if not Config.IsSynced then
 		ActionWheel.CurrentPlayerNameState = nameID
 		ActionWheel.CurrentCostumeState = costumeID
@@ -65,7 +66,8 @@ function pings.syncAvatarConfig(nameID, costumeID, skullID, autoShake, showArmor
 		Skull.CurrentSkull = skullID
 		Wet.AutoShake = autoShake
 		Armor.ShowArmor = showArmor
-		Umbrella.UmbrellaSound = umbrellaSound
+		Umbrella.Sound = umbrellaSound
+		Umbrella.AlwaysUse = alwaysUmbrella
 		FoxFire.NightVision = nightVisiton
 		Warden.WardenNearby = wardenNearby
 		FaceParts.Drowned = drowned
@@ -75,7 +77,7 @@ end
 
 events.TICK:register(function ()
 	if Config.NextSyncCount == 0 then
-		pings.syncAvatarConfig(ActionWheel.CurrentPlayerNameState, ActionWheel.CurrentCostumeState, ActionWheel.CurrentSkullState, Wet.AutoShake, Armor.ShowArmor, Umbrella.UmbrellaSound, FoxFire.NightVision, Warden.WardenNearby, FaceParts.Drowned)
+		pings.syncAvatarConfig(ActionWheel.CurrentPlayerNameState, ActionWheel.CurrentCostumeState, ActionWheel.CurrentSkullState, Wet.AutoShake, Armor.ShowArmor, Umbrella.Sound, Umbrella.AlwaysUse, FoxFire.NightVision, Warden.WardenNearby, FaceParts.Drowned)
 		Config.NextSyncCount = 300
 	else
 		Config.NextSyncCount = Config.NextSyncCount - 1

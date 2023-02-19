@@ -33,7 +33,7 @@ events.RENDER:register(function ()
 	local leftHanded = player:isLeftHanded()
 	local rightOriginRot = vanilla_model.RIGHT_ARM:getOriginRot()
 	local leftOriginRot = vanilla_model.LEFT_ARM:getOriginRot()
-	local umbrellaAdjust = Umbrella.Umbrella and not SitDown.IsAnimationPlaying
+	local umbrellaAdjust = Umbrella.IsUsing and not SitDown.IsAnimationPlaying
 	local sneakAdjust = player:isCrouching() and 30 or 0
 	if Arms.ItemHeldContradicts then
 		models.models.main.Avatar.Body.Arms.RightArm:setRot(-rightOriginRot.x + ((umbrellaAdjust and leftHanded) and 20 or 0) + sneakAdjust + Arms.RightArmRotOffset.x, -rightOriginRot.y + Arms.RightArmRotOffset.y, -rightOriginRot.z + Arms.RightArmRotOffset.z)

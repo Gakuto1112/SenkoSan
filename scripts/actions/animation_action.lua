@@ -79,7 +79,7 @@ AnimationAction = {
 		for _, animationElement in ipairs(self.Animations) do
 			animationElement:play()
 		end
-		Umbrella.EnableUmbrella = false
+		Umbrella.Enabled = false
 		self.IsAnimationPlaying = true
 		ActionWheel.IsAnimationPlaying = true
 		self.AnimationCount = self.AnimationLength
@@ -96,7 +96,7 @@ AnimationAction = {
 		Arms.hideHeldItem(false)
 		Arms.resetArmRotOffset()
 		FaceParts.resetEmotion()
-		Umbrella.EnableUmbrella = true
+		Umbrella.Enabled = true
 		self.IsAnimationPlaying = false
 		ActionWheel.IsAnimationPlaying = false
 		self.AnimationCount = -1
