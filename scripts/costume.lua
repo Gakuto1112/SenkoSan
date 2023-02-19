@@ -21,9 +21,10 @@
 ---| "SAILOR"
 ---| "CHINA_DRESS"
 ---| "SANTA"
+---| "KIMONO"
 
 Costume = {
-	CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "tracksuit", "casual", "sailor", "china_dress", "santa"},
+	CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "tracksuit", "casual", "sailor", "china_dress", "santa", "kimono"},
 	CurrentCostume = "DEFAULT",
 	CostumeEvents = {
 		---メイド服Aのチック処理
@@ -290,6 +291,11 @@ Costume = {
 			models.models.main.Avatar.Head.CSantaH:setVisible(not Armor.ArmorVisible[1])
 			Costume.setCostumeTextureOffset(16)
 			HairAccessory.visible(Armor.ArmorVisible[1])
+		elseif costume == "KIMONO" then
+			models.models.main.Avatar.Head.CKimonoH:setVisible(true)
+			Costume.setCostumeTextureOffset(17)
+			Apron.disable()
+			HairAccessory.visible(false)
 		end
 	end,
 
@@ -298,7 +304,7 @@ Costume = {
 		for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do
 			modelPart:setVisible(true)
 		end
-		for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT, models.models.main.Avatar.Head.CMaidAH, models.models.main.Avatar.Body.BodyBottom.CMaidABB, models.models.main.Avatar.Head.CMaidBH, models.models.main.Avatar.Body.BodyBottom.CMaidBBB, models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB,  models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH}) do
+		for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT, models.models.main.Avatar.Head.CMaidAH, models.models.main.Avatar.Body.BodyBottom.CMaidABB, models.models.main.Avatar.Head.CMaidBH, models.models.main.Avatar.Body.BodyBottom.CMaidBBB, models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB,  models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH, models.models.main.Avatar.Head.CKimonoH}) do
 			modelPart:setVisible(false)
 		end
 		for _, tickEventName in ipairs({"costume_maid_a_tick", "costume_maid_b_tick", "costume_summer_hat_tick", "costume_miniskirt_tick", "costume_ponpon_tick", "costume_yukata_tick"}) do
@@ -332,7 +338,7 @@ Costume = {
 					events.TICK:remove(tickEventName)
 				end
 				Ears.EnableJerkEar = true
-				HairAccessory.visible(true)
+				HairAccessory.visible(Costume.CurrentCostume ~= "KIMONO")
 			else
 				if Costume.CurrentCostume == "DISGUISE" then
 					for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot}) do
@@ -368,6 +374,8 @@ Costume = {
 				elseif Costume.CurrentCostume == "SANTA" then
 					models.models.main.Avatar.Head.Ears.LeftEarPivot:setVisible(false)
 					models.models.main.Avatar.Head.CSantaH:setVisible(true)
+					HairAccessory.visible(false)
+				elseif Costume.CurrentCostume == "KIMONO" then
 					HairAccessory.visible(false)
 				end
 			end
