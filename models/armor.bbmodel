@@ -1495,600 +1495,390 @@
 	],
 	"outliner": [
 		{
-			"name": "Avatar",
-			"origin": [0, 0, 0],
+			"name": "ArmorH",
+			"origin": [0, 24, 0],
 			"color": 0,
-			"uuid": "05f037ac-0423-536b-1098-dd7180670334",
+			"uuid": "40004832-5346-1967-b51b-86b0d68683ae",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": true,
+			"isOpen": false,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
 			"children": [
 				{
-					"name": "Head",
+					"name": "Helmet",
 					"origin": [0, 24, 0],
 					"color": 0,
-					"uuid": "08a9a4a7-a66c-e6ff-2674-6f1bed8e9865",
+					"uuid": "bbcfd570-027f-caba-54e7-280e79727a3c",
 					"export": true,
 					"mirror_uv": false,
 					"isOpen": true,
 					"locked": false,
 					"visibility": true,
 					"autouv": 0,
-					"children": [
-						{
-							"name": "ArmorH",
-							"origin": [0, 24, 0],
-							"color": 0,
-							"uuid": "40004832-5346-1967-b51b-86b0d68683ae",
-							"export": true,
-							"mirror_uv": false,
-							"isOpen": true,
-							"locked": false,
-							"visibility": true,
-							"autouv": 0,
-							"children": [
-								{
-									"name": "Helmet",
-									"origin": [0, 24, 0],
-									"color": 0,
-									"uuid": "bbcfd570-027f-caba-54e7-280e79727a3c",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": true,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": ["0aad52c2-be58-2fa6-66aa-0bc7ff05495e", "07733d01-139b-f7db-82c2-6908214bd51d"]
-								}
-							]
-						}
-					]
+					"children": ["0aad52c2-be58-2fa6-66aa-0bc7ff05495e", "07733d01-139b-f7db-82c2-6908214bd51d"]
+				}
+			]
+		},
+		{
+			"name": "ArmorB",
+			"origin": [0, 24, 0],
+			"color": 0,
+			"uuid": "c3e1c2e8-b582-70a8-2ed1-8ca003253271",
+			"export": true,
+			"mirror_uv": false,
+			"isOpen": false,
+			"locked": false,
+			"visibility": true,
+			"autouv": 0,
+			"children": [
+				{
+					"name": "Chestplate",
+					"origin": [-4, 10, 0],
+					"color": 0,
+					"uuid": "6784fc9e-2fb3-25fd-4049-0034d3427917",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": false,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": ["dd71e763-3f50-27e7-4890-60712fe4b470", "221586a8-f1b7-d89c-103a-a8a78d463c14"]
 				},
 				{
-					"name": "Body",
-					"origin": [0, 24, 0],
+					"name": "Leggings",
+					"origin": [0, 36, 0],
 					"color": 0,
-					"uuid": "69816774-b38d-03da-9bf5-0654be0793d3",
+					"uuid": "e770072b-82d4-ffe0-aa7d-fac77de0c084",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": false,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": ["7ad0bece-d1c9-6e51-4f44-ef97a7f7f1b9", "081f8895-a57e-f3d5-a6fc-c503639b7960"]
+				}
+			]
+		},
+		{
+			"name": "ArmorRA",
+			"origin": [0, 24, 0],
+			"color": 0,
+			"uuid": "9cdcfaa1-6e79-d94c-f516-f1aff5551a36",
+			"export": true,
+			"mirror_uv": false,
+			"isOpen": false,
+			"locked": false,
+			"visibility": true,
+			"autouv": 0,
+			"children": [
+				{
+					"name": "RightChestplate",
+					"origin": [0, 22, 0],
+					"color": 0,
+					"uuid": "fd9a522d-9a6f-9315-f563-c2c2dc2643ed",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": false,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": ["04c52e51-518e-9513-d607-bd72f9efa2c9", "6be84467-6c7f-1451-5458-a406488d3d44"]
+				}
+			]
+		},
+		{
+			"name": "ArmorRAB",
+			"origin": [7, 18, 2],
+			"color": 0,
+			"uuid": "475e6e92-a1e4-3dbd-1fbc-f80f1d0dad3a",
+			"export": true,
+			"mirror_uv": false,
+			"isOpen": false,
+			"locked": false,
+			"visibility": true,
+			"autouv": 0,
+			"children": [
+				{
+					"name": "RightChestplateBottom",
+					"origin": [5.5, 18, 2],
+					"color": 0,
+					"uuid": "002c7a8e-4836-7723-7a30-02d9e7d6864c",
 					"export": true,
 					"mirror_uv": false,
 					"isOpen": true,
 					"locked": false,
 					"visibility": true,
 					"autouv": 0,
-					"children": [
-						{
-							"name": "ArmorB",
-							"origin": [0, 24, 0],
-							"color": 0,
-							"uuid": "c3e1c2e8-b582-70a8-2ed1-8ca003253271",
-							"export": true,
-							"mirror_uv": false,
-							"isOpen": false,
-							"locked": false,
-							"visibility": true,
-							"autouv": 0,
-							"children": [
-								{
-									"name": "Chestplate",
-									"origin": [-4, 10, 0],
-									"color": 0,
-									"uuid": "6784fc9e-2fb3-25fd-4049-0034d3427917",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": false,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": ["dd71e763-3f50-27e7-4890-60712fe4b470", "221586a8-f1b7-d89c-103a-a8a78d463c14"]
-								},
-								{
-									"name": "Leggings",
-									"origin": [0, 36, 0],
-									"color": 0,
-									"uuid": "e770072b-82d4-ffe0-aa7d-fac77de0c084",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": false,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": ["7ad0bece-d1c9-6e51-4f44-ef97a7f7f1b9", "081f8895-a57e-f3d5-a6fc-c503639b7960"]
-								}
-							]
-						},
-						{
-							"name": "BodyBottom",
-							"origin": [0, 18, 2],
-							"color": 0,
-							"uuid": "4b0ef50a-9e6d-cb06-8378-b45bbd7d778e",
-							"export": true,
-							"mirror_uv": false,
-							"isOpen": true,
-							"locked": false,
-							"visibility": true,
-							"autouv": 0,
-							"children": [
-								{
-									"name": "ArmorBB",
-									"origin": [0, 18, 2],
-									"color": 0,
-									"uuid": "f9603a0d-1104-e4e3-8755-6714ea2c770f",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": true,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": [
-										{
-											"name": "ChestplateBottom",
-											"origin": [-4, 4, 0],
-											"color": 0,
-											"uuid": "b577da6a-8eae-7ce8-dd78-c065c11c7739",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": ["a0ca6b4d-c9e7-e724-63ac-b3ae49e8ae12", "03522263-04eb-268b-3b4e-a442c4d65cd4"]
-										},
-										{
-											"name": "LeggingsBottom",
-											"origin": [0, 30, 0],
-											"color": 0,
-											"uuid": "91884fbc-acb1-5003-f3f0-0f6760417f46",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": false,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": ["4855b59b-f468-a259-532a-eccb23283e03", "d08c9f4e-36a4-8c04-f2fd-00dd4adbe316"]
-										}
-									]
-								},
-								{
-									"name": "Tail",
-									"origin": [0, 14.5, 2],
-									"color": 0,
-									"uuid": "b4ad049e-4e8f-d0ea-a51d-41e3413c7c65",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": true,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": [
-										{
-											"name": "ArmorT",
-											"origin": [0, 14.5, 13],
-											"color": 0,
-											"uuid": "82b981c9-fd29-eb7c-8050-4131f2f1b822",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": ["4afbed7a-1ca6-77b6-db58-92e01ae31aa4"]
-										}
-									]
-								},
-								{
-									"name": "Legs",
-									"origin": [0, 12, 0],
-									"color": 0,
-									"uuid": "39a48952-d6f6-9644-1da4-8d2ea9104470",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": true,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": [
-										{
-											"name": "RightLeg",
-											"origin": [2, 12, 0],
-											"color": 0,
-											"uuid": "1da905d9-eccf-4a2a-4397-23e1a9654d77",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": [
-												{
-													"name": "ArmorRL",
-													"origin": [2, 12, 0],
-													"color": 0,
-													"uuid": "09960a3e-73fa-bf53-b5a6-939709be95dd",
-													"export": true,
-													"mirror_uv": false,
-													"isOpen": true,
-													"locked": false,
-													"visibility": true,
-													"autouv": 0,
-													"children": [
-														{
-															"name": "RightLeggings",
-															"origin": [2, 12, 0],
-															"color": 0,
-															"uuid": "f2c56651-0b87-7be5-a5d0-54f0b539cedd",
-															"export": true,
-															"mirror_uv": false,
-															"isOpen": false,
-															"locked": false,
-															"visibility": true,
-															"autouv": 0,
-															"children": ["8715712c-138d-7bdc-882f-f4b2c6770544", "db54d1e6-20a4-45af-6869-4a65f0ea1723"]
-														},
-														{
-															"name": "RightBoots",
-															"origin": [2, 12, 0],
-															"color": 0,
-															"uuid": "585bbbd4-29dc-4475-360d-a37d1d22a0dc",
-															"export": true,
-															"mirror_uv": false,
-															"isOpen": true,
-															"locked": false,
-															"visibility": true,
-															"autouv": 0,
-															"children": ["1cb0afb2-ba2b-92d1-1099-aefd7cc512b8", "dad8c5c7-149c-7b1f-9bc2-c432c26bc70e"]
-														}
-													]
-												},
-												{
-													"name": "RightLegBottom",
-													"origin": [2, 6, 0],
-													"color": 0,
-													"uuid": "41546f59-6ec4-e5c8-8129-41a320670512",
-													"export": true,
-													"mirror_uv": false,
-													"isOpen": true,
-													"locked": false,
-													"visibility": true,
-													"autouv": 0,
-													"children": [
-														{
-															"name": "ArmorRLB",
-															"origin": [2, 6, 0],
-															"color": 0,
-															"uuid": "51c416bc-1aef-41e3-863d-675810356aef",
-															"export": true,
-															"mirror_uv": false,
-															"isOpen": false,
-															"locked": false,
-															"visibility": true,
-															"autouv": 0,
-															"children": [
-																{
-																	"name": "RightLeggingsBottom",
-																	"origin": [2, 6, 0],
-																	"color": 0,
-																	"uuid": "943c2228-26ef-a3cc-c4ff-8b2e3a802431",
-																	"export": true,
-																	"mirror_uv": false,
-																	"isOpen": true,
-																	"locked": false,
-																	"visibility": true,
-																	"autouv": 0,
-																	"children": ["de6d8972-c7d3-65ad-9984-a8cb0304f1a4", "0d1b2e25-e3cb-5fe8-2f68-f18aca44f0aa"]
-																},
-																{
-																	"name": "RightBootsBottom",
-																	"origin": [2, 12, 0],
-																	"color": 0,
-																	"uuid": "225aaa89-44de-01b7-601e-e0636668f07c",
-																	"export": true,
-																	"mirror_uv": false,
-																	"isOpen": true,
-																	"locked": false,
-																	"visibility": true,
-																	"autouv": 0,
-																	"children": ["2b06f488-228c-8e2e-cf9f-a31f465b2b91", "2f97fafc-dd7b-205e-8403-0de28ab11617"]
-																}
-															]
-														}
-													]
-												}
-											]
-										},
-										{
-											"name": "LeftLeg",
-											"origin": [-2, 12, 0],
-											"color": 0,
-											"uuid": "d6a7f816-4da2-4e6d-ec8a-13e9fdd052b2",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": [
-												{
-													"name": "ArmorLL",
-													"origin": [-2, 6, 2],
-													"color": 0,
-													"uuid": "ebec21d0-6b75-5c93-bcad-43a0bbe83be0",
-													"export": true,
-													"mirror_uv": false,
-													"isOpen": true,
-													"locked": false,
-													"visibility": true,
-													"autouv": 0,
-													"children": [
-														{
-															"name": "LeftLeggings",
-															"origin": [-2, 6, 2],
-															"color": 0,
-															"uuid": "0e96119a-486e-469e-c718-c9fcb2e8f4aa",
-															"export": true,
-															"mirror_uv": false,
-															"isOpen": false,
-															"locked": false,
-															"visibility": true,
-															"autouv": 0,
-															"children": ["208279dc-0d16-d5cc-3766-43129fd24c7b", "a15d5564-7cd3-fc93-e984-76ed5bc8023b"]
-														},
-														{
-															"name": "LeftBoots",
-															"origin": [-2, 6, -2],
-															"color": 0,
-															"uuid": "bae07c99-6cf4-d4d7-9e54-a7966539daf6",
-															"export": true,
-															"mirror_uv": false,
-															"isOpen": false,
-															"locked": false,
-															"visibility": true,
-															"autouv": 0,
-															"children": ["6646f669-d54c-168c-c291-d46c48bfda6b", "7a6660e4-1279-daf0-3b3d-293b6821dcbe"]
-														}
-													]
-												},
-												{
-													"name": "LeftLegBottom",
-													"origin": [-2, 6, 0],
-													"color": 0,
-													"uuid": "773e0e38-42c7-dfb1-76b3-2e2c859ccf9d",
-													"export": true,
-													"mirror_uv": false,
-													"isOpen": true,
-													"locked": false,
-													"visibility": true,
-													"autouv": 0,
-													"children": [
-														{
-															"name": "ArmorLLB",
-															"origin": [-2, 6, 0],
-															"color": 0,
-															"uuid": "ac27b599-070c-a038-5e6f-e998a5ad1cb4",
-															"export": true,
-															"mirror_uv": false,
-															"isOpen": true,
-															"locked": false,
-															"visibility": true,
-															"autouv": 0,
-															"children": [
-																{
-																	"name": "LeftLeggingsBottom",
-																	"origin": [-2, 6, -2],
-																	"color": 0,
-																	"uuid": "bfb3e89f-f73f-f1da-55a1-d25eb9f7c2d4",
-																	"export": true,
-																	"mirror_uv": false,
-																	"isOpen": false,
-																	"locked": false,
-																	"visibility": true,
-																	"autouv": 0,
-																	"children": ["94b2a0f5-fc51-dff6-741d-bb1ba99d2a91", "f89ca1fb-370e-a2b8-90bd-46b52f03d3c6"]
-																},
-																{
-																	"name": "LeftBootsBottom",
-																	"origin": [-2, 6, -2],
-																	"color": 0,
-																	"uuid": "71ea41e5-93f0-d75e-73eb-77a7b04abfca",
-																	"export": true,
-																	"mirror_uv": false,
-																	"isOpen": false,
-																	"locked": false,
-																	"visibility": true,
-																	"autouv": 0,
-																	"children": ["aabdaefc-770f-a69a-35cc-bb6ac71bc9be", "65127873-1035-1a39-184f-f7910cbe00c7"]
-																}
-															]
-														}
-													]
-												}
-											]
-										}
-									]
-								}
-							]
-						},
-						{
-							"name": "Arms",
-							"origin": [0, 24, 0],
-							"color": 0,
-							"uuid": "688784f4-8aa6-4c65-a602-3c268cd69e0e",
-							"export": true,
-							"mirror_uv": false,
-							"isOpen": true,
-							"locked": false,
-							"visibility": true,
-							"autouv": 0,
-							"children": [
-								{
-									"name": "RightArm",
-									"origin": [5, 23, 0],
-									"color": 0,
-									"uuid": "9be305ab-a928-a9fa-f26f-0776d5f2052a",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": true,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": [
-										{
-											"name": "ArmorRA",
-											"origin": [0, 24, 0],
-											"color": 0,
-											"uuid": "9cdcfaa1-6e79-d94c-f516-f1aff5551a36",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": [
-												{
-													"name": "RightChestplate",
-													"origin": [0, 22, 0],
-													"color": 0,
-													"uuid": "fd9a522d-9a6f-9315-f563-c2c2dc2643ed",
-													"export": true,
-													"mirror_uv": false,
-													"isOpen": false,
-													"locked": false,
-													"visibility": true,
-													"autouv": 0,
-													"children": ["04c52e51-518e-9513-d607-bd72f9efa2c9", "6be84467-6c7f-1451-5458-a406488d3d44"]
-												}
-											]
-										},
-										{
-											"name": "RightArmBottom",
-											"origin": [7, 18, 2],
-											"color": 0,
-											"uuid": "9dba3876-a8cc-5e54-0901-39e43c2ea2e5",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": [
-												{
-													"name": "ArmorRAB",
-													"origin": [7, 18, 2],
-													"color": 0,
-													"uuid": "475e6e92-a1e4-3dbd-1fbc-f80f1d0dad3a",
-													"export": true,
-													"mirror_uv": false,
-													"isOpen": true,
-													"locked": false,
-													"visibility": true,
-													"autouv": 0,
-													"children": [
-														{
-															"name": "RightChestplateBottom",
-															"origin": [5.5, 18, 2],
-															"color": 0,
-															"uuid": "002c7a8e-4836-7723-7a30-02d9e7d6864c",
-															"export": true,
-															"mirror_uv": false,
-															"isOpen": true,
-															"locked": false,
-															"visibility": true,
-															"autouv": 0,
-															"children": ["4a3a4eb6-fd3e-7d2b-a211-76957d9120bd", "325d12e9-803c-2ac9-5359-07d737487724"]
-														}
-													]
-												}
-											]
-										}
-									]
-								},
-								{
-									"name": "LeftArm",
-									"origin": [-5, 23, 0],
-									"color": 0,
-									"uuid": "0a5f0a5e-c3b7-0792-6849-aa4ddaf05304",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": true,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": [
-										{
-											"name": "ArmorLA",
-											"origin": [-5, 23, 0],
-											"color": 0,
-											"uuid": "73d4bd8b-b1f2-b209-c731-ba14eca51894",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": [
-												{
-													"name": "LeftChestplate",
-													"origin": [0, 22, 0],
-													"color": 0,
-													"uuid": "5c14372a-8dc0-5453-10f1-d47cdec6e52b",
-													"export": true,
-													"mirror_uv": false,
-													"isOpen": true,
-													"locked": false,
-													"visibility": true,
-													"autouv": 0,
-													"children": ["22408e50-1695-eb9c-6ad3-457297fef7dd", "77395185-0449-b7e0-c6cb-1acfdbb3f452"]
-												}
-											]
-										},
-										{
-											"name": "LeftArmBottom",
-											"origin": [-7, 18, 2],
-											"color": 0,
-											"uuid": "2acbafe2-f2bf-de61-ab64-db0f28b46e31",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": [
-												{
-													"name": "ArmorLAB",
-													"origin": [-7, 18, 2],
-													"color": 0,
-													"uuid": "402ce6c8-6779-6fc6-a408-2c462302696d",
-													"export": true,
-													"mirror_uv": false,
-													"isOpen": true,
-													"locked": false,
-													"visibility": true,
-													"autouv": 0,
-													"children": [
-														{
-															"name": "LeftChestplateBottom",
-															"origin": [-5.5, 18, 2],
-															"color": 0,
-															"uuid": "f09fa0ac-568d-aeed-7aeb-181f6bcae7de",
-															"export": true,
-															"mirror_uv": false,
-															"isOpen": true,
-															"locked": false,
-															"visibility": true,
-															"autouv": 0,
-															"children": ["26bc361a-dd53-ef35-4d8c-de683271f69d", "2b05091b-8085-6724-3d43-d9171144768c"]
-														}
-													]
-												}
-											]
-										}
-									]
-								}
-							]
-						}
-					]
+					"children": ["4a3a4eb6-fd3e-7d2b-a211-76957d9120bd", "325d12e9-803c-2ac9-5359-07d737487724"]
+				}
+			]
+		},
+		{
+			"name": "ArmorLA",
+			"origin": [-5, 23, 0],
+			"color": 0,
+			"uuid": "73d4bd8b-b1f2-b209-c731-ba14eca51894",
+			"export": true,
+			"mirror_uv": false,
+			"isOpen": false,
+			"locked": false,
+			"visibility": true,
+			"autouv": 0,
+			"children": [
+				{
+					"name": "LeftChestplate",
+					"origin": [0, 22, 0],
+					"color": 0,
+					"uuid": "5c14372a-8dc0-5453-10f1-d47cdec6e52b",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": true,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": ["22408e50-1695-eb9c-6ad3-457297fef7dd", "77395185-0449-b7e0-c6cb-1acfdbb3f452"]
+				}
+			]
+		},
+		{
+			"name": "ArmorLAB",
+			"origin": [-7, 18, 2],
+			"color": 0,
+			"uuid": "402ce6c8-6779-6fc6-a408-2c462302696d",
+			"export": true,
+			"mirror_uv": false,
+			"isOpen": false,
+			"locked": false,
+			"visibility": true,
+			"autouv": 0,
+			"children": [
+				{
+					"name": "LeftChestplateBottom",
+					"origin": [-5.5, 18, 2],
+					"color": 0,
+					"uuid": "f09fa0ac-568d-aeed-7aeb-181f6bcae7de",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": true,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": ["26bc361a-dd53-ef35-4d8c-de683271f69d", "2b05091b-8085-6724-3d43-d9171144768c"]
+				}
+			]
+		},
+		{
+			"name": "ArmorBB",
+			"origin": [0, 18, 2],
+			"color": 0,
+			"uuid": "f9603a0d-1104-e4e3-8755-6714ea2c770f",
+			"export": true,
+			"mirror_uv": false,
+			"isOpen": false,
+			"locked": false,
+			"visibility": true,
+			"autouv": 0,
+			"children": [
+				{
+					"name": "ChestplateBottom",
+					"origin": [-4, 4, 0],
+					"color": 0,
+					"uuid": "b577da6a-8eae-7ce8-dd78-c065c11c7739",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": true,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": ["a0ca6b4d-c9e7-e724-63ac-b3ae49e8ae12", "03522263-04eb-268b-3b4e-a442c4d65cd4"]
+				},
+				{
+					"name": "LeggingsBottom",
+					"origin": [0, 30, 0],
+					"color": 0,
+					"uuid": "91884fbc-acb1-5003-f3f0-0f6760417f46",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": false,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": ["4855b59b-f468-a259-532a-eccb23283e03", "d08c9f4e-36a4-8c04-f2fd-00dd4adbe316"]
+				}
+			]
+		},
+		{
+			"name": "ArmorT",
+			"origin": [0, 14.5, 13],
+			"color": 0,
+			"uuid": "82b981c9-fd29-eb7c-8050-4131f2f1b822",
+			"export": true,
+			"mirror_uv": false,
+			"isOpen": false,
+			"locked": false,
+			"visibility": true,
+			"autouv": 0,
+			"children": ["4afbed7a-1ca6-77b6-db58-92e01ae31aa4"]
+		},
+		{
+			"name": "ArmorRL",
+			"origin": [2, 12, 0],
+			"color": 0,
+			"uuid": "09960a3e-73fa-bf53-b5a6-939709be95dd",
+			"export": true,
+			"mirror_uv": false,
+			"isOpen": false,
+			"locked": false,
+			"visibility": true,
+			"autouv": 0,
+			"children": [
+				{
+					"name": "RightLeggings",
+					"origin": [2, 12, 0],
+					"color": 0,
+					"uuid": "f2c56651-0b87-7be5-a5d0-54f0b539cedd",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": false,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": ["8715712c-138d-7bdc-882f-f4b2c6770544", "db54d1e6-20a4-45af-6869-4a65f0ea1723"]
+				},
+				{
+					"name": "RightBoots",
+					"origin": [2, 12, 0],
+					"color": 0,
+					"uuid": "585bbbd4-29dc-4475-360d-a37d1d22a0dc",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": true,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": ["1cb0afb2-ba2b-92d1-1099-aefd7cc512b8", "dad8c5c7-149c-7b1f-9bc2-c432c26bc70e"]
+				}
+			]
+		},
+		{
+			"name": "ArmorRLB",
+			"origin": [2, 6, 0],
+			"color": 0,
+			"uuid": "51c416bc-1aef-41e3-863d-675810356aef",
+			"export": true,
+			"mirror_uv": false,
+			"isOpen": false,
+			"locked": false,
+			"visibility": true,
+			"autouv": 0,
+			"children": [
+				{
+					"name": "RightLeggingsBottom",
+					"origin": [2, 6, 0],
+					"color": 0,
+					"uuid": "943c2228-26ef-a3cc-c4ff-8b2e3a802431",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": true,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": ["de6d8972-c7d3-65ad-9984-a8cb0304f1a4", "0d1b2e25-e3cb-5fe8-2f68-f18aca44f0aa"]
+				},
+				{
+					"name": "RightBootsBottom",
+					"origin": [2, 12, 0],
+					"color": 0,
+					"uuid": "225aaa89-44de-01b7-601e-e0636668f07c",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": true,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": ["2b06f488-228c-8e2e-cf9f-a31f465b2b91", "2f97fafc-dd7b-205e-8403-0de28ab11617"]
+				}
+			]
+		},
+		{
+			"name": "ArmorLL",
+			"origin": [-2, 6, 2],
+			"color": 0,
+			"uuid": "ebec21d0-6b75-5c93-bcad-43a0bbe83be0",
+			"export": true,
+			"mirror_uv": false,
+			"isOpen": false,
+			"locked": false,
+			"visibility": true,
+			"autouv": 0,
+			"children": [
+				{
+					"name": "LeftLeggings",
+					"origin": [-2, 6, 2],
+					"color": 0,
+					"uuid": "0e96119a-486e-469e-c718-c9fcb2e8f4aa",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": false,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": ["208279dc-0d16-d5cc-3766-43129fd24c7b", "a15d5564-7cd3-fc93-e984-76ed5bc8023b"]
+				},
+				{
+					"name": "LeftBoots",
+					"origin": [-2, 6, -2],
+					"color": 0,
+					"uuid": "bae07c99-6cf4-d4d7-9e54-a7966539daf6",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": false,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": ["6646f669-d54c-168c-c291-d46c48bfda6b", "7a6660e4-1279-daf0-3b3d-293b6821dcbe"]
+				}
+			]
+		},
+		{
+			"name": "ArmorLLB",
+			"origin": [-2, 6, 0],
+			"color": 0,
+			"uuid": "ac27b599-070c-a038-5e6f-e998a5ad1cb4",
+			"export": true,
+			"mirror_uv": false,
+			"isOpen": false,
+			"locked": false,
+			"visibility": true,
+			"autouv": 0,
+			"children": [
+				{
+					"name": "LeftLeggingsBottom",
+					"origin": [-2, 6, -2],
+					"color": 0,
+					"uuid": "bfb3e89f-f73f-f1da-55a1-d25eb9f7c2d4",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": false,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": ["94b2a0f5-fc51-dff6-741d-bb1ba99d2a91", "f89ca1fb-370e-a2b8-90bd-46b52f03d3c6"]
+				},
+				{
+					"name": "LeftBootsBottom",
+					"origin": [-2, 6, -2],
+					"color": 0,
+					"uuid": "71ea41e5-93f0-d75e-73eb-77a7b04abfca",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": false,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": ["aabdaefc-770f-a69a-35cc-bb6ac71bc9be", "65127873-1035-1a39-184f-f7910cbe00c7"]
 				}
 			]
 		}
@@ -2175,7 +1965,7 @@
 			"relative_path": "../../textures/leather_layer_2_overlay.png"
 		},
 		{
-			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\SenkoSan\\textures\\tail_armors.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\tail_armors.png",
 			"name": "tail_armors.png",
 			"folder": "",
 			"namespace": "",

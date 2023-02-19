@@ -10,6 +10,7 @@
 	"variable_placeholders": "",
 	"variable_placeholder_buttons": [],
 	"timeline_setups": [],
+	"unhandled_root_fields": {},
 	"resolution": {
 		"width": 16,
 		"height": 8
@@ -762,34 +763,36 @@
 	],
 	"outliner": [
 		{
-			"name": "Avatar",
+			"name": "CKnitH",
 			"origin": [0, 0, 0],
 			"color": 0,
-			"uuid": "27fd278a-6841-0eef-c271-5204938d763d",
+			"uuid": "5fd769a8-5ac0-1b0b-47ea-fadb79f83618",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": true,
+			"isOpen": false,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
 			"children": [
+				"8faefb19-fd03-eb91-6fb9-bb76c095bdaa",
+				"0daa1ed2-326d-fafd-4073-a264843b75f4",
 				{
-					"name": "Head",
-					"origin": [0, 24, 0],
+					"name": "Ears",
+					"origin": [0, 30, 0],
 					"color": 0,
-					"uuid": "2911c5ac-a42b-434c-9d91-becfa17fd255",
+					"uuid": "00f5720e-faea-564d-cf3b-3c4d548a074a",
 					"export": true,
 					"mirror_uv": false,
-					"isOpen": true,
+					"isOpen": false,
 					"locked": false,
 					"visibility": true,
 					"autouv": 0,
 					"children": [
 						{
-							"name": "CKnitH",
-							"origin": [0, 0, 0],
+							"name": "RightEarPivot",
+							"origin": [1, 30, 0],
 							"color": 0,
-							"uuid": "5fd769a8-5ac0-1b0b-47ea-fadb79f83618",
+							"uuid": "f1da2935-ccd2-9215-67bf-c11f29fa735b",
 							"export": true,
 							"mirror_uv": false,
 							"isOpen": true,
@@ -797,135 +800,105 @@
 							"visibility": true,
 							"autouv": 0,
 							"children": [
-								"8faefb19-fd03-eb91-6fb9-bb76c095bdaa",
-								"0daa1ed2-326d-fafd-4073-a264843b75f4",
 								{
-									"name": "Ears",
-									"origin": [0, 30, 0],
+									"name": "RightEar",
+									"origin": [4.25, 31.75, -1.25],
+									"rotation": [0, 0, -15],
 									"color": 0,
-									"uuid": "00f5720e-faea-564d-cf3b-3c4d548a074a",
+									"uuid": "bfa7f6ac-8c11-13fa-64dd-00d1b8301551",
 									"export": true,
 									"mirror_uv": false,
-									"isOpen": false,
+									"isOpen": true,
 									"locked": false,
 									"visibility": true,
 									"autouv": 0,
 									"children": [
-										{
-											"name": "RightEarPivot",
-											"origin": [1, 30, 0],
-											"color": 0,
-											"uuid": "f1da2935-ccd2-9215-67bf-c11f29fa735b",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": [
-												{
-													"name": "RightEar",
-													"origin": [4.25, 31.75, -1.25],
-													"rotation": [0, 0, -15],
-													"color": 0,
-													"uuid": "bfa7f6ac-8c11-13fa-64dd-00d1b8301551",
-													"export": true,
-													"mirror_uv": false,
-													"isOpen": true,
-													"locked": false,
-													"visibility": true,
-													"autouv": 0,
-													"children": [
-														"36e7f28c-0f54-da24-9f81-01d800b6cf8a",
-														"9c678655-e385-1342-d40f-955e45743fbc",
-														"41ad6c57-a935-04fd-6ebf-2a96aa985b07",
-														"2e594120-c3f0-e1f7-4a65-1c82cfb9e7a7",
-														"0c8068e6-35c4-1a3c-c5fa-a0cb423982ca",
-														"0d16c58d-5b19-29a1-8a51-6b273691bcf9"
-													]
-												}
-											]
-										},
-										{
-											"name": "LeftEarPivot",
-											"origin": [-1, 30, 0],
-											"color": 0,
-											"uuid": "80d6f350-6561-4708-cdbb-3ac2e777f523",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": [
-												{
-													"name": "LeftEar",
-													"origin": [-4.25, 31.75, -1.25],
-													"rotation": [0, 0, 15],
-													"color": 0,
-													"uuid": "42d34077-5a0f-4c9d-df2a-bdcafe219e7d",
-													"export": true,
-													"mirror_uv": false,
-													"isOpen": true,
-													"locked": false,
-													"visibility": true,
-													"autouv": 0,
-													"children": [
-														"c497f192-ae0b-bd41-e394-cc74a2675dcd",
-														"fe47ab3e-91a0-5f57-deef-cb66c6fd2259",
-														"d2120d7d-e82f-15dd-a3b7-1365ca931822",
-														"de4addc4-72c2-eb57-ef5d-f4f2c256386c",
-														"2e063447-b742-a1bd-8663-c425f0c48308",
-														"ebb3aff4-f0e4-a0ac-b199-c754ef45a348"
-													]
-												}
-											]
-										}
-									]
-								},
-								{
-									"name": "KnitSide",
-									"origin": [0, 28, 0],
-									"color": 0,
-									"uuid": "2dc2ff6b-0062-79e5-67a0-ecb201ffcd56",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": false,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": [
-										{
-											"name": "RightKnit",
-											"origin": [4.75, 28, 0],
-											"rotation": [0, 0, 10],
-											"color": 0,
-											"uuid": "a388ab9e-eaaf-691a-81ac-b99cf9790871",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": ["d54456ff-16b4-b277-41f5-f64e49e68919", "6892b438-8d59-ccc1-12a8-86fce7258223"]
-										},
-										{
-											"name": "LeftKnit",
-											"origin": [-4.75, 28, 0],
-											"rotation": [0, 0, -10],
-											"color": 0,
-											"uuid": "52b1453f-9d2a-0d5a-ee18-664b98ed61f2",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": ["2d457e36-9270-3abd-9e30-63d292270068", "da976c9a-ffde-7dde-a7a7-c01117d636eb"]
-										}
+										"36e7f28c-0f54-da24-9f81-01d800b6cf8a",
+										"9c678655-e385-1342-d40f-955e45743fbc",
+										"41ad6c57-a935-04fd-6ebf-2a96aa985b07",
+										"2e594120-c3f0-e1f7-4a65-1c82cfb9e7a7",
+										"0c8068e6-35c4-1a3c-c5fa-a0cb423982ca",
+										"0d16c58d-5b19-29a1-8a51-6b273691bcf9"
 									]
 								}
 							]
+						},
+						{
+							"name": "LeftEarPivot",
+							"origin": [-1, 30, 0],
+							"color": 0,
+							"uuid": "80d6f350-6561-4708-cdbb-3ac2e777f523",
+							"export": true,
+							"mirror_uv": false,
+							"isOpen": true,
+							"locked": false,
+							"visibility": true,
+							"autouv": 0,
+							"children": [
+								{
+									"name": "LeftEar",
+									"origin": [-4.25, 31.75, -1.25],
+									"rotation": [0, 0, 15],
+									"color": 0,
+									"uuid": "42d34077-5a0f-4c9d-df2a-bdcafe219e7d",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"children": [
+										"c497f192-ae0b-bd41-e394-cc74a2675dcd",
+										"fe47ab3e-91a0-5f57-deef-cb66c6fd2259",
+										"d2120d7d-e82f-15dd-a3b7-1365ca931822",
+										"de4addc4-72c2-eb57-ef5d-f4f2c256386c",
+										"2e063447-b742-a1bd-8663-c425f0c48308",
+										"ebb3aff4-f0e4-a0ac-b199-c754ef45a348"
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "KnitSide",
+					"origin": [0, 28, 0],
+					"color": 0,
+					"uuid": "2dc2ff6b-0062-79e5-67a0-ecb201ffcd56",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": false,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": [
+						{
+							"name": "RightKnit",
+							"origin": [4.75, 28, 0],
+							"rotation": [0, 0, 10],
+							"color": 0,
+							"uuid": "a388ab9e-eaaf-691a-81ac-b99cf9790871",
+							"export": true,
+							"mirror_uv": false,
+							"isOpen": true,
+							"locked": false,
+							"visibility": true,
+							"autouv": 0,
+							"children": ["d54456ff-16b4-b277-41f5-f64e49e68919", "6892b438-8d59-ccc1-12a8-86fce7258223"]
+						},
+						{
+							"name": "LeftKnit",
+							"origin": [-4.75, 28, 0],
+							"rotation": [0, 0, -10],
+							"color": 0,
+							"uuid": "52b1453f-9d2a-0d5a-ee18-664b98ed61f2",
+							"export": true,
+							"mirror_uv": false,
+							"isOpen": true,
+							"locked": false,
+							"visibility": true,
+							"autouv": 0,
+							"children": ["2d457e36-9270-3abd-9e30-63d292270068", "da976c9a-ffde-7dde-a7a7-c01117d636eb"]
 						}
 					]
 				}
@@ -934,13 +907,14 @@
 	],
 	"textures": [
 		{
-			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\SenkoSan\\textures\\knit.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\knit.png",
 			"name": "knit.png",
 			"folder": "",
 			"namespace": "",
 			"id": "0",
 			"particle": false,
 			"render_mode": "default",
+			"render_sides": "auto",
 			"frame_time": 1,
 			"frame_order_type": "loop",
 			"frame_order": "",
@@ -983,7 +957,12 @@
 							"uuid": "e505f98d-f3d9-340c-1f30-6bba7ef3640e",
 							"time": 0,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "rotation",
@@ -997,7 +976,12 @@
 							"uuid": "e71cdbff-d024-f4aa-2c15-ae43f7f9a6db",
 							"time": 0.125,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "rotation",
@@ -1011,7 +995,12 @@
 							"uuid": "41b4d83d-cc67-bc67-7333-363181abea94",
 							"time": 0.25,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						}
 					]
 				},
@@ -1031,7 +1020,12 @@
 							"uuid": "87422c6f-7a26-ea62-d59f-458d82f9f4ee",
 							"time": 0,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "rotation",
@@ -1045,7 +1039,12 @@
 							"uuid": "bcfb8211-d8ce-979e-d223-b8b77f2f6395",
 							"time": 0.125,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "rotation",
@@ -1059,7 +1058,12 @@
 							"uuid": "7d5fbb55-3001-02b2-7fd4-1664cbdb5e08",
 							"time": 0.25,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						}
 					]
 				}

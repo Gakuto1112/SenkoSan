@@ -220,40 +220,6 @@
 			"uuid": "90727df8-8db7-16c7-a1f2-a2aec34e6e3b"
 		},
 		{
-			"name": "cube",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-4, 24, -4],
-			"to": [4, 32, 4],
-			"autouv": 1,
-			"color": 0,
-			"visibility": false,
-			"origin": [0, 24, 0],
-			"faces": {
-				"north": {
-					"uv": [0, 0, 4.25, 0.75]
-				},
-				"east": {
-					"uv": [0, 0, 4.25, 0.75]
-				},
-				"south": {
-					"uv": [0, 0, 4.25, 0.75]
-				},
-				"west": {
-					"uv": [0, 0, 4.25, 0.75]
-				},
-				"up": {
-					"uv": [0, 0, 4.25, 0.75]
-				},
-				"down": {
-					"uv": [0, 0, 4.25, 0.75]
-				}
-			},
-			"type": "cube",
-			"uuid": "34560314-84fd-384e-140b-bca0dae100c9"
-		},
-		{
 			"name": "Ribbon1",
 			"box_uv": false,
 			"rescale": false,
@@ -882,22 +848,23 @@
 	],
 	"outliner": [
 		{
-			"name": "Avatar",
-			"origin": [0, 0, 0],
+			"name": "CKimonoH",
+			"origin": [0, 24, 0],
 			"color": 0,
-			"uuid": "27fd278a-6841-0eef-c271-5204938d763d",
+			"uuid": "e67336b8-fc7d-84de-f4dc-36ffa4c5d3f3",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": true,
+			"isOpen": false,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
 			"children": [
+				"42d276cf-d6b2-2cf9-5dd0-ea5e6126f33a",
 				{
-					"name": "Head",
+					"name": "Wisteria",
 					"origin": [0, 24, 0],
 					"color": 0,
-					"uuid": "2911c5ac-a42b-434c-9d91-becfa17fd255",
+					"uuid": "bc0398f3-6d75-5c23-dc0d-146b0e3775db",
 					"export": true,
 					"mirror_uv": false,
 					"isOpen": true,
@@ -905,11 +872,49 @@
 					"visibility": true,
 					"autouv": 0,
 					"children": [
+						"ca807742-01eb-7387-a99d-bd4730aa5a5b",
+						"c6a6843b-f402-7637-5618-1498cff6fa72",
+						"13702584-6ec4-e116-f57d-9a7c0af19aef",
+						"90727df8-8db7-16c7-a1f2-a2aec34e6e3b"
+					]
+				},
+				{
+					"name": "Ribbon",
+					"origin": [0, 24.25, 0.25],
+					"color": 0,
+					"uuid": "db4a3eef-726c-defd-a7c7-9f9b57e32e92",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": true,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": [
+						"5da267bb-69dc-1fa9-e242-c3a15afae628",
+						"6c402da6-b9be-2431-4ec5-6fae22baae31",
+						"3db6695b-e597-959b-1f20-ca156b1c94d0",
+						"2b1dd7ec-93fb-78d7-adb3-6b639aa8d127",
+						"1e13e114-3fd2-2b2c-7391-f8309d8de403"
+					]
+				},
+				{
+					"name": "Comb",
+					"origin": [3.5, 30, -3.75],
+					"color": 0,
+					"uuid": "3a2066ff-2f47-05ed-e062-ef3fb0b6a738",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": true,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": [
+						"17686fa6-6def-1526-3caa-376c8c1566a6",
 						{
-							"name": "CKimonoH",
-							"origin": [0, 24, 0],
+							"name": "CombLines",
+							"origin": [3.5, 29, -3.75],
 							"color": 0,
-							"uuid": "e67336b8-fc7d-84de-f4dc-36ffa4c5d3f3",
+							"uuid": "36dad3ab-851f-f670-0c83-3bda0801a1d9",
 							"export": true,
 							"mirror_uv": false,
 							"isOpen": true,
@@ -917,86 +922,18 @@
 							"visibility": true,
 							"autouv": 0,
 							"children": [
-								"42d276cf-d6b2-2cf9-5dd0-ea5e6126f33a",
-								{
-									"name": "Wisteria",
-									"origin": [0, 24, 0],
-									"color": 0,
-									"uuid": "bc0398f3-6d75-5c23-dc0d-146b0e3775db",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": true,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": [
-										"ca807742-01eb-7387-a99d-bd4730aa5a5b",
-										"c6a6843b-f402-7637-5618-1498cff6fa72",
-										"13702584-6ec4-e116-f57d-9a7c0af19aef",
-										"90727df8-8db7-16c7-a1f2-a2aec34e6e3b"
-									]
-								},
-								{
-									"name": "Ribbon",
-									"origin": [0, 24.25, 0.25],
-									"color": 0,
-									"uuid": "db4a3eef-726c-defd-a7c7-9f9b57e32e92",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": true,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": [
-										"5da267bb-69dc-1fa9-e242-c3a15afae628",
-										"6c402da6-b9be-2431-4ec5-6fae22baae31",
-										"3db6695b-e597-959b-1f20-ca156b1c94d0",
-										"2b1dd7ec-93fb-78d7-adb3-6b639aa8d127",
-										"1e13e114-3fd2-2b2c-7391-f8309d8de403"
-									]
-								},
-								{
-									"name": "Comb",
-									"origin": [3.5, 30, -3.75],
-									"color": 0,
-									"uuid": "3a2066ff-2f47-05ed-e062-ef3fb0b6a738",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": true,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": [
-										"17686fa6-6def-1526-3caa-376c8c1566a6",
-										{
-											"name": "CombLines",
-											"origin": [3.5, 29, -3.75],
-											"color": 0,
-											"uuid": "36dad3ab-851f-f670-0c83-3bda0801a1d9",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": [
-												"ae9749c3-1d78-3686-73de-a9a140eb7b88",
-												"8415b813-9124-5400-6d6b-98553b8de49d",
-												"797ea0d7-09c2-a120-3890-e7c0ec9059c2",
-												"37e7b83b-c057-b6b5-0ce9-1b1ce233de16",
-												"d3a388bd-4fe9-6d1e-053c-0a5a80399aa3",
-												"d0876933-5649-61ca-fe2b-f4090df8fa53",
-												"9ac8f9f7-bdbe-81c5-3795-612f2c4bd21d",
-												"4cf55c95-9ed7-141a-b04d-72650827b50d",
-												"6956252f-1d0f-579e-2221-e822c1a5edd5",
-												"f13eaa54-cb3b-7124-9695-cd678040af44"
-											]
-										}
-									]
-								}
+								"ae9749c3-1d78-3686-73de-a9a140eb7b88",
+								"8415b813-9124-5400-6d6b-98553b8de49d",
+								"797ea0d7-09c2-a120-3890-e7c0ec9059c2",
+								"37e7b83b-c057-b6b5-0ce9-1b1ce233de16",
+								"d3a388bd-4fe9-6d1e-053c-0a5a80399aa3",
+								"d0876933-5649-61ca-fe2b-f4090df8fa53",
+								"9ac8f9f7-bdbe-81c5-3795-612f2c4bd21d",
+								"4cf55c95-9ed7-141a-b04d-72650827b50d",
+								"6956252f-1d0f-579e-2221-e822c1a5edd5",
+								"f13eaa54-cb3b-7124-9695-cd678040af44"
 							]
-						},
-						"34560314-84fd-384e-140b-bca0dae100c9"
+						}
 					]
 				}
 			]

@@ -10,6 +10,7 @@
 	"variable_placeholders": "",
 	"variable_placeholder_buttons": [],
 	"timeline_setups": [],
+	"unhandled_root_fields": {},
 	"resolution": {
 		"width": 12,
 		"height": 6
@@ -176,139 +177,42 @@
 	],
 	"outliner": [
 		{
-			"name": "Avatar",
-			"origin": [0, 0, 0],
+			"name": "CCheerleaderRAB",
+			"origin": [7, 18, 2],
 			"color": 0,
-			"uuid": "27fd278a-6841-0eef-c271-5204938d763d",
+			"uuid": "1dd1fbd7-963f-b92c-cb30-c1edad314e0d",
 			"export": true,
 			"mirror_uv": false,
 			"isOpen": true,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
-			"children": [
-				{
-					"name": "Body",
-					"origin": [0, 24, 0],
-					"color": 0,
-					"uuid": "5c3d82d1-20f2-bbae-5f4b-9f5dc39f4708",
-					"export": true,
-					"mirror_uv": false,
-					"isOpen": true,
-					"locked": false,
-					"visibility": true,
-					"autouv": 0,
-					"children": [
-						{
-							"name": "Arms",
-							"origin": [0, 0, 0],
-							"color": 0,
-							"uuid": "0527626f-65e0-4ef6-c12f-ca9ff9360c88",
-							"export": true,
-							"mirror_uv": false,
-							"isOpen": true,
-							"locked": false,
-							"visibility": true,
-							"autouv": 0,
-							"children": [
-								{
-									"name": "RightArm",
-									"origin": [5, 23, 0],
-									"color": 0,
-									"uuid": "48aa268d-b174-aa83-0300-eba43794dfe3",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": true,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": [
-										{
-											"name": "RightArmBottom",
-											"origin": [7, 18, 2],
-											"color": 0,
-											"uuid": "a9520b31-b324-2dee-d0c3-a7851730bab2",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": [
-												{
-													"name": "CCheerleaderRAB",
-													"origin": [7, 18, 2],
-													"color": 0,
-													"uuid": "1dd1fbd7-963f-b92c-cb30-c1edad314e0d",
-													"export": true,
-													"mirror_uv": false,
-													"isOpen": true,
-													"locked": false,
-													"visibility": true,
-													"autouv": 0,
-													"children": ["65692f9b-e9be-6754-83e4-2e796d17cad8", "a3a59a01-75ce-316b-1a1d-1e32b32565d3"]
-												}
-											]
-										}
-									]
-								},
-								{
-									"name": "LeftArm",
-									"origin": [-5, 23, 0],
-									"color": 0,
-									"uuid": "af94253b-4f4f-8ab4-29fd-fffa30e9449a",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": true,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": [
-										{
-											"name": "LeftArmBottom",
-											"origin": [-7, 18, 2],
-											"color": 0,
-											"uuid": "248a6732-93ec-33dc-6af6-346bfa9a2551",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": [
-												{
-													"name": "CCheerleaderLAB",
-													"origin": [-7, 18, 2],
-													"color": 0,
-													"uuid": "14ce9994-ed66-da73-061f-20e4c100141d",
-													"export": true,
-													"mirror_uv": false,
-													"isOpen": true,
-													"locked": false,
-													"visibility": true,
-													"autouv": 0,
-													"children": ["90028c5b-e4aa-1cca-60d1-54493e25c3f6", "6cd5745b-d470-8f26-f2d2-105f0f2dbaef"]
-												}
-											]
-										}
-									]
-								}
-							]
-						}
-					]
-				}
-			]
+			"children": ["65692f9b-e9be-6754-83e4-2e796d17cad8", "a3a59a01-75ce-316b-1a1d-1e32b32565d3"]
+		},
+		{
+			"name": "CCheerleaderLAB",
+			"origin": [-7, 18, 2],
+			"color": 0,
+			"uuid": "14ce9994-ed66-da73-061f-20e4c100141d",
+			"export": true,
+			"mirror_uv": false,
+			"isOpen": true,
+			"locked": false,
+			"visibility": true,
+			"autouv": 0,
+			"children": ["90028c5b-e4aa-1cca-60d1-54493e25c3f6", "6cd5745b-d470-8f26-f2d2-105f0f2dbaef"]
 		}
 	],
 	"textures": [
 		{
-			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\SenkoSan\\textures\\costume_cheerleader.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\costume_cheerleader.png",
 			"name": "costume_cheerleader.png",
 			"folder": "",
 			"namespace": "",
 			"id": "1",
 			"particle": false,
 			"render_mode": "default",
+			"render_sides": "auto",
 			"frame_time": 1,
 			"frame_order_type": "loop",
 			"frame_order": "",

@@ -263,22 +263,36 @@
 	],
 	"outliner": [
 		{
-			"name": "Avatar",
-			"origin": [0, 0, 0],
+			"name": "CMaidBH",
+			"origin": [0, 24, 0],
 			"color": 0,
-			"uuid": "27fd278a-6841-0eef-c271-5204938d763d",
+			"uuid": "72414c1d-3b3e-3bcb-41d2-cd6ce9f32142",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": true,
+			"isOpen": false,
+			"locked": false,
+			"visibility": true,
+			"autouv": 0,
+			"children": ["5308da27-03f0-c4f7-71cc-b5a6b9e70a2e", "167222e5-566a-bdb8-0c73-0fd0a56ad364"]
+		},
+		{
+			"name": "CMaidBBB",
+			"origin": [0, 18, 2],
+			"color": 0,
+			"uuid": "07ed9aca-5092-0998-7035-9d4c50dc86ea",
+			"export": true,
+			"mirror_uv": false,
+			"isOpen": false,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
 			"children": [
+				"5815a060-4032-1ad4-bee7-6f2912b086a1",
 				{
-					"name": "Head",
-					"origin": [0, 24, 0],
+					"name": "Skirt2",
+					"origin": [0, 15, 0],
 					"color": 0,
-					"uuid": "2911c5ac-a42b-434c-9d91-becfa17fd255",
+					"uuid": "b465a220-0cb2-1159-131b-f2e07f716ae0",
 					"export": true,
 					"mirror_uv": false,
 					"isOpen": true,
@@ -286,38 +300,12 @@
 					"visibility": true,
 					"autouv": 0,
 					"children": [
+						"3aad4906-46e3-f5a7-626d-62f591f42df4",
 						{
-							"name": "CMaidBH",
-							"origin": [0, 24, 0],
+							"name": "Skirt3",
+							"origin": [0, 15, 0],
 							"color": 0,
-							"uuid": "72414c1d-3b3e-3bcb-41d2-cd6ce9f32142",
-							"export": true,
-							"mirror_uv": false,
-							"isOpen": true,
-							"locked": false,
-							"visibility": true,
-							"autouv": 0,
-							"children": ["5308da27-03f0-c4f7-71cc-b5a6b9e70a2e", "167222e5-566a-bdb8-0c73-0fd0a56ad364"]
-						}
-					]
-				},
-				{
-					"name": "Body",
-					"origin": [0, 24, 0],
-					"color": 0,
-					"uuid": "5c3d82d1-20f2-bbae-5f4b-9f5dc39f4708",
-					"export": true,
-					"mirror_uv": false,
-					"isOpen": true,
-					"locked": false,
-					"visibility": true,
-					"autouv": 0,
-					"children": [
-						{
-							"name": "BodyBottom",
-							"origin": [0, 18, 2],
-							"color": 0,
-							"uuid": "e8434444-438a-7d00-7e72-cd2de9fbd7af",
+							"uuid": "0de06bf9-2abf-b5a2-6054-1c0aea2ba105",
 							"export": true,
 							"mirror_uv": false,
 							"isOpen": true,
@@ -325,63 +313,19 @@
 							"visibility": true,
 							"autouv": 0,
 							"children": [
+								"547a5c12-c8bc-74ed-0357-9bbb3ddfa597",
 								{
-									"name": "CMaidBBB",
-									"origin": [0, 18, 2],
+									"name": "Skirt4",
+									"origin": [0, 15, 0],
 									"color": 0,
-									"uuid": "07ed9aca-5092-0998-7035-9d4c50dc86ea",
+									"uuid": "0639b846-d1f5-3603-57d6-4b2740b208f3",
 									"export": true,
 									"mirror_uv": false,
 									"isOpen": true,
 									"locked": false,
 									"visibility": true,
 									"autouv": 0,
-									"children": [
-										"5815a060-4032-1ad4-bee7-6f2912b086a1",
-										{
-											"name": "Skirt2",
-											"origin": [0, 15, 0],
-											"color": 0,
-											"uuid": "b465a220-0cb2-1159-131b-f2e07f716ae0",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": [
-												"3aad4906-46e3-f5a7-626d-62f591f42df4",
-												{
-													"name": "Skirt3",
-													"origin": [0, 15, 0],
-													"color": 0,
-													"uuid": "0de06bf9-2abf-b5a2-6054-1c0aea2ba105",
-													"export": true,
-													"mirror_uv": false,
-													"isOpen": true,
-													"locked": false,
-													"visibility": true,
-													"autouv": 0,
-													"children": [
-														"547a5c12-c8bc-74ed-0357-9bbb3ddfa597",
-														{
-															"name": "Skirt4",
-															"origin": [0, 15, 0],
-															"color": 0,
-															"uuid": "0639b846-d1f5-3603-57d6-4b2740b208f3",
-															"export": true,
-															"mirror_uv": false,
-															"isOpen": true,
-															"locked": false,
-															"visibility": true,
-															"autouv": 0,
-															"children": ["ec7d26df-156f-c1fd-4ea5-3a727e963e69"]
-														}
-													]
-												}
-											]
-										}
-									]
+									"children": ["ec7d26df-156f-c1fd-4ea5-3a727e963e69"]
 								}
 							]
 						}
@@ -1433,50 +1377,6 @@
 			"start_delay": "",
 			"loop_delay": "",
 			"animators": {
-				"5c3d82d1-20f2-bbae-5f4b-9f5dc39f4708": {
-					"name": "Body",
-					"type": "bone",
-					"keyframes": [
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "0",
-									"y": "0",
-									"z": "0"
-								}
-							],
-							"uuid": "ec6f68f1-f454-1a73-39ef-e6ab8c790f54",
-							"time": 0,
-							"color": -1,
-							"interpolation": "linear",
-							"bezier_linked": true,
-							"bezier_left_time": [-0.1, -0.1, -0.1],
-							"bezier_left_value": [0, 0, 0],
-							"bezier_right_time": [0.1, 0.1, 0.1],
-							"bezier_right_value": [0, 0, 0]
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "0",
-									"y": 0,
-									"z": 0
-								}
-							],
-							"uuid": "f1ca2a10-c547-7499-0320-1aa0ab374a9b",
-							"time": 0.5,
-							"color": -1,
-							"interpolation": "linear",
-							"bezier_linked": true,
-							"bezier_left_time": [-0.1, -0.1, -0.1],
-							"bezier_left_value": [0, 0, 0],
-							"bezier_right_time": [0.1, 0.1, 0.1],
-							"bezier_right_value": [0, 0, 0]
-						}
-					]
-				},
 				"ffcf49e2-17c0-a760-92de-64f057bc82a0": {
 					"name": "Cloth",
 					"type": "bone",
@@ -2796,7 +2696,7 @@
 			"override": true,
 			"length": 16.08333,
 			"snapping": 24,
-			"selected": true,
+			"selected": false,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
