@@ -100,51 +100,23 @@
 	],
 	"outliner": [
 		{
-			"name": "Avatar",
-			"origin": [0, -10, 0],
+			"name": "EarpickRA",
+			"origin": [5.5, 12, 0],
+			"rotation": [-25, 0, 0],
 			"color": 0,
-			"uuid": "27fd278a-6841-0eef-c271-5204938d763d",
+			"uuid": "e99014c1-4493-e133-4743-e29e146517cf",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": true,
+			"isOpen": false,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
-			"children": [
-				{
-					"name": "RightArm",
-					"origin": [5, 23, 0],
-					"color": 0,
-					"uuid": "48aa268d-b174-aa83-0300-eba43794dfe3",
-					"export": true,
-					"mirror_uv": false,
-					"isOpen": true,
-					"locked": false,
-					"visibility": true,
-					"autouv": 0,
-					"children": [
-						{
-							"name": "EarpickRA",
-							"origin": [5.5, 12, 0],
-							"rotation": [-25, 0, 0],
-							"color": 0,
-							"uuid": "e99014c1-4493-e133-4743-e29e146517cf",
-							"export": true,
-							"mirror_uv": false,
-							"isOpen": true,
-							"locked": false,
-							"visibility": true,
-							"autouv": 0,
-							"children": ["8c904209-bcb0-c6c7-34ac-f8e3acb128eb", "0d97d066-825a-da74-8214-8e4a50797067"]
-						}
-					]
-				}
-			]
+			"children": ["8c904209-bcb0-c6c7-34ac-f8e3acb128eb", "0d97d066-825a-da74-8214-8e4a50797067"]
 		}
 	],
 	"textures": [
 		{
-			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\SenkoSan\\textures\\ear_cleaner.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\ear_cleaner.png",
 			"name": "ear_cleaner.png",
 			"folder": "",
 			"namespace": "",
@@ -172,12 +144,11 @@
 			"override": false,
 			"length": 11.33333,
 			"snapping": 24,
-			"selected": true,
+			"selected": false,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
-			"loop_delay": "",
-			"animators": {}
+			"loop_delay": ""
 		}
 	],
 	"animation_variable_placeholders": "\n"

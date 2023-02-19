@@ -215,10 +215,10 @@
 	],
 	"outliner": [
 		{
-			"name": "Avatar",
-			"origin": [0, 0, 0],
+			"name": "CSwimsuitH",
+			"origin": [0, 24, 0],
 			"color": 0,
-			"uuid": "27fd278a-6841-0eef-c271-5204938d763d",
+			"uuid": "0ee549dd-5165-f62e-59ab-7c81a0176f8e",
 			"export": true,
 			"mirror_uv": false,
 			"isOpen": true,
@@ -226,11 +226,12 @@
 			"visibility": true,
 			"autouv": 0,
 			"children": [
+				"d9eaeb97-01e1-3d92-9f65-edfa70c5710b",
 				{
-					"name": "Head",
+					"name": "Bottoms",
 					"origin": [0, 24, 0],
 					"color": 0,
-					"uuid": "2911c5ac-a42b-434c-9d91-becfa17fd255",
+					"uuid": "7a6b2e2d-dd25-b03a-a0c4-1512deda9e0b",
 					"export": true,
 					"mirror_uv": false,
 					"isOpen": true,
@@ -282,13 +283,27 @@
 							]
 						}
 					]
+				},
+				{
+					"name": "Flower",
+					"origin": [-5.5, 30, -5.5],
+					"rotation": [20, 30, 0],
+					"color": 0,
+					"uuid": "3c4132dc-6f00-841e-ed96-b6733e84084d",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": true,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": ["04572d36-2cf3-9219-df5c-7518eae9daba", "d7c0249c-bf3e-7c0a-6016-39d05537fe94", "40e1f535-86aa-0301-4063-901124d0e67c"]
 				}
 			]
 		}
 	],
 	"textures": [
 		{
-			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\SenkoSan\\textures\\costume_swimsuit.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\costume_swimsuit.png",
 			"name": "costume_swimsuit.png",
 			"folder": "",
 			"namespace": "",

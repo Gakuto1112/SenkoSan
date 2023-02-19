@@ -10,6 +10,7 @@
 	"variable_placeholders": "",
 	"variable_placeholder_buttons": [],
 	"timeline_setups": [],
+	"unhandled_root_fields": {},
 	"resolution": {
 		"width": 6,
 		"height": 5
@@ -139,98 +140,29 @@
 	],
 	"outliner": [
 		{
-			"name": "Avatar",
-			"origin": [0, 0, 0],
+			"name": "BrushRAB",
+			"origin": [5.5, 13, 0],
 			"color": 0,
-			"uuid": "27fd278a-6841-0eef-c271-5204938d763d",
+			"uuid": "ffc4d102-9ca1-beaf-643e-ac6a586f68ec",
 			"export": true,
 			"mirror_uv": false,
 			"isOpen": true,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
-			"children": [
-				{
-					"name": "Body",
-					"origin": [0, 24, 0],
-					"color": 0,
-					"uuid": "5c3d82d1-20f2-bbae-5f4b-9f5dc39f4708",
-					"export": true,
-					"mirror_uv": false,
-					"isOpen": true,
-					"locked": false,
-					"visibility": true,
-					"autouv": 0,
-					"children": [
-						{
-							"name": "Arms",
-							"origin": [0, 0, 0],
-							"color": 0,
-							"uuid": "0527626f-65e0-4ef6-c12f-ca9ff9360c88",
-							"export": true,
-							"mirror_uv": false,
-							"isOpen": true,
-							"locked": false,
-							"visibility": true,
-							"autouv": 0,
-							"children": [
-								{
-									"name": "RightArm",
-									"origin": [5, 23, 0],
-									"color": 0,
-									"uuid": "48aa268d-b174-aa83-0300-eba43794dfe3",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": true,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": [
-										{
-											"name": "RightArmBottom",
-											"origin": [7, 18, 2],
-											"color": 0,
-											"uuid": "a9520b31-b324-2dee-d0c3-a7851730bab2",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": [
-												{
-													"name": "BrushRAB",
-													"origin": [5.5, 13, 0],
-													"color": 0,
-													"uuid": "ffc4d102-9ca1-beaf-643e-ac6a586f68ec",
-													"export": true,
-													"mirror_uv": false,
-													"isOpen": true,
-													"locked": false,
-													"visibility": true,
-													"autouv": 0,
-													"children": ["32ecec70-a803-4878-6dd6-41389d41096f", "098d9574-ea92-ed85-71c2-4c89afe39170", "1bb11044-12ce-701f-593d-56e1f1927d07"]
-												}
-											]
-										}
-									]
-								}
-							]
-						}
-					]
-				}
-			]
+			"children": ["32ecec70-a803-4878-6dd6-41389d41096f", "098d9574-ea92-ed85-71c2-4c89afe39170", "1bb11044-12ce-701f-593d-56e1f1927d07"]
 		}
 	],
 	"textures": [
 		{
-			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\SenkoSan\\textures\\brush.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\brush.png",
 			"name": "brush.png",
 			"folder": "",
 			"namespace": "",
 			"id": "0",
 			"particle": false,
 			"render_mode": "default",
+			"render_sides": "auto",
 			"frame_time": 1,
 			"frame_order_type": "loop",
 			"frame_order": "",

@@ -10,6 +10,7 @@
 	"variable_placeholders": "",
 	"variable_placeholder_buttons": [],
 	"timeline_setups": [],
+	"unhandled_root_fields": {},
 	"resolution": {
 		"width": 12,
 		"height": 6
@@ -404,45 +405,6 @@
 			},
 			"type": "cube",
 			"uuid": "1759e540-8a0d-ea77-4392-559c849ff8e1"
-		},
-		{
-			"name": "Tea",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-1, 10, -10],
-			"to": [1, 10, -8],
-			"autouv": 0,
-			"color": 2,
-			"origin": [-11, 6, -28],
-			"faces": {
-				"north": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"east": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"south": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"west": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"up": {
-					"uv": [7, 3, 8, 4],
-					"texture": 0
-				},
-				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				}
-			},
-			"type": "cube",
-			"uuid": "d5012ff9-f5d3-4fd8-0ee6-e31025a76db4"
 		},
 		{
 			"name": "Plate",
@@ -916,53 +878,46 @@
 			},
 			"type": "cube",
 			"uuid": "fbaf1cf0-91ae-aef6-c234-13a040ea063f"
-		},
-		{
-			"name": "Tea",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-1, 10, -27],
-			"to": [1, 10, -25],
-			"autouv": 0,
-			"color": 2,
-			"origin": [-11, 6, -45],
-			"faces": {
-				"north": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"east": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"south": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"west": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"up": {
-					"uv": [7, 3, 8, 4],
-					"texture": 0
-				},
-				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				}
-			},
-			"type": "cube",
-			"uuid": "b8c35cc7-82f9-9f98-1d46-1c9ae3c96ed1"
 		}
 	],
 	"outliner": [
 		{
-			"name": "Avatar",
-			"origin": [0, -10, 0],
+			"name": "Yunomi1",
+			"origin": [0, 10, 0],
 			"color": 0,
-			"uuid": "27fd278a-6841-0eef-c271-5204938d763d",
+			"uuid": "d5d9c3bc-48cc-4617-3832-4b2e881e37f6",
+			"export": true,
+			"mirror_uv": false,
+			"isOpen": true,
+			"locked": false,
+			"visibility": true,
+			"autouv": 0,
+			"children": [
+				"e955d445-3f24-1d67-341a-ccc53b1f32dd",
+				"76a19040-f88c-cca1-81fb-9b0746e39089",
+				"fbb8246e-bee4-f1ca-6e52-a9748b084e0f",
+				"14308a04-baa8-7a56-3565-961da2fbb0d6",
+				"1759e540-8a0d-ea77-4392-559c849ff8e1",
+				{
+					"name": "Yunomi1ParticlePivot",
+					"origin": [0, 10, -9],
+					"color": 0,
+					"uuid": "3629a12b-df2c-09ce-daa7-d60a0791c3ea",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": true,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Table",
+			"origin": [-11, 6, -28],
+			"color": 0,
+			"uuid": "e904a3e3-3e75-19bc-8f69-7ef118383319",
 			"export": true,
 			"mirror_uv": false,
 			"isOpen": true,
@@ -971,10 +926,10 @@
 			"autouv": 0,
 			"children": [
 				{
-					"name": "Body",
-					"origin": [0, 14, 0],
+					"name": "TableItems",
+					"origin": [-11, 6, -28],
 					"color": 0,
-					"uuid": "5c3d82d1-20f2-bbae-5f4b-9f5dc39f4708",
+					"uuid": "d5e60a1e-9644-ae11-2886-93b8583e8f49",
 					"export": true,
 					"mirror_uv": false,
 					"isOpen": true,
@@ -983,10 +938,10 @@
 					"autouv": 0,
 					"children": [
 						{
-							"name": "Yunomi1",
-							"origin": [0, 10, 0],
+							"name": "Yunomi2",
+							"origin": [0, 8.91667, -26],
 							"color": 0,
-							"uuid": "d5d9c3bc-48cc-4617-3832-4b2e881e37f6",
+							"uuid": "74cbdb47-7b74-194f-9404-cc2452bd49ef",
 							"export": true,
 							"mirror_uv": false,
 							"isOpen": true,
@@ -994,17 +949,16 @@
 							"visibility": true,
 							"autouv": 0,
 							"children": [
-								"e955d445-3f24-1d67-341a-ccc53b1f32dd",
-								"76a19040-f88c-cca1-81fb-9b0746e39089",
-								"fbb8246e-bee4-f1ca-6e52-a9748b084e0f",
-								"14308a04-baa8-7a56-3565-961da2fbb0d6",
-								"1759e540-8a0d-ea77-4392-559c849ff8e1",
-								"d5012ff9-f5d3-4fd8-0ee6-e31025a76db4",
+								"1a923190-a41d-8fa8-c086-dce169c99dcb",
+								"f92096cc-a431-ab11-3f82-3d434043af7e",
+								"6edcca95-4192-6f4a-e865-4ad628868c80",
+								"481bedf7-8821-96fb-a11e-a007eb828444",
+								"fbaf1cf0-91ae-aef6-c234-13a040ea063f",
 								{
-									"name": "Yunomi1ParticlePivot",
-									"origin": [0, 10, -9],
+									"name": "Yunomi2ParticlePivot",
+									"origin": [0, 10, -26],
 									"color": 0,
-									"uuid": "3629a12b-df2c-09ce-daa7-d60a0791c3ea",
+									"uuid": "32697b6d-9b89-2c96-ef6b-b97316827232",
 									"export": true,
 									"mirror_uv": false,
 									"isOpen": true,
@@ -1014,14 +968,36 @@
 									"children": []
 								}
 							]
+						},
+						{
+							"name": "Ohagi",
+							"origin": [-2, 7, -19],
+							"color": 0,
+							"uuid": "8dbf050a-854f-e285-4d3f-27ed1c7d520c",
+							"export": true,
+							"mirror_uv": false,
+							"isOpen": true,
+							"locked": false,
+							"visibility": true,
+							"autouv": 0,
+							"children": [
+								"35014e7a-0ca7-30f1-0ec5-304950bbe4af",
+								"87d119ce-5589-8f7e-57ad-80dd372e6bb3",
+								"ffa2fd2e-eea8-a53b-d04c-89aff5600c4c",
+								"72044ffb-6a14-1010-a97a-c31189babe34",
+								"f0e4bc2c-71d6-59f3-a685-1bb8aa34bd2d",
+								"b1f54679-f600-df0f-eba7-8087cd20a2d8",
+								"4cdd2eeb-64f9-0a01-f5ab-bc037b35d469"
+							]
 						}
 					]
 				},
+				"8666af08-834d-63e4-1f93-8926ff5e7433",
 				{
-					"name": "Table",
-					"origin": [-11, 6, -28],
+					"name": "TableLegs",
+					"origin": [-11, 4, -29],
 					"color": 0,
-					"uuid": "e904a3e3-3e75-19bc-8f69-7ef118383319",
+					"uuid": "72933fa6-9581-300c-a7ec-217be4a8380d",
 					"export": true,
 					"mirror_uv": false,
 					"isOpen": true,
@@ -1029,93 +1005,10 @@
 					"visibility": true,
 					"autouv": 0,
 					"children": [
-						{
-							"name": "TableItems",
-							"origin": [-11, 6, -28],
-							"color": 0,
-							"uuid": "d5e60a1e-9644-ae11-2886-93b8583e8f49",
-							"export": true,
-							"mirror_uv": false,
-							"isOpen": true,
-							"locked": false,
-							"visibility": true,
-							"autouv": 0,
-							"children": [
-								{
-									"name": "Yunomi2",
-									"origin": [0, 8.91667, -26],
-									"color": 0,
-									"uuid": "74cbdb47-7b74-194f-9404-cc2452bd49ef",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": true,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": [
-										"1a923190-a41d-8fa8-c086-dce169c99dcb",
-										"f92096cc-a431-ab11-3f82-3d434043af7e",
-										"6edcca95-4192-6f4a-e865-4ad628868c80",
-										"481bedf7-8821-96fb-a11e-a007eb828444",
-										"fbaf1cf0-91ae-aef6-c234-13a040ea063f",
-										"b8c35cc7-82f9-9f98-1d46-1c9ae3c96ed1",
-										{
-											"name": "Yunomi2ParticlePivot",
-											"origin": [0, 10, -26],
-											"color": 0,
-											"uuid": "32697b6d-9b89-2c96-ef6b-b97316827232",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": []
-										}
-									]
-								},
-								{
-									"name": "Ohagi",
-									"origin": [-2, 7, -19],
-									"color": 0,
-									"uuid": "8dbf050a-854f-e285-4d3f-27ed1c7d520c",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": true,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": [
-										"35014e7a-0ca7-30f1-0ec5-304950bbe4af",
-										"87d119ce-5589-8f7e-57ad-80dd372e6bb3",
-										"ffa2fd2e-eea8-a53b-d04c-89aff5600c4c",
-										"72044ffb-6a14-1010-a97a-c31189babe34",
-										"f0e4bc2c-71d6-59f3-a685-1bb8aa34bd2d",
-										"b1f54679-f600-df0f-eba7-8087cd20a2d8",
-										"4cdd2eeb-64f9-0a01-f5ab-bc037b35d469"
-									]
-								}
-							]
-						},
-						"8666af08-834d-63e4-1f93-8926ff5e7433",
-						{
-							"name": "TableLegs",
-							"origin": [-11, 4, -29],
-							"color": 0,
-							"uuid": "72933fa6-9581-300c-a7ec-217be4a8380d",
-							"export": true,
-							"mirror_uv": false,
-							"isOpen": true,
-							"locked": false,
-							"visibility": true,
-							"autouv": 0,
-							"children": [
-								"60b71d34-86d5-0c3e-ef90-9deac2b9342b",
-								"100f9b48-4a67-a397-d1d8-d198ba39f010",
-								"bc498df6-289e-81f1-d9c3-0277fca8f18f",
-								"bf64b0a4-12c9-4a17-ba15-67e4640bae52"
-							]
-						}
+						"60b71d34-86d5-0c3e-ef90-9deac2b9342b",
+						"100f9b48-4a67-a397-d1d8-d198ba39f010",
+						"bc498df6-289e-81f1-d9c3-0277fca8f18f",
+						"bf64b0a4-12c9-4a17-ba15-67e4640bae52"
 					]
 				}
 			]
@@ -1123,13 +1016,14 @@
 	],
 	"textures": [
 		{
-			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\SenkoSan\\textures\\tea.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\tea.png",
 			"name": "tea.png",
 			"folder": "",
 			"namespace": "",
 			"id": "4",
 			"particle": false,
 			"render_mode": "default",
+			"render_sides": "auto",
 			"frame_time": 1,
 			"frame_order_type": "loop",
 			"frame_order": "",
@@ -1139,7 +1033,7 @@
 			"saved": true,
 			"uuid": "071da806-a601-8849-be59-fb49a05ec220",
 			"relative_path": "../../textures/tea.png",
-			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAGCAYAAAD37n+BAAAAAXNSR0IArs4c6QAAAKBJREFUKFNjvHDt+n8GLKAkMZMhLsqL4eSCpQzP/rIySIoxM5jqyTEwgjSIiIigaHnz5g1De0kNg7e7OcOOVdsYBL+9Z+BREmP4/PETbg0wG9bPXcUgxfybwcRRjYFHQgW3hvNz6hjYbp4UOvZM8N17LkEGAc7vDLz8fLg1XNq9GexMkA2cvDwMruaiCBuweRqmAeRpkA2B/pYM+3ftYwAAB3hNnN7/OR4AAAAASUVORK5CYII="
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAGCAYAAAD37n+BAAAAAXNSR0IArs4c6QAAAJ9JREFUKFNjvHDt+n8GLKAkMZMhLsqL4eSCpQzP/rIySIoxM5jqyTEwgjSIiIigaHnz5g1De0kNg7e7OcOOVdsYBL+9Z+BREmP4/PETbg0wG9bPXcUgxfybwcRRjYFHQgW3hvNz6hgS+1YzZhvq/3/PJcggwPmdgZefD7eGS7s3g50JsoGTl4fB1VwUYQM2T8M0gDwNsiHQ35Jh/659DACV7Uycr5syJwAAAABJRU5ErkJggg=="
 		},
 		{
 			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\SenkoSan\\textures\\spruce_log.png",
@@ -1149,6 +1043,7 @@
 			"id": "1",
 			"particle": false,
 			"render_mode": "default",
+			"render_sides": "auto",
 			"frame_time": 1,
 			"frame_order_type": "loop",
 			"frame_order": "",
@@ -1158,7 +1053,7 @@
 			"saved": false,
 			"uuid": "b4dd0e1a-a651-1c6b-b7b9-e7288601e2c8",
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAB9JREFUOE9jZKAQMFKon2HUAIbRMGAYDQNQPhr4vAAAJpgAEX/anFwAAAAASUVORK5CYII=",
-			"relative_path": "../../textures/spruce_log.png"
+			"relative_path": "../../../../SenkoSan/textures/spruce_log.png"
 		},
 		{
 			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\SenkoSan\\textures\\spruce_planks.png",
@@ -1168,6 +1063,7 @@
 			"id": "2",
 			"particle": false,
 			"render_mode": "default",
+			"render_sides": "auto",
 			"frame_time": 1,
 			"frame_order_type": "loop",
 			"frame_order": "",
@@ -1177,7 +1073,7 @@
 			"saved": false,
 			"uuid": "e193f113-f423-9e38-9004-e10a05a091be",
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAB9JREFUOE9jZKAQMFKon2HUAIbRMGAYDQNQPhr4vAAAJpgAEX/anFwAAAAASUVORK5CYII=",
-			"relative_path": "../../textures/spruce_planks.png"
+			"relative_path": "../../../../SenkoSan/textures/spruce_planks.png"
 		}
 	],
 	"animations": [
@@ -1210,7 +1106,12 @@
 							"uuid": "980518a8-9478-7f57-d06f-2f4dc08dfe0e",
 							"time": 1.25,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "rotation",
@@ -1224,7 +1125,12 @@
 							"uuid": "90ff74c7-f214-4d2b-0adf-537015772b12",
 							"time": 2,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "rotation",
@@ -1238,7 +1144,12 @@
 							"uuid": "1aefa7d9-1572-b4a1-d7d0-49d11722f4a2",
 							"time": 3,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "rotation",
@@ -1252,7 +1163,12 @@
 							"uuid": "d1384fd2-66aa-86d7-8e7f-e0131a9cd7c0",
 							"time": 9,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "rotation",
@@ -1266,7 +1182,12 @@
 							"uuid": "258c5edc-4434-531a-8f2e-a18a447efdbc",
 							"time": 10,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "rotation",
@@ -1280,91 +1201,126 @@
 							"uuid": "0972a09a-7d2c-3469-8944-f7283a00f763",
 							"time": 10.5,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "position",
 							"data_points": [
 								{
 									"x": "0",
-									"y": "0",
+									"y": 10,
 									"z": "0"
 								}
 							],
 							"uuid": "e9856764-a883-64d3-c7b8-c0b5d9da2a68",
 							"time": 1.25,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "position",
 							"data_points": [
 								{
 									"x": 0,
-									"y": -1,
+									"y": 9,
 									"z": 3
 								}
 							],
 							"uuid": "3cf60aa7-d3f1-f16d-d604-8ea16432528d",
 							"time": 2,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "position",
 							"data_points": [
 								{
 									"x": 0,
-									"y": -1,
+									"y": 9,
 									"z": 3
 								}
 							],
 							"uuid": "6bea8614-c0e6-9e2c-7202-8f7113f04c22",
 							"time": 3,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "position",
 							"data_points": [
 								{
 									"x": 0,
-									"y": -1,
+									"y": "9",
 									"z": 0
 								}
 							],
 							"uuid": "137b4078-fa63-bafc-5bb0-1550d82c765e",
 							"time": 9,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "position",
 							"data_points": [
 								{
 									"x": 0,
-									"y": -1,
+									"y": "9",
 									"z": 0
 								}
 							],
 							"uuid": "95c2e93d-9409-6f44-2443-f48ad3352300",
 							"time": 10,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "position",
 							"data_points": [
 								{
 									"x": 0,
-									"y": "0",
+									"y": "10",
 									"z": 0
 								}
 							],
 							"uuid": "71a429c4-b9bc-481d-e43b-a3b4765e9cf9",
 							"time": 10.5,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						}
 					]
 				}

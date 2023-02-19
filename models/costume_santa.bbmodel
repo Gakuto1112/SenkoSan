@@ -10,6 +10,7 @@
 	"variable_placeholders": "",
 	"variable_placeholder_buttons": [],
 	"timeline_setups": [],
+	"unhandled_root_fields": {},
 	"resolution": {
 		"width": 13,
 		"height": 9
@@ -490,22 +491,42 @@
 	],
 	"outliner": [
 		{
-			"name": "Avatar",
-			"origin": [0, 0, 0],
+			"name": "CSantaH",
+			"origin": [-2, 32, -3],
+			"rotation": [0, 0, 25],
 			"color": 0,
-			"uuid": "27fd278a-6841-0eef-c271-5204938d763d",
+			"uuid": "bedcbf10-2850-35b4-3cd3-c03e44b668eb",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": true,
+			"isOpen": false,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
 			"children": [
+				"61df5326-14e2-6f0a-525a-79088d0fec6b",
+				"8468ad01-3ef6-6bd6-2bb5-b9ac06e511cf",
+				"12406704-b8b2-4dd6-d1b2-f37135b3f48d",
+				"347019b0-4b64-a86f-7682-76a7deb6b76f",
+				"972ff94c-bdb3-bf81-df20-0d2f4aede135",
 				{
-					"name": "Head",
-					"origin": [0, 24, 0],
+					"name": "SantaHatTip",
+					"origin": [-1.5, 37, 5.5],
+					"rotation": [-20, 0, -25],
 					"color": 0,
-					"uuid": "2911c5ac-a42b-434c-9d91-becfa17fd255",
+					"uuid": "68dd8411-207e-0f57-e4ed-67242bfcbf71",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": true,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": ["83de8ede-59bc-16fd-d875-e4466cd8ac93", "60ca86a3-59a1-6407-7052-1a9f5a1de18b"]
+				},
+				{
+					"name": "HairAccessory",
+					"origin": [-3.25, 31.75, -5],
+					"color": 0,
+					"uuid": "faf37cd2-fbe3-a98d-b501-6d5a3f2def3b",
 					"export": true,
 					"mirror_uv": false,
 					"isOpen": true,
@@ -513,59 +534,11 @@
 					"visibility": true,
 					"autouv": 0,
 					"children": [
-						{
-							"name": "CSantaH",
-							"origin": [-2, 32, -3],
-							"rotation": [0, 0, 25],
-							"color": 0,
-							"uuid": "bedcbf10-2850-35b4-3cd3-c03e44b668eb",
-							"export": true,
-							"mirror_uv": false,
-							"isOpen": false,
-							"locked": false,
-							"visibility": true,
-							"autouv": 0,
-							"children": [
-								"61df5326-14e2-6f0a-525a-79088d0fec6b",
-								"8468ad01-3ef6-6bd6-2bb5-b9ac06e511cf",
-								"12406704-b8b2-4dd6-d1b2-f37135b3f48d",
-								"347019b0-4b64-a86f-7682-76a7deb6b76f",
-								"972ff94c-bdb3-bf81-df20-0d2f4aede135",
-								{
-									"name": "SantaHatTip",
-									"origin": [-1.5, 37, 5.5],
-									"rotation": [-20, 0, -25],
-									"color": 0,
-									"uuid": "68dd8411-207e-0f57-e4ed-67242bfcbf71",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": true,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": ["83de8ede-59bc-16fd-d875-e4466cd8ac93", "60ca86a3-59a1-6407-7052-1a9f5a1de18b"]
-								},
-								{
-									"name": "HairAccessory",
-									"origin": [-3.25, 31.75, -5],
-									"color": 0,
-									"uuid": "faf37cd2-fbe3-a98d-b501-6d5a3f2def3b",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": true,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": [
-										"705cd8db-2031-712e-d4ce-8ab2ed4660d7",
-										"b35191ee-f4c9-7d93-1bdf-14c7ad77ef77",
-										"46c58479-0acd-07b0-f0a1-ce3e2dab6c40",
-										"2e415ad6-4a4d-a3d0-8712-b834ee7009aa",
-										"e58f1a09-f1c7-02d0-4ef8-3fc6b85b05ee"
-									]
-								}
-							]
-						}
+						"705cd8db-2031-712e-d4ce-8ab2ed4660d7",
+						"b35191ee-f4c9-7d93-1bdf-14c7ad77ef77",
+						"46c58479-0acd-07b0-f0a1-ce3e2dab6c40",
+						"2e415ad6-4a4d-a3d0-8712-b834ee7009aa",
+						"e58f1a09-f1c7-02d0-4ef8-3fc6b85b05ee"
 					]
 				}
 			]
@@ -573,13 +546,14 @@
 	],
 	"textures": [
 		{
-			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\SenkoSan\\textures\\costume_santa.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\costume_santa.png",
 			"name": "costume_santa.png",
 			"folder": "Model Textures",
 			"namespace": "",
 			"id": "3",
 			"particle": false,
 			"render_mode": "normal",
+			"render_sides": "auto",
 			"frame_time": 1,
 			"frame_order_type": "loop",
 			"frame_order": "",
