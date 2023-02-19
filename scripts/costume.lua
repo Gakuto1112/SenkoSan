@@ -231,9 +231,6 @@ Costume = {
 			Costume.setCostumeTextureOffset(16)
 		elseif costume == "KIMONO" then
 			models.models.main.Avatar.Head.CKimonoH:setVisible(true)
-			for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do
-				modelPart:setVisible(false)
-			end
 			Costume.setCostumeTextureOffset(17)
 			Apron.disable()
 		end
