@@ -8,7 +8,7 @@ ShakeBody = General.instance({
 	---@param snowParticle boolean 雪のパーティクルを表示するかどうか
 	play = function (self, snowParticle)
 		AnimationAction.play(self)
-		Umbrella.EnableUmbrella = true
+		Umbrella.Enabled = true
 		sounds:playSound("entity.wolf.shake", player:getPos(), 1, 1.5)
 		FaceParts.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 20, true)
 		ShakeBody.SnowParticle = snowParticle

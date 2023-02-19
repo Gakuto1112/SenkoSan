@@ -47,11 +47,11 @@ events.TICK:register(function ()
 				local lookDir = player:getLookDir()
 				if Afk.AfkAnimationCount == 6000 and Kotatsu:checkAction() then
 					pings.afkKotatsu()
-				elseif Afk.AfkAnimationCount > 0 and Afk.AfkAnimationCount % 1200 == 0 and not Umbrella.Umbrella and not Kotatsu.IsAnimationPlaying then
+				elseif Afk.AfkAnimationCount > 0 and Afk.AfkAnimationCount % 1200 == 0 and not Umbrella.IsUsing and not Kotatsu.IsAnimationPlaying then
 					pings.afkTailBrush()
 					Afk.TailBrushByAfk = true
 				end
-				Afk.AfkAnimationCount = (player:getVelocity():length() == 0 and lookDir == Afk.LookDIrPrev and Hurt.Damaged == "NONE" and player:getPose() == "STANDING" and Wet.WetCount == 0 and not Umbrella.Umbrella and not Warden.WardenNearby and type(player:getVehicle()) == "nil") and Afk.AfkAnimationCount + 1 or 0
+				Afk.AfkAnimationCount = (player:getVelocity():length() == 0 and lookDir == Afk.LookDIrPrev and Hurt.Damaged == "NONE" and player:getPose() == "STANDING" and Wet.WetCount == 0 and not Umbrella.IsUsing and not Warden.WardenNearby and type(player:getVehicle()) == "nil") and Afk.AfkAnimationCount + 1 or 0
 				Afk.LookDIrPrev = lookDir
 			end
 		end

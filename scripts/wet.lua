@@ -44,7 +44,7 @@ events.TICK:register(function()
 			table.remove(dataTable, 1)
 		end
 	end
-	Wet.IsWet = (player:isInRain() and not Umbrella.Umbrella) or player:isInWater()
+	Wet.IsWet = (player:isInRain() and not Umbrella.IsUsing) or player:isInWater()
 	if Wet.IsWet then
 		Ears.setEarsRot("DROOPING", 1, true)
 		Wet.AutoShakeCount = 0

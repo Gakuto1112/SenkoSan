@@ -99,8 +99,8 @@ Costume = {
 		PonPonTick = function ()
 			if not ActionWheel.IsAnimationPlaying then
 				local leftHanded = player:isLeftHanded()
-				models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB:setVisible(player:getHeldItem(leftHanded).id == "minecraft:air" and (not Umbrella.Umbrella or not leftHanded))
-				models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB:setVisible(player:getHeldItem(not leftHanded).id == "minecraft:air" and (not Umbrella.Umbrella or leftHanded))
+				models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB:setVisible(player:getHeldItem(leftHanded).id == "minecraft:air" and (not Umbrella.IsUsing or not leftHanded))
+				models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB:setVisible(player:getHeldItem(not leftHanded).id == "minecraft:air" and (not Umbrella.IsUsing or leftHanded))
 			else
 				for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB,  models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB}) do
 					modelPart:setVisible(false)
