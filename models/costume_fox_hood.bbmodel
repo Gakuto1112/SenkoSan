@@ -10,6 +10,7 @@
 	"variable_placeholders": "",
 	"variable_placeholder_buttons": [],
 	"timeline_setups": [],
+	"unhandled_root_fields": {},
 	"resolution": {
 		"width": 46,
 		"height": 16
@@ -604,10 +605,10 @@
 	],
 	"outliner": [
 		{
-			"name": "Avatar",
-			"origin": [0, 0, 0],
+			"name": "CFoxHoodH",
+			"origin": [0, 24, 0],
 			"color": 0,
-			"uuid": "27fd278a-6841-0eef-c271-5204938d763d",
+			"uuid": "6fa8bd70-d64f-2680-6995-c13f28bfe635",
 			"export": true,
 			"mirror_uv": false,
 			"isOpen": true,
@@ -615,23 +616,25 @@
 			"visibility": true,
 			"autouv": 0,
 			"children": [
+				"8faefb19-fd03-eb91-6fb9-bb76c095bdaa",
+				"a2fa0017-0915-4772-ec44-644627f67b39",
 				{
-					"name": "Head",
-					"origin": [0, 24, 0],
+					"name": "Ears",
+					"origin": [0, 30, 0],
 					"color": 0,
-					"uuid": "2911c5ac-a42b-434c-9d91-becfa17fd255",
+					"uuid": "00f5720e-faea-564d-cf3b-3c4d548a074a",
 					"export": true,
 					"mirror_uv": false,
-					"isOpen": true,
+					"isOpen": false,
 					"locked": false,
 					"visibility": true,
 					"autouv": 0,
 					"children": [
 						{
-							"name": "CFoxHoodH",
-							"origin": [0, 24, 0],
+							"name": "RightEarPivot",
+							"origin": [1, 30, 0],
 							"color": 0,
-							"uuid": "6fa8bd70-d64f-2680-6995-c13f28bfe635",
+							"uuid": "f1da2935-ccd2-9215-67bf-c11f29fa735b",
 							"export": true,
 							"mirror_uv": false,
 							"isOpen": true,
@@ -639,90 +642,60 @@
 							"visibility": true,
 							"autouv": 0,
 							"children": [
-								"8faefb19-fd03-eb91-6fb9-bb76c095bdaa",
-								"a2fa0017-0915-4772-ec44-644627f67b39",
 								{
-									"name": "Ears",
-									"origin": [0, 30, 0],
+									"name": "RightEar",
+									"origin": [4.25, 31.75, -1.25],
+									"rotation": [0, 0, -15],
 									"color": 0,
-									"uuid": "00f5720e-faea-564d-cf3b-3c4d548a074a",
+									"uuid": "bfa7f6ac-8c11-13fa-64dd-00d1b8301551",
 									"export": true,
 									"mirror_uv": false,
-									"isOpen": false,
+									"isOpen": true,
 									"locked": false,
 									"visibility": true,
 									"autouv": 0,
 									"children": [
-										{
-											"name": "RightEarPivot",
-											"origin": [1, 30, 0],
-											"color": 0,
-											"uuid": "f1da2935-ccd2-9215-67bf-c11f29fa735b",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": [
-												{
-													"name": "RightEar",
-													"origin": [4.25, 31.75, -1.25],
-													"rotation": [0, 0, -15],
-													"color": 0,
-													"uuid": "bfa7f6ac-8c11-13fa-64dd-00d1b8301551",
-													"export": true,
-													"mirror_uv": false,
-													"isOpen": true,
-													"locked": false,
-													"visibility": true,
-													"autouv": 0,
-													"children": [
-														"36e7f28c-0f54-da24-9f81-01d800b6cf8a",
-														"9c678655-e385-1342-d40f-955e45743fbc",
-														"41ad6c57-a935-04fd-6ebf-2a96aa985b07",
-														"2e594120-c3f0-e1f7-4a65-1c82cfb9e7a7",
-														"0c8068e6-35c4-1a3c-c5fa-a0cb423982ca",
-														"0d16c58d-5b19-29a1-8a51-6b273691bcf9"
-													]
-												}
-											]
-										},
-										{
-											"name": "LeftEarPivot",
-											"origin": [-1, 30, 0],
-											"color": 0,
-											"uuid": "80d6f350-6561-4708-cdbb-3ac2e777f523",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": [
-												{
-													"name": "LeftEar",
-													"origin": [-4.25, 31.75, -1.25],
-													"rotation": [0, 0, 15],
-													"color": 0,
-													"uuid": "f7e60320-6bcc-65e4-f983-fd6bcfa0948d",
-													"export": true,
-													"mirror_uv": false,
-													"isOpen": true,
-													"locked": false,
-													"visibility": true,
-													"autouv": 0,
-													"children": [
-														"5d28e882-d82f-8c7c-e9cc-276ec45da9bd",
-														"bd8cb9d0-07fe-d1d3-11a9-1d5fe81cfd68",
-														"d1187884-9e08-d0ea-b5fe-0885a4f0c91b",
-														"01820e0d-d9c5-15d9-72f3-e46ffba521b2",
-														"134352db-06ab-491b-a368-5f593c209183",
-														"956081ab-ed81-94e8-ef17-e506ffa7f8bf"
-													]
-												}
-											]
-										}
+										"36e7f28c-0f54-da24-9f81-01d800b6cf8a",
+										"9c678655-e385-1342-d40f-955e45743fbc",
+										"41ad6c57-a935-04fd-6ebf-2a96aa985b07",
+										"2e594120-c3f0-e1f7-4a65-1c82cfb9e7a7",
+										"0c8068e6-35c4-1a3c-c5fa-a0cb423982ca",
+										"0d16c58d-5b19-29a1-8a51-6b273691bcf9"
+									]
+								}
+							]
+						},
+						{
+							"name": "LeftEarPivot",
+							"origin": [-1, 30, 0],
+							"color": 0,
+							"uuid": "80d6f350-6561-4708-cdbb-3ac2e777f523",
+							"export": true,
+							"mirror_uv": false,
+							"isOpen": true,
+							"locked": false,
+							"visibility": true,
+							"autouv": 0,
+							"children": [
+								{
+									"name": "LeftEar",
+									"origin": [-4.25, 31.75, -1.25],
+									"rotation": [0, 0, 15],
+									"color": 0,
+									"uuid": "f7e60320-6bcc-65e4-f983-fd6bcfa0948d",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"children": [
+										"5d28e882-d82f-8c7c-e9cc-276ec45da9bd",
+										"bd8cb9d0-07fe-d1d3-11a9-1d5fe81cfd68",
+										"d1187884-9e08-d0ea-b5fe-0885a4f0c91b",
+										"01820e0d-d9c5-15d9-72f3-e46ffba521b2",
+										"134352db-06ab-491b-a368-5f593c209183",
+										"956081ab-ed81-94e8-ef17-e506ffa7f8bf"
 									]
 								}
 							]
@@ -734,13 +707,14 @@
 	],
 	"textures": [
 		{
-			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\SenkoSan\\textures\\fox_hood.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\fox_hood.png",
 			"name": "fox_hood.png",
 			"folder": "",
 			"namespace": "",
 			"id": "0",
 			"particle": false,
 			"render_mode": "default",
+			"render_sides": "auto",
 			"frame_time": 1,
 			"frame_order_type": "loop",
 			"frame_order": "",
@@ -761,7 +735,7 @@
 			"override": false,
 			"length": 0.25,
 			"snapping": 24,
-			"selected": true,
+			"selected": false,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
@@ -783,7 +757,12 @@
 							"uuid": "e505f98d-f3d9-340c-1f30-6bba7ef3640e",
 							"time": 0,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "rotation",
@@ -797,7 +776,12 @@
 							"uuid": "e71cdbff-d024-f4aa-2c15-ae43f7f9a6db",
 							"time": 0.125,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "rotation",
@@ -811,7 +795,12 @@
 							"uuid": "41b4d83d-cc67-bc67-7333-363181abea94",
 							"time": 0.25,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						}
 					]
 				},
@@ -831,7 +820,12 @@
 							"uuid": "87422c6f-7a26-ea62-d59f-458d82f9f4ee",
 							"time": 0,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "rotation",
@@ -845,7 +839,12 @@
 							"uuid": "bcfb8211-d8ce-979e-d223-b8b77f2f6395",
 							"time": 0.125,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "rotation",
@@ -859,7 +858,12 @@
 							"uuid": "7d5fbb55-3001-02b2-7fd4-1664cbdb5e08",
 							"time": 0.25,
 							"color": -1,
-							"interpolation": "linear"
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						}
 					]
 				}
