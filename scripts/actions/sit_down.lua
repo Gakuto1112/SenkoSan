@@ -14,7 +14,7 @@ SitDown = General.instance({
 			Kotatsu:stop()
 		end
 		Sleeve.Moving = false
-		Umbrella.EnableUmbrella = true
+		Umbrella.Enabled = true
 		Camera.CameraOffset = -0.5
 		Nameplate.NamePlateOffset = -0.5
 	end,

@@ -24,7 +24,7 @@ Sleeve = {
 				else
 					local leftHanded = player:isLeftHanded()
 					local vehicle = player:getVehicle()
-					sleeveRot = {vectors.vec3(math.clamp((Umbrella.Umbrella and leftHanded) and 70 or (90 - vanilla_model.RIGHT_ARM:getOriginRot().x), rotLimit[1][1][1] + rotLimit[2][1][1], rotLimit[1][1][2] + rotLimit[2][1][2]), vehicle and 20 or 0), vectors.vec3(math.clamp((Umbrella.Umbrella and not leftHanded) and 70 or (90 - vanilla_model.LEFT_ARM:getOriginRot().x), rotLimit[1][1][1] + rotLimit[2][1][1], rotLimit[1][1][2] + rotLimit[2][1][2]), vehicle and -20 or 0)}
+					sleeveRot = {vectors.vec3(math.clamp((Umbrella.IsUsing and leftHanded) and 70 or (90 - vanilla_model.RIGHT_ARM:getOriginRot().x), rotLimit[1][1][1] + rotLimit[2][1][1], rotLimit[1][1][2] + rotLimit[2][1][2]), vehicle and 20 or 0), vectors.vec3(math.clamp((Umbrella.IsUsing and not leftHanded) and 70 or (90 - vanilla_model.LEFT_ARM:getOriginRot().x), rotLimit[1][1][1] + rotLimit[2][1][1], rotLimit[1][1][2] + rotLimit[2][1][2]), vehicle and -20 or 0)}
 				end
 			end
 			for index, sleeveBase in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase}) do

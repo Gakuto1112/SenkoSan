@@ -23,7 +23,7 @@ PermanentAnimationAction = {
 		for _, animationElement in ipairs(self.Animations) do
 			animationElement:play()
 		end
-		Umbrella.EnableUmbrella = false
+		Umbrella.Enabled = false
 		self.IsAnimationPlaying = true
 	end,
 
@@ -37,7 +37,7 @@ PermanentAnimationAction = {
 		end
 		Arms.hideHeldItem(false)
 		FaceParts.resetEmotion()
-		Umbrella.EnableUmbrella = true
+		Umbrella.Enabled = true
 		self.IsAnimationPlaying = false
 	end,
 
