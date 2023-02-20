@@ -24,7 +24,7 @@ events.RENDER:register(function ()
 	directionAbsFront = directionAbsFront > 180 and 360 - directionAbsFront or directionAbsFront
 	local directionAbsRight = math.abs(velocityRot - (lookRot + 90) % 360)
 	directionAbsRight = directionAbsRight > 180 and 360 - directionAbsRight or directionAbsRight
-	local relativeVelocity = {math.sqrt(velocity.x ^ 2 + velocity.z ^ 2) * math.cos(math.rad(directionAbsFront)) + (General.IsSneaking and -0.19 or 0), math.sqrt(velocity.x ^ 2 + velocity.z ^ 2) * math.cos(math.rad(directionAbsRight))}
+	local relativeVelocity = {math.sqrt(velocity.x ^ 2 + velocity.z ^ 2) * math.cos(math.rad(directionAbsFront)), math.sqrt(velocity.x ^ 2 + velocity.z ^ 2) * math.cos(math.rad(directionAbsRight))}
 	Physics.VelocityAverage[1] = (#Physics.VelocityData[1] * Physics.VelocityAverage[1] + relativeVelocity[1]) / (#Physics.VelocityData[1] + 1)
 	table.insert(Physics.VelocityData[1], relativeVelocity[1])
 	Physics.VelocityAverage[2] = (#Physics.VelocityData[2] * Physics.VelocityAverage[2] + velocity.y) / (#Physics.VelocityData[2] + 1)
@@ -105,7 +105,7 @@ events.RENDER:register(function ()
 				tailRot = vectors.vec3(math.clamp(rotLimit[1][1][2] - math.min(tailXMoveXZ, math.max(rotLimit[1][1][2] - tailXMoveY - tailXAngleMove - tailXConditionAngle, 0)) + tailXMoveY - math.min(tailXAngleMove, math.max(rotLimit[1][1][2] - tailXMoveXZ - tailXMoveY - tailXConditionAngle, 0)) - tailXConditionAngle, rotLimit[1][1][1], rotLimit[1][1][2]) + (player:isCrouching() and 30 or 0), math.clamp(-Physics.VelocityAverage[3] * 160 + Physics.VelocityAverage[4] * 0.05, rotLimit[1][2][1], rotLimit[1][2][2]))
 			end
 			if Physics.EnablePyhsics[2] then
-				local hairXMoveX = Physics.VelocityAverage[1] * -160
+				local hairXMoveX = Physics.VelocityAverage[1] * -160 + (player:isCrouching() and 30 or 0)
 				local hairXMoveY = Physics.VelocityAverage[2] * 80
 				local hairXAngleMove = math.abs(Physics.VelocityAverage[4]) * 0.05
 				frontHairRot = vectors.vec3(math.clamp(hairXMoveX - hairXMoveY + hairXAngleMove, rotLimit[2][1][1], rotLimit[2][1][2]))
