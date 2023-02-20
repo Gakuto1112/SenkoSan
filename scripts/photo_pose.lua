@@ -2,13 +2,11 @@
 ---@field PhotoPose.CanPosing boolean ポーズ可能かどうか
 ---@field PhotoPose.PosingChecked boolean このチックでポーズ可能かどうかを確認したかどうか
 ---@field PhotoPose.CurrentPose integer 現在のポーズ（0 = ポーズ中ではない）
----@field PhotoPose.FacePartList table ポーズ中の表情のリスト
 
 PhotoPose = {
     CanPosing = false,
     PosingChecked = false,
     CurrentPose = 0,
-    FacePartList = {},
 
     ---撮影用ポーズが可能か確認する。
     check = function ()
@@ -24,24 +22,40 @@ PhotoPose = {
     setPose = function (poseID)
         if PhotoPose.check() then
             if PhotoPose.CurrentPose ~= 0 then
-                animations["models.main"]["photo_"..PhotoPose.CurrentPose]:stop()
+                PhotoPose.stopPose()
             end
             animations["models.main"]["photo_"..poseID]:play()
+            Arms.hideHeldItem(true)
+            Sleeve.Moving = false
+            PhotoPose.CurrentPose = poseID
         end
+    end,
+
+    ---撮影用ポーズを終了する。
+    stopPose = function ()
+        animations["models.main"]["photo_"..PhotoPose.CurrentPose]:stop()
+        Arms.hideHeldItem(false)
+        Sleeve.Moving = true
+        ActionWheel.untogglePose(PhotoPose.CurrentPose)
+        PhotoPose.CurrentPose = 0
     end
 }
 
 events.TICK:register(function ()
     if PhotoPose.CurrentPose ~= 0 then
-        if PhotoPose.FacePartList[PhotoPose.CurrentPose] then
-            FaceParts.setEmotion(PhotoPose.FacePartList[PhotoPose.CurrentPose][1], PhotoPose.FacePartList[PhotoPose.CurrentPose][2], PhotoPose.FacePartList[PhotoPose.CurrentPose][3], 1, true)
+        if PhotoPose.CurrentPose == 1 then
+            if General.PlayerCondition == "LOW" then
+                FaceParts.setEmotion("TIRED", "TIRED", "OPENED", 1, true)
+            else
+                FaceParts.setEmotion("NORMAL", "NORMAL", "OPENED", 1, true)
+            end
         end
         if not PhotoPose.check() then
-            animations["models.main"]["photo_"..PhotoPose.CurrentPose]:stop()
-            PhotoPose.CurrentPose = 0
+            PhotoPose.stopPose()
         end
     end
     PhotoPose.PosingChecked = false
+    PhotoPose.IsPosingPrev = PhotoPose.CurrentPose ~= 0
 end)
 
 return PhotoPose

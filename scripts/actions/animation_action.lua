@@ -79,6 +79,9 @@ AnimationAction = {
 		for _, animationElement in ipairs(self.Animations) do
 			animationElement:play()
 		end
+		if PhotoPose.CurrentPose ~= 0 then
+			PhotoPose.stopPose()
+		end
 		Umbrella.Enabled = false
 		self.IsAnimationPlaying = true
 		ActionWheel.IsAnimationPlaying = true

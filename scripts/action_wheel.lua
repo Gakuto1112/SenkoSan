@@ -74,6 +74,14 @@ ActionWheel = {
 		if host:isHost() then
 			ActionWheel.Pages[2]:getAction(1):toggled(false)
 		end
+	end,
+
+	---ポーズのトグルをオフにする（PhotoPoseから呼び出し）
+	---@param poseID integer 対象のポーズID
+	untogglePose = function (poseID)
+		if host:isHost() then
+			ActionWheel.Pages[3]:getAction(poseID):toggled(false)
+		end
 	end
 }
 
@@ -154,6 +162,14 @@ function pings.main2_action6()
 	Massage:play()
 end
 
+function pings.setPose(poseID)
+	if PhotoPose.CurrentPose == poseID then
+		PhotoPose.stopPose()
+	else
+		PhotoPose.setPose(poseID)
+	end
+end
+
 function pings.main4_action1(costumeID)
 	if costumeID == 1 then
 		Costume.resetCostume()
@@ -229,6 +245,10 @@ events.TICK:register(function ()
 					else
 						ActionWheel.Pages[1]:getAction(2):item("bucket")
 					end
+				end
+			elseif  ActionWheel.CurrentPage == 3 then
+				for i = 1, 1 do
+					ActionWheel.setActionEnabled(3, i, PhotoPose.check())
 				end
 			end
 		end
@@ -464,6 +484,32 @@ if host:isHost() then
 			end
 		end
 	end)
+
+	local function poseToggle(action, index)
+		if not ActionWheel.IsAnimationPlaying then
+			if PhotoPose.check() then
+				pings.setPose(index)
+			else
+				if Warden.WardenNearby then
+					pings.refuse_emote()
+				else
+					print(Language.getTranslate("action_wheel__main_3__action__unavailable"))
+				end
+				action:toggled(not action:isToggled())
+			end
+		else
+			action:toggled(not action:isToggled())
+		end
+	end
+
+	--アクション3-1. 撮影用ポーズ
+	for i = 1, 1 do
+		ActionWheel.Pages[3]:newAction(i):item("armor_stand"):toggleColor(255, 255, 0.33):onToggle(function ()
+		poseToggle(ActionWheel.Pages[3]:getAction(i), i)
+		end):onUntoggle(function ()
+			poseToggle(ActionWheel.Pages[3]:getAction(i), i)
+		end)
+	end
 
 	--アクション4-1. 着替え
 	ActionWheel.Pages[4]:newAction(1):item("leather_chestplate"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onScroll(function (direction)

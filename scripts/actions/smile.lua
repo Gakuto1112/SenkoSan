@@ -4,6 +4,9 @@ Smile = General.instance({
 	---笑顔アニメーションを再生する。
 	---@param playSoundParticle boolean パーティクルと効果音を再生するかどうか
 	play = function (self, playSoundParticle)
+		if PhotoPose.CurrentPose ~= 0 then
+			PhotoPose.stopPose()
+		end
 		FaceParts.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)
 		if playSoundParticle then
 			local playerPos = player:getPos()
