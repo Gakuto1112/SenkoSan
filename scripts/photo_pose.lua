@@ -60,7 +60,7 @@ events.TICK:register(function ()
             end
         elseif PhotoPose.CurrentPose == 2 then
             FaceParts.setEmotion("CLOSED", "CLOSED", "CLOSED", 1, true)
-        elseif PhotoPose.CurrentPose == 4 then
+        elseif PhotoPose.CurrentPose == 4 or PhotoPose.CurrentPose == 6 then
             if General.PlayerCondition == "LOW" then
                 FaceParts.setEmotion("CLOSED", "TIRED", "OPENED", 1, true)
             else
