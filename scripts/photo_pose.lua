@@ -36,6 +36,7 @@ PhotoPose = {
                 Apron.RotOffset = vectors.vec3(7.5)
                 Legs.RightLegRotOffset = vectors.vec3(0, 15)
                 Legs.LeftLegRotOffset = vectors.vec3(-5)
+                models.models.main.Avatar.Body.UmbrellaB:setPos(1.25, -2, -0.25)
                 models.models.main.Avatar.Body.UmbrellaB:setRot(35.58, 12.7, -38.26)
             else
                 if poseID == 1 then
@@ -122,7 +123,7 @@ PhotoPose = {
         for _, modelPart in ipairs({models.models.main.Avatar, models.models.main.Avatar.Body.BodyBottom.Tail}) do
             modelPart:setPos()
         end
-        for _, modelPart in ipairs({models.models.main.Avatar, models.models.main.Avatar.Head, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom, models.models.main.Avatar.Body.BodyBottom.Legs, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom}) do
+        for _, modelPart in ipairs({models.models.main.Avatar, models.models.main.Avatar.Head, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom, models.models.main.Avatar.Body.BodyBottom.Legs, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom}) do
             modelPart:setRot()
         end
         Arms.RightArmPosOffset = vectors.vec3()

@@ -22,20 +22,24 @@ events.TICK:register(function ()
 		if not Umbrella.IsUsingPrev and Umbrella.Sound then
 			sounds:playSound("minecraft:entity.bat.takeoff", player:getPos(), 0.5, 1.5)
 		end
-		if player:isLeftHanded() then
-			models.models.main.Avatar.Body.UmbrellaB:setPos(PhotoPose.CurrentPose == 7 and vectors.vec3(1.25, -2, -0.25) or vectors.vec3(5.5))
-			Arms.RightArmRotOffset = SitDown.IsAnimationPlaying and vectors.vec3(0, -10, 15) or vectors.vec3()
-		else
-			models.models.main.Avatar.Body.UmbrellaB:setPos(PhotoPose.CurrentPose == 7 and vectors.vec3(1.25, -2, -0.25) or vectors.vec3(-5.5))
-			Arms.LeftArmRotOffset = SitDown.IsAnimationPlaying and vectors.vec3(0, 10, -15) or vectors.vec3()
+		if PhotoPose.CurrentPose == 0 then
+			if player:isLeftHanded() then
+				models.models.main.Avatar.Body.UmbrellaB:setPos(5.5)
+				Arms.RightArmRotOffset = SitDown.IsAnimationPlaying and vectors.vec3(0, -10, 15) or vectors.vec3()
+			else
+				models.models.main.Avatar.Body.UmbrellaB:setPos(-5.5)
+				Arms.LeftArmRotOffset = SitDown.IsAnimationPlaying and vectors.vec3(0, 10, -15) or vectors.vec3()
+			end
 		end
 		models.models.main.Avatar.Body.UmbrellaB:setVisible(true)
 	else
 		if Umbrella.IsUsingPrev and Umbrella.Sound then
 			sounds:playSound("minecraft:entity.bat.takeoff", player:getPos(), 0.5, 1.5)
+			if PhotoPose.CurrentPose == 0 then
+				Arms.RightArmRotOffset = vectors.vec3()
+				Arms.LeftArmRotOffset = vectors.vec3()
+			end
 		end
-		Arms.RightArmRotOffset = vectors.vec3()
-		Arms.LeftArmRotOffset = vectors.vec3()
 		models.models.main.Avatar.Body.UmbrellaB:setVisible(false)
 	end
 	Umbrella.IsUsingPrev = Umbrella.IsUsing
