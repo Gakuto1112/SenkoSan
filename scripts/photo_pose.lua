@@ -43,7 +43,7 @@ PhotoPose = {
 
 events.TICK:register(function ()
     if PhotoPose.CurrentPose ~= 0 then
-        if PhotoPose.CurrentPose == 1 then
+        if PhotoPose.CurrentPose == 1 or PhotoPose.CurrentPose == 3 then
             if General.PlayerCondition == "LOW" then
                 FaceParts.setEmotion("TIRED", "TIRED", "OPENED", 1, true)
             else
