@@ -83,13 +83,17 @@ PhotoPose = {
                 Legs.LeftLegRotOffset = vectors.vec3(5.04, -7.47, 0.67)
                 models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom:setRot(-10)
                 models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom:setPivot(-2, 6, -2)
-            end
-            if poseID == 4 or poseID == 5 then
-                if poseID == 5 then
-                    models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom:setPivot(2, 6, -2)
-                    Physics.EnablePyhsics[1] = false
-                end
-                models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom:setPivot(-2, 6, -2)
+            elseif poseID == 6 then
+                models.models.main.Avatar:setRot(0, -30)
+                models.models.main.Avatar.Head:setRot(0, 30)
+                Arms.RightArmRotOffset = vectors.vec3(151.92, -11.03, -19.73)
+                Sleeve.RightSleeveRotOffset = vectors.vec3(-40, 30)
+                Arms.LeftArmRotOffset = vectors.vec3(-37.5, -60)
+                models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom:setRot(55)
+                Sleeve.LeftSleeveRotOffset = vectors.vec3(40)
+                Apron.RotOffset = vectors.vec3(22.5)
+                Legs.LeftLegRotOffset = vectors.vec3(25)
+                models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom:setRot(-95)
             end
             if poseID == 7 then
                 models.models.main.Avatar.Body.UmbrellaB:setRot(35.58, 12.7, -38.26)
