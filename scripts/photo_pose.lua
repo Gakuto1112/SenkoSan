@@ -49,6 +49,8 @@ events.TICK:register(function ()
             else
                 FaceParts.setEmotion("NORMAL", "NORMAL", "OPENED", 1, true)
             end
+        elseif PhotoPose.CurrentPose == 2 then
+            FaceParts.setEmotion("CLOSED", "CLOSED", "CLOSED", 1, true)
         end
         if not PhotoPose.check() then
             PhotoPose.stopPose()

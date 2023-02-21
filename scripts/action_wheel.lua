@@ -247,7 +247,7 @@ events.TICK:register(function ()
 					end
 				end
 			elseif  ActionWheel.CurrentPage == 3 then
-				for i = 1, 1 do
+				for i = 1, 2 do
 					ActionWheel.setActionEnabled(3, i, PhotoPose.check())
 				end
 			end
@@ -503,7 +503,7 @@ if host:isHost() then
 	end
 
 	--アクション3-1. 撮影用ポーズ
-	for i = 1, 1 do
+	for i = 1, 2 do
 		ActionWheel.Pages[3]:newAction(i):item("armor_stand"):toggleColor(255, 255, 0.33):onToggle(function ()
 		poseToggle(ActionWheel.Pages[3]:getAction(i), i)
 		end):onUntoggle(function ()
