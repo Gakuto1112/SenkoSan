@@ -24,6 +24,19 @@ PhotoPose = {
             if PhotoPose.CurrentPose ~= 0 then
                 PhotoPose.stopPose()
             end
+            if poseID == 1 then
+                models.models.main.Avatar:setRot(0, -10)
+                models.models.main.Avatar.Head:setRot(0, 10)
+                Arms.RightArmPosOffset = vectors.vec3(-1, -1)
+                Arms.RightArmRotOffset = vectors.vec3(45, -70)
+                models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom:setRot(60)
+                Arms.LeftArmPosOffset = vectors.vec3(1, -1)
+                Arms.LeftArmRotOffset = vectors.vec3(45, 70)
+                models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom:setRot(60)
+                Apron.RotOffset = vectors.vec3(10)
+                Legs.RightLegRotOffset = vectors.vec3(-5)
+                Legs.LeftLegRotOffset = vectors.vec3(2.58, -9.96, -0.88)
+            end
             if poseID == 4 or poseID == 5 then
                 if poseID == 5 then
                     models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom:setPivot(2, 6, -2)
@@ -36,7 +49,6 @@ PhotoPose = {
             else
                 Umbrella.Enabled = false
             end
-            animations["models.main"]["photo_"..poseID]:play()
             Arms.hideHeldItem(true)
             Sleeve.Moving = false
             PhotoPose.CurrentPose = poseID
@@ -45,10 +57,19 @@ PhotoPose = {
 
     ---撮影用ポーズを終了する。
     stopPose = function ()
-        models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom:setPivot(-2, 6)
+        for _, modelPart in ipairs({models.models.main.Avatar, models.models.main.Avatar.Head, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg}) do
+            modelPart:setRot()
+        end
+        Arms.RightArmPosOffset = vectors.vec3()
+        Arms.RightArmRotOffset = vectors.vec3()
+        Arms.LeftArmPosOffset = vectors.vec3()
+        Arms.LeftArmRotOffset = vectors.vec3()
+        Legs.RightLegRotOffset = vectors.vec3()
         models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom:setPivot(2, 6)
+        Legs.LeftLegRotOffset = vectors.vec3()
+        models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom:setPivot(-2, 6)
+        Apron.RotOffset = vectors.vec3()
         models.models.main.Avatar.Body.UmbrellaB:setRot(20)
-        animations["models.main"]["photo_"..PhotoPose.CurrentPose]:stop()
         Arms.hideHeldItem(false)
         Umbrella.Enabled = true
         Sleeve.Moving = true

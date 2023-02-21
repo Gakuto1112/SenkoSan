@@ -152,7 +152,7 @@ Costume = {
 				modelPart:setVisible(false)
 			end
 			Costume.setCostumeTextureOffset(2)
-			models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(16, 0)
+			models.models.main.Avatar.Body.BodyBottom.Legs.Apron:setUVPixels(16, 0)
 			Ears.EnableJerkEar = Armor.ArmorVisible[1]
 		elseif costume == "MAID_A" then
 			models.models.main.Avatar.Head.CMaidAH:setVisible(not Armor.ArmorVisible[1])
@@ -211,7 +211,7 @@ Costume = {
 				modelPart:setVisible(false)
 			end
 			Costume.setCostumeTextureOffset(8)
-			models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(32, 0)
+			models.models.main.Avatar.Body.BodyBottom.Legs.Apron:setUVPixels(32, 0)
 		elseif costume == "YUKATA" then
 			events.TICK:register(Costume.CostumeEvents.YukataTick, "costume_yukata_tick")
 			for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do
@@ -322,7 +322,7 @@ Costume = {
 		Apron.enable()
 		Legs.ReducedLegSwing = false
 		Ears.EnableJerkEar = true
-		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 0)
+		models.models.main.Avatar.Body.BodyBottom.Legs.Apron:setUVPixels(0, 0)
 		Costume.CurrentCostume = "DEFAULT"
 	end,
 
