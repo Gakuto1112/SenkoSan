@@ -24,16 +24,21 @@ Arms = {
 	end
 }
 
+events.TICK:register(function ()
+	local leftHanded = player:isLeftHanded()
+	models.models.main.Avatar.Body.Arms.RightArm:setParentType((Umbrella.IsUsing and leftHanded and PhotoPose.CurrentPose ~= 7) and "Body" or "RightArm")
+	models.models.main.Avatar.Body.Arms.LeftArm:setParentType((Umbrella.IsUsing and not leftHanded) and "Body" or "LeftArm")
+end)
+
 events.RENDER:register(function ()
 	local armPos = vectors.vec3(0, player:isCrouching() and 3 or 0)
 	for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.RightArm, models.models.main.Avatar.Body.Arms.LeftArm}) do
 		modelPart:setPos(armPos)
 	end
-
 	local leftHanded = player:isLeftHanded()
 	local rightOriginRot = vanilla_model.RIGHT_ARM:getOriginRot()
 	local leftOriginRot = vanilla_model.LEFT_ARM:getOriginRot()
-	local umbrellaAdjust = Umbrella.IsUsing and not SitDown.IsAnimationPlaying
+	local umbrellaAdjust = Umbrella.IsUsing and not SitDown.IsAnimationPlaying and PhotoPose.CurrentPose ~= 7
 	local sneakAdjust = player:isCrouching() and 30 or 0
 	if Arms.ItemHeldContradicts then
 		models.models.main.Avatar.Body.Arms.RightArm:setRot(-rightOriginRot.x + ((umbrellaAdjust and leftHanded) and 20 or 0) + sneakAdjust + Arms.RightArmRotOffset.x, -rightOriginRot.y + Arms.RightArmRotOffset.y, -rightOriginRot.z + Arms.RightArmRotOffset.z)

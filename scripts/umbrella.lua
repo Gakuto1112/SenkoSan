@@ -17,7 +17,7 @@ events.TICK:register(function ()
 	local playerPose = player:getPose()
 	local activeItem = player:getActiveItem()
 	local mainHeldItem = player:getHeldItem()
-	Umbrella.IsUsing = (player:isInRain() or Umbrella.AlwaysUse) and not player:isUnderwater() and activeItem.id ~= "minecraft:bow" and activeItem.id ~= "minecraft:crossbow" and (mainHeldItem.id ~= "minecraft:crossbow" or mainHeldItem.tag["Charged"] == 0) and not player:getVehicle() and playerPose ~= "FALL_FLYING" and playerPose ~= "SWIMMING" and player:getHeldItem(true).id == "minecraft:air" and Umbrella.Enabled
+	Umbrella.IsUsing = (player:isInRain() or Umbrella.AlwaysUse or PhotoPose.CurrentPose == 7) and not player:isUnderwater() and activeItem.id ~= "minecraft:bow" and activeItem.id ~= "minecraft:crossbow" and (mainHeldItem.id ~= "minecraft:crossbow" or mainHeldItem.tag["Charged"] == 0) and not player:getVehicle() and playerPose ~= "FALL_FLYING" and playerPose ~= "SWIMMING" and player:getHeldItem(true).id == "minecraft:air" and Umbrella.Enabled
 	local umbrella = models.models.main.Avatar.Body.UmbrellaB
 	local rightArm = models.models.main.Avatar.Body.Arms.RightArm
 	local leftArm = models.models.main.Avatar.Body.Arms.LeftArm
@@ -26,14 +26,10 @@ events.TICK:register(function ()
 			sounds:playSound("minecraft:entity.bat.takeoff", player:getPos(), 0.5, 1.5)
 		end
 		if player:isLeftHanded() then
-			rightArm:setParentType("Body")
-			leftArm:setParentType("LeftArm")
-			umbrella:setPos(5.5)
+			umbrella:setPos(PhotoPose.CurrentPose == 7 and vectors.vec3(1.25, -2, -0.25) or vectors.vec3(5.5))
 			animations["models.main"]["sit_down_right_umbrella"]:setPlaying(SitDown.IsAnimationPlaying)
 		else
-			leftArm:setParentType("Body")
-			rightArm:setParentType("RightArm")
-			umbrella:setPos(-5.5)
+			umbrella:setPos(PhotoPose.CurrentPose == 7 and vectors.vec3(1.25, -2, -0.25) or vectors.vec3(-5.5))
 			animations["models.main"]["sit_down_left_umbrella"]:setPlaying(SitDown.IsAnimationPlaying)
 		end
 		umbrella:setVisible(true)

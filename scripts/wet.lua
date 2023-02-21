@@ -58,7 +58,7 @@ events.TICK:register(function()
 		if host:isJumping() and Wet.OnGroundData[1] and velocity.y > 0 and Wet.VelocityYData[1] <= 0 then
 			pings.wetJumpSound()
 		end
-		if Wet.AutoShake and not ShakeBody.IsAnimationPlaying then
+		if Wet.AutoShake and not ShakeBody.IsAnimationPlaying and PhotoPose.CurrentPose == 0 then
 			if Wet.AutoShakeCount == 20 then
 				ShakeBody:play(false)
 				Wet.AutoShakeCount = 0

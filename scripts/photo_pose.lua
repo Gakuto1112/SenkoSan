@@ -31,6 +31,11 @@ PhotoPose = {
                 end
                 models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom:setPivot(-2, 6, -2)
             end
+            if poseID == 7 then
+                models.models.main.Avatar.Body.UmbrellaB:setRot(35.58, 12.7, -38.26)
+            else
+                Umbrella.Enabled = false
+            end
             animations["models.main"]["photo_"..poseID]:play()
             Arms.hideHeldItem(true)
             Sleeve.Moving = false
@@ -42,8 +47,10 @@ PhotoPose = {
     stopPose = function ()
         models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom:setPivot(-2, 6)
         models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom:setPivot(2, 6)
+        models.models.main.Avatar.Body.UmbrellaB:setRot(20)
         animations["models.main"]["photo_"..PhotoPose.CurrentPose]:stop()
         Arms.hideHeldItem(false)
+        Umbrella.Enabled = true
         Sleeve.Moving = true
         ActionWheel.untogglePose(PhotoPose.CurrentPose)
         PhotoPose.CurrentPose = 0
