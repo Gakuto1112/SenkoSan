@@ -3,10 +3,13 @@
 TailBrush = General.instance({
 	---尻尾の手入れアニメーションを再生する。
 	play = function (self)
-		AnimationAction.play(self)
 		if SitDown.IsAnimationPlaying then
-			animations["models.main"]["tail_brush_sitdown"]:play()
+			Arms.RightArmRotOffset = vectors.vec3(-20, -10, 15)
+			Sleeve.RightSleeveRotOffset = vectors.vec3(-20, 40)
+			Arms.LeftArmRotOffset = vectors.vec3(-20, 10, -15)
+			Sleeve.LeftSleeveRotOffset = vectors.vec3(0, -50)
 		end
+		AnimationAction.play(self)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 		Arms.hideHeldItem(true)
 		Physics.EnablePyhsics[1] = false
@@ -18,9 +21,12 @@ TailBrush = General.instance({
 		if self.AnimationCount > 90 then
 			sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 		end
-		AnimationAction.stop(self)
-		animations["models.main"]["tail_brush_sitdown"]:stop()
+		Arms.RightArmRotOffset = vectors.vec3()
+		Sleeve.RightSleeveRotOffset = vectors.vec3()
+		Arms.LeftArmRotOffset = vectors.vec3()
+		Sleeve.LeftSleeveRotOffset = vectors.vec3()
 		Physics.EnablePyhsics[1] = true
+		AnimationAction.stop(self)
 		if not SitDown.IsAnimationPlaying then
 			Sleeve.Moving = true
 		end

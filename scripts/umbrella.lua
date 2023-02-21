@@ -17,36 +17,30 @@ events.TICK:register(function ()
 	local playerPose = player:getPose()
 	local activeItem = player:getActiveItem()
 	local mainHeldItem = player:getHeldItem()
-	Umbrella.IsUsing = (player:isInRain() or Umbrella.AlwaysUse) and not player:isUnderwater() and activeItem.id ~= "minecraft:bow" and activeItem.id ~= "minecraft:crossbow" and (mainHeldItem.id ~= "minecraft:crossbow" or mainHeldItem.tag["Charged"] == 0) and not player:getVehicle() and playerPose ~= "FALL_FLYING" and playerPose ~= "SWIMMING" and player:getHeldItem(true).id == "minecraft:air" and Umbrella.Enabled
-	local umbrella = models.models.main.Avatar.Body.UmbrellaB
-	local rightArm = models.models.main.Avatar.Body.Arms.RightArm
-	local leftArm = models.models.main.Avatar.Body.Arms.LeftArm
+	Umbrella.IsUsing = (player:isInRain() or Umbrella.AlwaysUse or PhotoPose.CurrentPose == 7) and not player:isUnderwater() and activeItem.id ~= "minecraft:bow" and activeItem.id ~= "minecraft:crossbow" and (mainHeldItem.id ~= "minecraft:crossbow" or mainHeldItem.tag["Charged"] == 0) and not player:getVehicle() and playerPose ~= "FALL_FLYING" and playerPose ~= "SWIMMING" and player:getHeldItem(true).id == "minecraft:air" and Umbrella.Enabled
 	if Umbrella.IsUsing then
 		if not Umbrella.IsUsingPrev and Umbrella.Sound then
 			sounds:playSound("minecraft:entity.bat.takeoff", player:getPos(), 0.5, 1.5)
 		end
-		if player:isLeftHanded() then
-			rightArm:setParentType("Body")
-			leftArm:setParentType("LeftArm")
-			umbrella:setPos(5.5)
-			animations["models.main"]["sit_down_right_umbrella"]:setPlaying(SitDown.IsAnimationPlaying)
-		else
-			leftArm:setParentType("Body")
-			rightArm:setParentType("RightArm")
-			umbrella:setPos(-5.5)
-			animations["models.main"]["sit_down_left_umbrella"]:setPlaying(SitDown.IsAnimationPlaying)
+		if PhotoPose.CurrentPose == 0 then
+			if player:isLeftHanded() then
+				models.models.main.Avatar.Body.UmbrellaB:setPos(5.5)
+				Arms.RightArmRotOffset = SitDown.IsAnimationPlaying and vectors.vec3(0, -10, 15) or vectors.vec3()
+			else
+				models.models.main.Avatar.Body.UmbrellaB:setPos(-5.5)
+				Arms.LeftArmRotOffset = SitDown.IsAnimationPlaying and vectors.vec3(0, 10, -15) or vectors.vec3()
+			end
 		end
-		umbrella:setVisible(true)
+		models.models.main.Avatar.Body.UmbrellaB:setVisible(true)
 	else
 		if Umbrella.IsUsingPrev and Umbrella.Sound then
 			sounds:playSound("minecraft:entity.bat.takeoff", player:getPos(), 0.5, 1.5)
+			if PhotoPose.CurrentPose == 0 then
+				Arms.RightArmRotOffset = vectors.vec3()
+				Arms.LeftArmRotOffset = vectors.vec3()
+			end
 		end
-		rightArm:setParentType("RightArm")
-		leftArm:setParentType("LeftArm")
-		for _, animationName in ipairs({"sit_down_right_umbrella", "sit_down_left_umbrella"}) do
-			animations["models.main"][animationName]:stop()
-		end
-		umbrella:setVisible(false)
+		models.models.main.Avatar.Body.UmbrellaB:setVisible(false)
 	end
 	Umbrella.IsUsingPrev = Umbrella.IsUsing
 end)

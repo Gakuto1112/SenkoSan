@@ -1,8 +1,12 @@
 ---@class Sleeve 袖を操作するクラス
 ---@field Sleeve.Moving boolean 袖の動きが有効かどうか
+---@field Sleeve.RightSleeveRotOffset Vector3 右袖の角度のオフセット
+---@field Sleeve.LeftSleeveRotOffset Vector3 右袖の角度のオフセット
 
 Sleeve = {
 	Moving = true,
+	RightSleeveRotOffset = vectors.vec3(),
+	LeftSleeveRotOffset = vectors.vec3(),
 
 	---袖を有効にする。
 	enable = function ()
@@ -27,36 +31,48 @@ Sleeve = {
 					sleeveRot = {vectors.vec3(math.clamp((Umbrella.IsUsing and leftHanded) and 70 or (90 - vanilla_model.RIGHT_ARM:getOriginRot().x), rotLimit[1][1][1] + rotLimit[2][1][1], rotLimit[1][1][2] + rotLimit[2][1][2]), vehicle and 20 or 0), vectors.vec3(math.clamp((Umbrella.IsUsing and not leftHanded) and 70 or (90 - vanilla_model.LEFT_ARM:getOriginRot().x), rotLimit[1][1][1] + rotLimit[2][1][1], rotLimit[1][1][2] + rotLimit[2][1][2]), vehicle and -20 or 0)}
 				end
 			end
-			for index, sleeveBase in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase}) do
-				sleeveBase:setRot(sleeveRot[index]:copy():applyFunc(function (element, vectorIndex)
-					return vectorIndex <= 2 and math.clamp(element, rotLimit[1][vectorIndex][1], rotLimit[1][vectorIndex][2]) or element
-				end))
+
+			local function sleeveBaseRotClamp(axis, index)
+				return index <= 2 and math.clamp(axis, rotLimit[1][index][1], rotLimit[1][index][2]) or axis
 			end
+
+			models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase:setRot(sleeveRot[1]:add(Sleeve.RightSleeveRotOffset):copy():applyFunc(function (axis, index)
+				return sleeveBaseRotClamp(axis, index)
+			end))
+			models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase:setRot(sleeveRot[2]:add(Sleeve.LeftSleeveRotOffset):copy():applyFunc(function (axis, index)
+				return sleeveBaseRotClamp(axis, index)
+			end))
 			for index, sleeve in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve}) do
-				sleeve:setRot(sleeveRot[index]:applyFunc(function (element, vectorIndex)
+				sleeve:setRot(sleeveRot[index]:applyFunc(function (axis, vectorIndex)
 					if vectorIndex <= 2 then
-						if element >= 0 then
-							return math.max(element + rotLimit[1][vectorIndex][1], 0)
+						if axis >= 0 then
+							return math.max(axis + rotLimit[1][vectorIndex][1], 0)
 						else
-							return math.min(element + rotLimit[1][vectorIndex][2], 0)
+							return math.min(axis + rotLimit[1][vectorIndex][2], 0)
 						end
 					else
-						return element
+						return axis
 					end
 				end))
 			end
 			if models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase:getRot().x + models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase:getAnimRot().x >= 0 then
 				models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase:setPivot(5.5, 19, 2)
-				models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve:setPivot(5.5, 19, 4)
 			else
 				models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase:setPivot(5.5, 14, 2)
+			end
+			if models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve:getRot().x + models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve:getAnimRot().x >= 0 then
+				models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve:setPivot(5.5, 19, 4)
+			else
 				models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve:setPivot(5.5, 14, 4)
 			end
 			if models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase:getRot().x + models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase:getAnimRot().x >= 0 then
 				models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase:setPivot(-5.5, 19, 2)
-				models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve:setPivot(-5.5, 19, 4)
 			else
 				models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase:setPivot(-5.5, 14, 2)
+			end
+			if models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve:getRot().x + models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve:getAnimRot().x >= 0 then
+				models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve:setPivot(-5.5, 19, 4)
+			else
 				models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve:setPivot(-5.5, 14, 4)
 			end
 		end, "sleeve_render")

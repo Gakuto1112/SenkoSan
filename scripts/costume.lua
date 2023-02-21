@@ -178,7 +178,7 @@ Costume = {
 			Apron.disable()
 		elseif costume == "KAPPOGI" then
 			Costume.setCostumeTextureOffset(8)
-			models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(16, 0)
+			models.models.main.Avatar.Body.BodyBottom.Legs.Apron:setUVPixels(16, 0)
 		elseif costume == "YUKATA" then
 			events.TICK:register(Costume.CostumeEvents.YukataTick, "costume_yukata_tick")
 			Costume.setCostumeTextureOffset(9)
@@ -255,7 +255,7 @@ Costume = {
 		Apron.enable()
 		Legs.ReducedLegSwing = false
 		Ears.EnableJerkEar = true
-		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 0)
+		models.models.main.Avatar.Body.BodyBottom.Legs.Apron:setUVPixels(0, 0)
 		Costume.CurrentCostume = "DEFAULT"
 	end,
 

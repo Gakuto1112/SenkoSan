@@ -3,14 +3,16 @@
 ---@field Physics.VelocityAverage table 速度の平均値：1. 前後, 2. 上下, 3. 左右, 4. 角速度
 ---@field Physics.LookRotPrevRender number 前レンダーチックのlookRot
 ---@field Physics.LookRotDeltaPrevRender number 前レンダーチックのlookRotDelta
----@field Physics.EnablePyhsics boolean 物理演算を有効にするかどうか：1. 尻尾, 2. 髪飾り, 3. 袖
+---@field Physics.EnablePyhsics boolean 物理演算を有効にするかどうか：1. 尻尾, 2. 髪飾り
+---@field Physics.TailRotOffset Vector3 尻尾の角度のオフセット
 
 Physics = {
 	VelocityData = {{}, {}, {}, {}},
 	VelocityAverage = {0, 0, 0, 0},
 	LookRotPrevRender = 0,
 	LookRotDeltaPrevRender = 0,
-	EnablePyhsics = {true, true}
+	EnablePyhsics = {true, true},
+	TailRotOffset = vectors.vec3()
 }
 
 events.RENDER:register(function ()
@@ -117,7 +119,7 @@ events.RENDER:register(function ()
 			end
 		end
 	end
-	models.models.main.Avatar.Body.BodyBottom.Tail:setRot(tailRot)
+	models.models.main.Avatar.Body.BodyBottom.Tail:setRot(tailRot + Physics.TailRotOffset)
 	models.models.main.Avatar.Body.Hairs.FrontHair:setRot(frontHairRot)
 	if Costume.CurrentCostume == "SWIMSUIT" and not Armor.ArmorVisible[1] then
 		models.models.main.Avatar.Head.CSwimsuitH.Ponytail.PonytailHair:setRot(backHairRot)
