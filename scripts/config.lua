@@ -42,6 +42,7 @@ Config = {
 
 --ping関数
 ---アバター設定を他Figuraクライアントと同期する。
+---@param poseID integer 現在のポーズID
 ---@param nameID integer 名前ID
 ---@param costumeID integer 衣装ID
 ---@param skullID integer 頭モデルID
@@ -52,8 +53,11 @@ Config = {
 ---@param nightVisiton boolean 暗視が付与されているかどうか
 ---@param wardenNearby boolean ウォーデンが付近にいるかどうか
 ---@param drowned boolean 溺れているかどうか
-function pings.syncAvatarConfig(nameID, costumeID, skullID, autoShake, showArmor, umbrellaSound, alwaysUmbrella, nightVisiton, wardenNearby, drowned)
+function pings.syncAvatarConfig(poseID, nameID, costumeID, skullID, autoShake, showArmor, umbrellaSound, alwaysUmbrella, nightVisiton, wardenNearby, drowned)
 	if not Config.IsSynced then
+		if poseID >= 1 then
+			PhotoPose.setPose(poseID)
+		end
 		ActionWheel.CurrentPlayerNameState = nameID
 		ActionWheel.CurrentCostumeState = costumeID
 		ActionWheel.CurrentSkullState = skullID
@@ -77,7 +81,7 @@ end
 
 events.TICK:register(function ()
 	if Config.NextSyncCount == 0 then
-		pings.syncAvatarConfig(ActionWheel.CurrentPlayerNameState, ActionWheel.CurrentCostumeState, ActionWheel.CurrentSkullState, Wet.AutoShake, Armor.ShowArmor, Umbrella.Sound, Umbrella.AlwaysUse, FoxFire.NightVision, Warden.WardenNearby, FaceParts.Drowned)
+		pings.syncAvatarConfig(PhotoPose.CurrentPose, ActionWheel.CurrentPlayerNameState, ActionWheel.CurrentCostumeState, ActionWheel.CurrentSkullState, Wet.AutoShake, Armor.ShowArmor, Umbrella.Sound, Umbrella.AlwaysUse, FoxFire.NightVision, Warden.WardenNearby, FaceParts.Drowned)
 		Config.NextSyncCount = 300
 	else
 		Config.NextSyncCount = Config.NextSyncCount - 1
