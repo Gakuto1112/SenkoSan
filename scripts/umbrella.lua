@@ -24,19 +24,18 @@ events.TICK:register(function ()
 		end
 		if player:isLeftHanded() then
 			models.models.main.Avatar.Body.UmbrellaB:setPos(PhotoPose.CurrentPose == 7 and vectors.vec3(1.25, -2, -0.25) or vectors.vec3(5.5))
-			animations["models.main"]["sit_down_right_umbrella"]:setPlaying(SitDown.IsAnimationPlaying)
+			Arms.RightArmRotOffset = SitDown.IsAnimationPlaying and vectors.vec3(0, -10, 15) or vectors.vec3()
 		else
 			models.models.main.Avatar.Body.UmbrellaB:setPos(PhotoPose.CurrentPose == 7 and vectors.vec3(1.25, -2, -0.25) or vectors.vec3(-5.5))
-			animations["models.main"]["sit_down_left_umbrella"]:setPlaying(SitDown.IsAnimationPlaying)
+			Arms.LeftArmRotOffset = SitDown.IsAnimationPlaying and vectors.vec3(0, 10, -15) or vectors.vec3()
 		end
 		models.models.main.Avatar.Body.UmbrellaB:setVisible(true)
 	else
 		if Umbrella.IsUsingPrev and Umbrella.Sound then
 			sounds:playSound("minecraft:entity.bat.takeoff", player:getPos(), 0.5, 1.5)
 		end
-		for _, animationName in ipairs({"sit_down_right_umbrella", "sit_down_left_umbrella"}) do
-			animations["models.main"][animationName]:stop()
-		end
+		Arms.RightArmRotOffset = vectors.vec3()
+		Arms.LeftArmRotOffset = vectors.vec3()
 		models.models.main.Avatar.Body.UmbrellaB:setVisible(false)
 	end
 	Umbrella.IsUsingPrev = Umbrella.IsUsing
