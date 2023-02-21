@@ -47,6 +47,14 @@ PhotoPose = {
                 models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom:setRot(50)
                 Sleeve.LeftSleeveRotOffset = vectors.vec3(5.08, -10, -0.88)
                 models.models.main.Avatar.Body.BodyBottom.Legs:setRot(15)
+            elseif poseID == 3 then
+                Arms.RightArmRotOffset = vectors.vec3(80, -10)
+                Sleeve.RightSleeveRotOffset = vectors.vec3(5.51, 59.9, 2.33)
+                Arms.LeftArmRotOffset = vectors.vec3(80, 10)
+                Sleeve.LeftSleeveRotOffset = vectors.vec3(5.51, -59.9, 2.33)
+                Apron.RotOffset = vectors.vec3(5)
+                Legs.RightLegRotOffset = vectors.vec3(-5)
+                Legs.LeftLegRotOffset = vectors.vec3(5)
             end
             if poseID == 4 or poseID == 5 then
                 if poseID == 5 then
@@ -74,8 +82,10 @@ PhotoPose = {
         end
         Arms.RightArmPosOffset = vectors.vec3()
         Arms.RightArmRotOffset = vectors.vec3()
+        Sleeve.RightSleeveRotOffset = vectors.vec3()
         Arms.LeftArmPosOffset = vectors.vec3()
         Arms.LeftArmRotOffset = vectors.vec3()
+        Sleeve.LeftSleeveRotOffset = vectors.vec3()
         Legs.RightLegRotOffset = vectors.vec3()
         models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom:setPivot(2, 6)
         Legs.LeftLegRotOffset = vectors.vec3()
