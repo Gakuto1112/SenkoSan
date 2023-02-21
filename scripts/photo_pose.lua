@@ -24,7 +24,11 @@ PhotoPose = {
             if PhotoPose.CurrentPose ~= 0 then
                 PhotoPose.stopPose()
             end
-            if poseID == 4 then
+            if poseID == 4 or poseID == 5 then
+                if poseID == 5 then
+                    models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom:setPivot(2, 6, -2)
+                    Physics.EnablePyhsics[1] = false
+                end
                 models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom:setPivot(-2, 6, -2)
             end
             animations["models.main"]["photo_"..poseID]:play()
@@ -37,6 +41,7 @@ PhotoPose = {
     ---撮影用ポーズを終了する。
     stopPose = function ()
         models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom:setPivot(-2, 6)
+        models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom:setPivot(2, 6)
         animations["models.main"]["photo_"..PhotoPose.CurrentPose]:stop()
         Arms.hideHeldItem(false)
         Sleeve.Moving = true
@@ -47,7 +52,7 @@ PhotoPose = {
 
 events.TICK:register(function ()
     if PhotoPose.CurrentPose ~= 0 then
-        if PhotoPose.CurrentPose == 1 or PhotoPose.CurrentPose == 3 then
+        if PhotoPose.CurrentPose == 1 or PhotoPose.CurrentPose == 3 or PhotoPose.CurrentPose == 5 then
             if General.PlayerCondition == "LOW" then
                 FaceParts.setEmotion("TIRED", "TIRED", "OPENED", 1, true)
             else
