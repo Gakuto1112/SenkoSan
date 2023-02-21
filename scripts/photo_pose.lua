@@ -36,6 +36,17 @@ PhotoPose = {
                 Apron.RotOffset = vectors.vec3(10)
                 Legs.RightLegRotOffset = vectors.vec3(-5)
                 Legs.LeftLegRotOffset = vectors.vec3(2.58, -9.96, -0.88)
+            elseif poseID == 2 then
+                models.models.main.Avatar:setPos(0, 0, 3)
+                models.models.main.Avatar:setRot(-15)
+                models.models.main.Avatar.Head:setRot(15)
+                Arms.RightArmRotOffset = vectors.vec3(45, 25)
+                models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom:setRot(50)
+                Sleeve.RightSleeveRotOffset = vectors.vec3(5.08, 10, 0.88)
+                Arms.LeftArmRotOffset = vectors.vec3(45, -25)
+                models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom:setRot(50)
+                Sleeve.LeftSleeveRotOffset = vectors.vec3(5.08, -10, -0.88)
+                models.models.main.Avatar.Body.BodyBottom.Legs:setRot(15)
             end
             if poseID == 4 or poseID == 5 then
                 if poseID == 5 then
@@ -57,7 +68,8 @@ PhotoPose = {
 
     ---撮影用ポーズを終了する。
     stopPose = function ()
-        for _, modelPart in ipairs({models.models.main.Avatar, models.models.main.Avatar.Head, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg}) do
+        models.models.main.Avatar:setPos()
+        for _, modelPart in ipairs({models.models.main.Avatar, models.models.main.Avatar.Head, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom, models.models.main.Avatar.Body.BodyBottom.Legs, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg}) do
             modelPart:setRot()
         end
         Arms.RightArmPosOffset = vectors.vec3()
