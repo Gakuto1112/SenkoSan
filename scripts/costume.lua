@@ -151,7 +151,7 @@ Costume = {
 			models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT:setVisible(not Armor.ArmorVisible[2])
 			Sleeve.disable()
 			Costume.setCostumeTextureOffset(2)
-			models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(16, 0)
+			models.models.main.Avatar.Body.BodyBottom.Legs.Apron:setUVPixels(16, 0)
 			Ears.EnableJerkEar = Armor.ArmorVisible[1]
 		elseif costume == "MAID_A" then
 			models.models.main.Avatar.Head.CMaidAH:setVisible(not Armor.ArmorVisible[1])
@@ -285,7 +285,7 @@ Costume = {
 		Apron.disable()
 		Legs.ReducedLegSwing = false
 		Ears.EnableJerkEar = true
-		models.models.main.Avatar.Body.BodyBottom.Legs.ApronBottom:setUVPixels(0, 0)
+		models.models.main.Avatar.Body.BodyBottom.Legs.Apron:setUVPixels(0, 0)
 		Costume.CurrentCostume = "DEFAULT"
 	end,
 
