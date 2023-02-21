@@ -4,13 +4,15 @@
 ---@field Physics.LookRotPrevRender number 前レンダーチックのlookRot
 ---@field Physics.LookRotDeltaPrevRender number 前レンダーチックのlookRotDelta
 ---@field Physics.EnablePyhsics boolean 物理演算を有効にするかどうか：1. 尻尾, 2. 髪飾り
+---@field Physics.TailRotOffset Vector3 尻尾の角度のオフセット
 
 Physics = {
 	VelocityData = {{}, {}, {}, {}},
 	VelocityAverage = {0, 0, 0, 0},
 	LookRotPrevRender = 0,
 	LookRotDeltaPrevRender = 0,
-	EnablePyhsics = {true, true}
+	EnablePyhsics = {true, true},
+	TailRotOffset = vectors.vec3()
 }
 
 events.RENDER:register(function ()
@@ -89,7 +91,7 @@ events.RENDER:register(function ()
 			end
 		end
 	end
-	models.models.main.Avatar.Body.BodyBottom.Tail:setRot(tailRot)
+	models.models.main.Avatar.Body.BodyBottom.Tail:setRot(tailRot + Physics.TailRotOffset)
 	for _, modelPart in ipairs(models.models.main.Avatar.Head.HairAccessory.HairAccessoryLines:getChildren()) do
 		modelPart:setRot(hairAccessoryLineRot)
 	end
