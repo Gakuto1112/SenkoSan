@@ -218,7 +218,7 @@
 			"name": "CSwimsuitH",
 			"origin": [0, 24, 0],
 			"color": 0,
-			"uuid": "0ee549dd-5165-f62e-59ab-7c81a0176f8e",
+			"uuid": "611e3777-206c-ebb3-ed9c-5ac863e2dafe",
 			"export": true,
 			"mirror_uv": false,
 			"isOpen": true,
@@ -226,12 +226,12 @@
 			"visibility": true,
 			"autouv": 0,
 			"children": [
-				"d9eaeb97-01e1-3d92-9f65-edfa70c5710b",
+				"a50d15be-1a34-91a3-1d99-ef2661b785a6",
 				{
-					"name": "Bottoms",
-					"origin": [0, 24, 0],
+					"name": "Ponytail",
+					"origin": [-1, 28, 5],
 					"color": 0,
-					"uuid": "7a6b2e2d-dd25-b03a-a0c4-1512deda9e0b",
+					"uuid": "23c5895a-de51-8049-e4cc-3cef6663897c",
 					"export": true,
 					"mirror_uv": false,
 					"isOpen": true,
@@ -239,64 +239,21 @@
 					"visibility": true,
 					"autouv": 0,
 					"children": [
+						"17756963-08a9-88fe-6f9a-736328592446",
 						{
-							"name": "CSwimsuitH",
-							"origin": [0, 24, 0],
+							"name": "PonytailHair",
+							"origin": [0, 30, 5],
 							"color": 0,
-							"uuid": "611e3777-206c-ebb3-ed9c-5ac863e2dafe",
+							"uuid": "4cfd15ad-ce50-3c8a-c6a3-59a8688cff97",
 							"export": true,
 							"mirror_uv": false,
 							"isOpen": true,
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
-							"children": [
-								"a50d15be-1a34-91a3-1d99-ef2661b785a6",
-								{
-									"name": "Ponytail",
-									"origin": [-1, 28, 5],
-									"color": 0,
-									"uuid": "23c5895a-de51-8049-e4cc-3cef6663897c",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": true,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": [
-										"17756963-08a9-88fe-6f9a-736328592446",
-										{
-											"name": "PonytailHair",
-											"origin": [0, 30, 5],
-											"color": 0,
-											"uuid": "4cfd15ad-ce50-3c8a-c6a3-59a8688cff97",
-											"export": true,
-											"mirror_uv": false,
-											"isOpen": true,
-											"locked": false,
-											"visibility": true,
-											"autouv": 0,
-											"children": ["84e8f5a4-1027-3f0f-7e96-46a1ea063288", "c4ab0530-996d-4ab2-3236-cf0071f6d009", "3a76d883-3a78-2c3c-ae4b-be1a9b7024fe"]
-										}
-									]
-								}
-							]
+							"children": ["84e8f5a4-1027-3f0f-7e96-46a1ea063288", "c4ab0530-996d-4ab2-3236-cf0071f6d009", "3a76d883-3a78-2c3c-ae4b-be1a9b7024fe"]
 						}
 					]
-				},
-				{
-					"name": "Flower",
-					"origin": [-5.5, 30, -5.5],
-					"rotation": [20, 30, 0],
-					"color": 0,
-					"uuid": "3c4132dc-6f00-841e-ed96-b6733e84084d",
-					"export": true,
-					"mirror_uv": false,
-					"isOpen": true,
-					"locked": false,
-					"visibility": true,
-					"autouv": 0,
-					"children": ["04572d36-2cf3-9219-df5c-7518eae9daba", "d7c0249c-bf3e-7c0a-6016-39d05537fe94", "40e1f535-86aa-0301-4063-901124d0e67c"]
 				}
 			]
 		}
