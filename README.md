@@ -3,7 +3,7 @@
 ここは、**シロ**のブランチです。
 
 ![仙狐さんの頭](README_images/仙狐さん頭.png)
-**仙狐さん**のブランチは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/main)
+**仙狐さん**のブランチは[こちら](https://github.com/Gakuto1112/SenkoSan)
 
 ![鈴の頭](README_images/鈴頭.png)
 **鈴**のブランチは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/Suzu)
