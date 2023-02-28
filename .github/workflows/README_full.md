@@ -5,7 +5,7 @@
 
 <!-- REQUIRED_IMAGE -->
 ![仙狐さんの頭](../../README_images/仙狐さん頭.png)
-**仙狐さん**のブランチは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/main)
+**仙狐さん**のブランチは[こちら](https://github.com/Gakuto1112/SenkoSan)
 
 <!-- REQUIRED_IMAGE -->
 ![鈴の頭](../../README_images/鈴頭.png)
