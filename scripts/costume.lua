@@ -297,6 +297,7 @@ Costume = {
 			for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do
 				modelPart:setVisible(false)
 			end
+			models.models.main.Avatar.Body.UmbrellaB:setUVPixels(0, 27)
 			Costume.setCostumeTextureOffset(17)
 			Apron.disable()
 			HairAccessory.visible(false)
@@ -311,6 +312,9 @@ Costume = {
 		for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT, models.models.main.Avatar.Head.CMaidAH, models.models.main.Avatar.Body.BodyBottom.CMaidABB, models.models.main.Avatar.Head.CMaidBH, models.models.main.Avatar.Body.BodyBottom.CMaidBBB, models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB,  models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH, models.models.main.Avatar.Head.CKimonoH}) do
 			modelPart:setVisible(false)
 		end
+		for _, modelPart in ipairs({models.models.main.Avatar.Body.BodyBottom.Legs.Apron, models.models.main.Avatar.Body.UmbrellaB}) do
+			modelPart:setUVPixels()
+		end
 		for _, tickEventName in ipairs({"costume_maid_a_tick", "costume_maid_b_tick", "costume_summer_hat_tick", "costume_miniskirt_tick", "costume_ponpon_tick", "costume_yukata_tick"}) do
 			events.TICK:remove(tickEventName)
 		end
@@ -323,7 +327,6 @@ Costume = {
 		Apron.enable()
 		Legs.ReducedLegSwing = false
 		Ears.EnableJerkEar = true
-		models.models.main.Avatar.Body.BodyBottom.Legs.Apron:setUVPixels(0, 0)
 		Costume.CurrentCostume = "DEFAULT"
 	end,
 
