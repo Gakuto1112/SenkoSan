@@ -8,7 +8,7 @@
 ---| "DIED"
 
 Hurt = {
-	HealthPrev = 0,
+	HealthPrev = -1,
 	Damaged = "NONE"
 }
 
@@ -23,6 +23,9 @@ events.TICK:register(function ()
 			Hurt.Damaged = "DAMAGED"
 		end
 	else
+		if host:isHost() and health > 0 and Hurt.HealthPrev == 0 and player:getGamemode() ~= "SPECTATOR" then
+			print(Language.getTranslate("message__respawn"))
+		end
 		Hurt.Damaged = "NONE"
 	end
 	Hurt.HealthPrev = health
