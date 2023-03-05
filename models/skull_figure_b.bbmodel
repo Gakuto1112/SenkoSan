@@ -3206,30 +3206,28 @@
 			"origin": [0, 9.6, 0.8],
 			"faces": {
 				"north": {
-					"uv": [48.22222, 0, 37.88889, 96.14583],
-					"rotation": 90,
-					"texture": 1
+					"uv": [0, 0, 31, 923],
+					"texture": 2
 				},
 				"east": {
 					"uv": [0, 0, 0, 0],
-					"texture": 1
+					"texture": null
 				},
 				"south": {
-					"uv": [48.22222, 96.14583, 37.88889, 0],
-					"rotation": 90,
-					"texture": 1
+					"uv": [31, 0, 0, 923],
+					"texture": 2
 				},
 				"west": {
 					"uv": [0, 0, 0, 0],
-					"texture": 1
+					"texture": null
 				},
 				"up": {
 					"uv": [0, 0, 0, 0],
-					"texture": 1
+					"texture": null
 				},
 				"down": {
 					"uv": [0, 0, 0, 0],
-					"texture": 1
+					"texture": null
 				}
 			},
 			"type": "cube",
@@ -3248,18 +3246,16 @@
 			"origin": [0, 9.6, 0.8],
 			"faces": {
 				"north": {
-					"uv": [48.22222, 96.14583, 37.88889, 192.29167],
-					"rotation": 90,
-					"texture": 1
+					"uv": [31, 0, 62, 923],
+					"texture": 2
 				},
 				"east": {
 					"uv": [0, 0, 0, 0],
 					"texture": null
 				},
 				"south": {
-					"uv": [48.22222, 192.29167, 37.88889, 96.14583],
-					"rotation": 90,
-					"texture": 1
+					"uv": [62, 0, 31, 923],
+					"texture": 2
 				},
 				"west": {
 					"uv": [0, 0, 0, 0],
@@ -3851,7 +3847,27 @@
 			"saved": true,
 			"uuid": "1ea69f58-367c-b788-d772-77b5ef3302c6",
 			"relative_path": "../../textures/costume_maid_a.png",
-			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAABgCAYAAAAQJCKdAAAAAXNSR0IArs4c6QAAAhBJREFUWEftWaFOxEAQbc0FV3Xhk1AYDAg0OD4GBxoBBoPik8ipOnKml9lkyrvp7M3Mtg3NpWdK0t3Xt2/em92W+urmuauM39vLbbXdXtb7/W/Xtm36W06pPUA06fvzqZ9MgJvNxRFYAsJB8kn8IByz2/10klURUJaRpZFcmsqI0C2g67tXn0YWEN3/en+oWOCsRlGgoqrRQ2TliqqGQGTMpmn6JeJKzPIjEOqkOvuUIbWlqRp5yk9g0gIDRiVAKiNP6T1jBu0gNwlZLIMRMl0WI40NsU19WLZNKbhnjLtqlgXczZ97El21FUwLZIWWg4ttROrmaiPYAeRGwNqdM5DWyDXP0Lj7x490SytOcrZlNr5PXXJ+IO+xhlnRTsI/dHjI2RgTGRW3j9iUzIhPbuzwMBDFRKteGAgrjDY4ZyBvREgbjIl0uKv5s8BUao6JCuTNGo2bHyiaNYwJvpeEs5bLW8iQmDdiQ1FhdxcBaTFZgf5UkXZZsNie0xiWOxfc0AYpN0rsAP8LpB79Inu/tsP2By3+TEFvhhREz1VlFOmOp8aOOmejdULNnxixpoOPLItYGpIYpdEKFKvnKrat13QacYKjV8mx6FiDIPyVazQQfxAOn0b4jMSsjhh5XtdxObj/r4x0R68a2UnPamRPzY+YJ2sljGSsitM/ACo5aGn/P5qu1Zboo81JjKL9WjvkHwAfqKB/Glr7rQAAAABJRU5ErkJggg=="
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAABgCAYAAAAQJCKdAAAAAXNSR0IArs4c6QAAAdNJREFUWEftWDFOw0AQtJuIzlXEk6hoaKCgho7H0IWaAhoaKp6EUrlDaYLG0irLZe921o7BMk5jKVmP9+Zm5jauL64e95Xzed5cV+v1eV0qqxkgAHy8PfhApSJ50O8CeRxRS9vtvlyyL2+eOI6Yjt5f7qrV6ixLOL1rFJC3I8zOdR3NFIjZfuyqJ4H6ZECMhpiaoqM1ADovCpJ5GlNDd+SBTRDIIxFLYmpOtzQ2/NEZogQfSwZ0HlFAXowABJ3jfGuapuso5Y3KIwESLVkPnjPQdvu59wYEcIO62/vXjiaTIzbYJCXHB4ooW4syVXhI2S4Qo2wRpfitbdtuihOF04LUNrF2LwykI1evZM5ArEVSm6QKPwqo0vmFrcYwYeUSPUTIzeMDRb2mbSLqxndhr+X8FhKk9hu6gVVE3b2ALJssQAdWUrlMmGxmGtPbnTNu2LT6oNRR8rdA5ugXOfuFqywQDIiRjr2aQKVojfw2aM7W0gmFPzoUTtPlDepIL30B8oWwcPS/ORIHR68pa73GGg0iL/EGA8kL4fA0IjOSdPWjI/ZPjdysz/+lI9tjC0d+9mQ58m/NV4zjtT4dpbbq7f4jIAQaO2DpuvRV0UQPyGheW0P+N6E9ZX+sUMcdAAAAAElFTkSuQmCC"
+		},
+		{
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\costume_maid_brim.png",
+			"name": "costume_maid_brim.png",
+			"folder": "",
+			"namespace": "",
+			"id": "2",
+			"particle": false,
+			"render_mode": "default",
+			"render_sides": "auto",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"mode": "bitmap",
+			"saved": true,
+			"uuid": "aacf5b30-8433-7c9c-ea3a-8c2d7cfed78e",
+			"relative_path": "../../textures/costume_maid_brim.png",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAAAXNSR0IArs4c6QAAAExJREFUGFdjZGBgYPj168f/jx8/MvDz8zNgo0VFxRlh6tjYOBhB6rHRIDWMr1+//A/TABLABmAG4JKHiYPUwW3DpxhkKcj1IFcRMhQAKBwz75bLMAAAAAAASUVORK5CYII="
 		}
 	]
 }

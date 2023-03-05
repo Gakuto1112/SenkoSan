@@ -1,0 +1,137 @@
+{
+	"meta": {
+		"format_version": "4.5",
+		"model_format": "free",
+		"box_uv": false
+	},
+	"name": "costume_maid_brim",
+	"model_identifier": "",
+	"visible_box": [1, 1, 0],
+	"variable_placeholders": "",
+	"variable_placeholder_buttons": [],
+	"timeline_setups": [],
+	"unhandled_root_fields": {},
+	"resolution": {
+		"width": 20,
+		"height": 3
+	},
+	"elements": [
+		{
+			"name": "Brim",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"from": [-5, 30, -3],
+			"to": [5, 33, -3],
+			"autouv": 0,
+			"color": 5,
+			"inflate": 0.001,
+			"origin": [0, 24, 2],
+			"faces": {
+				"north": {
+					"uv": [0, 0, 10, 3],
+					"texture": 0
+				},
+				"east": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"south": {
+					"uv": [10, 0, 0, 3],
+					"texture": 0
+				},
+				"west": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"up": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"down": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				}
+			},
+			"type": "cube",
+			"uuid": "844f1bb2-9679-0305-7b4f-8d47ff2886ef"
+		},
+		{
+			"name": "BrimLayer",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"from": [-5, 30, -3],
+			"to": [5, 33, -3],
+			"autouv": 0,
+			"color": 5,
+			"inflate": 0.25,
+			"origin": [0, 24, 2],
+			"faces": {
+				"north": {
+					"uv": [10, 0, 20, 3],
+					"texture": 0
+				},
+				"east": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"south": {
+					"uv": [20, 0, 10, 3],
+					"texture": 0
+				},
+				"west": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"up": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"down": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				}
+			},
+			"type": "cube",
+			"uuid": "f3636758-9589-57c5-b5c4-8fd3e045c1b9"
+		}
+	],
+	"outliner": [
+		{
+			"name": "CMaidBrimH",
+			"origin": [0, 24, 0],
+			"color": 0,
+			"uuid": "1d5756cb-642d-6325-c5a6-1d4e9012a9e6",
+			"export": true,
+			"mirror_uv": false,
+			"isOpen": true,
+			"locked": false,
+			"visibility": true,
+			"autouv": 0,
+			"children": ["844f1bb2-9679-0305-7b4f-8d47ff2886ef", "f3636758-9589-57c5-b5c4-8fd3e045c1b9"]
+		}
+	],
+	"textures": [
+		{
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\costume_maid_brim.png",
+			"name": "costume_maid_brim.png",
+			"folder": "",
+			"namespace": "",
+			"id": "2",
+			"particle": false,
+			"render_mode": "default",
+			"render_sides": "auto",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"mode": "bitmap",
+			"saved": true,
+			"uuid": "1ea69f58-367c-b788-d772-77b5ef3302c6",
+			"relative_path": "../../textures/costume_maid_brim.png",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAAAXNSR0IArs4c6QAAAExJREFUGFdjZGBgYPj168f/jx8/MvDz8zNgo0VFxRlh6tjYOBhB6rHRIDWMr1+//A/TABLABmAG4JKHiYPUwW3DpxhkKcj1IFcRMhQAKBwz75bLMAAAAAAASUVORK5CYII="
+		}
+	]
+}
