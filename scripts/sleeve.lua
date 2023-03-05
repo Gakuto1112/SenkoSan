@@ -20,7 +20,7 @@ Sleeve = {
 			if not renderer:isFirstPerson() and Sleeve.Moving then
 				local playerPose = player:getPose()
 				if playerPose == "FALL_FLYING" then
-					sleeveRot = {vectors.vec3(math.clamp(90 - vanilla_model.RIGHT_ARM:getOriginRot().x, rotLimit[1][1][1] + rotLimit[1][2][1], rotLimit[1][1][2] + rotLimit[3][1][2])), vectors.vec3(math.clamp(90 - vanilla_model.LEFT_ARM:getOriginRot().x, rotLimit[1][1][1] + rotLimit[2][1][1], rotLimit[1][1][2] + rotLimit[2][1][2]))}
+					sleeveRot = {vectors.vec3(math.clamp(90 - vanilla_model.RIGHT_ARM:getOriginRot().x, rotLimit[1][1][1] + rotLimit[1][2][1], rotLimit[1][1][2] + rotLimit[1][1][2])), vectors.vec3(math.clamp(90 - vanilla_model.LEFT_ARM:getOriginRot().x, rotLimit[1][1][1] + rotLimit[2][1][1], rotLimit[1][1][2] + rotLimit[2][1][2]))}
 				elseif playerPose == "SWIMMING" then
 					local rightOriginArmRot = vanilla_model.RIGHT_ARM:getOriginRot()
 					local leftOriginArmRot = vanilla_model.LEFT_ARM:getOriginRot()
