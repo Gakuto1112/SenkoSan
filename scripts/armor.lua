@@ -40,6 +40,7 @@ events.TICK:register(function ()
 				if helmetFound then
 					local material = armorSlotItems[1].id:match("^minecraft:(%a+)_helmet$")
 					models.models.main.Avatar.Head.ArmorH.Helmet.Helmet:setPrimaryTexture("RESOURCE", "minecraft:textures/models/armor/"..(material == "golden" and "gold" or material).."_layer_1.png")
+					models.models.main.Avatar.Head.ArmorH.Helmet.Ears:setUVPixels(0, material == "leather" and 0 or (material == "chainmail" and 8 or (material == "iron" and 16 or (material == "golden" and 24 or (material == "diamond" and 32 or 40)))))
 				end
 				models.models.main.Avatar.Head.ArmorH.Helmet.HelmetOverlay:setVisible(armorSlotItems[1].id == "minecraft:leather_helmet")
 			elseif index == 2 then
@@ -119,7 +120,9 @@ events.TICK:register(function ()
 			--色変更
 			local colorVector = vectors.intToRGB(armorColor)
 			if index == 1 then
-				models.models.main.Avatar.Head.ArmorH.Helmet.Helmet:setColor(colorVector)
+				for _, armorPart in ipairs({models.models.main.Avatar.Head.ArmorH.Helmet.Helmet, models.models.main.Avatar.Head.ArmorH.Helmet.Ears}) do
+					armorPart:setColor(colorVector)
+				end
 			elseif index == 2 then
 				for _, armorPart in ipairs({models.models.main.Avatar.Body.ArmorB.Chestplate.Chestplate, models.models.main.Avatar.Body.BodyBottom.ArmorBB.ChestplateBottom.ChestplateBottom, models.models.main.Avatar.Body.BodyBottom.Tail.ArmorT.TailChestplate, models.models.main.Avatar.Body.Arms.RightArm.ArmorRA.RightChestplate.RightChestplate, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.ArmorRAB.RightChestplateBottom.RightChestplateBottom, models.models.main.Avatar.Body.Arms.LeftArm.ArmorLA.LeftChestplate.LeftChestplate, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.ArmorLAB.LeftChestplateBottom.LeftChestplateBottom}) do
 					armorPart:setColor(colorVector)
