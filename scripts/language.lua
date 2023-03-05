@@ -90,7 +90,7 @@ Language = {
 			action_wheel__main_4__action_7__title = "Umbrella sound: ",
 			action_wheel__main_5__title = "Avatar config 2",
 			action_wheel__main_5__action_1__title = "Always use umbrella: ",
-			message__respawn = "Ouch... Please be a little gentler...",
+			message__respawn = "Uyaaan... I'm glad if you would be a little gentler...",
 			message__afk_too_long = "Ah! Welcome back! You seemed to have left the room quite a bit, where were you going?... But just having you back here like this again makes me happy!",
 			message__merry_christmas = "Merry Christmas!"
 		},
@@ -181,7 +181,7 @@ Language = {
 			action_wheel__main_4__action_7__title = "傘の開閉音：",
 			action_wheel__main_5__title = "あばたー設定2",
 			action_wheel__main_5__action_1__title = "傘を常にさす：",
-			message__respawn = "ううう...。もう少し優しくしてください...。",
+			message__respawn = "うや～ん...。もう少し優しくしてください...。",
 			message__afk_too_long = "あっ！お帰りなさい！かなり退席されていたようですけど、どこに行かれていたのですか？...でも、あなたがまた、こうやってここに戻って来てくれるだけで私は嬉しいです！",
 			message__merry_christmas = "めりーくりすますです！"
 		}
