@@ -12,7 +12,7 @@
 	"timeline_setups": [],
 	"unhandled_root_fields": {},
 	"resolution": {
-		"width": 16,
+		"width": 15,
 		"height": 29
 	},
 	"elements": [
@@ -179,102 +179,9 @@
 			},
 			"type": "cube",
 			"uuid": "5815a060-4032-1ad4-bee7-6f2912b086a1"
-		},
-		{
-			"name": "Brim",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-5, 30, -3],
-			"to": [5, 33, -3],
-			"autouv": 0,
-			"color": 5,
-			"inflate": 0.001,
-			"origin": [0, 24, 2],
-			"faces": {
-				"north": {
-					"uv": [13, 0, 10, 10],
-					"rotation": 90,
-					"texture": 0
-				},
-				"east": {
-					"uv": [0, 0, 0, 0]
-				},
-				"south": {
-					"uv": [13, 10, 10, 0],
-					"rotation": 90,
-					"texture": 0
-				},
-				"west": {
-					"uv": [0, 0, 0, 0]
-				},
-				"up": {
-					"uv": [0, 0, 0, 0]
-				},
-				"down": {
-					"uv": [0, 0, 0, 0]
-				}
-			},
-			"type": "cube",
-			"uuid": "5308da27-03f0-c4f7-71cc-b5a6b9e70a2e"
-		},
-		{
-			"name": "BrimLayer",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-5, 30, -3],
-			"to": [5, 33, -3],
-			"autouv": 0,
-			"color": 5,
-			"inflate": 0.25,
-			"origin": [0, 24, 2],
-			"faces": {
-				"north": {
-					"uv": [16, 0, 13, 10],
-					"rotation": 90,
-					"texture": 0
-				},
-				"east": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"south": {
-					"uv": [16, 10, 13, 0],
-					"rotation": 90,
-					"texture": 0
-				},
-				"west": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				}
-			},
-			"type": "cube",
-			"uuid": "167222e5-566a-bdb8-0c73-0fd0a56ad364"
 		}
 	],
 	"outliner": [
-		{
-			"name": "CMaidBH",
-			"origin": [0, 24, 0],
-			"color": 0,
-			"uuid": "72414c1d-3b3e-3bcb-41d2-cd6ce9f32142",
-			"export": true,
-			"mirror_uv": false,
-			"isOpen": false,
-			"locked": false,
-			"visibility": true,
-			"autouv": 0,
-			"children": ["5308da27-03f0-c4f7-71cc-b5a6b9e70a2e", "167222e5-566a-bdb8-0c73-0fd0a56ad364"]
-		},
 		{
 			"name": "CMaidBBB",
 			"origin": [0, 18, 2],
@@ -282,7 +189,7 @@
 			"uuid": "07ed9aca-5092-0998-7035-9d4c50dc86ea",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": false,
+			"isOpen": true,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
@@ -353,7 +260,7 @@
 			"saved": true,
 			"uuid": "bdcd8076-e0cf-b2d8-d522-165a209769b1",
 			"relative_path": "../../textures/costume_maid_b.png",
-			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAdCAYAAACjbey/AAAAAXNSR0IArs4c6QAAATdJREFUSEutVbEKwjAQbRZxEOpg8V9cBVcHQQR/QAQ/wm8Q/AYRHFwFV/9F6mDBQbpE3sGVeEmaBO3SkMu93r33LlV1/dZZ4Ol0ugrnqqrKimJIa+whTZXlXWPThyHjZjLWajJb68tp7wWQcQmoRuO5vl2PXgAZd1bwej6yXn9AXbjWZoVWBTEkAphJsyoAYp7nrTow+zhkVQCSQjIizm04OUgBcKrABPqAQOz5sMvQquSCfCCZB5BUxecVsmVMC6YS5nmyckgFJJhKfAHEqmAqYQG0zQIf9s0MkRjLgetDNEwhGXlGXEPnlBGAoaHiqpNkZDWWqy3lo6VoGTkZ7+liQwBoKYlESTZVELrSzCSp2P8AYn3gbCHWB+wFE6QhMXSpcrI0XCNjSgvyJ+R1ovwqVynn4WeADwGWJ9m+AAlrAAAAAElFTkSuQmCC"
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAdCAYAAAB1yDbaAAAAAXNSR0IArs4c6QAAAQJJREFUOE9j/PXrx38GAoCNjYMRmxLG169f/hcVFccqCdKAT57RLTjr/66103BqxifPaOUc9v/Y3lU4NeOTB9v85cMbBh4BEbC3sLFxuYyRmAADGYot0MABxs/Pjze8P378yIAtUMHOJhRVIHlsTqdMMyg0YYGFywWgQMQWI1hDG2QIeuhjdTaxoY0txIkKbZBGbCFOdIBhC3GCaRsWiNjSOGU2ExNVsDSPHl04MwYxGYTojAHzOyjUozMawVyiowoWXSDaPyIXopnYjIG1DCNUDCFrQreI6HgGGYJVMzH5GauziY1nWFwjG0JUAYheMMIMAEcVKc5GLstIthm5UKBIMwB1SNjO2XKhIQAAAABJRU5ErkJggg=="
 		}
 	],
 	"animations": [
@@ -364,7 +271,7 @@
 			"override": false,
 			"length": 14,
 			"snapping": 24,
-			"selected": false,
+			"selected": true,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",

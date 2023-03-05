@@ -145,7 +145,7 @@ Costume = {
 			models.models.main.Avatar.Head.CFoxHoodH:setUVPixels(0, 0)
 			Ears.EnableJerkEar = Armor.ArmorVisible[1]
 		elseif costume == "MAID_A" then
-			models.models.main.Avatar.Head.CMaidAH:setVisible(not Armor.ArmorVisible[1])
+			models.models.main.Avatar.Head.CMaidBrimH:setVisible(not Armor.ArmorVisible[1])
 			models.models.main.Avatar.Body.BodyBottom.CMaidABB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
 			Costume.setCostumeTextureOffset(3)
 			events.TICK:register(Costume.CostumeEvents.MaidATick, "costume_maid_a_tick")
@@ -153,7 +153,7 @@ Costume = {
 			Apron.disable()
 			Legs.ReducedLegSwing = true
 		elseif costume == "MAID_B" then
-			models.models.main.Avatar.Head.CMaidBH:setVisible(not Armor.ArmorVisible[1])
+			models.models.main.Avatar.Head.CMaidBrimH:setVisible(not Armor.ArmorVisible[1])
 			models.models.main.Avatar.Body.BodyBottom.CMaidBBB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
 			Sleeve.enable()
 			Costume.setCostumeTextureOffset(4)
@@ -243,7 +243,7 @@ Costume = {
 		for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot, models.models.main.Avatar.Body.Hairs.BackHair}) do
 			modelPart:setVisible(true)
 		end
-		for _, modelPart in ipairs({models.models.main.Avatar.Head.CMaidAH, models.models.main.Avatar.Body.BodyBottom.CMaidABB, models.models.main.Avatar.Head.CMaidBH, models.models.main.Avatar.Body.BodyBottom.CMaidBBB, models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB,  models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH, models.models.main.Avatar.Head.CKimonoH}) do
+		for _, modelPart in ipairs({models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.Body.BodyBottom.CMaidABB, models.models.main.Avatar.Body.BodyBottom.CMaidBBB, models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB,  models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH, models.models.main.Avatar.Head.CKimonoH}) do
 			modelPart:setVisible(false)
 		end
 		for _, modelPart in ipairs({models.models.main.Avatar.Body.BodyBottom.Legs.Apron, models.models.main.Avatar.Body.UmbrellaB}) do
@@ -271,16 +271,14 @@ Costume = {
 				for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot, models.models.main.Avatar.Body.Hairs.BackHair}) do
 					modelPart:setVisible(true)
 				end
-				for _, modelPart in ipairs({models.models.main.Avatar.Head.CMaidAH, models.models.main.Avatar.Head.CMaidBH, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH}) do
+				for _, modelPart in ipairs({models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH}) do
 					modelPart:setVisible(false)
 				end
 				events.RENDER:remove("costume_yukata_tick")
 				Ears.EnableJerkEar = true
 			else
-				if Costume.CurrentCostume == "MAID_A" then
-					models.models.main.Avatar.Head.CMaidAH:setVisible(true)
-				elseif Costume.CurrentCostume == "MAID_B" then
-					models.models.main.Avatar.Head.CMaidBH:setVisible(true)
+				if Costume.CurrentCostume == "MAID_A" or Costume.CurrentCostume == "MAID_B" then
+					models.models.main.Avatar.Head.CMaidBrimH:setVisible(true)
 				elseif Costume.CurrentCostume == "SWIMSUIT" then
 					models.models.main.Avatar.Body.Hairs.BackHair:setVisible(false)
 					models.models.main.Avatar.Head.CSwimsuitH:setVisible(true)
