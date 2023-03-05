@@ -90,6 +90,7 @@ Language = {
 			action_wheel__main_4__action_7__title = "Umbrella sound: ",
 			action_wheel__main_5__title = "Avatar config 2",
 			action_wheel__main_5__action_1__title = "Always use umbrella: ",
+			message__respawn = "Ouch... You! Be a little gentler!",
 			message__afk_too_long = "You! Whre have you been? Possibly, you might have been cuddling other fluffy things even you have me, a fox... sigh... You mean you aren't satisfied even you always cuddle me ...",
 			message__merry_christmas = "Merry Christmas!"
 		},
@@ -180,6 +181,7 @@ Language = {
 			action_wheel__main_4__action_7__title = "傘の開閉音：",
 			action_wheel__main_5__title = "あばたー設定2",
 			action_wheel__main_5__action_1__title = "傘を常にさす：",
+			message__respawn = "いった～い...。ちょっとアンタ！もう少し優しなさいよね！？",
 			message__afk_too_long = "アンタ！アタシを放ってどこに行ってたのよ！？もしかして、アンタ、この神使のアタシを放っておいて、またよそのもふもふに行ってたんじゃ？...まあ、アタシは別にいいけど、センは寂しがるから...、あまり長い間放っておかないでよね。",
 			message__merry_christmas = "めりーくりすます！"
 		}
@@ -191,15 +193,6 @@ Language = {
 	getTranslate = function(keyName)
 		local activeLanguage = client:getActiveLang()
 		return (Language.LanguageData[activeLanguage] and Language.LanguageData[activeLanguage][keyName]) and Language.LanguageData[activeLanguage][keyName] or (Language.LanguageData["en_us"][keyName] and Language.LanguageData["en_us"][keyName] or keyName)
-	end,
-
-	---利用可能な言語リストを返す。
-	getLanguages = function()
-		local result = {}
-		for languageName, _ in pairs(Language.LanguageData) do
-			table.insert(result, languageName)
-		end
-		return result
 	end
 }
 
