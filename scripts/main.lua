@@ -9,6 +9,7 @@ events.ENTITY_INIT:register(function ()
 	PermanentAnimationAction = require("scripts.actions.permanent_animation_action")
 
 	--パーツ別クラス
+	require("scripts.elytra")
 	Arms = require("scripts.arms")
 	Legs = require("scripts.legs")
 	Sleeve = require("scripts.sleeve")
