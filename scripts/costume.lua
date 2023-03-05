@@ -143,9 +143,8 @@ Costume = {
 			Costume.setCostumeTextureOffset(1)
 			Apron.disable()
 		elseif costume == "DISGUISE" then
-			for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot}) do
-				modelPart:setVisible(Armor.ArmorVisible[1])
-			end
+			local earVisible = player:getItem(6).id == "minecraft:chainmail_helmet"
+			models.models.main.Avatar.Head.Ears:setVisible(earVisible)
 			models.models.main.Avatar.Head.CDisguiseH:setVisible(not Armor.ArmorVisible[1])
 			models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT:setVisible(not Armor.ArmorVisible[2])
 			Sleeve.disable()
@@ -154,7 +153,7 @@ Costume = {
 			end
 			Costume.setCostumeTextureOffset(2)
 			models.models.main.Avatar.Body.BodyBottom.Legs.Apron:setUVPixels(16, 0)
-			Ears.EnableJerkEar = Armor.ArmorVisible[1]
+			Ears.EnableJerkEar = earVisible
 		elseif costume == "MAID_A" then
 			models.models.main.Avatar.Head.CMaidBrimH:setVisible(not Armor.ArmorVisible[1])
 			models.models.main.Avatar.Body.BodyBottom.CMaidABB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
@@ -221,14 +220,10 @@ Costume = {
 			Costume.setCostumeTextureOffset(9)
 			Apron.disable()
 		elseif costume == "KNIT" then
-			for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot}) do
-				modelPart:setVisible(Armor.ArmorVisible[1])
-			end
+			models.models.main.Avatar.Head.Ears:setVisible(player:getItem(6).id == "minecraft:chainmail_helmet")
 			models.models.main.Avatar.Head.CKnitH:setVisible(not Armor.ArmorVisible[1])
 		elseif costume == "FOX_HOODIE_RED" then
-			for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot}) do
-				modelPart:setVisible(Armor.ArmorVisible[1])
-			end
+			models.models.main.Avatar.Head.Ears:setVisible(player:getItem(6).id == "minecraft:chainmail_helmet")
 			models.models.main.Avatar.Head.CFoxHoodH:setVisible(not Armor.ArmorVisible[1])
 			Sleeve.disable()
 			for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do
@@ -239,9 +234,7 @@ Costume = {
 			HairAccessory.visible(Armor.ArmorVisible[1])
 			Apron.disable()
 		elseif costume == "FOX_HOODIE_WHITE" then
-			for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot}) do
-				modelPart:setVisible(Armor.ArmorVisible[1])
-			end
+			models.models.main.Avatar.Head.Ears:setVisible(player:getItem(6).id == "minecraft:chainmail_helmet")
 			models.models.main.Avatar.Head.CFoxHoodH:setVisible(not Armor.ArmorVisible[1])
 			Sleeve.disable()
 			for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do
@@ -259,16 +252,15 @@ Costume = {
 			Costume.setCostumeTextureOffset(12)
 			Apron.disable()
 		elseif costume == "CASUAL" then
-			for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot}) do
-				modelPart:setVisible(Armor.ArmorVisible[1])
-			end
+			local earVisible = player:getItem(6).id == "minecraft:chainmail_helmet"
+			models.models.main.Avatar.Head.Ears:setVisible(earVisible)
 			models.models.main.Avatar.Head.CBeretH:setVisible(not Armor.ArmorVisible[1])
 			Sleeve.disable()
 			for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do
 				modelPart:setVisible(false)
 			end
 			Costume.setCostumeTextureOffset(13)
-			Ears.EnableJerkEar = Armor.ArmorVisible[1]
+			Ears.EnableJerkEar = earVisible
 			Apron.disable()
 		elseif costume == "SAILOR" then
 			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
@@ -288,7 +280,7 @@ Costume = {
 			Costume.setCostumeTextureOffset(15)
 			Apron.disable()
 		elseif costume == "SANTA" then
-			models.models.main.Avatar.Head.Ears.LeftEarPivot:setVisible(Armor.ArmorVisible[1])
+			models.models.main.Avatar.Head.Ears.LeftEarPivot:setVisible(player:getItem(6).id == "minecraft:chainmail_helmet")
 			models.models.main.Avatar.Head.CSantaH:setVisible(not Armor.ArmorVisible[1])
 			Costume.setCostumeTextureOffset(16)
 			HairAccessory.visible(Armor.ArmorVisible[1])
@@ -306,12 +298,13 @@ Costume = {
 
 	---コスチュームをリセットし、デフォルトのコスチュームにする。
 	resetCostume = function ()
-		for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do
+		for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do
 			modelPart:setVisible(true)
 		end
 		for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT, models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.Body.BodyBottom.CMaidABB, models.models.main.Avatar.Body.BodyBottom.CMaidBBB, models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB,  models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH, models.models.main.Avatar.Head.CKimonoH}) do
 			modelPart:setVisible(false)
 		end
+		models.models.main.Avatar.Head.Ears.LeftEarPivot:setVisible()
 		for _, modelPart in ipairs({models.models.main.Avatar.Body.BodyBottom.Legs.Apron, models.models.main.Avatar.Body.UmbrellaB}) do
 			modelPart:setUVPixels()
 		end
@@ -335,9 +328,8 @@ Costume = {
 	onArmorChenge = function (armorIndex)
 		if armorIndex == 1 then
 			if Armor.ArmorVisible[1] then
-				for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot}) do
-					modelPart:setVisible(true)
-				end
+				models.models.main.Avatar.Head.Ears:setVisible(player:getItem(6).id == "minecraft:chainmail_helmet")
+				models.models.main.Avatar.Head.Ears.LeftEarPivot:setVisible()
 				for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH}) do
 					modelPart:setVisible(false)
 				end
@@ -348,40 +340,41 @@ Costume = {
 				HairAccessory.visible(Costume.CurrentCostume ~= "KIMONO")
 			else
 				if Costume.CurrentCostume == "DISGUISE" then
-					for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot}) do
-						modelPart:setVisible(false)
-					end
+					models.models.main.Avatar.Head.Ears:setVisible(false)
 					models.models.main.Avatar.Head.CDisguiseH:setVisible(true)
 					Ears.EnableJerkEar = false
 				elseif Costume.CurrentCostume == "MAID_A" or Costume.CurrentCostume == "MAID_B" then
-					models.models.main.Avatar.Head.CMaidBrimH:setVisible(true)
+					for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.CMaidBrimH}) do
+						modelPart:setVisible(true)
+					end
 				elseif Costume.CurrentCostume == "SWIMSUIT" then
+					models.models.main.Avatar.Head.Ears:setVisible(true)
 					events.TICK:register(Costume.CostumeEvents.SummerHatTick, "costume_summer_hat_tick")
 				elseif Costume.CurrentCostume == "YUKATA" then
+					models.models.main.Avatar.Head.Ears:setVisible(true)
 					events.TICK:register(Costume.CostumeEvents.YukataTick, "costume_yukata_tick")
 				elseif Costume.CurrentCostume == "KNIT" then
-					for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot}) do
-						modelPart:setVisible(false)
-					end
+					models.models.main.Avatar.Head.Ears:setVisible(false)
 					models.models.main.Avatar.Head.CKnitH:setVisible(true)
 				elseif Costume.CurrentCostume == "FOX_HOODIE_RED" or Costume.CurrentCostume == "FOX_HOODIE_WHITE" then
-					for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot}) do
-						modelPart:setVisible(false)
-					end
+					models.models.main.Avatar.Head.Ears:setVisible(false)
 					models.models.main.Avatar.Head.CFoxHoodH:setVisible(true)
 					HairAccessory.visible(false)
 				elseif Costume.CurrentCostume == "CASUAL" then
-					for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears.LeftEarPivot}) do
-						modelPart:setVisible(Armor.ArmorVisible[1])
-					end
+					models.models.main.Avatar.Head.Ears:setVisible(false)
 					models.models.main.Avatar.Head.CBeretH:setVisible(true)
 					Ears.EnableJerkEar = false
 				elseif Costume.CurrentCostume == "SANTA" then
+					for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.CSantaH}) do
+						modelPart:setVisible(true)
+					end
 					models.models.main.Avatar.Head.Ears.LeftEarPivot:setVisible(false)
-					models.models.main.Avatar.Head.CSantaH:setVisible(true)
 					HairAccessory.visible(false)
 				elseif Costume.CurrentCostume == "KIMONO" then
+					models.models.main.Avatar.Head.Ears:setVisible(true)
 					HairAccessory.visible(false)
+				else
+					models.models.main.Avatar.Head.Ears:setVisible(true)
 				end
 			end
 		elseif armorIndex == 2 then
