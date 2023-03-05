@@ -381,7 +381,7 @@ if host:isHost() then
 	end)
 
 	--アクション1-7. こたつ
-	ActionWheel.Pages[1]:newAction(7):toggleColor(0.91, 0.67, 0.27):item("campfire"):onToggle(function ()
+	ActionWheel.Pages[1]:newAction(7):toggleColor(0.91, 0.67, 0.27):item("campfire"):onToggle(function (_, action)
 		if not ActionWheel.IsAnimationPlaying then
 			if Kotatsu:checkAction() then
 				pings.main1_action7_toggle()
@@ -391,17 +391,17 @@ if host:isHost() then
 				else
 					print(Language.getTranslate("action_wheel__main_1__action_7__unavailable"))
 				end
-				ActionWheel.Pages[1]:getAction(7):toggled(false)
+				action:toggled(false)
 			end
 		else
-			ActionWheel.Pages[1]:getAction(7):toggled(false)
+			action:toggled(false)
 		end
 	end):onUntoggle(function ()
 		pings.main1_action7_untoggle()
 	end)
 
 	--アクション2-1. おすわり（正座）
-	ActionWheel.Pages[2]:newAction(1):toggleColor(0.91, 0.67, 0.27):item("oak_stairs"):onToggle(function ()
+	ActionWheel.Pages[2]:newAction(1):toggleColor(0.91, 0.67, 0.27):item("oak_stairs"):onToggle(function (_, action)
 		if not ActionWheel.IsAnimationPlaying then
 			if SitDown:checkAction() then
 				pings.main2_action1_toggle()
@@ -411,10 +411,10 @@ if host:isHost() then
 				else
 					print(Language.getTranslate("action_wheel__main_2__action_1__unavailable"))
 				end
-				ActionWheel.Pages[2]:getAction(1):toggled(false)
+				action:toggled(false)
 			end
 		else
-			ActionWheel.Pages[2]:getAction(1):toggled(false)
+			action:toggled(false)
 		end
 	end):onUntoggle(function ()
 		pings.main2_action1_untoggle()
@@ -504,10 +504,10 @@ if host:isHost() then
 
 	--アクション3-x. 撮影用ポーズ
 	for i = 1, 7 do
-		ActionWheel.Pages[3]:newAction(i):item("armor_stand"):toggleColor(255, 255, 0.33):onToggle(function ()
-		poseToggle(ActionWheel.Pages[3]:getAction(i), i)
-		end):onUntoggle(function ()
-			poseToggle(ActionWheel.Pages[3]:getAction(i), i)
+		ActionWheel.Pages[3]:newAction(i):item("armor_stand"):toggleColor(255, 255, 0.33):onToggle(function (_, action)
+		poseToggle(action, i)
+		end):onUntoggle(function (_, action)
+			poseToggle(action, i)
 		end)
 	end
 
@@ -560,13 +560,13 @@ if host:isHost() then
 	end)
 
 	--アクション4-4. 自動ブルブル
-	ActionWheel.Pages[4]:newAction(4):title(Language.getTranslate("action_wheel__main_4__action_4__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__main_4__action_4__title")..Language.getTranslate("action_wheel__toggle_on")):item("water_bucket"):color(0.67, 0, 0):hoverColor(1, 0.33, 0.33):toggleColor(0, 0.67, 0):onToggle(function ()
+	ActionWheel.Pages[4]:newAction(4):title(Language.getTranslate("action_wheel__main_4__action_4__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__main_4__action_4__title")..Language.getTranslate("action_wheel__toggle_on")):item("water_bucket"):color(0.67, 0, 0):hoverColor(1, 0.33, 0.33):toggleColor(0, 0.67, 0):onToggle(function (_, action)
 		pings.main4_action4_toggle()
-		ActionWheel.Pages[4]:getAction(4):hoverColor(0.33, 1, 0.33)
+		action:hoverColor(0.33, 1, 0.33)
 		Config.saveConfig("autoShake", true)
-	end):onUntoggle(function ()
+	end):onUntoggle(function (_, action)
 		pings.main4_action4_untoggle()
-		ActionWheel.Pages[4]:getAction(4):hoverColor(1, 0.33, 0.33)
+		action:hoverColor(1, 0.33, 0.33)
 		Config.saveConfig("autoShake", false)
 	end)
 	if Config.loadConfig("autoShake", true) then
@@ -576,13 +576,13 @@ if host:isHost() then
 	end
 
 	--アクション4-5. 防具の非表示
-	ActionWheel.Pages[4]:newAction(5):title(Language.getTranslate("action_wheel__main_4__action_5__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__main_4__action_5__title")..Language.getTranslate("action_wheel__toggle_on")):item("iron_chestplate"):color(0.67, 0, 0):hoverColor(1, 0.33, 0.33):toggleColor(0, 0.67, 0):onToggle(function ()
+	ActionWheel.Pages[4]:newAction(5):title(Language.getTranslate("action_wheel__main_4__action_5__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__main_4__action_5__title")..Language.getTranslate("action_wheel__toggle_on")):item("iron_chestplate"):color(0.67, 0, 0):hoverColor(1, 0.33, 0.33):toggleColor(0, 0.67, 0):onToggle(function (_, action)
 		pings.main4_action5_toggle()
-		ActionWheel.Pages[4]:getAction(5):hoverColor(0.33, 1, 0.33)
+		action:hoverColor(0.33, 1, 0.33)
 		Config.saveConfig("showArmor", true)
-	end):onUntoggle(function ()
+	end):onUntoggle(function (_, action)
 		pings.main4_action5_untoggle()
-		ActionWheel.Pages[4]:getAction(5):hoverColor(1, 0.33, 0.33)
+		action:hoverColor(1, 0.33, 0.33)
 		Config.saveConfig("showArmor", false)
 	end)
 	if Config.loadConfig("showArmor", false) then
@@ -592,13 +592,13 @@ if host:isHost() then
 	end
 
 	--アクション4-6. 一人称視点での狐火の表示の切り替え
-	ActionWheel.Pages[4]:newAction(6):title(Language.getTranslate("action_wheel__main_4__action_6__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__main_4__action_6__title")..Language.getTranslate("action_wheel__toggle_on")):item("soul_torch"):color(0.67, 0, 0):hoverColor(1, 0.33, 0.33):toggleColor(0, 0.67, 0):onToggle(function ()
+	ActionWheel.Pages[4]:newAction(6):title(Language.getTranslate("action_wheel__main_4__action_6__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__main_4__action_6__title")..Language.getTranslate("action_wheel__toggle_on")):item("soul_torch"):color(0.67, 0, 0):hoverColor(1, 0.33, 0.33):toggleColor(0, 0.67, 0):onToggle(function (_, action)
 		FoxFire.FoxFireInFirstPerson = true
-		ActionWheel.Pages[4]:getAction(6):hoverColor(0.33, 1, 0.33)
+		action:hoverColor(0.33, 1, 0.33)
 		Config.saveConfig("foxFireInFirstPerson", true)
-	end):onUntoggle(function ()
+	end):onUntoggle(function (_, action)
 		FoxFire.FoxFireInFirstPerson = false
-		ActionWheel.Pages[4]:getAction(6):hoverColor(1, 0.33, 0.33)
+		action:hoverColor(1, 0.33, 0.33)
 		Config.saveConfig("foxFireInFirstPerson", false)
 	end)
 	if Config.loadConfig("foxFireInFirstPerson", true) then
@@ -608,13 +608,13 @@ if host:isHost() then
 	end
 
 	--アクション4-7. 傘の開閉音
-	ActionWheel.Pages[4]:newAction(7):title(Language.getTranslate("action_wheel__main_4__action_7__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__main_4__action_7__title")..Language.getTranslate("action_wheel__toggle_on")):item("note_block"):color(0.67, 0, 0):hoverColor(1, 0.33, 0.33):toggleColor(0, 0.67, 0):onToggle(function ()
+	ActionWheel.Pages[4]:newAction(7):title(Language.getTranslate("action_wheel__main_4__action_7__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__main_4__action_7__title")..Language.getTranslate("action_wheel__toggle_on")):item("note_block"):color(0.67, 0, 0):hoverColor(1, 0.33, 0.33):toggleColor(0, 0.67, 0):onToggle(function (_, action)
 		pings.main4_action7_toggle()
-		ActionWheel.Pages[4]:getAction(7):hoverColor(0.33, 1, 0.33)
+		action:hoverColor(0.33, 1, 0.33)
 		Config.saveConfig("umbrellaSound", true)
-	end):onUntoggle(function ()
+	end):onUntoggle(function (_, action)
 		pings.main4_action7_untoggle()
-		ActionWheel.Pages[4]:getAction(7):hoverColor(1, 0.33, 0.33)
+		action:hoverColor(1, 0.33, 0.33)
 		Config.saveConfig("umbrellaSound", false)
 	end)
 	if Config.loadConfig("umbrellaSound", true) then
@@ -624,13 +624,13 @@ if host:isHost() then
 	end
 
 	--アクション5-1. 傘を常にさす
-	ActionWheel.Pages[5]:newAction(1):title(Language.getTranslate("action_wheel__main_5__action_1__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__main_5__action_1__title")..Language.getTranslate("action_wheel__toggle_on")):item("red_carpet"):color(0.67, 0, 0):hoverColor(1, 0.33, 0.33):toggleColor(0, 0.67, 0):onToggle(function ()
+	ActionWheel.Pages[5]:newAction(1):title(Language.getTranslate("action_wheel__main_5__action_1__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__main_5__action_1__title")..Language.getTranslate("action_wheel__toggle_on")):item("red_carpet"):color(0.67, 0, 0):hoverColor(1, 0.33, 0.33):toggleColor(0, 0.67, 0):onToggle(function (_, action)
 		pings.main5_action1_toggle()
-		ActionWheel.Pages[5]:getAction(1):hoverColor(0.33, 1, 0.33)
+		action:hoverColor(0.33, 1, 0.33)
 		Config.saveConfig("alwaysUmbrella", true)
-	end):onUntoggle(function ()
+	end):onUntoggle(function (_, action)
 		pings.main5_action1_untoggle()
-		ActionWheel.Pages[5]:getAction(1):hoverColor(1, 0.33, 0.33)
+		action:hoverColor(1, 0.33, 0.33)
 		Config.saveConfig("alwaysUmbrella", false)
 	end)
 	if Config.loadConfig("alwaysUmbrella", false) then
