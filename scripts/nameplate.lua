@@ -4,18 +4,7 @@
 
 Nameplate = {
 	NameList = {player:getName(), "Shiro", "シロ"},
-	NamePlateOffset = 0,
-
-	---プレイヤー名前設定の初期処理
-	nameInit = function ()
-		local loadedData = Config.loadConfig("name", 1)
-		if loadedData <= #Nameplate.NameList then
-			nameplate.ALL:setText(Nameplate.NameList[loadedData])
-		else
-			nameplate.ALL:setText(Nameplate.NameList[1])
-			Config.saveConfig("name", 1)
-		end
-	end
+	NamePlateOffset = 0
 }
 
 events.RENDER:register(function ()
@@ -32,6 +21,12 @@ events.RENDER:register(function ()
 	end
 end)
 
-Nameplate.nameInit()
+local loadedData = Config.loadConfig("name", 1)
+if loadedData <= #Nameplate.NameList then
+	nameplate.ALL:setText(Nameplate.NameList[loadedData])
+else
+	nameplate.ALL:setText(Nameplate.NameList[1])
+	Config.saveConfig("name", 1)
+end
 
 return Nameplate
