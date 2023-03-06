@@ -107,7 +107,7 @@ Costume = {
 		---浴衣のチック処理
 		YukataTick = function ()
 			local helmetItemID = player:getItem(6).id
-			models.models.main.Avatar.Head.CFoxMaskH:setVisible(string.find(helmetItemID, "^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1])
+			models.models.main.Avatar.Head.CFoxMaskH:setVisible(helmetItemID:find("^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1])
 			models.models.main.Avatar.Head.CFoxMaskH:setPrimaryTexture("RESOURCE", (helmetItemID == "minecraft:leather_helmet" or helmetItemID == "minecraft:chainmail_helmet" or helmetItemID == "minecraft:iron_helmet") and "textures/entity/fox/fox.png" or "textures/entity/fox/snow_fox.png")
 		end,
 
@@ -136,6 +136,39 @@ Costume = {
 				models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2:setPos()
 				models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2.Dress3:setPos()
 				models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2.Dress3.Dress4:setPos()
+			end
+			local inariStick = models.models.main.Avatar.Body.InariStick
+			local mainItem = player:getItem(1)
+			local hasSword = mainItem.id:find("^minecraft:.+_sword$")
+			inariStick:setVisible(hasSword ~= nil and not Arms.ItemHeldContradicts)
+			if hasSword then
+				local leftHanded = player:isLeftHanded()
+				if SitDown.IsAnimationPlaying then
+					if leftHanded then
+						inariStick:setRot(20, -10, 15)
+					else
+						inariStick:setRot(20, 10, -15)
+					end
+				else
+					inariStick:setRot(crouching and 30 or 0)
+				end
+				vanilla_model.RIGHT_ITEM:setVisible(leftHanded and not Arms.ItemHeldContradicts)
+				vanilla_model.LEFT_ITEM:setVisible(not leftHanded and not Arms.ItemHeldContradicts)
+				inariStick:setSecondaryRenderType(mainItem:hasGlint() and "GLINT" or "NONE")
+				local isFirstPerson = renderer:isFirstPerson()
+				if leftHanded then
+					inariStick:setPos(-6, crouching and 3 or 0)
+					inariStick.StickOffset:setPos( isFirstPerson and -6 or 0)
+					inariStick:setParentType("LeftArm")
+				else
+					inariStick:setPos(5, crouching and 3 or 0)
+					inariStick.StickOffset:setPos( isFirstPerson and 5 or 0)
+					inariStick:setParentType("RightArm")
+				end
+			else
+				for _, vanillaModel in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
+					vanillaModel:setVisible(not Arms.ItemHeldContradicts)
+				end
 			end
 		end,
 
@@ -271,7 +304,7 @@ Costume = {
 	---コスチュームをリセットし、デフォルトのコスチュームにする。
 	resetCostume = function ()
 		models.models.main.Avatar.Body.Hairs.BackHair:setVisible(true)
-		for _, modelPart in ipairs({models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.Body.BodyBottom.CMaidABB, models.models.main.Avatar.Body.BodyBottom.CMaidBBB, models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB,  models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH, models.models.main.Avatar.Head.CKimonoH, models.models.main.Avatar.Head.CInariGirlH, models.models.main.Avatar.Body.CInariGirlB, models.models.main.Avatar.Body.BodyBottom.CInariGirlBB}) do
+		for _, modelPart in ipairs({models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.Body.BodyBottom.CMaidABB, models.models.main.Avatar.Body.BodyBottom.CMaidBBB, models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB,  models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH, models.models.main.Avatar.Head.CKimonoH, models.models.main.Avatar.Head.CInariGirlH, models.models.main.Avatar.Body.CInariGirlB, models.models.main.Avatar.Body.BodyBottom.CInariGirlBB, models.models.main.Avatar.Body.InariStick}) do
 			modelPart:setVisible(false)
 		end
 		models.models.main.Avatar.Head.Ears:setVisible(not Armor.ArmorVisible[1])
@@ -284,6 +317,11 @@ Costume = {
 		end
 		for _, renderEventName in ipairs({"costume_maid_a_render", "costume_maid_b_render", "costume_inari_render"}) do
 			events.RENDER:remove(renderEventName)
+		end
+		if player:isLeftHanded() then
+			vanilla_model.LEFT_ITEM:setVisible(not Arms.ItemHeldContradicts)
+		else
+			vanilla_model.RIGHT_ITEM:setVisible(not Arms.ItemHeldContradicts)
 		end
 		Costume.setCostumeTextureOffset(0)
 		Sleeve.enable()
@@ -385,7 +423,7 @@ Costume = {
 
 local loadedData = Config.loadConfig("costume", 1)
 if loadedData <= #Costume.CostumeList then
-	Costume.CurrentCostume = string.upper(Costume.CostumeList[loadedData])
+	Costume.CurrentCostume = Costume.CostumeList[loadedData]:upper()
 	if Costume.CurrentCostume ~= "DEFAULT" then
 		Costume.setCostume(Costume.CurrentCostume)
 	else
