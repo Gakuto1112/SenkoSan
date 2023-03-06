@@ -92,7 +92,7 @@ Costume = {
 
 		---麦わら帽子のチック処理
 		SummerHatTick = function ()
-			local summerHatVisible = string.find(player:getItem(6).id, "^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1]
+			local summerHatVisible = player:getItem(6).id:find("^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1]
 			models.models.main.Avatar.Head.CSwimsuitH:setVisible(summerHatVisible)
 			for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Head.Cowlick}) do
 				modelPart:setVisible(not summerHatVisible)
@@ -115,7 +115,7 @@ Costume = {
 		---浴衣のチック処理
 		YukataTick = function ()
 			local helmetItemID = player:getItem(6).id
-			models.models.main.Avatar.Head.CFoxMaskH:setVisible(string.find(helmetItemID, "^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1])
+			models.models.main.Avatar.Head.CFoxMaskH:setVisible(helmetItemID:find("^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1])
 			models.models.main.Avatar.Head.CFoxMaskH:setPrimaryTexture("RESOURCE", (helmetItemID == "minecraft:leather_helmet" or helmetItemID == "minecraft:chainmail_helmet" or helmetItemID == "minecraft:iron_helmet") and "textures/entity/fox/fox.png" or "textures/entity/fox/snow_fox.png")
 		end,
 
@@ -276,6 +276,7 @@ Costume = {
 		for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT, models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.Body.BodyBottom.CMaidABB, models.models.main.Avatar.Body.BodyBottom.CMaidBBB, models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB,  models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH, models.models.main.Avatar.Head.CKimonoH}) do
 			modelPart:setVisible(false)
 		end
+		models.models.main.Avatar.Head.Ears:setVisible(not Armor.ArmorVisible[1])
 		models.models.main.Avatar.Head.Ears.LeftEarPivot:setVisible()
 		for _, modelPart in ipairs({models.models.main.Avatar.Body.BodyBottom.Legs.Apron, models.models.main.Avatar.Body.UmbrellaB}) do
 			modelPart:setUVPixels()
@@ -405,7 +406,7 @@ Costume = {
 
 local loadedData = Config.loadConfig("costume", 1)
 if loadedData <= #Costume.CostumeList then
-	Costume.CurrentCostume = string.upper(Costume.CostumeList[loadedData])
+	Costume.CurrentCostume = Costume.CostumeList[loadedData]:upper()
 	if Costume.CurrentCostume ~= "DEFAULT" then
 		Costume.setCostume(Costume.CurrentCostume)
 	else
