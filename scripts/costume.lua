@@ -22,9 +22,10 @@
 ---| "CHINA_DRESS"
 ---| "SANTA"
 ---| "KIMONO"
+---| "INARI"
 
 Costume = {
-	CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "tracksuit", "casual", "sailor", "china_dress", "santa", "kimono"},
+	CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "tracksuit", "casual", "sailor", "china_dress", "santa", "kimono", "inari"},
 	CurrentCostume = "DEFAULT",
 	CostumeEvents = {
 		---メイド服Aのチック処理
@@ -64,7 +65,7 @@ Costume = {
 
 		---メイド服Bのチック処理
 		MaidBTick = function ()
-			models.models.main.Avatar.Body.BodyBottom.CMaidBBB:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
+			models.models.main.Avatar.Body.BodyBottom.CMaidBBB:setRot(player:getPose() == "CROUCHING" and 27.5 or 0)
 			if player:getVehicle() then
 				if not Armor.ArmorVisible[3] then
 					models.models.main.Avatar.Body.BodyBottom.CMaidBBB.Skirt2:setPos(0, 2.5)
@@ -113,8 +114,36 @@ Costume = {
 		---ミニスカートのチック処理
 		MiniskirtTick = function ()
 			local crouching = player:getPose() == "CROUCHING"
-			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setRot((crouching or player:getVehicle()) and 27.5 or 0, 0, 0)
+			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setRot((crouching or player:getVehicle()) and 27.5 or 0)
 			models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setPos(0, 0, crouching and 1.25 or 0)
+		end,
+
+		---稲荷少女のチック処理
+		InariTick = function ()
+			local crouching = player:getPose() == "CROUCHING"
+			models.models.main.Avatar.Body.BodyBottom.CInariGirlBB:setPos(0, 0, crouching and 1.25 or 0)
+			models.models.main.Avatar.Body.BodyBottom.CInariGirlBB:setRot(crouching and 27.5 or 0)
+			if player:getVehicle() then
+				if not Armor.ArmorVisible[3] then
+					models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2:setPos(0, 2.5)
+					models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2:setScale(1.05, 1, 1.1)
+					models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2.Dress3:setPos(0, 2.5)
+					models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2.Dress3:setScale(1.05, 1, 1.1)
+					models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2.Dress3.Dress4:setPos(0, 2.5)
+					models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2.Dress3.Dress4:setScale(1.05, 1, 1.1)
+				end
+			else
+				models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2:setPos()
+				models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2.Dress3:setPos()
+				models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2.Dress3.Dress4:setPos()
+			end
+		end,
+
+		---稲荷少女のレンダー処理
+		InariRender = function ()
+			local legAngle = math.abs(vanilla_model.RIGHT_LEG:getOriginRot().x) / 80
+			models.models.main.Avatar.Body.BodyBottom.CInariGirlBB:setScale(1, 1, 1 + 0.15 * legAngle)
+			models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2:setScale(1, 1, 1 + 0.15 * legAngle)
 		end
 	},
 
@@ -227,13 +256,22 @@ Costume = {
 			models.models.main.Avatar.Body.UmbrellaB:setUVPixels(0, 27)
 			Costume.setCostumeTextureOffset(17)
 			Apron.disable()
+		elseif costume == "INARI" then
+			for _, modelPart in ipairs({models.models.main.Avatar.Head.CInariGirlH, models.models.main.Avatar.Body.CInariGirlB, models.models.main.Avatar.Body.BodyBottom.CInariGirlBB}) do
+				modelPart:setVisible(true)
+			end
+			Costume.setCostumeTextureOffset(18)
+			events.TICK:register(Costume.CostumeEvents.InariTick, "costume_inari_tick")
+			events.RENDER:register(Costume.CostumeEvents.InariRender, "costume_inari_render")
+			Apron.disable()
+			Legs.ReducedLegSwing = true
 		end
 	end,
 
 	---コスチュームをリセットし、デフォルトのコスチュームにする。
 	resetCostume = function ()
 		models.models.main.Avatar.Body.Hairs.BackHair:setVisible(true)
-		for _, modelPart in ipairs({models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.Body.BodyBottom.CMaidABB, models.models.main.Avatar.Body.BodyBottom.CMaidBBB, models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB,  models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH, models.models.main.Avatar.Head.CKimonoH}) do
+		for _, modelPart in ipairs({models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.Body.BodyBottom.CMaidABB, models.models.main.Avatar.Body.BodyBottom.CMaidBBB, models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB,  models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH, models.models.main.Avatar.Head.CKimonoH, models.models.main.Avatar.Head.CInariGirlH, models.models.main.Avatar.Body.CInariGirlB, models.models.main.Avatar.Body.BodyBottom.CInariGirlBB}) do
 			modelPart:setVisible(false)
 		end
 		models.models.main.Avatar.Head.Ears:setVisible(not Armor.ArmorVisible[1])
@@ -241,10 +279,10 @@ Costume = {
 		for _, modelPart in ipairs({models.models.main.Avatar.Body.BodyBottom.Legs.Apron, models.models.main.Avatar.Body.UmbrellaB}) do
 			modelPart:setUVPixels()
 		end
-		for _, tickEventName in ipairs({"costume_maid_a_tick", "costume_maid_b_tick", "costume_miniskirt_tick", "costume_ponpon_tick", "costume_yukata_tick"}) do
+		for _, tickEventName in ipairs({"costume_maid_a_tick", "costume_maid_b_tick", "costume_miniskirt_tick", "costume_ponpon_tick", "costume_yukata_tick", "costume_inari_tick"}) do
 			events.TICK:remove(tickEventName)
 		end
-		for _, renderEventName in ipairs({"costume_maid_a_render", "costume_maid_b_render"}) do
+		for _, renderEventName in ipairs({"costume_maid_a_render", "costume_maid_b_render", "costume_inari_render"}) do
 			events.RENDER:remove(renderEventName)
 		end
 		Costume.setCostumeTextureOffset(0)
@@ -307,13 +345,13 @@ Costume = {
 			models.models.main.Avatar.Body.Hairs.BackHair:setPos(0, 0, Armor.ArmorVisible[2] and 1 or 0)
 		elseif armorIndex == 3 then
 			if Armor.ArmorVisible[3] then
-				for _, modelPart in ipairs({models.models.main.Avatar.Body.BodyBottom.CMaidABB, models.models.main.Avatar.Body.BodyBottom.CMaidBBB, models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB}) do
+				for _, modelPart in ipairs({models.models.main.Avatar.Body.BodyBottom.CMaidABB, models.models.main.Avatar.Body.BodyBottom.CMaidBBB, models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB, models.models.main.Avatar.Body.BodyBottom.CInariGirlBB}) do
 					modelPart:setVisible(false)
 				end
-				for _, tickEventName in ipairs({"costume_maid_a_tick", "costume_maid_b_tick", "costume_miniskirt_tick"}) do
+				for _, tickEventName in ipairs({"costume_maid_a_tick", "costume_maid_b_tick", "costume_miniskirt_tick", "costume_inari_tick"}) do
 					events.TICK:remove(tickEventName)
 				end
-				for _, renderEventName in ipairs({"costume_maid_a_render", "costume_maid_b_render"}) do
+				for _, renderEventName in ipairs({"costume_maid_a_render", "costume_maid_b_render", "costume_inari_render"}) do
 					events.RENDER:remove(renderEventName)
 				end
 				Apron.disable()
@@ -323,17 +361,23 @@ Costume = {
 					models.models.main.Avatar.Body.BodyBottom.CMaidABB:setVisible(true)
 					events.TICK:register(Costume.CostumeEvents.MaidATick, "costume_maid_a_tick")
 					events.RENDER:register(Costume.CostumeEvents.MaidARender, "costume_maid_a_render")
+					Legs.ReducedLegSwing = true
 				elseif Costume.CurrentCostume == "MAID_B" then
 					models.models.main.Avatar.Body.BodyBottom.CMaidBBB:setVisible(true)
 					events.TICK:register(Costume.CostumeEvents.MaidATick, "costume_maid_b_tick")
 					events.RENDER:register(Costume.CostumeEvents.MaidARender, "costume_maid_b_render")
+					Legs.ReducedLegSwing = true
 				elseif Costume.CurrentCostume == "CHEERLEADER" or Costume.CurrentCostume == "SAILOR" then
 					models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB:setVisible(true)
 					events.TICK:register(Costume.CostumeEvents.MiniskirtTick, "costume_miniskirt_tick")
+				elseif Costume.CurrentCostume == "INARI" then
+					models.models.main.Avatar.Body.BodyBottom.CInariGirlBB:setVisible(true)
+					events.TICK:register(Costume.CostumeEvents.InariTick, "costume_inari_tick")
+					events.RENDER:register(Costume.CostumeEvents.InariRender, "costume_inari_render")
+					Legs.ReducedLegSwing = true
 				elseif Costume.CurrentCostume == "DEFAULT" or Costume.CurrentCostume == "DISGUISE" or Costume.CurrentCostume == "KAPPOGI" or Costume.CurrentCostume == "KNIT" or Costume.CurrentCostume == "SANTA" then
 					Apron.enable()
 				end
-				Legs.ReducedLegSwing = Costume.CurrentCostume == "MAID_A" or Costume.CurrentCostume == "MAID_B"
 			end
 		end
 	end
