@@ -106,7 +106,7 @@ Costume = {
 		---浴衣のチック処理
 		YukataTick = function ()
 			local helmetItemID = player:getItem(6).id
-			models.models.main.Avatar.Head.CFoxMaskH:setVisible(string.find(helmetItemID, "^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1])
+			models.models.main.Avatar.Head.CFoxMaskH:setVisible(helmetItemID:find("^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1])
 			models.models.main.Avatar.Head.CFoxMaskH:setPrimaryTexture("RESOURCE", (helmetItemID == "minecraft:leather_helmet" or helmetItemID == "minecraft:chainmail_helmet" or helmetItemID == "minecraft:iron_helmet") and "textures/entity/fox/fox.png" or "textures/entity/fox/snow_fox.png")
 		end,
 
@@ -341,7 +341,7 @@ Costume = {
 
 local loadedData = Config.loadConfig("costume", 1)
 if loadedData <= #Costume.CostumeList then
-	Costume.CurrentCostume = string.upper(Costume.CostumeList[loadedData])
+	Costume.CurrentCostume = Costume.CostumeList[loadedData]:upper()
 	if Costume.CurrentCostume ~= "DEFAULT" then
 		Costume.setCostume(Costume.CurrentCostume)
 	else

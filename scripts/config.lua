@@ -65,7 +65,7 @@ function pings.syncAvatarConfig(poseID, nameID, costumeID, skullID, autoShake, s
 		if ActionWheel.CurrentCostumeState == 0 then
 			Costume.resetCostume()
 		else
-			Costume.setCostume(string.upper(Costume.CostumeList[ActionWheel.CurrentCostumeState]))
+			Costume.setCostume(Costume.CostumeList[ActionWheel.CurrentCostumeState]:upper())
 		end
 		Skull.CurrentSkull = skullID
 		Wet.AutoShake = autoShake
