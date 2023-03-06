@@ -125,12 +125,12 @@ Costume = {
 			models.models.main.Avatar.Body.BodyBottom.CInariGirlBB:setRot(crouching and 27.5 or 0)
 			if player:getVehicle() then
 				if not Armor.ArmorVisible[3] then
-					models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2:setPos(0, 2.5)
-					models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2:setScale(1.05, 1, 1.1)
+					models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2:setPos(0, 1.5)
+					models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2:setScale(1.05, 1, 1.2)
 					models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2.Dress3:setPos(0, 2.5)
-					models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2.Dress3:setScale(1.05, 1, 1.1)
-					models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2.Dress3.Dress4:setPos(0, 2.5)
-					models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2.Dress3.Dress4:setScale(1.05, 1, 1.1)
+					models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2.Dress3:setScale(1.05, 1, 1.2)
+					models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2.Dress3.Dress4:setPos(0, 3.5)
+					models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2.Dress3.Dress4:setScale(1.05, 1, 1.2)
 				end
 			else
 				models.models.main.Avatar.Body.BodyBottom.CInariGirlBB.Dress2:setPos()
