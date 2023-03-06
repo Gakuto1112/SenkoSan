@@ -73,4 +73,12 @@ Kotatsu = General.instance({
 	return SitDown:checkAction() and isNotPlayerYawChanged and not player:isUsingItem()
 end, models.models.kotatsu, models.models.kotatsu, animations["models.main"]["kotatsu"], nil)
 
+models.models.kotatsu.Carpet:setPrimaryTexture("RESOURCE", "textures/block/brown_wool.png")
+models.models.kotatsu.Cover.Cover3:setPrimaryTexture("RESOURCE", "textures/block/white_wool.png")
+for _, modelPart in ipairs({models.models.kotatsu.Cover.Cover1, models.models.kotatsu.Cover.Cover2}) do
+	modelPart:setPrimaryTexture("RESOURCE", "textures/block/lime_wool.png")
+end
+models.models.kotatsu.Cover:setPrimaryTexture("RESOURCE", "textures/block/lime_wool.png")
+models.models.kotatsu.Board:setPrimaryTexture("RESOURCE", "textures/block/spruce_planks.png")
+
 return Kotatsu
