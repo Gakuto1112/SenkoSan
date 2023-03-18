@@ -14,7 +14,7 @@ TVアニメ「世話やきキツネの仙狐さん」とその原作に登場す
 
 **このREADMEには本来、大量の画像（約88MB）を添付していますが、通信量の軽減のため、必要最低限以外の画像は添付されおりません。画像を確認するには、それぞれの画像のリンクをクリックするか、[README（完全版）](./.github/workflows/README_full.md)をご覧ください。**
 
-ターゲットFiguraバージョン：[0.1.0-rc.13](https://www.curseforge.com/minecraft/mc-mods/figura/files/4300619)
+ターゲットFiguraバージョン：[0.1.0-rc.14](https://www.curseforge.com/minecraft/mc-mods/figura/files/4438657)
 
 ![メイン](README_images/メイン.jpg)
 
@@ -228,7 +228,7 @@ Figuraには、アクションホイールキー（デフォルトは「B」キ�
 - チアリーダーのフィギュア（[参考](https://www.amazon.co.jp/gp/product/B07XZ6754D)）
 - きつねパーカーのフィギュアは、漫画10巻裏のイラストを基に作成しました。
 
-Mobが被っているプレイヤーの頭は設定に関わらず、デフォルトの頭になります。ただし、この処理は[rc.13のバグ](https://discord.com/channels/805969743466332191/1047331739678281728)を利用しているので、今後この仕様は変更される可能性があります。
+Mobが被っているプレイヤーの頭は設定に関わらず、デフォルトの頭になります。
 
 因みに、プレイヤーの頭は以下のコマンドで入手できます：`/give @p minecraft:player_head{SkullOwner: "<プレイヤー名>"} 1`
 
@@ -251,7 +251,7 @@ Mobが被っているプレイヤーの頭は設定に関わらず、デフォ�
 傘を差せる状況下において、雨が降っていなくても常に傘をさします。撮影用途などにどうぞ。
 
 ## 使用方法
-1. マインクラフトに[Fabric](https://fabricmc.net/)をインストールし、[Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)と[Figura 0.1.0-rc.13](https://www.curseforge.com/minecraft/mc-mods/figura/files/4300619)を追加します。各Modの依存関係にご注意ください。
+1. マインクラフトに[Fabric](https://fabricmc.net/)をインストールし、[Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)と[Figura 0.1.0-rc.14](https://www.curseforge.com/minecraft/mc-mods/figura/files/4438657)を追加します。各Modの依存関係にご注意ください。
 2. ページ上部の緑色のボタン「**Code**」から「**Download ZIP**」からこのレポジトリのファイルをダウンロードします。（または、このレポジトリをクローンします。）
 3. 圧縮ファイルの場合は展開します。
    - 以下のファイル、フォルダはアバターの動作には不要なので削除しても構いません。
@@ -268,27 +268,16 @@ Mobが被っているプレイヤーの頭は設定に関わらず、デフォ�
 7. アバターをサーバーにアップロードすると、他のFiguraプレイヤーもあなたのアバターを見ることができます。
 
 ## 推奨設定
-### 信用度設定（Trust）
-デフォルトの信頼度設定において、**Trusted**以上必須！
+### 権限設定（Permissions）
+デフォルトの権限設定において、**Default**以上必須！**High**以上推奨。
 
 あなただけではなく、あなたのアバターを見る他のプレイヤーも同様に、あなたの信頼度を上げる必要があります！
 
 | 項目 | 推奨設定 | 備考 |
 | - | - | - |
 | Vanilla Model Change | **有効！！** | これが有効でないと、バニラのプレイヤーモデルが消えません！！ |
-| Nameplate Change | 有効 | |
-| Custom Player Heads | 有効 | |
-
-### Figura設定（Settings）
-「Δ」のマークが付いている項目は、Figuraのデフォルト設定がこのアバターの推奨設定となっています。
-
-| 項目 | 推奨設定 | 備考 |
-| - | - | - |
-| Chat customizations Δ | "Script" または "Script + Badges" | |
-| Entity customizations Δ | "Script" または "Script + Badges" | |
-| Tablist customizations Δ | "Script" または "Script + Badges" | |
-| Print Output Δ | "Chat" | |
-| First Person Hands Δ | 無効 | |
+| Nameplate Change | 有効 |　権限「Default」レベルでは無効になっています。 |
+| Custom Player Heads | 有効 |　権限「Default」レベルでは無効になっています。 |
 
 ### マインクラフト設定
 | 項目 | 推奨設定 | 備考 |
