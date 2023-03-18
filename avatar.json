@@ -1,7 +1,8 @@
 {
-	"name": "シロ",
+	"name": "Shiro",
+	"description": "Shiro from Sewayaki Kitsune no Senko-san",
 	"author": "Gakuto1112",
-	"version": "0.1.0-rc.13",
+	"version": "0.1.0-rc.14",
 	"color": "f5f2f7",
 	"autoScripts": [
 		"scripts/main.lua"
@@ -203,16 +204,16 @@
 			"moveTo": "models.main.Avatar.Body",
 			"visible": false
 		},
-		"models.skull_figure_a": {
+		"models.skull_figure_a.Skull": {
 			"visible": false
 		},
-		"models.skull_figure_b": {
+		"models.skull_figure_b.Skull": {
 			"visible": false
 		},
-		"models.skull_figure_c": {
+		"models.skull_figure_c.Skull": {
 			"visible": false
 		},
-		"models.skull_figure_d": {
+		"models.skull_figure_d.Skull": {
 			"visible": false
 		}
 	}
