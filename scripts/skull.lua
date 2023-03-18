@@ -7,10 +7,10 @@ Skull = {
 	CurrentSkull = 1
 }
 
-events.SKULL_RENDER:register(function (_, block, item)
-	models.models.skull:setVisible((block == nil and item == nil) or Skull.CurrentSkull == 1)
-	for index, modelPart in ipairs({models.models.skull_figure_a, models.models.skull_figure_b, models.models.skull_figure_c, models.models.skull_figure_d}) do
-		modelPart:setVisible((block ~= nil or item ~= nil) and Skull.CurrentSkull == index + 1)
+events.SKULL_RENDER:register(function (_, _, _, entity)
+	models.models.skull.Skull:setVisible(entity ~= nil or Skull.CurrentSkull == 1)
+	for index, modelPart in ipairs({models.models.skull_figure_a.Skull, models.models.skull_figure_b.Skull, models.models.skull_figure_c.Skull, models.models.skull_figure_d.Skull}) do
+		modelPart:setVisible(entity == nil and Skull.CurrentSkull == index + 1)
 	end
 end)
 

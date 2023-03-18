@@ -513,7 +513,7 @@ if host:isHost() then
 
 	--アクション4-1. 着替え
 	ActionWheel.Pages[4]:newAction(1):item("leather_chestplate"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onScroll(function (direction)
-		if direction == -1 then
+		if direction < 0 then
 			ActionWheel.CostumeState = ActionWheel.CostumeState == #Costume.CostumeList and 1 or ActionWheel.CostumeState + 1
 		else
 			ActionWheel.CostumeState = ActionWheel.CostumeState == 1 and #Costume.CostumeList or ActionWheel.CostumeState - 1
@@ -529,7 +529,7 @@ if host:isHost() then
 
 	--アクション4-2. プレイヤーの表示名変更
 	ActionWheel.Pages[4]:newAction(2):item("name_tag"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onScroll(function (direction)
-		if direction == -1 then
+		if direction < 0 then
 			ActionWheel.PlayerNameState = ActionWheel.PlayerNameState == #Nameplate.NameList and 1 or ActionWheel.PlayerNameState + 1
 		else
 			ActionWheel.PlayerNameState = ActionWheel.PlayerNameState == 1 and #Nameplate.NameList or ActionWheel.PlayerNameState - 1
@@ -545,7 +545,7 @@ if host:isHost() then
 
 	---アクション4-3. プレイヤーの頭のタイプ変更
 	ActionWheel.Pages[4]:newAction(3):item("player_head{SkullOwner: \""..player:getName().."\"}"):color(0.78, 0.78, 0.78):hoverColor(1, 1, 1):onScroll(function (direction)
-		if direction == -1 then
+		if direction < 0 then
 			ActionWheel.SkullState = ActionWheel.SkullState == #Skull.SkullList and 1 or ActionWheel.SkullState + 1
 		else
 			ActionWheel.SkullState = ActionWheel.SkullState == 1 and #Skull.SkullList or ActionWheel.SkullState - 1
@@ -642,7 +642,8 @@ if host:isHost() then
 	--アクション8（共通）. ページ切り替え
 	for index, mainPage in ipairs(ActionWheel.Pages) do
 		mainPage:newAction(8):title(Language.getTranslate("action_wheel__main__action_8__title")..index.."/"..#ActionWheel.Pages.."\n§6"..Language.getTranslate("action_wheel__main_"..index.."__title")):item("arrow"):color(0, 0.67, 0.67):hoverColor(0.33, 1, 1):onScroll(function (direction)
-			ActionWheel.CurrentPage = ActionWheel.Pages[index - direction] and (index - direction) or (index == 1 and #ActionWheel.Pages or 1)
+			local normalizedDirection = direction > 0 and 1 or (direction < 0 and -1 or 0)
+			ActionWheel.CurrentPage = ActionWheel.Pages[index - normalizedDirection] and (index - normalizedDirection) or (index == 1 and #ActionWheel.Pages or 1)
 			action_wheel:setPage(ActionWheel.Pages[ActionWheel.CurrentPage])
 		end)
 	end
