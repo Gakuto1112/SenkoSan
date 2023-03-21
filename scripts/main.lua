@@ -9,6 +9,7 @@ events.ENTITY_INIT:register(function ()
 	PermanentAnimationAction = require("scripts.actions.permanent_animation_action")
 
 	--パーツ別クラス
+	require("scripts.elytra")
 	Arms = require("scripts.arms")
 	Legs = require("scripts.legs")
 	Sleeve = require("scripts.sleeve")
@@ -26,8 +27,10 @@ events.ENTITY_INIT:register(function ()
 	--機能別クラス
 	Costume = require("scripts.costume")
 	Hurt = require("scripts.hurt")
+	require("scripts.goat_horn")
 	ActionWheel = require("scripts.action_wheel")
 	Camera = require("scripts.camera")
+	require("scripts.dummy_player")
 	RefuseEmote = require("scripts.actions.refuse_emote")
 	Smile = require("scripts.actions.smile")
 	ShakeBody = require("scripts.actions.shake_body")
@@ -52,31 +55,11 @@ events.ENTITY_INIT:register(function ()
 	Afk = require("scripts.afk")
 	Christmas = require("scripts.christmas")
 
-	--その他初期化処理
-	events.TICK:register(function ()
-		--エリトラ
-		if player:getItem(5).id == "minecraft:elytra" then
-			local playerPose = player:getPose()
-			vanilla_model.ELYTRA:setVisible((not ActionWheel.IsAnimationPlaying or playerPose == "FALL_FLYING") and not SitDown.IsAnimationPlaying and not Kotatsu.IsAnimationPlaying and PhotoPose.CurrentPose == 0 and playerPose ~= "SLEEPING")
-		end
-
-		--ヤギの角笛
-		if player:getActiveItem().id == "minecraft:goat_horn" then
-			FaceParts.setEmotion("UNEQUAL", "UNEQUAL", "CLOSED", 1, true)
-		end
-	end)
-
-	--バニラモデルの非表示
+	--初期化処理
 	for _, vanillaModel in ipairs({vanilla_model.PLAYER, vanilla_model.ARMOR}) do
 		vanillaModel:setVisible(false)
 	end
 	for _, modelPart in ipairs({models.models.main.Avatar.Body.BodyBottom, models.models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom, models.models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom}) do
 		modelPart:setParentType("None")
-	end
-
-	--ダミープレイヤーのスキン設定
-	models.models.dummy_player:setPrimaryTexture("SKIN")
-	for _, modelPart in ipairs(player:getModelType() == "DEFAULT" and {models.models.dummy_player.DummyPlayer.Body.RightArm.RightArmSlim, models.models.dummy_player.DummyPlayer.Body.LeftArm.LeftArmSlim} or {models.models.dummy_player.DummyPlayer.Body.RightArm.RightArmClassic, models.models.dummy_player.DummyPlayer.Body.LeftArm.LeftArmClassic}) do
-		modelPart:setVisible(false)
 	end
 end)
