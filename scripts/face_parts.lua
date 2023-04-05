@@ -114,7 +114,7 @@ events.TICK:register(function ()
 		FaceParts.setComplexion((Warden.WardenNearby or player:getFrozenTicks() == 140) and "PALE" or "NORMAL", 0, false)
 	end
 	if host:isHost() then
-		FaceParts.Drowned = host:getAir() <= 0 and General.getTargetEffect("water_breathing") == nil
+		FaceParts.Drowned = host:getAir() <= 0 and General.getTargetEffect("minecraft.water_breathing") == nil
 		if FaceParts.Drowned ~= FaceParts.DrownedPrev then
 			pings.setDrowned(FaceParts.Drowned)
 			FaceParts.DrownedPrev = FaceParts.Drowned
