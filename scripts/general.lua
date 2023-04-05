@@ -58,7 +58,6 @@ General = {
 	---@param name string ステータス効果
 	---@return table|nil status ステータス効果の情報（該当のステータスを受けていない場合はnilが返る。）
 	getTargetEffect = function (name)
-		printTable(General.EffectTable, 2)
 		if not General.EffectChecked and host:isHost() then
 			General.EffectTable = {}
 			for _, effect in ipairs(host:getStatusEffects()) do
