@@ -1,7 +1,7 @@
 ---@class Wet 濡れ機能を制御するクラス
 ---@field Wet.WalkDistance number 鈴を鳴らす用の歩いた距離
----@field Wet.VelocityYData table ジャンプしたかどうかを判定する為にy方向の速度を格納するテーブル
----@field Wet.OnGroundData table 前チックに着地していたかを判定する為に着地情報を格納するテーブル
+---@field Wet.VelocityYPrev number 前チックにジャンプしたかどうか
+---@field Wet.OnGroundPrev boolean 前チックに着地していたかどうか
 ---@field Wet.IsWet boolean 濡れているかどうか
 ---@field Wet.WetCount integer 濡れの度合いを計るカウンター
 ---@field Wet.AutoShake boolean 自動ブルブルが有効かどうか
@@ -9,8 +9,8 @@
 
 Wet = {
 	WalkDistance = 0,
-	VelocityYData = {},
-	OnGroundData = {},
+	VelocityYPrev = 0,
+	OnGroundPrev = false,
 	IsWet = false,
 	WetCount = 0,
 	AutoShake = Config.loadConfig("autoShake", true),
@@ -37,13 +37,6 @@ events.TICK:register(function()
 		end
 		Wet.WetCount = player:getDeathTime() == 19 and 0 or (Wet.IsWet and (player:isInWater() and 1200 or math.min(Wet.WetCount + 4, 1200)) or math.max(Wet.WetCount - 1, 0))
 	end
-	table.insert(Wet.VelocityYData, velocity.y)
-	table.insert(Wet.OnGroundData, onGround)
-	for _, dataTable in ipairs({Wet.VelocityYData, Wet.OnGroundData}) do
-		if #dataTable == 3 then
-			table.remove(dataTable, 1)
-		end
-	end
 	Wet.IsWet = (player:isInRain() and not Umbrella.IsUsing) or player:isInWater()
 	if Wet.IsWet then
 		Ears.setEarsRot("DROOPING", 1, true)
@@ -55,7 +48,7 @@ events.TICK:register(function()
 			end
 		end
 		Ears.setEarsRot("DROOPING", 1, true)
-		if host:isJumping() and Wet.OnGroundData[1] and velocity.y > 0 and Wet.VelocityYData[1] <= 0 then
+		if host:isJumping() and Wet.OnGroundPrev and velocity.y > 0 and Wet.VelocityYPrev <= 0 then
 			pings.wetJumpSound()
 		end
 		if Wet.AutoShake and not ShakeBody.IsAnimationPlaying and PhotoPose.CurrentPose == 0 then
@@ -69,6 +62,8 @@ events.TICK:register(function()
 	end
 	local tailScale = (1200 - Wet.WetCount) / 1200 * 0.5 + 0.5
 	models.models.main.Avatar.Body.BodyBottom.Tail:setScale(tailScale, tailScale, 1)
+	Wet.VelocityYPrev = velocity.y
+	Wet.OnGroundPrev = onGround
 end)
 
 return Wet
