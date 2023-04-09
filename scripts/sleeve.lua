@@ -55,22 +55,22 @@ Sleeve = {
 					end
 				end))
 			end
-			if models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase:getRot().x + models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase:getAnimRot().x >= 0 then
+			if models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase:getTrueRot().x >= 0 then
 				models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase:setPivot(5.5, 19, 2)
 			else
 				models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase:setPivot(5.5, 14, 2)
 			end
-			if models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve:getRot().x + models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve:getAnimRot().x >= 0 then
+			if models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve:getTrueRot().x >= 0 then
 				models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve:setPivot(5.5, 19, 4)
 			else
 				models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve:setPivot(5.5, 14, 4)
 			end
-			if models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase:getRot().x + models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase:getAnimRot().x >= 0 then
+			if models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase:getTrueRot().x >= 0 then
 				models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase:setPivot(-5.5, 19, 2)
 			else
 				models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase:setPivot(-5.5, 14, 2)
 			end
-			if models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve:getRot().x + models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve:getAnimRot().x >= 0 then
+			if models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve:getTrueRot().x >= 0 then
 				models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve:setPivot(-5.5, 19, 4)
 			else
 				models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve:setPivot(-5.5, 14, 4)
