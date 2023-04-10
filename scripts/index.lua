@@ -26,6 +26,7 @@ events.ENTITY_INIT:register(function ()
 	Nameplate = require("scripts.nameplate")
 
 	--機能別クラス
+	Naginata = require("scripts.naginata")
 	Costume = require("scripts.costume")
 	Hurt = require("scripts.hurt")
 	require("scripts.goat_horn")
