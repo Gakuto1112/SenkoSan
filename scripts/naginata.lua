@@ -1,8 +1,10 @@
 ---@class Naginata 薙刀のモデルを制御するクラス
----@class EnableAnimation boolean 薙刀の構えが有効かどうか
+---@field Naginata.EnableAnimation boolean 薙刀の構えが有効かどうか
+---@field Naginata.SwingSpeedPrev integer 前チックの腕を振る速度
 
 Naginata = {
-    EnableAnimation = true
+    EnableAnimation = true,
+    SwingSpeedPrev = 6,
 }
 
 events.TICK:register(function ()
@@ -33,7 +35,28 @@ events.TICK:register(function ()
     for _, animation in ipairs({animations["models.main"]["naginata_left"], animations["models.naginata"]["naginata_left"]}) do
         animation:setPlaying(leftNaginataAnimation)
     end
+    if player:getSwingTime() == 1 and not firstPerson then
+        if rightNaginataAnimation then
+            for _, modelName in ipairs({"models.main", "models.naginata"}) do
+                animations[modelName]["naginata_attack_right"]:restart()
+            end
+        elseif leftNaginataAnimation then
+            for _, modelName in ipairs({"models.main", "models.naginata"}) do
+                animations[modelName]["naginata_attack_left"]:restart()
+            end
+        end
+    end
+    local swingSpeed = player:getSwingDuration()
+    if swingSpeed ~= Naginata.SwingSpeedPrev then
+        local animationSpeed = 6 / swingSpeed
+        for _, modelName in ipairs({"models.main", "models.naginata"}) do
+            for _, animationName in ipairs({"naginata_attack_right", "naginata_attack_left"}) do
+                animations[modelName][animationName]:setSpeed(animationSpeed)
+            end
+        end
+    end
     Naginata.EnableAnimation = ((naginataModel[1] and not leftHanded) or (naginataModel[2] and leftHanded)) and not active
+    Naginata.SwingSpeedPrev = swingSpeed
 end)
 
 return Naginata
