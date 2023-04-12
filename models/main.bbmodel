@@ -3319,7 +3319,7 @@
 													"uuid": "3d659f20-50ed-25ab-5274-8a7d2a5c9e93",
 													"export": true,
 													"mirror_uv": false,
-													"isOpen": false,
+													"isOpen": true,
 													"locked": false,
 													"visibility": true,
 													"autouv": 0,
@@ -51205,12 +51205,12 @@
 							"channel": "rotation",
 							"data_points": [
 								{
-									"x": "-27.4106",
-									"y": 2.30644,
-									"z": -35.56255
+									"x": -45,
+									"y": "-30",
+									"z": 0
 								}
 							],
-							"uuid": "7198d1fc-29ca-da30-d7bb-9c3fe754440d",
+							"uuid": "d8f48889-7f10-56b9-a86f-d049cf4d7956",
 							"time": 0,
 							"color": -1,
 							"interpolation": "linear",
@@ -51274,12 +51274,12 @@
 							"channel": "rotation",
 							"data_points": [
 								{
-									"x": 25,
-									"y": 40,
+									"x": 60,
+									"y": "40",
 									"z": 0
 								}
 							],
-							"uuid": "3df867f9-6571-9e15-1c11-c9f8bced165e",
+							"uuid": "3831aabe-8327-180b-1a80-3c6d0487d584",
 							"time": 0,
 							"color": -1,
 							"interpolation": "linear",
@@ -51315,6 +51315,56 @@
 							"bezier_right_value": [0, 0, 0]
 						}
 					]
+				},
+				"a9520b31-b324-2dee-d0c3-a7851730bab2": {
+					"name": "RightArmBottom",
+					"type": "bone",
+					"keyframes": [
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": -30,
+									"y": "0",
+									"z": "0"
+								}
+							],
+							"uuid": "d95359ae-e31f-f94a-dc66-736815c5a9d9",
+							"time": 0,
+							"color": -1,
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
+						}
+					]
+				},
+				"248a6732-93ec-33dc-6af6-346bfa9a2551": {
+					"name": "LeftArmBottom",
+					"type": "bone",
+					"keyframes": [
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": -60,
+									"y": "0",
+									"z": "0"
+								}
+							],
+							"uuid": "0cef2f1e-d353-174c-ed44-8f5e89230bf0",
+							"time": 0,
+							"color": -1,
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
+						}
+					]
 				}
 			}
 		},
@@ -51325,7 +51375,7 @@
 			"override": false,
 			"length": 0,
 			"snapping": 24,
-			"selected": true,
+			"selected": false,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
@@ -51364,9 +51414,9 @@
 							"channel": "rotation",
 							"data_points": [
 								{
-									"x": "25",
-									"y": "-40",
-									"z": "0"
+									"x": 60,
+									"y": -40,
+									"z": 0
 								}
 							],
 							"uuid": "5a33eeea-48c1-5aa8-b55f-974cf3b0b97a",
@@ -51389,9 +51439,9 @@
 							"channel": "rotation",
 							"data_points": [
 								{
-									"x": "-27.4106",
-									"y": "-2.3064\n",
-									"z": "35.5625"
+									"x": -45,
+									"y": 30,
+									"z": 0
 								}
 							],
 							"uuid": "c915cd81-fcf9-adc8-8c6d-e215bcdfe30c",
@@ -51420,6 +51470,56 @@
 								}
 							],
 							"uuid": "67bbb943-8bc7-6b90-8003-b9a9e5e0d0a4",
+							"time": 0,
+							"color": -1,
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
+						}
+					]
+				},
+				"a9520b31-b324-2dee-d0c3-a7851730bab2": {
+					"name": "RightArmBottom",
+					"type": "bone",
+					"keyframes": [
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": -60,
+									"y": "0",
+									"z": "0"
+								}
+							],
+							"uuid": "2b217a9e-385d-6592-db2a-88a920882c19",
+							"time": 0,
+							"color": -1,
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
+						}
+					]
+				},
+				"248a6732-93ec-33dc-6af6-346bfa9a2551": {
+					"name": "LeftArmBottom",
+					"type": "bone",
+					"keyframes": [
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": -30,
+									"y": "0",
+									"z": "0"
+								}
+							],
+							"uuid": "9ac77f6c-58b9-396a-73cb-bab82696c20a",
 							"time": 0,
 							"color": -1,
 							"interpolation": "linear",
