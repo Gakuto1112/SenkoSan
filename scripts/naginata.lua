@@ -24,11 +24,14 @@ events.TICK:register(function ()
         modelPart:setSecondaryRenderType(heldItems[index]:hasGlint() and "GLINT" or "NONE")
     end
     local active = player:getActiveItem().id ~= "minecraft:air"
+    local sleeping = player:getPose() == "SLEEPING"
+    local rightNaginataAnimation = naginataModel[1] and not leftHanded and not active and not sleeping
     for _, animation in ipairs({animations["models.main"]["naginata_right"], animations["models.naginata"]["naginata_right"]}) do
-        animation:setPlaying(naginataModel[1] and not leftHanded and not active)
+        animation:setPlaying(rightNaginataAnimation)
     end
+    local leftNaginataAnimation = naginataModel[2] and leftHanded and not active and not sleeping
     for _, animation in ipairs({animations["models.main"]["naginata_left"], animations["models.naginata"]["naginata_left"]}) do
-        animation:setPlaying(naginataModel[2] and leftHanded and not active)
+        animation:setPlaying(leftNaginataAnimation)
     end
     Naginata.EnableAnimation = ((naginataModel[1] and not leftHanded) or (naginataModel[2] and leftHanded)) and not active
 end)
