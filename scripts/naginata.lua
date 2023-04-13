@@ -11,9 +11,18 @@ Naginata = {
         if (Naginata.EnableAnimation or ActionWheel.IsAnimationPlaying) and not (TailCuddling.IsAnimationPlaying or EarCuddling.IsAnimationPlaying) then
             Arms.RightArmRotOffset = vectors.vec3(-20, -10, 15)
             Arms.LeftArmRotOffset = vectors.vec3(-20, 10, -15)
+            if player:isLeftHanded() then
+                Sleeve.RightSleeveRotOffset = vectors.vec3(60)
+                Sleeve.LeftSleeveRotOffset = vectors.vec3(-40)
+            else
+                Sleeve.RightSleeveRotOffset = vectors.vec3(-40)
+                Sleeve.LeftSleeveRotOffset = vectors.vec3(60)
+            end
         else
             Arms.RightArmRotOffset = vectors.vec3()
             Arms.LeftArmRotOffset = vectors.vec3()
+            Sleeve.RightSleeveRotOffset = vectors.vec3()
+            Sleeve.LeftSleeveRotOffset = vectors.vec3()
         end
     end
 }

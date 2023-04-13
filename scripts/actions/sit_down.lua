@@ -32,6 +32,8 @@ SitDown = General.instance({
 		Nameplate.NamePlateOffset = 0
 		Arms.RightArmRotOffset = vectors.vec3()
 		Arms.LeftArmRotOffset = vectors.vec3()
+		Sleeve.RightSleeveRotOffset = vectors.vec3()
+		Sleeve.LeftSleeveRotOffset = vectors.vec3()
 		self.StandUpCount = math.floor(animations["models.main"]["sit_down"]:getLength() * 20) + 1
 	end,
 
