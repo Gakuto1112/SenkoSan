@@ -30,6 +30,8 @@ SitDown = General.instance({
 		ActionWheel.onStandUp()
 		Camera.CameraOffset = 0
 		Nameplate.NamePlateOffset = 0
+		Arms.RightArmRotOffset = vectors.vec3()
+		Arms.LeftArmRotOffset = vectors.vec3()
 		self.StandUpCount = math.floor(animations["models.main"]["sit_down"]:getLength() * 20) + 1
 	end,
 
@@ -40,6 +42,14 @@ SitDown = General.instance({
 				Sleeve.Moving = true
 			end
 			self.StandUpCount = self.StandUpCount - 1
+		end
+	end,
+
+	---アニメーション再生中に毎チック実行される関数
+	onAnimationTick = function (self)
+		PermanentAnimationAction.onAnimationTick(self)
+		if SitDown.IsAnimationPlaying then
+			Naginata.onSitDownTick()
 		end
 	end
 }, PermanentAnimationAction, function ()

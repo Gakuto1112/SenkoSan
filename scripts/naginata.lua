@@ -5,6 +5,17 @@
 Naginata = {
     EnableAnimation = true,
     SwingSpeedPrev = 6,
+
+    ---座る間に毎チック呼び出される関数
+    onSitDownTick = function ()
+        if (Naginata.EnableAnimation or ActionWheel.IsAnimationPlaying) and not (TailCuddling.IsAnimationPlaying or EarCuddling.IsAnimationPlaying) then
+            Arms.RightArmRotOffset = vectors.vec3(-20, -10, 15)
+            Arms.LeftArmRotOffset = vectors.vec3(-20, 10, -15)
+        else
+            Arms.RightArmRotOffset = vectors.vec3()
+            Arms.LeftArmRotOffset = vectors.vec3()
+        end
+    end
 }
 
 events.TICK:register(function ()
@@ -27,11 +38,11 @@ events.TICK:register(function ()
     end
     local active = player:getActiveItem().id ~= "minecraft:air"
     local sleeping = player:getPose() == "SLEEPING"
-    local rightNaginataAnimation = naginataModel[1] and not leftHanded and not active and not sleeping
+    local rightNaginataAnimation = naginataModel[1] and not leftHanded and not active and not sleeping and not (TailCuddling.IsAnimationPlaying or EarCuddling.IsAnimationPlaying)
     for _, animation in ipairs({animations["models.main"]["naginata_right"], animations["models.naginata"]["naginata_right"]}) do
         animation:setPlaying(rightNaginataAnimation)
     end
-    local leftNaginataAnimation = naginataModel[2] and leftHanded and not active and not sleeping
+    local leftNaginataAnimation = naginataModel[2] and leftHanded and not active and not sleeping and not (TailCuddling.IsAnimationPlaying or EarCuddling.IsAnimationPlaying)
     for _, animation in ipairs({animations["models.main"]["naginata_left"], animations["models.naginata"]["naginata_left"]}) do
         animation:setPlaying(leftNaginataAnimation)
     end
@@ -55,7 +66,7 @@ events.TICK:register(function ()
             end
         end
     end
-    Naginata.EnableAnimation = ((naginataModel[1] and not leftHanded) or (naginataModel[2] and leftHanded)) and not active
+    Naginata.EnableAnimation = (rightNaginataAnimation and not leftHanded) or (leftNaginataAnimation and leftHanded)
     Naginata.SwingSpeedPrev = swingSpeed
 end)
 
