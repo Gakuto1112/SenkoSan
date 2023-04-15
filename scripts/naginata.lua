@@ -14,7 +14,11 @@ events.TICK:register(function ()
     local sleeping = player:getPose() == "SLEEPING"
     local defense = player:getActiveItem().id == "minecraft:shield"
     for i = 1, 2 do
-        Naginata.State[i] = (not (heldItems[i].id:find("^minecraft:.+_sword$") == nil or firstPerson or Arms.ItemHeldContradicts)) and ((leftHanded ~= (i == 1) and not (active and heldItems[3 - i].id ~= "minecraft:shield") and not sleeping and not (TailCuddling.IsAnimationPlaying or EarCuddling.IsAnimationPlaying)) and (defense and (SitDown.IsAnimationPlaying and 5 or 4) or (SitDown.IsAnimationPlaying and 3 or 2)) or 1) or 0
+        local hasShield = heldItems[3 - i].id == "minecraft:shield"
+        Naginata.State[i] = (not (heldItems[i].id:find("^minecraft:.+_sword$") == nil or firstPerson or Arms.ItemHeldContradicts)) and ((leftHanded ~= (i == 1) and not (active and not hasShield) and not sleeping and not (TailCuddling.IsAnimationPlaying or EarCuddling.IsAnimationPlaying)) and (defense and (SitDown.IsAnimationPlaying and 5 or 4) or (SitDown.IsAnimationPlaying and 3 or 2)) or 1) or 0
+    end
+    for i = 1, 2 do
+        local hasShield = heldItems[3 - i].id == "minecraft:shield"
         if Naginata.State[i] ~= Naginata.StatePrev[i] then
             if i == 1 then
                 if Naginata.State[1] > 0 then
@@ -22,6 +26,9 @@ events.TICK:register(function ()
                     models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightNaginata:setVisible(true)
                 else
                     vanilla_model.RIGHT_ITEM:setVisible(not (ActionWheel.IsAnimationPlaying or PhotoPose.CurrentPose > 0))
+                    if hasShield then
+                        vanilla_model.LEFT_ITEM:setVisible(true)
+                    end
                     models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightNaginata:setVisible(false)
                 end
                 if Naginata.State[1] == 0 then
@@ -35,10 +42,20 @@ events.TICK:register(function ()
                     vanilla_model.LEFT_ITEM:setVisible(false)
                     models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setVisible(true)
                 else
-                    vanilla_model.LEFT_ITEM:setVisible(not (ActionWheel.IsAnimationPlaying or PhotoPose.CurrentPose > 0))
+                    if not (ActionWheel.IsAnimationPlaying or PhotoPose.CurrentPose > 0) then
+                        vanilla_model.LEFT_ITEM:setVisible(true)
+                        if hasShield then
+                            vanilla_model.RIGHT_ITEM:setVisible(true)
+                        end
+                    else
+                        vanilla_model.LEFT_ITEM:setVisible(false)
+                    end
                     models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setVisible(false)
                 end
                 if Naginata.State[2] >= 2 then
+                    if Naginata.State[2] >= 4 then
+                        vanilla_model.RIGHT_ITEM:setVisible(false)
+                    end
                     models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setPos(0, -1, 7)
                     models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setRot(-77.1307, 13.9775, -71.9524)
                     models.models.main.Avatar.Body:setRot(0, -40)
@@ -86,6 +103,8 @@ events.TICK:register(function ()
                         animaton:restart()
                     end
                 end
+                local heldItemModel = i == 1 and vanilla_model.LEFT_ITEM or vanilla_model.RIGHT_ITEM
+                heldItemModel:setVisible(not hasShield and Naginata.State[3 - i] == 0)
             end
         end
     end
