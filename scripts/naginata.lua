@@ -1,96 +1,108 @@
 ---@class Naginata 薙刀のモデルを制御するクラス
----@field Naginata.EnableAnimation boolean 薙刀の構えが有効かどうか
----@field Naginata.SwingSpeedPrev integer 前チックの腕を振る速度
+---@field Naginata.State table 薙刀の状態: 1. 右手, 2. 左手, x-0. 薙刀のモデルは表示されない, x-1. 通常の薙刀持ち, x-2. 薙刀を構えて持つ, x-3. 薙刀を構えて持つ（おすわり）, x-4. 薙刀の防御, x-5. 薙刀の防御（おすわり）
 
 Naginata = {
-    EnableAnimation = true,
-    SwingSpeedPrev = 6,
-
-    ---座る間に毎チック呼び出される関数
-    onSitDownTick = function ()
-        if (Naginata.EnableAnimation or ActionWheel.IsAnimationPlaying) and not (TailCuddling.IsAnimationPlaying or EarCuddling.IsAnimationPlaying) then
-            Arms.RightArmRotOffset = vectors.vec3(-20, -10, 15)
-            Arms.LeftArmRotOffset = vectors.vec3(-20, 10, -15)
-            if player:isLeftHanded() then
-                Sleeve.RightSleeveRotOffset = vectors.vec3(60)
-                Sleeve.LeftSleeveRotOffset = vectors.vec3(-40)
-            else
-                Sleeve.RightSleeveRotOffset = vectors.vec3(-40)
-                Sleeve.LeftSleeveRotOffset = vectors.vec3(60)
-            end
-        else
-            Arms.RightArmRotOffset = vectors.vec3()
-            Arms.LeftArmRotOffset = vectors.vec3()
-            Sleeve.RightSleeveRotOffset = vectors.vec3()
-            Sleeve.LeftSleeveRotOffset = vectors.vec3()
-        end
-    end
+    State = {0, 0},
+    StatePrev = {0, 0}
 }
 
 events.TICK:register(function ()
     local leftHanded = player:isLeftHanded()
     local firstPerson = renderer:isFirstPerson()
     local heldItems = {player:getHeldItem(leftHanded), player:getHeldItem(not leftHanded)}
-    local naginataModel = {not (heldItems[1].id:find("^minecraft:.+_sword$") == nil or firstPerson or Arms.ItemHeldContradicts), not (heldItems[2].id:find("^minecraft:.+_sword$") == nil or firstPerson or Arms.ItemHeldContradicts)} --薙刀のモデルを表示するかどうか
     local active = player:getActiveItem().id ~= "minecraft:air"
     local sleeping = player:getPose() == "SLEEPING"
-    local rightNaginataAnimation = naginataModel[1] and not leftHanded and not (active and heldItems[2].id ~= "minecraft:shield") and not sleeping and not (TailCuddling.IsAnimationPlaying or EarCuddling.IsAnimationPlaying)
-    local leftNaginataAnimation = naginataModel[2] and leftHanded and not (active and heldItems[1].id ~= "minecraft:shield") and not sleeping and not (TailCuddling.IsAnimationPlaying or EarCuddling.IsAnimationPlaying)
-    vanilla_model.RIGHT_ITEM:setVisible(not (naginataModel[1] or (leftHanded and leftNaginataAnimation and heldItems[1].id == "minecraft:shield") or Arms.ItemHeldContradicts))
-    vanilla_model.LEFT_ITEM:setVisible(not (naginataModel[2] or (not leftHanded and rightNaginataAnimation and heldItems[2].id == "minecraft:shield") or Arms.ItemHeldContradicts))
-    for index, modelPart in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightNaginata, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata}) do
-        modelPart:setVisible(naginataModel[index])
-        local material = heldItems[index].id:match("^minecraft:(%a+)_sword$")
-        local meterialValue = material == "wooden" and 0 or (material == "stone" and 1 or (material == "iron" and 2 or (material == "golden" and 3 or (material == "diamond" and 4 or 5))))
-        modelPart.Rod:setUVPixels(meterialValue)
-        modelPart.Handguard:setUVPixels(0, meterialValue)
-        local blade = index == 1 and modelPart.RightNaginataBlade or modelPart.LeftNaginataBlade
-        blade:setUVPixels(0, meterialValue * 2)
-        modelPart:setSecondaryRenderType(heldItems[index]:hasGlint() and "GLINT" or "NONE")
-    end
-    for _, animation in ipairs({animations["models.main"]["naginata_right"], animations["models.naginata"]["naginata_right"]}) do
-        animation:setPlaying(rightNaginataAnimation)
-    end
-    for _, animation in ipairs({animations["models.main"]["naginata_left"], animations["models.naginata"]["naginata_left"]}) do
-        animation:setPlaying(leftNaginataAnimation)
-    end
     local defense = player:getActiveItem().id == "minecraft:shield"
-    local rightNaginataDefense = rightNaginataAnimation and defense
-    for _, animation in ipairs({animations["models.main"]["naginata_defense_right"], animations["models.naginata"]["naginata_defense_right"]}) do
-        animation:setPlaying(rightNaginataDefense)
-    end
-    local leftNaginataDefense = leftNaginataAnimation and defense
-    for _, animation in ipairs({animations["models.main"]["naginata_defense_left"], animations["models.naginata"]["naginata_defense_left"]}) do
-        animation:setPlaying(leftNaginataDefense)
+    for i = 1, 2 do
+        Naginata.State[i] = (not (heldItems[i].id:find("^minecraft:.+_sword$") == nil or firstPerson or Arms.ItemHeldContradicts)) and ((leftHanded ~= (i == 1) and not (active and heldItems[3 - i].id ~= "minecraft:shield") and not sleeping and not (TailCuddling.IsAnimationPlaying or EarCuddling.IsAnimationPlaying)) and (defense and (SitDown.IsAnimationPlaying and 5 or 4) or (SitDown.IsAnimationPlaying and 3 or 2)) or 1) or 0
+        if Naginata.State[i] ~= Naginata.StatePrev[i] then
+            if i == 1 then
+                if Naginata.State[1] > 0 then
+                    vanilla_model.RIGHT_ITEM:setVisible(false)
+                    models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightNaginata:setVisible(true)
+                else
+                    vanilla_model.RIGHT_ITEM:setVisible(not (ActionWheel.IsAnimationPlaying or PhotoPose.CurrentPose > 0))
+                    models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightNaginata:setVisible(false)
+                end
+                if Naginata.State[1] == 0 then
+                elseif Naginata.State[1] == 1 then
+                elseif Naginata.State[1] == 2 then
+                else
+                end
+            else
+                print(Naginata.State[2])
+                if Naginata.State[2] > 0 then
+                    vanilla_model.LEFT_ITEM:setVisible(false)
+                    models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setVisible(true)
+                else
+                    vanilla_model.LEFT_ITEM:setVisible(not (ActionWheel.IsAnimationPlaying or PhotoPose.CurrentPose > 0))
+                    models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setVisible(false)
+                end
+                if Naginata.State[2] >= 2 then
+                    models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setPos(0, -1, 7)
+                    models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setRot(-77.1307, 13.9775, -71.9524)
+                    models.models.main.Avatar.Body:setRot(0, -40)
+                    models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom:setRot(60)
+                    models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom:setRot(30)
+                    models.models.main.Avatar.Body.BodyBottom.Legs:setRot(0, 40)
+                    if Naginata.State[2] % 2 == 0 then
+                        Arms.RightArmRotOffset = vectors.vec3(-40, 40)
+                        Arms.LeftArmRotOffset = vectors.vec3(45, -30)
+                    else
+                        Arms.RightArmRotOffset = vectors.vec3(-60, 30, 15)
+                        Arms.LeftArmRotOffset = vectors.vec3(25, -20, -15)
+                    end
+                else
+                    models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setPos()
+                    models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setRot()
+                    models.models.main.Avatar.Body:setRot()
+                    if PhotoPose.CurrentPose == 0 then
+                        if TailCuddling.IsAnimationPlaying or EarCuddling.IsAnimationPlaying or not SitDown.IsAnimationPlaying then
+                            Arms.RightArmRotOffset = vectors.vec3()
+                            Arms.LeftArmRotOffset = vectors.vec3()
+                        end
+                        models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom:setRot()
+                        models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom:setRot()
+                        models.models.main.Avatar.Body.BodyBottom.Legs:setRot()
+                    end
+                end
+            end
+        end
+        if Naginata.State[i] > 0 then
+            local naginataModel = i == 1 and models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightNaginata or models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata
+            local material = heldItems[i].id:match("^minecraft:(%a+)_sword$")
+            local meterialValue = material == "wooden" and 0 or (material == "stone" and 1 or (material == "iron" and 2 or (material == "golden" and 3 or (material == "diamond" and 4 or 5))))
+            naginataModel.Rod:setUVPixels(meterialValue)
+            naginataModel.Handguard:setUVPixels(0, meterialValue)
+            local blade = i == 1 and naginataModel.RightNaginataBlade or naginataModel.LeftNaginataBlade
+            blade:setUVPixels(0, meterialValue * 2)
+            naginataModel:setSecondaryRenderType(heldItems[i]:hasGlint() and "GLINT" or "NONE")
+            if Naginata.State[i] >= 2 and Naginata.State[i] <= 3 then
+                if player:getSwingTime() == 1 then
+                    local naginataAnimation = i == 1 and {animations["models.main"]["naginata_attack_right"], animations["models.naginata"]["naginata_attack_right"]} or {animations["models.main"]["naginata_attack_left"], animations["models.naginata"]["naginata_attack_left"]}
+                    local speed = 6 / player:getSwingDuration()
+                    for _, animaton in ipairs(naginataAnimation) do
+                        animaton:speed(speed)
+                        animaton:restart()
+                    end
+                end
+            end
+        end
     end
     if player:getSwingTime() == 1 and not firstPerson then
-        if rightNaginataAnimation then
+        if Naginata.State[1] == 2 then
             for _, modelName in ipairs({"models.main", "models.naginata"}) do
                 animations[modelName]["naginata_attack_right"]:restart()
             end
-        elseif leftNaginataAnimation then
+        elseif Naginata.State[2] == 2 then
             for _, modelName in ipairs({"models.main", "models.naginata"}) do
                 animations[modelName]["naginata_attack_left"]:restart()
             end
         end
     end
-    if player:getActiveItem().id == "minecraft:shield" then
-        if rightNaginataAnimation then
-
-        elseif leftNaginataAnimation then
-        end
+    for i = 1, 2 do
+        Naginata.StatePrev[i] = Naginata.State[i]
     end
-    local swingSpeed = player:getSwingDuration()
-    if swingSpeed ~= Naginata.SwingSpeedPrev then
-        local animationSpeed = 6 / swingSpeed
-        for _, modelName in ipairs({"models.main", "models.naginata"}) do
-            for _, animationName in ipairs({"naginata_attack_right", "naginata_attack_left"}) do
-                animations[modelName][animationName]:setSpeed(animationSpeed)
-            end
-        end
-    end
-    Naginata.EnableAnimation = (rightNaginataAnimation and not leftHanded) or (leftNaginataAnimation and leftHanded)
-    Naginata.SwingSpeedPrev = swingSpeed
 end)
 
 return Naginata

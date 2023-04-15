@@ -30,8 +30,8 @@ Arms = {
 
 events.TICK:register(function ()
 	local leftHanded = player:isLeftHanded()
-	models.models.main.Avatar.Body.Arms.RightArm:setParentType(((Umbrella.IsUsing and leftHanded and PhotoPose.CurrentPose ~= 7) or Naginata.EnableAnimation) and "Body" or "RightArm")
-	models.models.main.Avatar.Body.Arms.LeftArm:setParentType(((Umbrella.IsUsing and not leftHanded) or Naginata.EnableAnimation) and "Body" or "LeftArm")
+	models.models.main.Avatar.Body.Arms.RightArm:setParentType(((Umbrella.IsUsing and leftHanded and PhotoPose.CurrentPose ~= 7) or Naginata.State[1] >= 2 or Naginata.State[2] >= 2) and "Body" or "RightArm")
+	models.models.main.Avatar.Body.Arms.LeftArm:setParentType(((Umbrella.IsUsing and not leftHanded) or Naginata.State[1] >= 2 or Naginata.State[2] >= 2) and "Body" or "LeftArm")
 end)
 
 events.RENDER:register(function ()

@@ -21,9 +21,7 @@ PhotoPose = {
     ---@param poseID integer とるポーズのID
     setPose = function (poseID)
         if PhotoPose.check() then
-            if PhotoPose.CurrentPose ~= 0 then
-                PhotoPose.stopPose()
-            end
+            PhotoPose.stopPose()
             if poseID == 7 then
                 models.models.main.Avatar:setRot(0, 15)
                 models.models.main.Avatar.Head:setRot(0, -15)
@@ -145,13 +143,15 @@ PhotoPose = {
         Arms.hideHeldItem(false)
         Umbrella.Enabled = true
         Sleeve.Moving = true
-        ActionWheel.untogglePose(PhotoPose.CurrentPose)
+        if PhotoPose.CurrentPose > 0 then
+            ActionWheel.untogglePose(PhotoPose.CurrentPose)
+        end
         PhotoPose.CurrentPose = 0
     end
 }
 
 events.TICK:register(function ()
-    if PhotoPose.CurrentPose ~= 0 then
+    if PhotoPose.CurrentPose > 0 then
         if PhotoPose.CurrentPose == 1 or PhotoPose.CurrentPose == 3 or PhotoPose.CurrentPose == 5 then
             if General.PlayerCondition == "LOW" then
                 FaceParts.setEmotion("TIRED", "TIRED", "OPENED", 1, true)
@@ -178,7 +178,7 @@ events.TICK:register(function ()
         end
     end
     PhotoPose.PosingChecked = false
-    PhotoPose.IsPosingPrev = PhotoPose.CurrentPose ~= 0
+    PhotoPose.IsPosingPrev = PhotoPose.CurrentPose > 0
 end)
 
 return PhotoPose

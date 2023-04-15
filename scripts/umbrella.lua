@@ -17,13 +17,14 @@ events.TICK:register(function ()
 	local playerPose = player:getPose()
 	local activeItem = player:getActiveItem()
 	local mainHeldItem = player:getHeldItem()
-	Umbrella.IsUsing = (player:isInRain() or Umbrella.AlwaysUse or PhotoPose.CurrentPose == 7) and not player:isUnderwater() and activeItem.id ~= "minecraft:bow" and activeItem.id ~= "minecraft:crossbow" and (mainHeldItem.id ~= "minecraft:crossbow" or mainHeldItem.tag["Charged"] == 0) and not player:getVehicle() and playerPose ~= "FALL_FLYING" and playerPose ~= "SWIMMING" and player:getHeldItem(true).id == "minecraft:air" and Umbrella.Enabled
+	local leftHanded = player:isLeftHanded()
+	Umbrella.IsUsing = (player:isInRain() or Umbrella.AlwaysUse or PhotoPose.CurrentPose == 7) and not player:isUnderwater() and activeItem.id ~= "minecraft:bow" and activeItem.id ~= "minecraft:crossbow" and (mainHeldItem.id ~= "minecraft:crossbow" or mainHeldItem.tag["Charged"] == 0) and not player:getVehicle() and playerPose ~= "FALL_FLYING" and playerPose ~= "SWIMMING" and not player:getHeldItem().id:find("^minecraft:.+_sword$") and player:getHeldItem(true).id == "minecraft:air" and Umbrella.Enabled
 	if Umbrella.IsUsing then
 		if not Umbrella.IsUsingPrev and Umbrella.Sound then
 			sounds:playSound("minecraft:entity.bat.takeoff", player:getPos(), 0.5, 1.5)
 		end
-		if PhotoPose.CurrentPose == 0 then
-			if player:isLeftHanded() then
+		if PhotoPose.CurrentPose == 0 and Naginata.State[1] <= 1 and Naginata.State[2] <= 1 then
+			if leftHanded then
 				models.models.main.Avatar.Body.UmbrellaB:setPos(5.5)
 				Arms.RightArmRotOffset = SitDown.IsAnimationPlaying and vectors.vec3(0, -10, 15) or vectors.vec3()
 			else
@@ -35,7 +36,7 @@ events.TICK:register(function ()
 	else
 		if Umbrella.IsUsingPrev and Umbrella.Sound then
 			sounds:playSound("minecraft:entity.bat.takeoff", player:getPos(), 0.5, 1.5)
-			if PhotoPose.CurrentPose == 0 then
+			if PhotoPose.CurrentPose == 0 and Naginata.State[1] <= 1 and Naginata.State[2] <= 1 then
 				Arms.RightArmRotOffset = vectors.vec3()
 				Arms.LeftArmRotOffset = vectors.vec3()
 			end

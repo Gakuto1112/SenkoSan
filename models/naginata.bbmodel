@@ -509,7 +509,7 @@
 			"uuid": "6b0f3222-beee-c7d6-b543-a13398778082",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": false,
+			"isOpen": true,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
@@ -595,131 +595,13 @@
 	],
 	"animations": [
 		{
-			"uuid": "d0ed6744-fa6f-6b2f-9676-304aa2a4d5c5",
-			"name": "naginata_right",
-			"loop": "hold",
-			"override": false,
-			"length": 0,
-			"snapping": 24,
-			"selected": false,
-			"anim_time_update": "",
-			"blend_weight": "",
-			"start_delay": "",
-			"loop_delay": "",
-			"animators": {
-				"6b0f3222-beee-c7d6-b543-a13398778082": {
-					"name": "RightNaginata",
-					"type": "bone",
-					"keyframes": [
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "77.1307",
-									"y": "13.9775",
-									"z": "71.9524"
-								}
-							],
-							"uuid": "6e932f52-eb7a-54f7-e089-7036b8318c59",
-							"time": 0,
-							"color": -1,
-							"interpolation": "linear",
-							"bezier_linked": true,
-							"bezier_left_time": [-0.1, -0.1, -0.1],
-							"bezier_left_value": [0, 0, 0],
-							"bezier_right_time": [0.1, 0.1, 0.1],
-							"bezier_right_value": [0, 0, 0]
-						},
-						{
-							"channel": "position",
-							"data_points": [
-								{
-									"x": "0",
-									"y": "-1",
-									"z": "7"
-								}
-							],
-							"uuid": "9e8c5c9e-f688-f619-2887-585e1a1ccaef",
-							"time": 0,
-							"color": -1,
-							"interpolation": "linear",
-							"bezier_linked": true,
-							"bezier_left_time": [-0.1, -0.1, -0.1],
-							"bezier_left_value": [0, 0, 0],
-							"bezier_right_time": [0.1, 0.1, 0.1],
-							"bezier_right_value": [0, 0, 0]
-						}
-					]
-				}
-			}
-		},
-		{
-			"uuid": "0b120871-5b06-c886-bb84-462eff0fb8fa",
-			"name": "naginata_left",
-			"loop": "loop",
-			"override": true,
-			"length": 0,
-			"snapping": 24,
-			"selected": false,
-			"anim_time_update": "",
-			"blend_weight": "",
-			"start_delay": "",
-			"loop_delay": "",
-			"animators": {
-				"0658a894-05e3-6225-2420-a0cf9f9bcd93": {
-					"name": "LeftNaginata",
-					"type": "bone",
-					"keyframes": [
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": 77.13073,
-									"y": -13.97749,
-									"z": -71.9524
-								}
-							],
-							"uuid": "9189c9d6-4264-8dcb-458c-6983090ad0be",
-							"time": 0,
-							"color": -1,
-							"interpolation": "linear",
-							"bezier_linked": true,
-							"bezier_left_time": [-0.1, -0.1, -0.1],
-							"bezier_left_value": [0, 0, 0],
-							"bezier_right_time": [0.1, 0.1, 0.1],
-							"bezier_right_value": [0, 0, 0]
-						},
-						{
-							"channel": "position",
-							"data_points": [
-								{
-									"x": "0",
-									"y": "-1",
-									"z": "7"
-								}
-							],
-							"uuid": "89cd8bcb-ee41-745f-0b71-5f842d619847",
-							"time": 0,
-							"color": -1,
-							"interpolation": "linear",
-							"bezier_linked": true,
-							"bezier_left_time": [-0.1, -0.1, -0.1],
-							"bezier_left_value": [0, 0, 0],
-							"bezier_right_time": [0.1, 0.1, 0.1],
-							"bezier_right_value": [0, 0, 0]
-						}
-					]
-				}
-			}
-		},
-		{
 			"uuid": "4c692e9b-6a61-0b55-fdb6-24e262480f52",
 			"name": "naginata_attack_right",
 			"loop": "once",
 			"override": false,
 			"length": 0.29167,
 			"snapping": 24,
-			"selected": false,
+			"selected": true,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
@@ -972,60 +854,6 @@
 							"time": 0.29167,
 							"color": -1,
 							"interpolation": "catmullrom",
-							"bezier_linked": true,
-							"bezier_left_time": [-0.1, -0.1, -0.1],
-							"bezier_left_value": [0, 0, 0],
-							"bezier_right_time": [0.1, 0.1, 0.1],
-							"bezier_right_value": [0, 0, 0]
-						}
-					]
-				}
-			}
-		},
-		{
-			"uuid": "19b3f4d6-3f9f-13c0-7016-f9eee8ba1842",
-			"name": "naginata_defense_right",
-			"loop": "hold",
-			"override": false,
-			"length": 0,
-			"snapping": 24,
-			"selected": false,
-			"anim_time_update": "",
-			"blend_weight": "",
-			"start_delay": "",
-			"loop_delay": "",
-			"animators": {}
-		},
-		{
-			"uuid": "a3114756-d174-852e-f958-b586d17a1c53",
-			"name": "naginata_defense_left",
-			"loop": "hold",
-			"override": false,
-			"length": 0,
-			"snapping": 24,
-			"selected": true,
-			"anim_time_update": "",
-			"blend_weight": "",
-			"start_delay": "",
-			"loop_delay": "",
-			"animators": {
-				"0658a894-05e3-6225-2420-a0cf9f9bcd93": {
-					"name": "LeftNaginata",
-					"type": "bone",
-					"keyframes": [
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "0",
-									"y": "0",
-									"z": "0"
-								}
-							],
-							"uuid": "92f03d4e-c8a3-a9d0-bd8d-739ab61d10a2",
-							"time": 0,
-							"color": -1,
-							"interpolation": "linear",
 							"bezier_linked": true,
 							"bezier_left_time": [-0.1, -0.1, -0.1],
 							"bezier_left_value": [0, 0, 0],

@@ -6,8 +6,8 @@ SitDown = General.instance({
 	---おすわりアニメーションを再生する。
 	play = function (self)
 		for _, animation in ipairs(self.Animations) do
-			animation:setLoop("HOLD")
-			animation:setSpeed(1)
+			animation:loop("HOLD")
+			animation:speed(1)
 		end
 		PermanentAnimationAction.play(self)
 		if Kotatsu.IsAnimationPlaying then
@@ -21,19 +21,22 @@ SitDown = General.instance({
 
 	---おすわりアニメーションを停止する。
 	stop = function (self)
-		PermanentAnimationAction.stop(self)
+		for _, modelPart in ipairs(self.PartToHide) do
+			modelPart:setVisible(false)
+		end
+		for _, animationElement in ipairs(self.Animations) do
+			animationElement:stop()
+		end
 		for _, animation in ipairs(self.Animations) do
-			animation:setLoop("ONCE")
-			animation:setSpeed(-1)
+			animation:loop("ONCE")
+			animation:speed(-1)
 			animation:play()
 		end
 		ActionWheel.onStandUp()
+		FaceParts.resetEmotion()
 		Camera.CameraOffset = 0
 		Nameplate.NamePlateOffset = 0
-		Arms.RightArmRotOffset = vectors.vec3()
-		Arms.LeftArmRotOffset = vectors.vec3()
-		Sleeve.RightSleeveRotOffset = vectors.vec3()
-		Sleeve.LeftSleeveRotOffset = vectors.vec3()
+		self.IsAnimationPlaying = false
 		self.StandUpCount = math.floor(animations["models.main"]["sit_down"]:getLength() * 20) + 1
 	end,
 
@@ -44,14 +47,6 @@ SitDown = General.instance({
 				Sleeve.Moving = true
 			end
 			self.StandUpCount = self.StandUpCount - 1
-		end
-	end,
-
-	---アニメーション再生中に毎チック実行される関数
-	onAnimationTick = function (self)
-		PermanentAnimationAction.onAnimationTick(self)
-		if SitDown.IsAnimationPlaying then
-			Naginata.onSitDownTick()
 		end
 	end
 }, PermanentAnimationAction, function ()
