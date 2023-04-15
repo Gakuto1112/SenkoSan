@@ -13,7 +13,7 @@ Apron = {
 				if player:isCrouching() then
 					local legsYRot = math.rad(models.models.main.Avatar.Body.BodyBottom.Legs:getTrueRot().y)
 					models.models.main.Avatar.Body.BodyBottom.Legs.Apron:setRot(vectors.vec3(math.max(vanilla_model.RIGHT_LEG:getOriginRot().x, vanilla_model.LEFT_LEG:getOriginRot().x) + 30 * math.cos(legsYRot), 0, 30 * math.sin(legsYRot)) + Apron.RotOffset)
-					models.models.main.Avatar.Body.BodyBottom.Legs.Apron:setPos(-legsYRot * 1.2, 4.5, -math.abs(legsYRot) * 0.6 + 1.5)
+					models.models.main.Avatar.Body.BodyBottom.Legs.Apron:setPos(-legsYRot * 1.2, 4.5, -math.abs(legsYRot) * 0.6 + 1.4)
 					models.models.main.Avatar.Body.BodyBottom.Legs.Apron:setPivot(0, 14.5, -2)
 				else
 					models.models.main.Avatar.Body.BodyBottom.Legs.Apron:setRot(vectors.vec3(math.max(vanilla_model.RIGHT_LEG:getOriginRot().x, vanilla_model.LEFT_LEG:getOriginRot().x)) + Apron.RotOffset)
