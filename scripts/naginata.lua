@@ -32,9 +32,12 @@ events.TICK:register(function ()
     local firstPerson = renderer:isFirstPerson()
     local heldItems = {player:getHeldItem(leftHanded), player:getHeldItem(not leftHanded)}
     local naginataModel = {not (heldItems[1].id:find("^minecraft:.+_sword$") == nil or firstPerson or Arms.ItemHeldContradicts), not (heldItems[2].id:find("^minecraft:.+_sword$") == nil or firstPerson or Arms.ItemHeldContradicts)} --薙刀のモデルを表示するかどうか
-    for index, handItem in ipairs({vanilla_model.RIGHT_ITEM, vanilla_model.LEFT_ITEM}) do
-        handItem:setVisible(not (naginataModel[index] or Arms.ItemHeldContradicts))
-    end
+    local active = player:getActiveItem().id ~= "minecraft:air"
+    local sleeping = player:getPose() == "SLEEPING"
+    local rightNaginataAnimation = naginataModel[1] and not leftHanded and not (active and heldItems[2].id ~= "minecraft:shield") and not sleeping and not (TailCuddling.IsAnimationPlaying or EarCuddling.IsAnimationPlaying)
+    local leftNaginataAnimation = naginataModel[2] and leftHanded and not (active and heldItems[1].id ~= "minecraft:shield") and not sleeping and not (TailCuddling.IsAnimationPlaying or EarCuddling.IsAnimationPlaying)
+    vanilla_model.RIGHT_ITEM:setVisible(not (naginataModel[1] or (leftHanded and leftNaginataAnimation and heldItems[1].id == "minecraft:shield") or Arms.ItemHeldContradicts))
+    vanilla_model.LEFT_ITEM:setVisible(not (naginataModel[2] or (not leftHanded and rightNaginataAnimation and heldItems[2].id == "minecraft:shield") or Arms.ItemHeldContradicts))
     for index, modelPart in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightNaginata, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata}) do
         modelPart:setVisible(naginataModel[index])
         local material = heldItems[index].id:match("^minecraft:(%a+)_sword$")
@@ -45,15 +48,20 @@ events.TICK:register(function ()
         blade:setUVPixels(0, meterialValue * 2)
         modelPart:setSecondaryRenderType(heldItems[index]:hasGlint() and "GLINT" or "NONE")
     end
-    local active = player:getActiveItem().id ~= "minecraft:air"
-    local sleeping = player:getPose() == "SLEEPING"
-    local rightNaginataAnimation = naginataModel[1] and not leftHanded and not active and not sleeping and not (TailCuddling.IsAnimationPlaying or EarCuddling.IsAnimationPlaying)
     for _, animation in ipairs({animations["models.main"]["naginata_right"], animations["models.naginata"]["naginata_right"]}) do
         animation:setPlaying(rightNaginataAnimation)
     end
-    local leftNaginataAnimation = naginataModel[2] and leftHanded and not active and not sleeping and not (TailCuddling.IsAnimationPlaying or EarCuddling.IsAnimationPlaying)
     for _, animation in ipairs({animations["models.main"]["naginata_left"], animations["models.naginata"]["naginata_left"]}) do
         animation:setPlaying(leftNaginataAnimation)
+    end
+    local defense = player:getActiveItem().id == "minecraft:shield"
+    local rightNaginataDefense = rightNaginataAnimation and defense
+    for _, animation in ipairs({animations["models.main"]["naginata_defense_right"], animations["models.naginata"]["naginata_defense_right"]}) do
+        animation:setPlaying(rightNaginataDefense)
+    end
+    local leftNaginataDefense = leftNaginataAnimation and defense
+    for _, animation in ipairs({animations["models.main"]["naginata_defense_left"], animations["models.naginata"]["naginata_defense_left"]}) do
+        animation:setPlaying(leftNaginataDefense)
     end
     if player:getSwingTime() == 1 and not firstPerson then
         if rightNaginataAnimation then
@@ -64,6 +72,12 @@ events.TICK:register(function ()
             for _, modelName in ipairs({"models.main", "models.naginata"}) do
                 animations[modelName]["naginata_attack_left"]:restart()
             end
+        end
+    end
+    if player:getActiveItem().id == "minecraft:shield" then
+        if rightNaginataAnimation then
+
+        elseif leftNaginataAnimation then
         end
     end
     local swingSpeed = player:getSwingDuration()
