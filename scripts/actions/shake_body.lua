@@ -16,10 +16,19 @@ ShakeBody = General.instance({
 
 	---ブルブルアニメーションを停止する。
 	stop = function (self)
-		AnimationAction.stop(self)
+		for _, modelPart in ipairs(self.PartToHide) do
+			modelPart:setVisible(false)
+		end
+		for _, animationElement in ipairs(self.Animations) do
+			animationElement:stop()
+		end
+		FaceParts.resetEmotion()
 		if not Wet.IsWet then
 			Wet.WetCount = 0
 		end
+		self.IsAnimationPlaying = false
+		ActionWheel.IsAnimationPlaying = false
+		self.AnimationCount = -1
 	end,
 
 	---アニメーション再生中に毎チック実行される関数
