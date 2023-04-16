@@ -18,7 +18,7 @@ events.TICK:register(function ()
 	local activeItem = player:getActiveItem()
 	local mainHeldItem = player:getHeldItem()
 	local leftHanded = player:isLeftHanded()
-	Umbrella.IsUsing = (player:isInRain() or Umbrella.AlwaysUse or PhotoPose.CurrentPose == 7) and not player:isUnderwater() and activeItem.id ~= "minecraft:bow" and activeItem.id ~= "minecraft:crossbow" and (mainHeldItem.id ~= "minecraft:crossbow" or mainHeldItem.tag["Charged"] == 0) and not player:getVehicle() and playerPose ~= "FALL_FLYING" and playerPose ~= "SWIMMING" and not player:getHeldItem().id:find("^minecraft:.+_sword$") and player:getHeldItem(true).id == "minecraft:air" and Umbrella.Enabled
+	Umbrella.IsUsing = (((player:isInRain() or Umbrella.AlwaysUse) and not player:getHeldItem().id:find("^minecraft:.+_sword$") and player:getHeldItem(true).id == "minecraft:air" and (mainHeldItem.id ~= "minecraft:crossbow" or mainHeldItem.tag["Charged"] == 0)) or PhotoPose.CurrentPose == 7) and not player:isUnderwater() and activeItem.id ~= "minecraft:bow" and activeItem.id ~= "minecraft:crossbow" and not player:getVehicle() and playerPose ~= "FALL_FLYING" and playerPose ~= "SWIMMING" and Umbrella.Enabled
 	if Umbrella.IsUsing then
 		if not Umbrella.IsUsingPrev and Umbrella.Sound then
 			sounds:playSound("minecraft:entity.bat.takeoff", player:getPos(), 0.5, 1.5)
