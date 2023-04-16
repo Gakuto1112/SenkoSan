@@ -31,10 +31,48 @@ events.TICK:register(function ()
                     end
                     models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightNaginata:setVisible(false)
                 end
-                if Naginata.State[1] == 0 then
-                elseif Naginata.State[1] == 1 then
-                elseif Naginata.State[1] == 2 then
+                if Naginata.State[1] >= 2 and Naginata.State[1] <= 3 then
+                    models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightNaginata:setPos(0, -1, 7)
+                    models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightNaginata:setRot(-77.1307, -13.9775, 71.9524)
+                    models.models.main.Avatar.Body:setRot(0, 40)
+                    models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom:setRot(30)
+                    models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom:setRot(60)
+                    models.models.main.Avatar.Body.BodyBottom.Legs:setRot(0, -40)
+                    if Naginata.State[1] == 2 then
+                        Arms.RightArmRotOffset = vectors.vec3(45, 30)
+                        Arms.LeftArmRotOffset = vectors.vec3(-40, -40)
+                    else
+                        Arms.RightArmRotOffset = vectors.vec3(25, 20, 15)
+                        Arms.LeftArmRotOffset = vectors.vec3(-60, -30, -15)
+                    end
+                elseif Naginata.State[1] >= 4 then
+                    vanilla_model.LEFT_ITEM:setVisible(false)
+                    models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightNaginata:setPos(0, 0, 7)
+                    models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightNaginata:setRot(105, 60, -90)
+                    for _, modelPart in ipairs({models.models.main.Avatar.Body, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom, models.models.main.Avatar.Body.BodyBottom.Legs}) do
+                        modelPart:setRot()
+                    end
+                    if Naginata.State[1] == 4 then
+                        Arms.RightArmRotOffset = vectors.vec3(120, -15)
+                        Arms.LeftArmRotOffset = vectors.vec3(120, 15)
+                    else
+                        Arms.RightArmRotOffset = vectors.vec3(100, -25, 15)
+                        Arms.LeftArmRotOffset = vectors.vec3(100, 25, -15)
+                    end
                 else
+                    models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setPos()
+                    for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata, models.models.main.Avatar.Body}) do
+                        modelPart:setRot()
+                    end
+                    if PhotoPose.CurrentPose == 0 then
+                        if TailCuddling.IsAnimationPlaying or EarCuddling.IsAnimationPlaying or not SitDown.IsAnimationPlaying then
+                            Arms.RightArmRotOffset = vectors.vec3()
+                            Arms.LeftArmRotOffset = vectors.vec3()
+                        end
+                        for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom, models.models.main.Avatar.Body.BodyBottom.Legs}) do
+                            modelPart:setRot()
+                        end
+                    end
                 end
             else
                 if Naginata.State[2] > 0 then
@@ -69,29 +107,29 @@ events.TICK:register(function ()
                     vanilla_model.RIGHT_ITEM:setVisible(false)
                     models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setPos(0, 0, 7)
                     models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setRot(105, -60, 90)
-                    models.models.main.Avatar.Body:setRot()
-                    models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom:setRot()
-                    models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom:setRot()
-                    models.models.main.Avatar.Body.BodyBottom.Legs:setRot()
+                    for _, modelPart in ipairs({models.models.main.Avatar.Body, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom, models.models.main.Avatar.Body.BodyBottom.Legs}) do
+                        modelPart:setRot()
+                    end
                     if Naginata.State[2] == 4 then
                         Arms.RightArmRotOffset = vectors.vec3(120, -15)
                         Arms.LeftArmRotOffset = vectors.vec3(120, 15)
                     else
                         Arms.RightArmRotOffset = vectors.vec3(100, -25, 15)
                         Arms.LeftArmRotOffset = vectors.vec3(100, 25, -15)
-                        end
+                    end
                 else
                     models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setPos()
-                    models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setRot()
-                    models.models.main.Avatar.Body:setRot()
+                    for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata, models.models.main.Avatar.Body}) do
+                        modelPart:setRot()
+                    end
                     if PhotoPose.CurrentPose == 0 then
                         if TailCuddling.IsAnimationPlaying or EarCuddling.IsAnimationPlaying or not SitDown.IsAnimationPlaying then
                             Arms.RightArmRotOffset = vectors.vec3()
                             Arms.LeftArmRotOffset = vectors.vec3()
                         end
-                        models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom:setRot()
-                        models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom:setRot()
-                        models.models.main.Avatar.Body.BodyBottom.Legs:setRot()
+                        for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom, models.models.main.Avatar.Body.BodyBottom.Legs}) do
+                            modelPart:setRot()
+                        end
                     end
                 end
             end
