@@ -37,7 +37,6 @@ events.TICK:register(function ()
                 else
                 end
             else
-                print(Naginata.State[2])
                 if Naginata.State[2] > 0 then
                     vanilla_model.LEFT_ITEM:setVisible(false)
                     models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setVisible(true)
@@ -52,23 +51,35 @@ events.TICK:register(function ()
                     end
                     models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setVisible(false)
                 end
-                if Naginata.State[2] >= 2 then
-                    if Naginata.State[2] >= 4 then
-                        vanilla_model.RIGHT_ITEM:setVisible(false)
-                    end
+                if Naginata.State[2] >= 2 and Naginata.State[2] <= 3 then
                     models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setPos(0, -1, 7)
                     models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setRot(-77.1307, 13.9775, -71.9524)
                     models.models.main.Avatar.Body:setRot(0, -40)
                     models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom:setRot(60)
                     models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom:setRot(30)
                     models.models.main.Avatar.Body.BodyBottom.Legs:setRot(0, 40)
-                    if Naginata.State[2] % 2 == 0 then
+                    if Naginata.State[2] == 2 then
                         Arms.RightArmRotOffset = vectors.vec3(-40, 40)
                         Arms.LeftArmRotOffset = vectors.vec3(45, -30)
                     else
                         Arms.RightArmRotOffset = vectors.vec3(-60, 30, 15)
                         Arms.LeftArmRotOffset = vectors.vec3(25, -20, -15)
                     end
+                elseif Naginata.State[2] >= 4 then
+                    vanilla_model.RIGHT_ITEM:setVisible(false)
+                    models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setPos(0, 0, 7)
+                    models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setRot(105, -60, 90)
+                    models.models.main.Avatar.Body:setRot()
+                    models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom:setRot()
+                    models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom:setRot()
+                    models.models.main.Avatar.Body.BodyBottom.Legs:setRot()
+                    if Naginata.State[2] == 4 then
+                        Arms.RightArmRotOffset = vectors.vec3(120, -15)
+                        Arms.LeftArmRotOffset = vectors.vec3(120, 15)
+                    else
+                        Arms.RightArmRotOffset = vectors.vec3(100, -25, 15)
+                        Arms.LeftArmRotOffset = vectors.vec3(100, 25, -15)
+                        end
                 else
                     models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setPos()
                     models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setRot()
