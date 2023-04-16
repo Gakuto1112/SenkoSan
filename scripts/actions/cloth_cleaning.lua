@@ -32,6 +32,6 @@ ClothCleaning = General.instance({
 	end
 }, AnimationAction, function ()
 	return BroomCleaning:checkAction()
-end, {models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.ClothRAB, models.models.cloth_cleaning.Stain}, {models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.ClothRAB, models.models.cloth_cleaning.Stain}, animations["models.main"]["cloth_cleaning"], {animations["models.cloth_cleaning"]["cloth_cleaning"], animations["models.costume_maid_a"]["cloth_cleaning"], animations["models.costume_maid_b"]["cloth_cleaning"], animations["models.costume_inari_girl"]["cloth_cleaning"]}, 40)
+end, {models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.ClothRAB, models.models.cloth_cleaning.Stain}, {models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.ClothRAB, models.models.cloth_cleaning.Stain}, animations["models.main"]["cloth_cleaning"], {animations["models.cloth_cleaning"]["cloth_cleaning"], animations["models.costume_maid_a"]["cloth_cleaning"], animations["models.costume_maid_b"]["cloth_cleaning"]}, 40)
 
 return ClothCleaning

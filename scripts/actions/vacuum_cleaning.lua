@@ -51,6 +51,6 @@ VacuumCleaning = General.instance({
 	end
 }, AnimationAction, function ()
 	return BroomCleaning:checkAction()
-end, models.models.vacuum_cleaning, models.models.vacuum_cleaning, animations["models.main"]["vacuum_cleaning"], {animations["models.vacuum_cleaning"]["vacuum_cleaning"], animations["models.costume_maid_a"]["vacuum_cleaning"], animations["models.costume_maid_b"]["vacuum_cleaning"], animations["models.costume_inari_girl"]["vacuum_cleaning"]}, 0)
+end, models.models.vacuum_cleaning, models.models.vacuum_cleaning, animations["models.main"]["vacuum_cleaning"], {animations["models.vacuum_cleaning"]["vacuum_cleaning"], animations["models.costume_maid_a"]["vacuum_cleaning"], animations["models.costume_maid_b"]["vacuum_cleaning"]}, 0)
 
 return VacuumCleaning
