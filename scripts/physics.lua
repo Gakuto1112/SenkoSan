@@ -92,7 +92,7 @@ events.RENDER:register(function ()
 				tailRot = vectors.vec3(math.clamp(Physics.VelocityAverage[5] * 80, rotLimit[1][1][1], rotLimit[1][1][2]), math.clamp(-Physics.VelocityAverage[7] * 0.1, rotLimit[1][2][1], rotLimit[1][2][2]))
 			end
 			if Physics.EnablePyhsics[2] then
-				frontHairRot = vectors.vec3(math.clamp(rotLimit[2][1][2] - math.sqrt(Physics.VelocityAverage[1] ^ 2 + Physics.VelocityAverage[2] ^ 2) * 80, rotLimit[2][1][1], rotLimit[2][1][2]))
+				frontHairRot = vectors.vec3(math.clamp(rotLimit[2][1][2] - math.sqrt(Physics.VelocityAverage[5] ^ 2 + Physics.VelocityAverage[2] ^ 2) * 80, rotLimit[2][1][1], rotLimit[2][1][2]))
 				if Costume.CurrentCostume == "SWIMSUIT" then
 					backHairRot = vectors.vec3(-30)
 				elseif backHairVisible then
@@ -104,7 +104,7 @@ events.RENDER:register(function ()
 				tailRot = vectors.vec3(math.clamp(Physics.VelocityAverage[5] * 320, rotLimit[1][1][1], rotLimit[1][1][2]), math.clamp(-Physics.VelocityAverage[7] * 0.2, rotLimit[1][2][1], rotLimit[1][2][2]))
 			end
 			if Physics.EnablePyhsics[2] then
-				frontHairRot = vectors.vec3(math.clamp(rotLimit[2][1][2] - math.sqrt(Physics.VelocityAverage[1] ^ 2 + Physics.VelocityAverage[2] ^ 2) * 320, rotLimit[2][1][1], rotLimit[2][1][2]))
+				frontHairRot = vectors.vec3(math.clamp(rotLimit[2][1][2] - math.sqrt(Physics.VelocityAverage[5] ^ 2 + Physics.VelocityAverage[2] ^ 2) * 320, rotLimit[2][1][1], rotLimit[2][1][2]))
 				if Costume.CurrentCostume == "SWIMSUIT" then
 					backHairRot = vectors.vec3(-30)
 				elseif backHairVisible then
@@ -120,9 +120,9 @@ events.RENDER:register(function ()
 				tailRot = vectors.vec3(math.clamp(rotLimit[1][1][2] - math.min(tailXMoveXZ, math.max(rotLimit[1][1][2] - tailXMoveY - tailXAngleMove - tailXConditionAngle, 0)) + tailXMoveY - math.min(tailXAngleMove, math.max(rotLimit[1][1][2] - tailXMoveXZ - tailXMoveY - tailXConditionAngle, 0)) - tailXConditionAngle, rotLimit[1][1][1], rotLimit[1][1][2]) + (player:isCrouching() and 30 or 0), math.clamp(Physics.VelocityAverage[6] * 160 + Physics.VelocityAverage[7] * 0.05, rotLimit[1][2][1], rotLimit[1][2][2]))
 			end
 			if Physics.EnablePyhsics[2] then
-				local hairXMoveX = Physics.VelocityAverage[1] * -160 + (player:isCrouching() and 30 or 0)
+				local hairXMoveX = Physics.VelocityAverage[5] * -160 + (player:isCrouching() and 30 or 0)
 				local hairXMoveY = Physics.VelocityAverage[2] * 80
-				local hairXAngleMove = math.abs(Physics.VelocityAverage[4]) * 0.05
+				local hairXAngleMove = math.abs(Physics.VelocityAverage[7]) * 0.05
 				frontHairRot = vectors.vec3(math.clamp(hairXMoveX - hairXMoveY + hairXAngleMove, rotLimit[2][1][1], rotLimit[2][1][2]))
 				if backHairVisible then
 					backHairRot = vectors.vec3(math.clamp(hairXMoveX + hairXMoveY - hairXAngleMove, rotLimit[2][2][1], rotLimit[2][2][2]))
