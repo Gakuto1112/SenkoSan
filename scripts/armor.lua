@@ -14,7 +14,7 @@ events.TICK:register(function ()
 	---@param armorItem ItemStack 調べるアイテムのオブジェクト
 	---@return number color 防具モデルに設定すべき色
 	local function getArmorColor(armorItem)
-		if armorItem.id:find("^minecraft:leather_") then
+		if string.find(armorItem.id, "^minecraft:leather_") then
 			if armorItem.tag then
 				if armorItem.tag.display then
 					return armorItem.tag.display.color and armorItem.tag.display.color or 10511680

@@ -174,7 +174,7 @@ function pings.main4_action1(costumeID)
 	if costumeID == 1 then
 		Costume.resetCostume()
 	else
-		Costume.setCostume(Costume.CostumeList[costumeID]:upper())
+		Costume.setCostume(string.upper(Costume.CostumeList[costumeID]))
 	end
 	ActionWheel.CurrentCostumeState = costumeID
 	if host:isHost() then
