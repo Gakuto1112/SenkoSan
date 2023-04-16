@@ -60,12 +60,12 @@ events.TICK:register(function ()
                         Arms.LeftArmRotOffset = vectors.vec3(100, 25, -15)
                     end
                 else
-                    models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setPos()
-                    for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata, models.models.main.Avatar.Body}) do
+                    models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightNaginata:setPos()
+                    for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.RightNaginata, models.models.main.Avatar.Body}) do
                         modelPart:setRot()
                     end
                     if PhotoPose.CurrentPose == 0 then
-                        if TailCuddling.IsAnimationPlaying or EarCuddling.IsAnimationPlaying or not SitDown.IsAnimationPlaying then
+                        if not Earpick.IsAnimationPlaying and not TeaTime.IsAnimationPlaying and not Massage.IsAnimationPlaying then
                             Arms.RightArmRotOffset = vectors.vec3()
                             Arms.LeftArmRotOffset = vectors.vec3()
                         end
@@ -117,13 +117,13 @@ events.TICK:register(function ()
                         Arms.RightArmRotOffset = vectors.vec3(100, -25, 15)
                         Arms.LeftArmRotOffset = vectors.vec3(100, 25, -15)
                     end
-                else
+                elseif Naginata.State[1] <= 1 then
                     models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata:setPos()
                     for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.LeftNaginata, models.models.main.Avatar.Body}) do
                         modelPart:setRot()
                     end
                     if PhotoPose.CurrentPose == 0 then
-                        if TailCuddling.IsAnimationPlaying or EarCuddling.IsAnimationPlaying or not SitDown.IsAnimationPlaying then
+                        if not Earpick.IsAnimationPlaying and not TeaTime.IsAnimationPlaying and not Massage.IsAnimationPlaying then
                             Arms.RightArmRotOffset = vectors.vec3()
                             Arms.LeftArmRotOffset = vectors.vec3()
                         end
