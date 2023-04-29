@@ -1,5 +1,4 @@
 ---@class TeaTime お茶飲みのアニメーションを制御するクラス
-
 TeaTime = General.instance({
 	---お茶飲みのアニメーションを再生する。
 	play = function (self)

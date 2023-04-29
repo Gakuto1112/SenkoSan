@@ -1,7 +1,6 @@
 ---@class Tail 尻尾を制御するクラス
----@field Tail.WagTailKey Keybind 尻尾振りをするキー
----@field Tail.WagTailCount integer 尻尾振りの時間を計るカウンター
-
+---@field WagTailKey Keybind 尻尾振りをするキー
+---@field WagTailCount integer 尻尾振りの時間を計るカウンター
 Tail = {
 	WagTailKey = keybinds:newKeybind(Language.getTranslate("key_name__wag_tail"), Config.loadConfig("keybind.wagTail", "key.keyboard.z")),
 	WagTailCount = -1

@@ -1,7 +1,6 @@
 ---@class Nameplate ネームプレート（プレイヤーの名前）を制御するクラス
----@field Nameplate.NameList table 利用可能な名前のリスト
----@field Nameplate.NamplateOffset number ネームプレートのオフセット
-
+---@field NameList table<string> 利用可能な名前のリスト
+---@field NamplateOffset number ネームプレートのオフセット
 Nameplate = {
 	NameList = {player:getName(), "Shiro", "シロ"},
 	NamePlateOffset = 0

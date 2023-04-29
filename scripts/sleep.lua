@@ -1,8 +1,7 @@
 ---@class Sleep ベッドで寝る時の挙動を制御するクラス
----@field Sleep.IsSleepingPrev boolean 前チックに寝ていたかどうか
----@field Sleep.SleepStatePrev integer 前チックの睡眠の状態：0. 添い寝なし, 1. 左側にプレイヤー, 2. 右側にプレイヤー, 3. ウォーデン
----@field Sleep.CostumeBeforeSleeping CostumeType 寝る前のコスチュームを保持する変数
-
+---@field IsSleepingPrev boolean 前チックに寝ていたかどうか
+---@field SleepStatePrev integer 前チックの睡眠の状態：0. 添い寝なし, 1. 左側にプレイヤー, 2. 右側にプレイヤー, 3. ウォーデン
+---@field CostumeBeforeSleeping CostumeType 寝る前のコスチュームを保持する変数
 Sleep = {
 	IsSleepingPrev = false,
 	SleepStatePrev = 0,

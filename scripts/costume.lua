@@ -1,7 +1,3 @@
----@class Costume キャラクターのコスチュームを管理し、円滑に切り替えられるようにするクラス
----@field Costume.CostumeList table 利用可能なコスチュームのリスト
----@field Costume.CurrentCostume CostumeType 現在のコスチューム
-
 ---@alias CostumeType
 ---| "DEFAULT"
 ---| "NIGHTWEAR"
@@ -23,6 +19,9 @@
 ---| "SANTA"
 ---| "KIMONO"
 
+---@class Costume キャラクターのコスチュームを管理し、円滑に切り替えられるようにするクラス
+---@field CostumeList table<string> 利用可能なコスチュームのリスト
+---@field CurrentCostume CostumeType 現在のコスチューム
 Costume = {
 	CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "tracksuit", "casual", "sailor", "china_dress", "santa", "kimono"},
 	CurrentCostume = "DEFAULT",
@@ -189,12 +188,14 @@ Costume = {
 			models.models.main.Avatar.Head.CKnitH:setVisible(not Armor.ArmorVisible[1])
 		elseif costume == "FOX_HOODIE_RED" then
 			models.models.main.Avatar.Head.Ears:setVisible(player:getItem(6).id == "minecraft:chainmail_helmet")
+			models.models.main.Avatar.Body.Hairs.BackHair:setVisible(Armor.ArmorVisible[1])
 			models.models.main.Avatar.Head.CFoxHoodH:setVisible(not Armor.ArmorVisible[1])
 			Costume.setCostumeTextureOffset(10)
 			models.models.main.Avatar.Head.CFoxHoodH:setUVPixels(0, 8)
 			Apron.disable()
 		elseif costume == "FOX_HOODIE_WHITE" then
 			models.models.main.Avatar.Head.Ears:setVisible(player:getItem(6).id == "minecraft:chainmail_helmet")
+			models.models.main.Avatar.Body.Hairs.BackHair:setVisible(Armor.ArmorVisible[1])
 			models.models.main.Avatar.Head.CFoxHoodH:setVisible(not Armor.ArmorVisible[1])
 			Costume.setCostumeTextureOffset(11)
 			models.models.main.Avatar.Head.CFoxHoodH:setUVPixels(0, 16)

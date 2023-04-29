@@ -1,5 +1,4 @@
 ---@class Smile 笑顔のアニメーションを制御するクラス
-
 Smile = General.instance({
 	---笑顔アニメーションを再生する。
 	---@param playSoundParticle boolean パーティクルと効果音を再生するかどうか

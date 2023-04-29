@@ -1,6 +1,5 @@
 ---@class Apron エプロンの挙動を制御するクラス
----@field Apron.RotOffset Vector3 エプロンの角度のオフセット
-
+---@field RotOffset Vector3 エプロンの角度のオフセット
 Apron = {
 	RotOffset = vectors.vec3(),
 

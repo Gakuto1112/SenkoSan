@@ -1,6 +1,5 @@
 ---@class Language アバターの表示言語を管理するクラス
----@field Language.LanguageData table 言語データ
-
+---@field LanguageData { [string]: { [string]: string } } 言語データ
 Language = {
 	LanguageData = {
 		en_us = {

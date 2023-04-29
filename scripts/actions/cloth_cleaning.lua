@@ -1,5 +1,4 @@
 ---@class ClothCleaning 雑巾がけのアニメーションを制御するクラス
-
 ClothCleaning = General.instance({
 	---雑巾がけアニメーションを再生する。
 	play = function (self)

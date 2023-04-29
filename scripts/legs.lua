@@ -1,8 +1,7 @@
 ---@class Legs 脚を制御するクラス
----@field Legs.RightLegOffset Vector3 右脚の角度のオフセット
----@field Lefs.LeftLegOffset Vector3 左脚の角度のオフセット
----@field Legs.ReducedLegSwing boolean 脚の動きを軽減するかどうか（軽減時は0.5になる）
-
+---@field RightLegOffset Vector3 右脚の角度のオフセット
+---@field LeftLegOffset Vector3 左脚の角度のオフセット
+---@field ReducedLegSwing boolean 脚の動きを軽減するかどうか（軽減時は0.5になる）
 Legs = {
 	ReducedLegSwing = false,
 	RightLegRotOffset = vectors.vec3(),

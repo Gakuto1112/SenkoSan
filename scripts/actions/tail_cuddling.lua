@@ -1,5 +1,4 @@
 ---@class TailCuddling 尻尾モフモフアニメーションを制御するクラス
-
 TailCuddling = General.instance({
 	---尻尾モフモフアニメーションを再生する。
 	play = function (self)
