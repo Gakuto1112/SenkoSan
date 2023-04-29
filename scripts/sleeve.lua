@@ -13,10 +13,10 @@ Sleeve = {
 			modelPart:setVisible(true)
 		end
 		events.RENDER:remove("sleeve_render")
-		events.RENDER:register(function ()
+		events.RENDER:register(function (_, context)
 			local armRot = {models.models.main.Avatar.Body.Arms.RightArm:getTrueRot() + models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom:getTrueRot() + (models.models.main.Avatar.Body.Arms.RightArm:getParentType() == "RightArm" and vanilla_model.RIGHT_ARM:getOriginRot() or vectors.vec3()), models.models.main.Avatar.Body.Arms.LeftArm:getTrueRot() + models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom:getTrueRot() + (models.models.main.Avatar.Body.Arms.LeftArm:getParentType() == "LeftArm" and vanilla_model.LEFT_ARM:getOriginRot() or vectors.vec3())}
 			local sleeveRot = {vectors.vec3(), vectors.vec3()}
-			if not renderer:isFirstPerson() and Sleeve.Moving then
+			if context ~= "FIRST_PERSON" and Sleeve.Moving then
 				local playerPose = player:getPose()
 				if playerPose == "FALL_FLYING" then
 					sleeveRot = {vectors.vec3(math.clamp(90 - armRot[1].x, -80, 80)), vectors.vec3(math.clamp(90 - armRot[2].x, -80, 80))}

@@ -12,63 +12,71 @@ Physics = {
 	TailRotOffset = vectors.vec3()
 }
 
-events.RENDER:register(function ()
-	local velocity = player:getVelocity()
-	local FPS = client:getFPS()
+---@type boolean
+local renderProcessed = false
 
-	---速度を指定された方向から見て前後方向、左右方向に分解する。
-	---@param direction number 基準にする方向
-	---@param index integer データ管理用のインデックス番号（呼び出しの度に異なるインデックス番号になるようにする）
-	---@return number velocityFront 指定された方向から見た前後方向の速度
-	---@return number velocityRight 指定された方向から見た左右方向の速度
-	---@return number velocityRot 指定された方向を基準とした角速度
-	local function decomposeHorizontalVelocity(direction, index)
-		if Physics.DirectionPrevRender[index] == nil then
-			Physics.DirectionPrevRender[index] = 0
-		end
-		local velocityRot = math.deg(math.atan2(velocity.z, velocity.x))
-		velocityRot = velocityRot < 0 and 360 + velocityRot or velocityRot
-		local directionAbsFront = math.abs(velocityRot - (direction) % 360)
-		directionAbsFront = directionAbsFront > 180 and 360 - directionAbsFront or directionAbsFront
-		local directionAbsRight = math.abs(velocityRot - (direction + 90) % 360)
-		directionAbsRight = directionAbsRight > 180 and 360 - directionAbsRight or directionAbsRight
-		local directionDelta = direction - Physics.DirectionPrevRender[index]
-		directionDelta = directionDelta > 180 and (360 - directionDelta) * FPS or (directionDelta < -180 and (360 + directionDelta) * FPS or directionDelta * FPS)
-		Physics.DirectionPrevRender[index] = direction
-		return math.sqrt(velocity.x ^ 2 + velocity.z ^ 2) * math.cos(math.rad(directionAbsFront)), math.sqrt(velocity.x ^ 2 + velocity.z ^ 2) * math.cos(math.rad(directionAbsRight)), directionDelta
-	end
-
+events.RENDER:register(function (_, context)
 	local lookDir = player:getLookDir()
-	local velocityHeadFront, velocityHeadRight, velocityHeadRot = decomposeHorizontalVelocity(math.deg(math.atan2(lookDir.z, lookDir.x)), 1)
-	Physics.VelocityAverage[1] = (#Physics.VelocityData[1] * Physics.VelocityAverage[1] + velocityHeadFront) / (#Physics.VelocityData[1] + 1)
-	table.insert(Physics.VelocityData[1], velocityHeadFront)
-	Physics.VelocityAverage[2] = (#Physics.VelocityData[2] * Physics.VelocityAverage[2] + velocity.y) / (#Physics.VelocityData[2] + 1)
-	table.insert(Physics.VelocityData[2], velocity.y)
-	Physics.VelocityAverage[3] = (#Physics.VelocityData[3] * Physics.VelocityAverage[3] + velocityHeadRight) / (#Physics.VelocityData[3] + 1)
-	table.insert(Physics.VelocityData[3], velocityHeadRight)
-	Physics.VelocityAverage[4] = (#Physics.VelocityData[4] * Physics.VelocityAverage[4] + velocityHeadRot) / (#Physics.VelocityData[4] + 1)
-	table.insert(Physics.VelocityData[4], velocityHeadRot)
-	local velocityBodyFront, velocityBodyRight, velocityBodyRot = decomposeHorizontalVelocity((player:getBodyYaw() + models.models.main.Avatar.Body:getTrueRot().y - 90) % 360 - 180, 2)
-	Physics.VelocityAverage[5] = (#Physics.VelocityData[5] * Physics.VelocityAverage[5] + velocityBodyFront) / (#Physics.VelocityData[5] + 1)
-	table.insert(Physics.VelocityData[5], velocityBodyFront)
-	Physics.VelocityAverage[6] = (#Physics.VelocityData[6] * Physics.VelocityAverage[6] + velocityBodyRight) / (#Physics.VelocityData[6] + 1)
-	table.insert(Physics.VelocityData[6], velocityBodyRight)
-	Physics.VelocityAverage[7] = (#Physics.VelocityData[7] * Physics.VelocityAverage[7] + velocityBodyRot) / (#Physics.VelocityData[7] + 1)
-	table.insert(Physics.VelocityData[7], velocityBodyRot)
-	--古いデータの切り捨て
-	for index, velocityTable in ipairs(Physics.VelocityData) do
-		while #velocityTable > FPS * 0.25 do
-			if #velocityTable >= 2 then
-				Physics.VelocityAverage[index] = (#velocityTable * Physics.VelocityAverage[index] - velocityTable[1]) / (#velocityTable - 1)
+	if not renderProcessed then
+		local velocity = player:getVelocity()
+		local FPS = client:getFPS()
+
+		---速度を指定された方向から見て前後方向、左右方向に分解する。
+		---@param direction number 基準にする方向
+		---@param index integer データ管理用のインデックス番号（呼び出しの度に異なるインデックス番号になるようにする）
+		---@return number velocityFront 指定された方向から見た前後方向の速度
+		---@return number velocityRight 指定された方向から見た左右方向の速度
+		---@return number velocityRot 指定された方向を基準とした角速度
+		local function decomposeHorizontalVelocity(direction, index)
+			if Physics.DirectionPrevRender[index] == nil then
+				Physics.DirectionPrevRender[index] = 0
 			end
-			table.remove(velocityTable, 1)
+			---@diagnostic disable-next-line: deprecated
+			local velocityRot = math.deg(math.atan2(velocity.z, velocity.x))
+			velocityRot = velocityRot < 0 and 360 + velocityRot or velocityRot
+			local directionAbsFront = math.abs(velocityRot - (direction) % 360)
+			directionAbsFront = directionAbsFront > 180 and 360 - directionAbsFront or directionAbsFront
+			local directionAbsRight = math.abs(velocityRot - (direction + 90) % 360)
+			directionAbsRight = directionAbsRight > 180 and 360 - directionAbsRight or directionAbsRight
+			local directionDelta = direction - Physics.DirectionPrevRender[index]
+			directionDelta = directionDelta > 180 and (360 - directionDelta) * FPS or (directionDelta < -180 and (360 + directionDelta) * FPS or directionDelta * FPS)
+			Physics.DirectionPrevRender[index] = direction
+			return math.sqrt(velocity.x ^ 2 + velocity.z ^ 2) * math.cos(math.rad(directionAbsFront)), math.sqrt(velocity.x ^ 2 + velocity.z ^ 2) * math.cos(math.rad(directionAbsRight)), directionDelta
 		end
+
+		---@diagnostic disable-next-line: deprecated
+		local velocityHeadFront, velocityHeadRight, velocityHeadRot = decomposeHorizontalVelocity(math.deg(math.atan2(lookDir.z, lookDir.x)), 1)
+		Physics.VelocityAverage[1] = (#Physics.VelocityData[1] * Physics.VelocityAverage[1] + velocityHeadFront) / (#Physics.VelocityData[1] + 1)
+		table.insert(Physics.VelocityData[1], velocityHeadFront)
+		Physics.VelocityAverage[2] = (#Physics.VelocityData[2] * Physics.VelocityAverage[2] + velocity.y) / (#Physics.VelocityData[2] + 1)
+		table.insert(Physics.VelocityData[2], velocity.y)
+		Physics.VelocityAverage[3] = (#Physics.VelocityData[3] * Physics.VelocityAverage[3] + velocityHeadRight) / (#Physics.VelocityData[3] + 1)
+		table.insert(Physics.VelocityData[3], velocityHeadRight)
+		Physics.VelocityAverage[4] = (#Physics.VelocityData[4] * Physics.VelocityAverage[4] + velocityHeadRot) / (#Physics.VelocityData[4] + 1)
+		table.insert(Physics.VelocityData[4], velocityHeadRot)
+		local velocityBodyFront, velocityBodyRight, velocityBodyRot = decomposeHorizontalVelocity((player:getBodyYaw() + models.models.main.Avatar.Body:getTrueRot().y - 90) % 360 - 180, 2)
+		Physics.VelocityAverage[5] = (#Physics.VelocityData[5] * Physics.VelocityAverage[5] + velocityBodyFront) / (#Physics.VelocityData[5] + 1)
+		table.insert(Physics.VelocityData[5], velocityBodyFront)
+		Physics.VelocityAverage[6] = (#Physics.VelocityData[6] * Physics.VelocityAverage[6] + velocityBodyRight) / (#Physics.VelocityData[6] + 1)
+		table.insert(Physics.VelocityData[6], velocityBodyRight)
+		Physics.VelocityAverage[7] = (#Physics.VelocityData[7] * Physics.VelocityAverage[7] + velocityBodyRot) / (#Physics.VelocityData[7] + 1)
+		table.insert(Physics.VelocityData[7], velocityBodyRot)
+		--古いデータの切り捨て
+		for index, velocityTable in ipairs(Physics.VelocityData) do
+			while #velocityTable > FPS * 0.25 do
+				if #velocityTable >= 2 then
+					Physics.VelocityAverage[index] = (#velocityTable * Physics.VelocityAverage[index] - velocityTable[1]) / (#velocityTable - 1)
+				end
+				table.remove(velocityTable, 1)
+			end
+		end
+		renderProcessed = true
 	end
 	--求めた平均速度から尻尾の角度を計算
 	local tailRot = vectors.vec3(0, 0, 0)
 	local hairAccessoryLineRot = vectors.vec3(0, 0, 0)
 	local rotLimit = {{{-60, 60}, {-30, 30}}, {{0, 180}, {-90, 90}}} --物理演算の可動範囲：1. 尻尾：{1-1. 上下方向, 1-2. 左右方向}, 2. 髪飾りのヒモ：{2-1. 前後方向, 2-2. 左右方向}
-	if (not renderer:isFirstPerson() or client:hasIrisShader()) and (Physics.EnablePyhsics[1] or Physics.EnablePyhsics[2]) then
+	if (context ~= "FIRST_PERSON" or client:hasIrisShader()) and (Physics.EnablePyhsics[1] or Physics.EnablePyhsics[2]) then
 		local playerPose = player:getPose()
 		if SitDown.IsAnimationPlaying or player:getVehicle() then
 			rotLimit[1][1][2] = 10
@@ -107,6 +115,10 @@ events.RENDER:register(function ()
 	for _, modelPart in ipairs(models.models.main.Avatar.Head.HairAccessory.HairAccessoryLines:getChildren()) do
 		modelPart:setRot(hairAccessoryLineRot)
 	end
+end)
+
+events.WORLD_RENDER:register(function ()
+	renderProcessed = false
 end)
 
 return Physics
