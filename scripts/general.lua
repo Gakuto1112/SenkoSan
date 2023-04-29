@@ -1,7 +1,7 @@
----@class General 他の複数のクラスが参照するフィールドや関数を定義するクラス
----@field General.EffectChecked boolean このチックにステータスエフェクトを取得したかどうか
----@field General.EffectTable table ステータスエフェクトを保持する変数
----@field General.PlayerCondition ConditionLevel プレイヤーの体力・満腹度の度合い
+---@alias ConditionLevel
+---| "LOW"
+---| "MEDIUM"
+---| "HIGH"
 
 --[[
 	## General.playerConditionの値
@@ -18,22 +18,20 @@
 	└───────────┴───────────────────┴───────────────┘
 ]]
 
----@alias ConditionLevel
----| "LOW"
----| "MEDIUM"
----| "HIGH"
-
-
+---@class General 他の複数のクラスが参照するフィールドや関数を定義するクラス
+---@field EffectChecked boolean このチックにステータスエフェクトを取得したかどうか
+---@field EffectTable table<string, HostAPI.statusEffect> ステータスエフェクトを保持する変数
+---@field PlayerCondition ConditionLevel プレイヤーの体力・満腹度の度合い
 General = {
 	EffectChecked = false,
 	EffectTable = {},
 	PlayerCondition = "HIGH",
 
 	---クラスのインスタンス化
-	---@param class table 継承先のクラス
+	---@param class table<any> 継承先のクラス
 	---@param super table|nil 継承元のクラス
 	---@param ... any クラスの引数
-	---@return table instancedClass インスタンス化されたクラス
+	---@return table<any> instancedClass インスタンス化されたクラス
 	instance = function (class, super, ...)
 		local instance = super and super.new(...) or {}
 		setmetatable(instance, {__index = class})
@@ -42,7 +40,7 @@ General = {
 	end,
 
 	---該当するキーのインデックスを返す。キーがテーブルに存在しない場合は-1を返す。
-	---@param targetTable table 調べるテーブル
+	---@param targetTable table<any> 調べるテーブル
 	---@param key any 見つけ出す要素
 	---@return integer index targetTable内のkeyがあるインデックス。存在しない場合は-1を返す。
 	indexof = function (targetTable, key)

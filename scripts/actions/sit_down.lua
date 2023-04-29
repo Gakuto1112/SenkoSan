@@ -1,5 +1,4 @@
 ---@class SitDown おすわりアクションを制御するクラス
-
 SitDown = General.instance({
 	StandUpCount = -1, --完全に立ち上がるまでのカウント
 

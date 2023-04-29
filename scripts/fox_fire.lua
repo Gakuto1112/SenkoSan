@@ -1,10 +1,9 @@
 ---@class FoxFire 狐火を制御するクラス
----@field FoxFire.NightVision boolean 暗視を受けていたかどうか
----@field FoxFire.NightVisionPrev boolean 前チックに暗視を受けていたかどうか
----@field FoxFire.FoxFireEnabledPrev boolean 前チックに狐火が有効かどうか
----@field FoxFire.FoxFirePos Vector3 狐火の座標
----@field FoxFire.FoxFireInFirstPerson boolean 一人称視点で狐火を表示するかどうか
-
+---@field NightVision boolean 暗視を受けていたかどうか
+---@field NightVisionPrev boolean 前チックに暗視を受けていたかどうか
+---@field FoxFireEnabledPrev boolean 前チックに狐火が有効かどうか
+---@field FoxFirePos Vector3 狐火の座標
+---@field FoxFireInFirstPerson boolean 一人称視点で狐火を表示するかどうか
 FoxFire = {
 	NightVision = false,
 	NightVisionPrev = false,

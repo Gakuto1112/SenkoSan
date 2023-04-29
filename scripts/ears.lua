@@ -1,15 +1,14 @@
----@class Ears けも耳を制御するクラス
----@field EyeTypeID table EarsRotTupeと角度を紐付けるテーブル
----@field Ears.EarsRotCount integer 耳の角度を変更するの時間を計るカウンター
----@field Ears.JerkEarsKey Keybind 耳を動かすキー
----@field Ears.EnableJerkEar boolean 耳を動かす機能を有効にするかどうか
----@field Ears.JerkEarsCount integer 耳を動かす時間を計るカウンター
-
 ---@alias EarsRotType
 ---| "STAND"
 ---| "SLIGHTLY_DROOPING"
 ---| "DROOPING"
 
+---@class Ears けも耳を制御するクラス
+---@field EyeTypeID { [string]: integer } EarsRotTupeと角度を紐付けるテーブル
+---@field EarsRotCount integer 耳の角度を変更するの時間を計るカウンター
+---@field JerkEarsKey Keybind 耳を動かすキー
+---@field EnableJerkEar boolean 耳を動かす機能を有効にするかどうか
+---@field JerkEarsCount integer 耳を動かす時間を計るカウンター
 Ears = {
 	EarsRotTypeID = {STAND = 0, SLIGHTLY_DROOPING = -20, DROOPING = -40},
 	EarsRotCount = 0,

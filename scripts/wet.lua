@@ -1,12 +1,11 @@
 ---@class Wet 濡れ機能を制御するクラス
----@field Wet.WalkDistance number 鈴を鳴らす用の歩いた距離
----@field Wet.VelocityYPrev number 前チックにジャンプしたかどうか
----@field Wet.OnGroundPrev boolean 前チックに着地していたかどうか
----@field Wet.IsWet boolean 濡れているかどうか
----@field Wet.WetCount integer 濡れの度合いを計るカウンター
----@field Wet.AutoShake boolean 自動ブルブルが有効かどうか
----@field Wet.AutoShakeCount integer 自動ブルブルまでの時間を計るカウンター
-
+---@field WalkDistance number 鈴を鳴らす用の歩いた距離
+---@field VelocityYPrev number 前チックにジャンプしたかどうか
+---@field OnGroundPrev boolean 前チックに着地していたかどうか
+---@field IsWet boolean 濡れているかどうか
+---@field WetCount integer 濡れの度合いを計るカウンター
+---@field AutoShake boolean 自動ブルブルが有効かどうか
+---@field AutoShakeCount integer 自動ブルブルまでの時間を計るカウンター
 Wet = {
 	WalkDistance = 0,
 	VelocityYPrev = 0,

@@ -1,5 +1,4 @@
 ---@class TailBrush 尻尾の手入れアニメーションを制御するクラス
-
 TailBrush = General.instance({
 	---尻尾の手入れアニメーションを再生する。
 	play = function (self)

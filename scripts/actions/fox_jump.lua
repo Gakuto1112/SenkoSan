@@ -1,6 +1,5 @@
 ---@class FoxJump キツネジャンプのアニメーションを制御するクラス
----@field FoxJump.TargetPos Vector3 ジャンプする先の座標
-
+---@field TargetPos Vector3 ジャンプする先の座標
 FoxJump = General.instance({
 	TargetPos = vectors.vec3(),
 

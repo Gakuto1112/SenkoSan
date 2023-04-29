@@ -1,12 +1,11 @@
----@class Hurt プレイヤーのダメージを管理するクラス
----@field Hurt.HealthPrev integer 前チックのHP
----@field Hurt.Damaged Hurt.DamageType プレイヤーのダメージの検証結果
-
----@alias Hurt.DamageType
+---@alias DamageType
 ---| "NONE"
 ---| "DAMAGED"
 ---| "DIED"
 
+---@class Hurt プレイヤーのダメージを管理するクラス
+---@field HealthPrev integer 前チックのHP
+---@field Damaged DamageType プレイヤーのダメージの検証結果
 Hurt = {
 	HealthPrev = -1,
 	Damaged = "NONE"

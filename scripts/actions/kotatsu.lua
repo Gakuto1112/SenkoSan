@@ -1,8 +1,6 @@
 ---@class Kotatsu こたつアニメーションを制御するクラス
----@field Kotatsu.ActionCount integer アニメーションのタイミングを計るカウンター
----@field Kotatsu.BodyYawPrev integer 前チックの体のヨー
----@field Kotatsu.TickEvent function コンストラクタでtickイベントに登録される関数
-
+---@field ActionCount integer アニメーションのタイミングを計るカウンター
+---@field BodyYawPrev integer 前チックの体のヨー
 Kotatsu = General.instance({
 	AnimationCount = 0,
 	BodyYawPrev = 0,

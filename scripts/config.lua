@@ -1,8 +1,7 @@
 ---@class Config アバター設定を管理するクラス
----@field Config.DefaultValues table 読み込んだ値のデフォルト値を保持するテーブル
----@field Config.IsSynced boolean アバターの設定がホストと同期されたかどうか
----@field Config.NextSyncCount integer 次の同期pingまでのカウンター
-
+---@field DefaultValues table<any> 読み込んだ値のデフォルト値を保持するテーブル
+---@field IsSynced boolean アバターの設定がホストと同期されたかどうか
+---@field NextSyncCount integer 次の同期pingまでのカウンター
 Config = {
 	DefaultValues = {},
 	IsSynced = host:isHost(),

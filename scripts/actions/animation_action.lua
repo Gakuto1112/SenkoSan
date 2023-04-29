@@ -1,5 +1,4 @@
 ---@class AnimationAction アニメーションアクションの抽象クラス
-
 AnimationAction = {
 	---コンストラクタ
 	---@param canPlayAnimation function アニメーションが再生可能かどうかを判断し、booleanで返す関数
@@ -8,7 +7,7 @@ AnimationAction = {
 	---@param primaryAnimation Animation|nil 再生するメインのアニメーション。アニメーションの長さ取得にも使われる。
 	---@param secondaryAnimation Animation|table|nil メインのアニメーションと同時に再生するアニメーション
 	---@param additionalAnimationCount integer 追加のアニメーションカウント
-	---@return table instance インスタンス化されたクラス
+	---@return table<any> instance インスタンス化されたクラス
 	new = function(canPlayAnimation, partToShow, partToHide, primaryAnimation, secondaryAnimation, additionalAnimationCount)
 		local instance = {}
 		instance.CheckFunction = canPlayAnimation --アニメーションが再生可能か確認する関数

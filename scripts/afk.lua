@@ -1,9 +1,8 @@
 ---@class Afk 放置時のアクションを管理するクラス
----@field Afk.AfkCount integer 放置時間
----@field Afk.AfkAnimationCount integer 放置アニメーションを再生するタイミングを計るカウンター
----@field Afk.LookDirPrev Vector3 前チックの視点方向
----@field Afk.TailBrushByAfk boolean 尻尾手入れのアニメーションがAFKによって再生されているかどうか
-
+---@field AfkCount integer 放置時間
+---@field AfkAnimationCount integer 放置アニメーションを再生するタイミングを計るカウンター
+---@field LookDirPrev Vector3 前チックの視点方向
+---@field TailBrushByAfk boolean 尻尾手入れのアニメーションがAFKによって再生されているかどうか
 Afk = {
 	AfkCount = 0,
 	AfkAnimationCount = 0,

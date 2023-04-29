@@ -1,5 +1,4 @@
 ---@class AnimationAction 時間制限のないアニメーションアクションの抽象クラス
-
 PermanentAnimationAction = {
 	---コンストラクタ
 	---@param canPlayAnimation function アニメーションが再生可能かどうかを判断し、booleanで返す関数
@@ -7,7 +6,7 @@ PermanentAnimationAction = {
 	---@param partToHide ModelPart|table|nil アニメーション停止時に非表示にするモデルパーツ
 	---@param primaryAnimation Animation 再生するメインのアニメーション。アニメーションの長さ取得にも使われる。
 	---@param secondaryAnimation Animation|table|nil メインのアニメーションと同時に再生するアニメーション
-	---@return table instance インスタンス化されたクラス
+	---@return table<any> instance インスタンス化されたクラス
 	new = function (canPlayAnimation, partToShow, partToHide, primaryAnimation, secondaryAnimation)
 		local instance = General.instance(PermanentAnimationAction, AnimationAction, canPlayAnimation, partToShow, partToHide, primaryAnimation, secondaryAnimation, 0)
 		instance.AnimationCount = nil
