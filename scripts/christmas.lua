@@ -1,6 +1,5 @@
 ---@class クリスマスメッセージを制御するクラス
----@field Christmas.MelodyCount integer メロディー再生のタイミングを計るカウンター
-
+---@field MelodyCount integer メロディー再生のタイミングを計るカウンター
 Christmas = {
 	MelodyCount = -1
 }

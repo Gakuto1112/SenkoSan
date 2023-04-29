@@ -1,5 +1,4 @@
 ---@class VacuumCleaning 掃除機での掃除のアニメーションを制御するクラス
-
 VacuumCleaning = General.instance({
 	---掃除機アニメーションを再生する。
 	play = function (self)

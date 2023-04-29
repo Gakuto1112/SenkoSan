@@ -1,10 +1,9 @@
 ---@class Arms 腕を制御するクラス
----@field Arms.RightArmPosOffset Vector3 右腕の位置のオフセット
----@field Arms.LeftArmPosOffset Vector3 左腕の位置のオフセット
----@field Arms.RightArmRotOffset Vector3 右腕の角度のオフセット
----@field Arms.LeftArmORotffset Vector3 左腕の角度のオフセット
----@field Arms.ItemHeldContradicts boolean アイテムを手に持った際の腕のズレを打ち消すかどうか：1. 右腕, 2. 左腕
-
+---@field RightArmPosOffset Vector3 右腕の位置のオフセット
+---@field LeftArmPosOffset Vector3 左腕の位置のオフセット
+---@field RightArmRotOffset Vector3 右腕の角度のオフセット
+---@field LeftArmORotffset Vector3 左腕の角度のオフセット
+---@field ItemHeldContradicts boolean アイテムを手に持った際の腕のズレを打ち消すかどうか：1. 右腕, 2. 左腕
 Arms = {
 	RightArmPosOffset = vectors.vec3(),
 	LeftArmPosOffset = vectors.vec3(),

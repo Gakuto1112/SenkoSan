@@ -1,15 +1,14 @@
 ---@class ActionWheel アクションホイールを制御するクラス
----@field ActionWheel.Pages table アクションホイールのページのリスト
----@field ActionWheel.CurrentPage integer アクションホイールの現在のページ
----@field ActionWheel.IsAnimationPlaying boolean アニメーションが再生中かどうか
----@field ActionWheel.IsOpenActionWheelPrev boolean 前チックにアクションホイールを開けていたかどうか
----@field ActionWheel.CurrentCostumeState integer プレイヤーの現在のコスチュームの状態を示す：1. いつもの服, 2. 変装服, 3. メイド服A, 4. メイド服B, 5. 水着, 6. チアリーダーの服, 7. 清めの服, 8. 割烹着
----@field ActionWheel.CostumeState integer プレイヤーのコスチュームの状態を示す：1. いつもの服, 2. 変装服, 3. メイド服A, 4. メイド服B, 5. 水着, 6. チアリーダーの服, 7. 清めの服, 8. 割烹着
----@field ActionWheel.CurrentPlayerNameState integer プレイヤーの現在の表示名の状態を示す：1. プレイヤー名, 2. Senko, 3. 仙狐, 4. Senko_san, 5. 仙狐さん, 6. Sen, 7. 仙, 8. セン
----@field ActionWheel.PlayerNameState integer プレイヤーの表示名の状態を示す：1. プレイヤー名, 2. Senko, 3. 仙狐, 4. Senko_san, 5. 仙狐さん, 6. Sen, 7. 仙, 8. セン
----@field ActionWheel.CurrentSKullState integer 現在の頭モデルの状態を示す：1. デフォルト, 2. フィギュアA, 3. フィギュアB
----@field ActionWheel.SkullState integer 頭モデルの状態を示す：1. デフォルト, 2. フィギュアA, 3. フィギュアB
-
+---@field Pages table<Page> アクションホイールのページのリスト
+---@field CurrentPage integer アクションホイールの現在のページ
+---@field IsAnimationPlaying boolean アニメーションが再生中かどうか
+---@field IsOpenActionWheelPrev boolean 前チックにアクションホイールを開けていたかどうか
+---@field CurrentCostumeState integer プレイヤーの現在のコスチュームの状態を示す：1. いつもの服, 2. 変装服, 3. メイド服A, 4. メイド服B, 5. 水着, 6. チアリーダーの服, 7. 清めの服, 8. 割烹着
+---@field CostumeState integer プレイヤーのコスチュームの状態を示す：1. いつもの服, 2. 変装服, 3. メイド服A, 4. メイド服B, 5. 水着, 6. チアリーダーの服, 7. 清めの服, 8. 割烹着
+---@field CurrentPlayerNameState integer プレイヤーの現在の表示名の状態を示す：1. プレイヤー名, 2. Senko, 3. 仙狐, 4. Senko_san, 5. 仙狐さん, 6. Sen, 7. 仙, 8. セン
+---@field PlayerNameState integer プレイヤーの表示名の状態を示す：1. プレイヤー名, 2. Senko, 3. 仙狐, 4. Senko_san, 5. 仙狐さん, 6. Sen, 7. 仙, 8. セン
+---@field CurrentSKullState integer 現在の頭モデルの状態を示す：1. デフォルト, 2. フィギュアA, 3. フィギュアB
+---@field SkullState integer 頭モデルの状態を示す：1. デフォルト, 2. フィギュアA, 3. フィギュアB
 ActionWheel = {
 	Pages = {},
 	CurrentPage = 1,

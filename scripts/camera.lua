@@ -1,6 +1,5 @@
 ---@class Camera カメラ（のオフセット移動）を制御するクラス
----@field Camera.CameraOffset number カメラのオフセット
-
+---@field CameraOffset number カメラのオフセット
 Camera = {
 	CameraOffset = 0
 }

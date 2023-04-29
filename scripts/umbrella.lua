@@ -1,10 +1,9 @@
 ---@class Umbrella 傘を制御するクラス
----@field Umbrella.Enabled boolean 傘をさせるかどうか（他のクラスから操作）
----@field Umbrella.AlwaysUse boolean （傘をさせる時に）雨が降っていなくても常に傘をさすかどうか
----@field Umbrella.IsUsing boolean 傘をさしているかどうか
----@field Umbrella.IsUsingPrev boolean 前チックに傘をさしていたかどうか
----@field Umbrella.Sound boolean 傘の開閉音を再生するかどうか
-
+---@field Enabled boolean 傘をさせるかどうか（他のクラスから操作）
+---@field AlwaysUse boolean （傘をさせる時に）雨が降っていなくても常に傘をさすかどうか
+---@field IsUsing boolean 傘をさしているかどうか
+---@field IsUsingPrev boolean 前チックに傘をさしていたかどうか
+---@field Sound boolean 傘の開閉音を再生するかどうか
 Umbrella = {
 	Enabled = true,
 	AlwaysUse = Config.loadConfig("alwaysUmbrella", false),

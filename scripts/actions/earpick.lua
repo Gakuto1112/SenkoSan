@@ -1,5 +1,4 @@
 ---@class Earpick 耳かきのアニメーションを制御するクラス
-
 Earpick = General.instance({
 	---耳かきアニメーションを再生する。
 	play = function (self)

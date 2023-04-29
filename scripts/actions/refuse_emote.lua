@@ -1,5 +1,4 @@
 ---@class RefuseEmote エモート拒否アニメーションを制御するクラス
-
 RefuseEmote = General.instance({
 	---エモート拒否アニメーションを再生する。
 	play = function (self)

@@ -1,10 +1,9 @@
 ---@class Physics 物理演算（もどき）を制御するクラス
----@field Physics.VelocityData table 速度データ：1. 頭前後, 2. 上下, 3. 頭左右, 4. 頭角速度, 5. 体前後, 6. 体左右, 7. 体角速度
----@field Physics.VelocityAverage table 速度の平均値：1. 頭前後, 2. 上下, 3. 頭左右, 4. 頭角速度, 5. 体前後, 6. 体左右, 7. 体角速度
----@field Physics.DirectionPrevRender table 前レンダーチックのdirectionテーブル
----@field Physics.EnablePyhsics boolean 物理演算を有効にするかどうか：1. 尻尾, 2. 髪飾り
----@field Physics.TailRotOffset Vector3 尻尾の角度のオフセット
-
+---@field VelocityData table<table<number>> 速度データ：1. 頭前後, 2. 上下, 3. 頭左右, 4. 頭角速度, 5. 体前後, 6. 体左右, 7. 体角速度
+---@field VelocityAverage table<number> 速度の平均値：1. 頭前後, 2. 上下, 3. 頭左右, 4. 頭角速度, 5. 体前後, 6. 体左右, 7. 体角速度
+---@field DirectionPrevRender table<number> 前レンダーチックのdirectionテーブル
+---@field EnablePyhsics table<boolean> 物理演算を有効にするかどうか：1. 尻尾, 2. 髪飾り
+---@field TailRotOffset Vector3 尻尾の角度のオフセット
 Physics = {
 	VelocityData = {{}, {}, {}, {}, {}, {}, {}},
 	VelocityAverage = {0, 0, 0, 0, 0, 0, 0},

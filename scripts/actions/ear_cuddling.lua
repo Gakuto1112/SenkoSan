@@ -1,3 +1,4 @@
+---@class EarCuddling お耳モフモフのアニメーションを制御するクラス
 EarCuddling = General.instance({
     ---お耳モフモフアニメーションを再生する。
     play = function (self)

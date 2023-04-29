@@ -1,8 +1,7 @@
 ---@class Sleeve 袖を操作するクラス
----@field Sleeve.Moving boolean 袖の動きが有効かどうか
----@field Sleeve.RightSleeveRotOffset Vector3 右袖の角度のオフセット
----@field Sleeve.LeftSleeveRotOffset Vector3 右袖の角度のオフセット
-
+---@field Moving boolean 袖の動きが有効かどうか
+---@field RightSleeveRotOffset Vector3 右袖の角度のオフセット
+---@field LeftSleeveRotOffset Vector3 右袖の角度のオフセット
 Sleeve = {
 	Moving = true,
 	RightSleeveRotOffset = vectors.vec3(),

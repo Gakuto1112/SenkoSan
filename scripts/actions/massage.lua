@@ -1,6 +1,4 @@
 ---@class Massage マッサージのアニメーションを制御するクラス
----@field self.AnimationCount integer アニメーションの再生時間を示すカウンター。
-
 Massage = General.instance({
 	---マッサージのアニメーションを再生する。
 	play = function (self)

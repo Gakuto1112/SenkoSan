@@ -1,13 +1,3 @@
----@class FaceParts 目と口を制御するクラス
----@field FaceParts.EyeTypeID table EyeTypeとIDを紐付けるテーブル
----@field FaceParts.MouthTypeID table MouthTypeとIDを紐付けるテーブル
----@field FaceParts.ComplexionID table 顔色とIDを紐付けるテーブル
----@field FaceParts.EmotionCount integer エモートの時間を計るカウンター
----@field FaceParts.ComplexionCount integer 顔色の時間を計るカウンター
----@field FaceParts.BlinkCount integer 瞬きのタイミングを計るカウンター
----@field FaceParts.Drowned boolean 溺れているかどうか
----@field FaceParts.DrownedPrev boolean 前チックに溺れていたかどうか
-
 ---@alias FaceParts.EyeType
 ---| "NONE"
 ---| "NORMAL"
@@ -31,6 +21,15 @@
 ---| "PALE"
 ---| "BLUSH"
 
+---@class FaceParts 目と口を制御するクラス
+---@field EyeTypeID { [string]: integer } EyeTypeとIDを紐付けるテーブル
+---@field MouthTypeID { [string]: integer } MouthTypeとIDを紐付けるテーブル
+---@field ComplexionID { [string]: integer } 顔色とIDを紐付けるテーブル
+---@field EmotionCount integer エモートの時間を計るカウンター
+---@field ComplexionCount integer 顔色の時間を計るカウンター
+---@field BlinkCount integer 瞬きのタイミングを計るカウンター
+---@field Drowned boolean 溺れているかどうか
+---@field DrownedPrev boolean 前チックに溺れていたかどうか
 FaceParts = {
 	EyeTypeID = {NONE = -1, NORMAL = 0, SURPLISED = 1, TIRED = 2, ANGRY = 3, TEAR = 4, CLOSED = 5, UNEQUAL = 6, NORMAL_INVERSED = 7, TIRED_INVERSED = 8},
 	MouthTypeID = {NONE = -1, CLOSED = 0, OPENED = 1, TRIANGLE = 2},

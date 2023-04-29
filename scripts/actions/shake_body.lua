@@ -1,6 +1,5 @@
 ---@class ShakeBody ブルブルアニメーションを制御するクラス
----@field ShakeBody.SnowParticle boolean 雪のパーティクルを表示するかどうか
-
+---@field SnowParticle boolean 雪のパーティクルを表示するかどうか
 ShakeBody = General.instance({
 	SnowParticle = false,
 

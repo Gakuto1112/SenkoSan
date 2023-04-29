@@ -1,5 +1,4 @@
 ---@class BroomCleaning 箒掃除のアニメーションを制御するクラス
-
 BroomCleaning = General.instance({
 	---箒掃除アニメーションを再生する。
 	play = function(self)

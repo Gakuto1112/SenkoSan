@@ -1,7 +1,6 @@
 ---@class Warden ウォーデンに怯える機能を制御するクラス
----@field Warden.WardenNearby boolean ウォーデンが近くにいるかどうか（=暗闇デバフを受けているかどうか）
----@field Warden.WardenNearbyPrev boolean 前チックにウォーデンが近くにいたかどうか
-
+---@field WardenNearby boolean ウォーデンが近くにいるかどうか（=暗闇デバフを受けているかどうか）
+---@field WardenNearbyPrev boolean 前チックにウォーデンが近くにいたかどうか
 Warden = {
 	WardenNearby = false,
 	WardenNearbyPrev = false

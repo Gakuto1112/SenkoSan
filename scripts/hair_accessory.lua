@@ -1,5 +1,4 @@
 ---@class HairAccessory 髪飾りを制御するクラス
-
 HairAccessory = {
 	---髪飾りを表示するかどうか
 	---@param visible boolean 髪飾りを表示するかどうか

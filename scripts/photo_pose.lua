@@ -1,8 +1,7 @@
 ---@class PhotoPose 撮影用ポージングのクラス
----@field PhotoPose.CanPosing boolean ポーズ可能かどうか
----@field PhotoPose.PosingChecked boolean このチックでポーズ可能かどうかを確認したかどうか
----@field PhotoPose.CurrentPose integer 現在のポーズ（0 = ポーズ中ではない）
-
+---@field CanPosing boolean ポーズ可能かどうか
+---@field PosingChecked boolean このチックでポーズ可能かどうかを確認したかどうか
+---@field CurrentPose integer 現在のポーズ（0 = ポーズ中ではない）
 PhotoPose = {
     CanPosing = false,
     PosingChecked = false,
