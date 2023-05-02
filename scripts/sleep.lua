@@ -27,7 +27,7 @@ events.TICK:register(function()
 		if Warden.WardenNearby then
 			sleepState = 3
 		else
-			local playerPos = player:getPos():add(0, -1)
+			local playerPos = player:getPos():add()
 			local playerBlock = world.getBlockState(playerPos)
 			if playerBlock.id:find("^minecraft:.+bed$") then
 				facing = playerBlock.properties["facing"]
