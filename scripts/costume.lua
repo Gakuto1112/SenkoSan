@@ -312,7 +312,9 @@ Costume = {
 				end
 				Ears.EnableJerkEar = true
 			else
-				if Costume.CurrentCostume == "DISGUISE" then
+				if Costume.CurrentCostume == "NIGHTWEAR" then
+					models.models.main.Avatar.Head.Ears:setVisible(Sleep.HeadVisible)
+				elseif Costume.CurrentCostume == "DISGUISE" then
 					models.models.main.Avatar.Head.Ears:setVisible(false)
 					models.models.main.Avatar.Head.CDisguiseH:setVisible(true)
 					Ears.EnableJerkEar = false
