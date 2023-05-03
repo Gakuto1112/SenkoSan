@@ -22,10 +22,12 @@
 ---@field EffectChecked boolean このチックにステータスエフェクトを取得したかどうか
 ---@field EffectTable table<string, HostAPI.statusEffect> ステータスエフェクトを保持する変数
 ---@field PlayerCondition ConditionLevel プレイヤーの体力・満腹度の度合い
+---@field ShowMessage boolean メッセージを表示するかどうか
 General = {
 	EffectChecked = false,
 	EffectTable = {},
 	PlayerCondition = "HIGH",
+	ShowMessage = true,
 
 	---クラスのインスタンス化
 	---@param class table<any> 継承先のクラス

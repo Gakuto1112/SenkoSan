@@ -3,6 +3,7 @@
 ---| "NORMAL"
 ---| "NORMAL_INVERSED"
 ---| "SURPLISED"
+---| "SLEEPY"
 ---| "TIRED"
 ---| "TIRED_INVERSED"
 ---| "ANGRY"
@@ -31,9 +32,9 @@
 ---@field Drowned boolean 溺れているかどうか
 ---@field DrownedPrev boolean 前チックに溺れていたかどうか
 FaceParts = {
-	EyeTypeID = {NONE = -1, NORMAL = 0, SURPLISED = 1, TIRED = 2, ANGRY = 3, TEAR = 4, CLOSED = 5, UNEQUAL = 6, NORMAL_INVERSED = 7, TIRED_INVERSED = 8},
-	MouthTypeID = {NONE = -1, CLOSED = 0, OPENED = 1, TRIANGLE = 2},
-	ComplexionID = {NORMAL = 0, PALE = 1, BLUSH = 2},
+	EyeTypeID = {NONE = 0, NORMAL = 1, SLEEPY = 2, ANGRY = 3, TEAR = 4, SURPLISED = 5, TIRED = 6, TIRED_INVERSED = 7, NORMAL_INVERSED = 8, CLOSED = 9, UNEQUAL = 10},
+	MouthTypeID = {NONE = 0, CLOSED = 1, OPENED = 2, TRIANGLE = 3},
+	ComplexionID = {NORMAL = 1, PALE = 2, BLUSH = 3},
 	EmotionCount = 0,
 	ComplexionCount = 0,
 	BlinkCount = 0,
@@ -51,18 +52,20 @@ FaceParts = {
 		local leftEyePart = models.models.main.Avatar.Head.FaceParts.Eyes.LeftEye.LeftEye
 		if FaceParts.EmotionCount == 0 or force then
 			--右目
-			if FaceParts.EyeTypeID[rightEye] >= 0 then
-				rightEyePart:setUVPixels(FaceParts.EyeTypeID[rightEye] * 6, 0)
+			if FaceParts.EyeTypeID[rightEye] >= 8 then
+				rightEyePart:setUVPixels((FaceParts.EyeTypeID[rightEye] - 4) * 6, 6)
+			elseif FaceParts.EyeTypeID[rightEye] > 0 then
+				rightEyePart:setUVPixels((FaceParts.EyeTypeID[rightEye] - 1) * 6, 0)
 			end
 			--左目
-			if FaceParts.EyeTypeID[leftEye] >= 7 then
-				leftEyePart:setUVPixels((FaceParts.EyeTypeID[leftEye] - 6) * 6, 6)
-			elseif FaceParts.EyeTypeID[leftEye] >= 0 then
-				leftEyePart:setUVPixels(FaceParts.EyeTypeID[leftEye] * 6, (FaceParts.EyeTypeID[leftEye] == 0 or FaceParts.EyeTypeID[leftEye] == 3 or FaceParts.EyeTypeID[leftEye] == 4) and 6 or 0)
+			if FaceParts.EyeTypeID[leftEye] >= 8 then
+				leftEyePart:setUVPixels((FaceParts.EyeTypeID[leftEye] - 4) * 6, 6)
+			elseif FaceParts.EyeTypeID[leftEye] > 0 then
+				leftEyePart:setUVPixels((FaceParts.EyeTypeID[leftEye] - 1) * 6, FaceParts.EyeTypeID[leftEye] <= 4 and 6 or 0)
 			end
 			--口
-			if FaceParts.MouthTypeID[mouth] >= 0 then
-				models.models.main.Avatar.Head.FaceParts.Mouth:setUVPixels(FaceParts.MouthTypeID[mouth] * 4, 0)
+			if FaceParts.MouthTypeID[mouth] > 0 then
+				models.models.main.Avatar.Head.FaceParts.Mouth:setUVPixels((FaceParts.MouthTypeID[mouth] - 1) * 4, 0)
 			end
 			FaceParts.EmotionCount = duration
 		end
@@ -74,7 +77,7 @@ FaceParts = {
 	---@param force boolean trueにすると以前の顔色が再生中でも強制的に現在の顔色を適用させる。
 	setComplexion = function (complextion, duration, force)
 		if FaceParts.ComplexionCount == 0 or force then
-			models.models.main.Avatar.Head.FaceParts.Complexion:setUVPixels(FaceParts.ComplexionID[complextion] * 8, 0)
+			models.models.main.Avatar.Head.FaceParts.Complexion:setUVPixels((FaceParts.ComplexionID[complextion] - 1) * 8, 0)
 			FaceParts.ComplexionCount = duration
 		end
 	end,

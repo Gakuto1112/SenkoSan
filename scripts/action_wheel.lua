@@ -638,6 +638,22 @@ if host:isHost() then
 		action:hoverColor(0.33, 1, 0.33)
 	end
 
+	--アクション5-2. メッセージの表示
+	ActionWheel.Pages[5]:newAction(2):title(Language.getTranslate("action_wheel__main_5__action_2__title")..Language.getTranslate("action_wheel__toggle_off")):toggleTitle(Language.getTranslate("action_wheel__main_5__action_2__title")..Language.getTranslate("action_wheel__toggle_on")):item("cake"):color(0.67, 0, 0):hoverColor(1, 0.33, 0.33):toggleColor(0, 0.67, 0):onToggle(function (_, action)
+		General.ShowMessage = true
+		action:hoverColor(0.33, 1, 0.33)
+		Config.saveConfig("showMessage", true)
+	end):onUntoggle(function (_, action)
+		General.ShowMessage = false
+		action:hoverColor(1, 0.33, 0.33)
+		Config.saveConfig("showMessage", false)
+	end)
+	if Config.loadConfig("showMessage", true) then
+		local action = ActionWheel.Pages[5]:getAction(2)
+		action:toggled(true)
+		action:hoverColor(0.33, 1, 0.33)
+	end
+
 	--アクション8（共通）. ページ切り替え
 	for index, mainPage in ipairs(ActionWheel.Pages) do
 		mainPage:newAction(8):title(Language.getTranslate("action_wheel__main__action_8__title")..index.."/"..#ActionWheel.Pages.."\n§6"..Language.getTranslate("action_wheel__main_"..index.."__title")):item("arrow"):color(0, 0.67, 0.67):hoverColor(0.33, 1, 1):onScroll(function (direction)

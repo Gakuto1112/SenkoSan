@@ -22,7 +22,7 @@ events.TICK:register(function ()
 			Hurt.Damaged = "DAMAGED"
 		end
 	else
-		if host:isHost() and health > 0 and Hurt.HealthPrev == 0 and player:getGamemode() ~= "SPECTATOR" then
+		if host:isHost() and health > 0 and Hurt.HealthPrev == 0 and player:getGamemode() ~= "SPECTATOR" and General.ShowMessage then
 			print(Language.getTranslate("message__respawn"))
 		end
 		Hurt.Damaged = "NONE"
