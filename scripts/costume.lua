@@ -272,7 +272,9 @@ Costume = {
 				events.RENDER:remove("costume_yukata_tick")
 				Ears.EnableJerkEar = true
 			else
-				if Costume.CurrentCostume == "MAID_A" or Costume.CurrentCostume == "MAID_B" then
+				if Costume.CurrentCostume == "NIGHTWEAR" then
+					models.models.main.Avatar.Head.Ears:setVisible(Sleep.HeadVisible)
+				elseif Costume.CurrentCostume == "MAID_A" or Costume.CurrentCostume == "MAID_B" then
 					for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.CMaidBrimH}) do
 						modelPart:setVisible(true)
 					end

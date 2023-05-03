@@ -2,10 +2,12 @@
 ---@field IsSleepingPrev boolean 前チックに寝ていたかどうか
 ---@field SleepStatePrev integer 前チックの睡眠の状態：0. 添い寝なし, 1. 左側にプレイヤー, 2. 右側にプレイヤー, 3. ウォーデン
 ---@field CostumeBeforeSleeping CostumeType 寝る前のコスチュームを保持する変数
+---@field HeadVisible boolean 頭が見えるかどうか
 Sleep = {
 	IsSleepingPrev = false,
 	SleepStatePrev = 0,
-	CostumeBeforeSleeping = "DEFAULT"
+	CostumeBeforeSleeping = "DEFAULT",
+	HeadVisible = true
 }
 
 events.TICK:register(function()
@@ -125,9 +127,9 @@ events.TICK:register(function()
 				end
 			end
 			if isFirstPerson then
-				local headVisible = sleepState >= 1 and sleepState <= 2
+				Sleep.HeadVisible = sleepState >= 1 and sleepState <= 2
 				for _, modelPart in ipairs({models.models.main.Avatar.Head, models.models.main.Avatar.Head.Ears}) do
-					modelPart:setVisible(headVisible)
+					modelPart:setVisible(Sleep.HeadVisible)
 				end
 			end
 		end
@@ -156,6 +158,7 @@ events.TICK:register(function()
 			Apron.IsVisible = (Sleep.CostumeBeforeSleeping == "DEFAULT" or Sleep.CostumeBeforeSleeping == "DISGUISE" or Costume.CurrentCostume == "KAPPOGI") and not Armor.ArmorVisible[3]
 			renderer:setCameraPos()
 			renderer:setCameraRot()
+			Sleep.HeadVisible = true
 		end
 	end
 	Sleep.IsSleepingPrev = isSleeping
