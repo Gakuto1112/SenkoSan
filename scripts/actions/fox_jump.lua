@@ -39,7 +39,7 @@ FoxJump = General.instance({
 	end
 }, AnimationAction, function ()
 	FoxJump.TargetPos = vectors.rotateAroundAxis(-(player:getBodyYaw() % 360), 0, 0, 1, 0, 1):add(player:getPos())
-	local block1_1 = world.getBlockState(FoxJump.TargetPos:copy():add(0, -1, 0))
+	local block1_1 = world.getBlockState(FoxJump.TargetPos:copy():add(0, -1))
 	local block10 = world.getBlockState(FoxJump.TargetPos)
 	return BroomCleaning:checkAction() and (block10.id == "minecraft:air" or block10.id == "minecraft:snow") and (block1_1.id == "minecraft:snow_block" or (block1_1.id == "minecraft:snow" and tonumber(block1_1.properties["layers"]) >= 6 or false)) and world.getBlockState(FoxJump.TargetPos:copy():add(0, 1)).id == "minecraft:air" and world.getBlockState(FoxJump.TargetPos:copy():add(0, 2)).id == "minecraft:air" and world.getBlockState(player:getPos():add(0, 2)).id == "minecraft:air"
 end, nil, nil, animations["models.main"]["fox_jump"], nil, 10)
