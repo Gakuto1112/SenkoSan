@@ -267,10 +267,12 @@ Costume = {
 
 	---コスチュームをリセットし、デフォルトのコスチュームにする。
 	resetCostume = function ()
+		for _, modelPart in ipairs({models.models.main.Avatar.Head, models.models.main.Avatar.Body.Hairs.BackHair}) do
+			modelPart:setVisible(true)
+		end
 		for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Cowlick}) do
 			modelPart:setVisible(not Armor.ArmorVisible[1])
 		end
-		models.models.main.Avatar.Body.Hairs.BackHair:setVisible(true)
 		models.models.main.Avatar.Body.BodyBottom.Bells:setVisible(not (Armor.ArmorVisible[2] or Armor.ArmorVisible[3]))
 		for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Body.BodyBottom.Tail.CDisguiseT, models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.Body.BodyBottom.CMaidABB, models.models.main.Avatar.Body.BodyBottom.CMaidBBB, models.models.main.Avatar.Body.BodyBottom.CMiniSkirtBB, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.CCheerleaderRAB,  models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH, models.models.main.Avatar.Head.CKimonoH}) do
 			modelPart:setVisible(false)
