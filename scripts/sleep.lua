@@ -15,6 +15,13 @@ events.TICK:register(function()
 			animations["models.main"]["afraid"]:stop()
 			Sleep.CostumeBeforeSleeping = Costume.CurrentCostume
 			Costume.setCostume("NIGHTWEAR")
+			if not Warden.WardenNearby then
+				if General.PlayerCondition == "LOW" then
+					FaceParts.setEmotion("TIRED", "TIRED", "CLOSED", 40, true)
+				else
+					FaceParts.setEmotion("SLEEPY", "SLEEPY", "CLOSED", 40, true)
+				end
+			end
 			Physics.EnablePyhsics[1] = false
 			Sleeve.Moving = false
 		end
