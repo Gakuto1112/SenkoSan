@@ -44,7 +44,7 @@ events.TICK:register(function()
 			Sleep.CostumeBeforeSleeping = Costume.CurrentCostume
 			Costume.setCostume("NIGHTWEAR")
 			if not Warden.WardenNearby then
-				if host:isHost() and sleepState >= 1 and sleepState <= 2 then
+				if host:isHost() and sleepState >= 1 and sleepState <= 2 and General.ShowMessage then
 					print(Language.getTranslate("message__sleep_together"))
 				end
 			end

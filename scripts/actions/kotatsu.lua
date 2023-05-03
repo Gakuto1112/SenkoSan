@@ -21,7 +21,7 @@ Kotatsu = General.instance({
 			SitDown:stop()
 		end
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-		if host:isHost() then
+		if host:isHost() and General.ShowMessage then
 			print(Language.getTranslate("action_wheel__main_1__action_7__start"))
 		end
 		Physics.EnablePyhsics[1] = false
