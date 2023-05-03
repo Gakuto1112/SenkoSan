@@ -11,20 +11,6 @@ Sleep = {
 events.TICK:register(function()
 	local isSleeping = player:getPose() == "SLEEPING"
 	if isSleeping then
-		if not Sleep.IsSleepingPrev  then
-			animations["models.main"]["afraid"]:stop()
-			Sleep.CostumeBeforeSleeping = Costume.CurrentCostume
-			Costume.setCostume("NIGHTWEAR")
-			if not Warden.WardenNearby then
-				if General.PlayerCondition == "LOW" then
-					FaceParts.setEmotion("TIRED", "TIRED", "CLOSED", 40, true)
-				else
-					FaceParts.setEmotion("SLEEPY", "SLEEPY", "CLOSED", 40, true)
-				end
-			end
-			Physics.EnablePyhsics[1] = false
-			Sleeve.Moving = false
-		end
 		local facing = nil
 		local playerPos = player:getPos():floor()
 		local playerBlock = world.getBlockState(playerPos)
@@ -52,6 +38,23 @@ events.TICK:register(function()
 					break
 				end
 			end
+		end
+		if not Sleep.IsSleepingPrev  then
+			animations["models.main"]["afraid"]:stop()
+			Sleep.CostumeBeforeSleeping = Costume.CurrentCostume
+			Costume.setCostume("NIGHTWEAR")
+			if not Warden.WardenNearby then
+				if General.PlayerCondition == "LOW" then
+					FaceParts.setEmotion("TIRED", "TIRED", "CLOSED", 40, true)
+				else
+					FaceParts.setEmotion("SLEEPY", "SLEEPY", "CLOSED", 40, true)
+				end
+				if host:isHost() and sleepState >= 1 and sleepState <= 2 then
+					print(Language.getTranslate("message__sleep_together"))
+				end
+			end
+			Physics.EnablePyhsics[1] = false
+			Sleeve.Moving = false
 		end
 		if sleepState ~= Sleep.SleepStatePrev or not Sleep.IsSleepingPrev then
 			if sleepState ~= Sleep.SleepStatePrev then
