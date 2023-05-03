@@ -44,11 +44,6 @@ events.TICK:register(function()
 			Sleep.CostumeBeforeSleeping = Costume.CurrentCostume
 			Costume.setCostume("NIGHTWEAR")
 			if not Warden.WardenNearby then
-				if General.PlayerCondition == "LOW" then
-					FaceParts.setEmotion("TIRED", "TIRED", "CLOSED", 40, true)
-				else
-					FaceParts.setEmotion("SLEEPY", "SLEEPY", "CLOSED", 40, true)
-				end
 				if host:isHost() and sleepState >= 1 and sleepState <= 2 then
 					print(Language.getTranslate("message__sleep_together"))
 				end
@@ -66,9 +61,18 @@ events.TICK:register(function()
 				renderer:setCameraRot()
 			end
 			local isFirstPerson = renderer:isFirstPerson()
+			---眠たい目にする
+			local function sleepEye()
+				if General.PlayerCondition == "LOW" then
+					FaceParts.setEmotion("TIRED", "TIRED", "CLOSED", 40, true)
+				else
+					FaceParts.setEmotion("SLEEPY", "SLEEPY", "CLOSED", 40, true)
+				end
+			end
 			if sleepState == 0 then
 				--0. 添い寝なし
 				animations["models.main"]["sleep"]:play()
+				sleepEye()
 				if facing then
 					if isFirstPerson then
 						renderer:setCameraPos(0, -0.2, 0.2)
@@ -79,6 +83,7 @@ events.TICK:register(function()
 				end
 			elseif sleepState == 1 or sleepState == 2 then
 				models.models.dummy_player:setVisible(not isFirstPerson)
+				sleepEye()
 				if sleepState == 1 then
 					--1. 左側にプレイヤー
 					for _, animation in ipairs({animations["models.main"]["sleep_together_left"], animations["models.dummy_player"]["sleep_together_left"]}) do
