@@ -29,7 +29,7 @@ PhotoPose = {
                 Sleeve.RightSleeveRotOffset = vectors.vec3(7.5)
                 Arms.LeftArmRotOffset = vectors.vec3(12.5, -47.5)
                 models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom:setRot(50)
-                Sleeve.LeftSleeveRotOffset = vectors.vec3(25)
+                Sleeve.LeftSleeveRotOffset = vectors.vec3(28)
                 Apron.RotOffset = vectors.vec3(7.5)
                 Legs.RightLegRotOffset = vectors.vec3(0, 15)
                 Legs.LeftLegRotOffset = vectors.vec3(-5)
