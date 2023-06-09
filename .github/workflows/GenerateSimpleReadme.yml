@@ -7,8 +7,8 @@ on:
       - Shiro
       - Suzu
     paths:
-      - ".github/workflows/**"
-      - "README_images/**"
+      - '.github/workflows/**'
+      - 'README_images/**'
 
 permissions:
   contents: write
@@ -17,25 +17,27 @@ jobs:
   GenerateSimpleReadme:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Set up Python 3.10
         uses: actions/setup-python@v3
         with:
-          python-version: "3.10"
-
+          python-version: '3.10'
       - name: Generate simple readme
         working-directory: ./.github/workflows/
         run: python ./GenerateSimpleREADME.py
-
-      - name: Push simple readme to main branch
-        working-directory: ./
+      - name: Check diff
+        id: check_diff
+        run: |
+          git add -N --all
+          git diff --exit-code
+        continue-on-error: true
+      - name: Commit and Push
+        if: ${{ steps.check_diff.outcome == 'failure' }}
         run: |
           git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-            if (git diff --shortstat | grep '[0-9]'); then \
-              git add .; \
-              git commit -m "[GitHub Actions] 簡易版READMEの自動生成" -m "対象のコミット: ${{ github.sha }}"; \
-              git push; \
-            fi
+          git config user.name github-actions[bot]
+          git config user.email github-actions[bot]@users.noreply.github.com
+          git add --all
+          git commit -m '[GitHub Actions] ドキュメントの自動生成' -m '対象のコミット: ${{ github.sha }}'
+          git push origin
