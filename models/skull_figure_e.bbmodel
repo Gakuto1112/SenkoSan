@@ -1605,41 +1605,6 @@
 			"uuid": "562a28e7-6fb0-03e8-84b0-263dfe9b2ea4"
 		},
 		{
-			"name": "Mouth",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-0.4, 10.6, -3.62],
-			"to": [0.4, 11, -3.62],
-			"autouv": 0,
-			"color": 6,
-			"origin": [0, 10.6, -3.6],
-			"faces": {
-				"north": {
-					"uv": [20, 48, 24, 50],
-					"texture": 0
-				},
-				"east": {
-					"uv": [0, 0, 0, 0.60714]
-				},
-				"south": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"west": {
-					"uv": [0, 0, 0, 0.60714]
-				},
-				"up": {
-					"uv": [0, 0, 1.96428, 0]
-				},
-				"down": {
-					"uv": [0, 0, 1.96428, 0]
-				}
-			},
-			"type": "cube",
-			"uuid": "82979715-87c7-dec7-9448-e18d18eee32e"
-		},
-		{
 			"name": "RightLegBottom",
 			"box_uv": false,
 			"rescale": false,
@@ -5533,7 +5498,6 @@
 										}
 									]
 								},
-								"82979715-87c7-dec7-9448-e18d18eee32e",
 								"3a908f3f-b2a8-7722-e3a7-debf2eac9a0a"
 							]
 						},
@@ -5624,13 +5588,13 @@
 							]
 						},
 						{
-							"name": "CKimonoH",
+							"name": "HairAccessory",
 							"origin": [0, 10.6, -2],
 							"color": 0,
 							"uuid": "e67336b8-fc7d-84de-f4dc-36ffa4c5d3f3",
 							"export": true,
 							"mirror_uv": false,
-							"isOpen": false,
+							"isOpen": true,
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
