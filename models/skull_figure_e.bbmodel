@@ -1605,41 +1605,6 @@
 			"uuid": "562a28e7-6fb0-03e8-84b0-263dfe9b2ea4"
 		},
 		{
-			"name": "Mouth",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-0.4, 10.6, -3.62],
-			"to": [0.4, 11, -3.62],
-			"autouv": 0,
-			"color": 6,
-			"origin": [0, 10.6, -3.6],
-			"faces": {
-				"north": {
-					"uv": [20, 48, 24, 50],
-					"texture": 0
-				},
-				"east": {
-					"uv": [0, 0, 0, 0.60714]
-				},
-				"south": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"west": {
-					"uv": [0, 0, 0, 0.60714]
-				},
-				"up": {
-					"uv": [0, 0, 1.96428, 0]
-				},
-				"down": {
-					"uv": [0, 0, 1.96428, 0]
-				}
-			},
-			"type": "cube",
-			"uuid": "82979715-87c7-dec7-9448-e18d18eee32e"
-		},
-		{
 			"name": "RightLegBottom",
 			"box_uv": false,
 			"rescale": false,
@@ -2605,47 +2570,6 @@
 			},
 			"type": "cube",
 			"uuid": "8ed44e2f-b192-25b6-1ea7-5dfd13349772"
-		},
-		{
-			"name": "HairAccessory",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-1.27, 10.93, -3.27],
-			"to": [1.27, 13.47, -0.73],
-			"autouv": 0,
-			"color": 0,
-			"visibility": false,
-			"inflate": 0.55,
-			"origin": [0, 10.6, -2],
-			"faces": {
-				"north": {
-					"uv": [15.5, 230.75, 31, 461.5],
-					"texture": 2
-				},
-				"east": {
-					"uv": [0, 230.75, 15.5, 461.5],
-					"texture": 2
-				},
-				"south": {
-					"uv": [46.5, 230.75, 62, 461.5],
-					"texture": 2
-				},
-				"west": {
-					"uv": [31, 230.75, 46.5, 461.5],
-					"texture": 2
-				},
-				"up": {
-					"uv": [15.5, 0, 31, 230.75],
-					"texture": 2
-				},
-				"down": {
-					"uv": [31, 0, 46.5, 230.75],
-					"texture": 2
-				}
-			},
-			"type": "cube",
-			"uuid": "42d276cf-d6b2-2cf9-5dd0-ea5e6126f33a"
 		},
 		{
 			"name": "Wisteria1",
@@ -5499,7 +5423,7 @@
 							"uuid": "b4ff88f6-ccc1-b306-a4d4-a5097b0ba125",
 							"export": true,
 							"mirror_uv": false,
-							"isOpen": true,
+							"isOpen": false,
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
@@ -5574,7 +5498,6 @@
 										}
 									]
 								},
-								"82979715-87c7-dec7-9448-e18d18eee32e",
 								"3a908f3f-b2a8-7722-e3a7-debf2eac9a0a"
 							]
 						},
@@ -5585,7 +5508,7 @@
 							"uuid": "00f5720e-faea-564d-cf3b-3c4d548a074a",
 							"export": true,
 							"mirror_uv": false,
-							"isOpen": true,
+							"isOpen": false,
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
@@ -5665,18 +5588,17 @@
 							]
 						},
 						{
-							"name": "CKimonoH",
+							"name": "HairAccessory",
 							"origin": [0, 10.6, -2],
 							"color": 0,
 							"uuid": "e67336b8-fc7d-84de-f4dc-36ffa4c5d3f3",
 							"export": true,
 							"mirror_uv": false,
-							"isOpen": false,
+							"isOpen": true,
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
 							"children": [
-								"42d276cf-d6b2-2cf9-5dd0-ea5e6126f33a",
 								{
 									"name": "Wisteria",
 									"origin": [0, 10.6, -2],
