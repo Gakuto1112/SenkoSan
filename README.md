@@ -268,7 +268,6 @@ Mobが被っているプレイヤーの頭は設定に関わらず、デフォ�
      - [.github](.github/)
      - [README_images](README_images/)
      - [.gitignore](.gitignore)
-     - [CONTRIBUTING.md](CONTRIBUTING.md)
      - [README.md](README.md)
      - [衣装一覧.md](衣装一覧.md)
 4. ``<マインクラフトのゲームフォルダ>/figura/avatars/``にアバターのデータを配置します。
