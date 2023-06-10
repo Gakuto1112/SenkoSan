@@ -3,7 +3,7 @@
 ---@field ScissorsItem ItemTask はさみの描画を行うレンダータスク
 HairCut = General.instance({
 	ChairBlock = models.models.hair_cut:newBlock("hair_cut.chair"):block("minecraft:oak_stairs"):pos(8, -6, -4):rot(0, 180), --椅子代わりの階段ブロックのレンダータスク
-	ScissorsItem = models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.HairCutRAB.Scissors:newItem("hair_cut.scissors"):item("minecraft:shears"):pos(2, 0, -3):rot(-90, 45, 0):scale(0.5, 0.5, 0.5):enabled(false), --鋏のアイテムレンダータスク。
+	ScissorsItem = models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.HairCutRAB.Scissors:newItem("hair_cut.scissors"):item("minecraft:shears"):pos(2, 0, -3):rot(-90, 45, 0):scale(0.5, 0.5, 0.5):setVisible(false), --鋏のアイテムレンダータスク。
 
 	---散髪アニメーションを再生する。
 	play = function (self)
@@ -16,7 +16,7 @@ HairCut = General.instance({
 	---散髪アニメーションを停止する。
 	stop = function (self)
 		AnimationAction.stop(self)
-		HairCut.ScissorsItem:enabled(false)
+		HairCut.ScissorsItem:setVisible(false)
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 		Sleeve.Moving = true
 	end,
@@ -41,7 +41,7 @@ HairCut = General.instance({
 				for _, modelPart in ipairs({models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.HairCutRAB.Spray, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairCutLAB.Comb}) do
 					modelPart:setVisible(false)
 				end
-				HairCut.ScissorsItem:enabled(true)
+				HairCut.ScissorsItem:setVisible(true)
 				sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 			elseif (self.AnimationCount <= 373 and self.AnimationCount >= 330 and (self.AnimationCount - 373) % 6 == 0) or (self.AnimationCount <= 320 and self.AnimationCount >= 303 and (self.AnimationCount - 320) % 6 == 0) or (self.AnimationCount <= 196 and self.AnimationCount >= 153 and (self.AnimationCount - 196) % 6 == 0) or (self.AnimationCount <= 143 and self.AnimationCount >= 100 and (self.AnimationCount - 143) % 6 == 0) then
 				sounds:playSound("entity.sheep.shear", player:getPos(), 0.25, 1)
@@ -61,7 +61,7 @@ HairCut = General.instance({
 			elseif self.AnimationCount == 216 then
 				models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.HairCutLAB.HairPiece:setVisible(false)
 			elseif self.AnimationCount == 90 then
-				HairCut.ScissorsItem:enabled(false)
+				HairCut.ScissorsItem:setVisible(false)
 			elseif self.AnimationCount <= 80 and self.AnimationCount >= 53 and (self.AnimationCount - 80) % 13 == 0 then
 				sounds:playSound("block.grass.step", player:getPos(), 0.5, 1)
 			elseif self.AnimationCount == 40 then
