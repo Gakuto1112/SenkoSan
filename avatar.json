@@ -9,6 +9,8 @@
 		"textures.for_modeling.leather_layer_1_overlay",
 		"textures.for_modeling.leather_layer_2",
 		"textures.for_modeling.leather_layer_2_overlay",
+		"textures.for_modeling.coast",
+		"textures.for_modeling.coast_leggings",
 		"textures.for_modeling.steve",
 		"textures.for_modeling.fox",
 		"textures.for_modeling.brown_wool",
@@ -25,29 +27,50 @@
 			"moveTo": "models.main.Avatar.Head",
 			"visible": false
 		},
+		"models.armor.ArmorH.Helmet.HelmetTrim": {
+			"visible": false
+		},
 		"models.armor.ArmorB": {
 			"moveTo": "models.main.Avatar.Body"
 		},
 		"models.armor.ArmorB.Chestplate": {
 			"visible": false
 		},
+		"models.armor.ArmorB.Chestplate.ChestplateTrim": {
+			"visible": false
+		},
 		"models.armor.ArmorB.Leggings": {
+			"visible": false
+		},
+		"models.armor.ArmorB.Leggings.LeggingsTrim": {
 			"visible": false
 		},
 		"models.armor.ArmorRA": {
 			"moveTo": "models.main.Avatar.Body.Arms.RightArm",
 			"visible": false
 		},
+		"models.armor.ArmorRA.RightChestplate.RightChestplateTrim": {
+			"visible": false
+		},
 		"models.armor.ArmorRAB": {
 			"moveTo": "models.main.Avatar.Body.Arms.RightArm.RightArmBottom",
+			"visible": false
+		},
+		"models.armor.ArmorRAB.RightChestplateBottom.RightChestplateBottomTrim": {
 			"visible": false
 		},
 		"models.armor.ArmorLA": {
 			"moveTo": "models.main.Avatar.Body.Arms.LeftArm",
 			"visible": false
 		},
+		"models.armor.ArmorLA.LeftChestplate.LeftChestplateTrim": {
+			"visible": false
+		},
 		"models.armor.ArmorLAB": {
 			"moveTo": "models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom",
+			"visible": false
+		},
+		"models.armor.ArmorLAB.LeftChestplateBottom.LeftChestplateBottomTrim": {
 			"visible": false
 		},
 		"models.armor.ArmorBB": {
@@ -56,7 +79,13 @@
 		"models.armor.ArmorBB.ChestplateBottom": {
 			"visible": false
 		},
+		"models.armor.ArmorBB.ChestplateBottom.ChestplateBottomTrim": {
+			"visible": false
+		},
 		"models.armor.ArmorBB.LeggingsBottom": {
+			"visible": false
+		},
+		"models.armor.ArmorBB.LeggingsBottom.LeggingsBottomTrim": {
 			"visible": false
 		},
 		"models.armor.ArmorT": {
@@ -70,7 +99,13 @@
 			"visible": false,
 			"parentType": "None"
 		},
+		"models.armor.ArmorRL.RightLeggings.RightLeggingsTrim": {
+			"visible": false
+		},
 		"models.armor.ArmorRL.RightBoots": {
+			"visible": false
+		},
+		"models.armor.ArmorRL.RightBoots.RightBootsTrim": {
 			"visible": false
 		},
 		"models.armor.ArmorRLB": {
@@ -80,7 +115,13 @@
 			"visible": false,
 			"parentType": "None"
 		},
+		"models.armor.ArmorRLB.RightLeggingsBottom.RightLeggingsBottomTrim": {
+			"visible": false
+		},
 		"models.armor.ArmorRLB.RightBootsBottom": {
+			"visible": false
+		},
+		"models.armor.ArmorRLB.RightBootsBottom.RightBootsBottomTrim": {
 			"visible": false
 		},
 		"models.armor.ArmorLL": {
@@ -90,7 +131,13 @@
 			"visible": false,
 			"parentType": "None"
 		},
+		"models.armor.ArmorLL.LeftLeggings.LeftLeggingsTrim": {
+			"visible": false
+		},
 		"models.armor.ArmorLL.LeftBoots": {
+			"visible": false
+		},
+		"models.armor.ArmorLL.LeftBoots.LeftBootsTrim": {
 			"visible": false
 		},
 		"models.armor.ArmorLLB": {
@@ -100,7 +147,13 @@
 			"visible": false,
 			"parentType": "None"
 		},
+		"models.armor.ArmorLLB.LeftLeggingsBottom.LeftLeggingsBottomTrim": {
+			"visible": false
+		},
 		"models.armor.ArmorLLB.LeftBootsBottom": {
+			"visible": false
+		},
+		"models.armor.ArmorLLB.LeftBootsBottom.LeftBootsBottomTrim": {
 			"visible": false
 		},
 		"models.costume_disguise.CDisguiseH": {
