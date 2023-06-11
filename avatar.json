@@ -26,7 +26,12 @@
 			"visible": false
 		},
 		"models.armor.ArmorB": {
-			"moveTo": "models.main.Avatar.Body",
+			"moveTo": "models.main.Avatar.Body"
+		},
+		"models.armor.ArmorB.Chestplate": {
+			"visible": false
+		},
+		"models.armor.ArmorB.Leggings": {
 			"visible": false
 		},
 		"models.armor.ArmorRA": {
@@ -46,7 +51,12 @@
 			"visible": false
 		},
 		"models.armor.ArmorBB": {
-			"moveTo": "models.main.Avatar.Body.BodyBottom",
+			"moveTo": "models.main.Avatar.Body.BodyBottom"
+		},
+		"models.armor.ArmorBB.ChestplateBottom": {
+			"visible": false
+		},
+		"models.armor.ArmorBB.LeggingsBottom": {
 			"visible": false
 		},
 		"models.armor.ArmorT": {
@@ -54,32 +64,44 @@
 			"visible": false
 		},
 		"models.armor.ArmorRL": {
-			"moveTo": "models.main.Avatar.Body.BodyBottom.Legs.RightLeg",
-			"visible": false
+			"moveTo": "models.main.Avatar.Body.BodyBottom.Legs.RightLeg"
 		},
 		"models.armor.ArmorRL.RightLeggings": {
+			"visible": false,
 			"parentType": "None"
+		},
+		"models.armor.ArmorRL.RightBoots": {
+			"visible": false
 		},
 		"models.armor.ArmorRLB": {
-			"moveTo": "models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom",
-			"visible": false
+			"moveTo": "models.main.Avatar.Body.BodyBottom.Legs.RightLeg.RightLegBottom"
 		},
 		"models.armor.ArmorRLB.RightLeggingsBottom": {
+			"visible": false,
 			"parentType": "None"
+		},
+		"models.armor.ArmorRLB.RightBootsBottom": {
+			"visible": false
 		},
 		"models.armor.ArmorLL": {
-			"moveTo": "models.main.Avatar.Body.BodyBottom.Legs.LeftLeg",
-			"visible": false
+			"moveTo": "models.main.Avatar.Body.BodyBottom.Legs.LeftLeg"
 		},
 		"models.armor.ArmorLL.LeftLeggings": {
+			"visible": false,
 			"parentType": "None"
 		},
-		"models.armor.ArmorLLB": {
-			"moveTo": "models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom",
+		"models.armor.ArmorLL.LeftBoots": {
 			"visible": false
 		},
+		"models.armor.ArmorLLB": {
+			"moveTo": "models.main.Avatar.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom"
+		},
 		"models.armor.ArmorLLB.LeftLeggingsBottom": {
+			"visible": false,
 			"parentType": "None"
+		},
+		"models.armor.ArmorLLB.LeftBootsBottom": {
+			"visible": false
 		},
 		"models.costume_disguise.CDisguiseH": {
 			"moveTo": "models.main.Avatar.Head",

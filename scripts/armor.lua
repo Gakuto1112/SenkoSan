@@ -34,7 +34,7 @@ events.TICK:register(function ()
 			--防具変更
 			if index == 1 then
 				local helmetFound = armorSlotItems[1].id:find("^minecraft:.+_helmet$") == 1
-				models.models.main.Avatar.Head.ArmorH.Helmet:setVisible(helmetFound)
+				models.models.main.Avatar.Head.ArmorH:setVisible(helmetFound)
 				Armor.ArmorVisible[1] = helmetFound
 				if helmetFound then
 					local material = armorSlotItems[1].id:match("^minecraft:(%a+)_helmet$")
@@ -44,7 +44,7 @@ events.TICK:register(function ()
 				models.models.main.Avatar.Head.ArmorH.Helmet.HelmetOverlay:setVisible(armorSlotItems[1].id == "minecraft:leather_helmet")
 			elseif index == 2 then
 				local chestplateFound = armorSlotItems[2].id:find("^minecraft:.+_chestplate$") == 1
-				for _, armorPart in ipairs({models.models.main.Avatar.Body.ArmorB.Chestplate, models.models.main.Avatar.Body.BodyBottom.ArmorBB.ChestplateBottom, models.models.main.Avatar.Body.BodyBottom.Tail.ArmorT, models.models.main.Avatar.Body.Arms.RightArm.ArmorRA.RightChestplate, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.ArmorRAB.RightChestplateBottom, models.models.main.Avatar.Body.Arms.LeftArm.ArmorLA.LeftChestplate, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.ArmorLAB.LeftChestplateBottom}) do
+				for _, armorPart in ipairs({models.models.main.Avatar.Body.ArmorB.Chestplate, models.models.main.Avatar.Body.BodyBottom.ArmorBB.ChestplateBottom, models.models.main.Avatar.Body.BodyBottom.Tail.ArmorT, models.models.main.Avatar.Body.Arms.RightArm.ArmorRA, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.ArmorRAB, models.models.main.Avatar.Body.Arms.LeftArm.ArmorLA, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.ArmorLAB}) do
 					armorPart:setVisible(chestplateFound)
 				end
 				Armor.ArmorVisible[2] = chestplateFound
