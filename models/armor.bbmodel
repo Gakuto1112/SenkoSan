@@ -2463,6 +2463,49 @@
 			},
 			"type": "cube",
 			"uuid": "e46adda3-76b0-3f14-f8bb-14dec4636073"
+		},
+		{
+			"name": "TailChestplateTrim",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"from": [-5, 11, 9],
+			"to": [5, 18, 17],
+			"autouv": 0,
+			"color": 2,
+			"inflate": 0.51,
+			"origin": [0, 14.5, 13],
+			"faces": {
+				"north": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"east": {
+					"uv": [0, 0, 7.82353, 48],
+					"rotation": 90,
+					"texture": 7
+				},
+				"south": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"west": {
+					"uv": [0, 0, 7.82353, 48],
+					"rotation": 270,
+					"texture": 7
+				},
+				"up": {
+					"uv": [7.88235, 0, 19, 48],
+					"texture": 7
+				},
+				"down": {
+					"uv": [7.88235, 0, 19, 48],
+					"rotation": 180,
+					"texture": 7
+				}
+			},
+			"type": "cube",
+			"uuid": "7abe43f7-520d-738e-9e42-7bc68e43eeaf"
 		}
 	],
 	"outliner": [
@@ -2500,7 +2543,7 @@
 							"uuid": "e8eeb74a-b8fe-5bd6-2d67-997d11711ff5",
 							"export": true,
 							"mirror_uv": false,
-							"isOpen": false,
+							"isOpen": true,
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
@@ -2766,7 +2809,7 @@
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
-			"children": ["4afbed7a-1ca6-77b6-db58-92e01ae31aa4"]
+			"children": ["4afbed7a-1ca6-77b6-db58-92e01ae31aa4", "7abe43f7-520d-738e-9e42-7bc68e43eeaf"]
 		},
 		{
 			"name": "ArmorRL",
@@ -3031,8 +3074,8 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAwCAYAAADzaEFUAAAAAXNSR0IArs4c6QAAA0FJREFUSEvNVs9rU0EQnhchxOSV0JiD/UW12lhaG6uQg8TWSy8qCF5rwLNY8OifUDwKpdCjNP0DLEgu6kEUb8FaKo3V2tJfgmna0iSGglmZjbOZ97L72mIO7mVnZ7755tv3vjxizczMiIGBAVhcXIRyuQzBYBBw6WLM4TJhrOnpaTGcTEoQrsrhoYoxCPj9xhoHIs4iZbomyrkHIEmhUIBIJOIYrJTpGjjS3YxnXJxQkiUSCccEHfCo62KPRSzZbFbw6TpCwuqu70nmkHrMg1KG1+WvXGcBsobJHlZ6Ni1S91NyP6YAI0wpSz9Pi9SDlDX5bFKMPx5XO+WPsytlOM5NdNKzUnbSRh3+P1bGX82/XrX+NpthjUwmI3p6emBlZQVCoRCUSiUpFmNcJzlbSBaPx6G9vR22tragWCw2mDIWixlrHCzJUBk15PN5VQ8EAjLmZJVKxfnx/IvBpFKGB50qzNu2baxplVGSTyZlvMFTGQFzuVzzfujz8/OSjKvxUqFTq3yGL4Jbg+xhsobOPtbq3JDoHumHtbef4WDDBy2dVTmUYr5j3l3nWGth6profzgKPngKVXgCvv2Nxo9feNZcY2ilDKgh96FePttViznZj3XnMMKgz0gZIrSqAKAa7jTWHD5DsstjffUcn8ymKoCXMgKJvbHm+UwsDdfI3Go8lLjVKp+hRY6ygckuZBlr6OMbkbzQC++/LcPvYhFO2bbccWGMi/JHxdbguzkxcf0G3PG1wsvqLmTKtY8jX5N2p7HmeJukjBqm9n6q+nl/7V8kJ/t+WPv3SIsweFbK8KBThflbwZCx5lCG1xy5clXl+GQ+lQCeygj06GC9eT67vVP7OHI1Xir49QinfIbXNdmCbKKzDJFir3Vv9K7ojfXBq9cvoLvrEtiRMBQL+2pfW89By+koHPzKqzpXhVjCSDJO0BZtg+38NtCOYFqIwzxfiCWMUrb8ZUmq4WACVkr7EAiFG+pIyjEOZVgkQj6RK+ED3ZiGZ0aEJN39zKiOuxuj3ubNoaSIRM84ngceCvkdldPVOcZBtrm7KRsHe+NyX1j+BB2tHTLGGs/TBMzhQKwrsovd58TXtVV5xhh3PJtiIuP1P+45A3fcZlu2AAAAAElFTkSuQmCC"
 		},
 		{
-			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\for_modeling\\coast.png",
-			"name": "coast.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\for_modeling\\trim.png",
+			"name": "trim.png",
 			"folder": "",
 			"namespace": "",
 			"id": "5",
@@ -3047,12 +3090,12 @@
 			"mode": "bitmap",
 			"saved": true,
 			"uuid": "10cc6101-1a98-56ff-84bb-c18cb34472c0",
-			"relative_path": "../../textures/for_modeling/coast.png",
+			"relative_path": "../../textures/for_modeling/trim.png",
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAgCAYAAACinX6EAAAAAXNSR0IArs4c6QAAARlJREFUaEPtWIEJxCAMrJtkFEdxFEdxFEdxE5/Ip+TFL31S+TamUFrE2NzlUsi5bfHLLY5/MwJMAYszYC2wuADsJ2gtEGOs2AallNYNANBueqcWea83wkoplfbzWFzj53Sx+7m0D58xxr8W4fTHc86ViMHEvfenY+/8n1EBQkKwESBhT0OsKUBDFSUYTAES9jTEmgI0VFGCwRQgYU9DrClAQxUlGG6vAD6FcqA0UuecP/B77/uR/hCjmAD0EzCZkY9AIzOCGPkGfQwft8lXCCGIczxSiEMAxBpt7Od93EPJcjMD174ZGmiaAMBuoNC7RK4zYofs8uTxoyml+mslnmKgDAno+06TA9SraGp/zZDs1WcaAVcz+rTzXjFzgCFw/S4BAAAAAElFTkSuQmCC"
 		},
 		{
-			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\for_modeling\\coast_leggings.png",
-			"name": "coast_leggings.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\for_modeling\\trim_leggings.png",
+			"name": "trim_leggings.png",
 			"folder": "",
 			"namespace": "",
 			"id": "6",
@@ -3067,8 +3110,28 @@
 			"mode": "bitmap",
 			"saved": true,
 			"uuid": "a801ffff-07dc-221a-9ca4-89a631acd89b",
-			"relative_path": "../../textures/for_modeling/coast_leggings.png",
+			"relative_path": "../../textures/for_modeling/trim_leggings.png",
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAgCAYAAACinX6EAAAAAXNSR0IArs4c6QAAALdJREFUaEPtlVEKgCAQRPUmHsWj71H2JsVKGxH1o24kM0KkZIs+Z8acwFsG338iACoAnAAtAC4AhiAtQAuAE6AFwAXAW4AWoAXACdAC4ALgLUAL0ALgBLKIbMaglHKiUNU2trc364tIG9o3f2qtS9to6cXPEC8BzKC4co1hBViGeFZ4jnh+eD7YnGum3Of7+KlOdMYMA3g7fVW1Tbf61/7f1BIGwE/9AJCiT7IXbBiA3gV9/R88gB06yDkhrwNxCwAAAABJRU5ErkJggg=="
+		},
+		{
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\armor_trims\\coast.png",
+			"name": "coast.png",
+			"folder": "",
+			"namespace": "",
+			"id": "7",
+			"particle": false,
+			"render_mode": "default",
+			"render_sides": "auto",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"mode": "bitmap",
+			"saved": true,
+			"uuid": "f3303c8a-2411-476a-0d76-28affa4d5991",
+			"relative_path": "../../textures/armor_trims/coast.png",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAICAYAAAAftBSpAAAAAXNSR0IArs4c6QAAAFRJREFUKFNjZKACYKSCGQyMDQ0N/0EGPXjwAG6egoICmI1OOzg4gC09cOAAih6iXfLgwYP/CgoKYPXIbBCfaENAtsNcBnI1zFUkGYIv7Ih2Cc0NAQCcsBvo1fl7ZAAAAABJRU5ErkJggg=="
 		}
 	],
 	"animations": [
