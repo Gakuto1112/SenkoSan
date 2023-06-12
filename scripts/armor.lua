@@ -53,17 +53,30 @@ events.TICK:register(function ()
 	---防具装飾のテクスチャを取得する。
 	---@param trimPattern string 防具装飾の模様
 	---@param trimMaterial string 防具装飾の素材
-	---@param armorId string 防具アイテムのID
+	---@param armorId string 防具アイテムのID。"tail_{防具の素材}"で尻尾アーマーを示す。
 	---@return Texture|nil trimTexture 色を付けた防具装飾のテクスチャ。防具や防具装飾が非バニラの場合はnilを返す。
+	---@return Texture|nil tailTrimTexture 尻尾の防具装飾へのテクスチャ。チェストプレート以外ではnilを返す。
 	local function getTrimTexture(trimPattern, trimMaterial, armorId)
-		if trimPattern:find("^minecraft:.+$") and trimMaterial:find("^minecraft:.+$") and armorId:find("^minecraft:.+_.+$") then
+		if trimPattern:find("^minecraft:.+$") and trimMaterial:find("^minecraft:.+$") and (armorId:find("^minecraft:.+_.+$") or armorId:find("^tail_.+$")) then
+			local tailTrim = nil
+			if armorId:find("^minecraft:.+_chestplate$") then
+				tailTrim = getTrimTexture(trimPattern, trimMaterial, "tail_"..armorId:match("^minecraft:(%a+)_.+$"))
+			end
 			local pattern = trimPattern:match("^minecraft:(%a+)$")
 			local material = trimMaterial:match("^minecraft:(%a+)$")
 			local isLeggings = armorId:find("^minecraft:.+_leggings$")
-			local textureName = "trim_"..pattern.."_"..material..(isLeggings and "_leggings" or "")
+			local isTailTrim = armorId:find("^tail_.+$")
+			local textureName = "trim_"..pattern.."_"..material..(isTailTrim and "_tail" or (isLeggings and "_leggings" or ""))
 			if textures[textureName] == nil then
-				local trim = textures:fromVanilla(textureName, "minecraft:textures/trims/models/armor/"..pattern..(isLeggings and "_leggings" or "")..".png")
-				local armorMaterial = armorId:match("^minecraft:(%a+)_.+$")
+				local trim = nil
+				local armorMaterial = nil
+				if isTailTrim then
+					trim = textures:copy(textureName, textures["textures.armor_trims."..pattern])
+					armorMaterial = armorId:match("^tail_(%a+)$")
+				else
+					trim = textures:fromVanilla(textureName, "minecraft:textures/trims/models/armor/"..pattern..(isLeggings and "_leggings" or "")..".png")
+					armorMaterial = armorId:match("^minecraft:(%a+)_.+$")
+				end
 				armorMaterial = armorMaterial == "golden" and "gold" or armorMaterial
 				local isSameMaterial = material == armorMaterial
 				local paletteName = "trim_palette_"..material..(isSameMaterial and "_darker" or "")
@@ -71,20 +84,21 @@ events.TICK:register(function ()
 				if palette == nil then
 					palette = textures:fromVanilla(paletteName, "minecraft:textures/trims/color_palettes/"..material..(isSameMaterial and "_darker" or "")..".png")
 				end
-				for y = 0, 31 do
-					for x = 0, 63 do
+				local textureSize = isTailTrim and {7, 16} or {31, 63}
+				for y = 0, textureSize[1] do
+					for x = 0, textureSize[2] do
 						local pixel = trim:getPixel(x, y)
 						if pixel.w == 1 then
 							trim:setPixel(x, y, palette:getPixel(7 - math.floor(pixel.x * 8), 0))
 						end
 					end
 				end
-				return trim
+				return trim, tailTrim
 			else
-				return textures[textureName]
+				return textures[textureName], tailTrim
 			end
 		end
-		return nil
+		return nil, nil
 	end
 
 	local armorSlotItems = Armor.ShowArmor and {Sleep.HeadVisible and player:getItem(6) or world.newItem("minecraft:air"), player:getItem(5), player:getItem(4), player:getItem(3)} or {world.newItem("minecraft:air"), world.newItem("minecraft:air"), world.newItem("minecraft:air"), world.newItem("minecraft:air")}
@@ -211,15 +225,18 @@ events.TICK:register(function ()
 				end
 			elseif index == 2 then
 				if trimFound then
-					local trimTexture = getTrimTexture(trim.pattern, trim.material, armorSlotItems[2].id)
+					local trimTexture, tailTrimTexture = getTrimTexture(trim.pattern, trim.material, armorSlotItems[2].id)
 					for _, armorPart in ipairs({models.models.main.Avatar.Body.ArmorB.Chestplate.ChestplateTrim, models.models.main.Avatar.Body.BodyBottom.ArmorBB.ChestplateBottom.ChestplateBottomTrim, models.models.main.Avatar.Body.Arms.RightArm.ArmorRA.RightChestplate.RightChestplateTrim, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.ArmorRAB.RightChestplateBottom.RightChestplateBottomTrim, models.models.main.Avatar.Body.Arms.LeftArm.ArmorLA.LeftChestplate.LeftChestplateTrim, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.ArmorLAB.LeftChestplateBottom.LeftChestplateBottomTrim}) do
 						armorPart:setVisible(true)
 						armorPart:setPrimaryTexture("CUSTOM", trimTexture)
 					end
+					models.models.main.Avatar.Body.BodyBottom.Tail.ArmorT.TailChestplateTrim:setVisible(true)
+					models.models.main.Avatar.Body.BodyBottom.Tail.ArmorT.TailChestplateTrim:setPrimaryTexture("CUSTOM", tailTrimTexture)
 				else
 					for _, armorPart in ipairs({models.models.main.Avatar.Body.ArmorB.Chestplate.ChestplateTrim, models.models.main.Avatar.Body.BodyBottom.ArmorBB.ChestplateBottom.ChestplateBottomTrim, models.models.main.Avatar.Body.Arms.RightArm.ArmorRA.RightChestplate.RightChestplateTrim, models.models.main.Avatar.Body.Arms.RightArm.RightArmBottom.ArmorRAB.RightChestplateBottom.RightChestplateBottomTrim, models.models.main.Avatar.Body.Arms.LeftArm.ArmorLA.LeftChestplate.LeftChestplateTrim, models.models.main.Avatar.Body.Arms.LeftArm.LeftArmBottom.ArmorLAB.LeftChestplateBottom.LeftChestplateBottomTrim}) do
 						armorPart:setVisible(false)
 					end
+					models.models.main.Avatar.Body.BodyBottom.Tail.ArmorT.TailChestplateTrim:setVisible(false)
 				end
 			elseif index == 3 then
 				if trimFound then
