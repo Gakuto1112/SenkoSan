@@ -261,6 +261,33 @@ events.TICK:register(function ()
 			end
 		end
 	end
+	--テクスチャの作成処理
+	if #textureQueue > 0 then
+		local instructionsAvailable = avatar:getMaxTickCount() - 3000 --このTICKで使用出来る残りの命令数
+		while #textureQueue > 0 and instructionsAvailable > 0 do
+			local dimension = textureQueue[1].texture:getDimensions()
+			for y = math.floor(textureQueue[1].iterationCount / dimension.x), dimension.y - 1 do
+				for x = textureQueue[1].iterationCount % dimension.x, dimension.x - 1 do
+					local pixel = textureQueue[1].texture:getPixel(x, y)
+					if pixel.w == 1 then
+						textureQueue[1].texture:setPixel(x, y, textureQueue[1].palette:getPixel(7 - math.floor(pixel.x * 8), 0))
+					end
+					textureQueue[1].iterationCount = textureQueue[1].iterationCount + 1
+					instructionsAvailable = instructionsAvailable - 45
+					if instructionsAvailable <= 0 then
+						break
+					end
+				end
+				if instructionsAvailable <= 0 then
+					break
+				end
+			end
+			textureQueue[1].texture:update()
+			if textureQueue[1].iterationCount == dimension.x * dimension.y then
+				table.remove(textureQueue, 1)
+			end
+		end
+	end
 	Armor.ArmorSlotItemsPrev = armorSlotItems
 end)
 
