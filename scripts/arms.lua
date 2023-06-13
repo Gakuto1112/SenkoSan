@@ -29,23 +29,21 @@ Arms = {
 
 events.TICK:register(function ()
 	local leftHanded = player:isLeftHanded()
-	models.models.main.Avatar.Body.Arms.RightArm:setParentType(((Umbrella.IsUsing and leftHanded and PhotoPose.CurrentPose ~= 7) or Naginata.State[1] >= 2 or Naginata.State[2] >= 2) and "Body" or "RightArm")
-	models.models.main.Avatar.Body.Arms.LeftArm:setParentType(((Umbrella.IsUsing and not leftHanded) or Naginata.State[1] >= 2 or Naginata.State[2] >= 2) and "Body" or "LeftArm")
+	models.models.main.Avatar.Torso.Arms.RightArm:setParentType(((Umbrella.IsUsing and leftHanded and PhotoPose.CurrentPose ~= 7) or Naginata.State[1] >= 2 or Naginata.State[2] >= 2) and "Body" or "RightArm")
+	models.models.main.Avatar.Torso.Arms.LeftArm:setParentType(((Umbrella.IsUsing and not leftHanded) or Naginata.State[1] >= 2 or Naginata.State[2] >= 2) and "Body" or "LeftArm")
 end)
 
 events.RENDER:register(function ()
-	local armPos = vectors.vec3(0, player:isCrouching() and 3 or 0)
-	models.models.main.Avatar.Body.Arms.RightArm:setPos(armPos + Arms.RightArmPosOffset)
-	models.models.main.Avatar.Body.Arms.LeftArm:setPos(armPos + Arms.LeftArmPosOffset)
+	models.models.main.Avatar.Torso.Arms.RightArm:setPos(Arms.RightArmPosOffset)
+	models.models.main.Avatar.Torso.Arms.LeftArm:setPos(Arms.LeftArmPosOffset)
 	local leftHanded = player:isLeftHanded()
 	local umbrellaAdjust = Umbrella.IsUsing and not SitDown.IsAnimationPlaying and PhotoPose.CurrentPose ~= 7
-	local sneakAdjust = player:isCrouching() and 30 or 0
 	if Arms.ItemHeldContradicts then
-		models.models.main.Avatar.Body.Arms.RightArm:setRot(vectors.vec3(((umbrellaAdjust and leftHanded) and 20 or 0) + sneakAdjust) + Arms.RightArmRotOffset - vanilla_model.RIGHT_ARM:getOriginRot())
-		models.models.main.Avatar.Body.Arms.LeftArm:setRot(vectors.vec3(((umbrellaAdjust and not leftHanded) and 20 or 0) + sneakAdjust) + Arms.LeftArmRotOffset - vanilla_model.LEFT_ARM:getOriginRot())
+		models.models.main.Avatar.Torso.Arms.RightArm:setRot(vectors.vec3((umbrellaAdjust and leftHanded) and 20 or 0) + Arms.RightArmRotOffset - vanilla_model.RIGHT_ARM:getOriginRot())
+		models.models.main.Avatar.Torso.Arms.LeftArm:setRot(vectors.vec3((umbrellaAdjust and not leftHanded) and 20 or 0) + Arms.LeftArmRotOffset - vanilla_model.LEFT_ARM:getOriginRot())
 	else
-		models.models.main.Avatar.Body.Arms.RightArm:setRot(vectors.vec3(((umbrellaAdjust and leftHanded) and 20 or 0) + sneakAdjust) + Arms.RightArmRotOffset)
-		models.models.main.Avatar.Body.Arms.LeftArm:setRot(vectors.vec3(((umbrellaAdjust and not leftHanded) and 20 or 0) + sneakAdjust) + Arms.LeftArmRotOffset)
+		models.models.main.Avatar.Torso.Arms.RightArm:setRot(vectors.vec3((umbrellaAdjust and leftHanded) and 20 or 0) + Arms.RightArmRotOffset)
+		models.models.main.Avatar.Torso.Arms.LeftArm:setRot(vectors.vec3((umbrellaAdjust and not leftHanded) and 20 or 0) + Arms.LeftArmRotOffset)
 	end
 end)
 
