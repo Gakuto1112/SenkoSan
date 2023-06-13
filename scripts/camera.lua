@@ -11,10 +11,10 @@ events.WORLD_RENDER:register(function ()
 	else
 		currentCameraOffset = currentCameraOffset.y
 	end
-	if currentCameraOffset > Camera.CameraOffset then
-		renderer:offsetCameraPivot(0, math.max(currentCameraOffset - 3 / client:getFPS(), Camera.CameraOffset), 0)
-	elseif currentCameraOffset < Camera.CameraOffset then
-		renderer:offsetCameraPivot(0, math.min(currentCameraOffset + 3 / client:getFPS(), Camera.CameraOffset), 0)
+	if currentCameraOffset ~= Camera.CameraOffset then
+		local cameraHeight = vectors.vec3(0, currentCameraOffset > Camera.CameraOffset and math.max(currentCameraOffset - 3 / client:getFPS(), Camera.CameraOffset) or math.min(currentCameraOffset + 3 / client:getFPS(), Camera.CameraOffset))
+		renderer:offsetCameraPivot(cameraHeight)
+		renderer:eyeOffset(cameraHeight)
 	end
 end)
 
