@@ -14,7 +14,7 @@ TVアニメ「世話やきキツネの仙狐さん」とその原作に登場す
 
 **このREADMEには本来、大量の画像（約88MB）を添付していますが、通信量の軽減のため、必要最低限以外の画像は添付されおりません。画像を確認するには、それぞれの画像のリンクをクリックするか、[README（完全版）](./.github/workflows/README_full.md)をご覧ください。**
 
-ターゲットFiguraバージョン：[0.1.0-rc.14](https://www.curseforge.com/minecraft/mc-mods/figura/files/4438657)
+ターゲットFiguraバージョン：[0.1.0](https://modrinth.com/mod/figura/version/0.1.0+1.20)
 
 ![メイン](README_images/メイン.jpg)
 
@@ -81,10 +81,6 @@ TVアニメ「世話やきキツネの仙狐さん」とその原作に登場す
 
 - あなたの表示名をキャラクターの名前に変更できます。
   - 他のプレイヤーがこの名前を見えるようにするには、**他のプレイヤーもFiguraを導入し、他のプレイヤー側であなたに対する信頼設定を十分上げる必要があります**。
-  - 0.1.0-rc11～では、一時的にプレイヤーリストのアバター表示が無効になっています。
-    > added a new setting to toggle whether UI elements should render the avatar portrait instead of the vanilla skin, (default OFF)
-
-    > currently locked as of the portrait rendering is VERY glitchy
 
   [[画像] 名前変更](README_images/名前変更.jpg)
 
@@ -263,7 +259,7 @@ Mobが被っているプレイヤーの頭は設定に関わらず、デフォ�
 アクションホイールでのメッセージ以外の、良く表示されるであろう一部メッセージを表示するかどうかを設定できます。メッセージが煩わしいと感じる場合はオフにして下さい。
 
 ## 使用方法
-1. マインクラフトに[Fabric](https://fabricmc.net/)をインストールし、[Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)と[Figura 0.1.0-rc.14](https://www.curseforge.com/minecraft/mc-mods/figura/files/4438657)を追加します。各Modの依存関係にご注意ください。
+1. マインクラフトに[Fabric](https://fabricmc.net/)をインストールし、[Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)と[Figura 0.1.0](https://modrinth.com/mod/figura/version/0.1.0+1.20)を追加します。各Modの依存関係にご注意ください。
 2. ページ上部の緑色のボタン「**Code**」から「**Download ZIP**」からこのレポジトリのファイルをダウンロードします。（または、このレポジトリをクローンします。）
 3. 圧縮ファイルの場合は展開します。
    - 以下のファイル、フォルダはアバターの動作には不要なので削除しても構いません。
@@ -288,7 +284,7 @@ Mobが被っているプレイヤーの頭は設定に関わらず、デフォ�
 | - | - | - |
 | Vanilla Model Change | **有効！！** | これが有効でないと、バニラのプレイヤーモデルが消えません！！ |
 | Nameplate Change | 有効 |　権限「Default」レベルでは無効になっています。 |
-| Custom Player Heads | 有効 |　権限「Default」レベルでは無効になっています。 |
+| Custom Player Heads | 有効 | |
 
 ### マインクラフト設定
 | 項目 | 推奨設定 | 備考 |
@@ -308,6 +304,7 @@ Mobが被っているプレイヤーの頭は設定に関わらず、デフォ�
 ## リンク集
 - [Figura（CurseForge）](https://www.curseforge.com/minecraft/mc-mods/figura)
 - [Figura（Modrinth）](https://modrinth.com/mod/figura)
+- [Figura（GitHub）](https://github.com/Kingdom-of-The-Moon/FiguraRewriteRewrite)
 - [TVアニメ「世話やきキツネの仙狐さん」オフィシャルサイト](http://senkosan.com/)
 - [Amazon.co.jp_ 世話やきキツネの仙狐さんを観る _ Prime Video](https://www.amazon.co.jp/gp/video/detail/B07QJG9NP7)
 - [世話やきキツネの仙狐さん - Webで漫画が無料で読める！コミックNewtype](https://comic.webnewtype.com/contents/sewayaki/)
