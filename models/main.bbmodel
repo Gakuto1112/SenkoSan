@@ -2892,6 +2892,46 @@
 									]
 								},
 								{
+									"name": "ParrotPivots",
+									"origin": [0, 24, 0],
+									"color": 0,
+									"uuid": "b92d7708-ed46-9563-7b89-9139e372a413",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": false,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"children": [
+										{
+											"name": "RightParrotPivot",
+											"origin": [6, 24, 0],
+											"color": 0,
+											"uuid": "5c6f9e0a-42d9-7c04-6f6f-c98869de5101",
+											"export": true,
+											"mirror_uv": false,
+											"isOpen": false,
+											"locked": false,
+											"visibility": true,
+											"autouv": 0,
+											"children": []
+										},
+										{
+											"name": "LeftParrotPivot",
+											"origin": [-6, 24, 0],
+											"color": 0,
+											"uuid": "8dee8af0-ab25-10e9-0f7b-f38c2aa4ab64",
+											"export": true,
+											"mirror_uv": false,
+											"isOpen": true,
+											"locked": false,
+											"visibility": true,
+											"autouv": 0,
+											"children": []
+										}
+									]
+								},
+								{
 									"name": "BodyBottom",
 									"origin": [0, 18, 2],
 									"color": 0,
@@ -3191,46 +3231,6 @@
 											]
 										}
 									]
-								}
-							]
-						},
-						{
-							"name": "ParrotPivots",
-							"origin": [0, 24, 0],
-							"color": 0,
-							"uuid": "b92d7708-ed46-9563-7b89-9139e372a413",
-							"export": true,
-							"mirror_uv": false,
-							"isOpen": false,
-							"locked": false,
-							"visibility": true,
-							"autouv": 0,
-							"children": [
-								{
-									"name": "RightParrotPivot",
-									"origin": [6, 24, 0],
-									"color": 0,
-									"uuid": "5c6f9e0a-42d9-7c04-6f6f-c98869de5101",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": false,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": []
-								},
-								{
-									"name": "LeftParrotPivot",
-									"origin": [-6, 24, 0],
-									"color": 0,
-									"uuid": "8dee8af0-ab25-10e9-0f7b-f38c2aa4ab64",
-									"export": true,
-									"mirror_uv": false,
-									"isOpen": true,
-									"locked": false,
-									"visibility": true,
-									"autouv": 0,
-									"children": []
 								}
 							]
 						}
@@ -48493,7 +48493,7 @@
 			"override": false,
 			"length": 0.29167,
 			"snapping": 24,
-			"selected": true,
+			"selected": false,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
