@@ -652,6 +652,8 @@ if host:isHost() then
 		local action = ActionWheel.Pages[5]:getAction(2)
 		action:toggled(true)
 		action:hoverColor(0.33, 1, 0.33)
+	else
+		General.ShowMessage = false
 	end
 
 	--アクション8（共通）. ページ切り替え
