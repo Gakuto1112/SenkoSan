@@ -7,6 +7,7 @@ events.ENTITY_INIT:register(function ()
 
 	--抽象クラス
 	AnimationAction = require("scripts.actions.animation_action")
+	EmotionAction = require("scripts.actions.emotion_action")
 	PermanentAnimationAction = require("scripts.actions.permanent_animation_action")
 
 	--パーツ別クラス
