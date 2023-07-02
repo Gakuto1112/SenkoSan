@@ -91,7 +91,9 @@ Costume = {
 
 		---麦わら帽子のチック処理
 		SummerHatTick = function ()
-			models.models.main.Avatar.Head.CSwimsuitH:setVisible(player:getItem(6).id:find("^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1])
+			if Costume.CurrentCostume == "SWIMSUIT" then
+				models.models.main.Avatar.Head.CSwimsuitH:setVisible(player:getItem(6).id:find("^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1])
+			end
 		end,
 
 		---ポンポンのチック処理
@@ -332,7 +334,7 @@ Costume = {
 			if Armor.ArmorVisible[1] then
 				models.models.main.Avatar.Head.Ears:setVisible(player:getItem(6).id == "minecraft:chainmail_helmet")
 				models.models.main.Avatar.Head.Ears.LeftEarPivot:setVisible()
-				for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH}) do
+				for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH}) do
 					modelPart:setVisible(false)
 				end
 				for _, tickEventName in ipairs({"costume_summer_hat_tick", "costume_yukata_tick"}) do
