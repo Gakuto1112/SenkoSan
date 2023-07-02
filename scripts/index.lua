@@ -3,9 +3,11 @@ events.ENTITY_INIT:register(function ()
 	General = require("scripts.general")
 	Config = require("scripts.config")
 	Language = require("scripts.language")
+	KeyManager = require("scripts.key_manager")
 
 	--抽象クラス
 	AnimationAction = require("scripts.actions.animation_action")
+	EmotionAction = require("scripts.actions.emotion_action")
 	PermanentAnimationAction = require("scripts.actions.permanent_animation_action")
 
 	--パーツ別クラス
@@ -48,6 +50,11 @@ events.ENTITY_INIT:register(function ()
 	Earpick = require("scripts.actions.earpick")
 	TeaTime = require("scripts.actions.tea_time")
 	Massage = require("scripts.actions.massage")
+	require("scripts.emote_keys")
+	KeyEmoteUp = require("scripts.actions.key_emote_up")
+	KeyEmoteRight = require("scripts.actions.key_emote_right")
+	KeyEmoteDown = require("scripts.actions.key_emote_down")
+	KeyEmoteLeft = require("scripts.actions.key_emote_left")
 	PhotoPose = require("scripts.photo_pose")
 	Wet = require("scripts.wet")
 	FoxFire = require("scripts.fox_fire")

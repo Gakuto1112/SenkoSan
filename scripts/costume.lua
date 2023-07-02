@@ -268,7 +268,7 @@ Costume = {
 				models.models.main.Avatar.Head.Ears:setVisible(player:getItem(6).id == "minecraft:chainmail_helmet")
 				models.models.main.Avatar.Head.Ears.LeftEarPivot:setVisible()
 				models.models.main.Avatar.Torso.Body.Hairs.BackHair:setVisible(true)
-				for _, modelPart in ipairs({models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH}) do
+				for _, modelPart in ipairs({models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH}) do
 					modelPart:setVisible(false)
 				end
 				events.RENDER:remove("costume_yukata_tick")

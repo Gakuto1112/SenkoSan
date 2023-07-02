@@ -1,8 +1,6 @@
 ---@class Tail 尻尾を制御するクラス
----@field WagTailKey Keybind 尻尾振りをするキー
 ---@field WagTailCount integer 尻尾振りの時間を計るカウンター
 Tail = {
-	WagTailKey = keybinds:newKeybind(Language.getTranslate("key_name__wag_tail"), Config.loadConfig("keybind.wagTail", "key.keyboard.z")),
 	WagTailCount = -1
 }
 
@@ -21,15 +19,10 @@ events.TICK:register(function ()
 			sounds:playSound("block.grass.step", player:getPos(), 0.5, 1)
 		end
 	end
-	if not Tail.WagTailKey:isDefault() then
-		local newKey = Tail.WagTailKey:getKey()
-		Config.saveConfig("keybind.wagTail", newKey)
-		Tail.WagTailKey:setKey(newKey)
-	end
 	Tail.WagTailCount = Tail.WagTailCount > 0 and Tail.WagTailCount - 1 or 0
 end)
 
-Tail.WagTailKey:onPress(function ()
+KeyManager.register("wag_tail", "key.keyboard.z", function ()
 	if Tail.WagTailCount == 0 and not Kotatsu.IsAnimationPlaying then
 		pings.wag_tail()
 	end
