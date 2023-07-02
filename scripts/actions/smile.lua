@@ -12,8 +12,6 @@ Smile = General.instance({
 			end
 		end
 	end
-}, EmotionAction, function ()
-	return not player:isUsingItem() and not Warden.WardenNearby and not Kotatsu.IsAnimationPlaying
-end, "CLOSED", "CLOSED", "CLOSED", "CLOSED", "OPENED", 40)
+}, EmotionAction, "CLOSED", "CLOSED", "CLOSED", "CLOSED", "OPENED", 40)
 
 return Smile

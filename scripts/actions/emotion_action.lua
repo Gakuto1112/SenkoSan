@@ -1,15 +1,16 @@
 ---@class EmotionAction 表情のアニメーションの抽象クラス
 EmotionAction = {
     ---コンストラクタ
-    ---@param canPlayAnimation function アニメーションが再生可能かどうかを判断し、booleanで返す関数
 	---@param rightEye FaceParts.EyeType 右目の名前（"NONE"にすると変更されない）
 	---@param leftEye FaceParts.EyeType 左目の名前（"NONE"にすると変更されない）
 	---@param tiredRightEye FaceParts.EyeType 疲弊時の右目の名前（"NONE"にすると変更されない）
 	---@param tiredLeftEye FaceParts.EyeType 疲弊時の左目の名前（"NONE"にすると変更されない）
 	---@param mouth FaceParts.MouthType 口の名前（"NONE"にすると変更されない）
     ---@param animationCount integer 表情を継続する時間
-    new = function (canPlayAnimation, rightEye, leftEye, tiredRightEye, tiredLeftEye, mouth, animationCount)
-        local instance = General.instance(EmotionAction, AnimationAction, canPlayAnimation, nil, nil, nil, nil, 0)
+    new = function (rightEye, leftEye, tiredRightEye, tiredLeftEye, mouth, animationCount)
+        local instance = General.instance(EmotionAction, AnimationAction, function ()
+            return not player:isUsingItem() and not Warden.WardenNearby and not Kotatsu.IsAnimationPlaying
+        end, nil, nil, nil, nil, 0)
 		instance.AnimationLength = animationCount
         instance.RightEye = rightEye
         instance.LeftEye = leftEye
