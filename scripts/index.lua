@@ -3,6 +3,7 @@ events.ENTITY_INIT:register(function ()
 	General = require("scripts.general")
 	Config = require("scripts.config")
 	Language = require("scripts.language")
+	KeyManager = require("scripts.key_manager")
 
 	--抽象クラス
 	AnimationAction = require("scripts.actions.animation_action")
