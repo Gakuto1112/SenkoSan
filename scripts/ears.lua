@@ -6,13 +6,11 @@
 ---@class Ears けも耳を制御するクラス
 ---@field EyeTypeID { [string]: integer } EarsRotTupeと角度を紐付けるテーブル
 ---@field EarsRotCount integer 耳の角度を変更するの時間を計るカウンター
----@field JerkEarsKey Keybind 耳を動かすキー
 ---@field EnableJerkEar boolean 耳を動かす機能を有効にするかどうか
 ---@field JerkEarsCount integer 耳を動かす時間を計るカウンター
 Ears = {
 	EarsRotTypeID = {STAND = 0, SLIGHTLY_DROOPING = -20, DROOPING = -40},
 	EarsRotCount = 0,
-	JerkEarsKey = keybinds:newKeybind(Language.getTranslate("key_name__jerk_ears"), Config.loadConfig("keybind.jerkEars", "key.keyboard.x")),
 	EnableJerkEar = true,
 	JerkEarsCount = 0,
 
@@ -43,16 +41,11 @@ events.TICK:register(function ()
 	if Ears.EarsRotCount == 0 then
 		Ears.setEarsRot((General.PlayerCondition == "LOW" or player:getFrozenTicks() == 140) and "DROOPING" or (General.PlayerCondition == "MEDIUM" and "SLIGHTLY_DROOPING" or "STAND"), 0, false)
 	end
-	if not Ears.JerkEarsKey:isDefault() then
-		local newKey = Ears.JerkEarsKey:getKey()
-		Config.saveConfig("keybind.jerkEars", newKey)
-		Ears.JerkEarsKey:setKey(newKey)
-	end
 	Ears.EarsRotCount = Ears.EarsRotCount > 0 and (client:isPaused() and Ears.EarsRotCount or Ears.EarsRotCount - 1) or 0
 	Ears.JerkEarsCount = Ears.JerkEarsCount > 0 and (client:isPaused() and Ears.JerkEarsCount or Ears.JerkEarsCount - 1) or 0
 end)
 
-Ears.JerkEarsKey:onPress(function ()
+KeyManager.register("jerk_ears", "key.keyboard.x", function ()
 	if Ears.JerkEarsCount == 0 and Ears.EnableJerkEar then
 		pings.jerk_ears()
 	end

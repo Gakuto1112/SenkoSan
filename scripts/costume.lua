@@ -91,10 +91,12 @@ Costume = {
 
 		---麦わら帽子のチック処理
 		SummerHatTick = function ()
-			local summerHatVisible = player:getItem(6).id:find("^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1]
-			models.models.main.Avatar.Head.CSwimsuitH:setVisible(summerHatVisible)
-			for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Head.Cowlick}) do
-				modelPart:setVisible(not summerHatVisible)
+			if Costume.CurrentCostume == "SWIMSUIT" then
+				local summerHatVisible = player:getItem(6).id:find("^minecraft:.+_helmet$") ~= nil and not Armor.ArmorVisible[1]
+				models.models.main.Avatar.Head.CSwimsuitH:setVisible(summerHatVisible)
+				for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Head.Cowlick}) do
+					modelPart:setVisible(not summerHatVisible)
+				end
 			end
 		end,
 
@@ -306,7 +308,7 @@ Costume = {
 				models.models.main.Avatar.Head.Ears:setVisible(player:getItem(6).id == "minecraft:chainmail_helmet")
 				models.models.main.Avatar.Head.Ears.LeftEarPivot:setVisible()
 				models.models.main.Avatar.Torso.Body.Hairs.BackHair:setVisible(true)
-				for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Head.Cowlick, models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH}) do
+				for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Head.Cowlick, models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH}) do
 					modelPart:setVisible(false)
 				end
 				for _, tickEventName in ipairs({"costume_summer_hat_tick", "costume_yukata_tick"}) do
