@@ -103,7 +103,7 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
-			"from": [-4, 18, -2],
+			"from": [-4, 12, -2],
 			"to": [4, 24, 2],
 			"autouv": 0,
 			"color": 6,
@@ -112,19 +112,19 @@
 			"uv_offset": [16, 16],
 			"faces": {
 				"north": {
-					"uv": [5.9375, 30, 8.3125, 39],
+					"uv": [5.9375, 30, 8.3125, 48],
 					"texture": 0
 				},
 				"east": {
-					"uv": [4.75, 30, 5.9375, 39],
+					"uv": [4.75, 30, 5.9375, 48],
 					"texture": 0
 				},
 				"south": {
-					"uv": [9.5, 30, 11.875, 39],
+					"uv": [9.5, 30, 11.875, 48],
 					"texture": 0
 				},
 				"west": {
-					"uv": [8.3125, 30, 9.5, 39],
+					"uv": [8.3125, 30, 9.5, 48],
 					"texture": 0
 				},
 				"up": {
@@ -133,8 +133,8 @@
 					"texture": 0
 				},
 				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
+					"uv": [8.3125, 24, 10.6875, 30],
+					"texture": 0
 				}
 			},
 			"type": "cube",
@@ -145,7 +145,7 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
-			"from": [-4, 18, -2],
+			"from": [-4, 12, -2],
 			"to": [4, 24, 2],
 			"autouv": 0,
 			"color": 6,
@@ -154,19 +154,19 @@
 			"uv_offset": [16, 16],
 			"faces": {
 				"north": {
-					"uv": [5.9375, 30, 8.3125, 39],
+					"uv": [5.9375, 30, 8.3125, 48],
 					"texture": 1
 				},
 				"east": {
-					"uv": [4.75, 30, 5.9375, 39],
+					"uv": [4.75, 30, 5.9375, 48],
 					"texture": 1
 				},
 				"south": {
-					"uv": [9.5, 30, 11.875, 39],
+					"uv": [9.5, 30, 11.875, 48],
 					"texture": 1
 				},
 				"west": {
-					"uv": [8.3125, 30, 9.5, 39],
+					"uv": [8.3125, 30, 9.5, 48],
 					"texture": 1
 				},
 				"up": {
@@ -175,8 +175,8 @@
 					"texture": 1
 				},
 				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
+					"uv": [8.3125, 24, 10.6875, 30],
+					"texture": 1
 				}
 			},
 			"type": "cube",
@@ -187,7 +187,7 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
-			"from": [-4, 18, -2],
+			"from": [-4, 12, -2],
 			"to": [4, 24, 2],
 			"autouv": 0,
 			"color": 6,
@@ -196,19 +196,19 @@
 			"uv_offset": [16, 16],
 			"faces": {
 				"north": {
-					"uv": [5.9375, 30, 8.3125, 39],
+					"uv": [5.9375, 30, 8.3125, 48],
 					"texture": 2
 				},
 				"east": {
-					"uv": [4.75, 30, 5.9375, 39],
+					"uv": [4.75, 30, 5.9375, 48],
 					"texture": 2
 				},
 				"south": {
-					"uv": [9.5, 30, 11.875, 39],
+					"uv": [9.5, 30, 11.875, 48],
 					"texture": 2
 				},
 				"west": {
-					"uv": [8.3125, 30, 9.5, 39],
+					"uv": [8.3125, 30, 9.5, 48],
 					"texture": 2
 				},
 				"up": {
@@ -217,8 +217,8 @@
 					"texture": 2
 				},
 				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
+					"uv": [8.3125, 24, 10.6875, 30],
+					"texture": 2
 				}
 			},
 			"type": "cube",
@@ -229,7 +229,7 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
-			"from": [-4, 18, -2],
+			"from": [-4, 12, -2],
 			"to": [4, 24, 2],
 			"autouv": 0,
 			"color": 6,
@@ -238,19 +238,19 @@
 			"uv_offset": [16, 16],
 			"faces": {
 				"north": {
-					"uv": [5.9375, 30, 8.3125, 39],
+					"uv": [5.9375, 30, 8.3125, 48],
 					"texture": 3
 				},
 				"east": {
-					"uv": [4.75, 30, 5.9375, 39],
+					"uv": [4.75, 30, 5.9375, 48],
 					"texture": 3
 				},
 				"south": {
-					"uv": [9.5, 30, 11.875, 39],
+					"uv": [9.5, 30, 11.875, 48],
 					"texture": 3
 				},
 				"west": {
-					"uv": [8.3125, 30, 9.5, 39],
+					"uv": [8.3125, 30, 9.5, 48],
 					"texture": 3
 				},
 				"up": {
@@ -259,8 +259,8 @@
 					"texture": 3
 				},
 				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
+					"uv": [8.3125, 24, 10.6875, 30],
+					"texture": 3
 				}
 			},
 			"type": "cube",
@@ -1283,174 +1283,6 @@
 			"uuid": "2f97fafc-dd7b-205e-8403-0de28ab11617"
 		},
 		{
-			"name": "ChestplateBottom",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-4, 12, -2],
-			"to": [4, 18, 2],
-			"autouv": 0,
-			"color": 6,
-			"inflate": 1,
-			"origin": [-4, 4, 0],
-			"uv_offset": [16, 16],
-			"faces": {
-				"north": {
-					"uv": [5.9375, 39, 8.3125, 48],
-					"texture": 0
-				},
-				"east": {
-					"uv": [4.75, 39, 5.9375, 48],
-					"texture": 0
-				},
-				"south": {
-					"uv": [9.5, 39, 11.875, 48],
-					"texture": 0
-				},
-				"west": {
-					"uv": [8.3125, 39, 9.5, 48],
-					"texture": 0
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"rotation": 180,
-					"texture": null
-				},
-				"down": {
-					"uv": [8.3125, 24, 10.6875, 30],
-					"texture": 0
-				}
-			},
-			"type": "cube",
-			"uuid": "a0ca6b4d-c9e7-e724-63ac-b3ae49e8ae12"
-		},
-		{
-			"name": "ChestplateBottomOverlay",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-4, 12, -2],
-			"to": [4, 18, 2],
-			"autouv": 0,
-			"color": 6,
-			"inflate": 1.001,
-			"origin": [-4, 4, 0],
-			"uv_offset": [16, 16],
-			"faces": {
-				"north": {
-					"uv": [5.9375, 39, 8.3125, 48],
-					"texture": 1
-				},
-				"east": {
-					"uv": [4.75, 39, 5.9375, 48],
-					"texture": 1
-				},
-				"south": {
-					"uv": [9.5, 39, 11.875, 48],
-					"texture": 1
-				},
-				"west": {
-					"uv": [8.3125, 39, 9.5, 48],
-					"texture": 1
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"rotation": 180,
-					"texture": null
-				},
-				"down": {
-					"uv": [8.3125, 24, 10.6875, 30],
-					"texture": 1
-				}
-			},
-			"type": "cube",
-			"uuid": "03522263-04eb-268b-3b4e-a442c4d65cd4"
-		},
-		{
-			"name": "LeggingsBottom",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-4, 12, -2],
-			"to": [4, 18, 2],
-			"autouv": 0,
-			"color": 6,
-			"inflate": 0.5,
-			"origin": [-4, 16, 0],
-			"uv_offset": [16, 16],
-			"faces": {
-				"north": {
-					"uv": [5.9375, 39, 8.3125, 48],
-					"texture": 2
-				},
-				"east": {
-					"uv": [4.75, 39, 5.9375, 48],
-					"texture": 2
-				},
-				"south": {
-					"uv": [9.5, 39, 11.875, 48],
-					"texture": 2
-				},
-				"west": {
-					"uv": [8.3125, 39, 9.5, 48],
-					"texture": 2
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"rotation": 180,
-					"texture": null
-				},
-				"down": {
-					"uv": [8.3125, 24, 10.6875, 30],
-					"texture": 2
-				}
-			},
-			"type": "cube",
-			"uuid": "4855b59b-f468-a259-532a-eccb23283e03"
-		},
-		{
-			"name": "LeggingsBottomOverlay",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-4, 12, -2],
-			"to": [4, 18, 2],
-			"autouv": 0,
-			"color": 6,
-			"inflate": 0.501,
-			"origin": [-4, 16, 0],
-			"uv_offset": [16, 16],
-			"faces": {
-				"north": {
-					"uv": [5.9375, 39, 8.3125, 48],
-					"texture": 3
-				},
-				"east": {
-					"uv": [4.75, 39, 5.9375, 48],
-					"texture": 3
-				},
-				"south": {
-					"uv": [9.5, 39, 11.875, 48],
-					"texture": 3
-				},
-				"west": {
-					"uv": [8.3125, 39, 9.5, 48],
-					"texture": 3
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"rotation": 180,
-					"texture": null
-				},
-				"down": {
-					"uv": [8.3125, 24, 10.6875, 30],
-					"texture": 3
-				}
-			},
-			"type": "cube",
-			"uuid": "d08c9f4e-36a4-8c04-f2fd-00dd4adbe316"
-		},
-		{
 			"name": "TailChestplate",
 			"box_uv": false,
 			"rescale": false,
@@ -1793,7 +1625,7 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
-			"from": [-4, 18, -2],
+			"from": [-4, 12, -2],
 			"to": [4, 24, 2],
 			"autouv": 0,
 			"color": 6,
@@ -1802,19 +1634,19 @@
 			"uv_offset": [16, 16],
 			"faces": {
 				"north": {
-					"uv": [5.9375, 30, 8.3125, 39],
+					"uv": [5.9375, 30, 8.3125, 48],
 					"texture": 5
 				},
 				"east": {
-					"uv": [4.75, 30, 5.9375, 39],
+					"uv": [4.75, 30, 5.9375, 48],
 					"texture": 5
 				},
 				"south": {
-					"uv": [9.5, 30, 11.875, 39],
+					"uv": [9.5, 30, 11.875, 48],
 					"texture": 5
 				},
 				"west": {
-					"uv": [8.3125, 30, 9.5, 39],
+					"uv": [8.3125, 30, 9.5, 48],
 					"texture": 5
 				},
 				"up": {
@@ -1823,7 +1655,8 @@
 					"texture": 5
 				},
 				"down": {
-					"uv": [0, 0, 0, 0],
+					"uv": [8.3125, 24, 10.6875, 30],
+					"rotation": 180,
 					"texture": 5
 				}
 			},
@@ -1835,7 +1668,7 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
-			"from": [-4, 18, -2],
+			"from": [-4, 12, -2],
 			"to": [4, 24, 2],
 			"autouv": 0,
 			"color": 6,
@@ -1844,19 +1677,19 @@
 			"uv_offset": [16, 16],
 			"faces": {
 				"north": {
-					"uv": [5.9375, 30, 8.3125, 39],
+					"uv": [5.9375, 30, 8.3125, 48],
 					"texture": 6
 				},
 				"east": {
-					"uv": [4.75, 30, 5.9375, 39],
+					"uv": [4.75, 30, 5.9375, 48],
 					"texture": 6
 				},
 				"south": {
-					"uv": [9.5, 30, 11.875, 39],
+					"uv": [9.5, 30, 11.875, 48],
 					"texture": 6
 				},
 				"west": {
-					"uv": [8.3125, 30, 9.5, 39],
+					"uv": [8.3125, 30, 9.5, 48],
 					"texture": 6
 				},
 				"up": {
@@ -1865,7 +1698,7 @@
 					"texture": 6
 				},
 				"down": {
-					"uv": [0, 0, 0, 0],
+					"uv": [8.3125, 24, 10.6875, 30],
 					"texture": 6
 				}
 			},
@@ -2039,90 +1872,6 @@
 			},
 			"type": "cube",
 			"uuid": "f3fe7c1b-6af1-72ab-3278-90a5307c6676"
-		},
-		{
-			"name": "ChestplateBottomTrim",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-4, 12, -2],
-			"to": [4, 18, 2],
-			"autouv": 0,
-			"color": 6,
-			"inflate": 1.002,
-			"origin": [-4, 4, 0],
-			"uv_offset": [16, 16],
-			"faces": {
-				"north": {
-					"uv": [5.9375, 39, 8.3125, 48],
-					"texture": 5
-				},
-				"east": {
-					"uv": [4.75, 39, 5.9375, 48],
-					"texture": 5
-				},
-				"south": {
-					"uv": [9.5, 39, 11.875, 48],
-					"texture": 5
-				},
-				"west": {
-					"uv": [8.3125, 39, 9.5, 48],
-					"texture": 5
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"rotation": 180,
-					"texture": 5
-				},
-				"down": {
-					"uv": [8.3125, 24, 10.6875, 30],
-					"texture": 5
-				}
-			},
-			"type": "cube",
-			"uuid": "812b40cc-1a29-7680-4abc-81e5a35c9f4b"
-		},
-		{
-			"name": "LeggingsBottomTrim",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"from": [-4, 12, -2],
-			"to": [4, 18, 2],
-			"autouv": 0,
-			"color": 6,
-			"inflate": 0.502,
-			"origin": [-4, 16, 0],
-			"uv_offset": [16, 16],
-			"faces": {
-				"north": {
-					"uv": [5.9375, 39, 8.3125, 48],
-					"texture": 6
-				},
-				"east": {
-					"uv": [4.75, 39, 5.9375, 48],
-					"texture": 6
-				},
-				"south": {
-					"uv": [9.5, 39, 11.875, 48],
-					"texture": 6
-				},
-				"west": {
-					"uv": [8.3125, 39, 9.5, 48],
-					"texture": 6
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"rotation": 180,
-					"texture": 6
-				},
-				"down": {
-					"uv": [8.3125, 24, 10.6875, 30],
-					"texture": 6
-				}
-			},
-			"type": "cube",
-			"uuid": "af5b27a4-f376-ef31-e025-9aaf2faabc8b"
 		},
 		{
 			"name": "RightLeggingsTrim",
@@ -2516,7 +2265,7 @@
 			"uuid": "40004832-5346-1967-b51b-86b0d68683ae",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": true,
+			"isOpen": false,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
@@ -2528,7 +2277,7 @@
 					"uuid": "bbcfd570-027f-caba-54e7-280e79727a3c",
 					"export": true,
 					"mirror_uv": false,
-					"isOpen": true,
+					"isOpen": false,
 					"locked": false,
 					"visibility": true,
 					"autouv": 0,
@@ -2657,7 +2406,7 @@
 			"uuid": "9cdcfaa1-6e79-d94c-f516-f1aff5551a36",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": true,
+			"isOpen": false,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
@@ -2684,7 +2433,7 @@
 			"uuid": "475e6e92-a1e4-3dbd-1fbc-f80f1d0dad3a",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": true,
+			"isOpen": false,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
@@ -2711,7 +2460,7 @@
 			"uuid": "73d4bd8b-b1f2-b209-c731-ba14eca51894",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": true,
+			"isOpen": false,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
@@ -2738,7 +2487,7 @@
 			"uuid": "402ce6c8-6779-6fc6-a408-2c462302696d",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": true,
+			"isOpen": false,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
@@ -2759,53 +2508,13 @@
 			]
 		},
 		{
-			"name": "ArmorBB",
-			"origin": [0, 18, 2],
-			"color": 0,
-			"uuid": "f9603a0d-1104-e4e3-8755-6714ea2c770f",
-			"export": true,
-			"mirror_uv": false,
-			"isOpen": true,
-			"locked": false,
-			"visibility": true,
-			"autouv": 0,
-			"children": [
-				{
-					"name": "ChestplateBottom",
-					"origin": [-4, 4, 0],
-					"color": 0,
-					"uuid": "b577da6a-8eae-7ce8-dd78-c065c11c7739",
-					"export": true,
-					"mirror_uv": false,
-					"isOpen": true,
-					"locked": false,
-					"visibility": true,
-					"autouv": 0,
-					"children": ["a0ca6b4d-c9e7-e724-63ac-b3ae49e8ae12", "03522263-04eb-268b-3b4e-a442c4d65cd4", "812b40cc-1a29-7680-4abc-81e5a35c9f4b"]
-				},
-				{
-					"name": "LeggingsBottom",
-					"origin": [0, 30, 0],
-					"color": 0,
-					"uuid": "91884fbc-acb1-5003-f3f0-0f6760417f46",
-					"export": true,
-					"mirror_uv": false,
-					"isOpen": true,
-					"locked": false,
-					"visibility": true,
-					"autouv": 0,
-					"children": ["4855b59b-f468-a259-532a-eccb23283e03", "d08c9f4e-36a4-8c04-f2fd-00dd4adbe316", "af5b27a4-f376-ef31-e025-9aaf2faabc8b"]
-				}
-			]
-		},
-		{
 			"name": "ArmorT",
 			"origin": [0, 14.5, 13],
 			"color": 0,
 			"uuid": "82b981c9-fd29-eb7c-8050-4131f2f1b822",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": true,
+			"isOpen": false,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
@@ -2818,7 +2527,7 @@
 			"uuid": "09960a3e-73fa-bf53-b5a6-939709be95dd",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": true,
+			"isOpen": false,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
@@ -2858,7 +2567,7 @@
 			"uuid": "51c416bc-1aef-41e3-863d-675810356aef",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": true,
+			"isOpen": false,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
@@ -2898,7 +2607,7 @@
 			"uuid": "ebec21d0-6b75-5c93-bcad-43a0bbe83be0",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": true,
+			"isOpen": false,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
@@ -2938,7 +2647,7 @@
 			"uuid": "ac27b599-070c-a038-5e6f-e998a5ad1cb4",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": true,
+			"isOpen": false,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,

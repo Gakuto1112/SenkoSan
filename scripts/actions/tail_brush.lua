@@ -39,7 +39,7 @@ TailBrush = General.instance({
 			sounds:playSound("block.grass.step", player:getPos(), 1, 1)
 		elseif self.AnimationCount == 90 then
 			sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
-			models.models.main.Avatar.Torso.Arms.RightArm.RightArmBottom.BrushRAB:setVisible(false)
+			models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.BrushRAB:setVisible(false)
 		elseif (self.AnimationCount + 80) % 20 == 0 and self.AnimationCount <= 80 and self.AnimationCount >= 40  then
 			if self.AnimationCount == 80 then
 				FaceParts.setEmotion("CLOSED", "CLOSED", "CLOSED", 60, true)
@@ -49,6 +49,6 @@ TailBrush = General.instance({
 	end
 }, AnimationAction, function ()
 	return player:getPose() == "STANDING" and not player:isInLava() and player:getFrozenTicks() == 0 and not player:getVehicle() and player:getVelocity():length() == 0 and Hurt.Damaged == "NONE" and not Warden.WardenNearby and Wet.WetCount == 0 and not player:isUsingItem() and not Kotatsu.IsAnimationPlaying
-end, models.models.main.Avatar.Torso.Arms.RightArm.RightArmBottom.BrushRAB, models.models.main.Avatar.Torso.Arms.RightArm.RightArmBottom.BrushRAB, animations["models.main"]["tail_brush"], nil, 0)
+end, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.BrushRAB, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.BrushRAB, animations["models.main"]["tail_brush"], nil, 0)
 
 return TailBrush

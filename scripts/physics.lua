@@ -54,7 +54,7 @@ events.RENDER:register(function (_, context)
 		table.insert(Physics.VelocityData[3], velocityHeadRight)
 		Physics.VelocityAverage[4] = (#Physics.VelocityData[4] * Physics.VelocityAverage[4] + velocityHeadRot) / (#Physics.VelocityData[4] + 1)
 		table.insert(Physics.VelocityData[4], velocityHeadRot)
-		local velocityBodyFront, velocityBodyRight, velocityBodyRot = decomposeHorizontalVelocity((player:getBodyYaw() + models.models.main.Avatar.Torso.Body:getTrueRot().y - 90) % 360 - 180, 2)
+		local velocityBodyFront, velocityBodyRight, velocityBodyRot = decomposeHorizontalVelocity((player:getBodyYaw() + models.models.main.Avatar.UpperBody.Body:getTrueRot().y - 90) % 360 - 180, 2)
 		Physics.VelocityAverage[5] = (#Physics.VelocityData[5] * Physics.VelocityAverage[5] + velocityBodyFront) / (#Physics.VelocityData[5] + 1)
 		table.insert(Physics.VelocityData[5], velocityBodyFront)
 		Physics.VelocityAverage[6] = (#Physics.VelocityData[6] * Physics.VelocityAverage[6] + velocityBodyRight) / (#Physics.VelocityData[6] + 1)
@@ -76,7 +76,7 @@ events.RENDER:register(function (_, context)
 	local tailRot = vectors.vec3()
 	local frontHairRot = vectors.vec3()
 	local backHairRot = vectors.vec3()
-	local backHairVisible = models.models.main.Avatar.Torso.Body.Hairs.BackHair:getVisible()
+	local backHairVisible = models.models.main.Avatar.UpperBody.Body.Hairs.BackHair:getVisible()
 	local rotLimit = {{{-60, 60}, {-30, 30}}, {{0, 80}, {-80, 0}}} --物理演算の可動範囲：1. 尻尾：{1-1. 上下方向, 1-2. 左右方向}, 2. 長髪：{2-1. 前髪, 2-2. 後髪}
 	if (context ~= "FIRST_PERSON" or client:hasIrisShader()) and (Physics.EnablePyhsics[1] or Physics.EnablePyhsics[2]) then
 		local playerPose = player:getPose()
@@ -139,12 +139,12 @@ events.RENDER:register(function (_, context)
 			end
 		end
 	end
-	models.models.main.Avatar.Torso.Body.BodyBottom.Tail:setRot(tailRot + Physics.TailRotOffset)
-	models.models.main.Avatar.Torso.Body.Hairs.FrontHair:setRot(frontHairRot)
+	models.models.main.Avatar.UpperBody.Body.Tail:setRot(tailRot + Physics.TailRotOffset)
+	models.models.main.Avatar.UpperBody.Body.Hairs.FrontHair:setRot(frontHairRot)
 	if Costume.CurrentCostume == "SWIMSUIT" and not Armor.ArmorVisible[1] then
 		models.models.main.Avatar.Head.CSwimsuitH.Ponytail.PonytailHair:setRot(backHairRot)
 	elseif backHairVisible then
-		models.models.main.Avatar.Torso.Body.Hairs.BackHair:setRot(backHairRot)
+		models.models.main.Avatar.UpperBody.Body.Hairs.BackHair:setRot(backHairRot)
 	end
 end)
 

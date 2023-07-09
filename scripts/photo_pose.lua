@@ -25,26 +25,26 @@ PhotoPose = {
                 models.models.main.Avatar:setRot(0, 15)
                 models.models.main.Avatar.Head:setRot(0, -15)
                 Arms.RightArmRotOffset = vectors.vec3(39.13, 57.07, 7.78)
-                models.models.main.Avatar.Torso.Arms.RightArm.RightArmBottom:setRot(50)
+                models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom:setRot(50)
                 Sleeve.RightSleeveRotOffset = vectors.vec3(7.5)
                 Arms.LeftArmRotOffset = vectors.vec3(12.5, -47.5)
-                models.models.main.Avatar.Torso.Arms.LeftArm.LeftArmBottom:setRot(50)
+                models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom:setRot(50)
                 Sleeve.LeftSleeveRotOffset = vectors.vec3(28)
                 Apron.RotOffset = vectors.vec3(7.5)
                 Legs.RightLegRotOffset = vectors.vec3(0, 15)
                 Legs.LeftLegRotOffset = vectors.vec3(-5)
-                models.models.main.Avatar.Torso.Body.UmbrellaB:setPos(1.25, -2, -0.25)
-                models.models.main.Avatar.Torso.Body.UmbrellaB:setRot(35.58, 12.7, -38.26)
+                models.models.main.Avatar.UpperBody.Body.UmbrellaB:setPos(1.25, -2, -0.25)
+                models.models.main.Avatar.UpperBody.Body.UmbrellaB:setRot(35.58, 12.7, -38.26)
             else
                 if poseID == 1 then
                     models.models.main.Avatar:setRot(0, -10)
                     models.models.main.Avatar.Head:setRot(0, 10)
                     Arms.RightArmPosOffset = vectors.vec3(-1, -1)
                     Arms.RightArmRotOffset = vectors.vec3(45, -70)
-                    models.models.main.Avatar.Torso.Arms.RightArm.RightArmBottom:setRot(60)
+                    models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom:setRot(60)
                     Arms.LeftArmPosOffset = vectors.vec3(1, -1)
                     Arms.LeftArmRotOffset = vectors.vec3(45, 70)
-                    models.models.main.Avatar.Torso.Arms.LeftArm.LeftArmBottom:setRot(60)
+                    models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom:setRot(60)
                     Apron.RotOffset = vectors.vec3(10)
                     Legs.RightLegRotOffset = vectors.vec3(-5)
                     Legs.LeftLegRotOffset = vectors.vec3(2.58, -9.96, -0.88)
@@ -53,12 +53,12 @@ PhotoPose = {
                     models.models.main.Avatar:setRot(-15)
                     models.models.main.Avatar.Head:setRot(15)
                     Arms.RightArmRotOffset = vectors.vec3(45, 25)
-                    models.models.main.Avatar.Torso.Arms.RightArm.RightArmBottom:setRot(50)
+                    models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom:setRot(50)
                     Sleeve.RightSleeveRotOffset = vectors.vec3(5.08, 10, 0.88)
                     Arms.LeftArmRotOffset = vectors.vec3(45, -25)
-                    models.models.main.Avatar.Torso.Arms.LeftArm.LeftArmBottom:setRot(50)
+                    models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom:setRot(50)
                     Sleeve.LeftSleeveRotOffset = vectors.vec3(5.08, -10, -0.88)
-                    models.models.main.Avatar.Torso.Body.BodyBottom.Legs:setRot(15)
+                    models.models.main.Avatar.LowerBody:setRot(15)
                 elseif poseID == 3 then
                     Arms.RightArmPosOffset = vectors.vec3(0, -1)
                     Arms.RightArmRotOffset = vectors.vec3(80, -10)
@@ -71,43 +71,43 @@ PhotoPose = {
                     Legs.LeftLegRotOffset = vectors.vec3(5)
                 elseif poseID == 4 then
                     Arms.RightArmRotOffset = vectors.vec3(71.95, -29.25, 50.25)
-                    models.models.main.Avatar.Torso.Arms.RightArm.RightArmBottom:setRot(50)
+                    models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom:setRot(50)
                     Sleeve.RightSleeveRotOffset = vectors.vec3(-62.94, -33.94, 20.26)
                     Arms.LeftArmRotOffset = vectors.vec3(60, 0, -37.5)
-                    models.models.main.Avatar.Torso.Arms.LeftArm.LeftArmBottom:setRot(50)
+                    models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom:setRot(50)
                     Sleeve.LeftSleeveRotOffset = vectors.vec3(-61.17, 18.75, -7.1)
                     Legs.LeftLegRotOffset = vectors.vec3(-10, -15)
-                    models.models.main.Avatar.Torso.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom:setRot(-35)
-                    models.models.main.Avatar.Torso.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom:setPivot(-2, 6, -2)
+                    models.models.main.Avatar.LowerBody.Legs.LeftLeg.LeftLegBottom:setRot(-35)
+                    models.models.main.Avatar.LowerBody.Legs.LeftLeg.LeftLegBottom:setPivot(-2, 6, -2)
                 elseif poseID == 5 then
                     models.models.main.Avatar.Head:setRot(0, 0, -5)
                     Arms.RightArmRotOffset = vectors.vec3(28.76, -24.65, 17.83)
-                    models.models.main.Avatar.Torso.Arms.RightArm.RightArmBottom:setRot(57.5)
+                    models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom:setRot(57.5)
                     Sleeve.RightSleeveRotOffset = vectors.vec3(-32.5, 10)
                     Arms.LeftArmRotOffset = vectors.vec3(69.35, 14.08, -5.24)
-                    models.models.main.Avatar.Torso.Arms.LeftArm.LeftArmBottom:setRot(65)
+                    models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom:setRot(65)
                     Sleeve.LeftSleeveRotOffset = vectors.vec3(-60, -50)
                     Physics.EnablePyhsics[1] = false
-                    models.models.main.Avatar.Torso.Body.BodyBottom.Tail:setPos(5)
+                    models.models.main.Avatar.UpperBody.Body.Tail:setPos(5)
                     Physics.TailRotOffset = vectors.vec3(155.7, -0.73, -171.31)
                     Apron.RotOffset = vectors.vec3(10)
                     Legs.RightLegRotOffset = vectors.vec3(-19.72, 3.4, 9.41)
-                    models.models.main.Avatar.Torso.Body.BodyBottom.Legs.RightLeg.RightLegBottom:setRot(-20)
-                    models.models.main.Avatar.Torso.Body.BodyBottom.Legs.RightLeg.RightLegBottom:setPivot(2, 6, -2)
+                    models.models.main.Avatar.LowerBody.Legs.RightLeg.RightLegBottom:setRot(-20)
+                    models.models.main.Avatar.LowerBody.Legs.RightLeg.RightLegBottom:setPivot(2, 6, -2)
                     Legs.LeftLegRotOffset = vectors.vec3(5.04, -7.47, 0.67)
-                    models.models.main.Avatar.Torso.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom:setRot(-10)
-                    models.models.main.Avatar.Torso.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom:setPivot(-2, 6, -2)
+                    models.models.main.Avatar.LowerBody.Legs.LeftLeg.LeftLegBottom:setRot(-10)
+                    models.models.main.Avatar.LowerBody.Legs.LeftLeg.LeftLegBottom:setPivot(-2, 6, -2)
                 elseif poseID == 6 then
                     models.models.main.Avatar:setRot(0, -30)
                     models.models.main.Avatar.Head:setRot(0, 30)
                     Arms.RightArmRotOffset = vectors.vec3(151.92, -11.03, -19.73)
                     Sleeve.RightSleeveRotOffset = vectors.vec3(-40, 30)
                     Arms.LeftArmRotOffset = vectors.vec3(-37.5, -60)
-                    models.models.main.Avatar.Torso.Arms.LeftArm.LeftArmBottom:setRot(55)
+                    models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom:setRot(55)
                     Sleeve.LeftSleeveRotOffset = vectors.vec3(40)
                     Apron.RotOffset = vectors.vec3(22.5)
                     Legs.LeftLegRotOffset = vectors.vec3(25)
-                    models.models.main.Avatar.Torso.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom:setRot(-95)
+                    models.models.main.Avatar.LowerBody.Legs.LeftLeg.LeftLegBottom:setRot(-95)
                 end
                 Umbrella.Enabled = false
             end
@@ -119,10 +119,10 @@ PhotoPose = {
 
     ---撮影用ポーズを終了する。
     stopPose = function ()
-        for _, modelPart in ipairs({models.models.main.Avatar, models.models.main.Avatar.Torso.Body.BodyBottom.Tail}) do
+        for _, modelPart in ipairs({models.models.main.Avatar, models.models.main.Avatar.UpperBody.Body.Tail}) do
             modelPart:setPos()
         end
-        for _, modelPart in ipairs({models.models.main.Avatar, models.models.main.Avatar.Head, models.models.main.Avatar.Torso.Arms.RightArm.RightArmBottom, models.models.main.Avatar.Torso.Arms.LeftArm.LeftArmBottom, models.models.main.Avatar.Torso.Body.BodyBottom.Legs, models.models.main.Avatar.Torso.Body.BodyBottom.Legs.RightLeg.RightLegBottom, models.models.main.Avatar.Torso.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom}) do
+        for _, modelPart in ipairs({models.models.main.Avatar, models.models.main.Avatar.Head, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom, models.models.main.Avatar.LowerBody, models.models.main.Avatar.LowerBody.Legs.RightLeg.RightLegBottom, models.models.main.Avatar.LowerBody.Legs.LeftLeg.LeftLegBottom}) do
             modelPart:setRot()
         end
         Arms.RightArmPosOffset = vectors.vec3()
@@ -134,11 +134,11 @@ PhotoPose = {
         Physics.EnablePyhsics[1] = true
         Physics.TailRotOffset = vectors.vec3()
         Legs.RightLegRotOffset = vectors.vec3()
-        models.models.main.Avatar.Torso.Body.BodyBottom.Legs.RightLeg.RightLegBottom:setPivot(2, 6)
+        models.models.main.Avatar.LowerBody.Legs.RightLeg.RightLegBottom:setPivot(2, 6)
         Legs.LeftLegRotOffset = vectors.vec3()
-        models.models.main.Avatar.Torso.Body.BodyBottom.Legs.LeftLeg.LeftLegBottom:setPivot(-2, 6)
+        models.models.main.Avatar.LowerBody.Legs.LeftLeg.LeftLegBottom:setPivot(-2, 6)
         Apron.RotOffset = vectors.vec3()
-        models.models.main.Avatar.Torso.Body.UmbrellaB:setRot(20)
+        models.models.main.Avatar.UpperBody.Body.UmbrellaB:setRot(20)
         Arms.hideHeldItem(false)
         Umbrella.Enabled = true
         Sleeve.Moving = true
