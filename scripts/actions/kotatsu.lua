@@ -14,7 +14,7 @@ Kotatsu = General.instance({
 	---こたつアニメーションを再生する。
 	play = function (self)
 		PermanentAnimationAction.play(self)
-		for _, modelPart in ipairs({models.models.main.Avatar.Torso.Body.BodyBottom.CMaidABB, models.models.main.Avatar.Torso.Body.BodyBottom.CMaidBBB, models.models.main.Avatar.Torso.Body.BodyBottom.CMiniSkirtBB}) do
+		for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Body.CMaidABB, models.models.main.Avatar.UpperBody.Body.CMaidBBB, models.models.main.Avatar.UpperBody.Body.CMiniSkirtBB}) do
 			modelPart:setVisible(false)
 		end
 		if SitDown.IsAnimationPlaying then
@@ -38,11 +38,11 @@ Kotatsu = General.instance({
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
 		if not Armor.ArmorVisible[3] then
 			if Costume.CurrentCostume == "MAID_A" then
-				models.models.main.Avatar.Torso.Body.BodyBottom.CMaidABB:setVisible(true)
+				models.models.main.Avatar.UpperBody.Body.CMaidABB:setVisible(true)
 			elseif Costume.CurrentCostume == "MAID_B" then
-				models.models.main.Avatar.Torso.Body.BodyBottom.CMaidBBB:setVisible(true)
+				models.models.main.Avatar.UpperBody.Body.CMaidBBB:setVisible(true)
 			elseif Costume.CurrentCostume == "SWIMSUIT" or Costume.CurrentCostume == "CHEERLEADER" or Costume.CurrentCostume == "SAILOR" then
-				models.models.main.Avatar.Torso.Body.BodyBottom.CMiniSkirtBB:setVisible(true)
+				models.models.main.Avatar.UpperBody.Body.CMiniSkirtBB:setVisible(true)
 			end
 		end
 		Physics.EnablePyhsics[1] = true

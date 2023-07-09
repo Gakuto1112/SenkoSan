@@ -21,7 +21,7 @@ TeaTime = General.instance({
 		local yunomi2ParticlePivot = models.models.tea.Table.TableItems.Yunomi2.Yunomi2ParticlePivot:partToWorldMatrix()
 		particles:newParticle("poof", yunomi2ParticlePivot[4][1], yunomi2ParticlePivot[4][2], yunomi2ParticlePivot[4][3]):scale(0.2):velocity(0, 0, 0):lifetime(15)
 		if self.AnimationCount > 50 then
-			local yunomi1ParticlePivot = models.models.main.Avatar.Torso.Body.Yunomi1.Yunomi1ParticlePivot:partToWorldMatrix()
+			local yunomi1ParticlePivot = models.models.main.Avatar.UpperBody.Body.Yunomi1.Yunomi1ParticlePivot:partToWorldMatrix()
 			particles:newParticle("poof", yunomi1ParticlePivot[4][1], yunomi1ParticlePivot[4][2], yunomi1ParticlePivot[4][3]):scale(0.2):velocity(0, 0, 0):lifetime(15)
 		end
 		if self.AnimationCount <= 210 and self.AnimationCount > 50 and (self.AnimationCount - 210) % 20 == 0 then
@@ -42,7 +42,7 @@ TeaTime = General.instance({
 	end
 }, AnimationAction, function ()
 	return Earpick:checkAction()
-end, {models.models.tea, models.models.main.Avatar.Torso.Body.Yunomi1}, {models.models.tea, models.models.main.Avatar.Torso.Body.Yunomi1}, animations["models.main"]["tea_time"], {animations["models.tea"]["tea_time"], animations["models.main"]["earpick_arm_fix"]}, 40)
+end, {models.models.tea, models.models.main.Avatar.UpperBody.Body.Yunomi1}, {models.models.tea, models.models.main.Avatar.UpperBody.Body.Yunomi1}, animations["models.main"]["tea_time"], {animations["models.tea"]["tea_time"], animations["models.main"]["earpick_arm_fix"]}, 40)
 
 models.models.tea.Table.Board:setPrimaryTexture("RESOURCE", "textures/block/spruce_planks.png")
 models.models.tea.Table.TableLegs:setPrimaryTexture("RESOURCE", "textures/block/spruce_log.png")
