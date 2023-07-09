@@ -3,8 +3,6 @@
 Language = {
 	LanguageData = {
 		en_us = {
-			language__en_us = "English",
-			language__ja_jp = "Japanese",
 			key_name__wag_tail = "Wag tail",
 			key_name__jerk_ears = "Jerk ears",
 			key_name__emote_keys__up = "Emote (up)",
@@ -101,8 +99,6 @@ Language = {
 			message__merry_christmas = "Merry Christmas!"
 		},
 		ja_jp = {
-			language__en_us = "英語",
-			language__ja_jp = "日本語",
 			key_name__wag_tail = "尻尾ふりふり",
 			key_name__jerk_ears = "お耳ぴくぴく",
 			key_name__emote_keys__up = "えもーと（上）",
