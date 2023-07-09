@@ -60,7 +60,7 @@ events.TICK:register(function()
 		end
 	end
 	local tailScale = (1200 - Wet.WetCount) / 1200 * 0.5 + 0.5
-	models.models.main.Avatar.UpperBody.Body.BodyBottom.Tail:setScale(tailScale, tailScale, 1)
+	models.models.main.Avatar.UpperBody.Body.Tail:setScale(tailScale, tailScale, 1)
 	Wet.VelocityYPrev = velocity.y
 	Wet.OnGroundPrev = onGround
 end)

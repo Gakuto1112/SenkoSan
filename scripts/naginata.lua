@@ -37,7 +37,7 @@ events.TICK:register(function ()
                     models.models.main.Avatar.UpperBody:setRot(0, 40)
                     models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom:setRot(30)
                     models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom:setRot(60)
-                    models.models.main.Avatar.LowerBody.BodyBottomPivot.Legs:setRot(0, -40)
+                    models.models.main.Avatar.LowerBody.Legs:setRot(0, -40)
                     if Naginata.State[1] == 2 then
                         Arms.RightArmRotOffset = vectors.vec3(45, 30)
                         Arms.LeftArmRotOffset = vectors.vec3(-40, -40)
@@ -49,7 +49,7 @@ events.TICK:register(function ()
                     vanilla_model.LEFT_ITEM:setVisible(false)
                     models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.RightNaginata:setPos(0, 0, 7)
                     models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.RightNaginata:setRot(105, 60, -90)
-                    for _, modelPart in ipairs({models.models.main.Avatar.UpperBody, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom, models.models.main.Avatar.LowerBody.BodyBottomPivot.Legs}) do
+                    for _, modelPart in ipairs({models.models.main.Avatar.UpperBody, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom, models.models.main.Avatar.LowerBody.Legs}) do
                         modelPart:setRot()
                     end
                     if Naginata.State[1] == 4 then
@@ -69,7 +69,7 @@ events.TICK:register(function ()
                             Arms.RightArmRotOffset = vectors.vec3()
                             Arms.LeftArmRotOffset = vectors.vec3()
                         end
-                        for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom, models.models.main.Avatar.LowerBody.BodyBottomPivot.Legs}) do
+                        for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom, models.models.main.Avatar.LowerBody.Legs}) do
                             modelPart:setRot()
                         end
                     end
@@ -95,7 +95,7 @@ events.TICK:register(function ()
                     models.models.main.Avatar.UpperBody:setRot(0, -40)
                     models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom:setRot(60)
                     models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom:setRot(30)
-                    models.models.main.Avatar.LowerBody.BodyBottomPivot.Legs:setRot(0, 40)
+                    models.models.main.Avatar.LowerBody.Legs:setRot(0, 40)
                     if Naginata.State[2] == 2 then
                         Arms.RightArmRotOffset = vectors.vec3(-40, 40)
                         Arms.LeftArmRotOffset = vectors.vec3(45, -30)
@@ -107,7 +107,7 @@ events.TICK:register(function ()
                     vanilla_model.RIGHT_ITEM:setVisible(false)
                     models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.LeftNaginata:setPos(0, 0, 7)
                     models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.LeftNaginata:setRot(105, -60, 90)
-                    for _, modelPart in ipairs({models.models.main.Avatar.UpperBody, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom, models.models.main.Avatar.LowerBody.BodyBottomPivot.Legs}) do
+                    for _, modelPart in ipairs({models.models.main.Avatar.UpperBody, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom, models.models.main.Avatar.LowerBody.Legs}) do
                         modelPart:setRot()
                     end
                     if Naginata.State[2] == 4 then
@@ -127,7 +127,7 @@ events.TICK:register(function ()
                             Arms.RightArmRotOffset = vectors.vec3()
                             Arms.LeftArmRotOffset = vectors.vec3()
                         end
-                        for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom, models.models.main.Avatar.LowerBody.BodyBottomPivot.Legs}) do
+                        for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom, models.models.main.Avatar.LowerBody.Legs}) do
                             modelPart:setRot()
                         end
                     end

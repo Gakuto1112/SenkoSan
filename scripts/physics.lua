@@ -111,7 +111,7 @@ events.RENDER:register(function (_, context)
 			end
 		end
 	end
-	models.models.main.Avatar.UpperBody.Body.BodyBottom.Tail:setRot(tailRot + Physics.TailRotOffset)
+	models.models.main.Avatar.UpperBody.Body.Tail:setRot(tailRot + Physics.TailRotOffset)
 	for _, modelPart in ipairs(models.models.main.Avatar.Head.HairAccessory.HairAccessoryLines:getChildren()) do
 		modelPart:setRot(hairAccessoryLineRot)
 	end
