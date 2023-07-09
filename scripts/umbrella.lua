@@ -24,14 +24,14 @@ events.TICK:register(function ()
 		end
 		if PhotoPose.CurrentPose == 0 and Naginata.State[1] <= 1 and Naginata.State[2] <= 1 then
 			if leftHanded then
-				models.models.main.Avatar.Torso.Body.UmbrellaB:setPos(5.5)
+				models.models.main.Avatar.UpperBody.Body.UmbrellaB:setPos(5.5)
 				Arms.RightArmRotOffset = SitDown.IsAnimationPlaying and vectors.vec3(0, -10, 15) or vectors.vec3()
 			else
-				models.models.main.Avatar.Torso.Body.UmbrellaB:setPos(-5.5)
+				models.models.main.Avatar.UpperBody.Body.UmbrellaB:setPos(-5.5)
 				Arms.LeftArmRotOffset = SitDown.IsAnimationPlaying and vectors.vec3(0, 10, -15) or vectors.vec3()
 			end
 		end
-		models.models.main.Avatar.Torso.Body.UmbrellaB:setVisible(true)
+		models.models.main.Avatar.UpperBody.Body.UmbrellaB:setVisible(true)
 	else
 		if Umbrella.IsUsingPrev and Umbrella.Sound then
 			sounds:playSound("minecraft:entity.bat.takeoff", player:getPos(), 0.5, 1.5)
@@ -40,7 +40,7 @@ events.TICK:register(function ()
 				Arms.LeftArmRotOffset = vectors.vec3()
 			end
 		end
-		models.models.main.Avatar.Torso.Body.UmbrellaB:setVisible(false)
+		models.models.main.Avatar.UpperBody.Body.UmbrellaB:setVisible(false)
 	end
 	Umbrella.IsUsingPrev = Umbrella.IsUsing
 end)
