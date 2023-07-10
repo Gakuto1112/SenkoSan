@@ -17,7 +17,6 @@ events.TICK:register(function ()
         local hasShield = heldItems[3 - i].id == "minecraft:shield"
         Naginata.State[i] = (not (heldItems[i].id:find("^minecraft:.+_sword$") == nil or firstPerson or Arms.ItemHeldContradicts)) and ((leftHanded ~= (i == 1) and not (active and not hasShield) and not sleeping and not (TailCuddling.IsAnimationPlaying or EarCuddling.IsAnimationPlaying)) and (defense and (SitDown.IsAnimationPlaying and 5 or 4) or (SitDown.IsAnimationPlaying and 3 or 2)) or 1) or 0
         if Naginata.State[i] == 2 then
-            --models.models.main.Avatar.LowerBody:setRot(0, player:isCrouching() and (i == 1 and 40 or -40) or 0)
             if player:getPose() == "CROUCHING" then
                 models.models.main.Avatar.LowerBody:setPos(i == 1 and 3 or -3)
             else
