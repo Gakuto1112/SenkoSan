@@ -17,34 +17,11 @@ function pings.setNightVision(newValue)
 	FoxFire.NightVision = newValue
 end
 
-events.TICK:register(function ()
-	if host:isHost() then
-		FoxFire.NightVision = General.getTargetEffect("minecraft.night_vision") and true or false
-	end
-	if FoxFire.NightVision and not FoxFire.NightVisionPrev then
-		pings.setNightVision(true)
-	elseif not FoxFire.NightVision and FoxFire.NightVisionPrev then
-		pings.setNightVision(false)
-	end
-	local isFoxFireEnabled = FoxFire.NightVision and Wet.WetCount == 0
-	if isFoxFireEnabled then
-		if not FoxFire.FoxFireEnabledPrev then
-			sounds:playSound("minecraft:item.firecharge.use", player:getPos(), 1, 2)
-		end
-		local playerTargetPos = player:getPos():add(0, 2.5, 0)
-		local vectorToPlayer = playerTargetPos:copy():sub(FoxFire.FoxFirePos)
-		if vectorToPlayer:length() >= 16 then
-			FoxFire.FoxFirePos = playerTargetPos
-		end
-		FoxFire.FoxFirePos:add(vectorToPlayer:scale(0.25))
-		if not renderer:isFirstPerson() or FoxFire.FoxFireInFirstPerson then
-			particles:newParticle("minecraft:soul_fire_flame", FoxFire.FoxFirePos:copy():add((math.random() - 0.5) * 0.25, (math.random() - 0.5) * 0.25, (math.random() - 0.5) * 0.25))
-		end
-	elseif FoxFire.FoxFireEnabledPrev then
-		sounds:playSound("minecraft:block.fire.extinguish", player:getPos(), 1, 2)
-	end
-	FoxFire.NightVisionPrev = FoxFire.NightVision
-	FoxFire.FoxFireEnabledPrev = isFoxFireEnabled
-end)
+for index, foxFireAnchor in ipairs(models.models.main.FoxFireAnchors:getChildren()) do
+	foxFireAnchor:addChild(models.models.fox_fire:copy("FoxFire"..index))
+	foxFireAnchor["FoxFire"..index]:setPos(foxFireAnchor:getPivot())
+end
+
+models.models.fox_fire:setVisible(false)
 
 return FoxFire
