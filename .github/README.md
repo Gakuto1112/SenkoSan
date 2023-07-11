@@ -12,7 +12,7 @@
 # SenkoSan（仙狐さん）
 TVアニメ「世話やきキツネの仙狐さん」とその原作に登場するキャラクターを再現した、MinecraftのスキンMod「[Figura](https://www.curseforge.com/minecraft/mc-mods/figura)」向けスキン「SenkoSan（仙狐さん）」です。
 
-ターゲットFiguraバージョン：[0.1.0](https://modrinth.com/mod/figura/version/0.1.0+1.20)
+ターゲットFiguraバージョン：[0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.20.1)
 
 ![メイン](./README_images/メイン.jpg)
 
@@ -266,7 +266,7 @@ Mobが被っているプレイヤーの頭は設定に関わらず、デフォ�
 アクションホイールでのメッセージ以外の、良く表示されるであろう一部メッセージを表示するかどうかを設定できます。メッセージが煩わしいと感じる場合はオフにして下さい。
 
 ## 使用方法
-1. マインクラフトに[Fabric](https://fabricmc.net/)をインストールし、[Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)と[Figura 0.1.0](https://modrinth.com/mod/figura/version/0.1.0+1.20)を追加します。各Modの依存関係にご注意ください。
+1. マインクラフトに[Fabric](https://fabricmc.net/)をインストールし、[Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)と[Figura 0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.20.1)を追加します。各Modの依存関係にご注意ください。
 2. ページ上部の緑色のボタン「**Code**」から「**Download ZIP**」からこのレポジトリのファイルをダウンロードします。（または、このレポジトリをクローンします。）
 3. 圧縮ファイルの場合は展開します。
    - 以下のファイル、フォルダはアバターの動作には不要なので削除しても構いません。
