@@ -64,7 +64,7 @@ events.RENDER:register(function (delta)
 				local foxFireScale = math.min(foxFireAnchor["FoxFire"..index]:getScale().x + 8 / fps, 1)
 				local newFloatCount = animationCounters[index].float + 0.25 / fps
 				animationCounters[index].float = newFloatCount > 1 and newFloatCount - 1 or newFloatCount;
-				foxFireAnchor["FoxFire"..index]:setPos(foxFireAnchor:getPivot() + vectors.vec3(0, math.sin(animationCounters[index].float * 2 * math.pi)))
+				foxFireAnchor["FoxFire"..index]:setPos(foxFireAnchor:getPivot() + vectors.vec3(0, math.sin(animationCounters[index].float * 2 * math.pi)) * 2)
 				if animationCounters[index].flicker >= 0 then
 					local newFlickerCount = math.min(animationCounters[index].flicker + 5 / fps, 1)
 					if newFlickerCount < 1 then
@@ -108,6 +108,7 @@ for index, foxFireAnchor in ipairs(models.models.main.FoxFireAnchors:getChildren
 	})
 	foxFireAnchor:addChild(models.models.fox_fire:copy("FoxFire"..index))
 	foxFireAnchor["FoxFire"..index]:setPos(foxFireAnchor:getPivot() + vectors.vec3(0, math.sin(floatCount * 2 * math.pi)))
+	foxFireAnchor["FoxFire"..index]:setRot(0, math.random(0, 3) * 90)
 end
 models.models.fox_fire:setVisible(false)
 
