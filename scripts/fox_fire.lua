@@ -1,7 +1,9 @@
 ---@class FoxFire 狐火を制御するクラス
 ---@field NightVision boolean 暗視を受けていたかどうか
+---@field FoxFireInFirstPerson boolean 一人称視点で狐火を表示するかどうか
 FoxFire = {
-	NightVision = false
+	NightVision = false,
+	FoxFireInFirstPerson = Config.loadConfig("foxFireInFirstPerson", true)
 }
 
 ---前チックに暗視を受けていたかどうか
@@ -10,11 +12,20 @@ local nightVisionPrev = false
 
 ---狐火が有効かどうか
 ---@type boolean
-local visible = true
+local enabled = false
 
 ---前チックに狐火が有効かどうか
 ---@type boolean
-local visiblePrev = true
+local enabledPrev = false
+
+---狐火が見える状態かどうか
+---@type boolean
+local visible = false
+
+---前チックに狐火が見えた状態かどうか
+---@type boolean
+local visiblePrev = false
+
 
 ---狐火のアニメーションを制御する各種カウンター
 --[[
@@ -24,10 +35,6 @@ local visiblePrev = true
 ]]
 ---@type table<string, integer>
 local animationCounters = {}
-
----一人称視点で狐火を表示するかどうか
----@type boolean
-local foxFireInFirstPerson = Config.loadConfig("foxFireInFirstPerson", true)
 
 ---このレンダーで処理を行ったかどうか
 ---@type boolean
@@ -46,6 +53,17 @@ function pings.setNightVision(newValue)
 end
 
 events.TICK:register(function ()
+	if host:isHost() then
+		FoxFire.NightVision = General.getTargetEffect("minecraft.night_vision") and true or false
+	end
+	if FoxFire.NightVision and not FoxFire.NightVisionPrev then
+		pings.setNightVision(true)
+	elseif not FoxFire.NightVision and FoxFire.NightVisionPrev then
+		pings.setNightVision(false)
+	end
+	enabled = FoxFire.NightVision and Wet.WetCount == 0
+	visible = models.models.main.FoxFireAnchors.FoxFireAnchor1.FoxFire1:getScale().x > 0 and (FoxFire.FoxFireInFirstPerson or not renderer:isFirstPerson())
+	models.models.main.FoxFireAnchors:setVisible(visible)
 	if visible then
 		for _, counters in ipairs(animationCounters) do
 			if counters.nextFlicker == 0 then
@@ -53,15 +71,30 @@ events.TICK:register(function ()
 			end
 			counters.nextFlicker = counters.nextFlicker - 1
 		end
+	elseif visiblePrev then
+		for _, counters in ipairs(animationCounters) do
+			counters.flicker = -1
+			counters.nextFlicker = math.random(0, 4)
+			if counters.nextFlicker == 0 then
+				counters.flicker = 0
+			end
+			counters.nextFlicker = counters.nextFlicker - 1
+		end
 	end
+	enabledPrev = enabled
+	visiblePrev = visible
 end)
 
 events.RENDER:register(function (delta)
 	if not renderProcessed then
+		local currentFoxFireScale = models.models.main.FoxFireAnchors.FoxFireAnchor1["FoxFire1"]:getScale().x
 		if visible then
+			models.models.main.FoxFireAnchors:setPos(player:getPos(delta) * 16)
+			models.models.main.FoxFireAnchors:setRot(0, -player:getBodyYaw(delta))
 			for index, foxFireAnchor in ipairs(models.models.main.FoxFireAnchors:getChildren()) do
+				foxFireAnchor["FoxFire"..index]:setColor(fillVec3(models.models.main.FoxFireAnchors.FoxFireAnchor1.FoxFire1:getScale().x))
 				local fps = client:getFPS()
-				local foxFireScale = math.min(foxFireAnchor["FoxFire"..index]:getScale().x + 8 / fps, 1)
+				local foxFireScale = enabled and math.min(foxFireAnchor["FoxFire"..index]:getScale().x + 8 / fps, 1) or math.max(foxFireAnchor["FoxFire"..index]:getScale().x - 8 / fps, 0)
 				local newFloatCount = animationCounters[index].float + 0.25 / fps
 				animationCounters[index].float = newFloatCount > 1 and newFloatCount - 1 or newFloatCount;
 				foxFireAnchor["FoxFire"..index]:setPos(foxFireAnchor:getPivot() + vectors.vec3(0, math.sin(animationCounters[index].float * 2 * math.pi)) * 2)
@@ -76,17 +109,13 @@ events.RENDER:register(function (delta)
 				end
 				foxFireAnchor["FoxFire"..index]:setScale(fillVec3(foxFireScale + (animationCounters[index].flicker > 0 and math.abs(animationCounters[index].flicker * 0.2 - 0.1) * -1 or 0)));
 			end
-		else
-
+		elseif enabled then
+			local foxFireScale = math.min(currentFoxFireScale + 8 / client:getFPS(), 1)
+			for index, foxFireAnchor in ipairs(models.models.main.FoxFireAnchors:getChildren()) do
+				foxFireAnchor["FoxFire"..index]:setScale(fillVec3(foxFireScale));
+			end
 		end
 		renderProcessed = true
-	end
-	if models.models.main.FoxFireAnchors.FoxFireAnchor1.FoxFire1:getScale().x > 0 then
-		models.models.main.FoxFireAnchors:setPos(player:getPos(delta) * 16)
-		models.models.main.FoxFireAnchors:setRot(0, -player:getBodyYaw(delta))
-		for index, foxFireAnchor in ipairs(models.models.main.FoxFireAnchors:getChildren()) do
-			foxFireAnchor["FoxFire"..index]:setColor(fillVec3(models.models.main.FoxFireAnchors.FoxFireAnchor1.FoxFire1:getScale().x))
-		end
 	end
 end)
 
