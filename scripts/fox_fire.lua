@@ -64,6 +64,19 @@ events.TICK:register(function ()
 	enabled = FoxFire.NightVision and Wet.WetCount == 0
 	visible = models.models.main.FoxFireAnchors.FoxFireAnchor1.FoxFire1:getScale().x > 0 and (FoxFire.FoxFireInFirstPerson or not renderer:isFirstPerson())
 	models.models.main.FoxFireAnchors:setVisible(visible)
+	if enabled and not enabledPrev then
+		sounds:playSound("minecraft:item.firecharge.use", player:getPos(), 1, 2)
+	elseif not enabled and enabledPrev then
+		sounds:playSound("minecraft:block.fire.extinguish", player:getPos(), 1, 2)
+		if FoxFire.FoxFireInFirstPerson or not renderer:isFirstPerson() then
+			for index, foxFireAnchor in ipairs(models.models.main.FoxFireAnchors:getChildren()) do
+				local foxFireMatrix = foxFireAnchor["FoxFire"..index]:partToWorldMatrix()
+				for _ = 1, 5 do
+					particles:newParticle("smoke", foxFireMatrix[4][1] + math.random() * 0.25 - 0.125, foxFireMatrix[4][2] + math.random() * 0.25 - 0.125, foxFireMatrix[4][3] + math.random() * 0.25 - 0.125)
+				end
+			end
+		end
+	end
 	if visible then
 		for _, counters in ipairs(animationCounters) do
 			if counters.nextFlicker == 0 then
