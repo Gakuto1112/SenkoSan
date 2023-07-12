@@ -17,11 +17,16 @@ function pings.setNightVision(newValue)
 	FoxFire.NightVision = newValue
 end
 
+events.POST_RENDER:register(function (delta)
+	models.models.main.FoxFireAnchors:setPos(player:getPos(delta) * 16)
+	models.models.main.FoxFireAnchors:setRot(0, -player:getBodyYaw(delta))
+end)
+
+models.models.fox_fire:setSecondaryTexture("CUSTOM", textures["textures.fox_fire"])
 for index, foxFireAnchor in ipairs(models.models.main.FoxFireAnchors:getChildren()) do
 	foxFireAnchor:addChild(models.models.fox_fire:copy("FoxFire"..index))
 	foxFireAnchor["FoxFire"..index]:setPos(foxFireAnchor:getPivot())
 end
-
 models.models.fox_fire:setVisible(false)
 
 return FoxFire
