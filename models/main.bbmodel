@@ -3400,7 +3400,7 @@
 							"uuid": "0ff3d3e7-a106-2d6e-2400-af888119c970",
 							"export": true,
 							"mirror_uv": false,
-							"isOpen": false,
+							"isOpen": true,
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
@@ -3441,7 +3441,7 @@
 									"uuid": "e2b4c895-68c0-b786-a5ac-ee58a3bad955",
 									"export": true,
 									"mirror_uv": false,
-									"isOpen": false,
+									"isOpen": true,
 									"locked": false,
 									"visibility": true,
 									"autouv": 0,
@@ -3466,6 +3466,59 @@
 							]
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "FoxFireAnchors",
+			"origin": [0, 16, 0],
+			"color": 0,
+			"uuid": "18b78331-5317-34e5-0e95-96a324937f5c",
+			"export": true,
+			"mirror_uv": false,
+			"isOpen": true,
+			"locked": false,
+			"visibility": true,
+			"autouv": 0,
+			"children": [
+				{
+					"name": "FoxFireAnchor1",
+					"origin": [0, 38, 0],
+					"color": 0,
+					"uuid": "4a01e90c-00fa-1831-df47-b156bab2749c",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": true,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": []
+				},
+				{
+					"name": "FoxFireAnchor2",
+					"origin": [12, 24, 0],
+					"color": 0,
+					"uuid": "b7be4c7b-e8ed-715a-c0a6-66bff202a9c3",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": true,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": []
+				},
+				{
+					"name": "FoxFireAnchor3",
+					"origin": [-12, 12, 0],
+					"color": 0,
+					"uuid": "7d45ff2b-1cce-3b22-ead6-c420dda4b945",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": true,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": []
 				}
 			]
 		}

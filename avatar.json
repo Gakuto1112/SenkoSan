@@ -44,6 +44,9 @@
 		"models.models.main.Avatar.LowerBody.Apron": {
 			"parentType": "RightLeg"
 		},
+		"models.models.main.FoxFireAnchors": {
+			"parentType": "World"
+		},
 		"models.models.armor.ArmorH": {
 			"moveTo": "models.models.main.Avatar.Head",
 			"visible": false
@@ -303,6 +306,9 @@
 		"models.models.umbrella.UmbrellaB": {
 			"moveTo": "models.models.main.Avatar.UpperBody.Body",
 			"visible": false
+		},
+		"models.models.fox_fire": {
+			"primaryRenderType": "EMISSIVE_SOLID"
 		},
 		"models.models.skull_figure_a.Skull": {
 			"visible": false
