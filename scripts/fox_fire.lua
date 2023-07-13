@@ -61,7 +61,7 @@ events.TICK:register(function ()
 			pings.setNightVision(false)
 		end
 	end
-	enabled = FoxFire.NightVision and Wet.WetCount == 0
+	enabled = FoxFire.NightVision and Wet.WetCount == 0 and player:isAlive()
 	visible = models.models.main.FoxFireAnchors.FoxFireAnchor1.FoxFire1:getScale().x > 0 and (FoxFire.FoxFireInFirstPerson or not renderer:isFirstPerson())
 	models.models.main.FoxFireAnchors:setVisible(visible)
 	if enabled and not enabledPrev then
