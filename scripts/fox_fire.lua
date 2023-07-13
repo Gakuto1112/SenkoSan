@@ -55,11 +55,11 @@ end
 events.TICK:register(function ()
 	if host:isHost() then
 		FoxFire.NightVision = General.getTargetEffect("minecraft.night_vision") and true or false
-	end
-	if FoxFire.NightVision and not nightVisionPrev then
-		pings.setNightVision(true)
-	elseif not FoxFire.NightVision and nightVisionPrev then
-		pings.setNightVision(false)
+		if FoxFire.NightVision and not nightVisionPrev then
+			pings.setNightVision(true)
+		elseif not FoxFire.NightVision and nightVisionPrev then
+			pings.setNightVision(false)
+		end
 	end
 	enabled = FoxFire.NightVision and Wet.WetCount == 0
 	visible = models.models.main.FoxFireAnchors.FoxFireAnchor1.FoxFire1:getScale().x > 0 and (FoxFire.FoxFireInFirstPerson or not renderer:isFirstPerson())
