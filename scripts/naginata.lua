@@ -66,7 +66,7 @@ events.TICK:register(function ()
                         Arms.RightArmRotOffset = vectors.vec3(100, -25, 15)
                         Arms.LeftArmRotOffset = vectors.vec3(100, 25, -15)
                     end
-                else
+                elseif Naginata.State[2] <= 1 then
                     models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.RightNaginata:setPos()
                     for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.RightNaginata, models.models.main.Avatar.UpperBody}) do
                         modelPart:setRot()
