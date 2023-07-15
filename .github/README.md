@@ -1,3 +1,20 @@
+# !!! 重要なお知らせ VERY IMPORTANT NOTES !!!
+本日未明（2023/7/16 JST）、突如として、**Figuraが削除されました**。
+
+特に予告も何もなかったため、詳細は不明ですが、Figura代表者（Francielly）が数々の不適切行為を行っており、それが原因で開発チーム間で不和が発生したのでしょう。
+
+現在、Figuraはダウンロードできません。ただし、開発チームの1人がFiguraのコピーをアップロードしているので、そちらのダウンロードは可能です。
+
+尚、このREADMEに含まれるFiguraへのリンク先は一時的このコピーに変更します。
+
+何かありましたら追って更新します。
+
+[内部告発文書](https://docs.google.com/document/u/0/d/1pfy17co5ngaHMVksFrAB6FTeJgeh1EKsGmDLzo1qgIE/mobilebasic?pli=1)
+
+[Figuraのコピー](https://modrinth.com/mod/figura)
+
+***
+
 # ごあんない
 ![シロの頭](README_images/シロ頭.png)
 ここは、**シロ**のブランチです。
@@ -12,7 +29,7 @@
 # Shiro（シロ）
 TVアニメ「世話やきキツネの仙狐さん」とその原作に登場するキャラクターを再現した、MinecraftのスキンMod「[Figura](https://www.curseforge.com/minecraft/mc-mods/figura)」向けスキン「Shiro（シロ）」です。
 
-ターゲットFiguraバージョン：[0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.20.1)
+ターゲットFiguraバージョン：[0.1.1](https://modrinth.com/mod/figura)
 
 ![メイン](./README_images/メイン.jpg)
 
@@ -265,7 +282,7 @@ Mobが被っているプレイヤーの頭は設定に関わらず、デフォ�
 アクションホイールでのメッセージ以外の、良く表示されるであろう一部メッセージを表示するかどうかを設定できます。メッセージが煩わしいと感じる場合はオフにして下さい。
 
 ## 使用方法
-1. マインクラフトに[Fabric](https://fabricmc.net/)をインストールし、[Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)と[Figura 0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.20.1)を追加します。各Modの依存関係にご注意ください。
+1. マインクラフトに[Fabric](https://fabricmc.net/)をインストールし、[Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)と[Figura 0.1.1](https://modrinth.com/mod/figura)を追加します。各Modの依存関係にご注意ください。
 2. ページ上部の緑色のボタン「**Code**」から「**Download ZIP**」からこのレポジトリのファイルをダウンロードします。（または、このレポジトリをクローンします。）
 3. 圧縮ファイルの場合は展開します。
    - 以下のファイル、フォルダはアバターの動作には不要なので削除しても構いません。
@@ -302,9 +319,9 @@ Mobが被っているプレイヤーの頭は設定に関わらず、デフォ�
 - 不具合がありましたら、[Issues](https://github.com/Gakuto1112/SenkoSan/issues)までご連絡下さい。
 
 ## リンク集
-- [Figura（CurseForge）](https://www.curseforge.com/minecraft/mc-mods/figura)
-- [Figura（Modrinth）](https://modrinth.com/mod/figura)
-- [Figura（GitHub）](https://github.com/Kingdom-of-The-Moon/FiguraRewriteRewrite)
+- ~~Figura（CurseForge）~~
+- ~~Figura（Modrinth）~~
+- ~~Figura（GitHub）~~
 - [TVアニメ「世話やきキツネの仙狐さん」オフィシャルサイト](http://senkosan.com/)
 - [Amazon.co.jp_ 世話やきキツネの仙狐さんを観る _ Prime Video](https://www.amazon.co.jp/gp/video/detail/B07QJG9NP7)
 - [世話やきキツネの仙狐さん - Webで漫画が無料で読める！コミックNewtype](https://comic.webnewtype.com/contents/sewayaki/)
