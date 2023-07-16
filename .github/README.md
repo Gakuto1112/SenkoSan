@@ -1,17 +1,9 @@
 # !!! 重要なお知らせ VERY IMPORTANT NOTES !!!
-本日未明（2023/7/16 JST）、突如として、**Figuraが削除されました**。
+（2023/7/16 16:40 JST 更新）
 
-特に予告も何もなかったため、詳細は不明ですが、Figura代表者（Francielly）が数々の不適切行為を行っており、それが原因で開発チーム間で不和が発生したのでしょう。
-
-現在、Figuraはダウンロードできません。ただし、開発チームの1人がFiguraのコピーをアップロードしているので、そちらのダウンロードは可能です。
-
-尚、このREADMEに含まれるFiguraへのリンク先は一時的このコピーに変更します。
-
-何かありましたら追って更新します。
+本日未明（2023/7/16 1:00 JST 前後）、突如として、**Figuraが削除されました**。Figuraの所有者（Francielly）が自身の不適切行為に対する除名処分の腹いせにmod本体、modのGitHubレポジトリ、Discordのコミュニティなどを勝手に全て削除したと考えられます。mod本体やコミュニティは全て削除されましたが、Figuraクラウドは管理者が別であるため、現在でも機能しています。現在、残りのFigura開発者・コミュニティ管理者が削除されたmodデータやコミュニティを修復しています。
 
 [内部告発文書](https://docs.google.com/document/u/0/d/1pfy17co5ngaHMVksFrAB6FTeJgeh1EKsGmDLzo1qgIE/mobilebasic?pli=1)
-
-[Figuraのコピー](https://modrinth.com/mod/figura)
 
 ***
 
