@@ -19,7 +19,7 @@
 
 ***
 # Shiro（シロ）
-TVアニメ「世話やきキツネの仙狐さん」とその原作に登場するキャラクターを再現した、MinecraftのスキンMod「[Figura](https://www.curseforge.com/minecraft/mc-mods/figura)」向けスキン「Shiro（シロ）」です。
+TVアニメ「世話やきキツネの仙狐さん」とその原作に登場するキャラクターを再現した、MinecraftのスキンMod「[Figura](https://modrinth.com/mod/figura)」向けスキン「Shiro（シロ）」です。
 
 ターゲットFiguraバージョン：[0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.20.1-0f8b7a9)
 
@@ -277,9 +277,6 @@ Mobが被っているプレイヤーの頭は設定に関わらず、デフォ�
 1. マインクラフトに[Fabric](https://fabricmc.net/)をインストールし、[Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)と[Figura 0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.20.1-0f8b7a9)を追加します。各Modの依存関係にご注意ください。
 2. ページ上部の緑色のボタン「**Code**」から「**Download ZIP**」からこのレポジトリのファイルをダウンロードします。（または、このレポジトリをクローンします。）
 3. 圧縮ファイルの場合は展開します。
-   - 以下のファイル、フォルダはアバターの動作には不要なので削除しても構いません。
-     - [.github](/.github/)
-     - [.gitignore](/.gitignore)
 4. ``<マインクラフトのゲームフォルダ>/figura/avatars/``にアバターのデータを配置します。
    - フォルダはFiguraを追加したマインクラフトを一度起動すると自動的に生成されます。ない場合は手動で作成しても構いません。
 5. ゲームメニューからFiguraメニュー（Δマーク）を開き、画面左のアバターリストから「シロ」を選択します。
@@ -311,9 +308,8 @@ Mobが被っているプレイヤーの頭は設定に関わらず、デフォ�
 - 不具合がありましたら、[Issues](https://github.com/Gakuto1112/SenkoSan/issues)までご連絡下さい。
 
 ## リンク集
-- ~~Figura（CurseForge）~~
-- ~~Figura（Modrinth）~~
-- ~~Figura（GitHub）~~
+- [Figura（Modrinth）](https://modrinth.com/mod/figura)
+- [Figura（GitHub）](https://github.com/Moonlight-MC-Temp/Figura)
 - [TVアニメ「世話やきキツネの仙狐さん」オフィシャルサイト](http://senkosan.com/)
 - [Amazon.co.jp_ 世話やきキツネの仙狐さんを観る _ Prime Video](https://www.amazon.co.jp/gp/video/detail/B07QJG9NP7)
 - [世話やきキツネの仙狐さん - Webで漫画が無料で読める！コミックNewtype](https://comic.webnewtype.com/contents/sewayaki/)
