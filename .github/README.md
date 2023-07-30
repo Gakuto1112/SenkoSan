@@ -1,12 +1,15 @@
 # ごあんない
 ![鈴の頭](README_images/鈴頭.png)
-ここは、**鈴**のブランチです。
+ここは、**鈴**の配布ページです。
 
 ![仙狐さんの頭](README_images/仙狐さん頭.png)
-**仙狐さん**のブランチは[こちら](https://github.com/Gakuto1112/SenkoSan)
+**仙狐さん**の配布ページは[こちら](https://github.com/Gakuto1112/SenkoSan)
 
 ![シロの頭](./README_images/シロ頭.png)
-**シロ**のブランチは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/Shiro)
+**シロ**の配布ページは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/Shiro)
+
+![夜空の頭](./README_images/夜空頭.png)
+**夜空**の配布ページは[こちら](https://github.com/Gakuto1112/Sora)
 
 ***
 # Suzu（鈴）
@@ -287,7 +290,7 @@ Mobが被っているプレイヤーの頭は設定に関わらず、デフォ�
 | 項目 | 推奨設定 | 備考 |
 | - | - | - |
 | Vanilla Model Change | **有効！！** | これが有効でないと、バニラのプレイヤーモデルが消えません！！ |
-| Nameplate Change | 有効 |　権限「Default」レベルでは無効になっています。 |
+| Nameplate Change | 有効 | 権限「Default」レベルでは無効になっています。 |
 | Custom Player Heads | 有効 | |
 
 ### マインクラフト設定
