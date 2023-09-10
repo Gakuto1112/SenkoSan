@@ -15,7 +15,7 @@ Physics = {
 ---@type boolean
 local renderProcessed = false
 
-events.RENDER:register(function (_, context)
+events.RENDER:register(function (delta, context)
 	local lookDir = player:getLookDir()
 	if not renderProcessed then
 		local velocity = player:getVelocity()
@@ -54,7 +54,7 @@ events.RENDER:register(function (_, context)
 		table.insert(Physics.VelocityData[3], velocityHeadRight)
 		Physics.VelocityAverage[4] = (#Physics.VelocityData[4] * Physics.VelocityAverage[4] + velocityHeadRot) / (#Physics.VelocityData[4] + 1)
 		table.insert(Physics.VelocityData[4], velocityHeadRot)
-		local velocityBodyFront, velocityBodyRight, velocityBodyRot = decomposeHorizontalVelocity((player:getBodyYaw() + models.models.main.Avatar.UpperBody:getTrueRot().y - 90) % 360 - 180, 2)
+		local velocityBodyFront, velocityBodyRight, velocityBodyRot = decomposeHorizontalVelocity((player:getBodyYaw(delta) + models.models.main.Avatar.UpperBody:getTrueRot().y - 90) % 360 - 180, 2)
 		Physics.VelocityAverage[5] = (#Physics.VelocityData[5] * Physics.VelocityAverage[5] + velocityBodyFront) / (#Physics.VelocityData[5] + 1)
 		table.insert(Physics.VelocityData[5], velocityBodyFront)
 		Physics.VelocityAverage[6] = (#Physics.VelocityData[6] * Physics.VelocityAverage[6] + velocityBodyRight) / (#Physics.VelocityData[6] + 1)
