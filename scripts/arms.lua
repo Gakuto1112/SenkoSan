@@ -11,6 +11,21 @@ Arms = {
 	LeftArmRotOffset = vectors.vec3(),
 	ItemHeldContradicts = false,
 
+	---腕の状態（位置や角度など）を更新する。
+	updateArm = function ()
+		models.models.main.Avatar.UpperBody.Arms.RightArm:setPos(Arms.RightArmPosOffset)
+		models.models.main.Avatar.UpperBody.Arms.LeftArm:setPos(Arms.LeftArmPosOffset)
+		local leftHanded = player:isLeftHanded()
+		local umbrellaAdjust = Umbrella.IsUsing and not SitDown.IsAnimationPlaying and PhotoPose.CurrentPose ~= 7
+		if Arms.ItemHeldContradicts then
+			models.models.main.Avatar.UpperBody.Arms.RightArm:setRot(vectors.vec3((umbrellaAdjust and leftHanded) and 20 or 0) + Arms.RightArmRotOffset - vanilla_model.RIGHT_ARM:getOriginRot())
+			models.models.main.Avatar.UpperBody.Arms.LeftArm:setRot(vectors.vec3((umbrellaAdjust and not leftHanded) and 20 or 0) + Arms.LeftArmRotOffset - vanilla_model.LEFT_ARM:getOriginRot())
+		else
+			models.models.main.Avatar.UpperBody.Arms.RightArm:setRot(vectors.vec3((umbrellaAdjust and leftHanded) and 20 or 0) + Arms.RightArmRotOffset)
+			models.models.main.Avatar.UpperBody.Arms.LeftArm:setRot(vectors.vec3((umbrellaAdjust and not leftHanded) and 20 or 0) + Arms.LeftArmRotOffset)
+		end
+	end,
+
 	---手持ちアイテムを隠し、手のズレを補正する。
 	---@param hide boolean 手のアイテムを隠すかどうか
 	hideHeldItem = function(hide)
@@ -34,17 +49,7 @@ events.TICK:register(function ()
 end)
 
 events.RENDER:register(function ()
-	models.models.main.Avatar.UpperBody.Arms.RightArm:setPos(Arms.RightArmPosOffset)
-	models.models.main.Avatar.UpperBody.Arms.LeftArm:setPos(Arms.LeftArmPosOffset)
-	local leftHanded = player:isLeftHanded()
-	local umbrellaAdjust = Umbrella.IsUsing and not SitDown.IsAnimationPlaying and PhotoPose.CurrentPose ~= 7
-	if Arms.ItemHeldContradicts then
-		models.models.main.Avatar.UpperBody.Arms.RightArm:setRot(vectors.vec3((umbrellaAdjust and leftHanded) and 20 or 0) + Arms.RightArmRotOffset - vanilla_model.RIGHT_ARM:getOriginRot())
-		models.models.main.Avatar.UpperBody.Arms.LeftArm:setRot(vectors.vec3((umbrellaAdjust and not leftHanded) and 20 or 0) + Arms.LeftArmRotOffset - vanilla_model.LEFT_ARM:getOriginRot())
-	else
-		models.models.main.Avatar.UpperBody.Arms.RightArm:setRot(vectors.vec3((umbrellaAdjust and leftHanded) and 20 or 0) + Arms.RightArmRotOffset)
-		models.models.main.Avatar.UpperBody.Arms.LeftArm:setRot(vectors.vec3((umbrellaAdjust and not leftHanded) and 20 or 0) + Arms.LeftArmRotOffset)
-	end
+	Arms.updateArm()
 end)
 
 return Arms
