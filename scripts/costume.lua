@@ -18,12 +18,13 @@
 ---| "CHINA_DRESS"
 ---| "SANTA"
 ---| "KIMONO"
+---| "HALLOWEEN"
 
 ---@class Costume キャラクターのコスチュームを管理し、円滑に切り替えられるようにするクラス
 ---@field CostumeList table<string> 利用可能なコスチュームのリスト
 ---@field CurrentCostume CostumeType 現在のコスチューム
 Costume = {
-	CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "tracksuit", "casual", "sailor", "china_dress", "santa", "kimono"},
+	CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "tracksuit", "casual", "sailor", "china_dress", "kimono", "halloween", "santa"},
 	CurrentCostume = "DEFAULT",
 	CostumeEvents = {
 		---メイド服Aのチック処理
@@ -285,7 +286,7 @@ Costume = {
 		elseif costume == "SANTA" then
 			models.models.main.Avatar.Head.Ears.LeftEarPivot:setVisible(player:getItem(6).id == "minecraft:chainmail_helmet")
 			models.models.main.Avatar.Head.CSantaH:setVisible(not Armor.ArmorVisible[1])
-			Costume.setCostumeTextureOffset(16)
+			Costume.setCostumeTextureOffset(18)
 			HairAccessory.visible(Armor.ArmorVisible[1])
 		elseif costume == "KIMONO" then
 			models.models.main.Avatar.Head.CKimonoH:setVisible(true)
@@ -293,7 +294,7 @@ Costume = {
 				modelPart:setVisible(false)
 			end
 			models.models.main.Avatar.UpperBody.Body.UmbrellaB:setUVPixels(0, 27)
-			Costume.setCostumeTextureOffset(17)
+			Costume.setCostumeTextureOffset(16)
 			Apron.disable()
 			HairAccessory.visible(false)
 		end
