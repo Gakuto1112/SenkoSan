@@ -297,6 +297,20 @@ Costume = {
 			Costume.setCostumeTextureOffset(16)
 			Apron.disable()
 			HairAccessory.visible(false)
+		elseif costume == "HALLOWEEN" then
+			models.models.main.Avatar.Head.CHalloweenH:setVisible(not Armor.ArmorVisible[1])
+			models.models.main.Avatar.UpperBody.Body.CHalloweenB:setVisible(not Armor.ArmorVisible[3])
+			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
+			Sleeve.disable()
+			for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do
+				modelPart:setVisible(false)
+			end
+			Costume.setCostumeTextureOffset(17)
+			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setUVPixels(0, 42)
+			models.models.main.Avatar.UpperBody.Body.CHalloweenB:setPos(0, 0, Armor.ArmorVisible[2] and 1 or 0)
+			events.TICK:register(Costume.CostumeEvents.MiniskirtTick, "costume_miniskirt_tick")
+			Apron.disable()
+
 		end
 	end,
 
@@ -305,7 +319,7 @@ Costume = {
 		for _, modelPart in ipairs({models.models.main.Avatar.Head, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do
 			modelPart:setVisible(true)
 		end
-		for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.UpperBody.Body.Tail.CDisguiseT, models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.UpperBody.Body.CMaidAB, models.models.main.Avatar.UpperBody.Body.CMaidBB, models.models.main.Avatar.UpperBody.Body.CMiniSkirtB, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.CCheerleaderRAB,  models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH, models.models.main.Avatar.Head.CKimonoH}) do
+		for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.UpperBody.Body.Tail.CDisguiseT, models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.UpperBody.Body.CMaidAB, models.models.main.Avatar.UpperBody.Body.CMaidBB, models.models.main.Avatar.UpperBody.Body.CMiniSkirtB, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.CCheerleaderRAB,  models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH, models.models.main.Avatar.Head.CKimonoH, models.models.main.Avatar.Head.CHalloweenH, models.models.main.Avatar.UpperBody.Body.CHalloweenB}) do
 			modelPart:setVisible(false)
 		end
 		models.models.main.Avatar.Head.Ears:setVisible(not Armor.ArmorVisible[1])
@@ -335,7 +349,7 @@ Costume = {
 			if Armor.ArmorVisible[1] then
 				models.models.main.Avatar.Head.Ears:setVisible(player:getItem(6).id == "minecraft:chainmail_helmet")
 				models.models.main.Avatar.Head.Ears.LeftEarPivot:setVisible()
-				for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH}) do
+				for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH, models.models.main.Avatar.Head.CHalloweenH}) do
 					modelPart:setVisible(false)
 				end
 				for _, tickEventName in ipairs({"costume_summer_hat_tick", "costume_yukata_tick"}) do
@@ -380,6 +394,8 @@ Costume = {
 				elseif Costume.CurrentCostume == "KIMONO" then
 					models.models.main.Avatar.Head.Ears:setVisible(true)
 					HairAccessory.visible(false)
+				elseif Costume.CurrentCostume == "HALLOWEEN" then
+					models.models.main.Avatar.Head.CHalloweenH:setVisible(true)
 				else
 					models.models.main.Avatar.Head.Ears:setVisible(true)
 				end
@@ -387,8 +403,12 @@ Costume = {
 		elseif armorIndex == 2 then
 			if Armor.ArmorVisible[2] then
 				models.models.main.Avatar.UpperBody.Body.Tail.CDisguiseT:setVisible(false)
-			elseif Costume.CurrentCostume == "DISGUISE" then
-				models.models.main.Avatar.UpperBody.Body.Tail.CDisguiseT:setVisible(true)
+				models.models.main.Avatar.UpperBody.Body.CHalloweenB:setPos(0, 0, 1)
+			else
+				if Costume.CurrentCostume == "DISGUISE" then
+					models.models.main.Avatar.UpperBody.Body.Tail.CDisguiseT:setVisible(true)
+				end
+				models.models.main.Avatar.UpperBody.Body.CHalloweenB:setPos()
 			end
 		elseif armorIndex == 3 then
 			if Armor.ArmorVisible[3] then
@@ -412,7 +432,7 @@ Costume = {
 					models.models.main.Avatar.UpperBody.Body.CMaidBB:setVisible(true)
 					events.TICK:register(Costume.CostumeEvents.MaidATick, "costume_maid_b_tick")
 					events.RENDER:register(Costume.CostumeEvents.MaidARender, "costume_maid_b_render")
-				elseif Costume.CurrentCostume == "SWIMSUIT" or Costume.CurrentCostume == "CHEERLEADER" or Costume.CurrentCostume == "SAILOR" then
+				elseif Costume.CurrentCostume == "SWIMSUIT" or Costume.CurrentCostume == "CHEERLEADER" or Costume.CurrentCostume == "SAILOR" or Costume.CurrentCostume == "HALLOWEEN" then
 					models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setVisible(true)
 					events.TICK:register(Costume.CostumeEvents.MiniskirtTick, "costume_miniskirt_tick")
 				elseif Costume.CurrentCostume == "DEFAULT" or Costume.CurrentCostume == "DISGUISE" or Costume.CurrentCostume == "KAPPOGI" or Costume.CurrentCostume == "KNIT" or Costume.CurrentCostume == "SANTA" then
