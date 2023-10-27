@@ -13,7 +13,7 @@
 	"unhandled_root_fields": {},
 	"resolution": {
 		"width": 20,
-		"height": 42
+		"height": 56
 	},
 	"elements": [
 		{
@@ -21,6 +21,8 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
 			"from": [-4.5, 12, -3],
 			"to": [4.5, 15, 3],
 			"autouv": 0,
@@ -62,6 +64,8 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
 			"from": [-5, 9, -4],
 			"to": [5, 12, 4],
 			"autouv": 0,
@@ -115,7 +119,7 @@
 	],
 	"textures": [
 		{
-			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\costume_mini_skirt.png",
+			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\costume_mini_skirt.png",
 			"name": "costume_mini_skirt.png",
 			"folder": "",
 			"namespace": "",
@@ -132,7 +136,7 @@
 			"saved": true,
 			"uuid": "e955fda6-6988-fd0d-225d-0f5f3719d579",
 			"relative_path": "../../textures/costume_mini_skirt.png",
-			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAqCAYAAACz+XvQAAAAAXNSR0IArs4c6QAAAWtJREFUSEvdlruNAjEQhu0e1tDDiQKI4BIysotogCIogJScBoiQCC5DSHfZFXCsRAVIrHtYNIZBXu/YHrMOEBsZjfk8v+fhkb8fn7XWWhRFIeBLWY/LH2n+ZH1y2xvUX5f/lgH3gB0Oow4igeAhZUAg2H2eZwfaByG8k2QS2CUobCBspKIeyoKH5FhQAIKBYQFjaQMQ2DM6Hkzgq6oSSqnWWqm+ST2Z4qGbi9TV5AemSHblgoeufLaHoWpq1DKVh9TdJAHdjsH9nb2WXwsYuwZ26YX6obc5xE7nPA0NDzklhYf63hy2ZOw2q/JkmFpoUYj7g2atd+J8aw4ppffa3QYku3JNiTrykyS/SbeZzhZPzzbfm2V7thlO5vXffu2dbcDum21IIHhIGbAywO4rvexA+yCEyy6SSWCXoLCBz8w2D8mxoAAcAxPqi+w7BAimDguY4iGnEcvswFja2JKzehiqpsZsQ+UhlTZc4BUFfmsFiOqWLgAAAABJRU5ErkJggg=="
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAA4CAYAAAD959hAAAAAAXNSR0IArs4c6QAAAc1JREFUWEfdlj1OxDAQhe07JFDTohxgK0BCSBR0VFyAQ3AAKiR6LkCFREGBhFZauj1AWImKEi3JHYKel1k5ztgeJy5WuHLk5Jt58xfr98OTrm1bVRSFwkrZH68W2nxkLf20V3WXP/XggN7BOYxxhlggPOQOCIhzn+fZgbYhgk+SzAKnJEUMxItc1kNVsJUcSwoglBgRMFY2gOCdo4+5SXzTNKosy8G+LPdN6ekUD91a5EKTH5gi2ZULD135Yg9D3dTrZa4OudgkAd2JIX3O3su7BYyFQdx6oXnoHQ4x65JfQ89DSUuRUd8/RyyZps396tMwW9WqQv390Kz9s/reDIeU1tvtaQPJrlzToo78JMn/ZNpcXN2Mvtu8PN4O7zazs+tu+fbgvdvg3He3YYHwkDugzsC5r/WyA21DBNdTJLPAKUkRA8fcbbaSY0kBnBITmoviGAJCpSMCpngoGcQ6OzBWNrbkrB6Guql3t+HqkCsbMfB8dmp6dcx6Xc6H0wZA7oAMhAzuPtAOE3mrp0j2AsckxP2m52F2YCjLMIawVF+1qg8qYxt7LPv5br3e3G1iMbSBISXJQGlYkjy0Jfr2SUCJl2JgLHFkzAAllqXAX6Ai2xdD5UqiAAAAAElFTkSuQmCC"
 		}
 	],
 	"animations": [
