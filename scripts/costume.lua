@@ -124,6 +124,13 @@ Costume = {
 			local crouching = player:getPose() == "CROUCHING"
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setRot((crouching or player:getVehicle()) and 27.5 or 0, 0, 0)
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setPos(0, 0, crouching and 1.25 or 0)
+		end,
+
+		---ハロウィン衣装のレンダー処理
+		HalloweenRender = function ()
+			local legRot = math.map(vanilla_model.RIGHT_LEG:getOriginRot().x, -90, 90, 0, 30)
+			models.models.main.Avatar.UpperBody.Body.CHalloweenB.BatWingLeftPivot:setRot(0, legRot)
+			models.models.main.Avatar.UpperBody.Body.CHalloweenB.BatWingRightPivot:setRot(0, -legRot)
 		end
 	},
 
@@ -309,6 +316,7 @@ Costume = {
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setUVPixels(0, 42)
 			models.models.main.Avatar.UpperBody.Body.CHalloweenB:setPos(0, 0, Armor.ArmorVisible[2] and 1 or 0)
 			events.TICK:register(Costume.CostumeEvents.MiniskirtTick, "costume_miniskirt_tick")
+			events.RENDER:register(Costume.CostumeEvents.HalloweenRender, "costume_halloween_render")
 			Apron.disable()
 
 		end
@@ -330,7 +338,7 @@ Costume = {
 		for _, tickEventName in ipairs({"costume_maid_a_tick", "costume_maid_b_tick", "costume_summer_hat_tick", "costume_miniskirt_tick", "costume_ponpon_tick", "costume_yukata_tick"}) do
 			events.TICK:remove(tickEventName)
 		end
-		for _, renderEventName in ipairs({"costume_maid_a_render", "costume_maid_b_render"}) do
+		for _, renderEventName in ipairs({"costume_maid_a_render", "costume_maid_b_render", "costume_halloween_render"}) do
 			events.RENDER:remove(renderEventName)
 		end
 		Costume.setCostumeTextureOffset(0)

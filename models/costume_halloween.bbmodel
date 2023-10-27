@@ -1284,7 +1284,7 @@
 			"uuid": "431a6f97-83ab-3950-b1a7-4b234857b9c5",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": false,
+			"isOpen": true,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
@@ -1351,87 +1351,115 @@
 			"uuid": "155aa2d8-7cd8-cfac-163b-adbc83816f69",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": false,
+			"isOpen": true,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
 			"children": [
 				{
-					"name": "BatWingLeft",
-					"origin": [-3, 21, 2],
-					"rotation": [0, 0, -45],
+					"name": "BatWingLeftPivot",
+					"origin": [-2.25, 21.75, 2],
 					"color": 0,
-					"uuid": "750d0c37-39bd-3b85-2722-b63f7875a355",
+					"uuid": "a30faab4-bc45-c645-86ca-d0e09bb7a748",
 					"export": true,
 					"mirror_uv": false,
-					"isOpen": false,
+					"isOpen": true,
 					"locked": false,
 					"visibility": true,
 					"autouv": 0,
 					"children": [
-						"90769338-d8d7-00f8-4bae-615c47ec0e82",
-						"1c46b142-d5f5-5dde-2c34-da0c56624ce6",
-						"2cf2215e-94b9-9923-1653-ddbd26f4ccb4",
-						"7adb06fe-be10-f1e5-4391-5ac7866d8508",
-						"c41f692f-0aa3-0680-8ad5-b0e2ad61b62c",
 						{
-							"name": "BatWingLeft2",
-							"origin": [-8, 22, 2.25],
-							"rotation": [0, 0, -30],
+							"name": "BatWingLeft",
+							"origin": [-3, 21, 2],
+							"rotation": [0, 0, -45],
 							"color": 0,
-							"uuid": "8aacd0f4-6766-0384-2ea8-0711d0c5ca0f",
+							"uuid": "750d0c37-39bd-3b85-2722-b63f7875a355",
 							"export": true,
 							"mirror_uv": false,
-							"isOpen": true,
+							"isOpen": false,
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
 							"children": [
-								"fe9a0a3a-e973-ede1-19d9-64fc28ab07d1",
-								"9e3598af-5a08-82bf-72b4-4eb61de3cd62",
-								"8ddff75c-1fc1-5d23-1974-0a656b5077dc",
-								"fae8ebc1-f5b7-b408-f02d-31faa0c22730",
-								"75c01410-8901-77a0-e781-e5d59811af30"
+								"90769338-d8d7-00f8-4bae-615c47ec0e82",
+								"1c46b142-d5f5-5dde-2c34-da0c56624ce6",
+								"2cf2215e-94b9-9923-1653-ddbd26f4ccb4",
+								"7adb06fe-be10-f1e5-4391-5ac7866d8508",
+								"c41f692f-0aa3-0680-8ad5-b0e2ad61b62c",
+								{
+									"name": "BatWingLeft2",
+									"origin": [-8, 22, 2.25],
+									"rotation": [0, 0, -30],
+									"color": 0,
+									"uuid": "8aacd0f4-6766-0384-2ea8-0711d0c5ca0f",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"children": [
+										"fe9a0a3a-e973-ede1-19d9-64fc28ab07d1",
+										"9e3598af-5a08-82bf-72b4-4eb61de3cd62",
+										"8ddff75c-1fc1-5d23-1974-0a656b5077dc",
+										"fae8ebc1-f5b7-b408-f02d-31faa0c22730",
+										"75c01410-8901-77a0-e781-e5d59811af30"
+									]
+								}
 							]
 						}
 					]
 				},
 				{
-					"name": "BatWingRight",
-					"origin": [3, 21, 2],
-					"rotation": [0, 0, 45],
+					"name": "BatWingRightPivot",
+					"origin": [2.25, 21.75, 2],
 					"color": 0,
-					"uuid": "cc11adfe-06f2-5d2b-6dc6-86d68d308eff",
+					"uuid": "5daff3de-fa71-96a9-106d-bfc53ab467b9",
 					"export": true,
 					"mirror_uv": false,
-					"isOpen": false,
+					"isOpen": true,
 					"locked": false,
 					"visibility": true,
 					"autouv": 0,
 					"children": [
-						"a12ef65f-4624-e05f-4e1a-6ae498d4e27d",
-						"a65a2139-f323-503f-0193-3b319bce6abb",
-						"d67a83ca-a053-c5fd-13c0-d06409e3c12e",
-						"f1751c7f-5e5c-0c5f-050d-1fc3ea94c9f5",
-						"6e230100-8faa-a3fe-c6ee-8b8efec3baf7",
 						{
-							"name": "BatWingRight2",
-							"origin": [8, 22, 2.25],
-							"rotation": [0, 0, 30],
+							"name": "BatWingRight",
+							"origin": [3, 21, 2],
+							"rotation": [0, 0, 45],
 							"color": 0,
-							"uuid": "3d26d563-9b54-14da-7db0-b6e1a0d8bea8",
+							"uuid": "cc11adfe-06f2-5d2b-6dc6-86d68d308eff",
 							"export": true,
 							"mirror_uv": false,
-							"isOpen": true,
+							"isOpen": false,
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
 							"children": [
-								"4936c772-7527-241c-48f6-62ba5b26d456",
-								"06b616d7-5359-3c4e-fe57-97af04226ac0",
-								"436cb804-44c9-0af6-54e4-0185261d5e23",
-								"ff744419-78a3-36a9-f474-48b6c8f15cbb",
-								"fa5d9c16-f1c8-b9ea-7f1d-bbe88359d4b6"
+								"a12ef65f-4624-e05f-4e1a-6ae498d4e27d",
+								"a65a2139-f323-503f-0193-3b319bce6abb",
+								"d67a83ca-a053-c5fd-13c0-d06409e3c12e",
+								"f1751c7f-5e5c-0c5f-050d-1fc3ea94c9f5",
+								"6e230100-8faa-a3fe-c6ee-8b8efec3baf7",
+								{
+									"name": "BatWingRight2",
+									"origin": [8, 22, 2.25],
+									"rotation": [0, 0, 30],
+									"color": 0,
+									"uuid": "3d26d563-9b54-14da-7db0-b6e1a0d8bea8",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"children": [
+										"4936c772-7527-241c-48f6-62ba5b26d456",
+										"06b616d7-5359-3c4e-fe57-97af04226ac0",
+										"436cb804-44c9-0af6-54e4-0185261d5e23",
+										"ff744419-78a3-36a9-f474-48b6c8f15cbb",
+										"fa5d9c16-f1c8-b9ea-7f1d-bbe88359d4b6"
+									]
+								}
 							]
 						}
 					]
@@ -1511,7 +1539,7 @@
 			"saved": true,
 			"uuid": "a0ead218-229d-b76d-415d-5ef3adc26dae",
 			"relative_path": "../../textures/costume_halloween.png",
-			"source": "data:image/png;base64,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"
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAAAXNSR0IArs4c6QAAABlJREFUGFdj9LBw/q9z/wrDGsaPDII8HAwAN/kFZvs2uV0AAAAASUVORK5CYII="
 		}
 	]
 }
