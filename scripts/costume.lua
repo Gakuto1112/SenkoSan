@@ -457,4 +457,6 @@ else
 	Config.saveConfig("costume", 1)
 end
 
+models.models.main.Avatar.Head.CHalloweenH:newBlock("halloween_pumpkin"):block("minecraft:carved_pumpkin"):pos(-5.5, 0.6, 7.5):rot(20, 90, 0):scale(0.15)
+
 return Costume
