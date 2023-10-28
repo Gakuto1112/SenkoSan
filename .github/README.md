@@ -1,325 +1,328 @@
-# ごあんない
-![鈴の頭](README_images/鈴頭.png)
-ここは、**鈴**の配布ページです。
+Language: 　**English**　|　[日本語](./README_jp.md)
 
-![仙狐さんの頭](README_images/仙狐さん頭.png)
-**仙狐さん**の配布ページは[こちら](https://github.com/Gakuto1112/SenkoSan)
+# Information
+![Suzu head](./README_images/head_suzu.png)
+This is the download page for **Suzu**.
 
-![シロの頭](./README_images/シロ頭.png)
-**シロ**の配布ページは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/Shiro)
+![Senko head](./README_images/head_senko.png)
+Click [here](https://github.com/Gakuto1112/SenkoSan/tree/Senko) for the download page for **Senko**.
 
-![夜空の頭](./README_images/夜空頭.png)
-**夜空**の配布ページは[こちら](https://github.com/Gakuto1112/Sora)
+![Shiro head](./README_images/head_shiro.png)
+Click [here](https://github.com/Gakuto1112/SenkoSan/tree/Shiro) for the download page for **Shiro**.
 
-***
-# Suzu（鈴）
-TVアニメ「世話やきキツネの仙狐さん」（に一瞬だけ）とその原作に登場するキャラクターを再現した、MinecraftのスキンMod「[Figura](https://modrinth.com/mod/figura)」向けスキン「Suzu（鈴）」です。
+![Sora head](./README_images/head_sora.png)
+Click [here](https://github.com/Gakuto1112/Sora) for the download page for **Sora**.
 
-ターゲットFiguraバージョン：[0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.20.1-0f8b7a9)
+---
 
-![メイン](./README_images/メイン.jpg)
+# Suzu (鈴)
+This is "Suzu (鈴)", the avatar for [Figura](https://modrinth.com/mod/figura), the skin mod for [Minecraft](https://www.minecraft.net/en-us), which imitates the character who appears (briefly) in the TV anime "Sewayaki Kitsune no Senko-san" series and the original manga series.
 
-## この狐（こ）は誰ですか？
-鈴は、原作漫画に登場する、神使の見習いです。ただし、原作漫画では中盤辺りからの登場であったため、アニメへの出演の機会には恵まれませんでした。（ただし、12話のエンディングに一瞬だけ登場します。）
+Target Figura versions: [0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.20.1-0f8b7a9)~
 
-## 特徴
-- 耳と尻尾のモデルが生えています。
-  - 尻尾はプレイヤーの動きに合わせて揺れます。
+![Main image](./README_images/main.jpg)
 
-    ![尻尾が揺れる](./README_images/尻尾が揺れる.gif)
+## Who is she?
+Suzu is an apprentice divine messenger who appears in the original manga. However, since she appeared in the middle of the manga, she didn't have a chance to appear in the anime. However, she does make a brief appearance in the ending of episode 12.
 
-  - 耳は**Xキー**、尻尾は**Zキー**で動かすことができます。
+## Features
+- Has ears and tail models.
+  - Her tail sways with the player's movements.
 
-    ![耳を動かす](./README_images/耳を動かす.gif)
+    ![Swaying tail](./README_images/swaying_tail.gif)
 
-    ![尻尾を動かす](./README_images/尻尾を動かす.gif)
+  - You can jerk the ears with **X key** and wag the tail with **Z key**.
 
-- 現在のHPや満腹度に応じてキャラクターの耳が垂れさがったり、表情が変わったりします。
+    ![Jerk ears](./README_images/jerk_ears.gif)
 
-  ![HPとアバター](./README_images/HPとアバター.jpg)
+    ![Wag tail](./README_images/wag_tail.gif)
 
-- 時々瞬きします。
-- [アクションホイール](#アクションホイール13)で様々なアニメーションを実行できます。
+- Her ears droop and har facial expression changes depending on the player's health and satiety.
 
-  ![箒掃除](./README_images/箒掃除.gif)
+  ![HP and the avatar](./README_images/hp_avatar.jpg)
 
-- [アクションホイール](#アクションホイール23)で座ることができます。
-  - 座らないと実行できないアニメーションがあります。
+- Sometimes she blinks.
 
-  ![おすわり](./README_images/おすわり.jpg)
+- Can play various animations with [the action wheel](#the-action-wheel).
 
-- カーソルキー（↑→↓←）を押すと、表情が変わります。
+  ![Broom sweeping](./README_images/action_bloom_cleaning.gif)
 
-  ![キーエモート](./README_images/キーエモート.jpg)
+- Can sit down with [the action wheel](#action-2-1-sitting-down).
+  - Some animations can be played only when sitting down.
 
-- 剣が薙刀になります（原作漫画第七十七尾）。
-  - メインハンドで持つと薙刀を構えます（オフハンドでは構えません）。
-  - 薙刀を構えながら盾で防御をすると、薙刀で防御する構えをとります。
+  ![Sit down](./README_images/action_sit_down.jpg)
 
-  ![薙刀](./README_images/薙刀.jpg)
+- Can change the facial expressions with the cursor keys (↑→↓←).
 
-- 就寝時は狐のような寝姿になります（第2話）。
-  - 暗闇デバフを受けている時はまた別の寝姿（？）になります。
+  ![Key emotes](./README_images/key_emotes.jpg)
 
-  ![寝姿](./README_images/寝姿.jpg)
+- Changes vanilla swords to [Naginatas](https://en.wikipedia.org/wiki/Naginata) (from episode 77 of the manga).
+  - Holds the naginata when held in the main hand (not in the off hand).
+  - Takes a defensive stance with naginata when using a shield while holding a naginata.
 
-- 有効なダブルべッドで寝る場合は、仙狐さんが添い寝してくれます（第2話）。
-  - 有効なダブルべッドとは、2つ（以上）のベッドが同じ向きで横に隣接しているかつ、そのべッドのどちらも使用中ではないこといいます。
-  - ダミーのプレイヤーのスキンは、あなたのスキンになります。
-  - ダミーのプレイヤーが寝ているベッドは実際には誰も寝ていないため、他のプレイヤーや村人がそのベッドで寝ることがあります（その場合は通常の睡眠アニメーションに変化します）。
-  - 一人称視点で添い寝してもらうと...？
+  ![Naginata](./README_images/naginata.jpg)
 
-  ![添い寝](./README_images/添い寝.jpg)
+- Sleeps like a fox at bedtime (from episode 2 of the anime).
+  - Takes another sleeping pose (?) when she has the darkness effect.
 
-- 複数の衣装チェンジができます。どのような衣装があるかは[衣装カタログ](./衣装一覧.md)をご覧ください。
+  ![Sleeping pose](./README_images/sleeping_pose.jpg)
 
-  ![衣装](./README_images/衣装.gif)
+- She will sleep with you when she sleeps on a valid double bed.
+  - "A valid double bed" means that two (or more) beds are adjacent to each other and facing the same direction, and neither of these beds are in use.
+  - The skin of the dummy player will be your one.
+  - The bed in which the dummy player sleeps is actually not in use, so other players or villagers may sleep in the bed. She will change to the normal sleeping animation in this case.
+  - When you sleep in the first person with her...?
 
-- 写真撮影向けにいくつかポーズをとることができます。
+  ![Sleeping together](./README_images/sleeping_togheter.jpg)
 
-  ![撮影ポーズ](./README_images/撮影ポーズ.jpg)
+- Can change the costume from about 20 different costumes. You can check [the costume catalog](./costume_catalog.md) to know what costumes are available.
 
-- 一定時間放置すると尻尾を手入れしたり、こたつでくつろいだりします。
+  ![Outgoing costume](./README_images/costume_outgoing.jpg)
 
-  ![尻尾の手入れ](./README_images/尻尾の手入れ.gif)
+- Can take some poses for taking a picture.
 
-  ![こたつでくつろぐ](./README_images/こたつ.jpg)
+  ![Photo poses](./README_images/photo_pose.jpg)
 
-  - あまり長時間放置しないようにして下さい。でも、鈴はあなたの帰りを待っています。
+- Grooms her tail and relaxes in the [kotatsu](https://en.wikipedia.org/wiki/Kotatsu) when she is left alone for a short while.
 
-- あなたの表示名をキャラクターの名前に変更できます。
-  - 他のプレイヤーがこの名前を見えるようにするには、**他のプレイヤーもFiguraを導入し、他のプレイヤー側であなたに対する信頼設定を十分上げる必要があります**。
+  ![Grooming tail](./README_images/action_tail_grooming.gif)
 
-  ![名前変更](./README_images/名前変更.jpg)
+  ![Relaxing in kotatsu](./README_images/kotatsu.jpg)
 
-- プレイヤーの頭ブロックが鈴のフィギュアになります（[設定](#アクションホイール33アバター設定)で変更できます）。
-  - [画像右上のフィギュア](https://www.goodsmile.info/ja/product/9273/仙狐.html)
-  - [画像上中央のフィギュア](https://www.geestore.com/detail/id/00000093048)
-  - [画像右上のフィギュア](https://www.amazon.co.jp/gp/product/B07XZ6754D)
-  - 画像左下のフィギュアは、漫画10巻裏のイラストを基に作成しました。
-  - [画像右下のフィギュア](https://twitter.com/Kanda_omiyage/status/1627141001197531136?t=pWBnib7WuzlAD-uUdDcqIg&s=19)
+  - Don't let her alone for a long time and make her lonely.
 
-  ![プレイヤーの頭](./README_images/プレイヤーの頭.jpg)
+- Can change your display name to her name.
+  - Other players also need to install Figura and give enough permissions to see your display name.
 
-- 水に触れると濡れてしまいます。
-  - 水から上がると身震いして体に付いた水滴を飛ばします（[設定](#アクションホイール33アバター設定)でオフにできます）。
+  ![Changing name](./README_images/name_change.jpg)
 
-    ![ぶるぶる](./README_images/ブルブル.gif)
+- Changes your head block to her figures (can changes in [the settings](#action-4-3-player-head-change)).
+  - [The figure on the top-left of the image](https://www.goodsmile.info/ja/product/9273/仙狐.html)
+  - [The figure on the top-center of the image](https://www.geestore.com/detail/id/00000093048)
+  - [The figure on the top-left of the image](https://www.amazon.co.jp/gp/product/B07XZ6754D)
+  - The figure on the bottom-right of the image was made based on an illustration from the back of volume 10 of the manga.
+  - [The figure on the bottom-right of the image](https://twitter.com/Kanda_omiyage/status/1627141001197531136?t=pWBnib7WuzlAD-uUdDcqIg&s=19)
 
-  - 尻尾は水にぬれるとしなびてしまいます（第5話）。
+  ![Player head](./README_images/player_heads.jpg)
 
-    ![しなびた尻尾](./README_images/しなびた尻尾.jpg)
+- Gets wet when touching water/rain.
+  - Shakes her body and flicks water droplets off the body when getting out of water/rain (can disable in [the settings](#action-4-4-toggle-auto-body-shaking)).
 
-- 雨が降っていると傘をさします。
-  - 傘をさしている場合は雨で濡れることはありません。
-  - オフハンドにアイテムを持っている時やアニメーションを再生した時は雨でも傘をしまいます（この場合はもちろん濡れます）。
-  - 傘を開閉する音は[設定](#アクションホイール33アバター設定)でオフにできます。
+    ![Shaking body](./README_images/action_body_shaking.gif)
 
-  ![傘](./README_images/傘.jpg)
+  - Her tail shrivels up when getting whe.
 
-- 暗視が付与されていると周囲に狐火が出現します。
-  - キャラクターによって出現する狐火の数は異なります。
-  - 濡れている場合は消えてしまいます。
-  - シェーダーパックを適用するとブルーム効果により、より狐火らしくなります。
+    ![shriveled tail](./README_images/shriveled_tail.jpg)
 
-  ![狐火](./README_images/狐火.gif)
+- Takes an umbrella if it's raining.
+  - Won't get wet when taking it.
+  - Won't take it when holding an item in off hand or playing an animation (of course, she gets wet in the case).
+  - The umbrella open/close sound can disable in [the settings](#action-4-7-toggle-umbrella-openclose-sound).
 
-- ウォーデンが付近いる（≒暗闇デバフを受けている）と、怯えて震えます。
+  ![Umbrella](./README_images/umbrella.jpg)
 
-  ![ウォーデンに怯える](./README_images/ウォーデンに怯える.jpg)
+- Appears foxfires (small fireballs) around her when she has the night vision effect.
+  - The number of foxfires is different depends on the character.
+  - They are extinguished when getting wet.
+  - Using a shader pack make them look more like foxfires thanks to its bloom effects.
 
-  - 怯えている時は、エモートを拒否拒否するようになります。
+  ![Foxfires](./README_images/foxfires.gif)
 
-    ![エモート拒否](./README_images/エモート拒否.gif)
+- Will be frightened and tremble when a [warden](https://minecraft.wiki/w/Warden) is nearby her (≒ she has the darkness effect).
 
-## アクションホイール（1/5、立ちアクション）
-Figuraには、アクションホイールキー（デフォルトは「B」キー）を押すことで、エモートなどを実行できるリングメニューが実装されています。このアバターにもいくつかのアクションが用意されています。
+  ![Scared of warden](./README_images/scared_of_warden.jpg)
 
-![アクションホイール1](./README_images/アクションホイール1.jpg)
+  - Refuses playing animations when she is frightened.
 
-### アクション1-1. にっこり（うやん♪）
-他のアクションの最後で行うにっこりを単体で行います。左クリックでにっこりするだけ、右クリックで効果音とパーティクルも再生されます。
+    ![Refusing animations](./README_images/refusing_animations.gif)
 
-![にっこり](./README_images/にっこり.jpg)
+## The action wheel
+Figura provides the action wheel with which players can play some actions (emotes, animations, configs, and etc.). It will be shown when holding the action wheel key (default is B key). This avatar also has some actions.
 
-### アクション1-2. ぶるぶる
-水から上がった際のぶるぶるを手動で実行できます。
+### Page 1 (the standing actions)
 
-![ぶるぶる](./README_images/ブルブル.gif)
+![Action wheel 1](./README_images/action_wheel_1.jpg)
 
-### アクション1-3. お掃除
-左クリックで箒掃除、右クリックで拭き掃除を行います。箒掃除にはレアパターンが存在します（レアパターンのアニメーションは第4話）。
+#### Action 1-1. Smile (uyan♪)
+Plays the smile animation which is played at the end of other actions. Left-click to just smile, and right-click to play with the sound and particles.
 
-![箒掃除](./README_images/箒掃除.gif)
+![Smile](./README_images/action_smile.jpg)
 
-![拭き掃除](./README_images/拭き掃除.gif)
+#### Action 1-2. Body shaking
+Can play the body shake animation which plays when getting out of water manually.
 
-### アクション1-4. 散髪
-プレイヤーの髪を整えてくれます（第9話、スキンはプレイヤーのスキンになります）。少し切り過ぎますが...
+![Body shaking](./README_images/action_body_shaking.gif)
 
-![散髪](./README_images/散髪.gif)
+#### Action 1-3. Cleaning
+Left-click to play broom sweeping, and right-click to play wipe cleaning. The broom sweeping animation has the rare version (The rare version is from episode 4 of the anime).
 
-### アクション1-5. きつねじゃんぷ
-キツネのように雪に飛び込みます（第10話）。雪が十分に積もっており、十分なスペースが必要です。
+![Broom sweeping](./README_images/action_bloom_cleaning.gif)
 
-![きつねジャンプ](./README_images/きつねジャンプ.gif)
+![Wipe cleaning](./README_images/action_wipe_cleaning.gif)
 
-### アクション1-6. 尻尾の手入れ
-尻尾にブラッシングをかけ、尻尾のモフリティを上げます（原作漫画第十六.五尾）。このアクションは立っていても座っていても実行できます。
+#### Action 1-4. Hair cutting
+She will trim your hair (from episode 9 of the anime, the skin will be your one). She also cut a little too...
 
-![尻尾の手入れ](./README_images/尻尾の手入れ.gif)
+![Hair cutting](./README_images/action_hair_cutting.gif)
 
-### アクション1-7. こたつ
-こたつに入ってだらーんとします（第10話）。このアクションは、プレイヤーが移動する等の要因によってアクションがキャンセルされるまで実行され続けます（時間経過により止まることはありません）。
+#### Action 1-5. Fox jump
+Dive into the snow like a fox (from episode 10 of the anime). Enough snow and space is needed to play this action.
 
-![こたつ](./README_images/こたつ.jpg)
+![Fox jump](./README_images/action_fox_jump.gif)
 
-## アクションホイール（2/5、座りアクション）
-![アクションホイール2](./README_images/アクションホイール2.jpg)
+#### Action 1-6. Tail grooming
+Brushes her tail to increase the "flulity" (fluffy quality of the tail) (from episode 16.5 of the manga). This action can be played while standing of sitting.
 
-### アクション2-1. おすわり
-その場に座ります。もう一度アクション実行で立ち上がります。座っている時に動いたり、ジャンプしたり、スニークしたりすると自動で立ち上がります。
+![Tail grooming](./README_images/action_tail_grooming.gif)
 
-![おすわり](./README_images/おすわり.jpg)
+### Action 1-7. Kotatsu
+Relaxes in the Kotatsu (from episode 10 of the anime). This action won't stop due to the passage of time.
 
-### アクション2-2. 尻尾もふもふ
-プレイヤーが鈴の尻尾をモフモフします（第1話、スキンはプレイヤーのスキンになります）。このアクションを実行するには先に座って下さい。ただし、お出かけ服や防具表示状態でチェストプレートを着用している場合は実行できません。
+![Relaxing in kotatsu](./README_images/kotatsu.jpg)
 
-![尻尾モフモフ](./README_images/尻尾モフモフ.gif)
+### Page 2 (the sitting actions)
 
-### アクション2-3. お耳もふもふ
-プレイヤーが鈴の耳をモフモフします（第2話、スキンはプレイヤーのスキンになります）。このアクションを実行するには先に座って下さい。ただし、耳が覆われるような衣装を着用している場合は実行できません。
+![Action wheel 2](./README_images/action_wheel_2.jpg)
 
-![お耳モフモフ](./README_images/耳モフモフ.gif)
+#### Action 2-1. Sitting down
+Sits down there. She will stand up when playing this action again. She will also stand up when moving, jumping, or sneaking while setting down.
 
-### アクション2-4. 耳かき
-膝枕でプレイヤーの耳を掃除してくれます（第2話、スキンはプレイヤーのスキンになります）。このアクションを実行するには先に座って下さい。
+![Shitting down](./README_images/action_sit_down.jpg)
 
-![耳かき](./README_images/耳かき.gif)
+#### Action 2-2. Tail cuddling
+You will cuddle her tail (from episode 1 of the anime, the skin will be your one). This action can be played while sitting. However, it can't be played when she wears outgoing costume or armors are visible.
 
-### アクション2-5. お茶
-ほうじ茶を飲んで一息つきます（第6話）。このアクションを実行するには先に座って下さい。
+![Tail cuddling](./README_images/action_tail_cuddling.gif)
 
-![お茶](./README_images/お茶.gif)
+#### Action 2-3. Ears cuddling
+You will cuddle her ears (from episode 2 of the anime, the skin will be your one). This action can be played while sitting. However, it can't be played when she wears the costume which covers her ears.
 
-### アクション2-6. まっさーじ
-プレイヤーの肩をほぐしてくれます（第7話、スキンはプレイヤーのスキンになります）。このアクションを実行するには先に座って下さい。
+![Ears cuddling](./README_images/action_ears_cuddling.gif)
 
-![マッサージ](./README_images/マッサージ.gif)
+#### Action 2-4. Ear pick
+Cleans your ears on her kneecap (from episode 2 of the anime, the skin will be your one). This action can be played while sitting.
 
-## アクションホイール（3/5、撮影ポーズ）
-![アクションホイール3](./README_images/アクションホイール3.jpg)
+![Ear pick](./README_images/action_ear_pick.gif)
 
-7種類のポーズをとることができます。写真撮影にどうぞ。尚、撮影ポーズ7は、小道具として傘を使用します。
+#### Action 2-5. Tea time
+Takes a sip of [Hojicha](https://en.wikipedia.org/wiki/Hōjicha) (from episode 6 of the anime). This action can be played while sitting.
 
-![撮影ポーズ](./README_images/撮影ポーズ.jpg)
+![Tea time](./README_images/tea_time.gif)
 
-## アクションホイール（4/5、アバター設定1）
-![アクションホイール4](./README_images/アクションホイール4.jpg)
+#### Action 2-6. Massage
+Takes the stiffness out of your shoulders (from episode 6 of the anime, the skin will be your one). This action can be played while sitting.
 
-### アクション4-1. 衣装変更
-鈴の[衣装](衣装一覧.md)を変更します。スクロールで衣装を変更し、アクションホイールを閉じると確定します。選択中に左クリックをすると現在の設定値に、右クリックすると初期値にリセットされます。
+![Massage](./README_images/massage.gif)
 
-### アクション4-2. 名前変更
-プレイヤーの表示名を変更します。スクロールで表示名を選択し、アクションホイールを閉じると確定します。選択中に左クリックをすると現在の設定値に、右クリックすると初期値にリセットされます。ただし、他のプレイヤーが変更された名前を見るには、**そのプレイヤーもFiguraを導入し、他のプレイヤー側であなたに対する信頼設定を十分上げる必要があります**。
+### Page 3 (the photo poses)
 
-![名前変更](./README_images/名前変更.jpg)
+![Action wheel 3](./README_images/action_wheel_3.jpg)
 
-設定できる名前の選択肢は以下の通りです。
+Poses in 7 different poses. Can be used for photo shoots. Her umbrella will be used as a prop for pose 7.
 
-- <プレイヤー名>
+![Photo pose](./README_images/photo_pose.jpg)
+
+### Page 4 (avatar settings 1)
+
+![Action wheel 4](./README_images/action_wheel_4.jpg)
+
+#### Action 4-1. Costume change
+Changes her [costume](./costume_catalog.md). Scroll to select the costume and closing the action wheel to confirm. Left-click to reset to current selection, and right-clock to reset to default during selection.
+
+#### Action 4-2. Display name change
+Changes the player's display name. Scroll to select the name and closing the action wheel to confirm. Left-click to reset to current selection, and right-clock to reset to default during selection. However, **Other players also need to install Figura and give enough permissions** to see your display name.
+
+![Display name](./README_images/name_change.jpg)
+
+The name option which can be set are as follows:
+
+- &lt;Player name&gt;
 - Suzu
 - 鈴
 - スズ
 
-### アクション4-3. プレイヤーの頭のタイプの変更
-アバターの「プレイヤーの頭」のモデルタイプを変更します。選択中に左クリックをすると現在の設定値に、右クリックすると初期値にリセットされます。
+#### Action 4-3. Player head change
+Changes the model of the "player head". Scroll to select the model and closing the action wheel to confirm. Left-click to reset to current selection, and right-clock to reset to default during selection.
 
-![プレイヤーの頭](./README_images/プレイヤーの頭.jpg)
+![Player head](./README_images/player_heads.jpg)
 
-設定できるモデル選択肢は以下の通りです。
+The model option which can be set are as follows:
 
-- デフォルト（アバターの頭のみのモデル）
-- フィギュア（[参考](https://www.goodsmile.info/ja/product/9273/仙狐.html)）
-- メイドのフィギュア（[参考](https://www.geestore.com/detail/id/00000093048)）
-- チアリーダーのフィギュア（[参考](https://www.amazon.co.jp/gp/product/B07XZ6754D)）
-- きつねパーカーのフィギュアは、漫画10巻裏のイラストを基に作成しました。
-- 着物のフィギュア（[参考](https://twitter.com/Kanda_omiyage/status/1627141001197531136?t=pWBnib7WuzlAD-uUdDcqIg&s=19)）
+- Default (the avatar's head model only)
+- The figure（[reference](https://www.goodsmile.info/ja/product/9273/仙狐.html)）
+- The maid figure（[reference](https://www.geestore.com/detail/id/00000093048)）
+- The cheerleader figure（[reference](https://www.amazon.co.jp/gp/product/B07XZ6754D)）
+- The fox hoodie figure was made based on an illustration from the back of volume 10 of the manga.
+- The kimono figure（[reference](https://twitter.com/Kanda_omiyage/status/1627141001197531136?t=pWBnib7WuzlAD-uUdDcqIg&s=19)）
 
-Mobが被っているプレイヤーの頭は設定に関わらず、デフォルトの頭になります。
+Your "player heads" which other players/mobs wear will be the default heads regardless of this settings.
 
-因みに、プレイヤーの頭は以下のコマンドで入手できます：`/give @p minecraft:player_head{SkullOwner: "<プレイヤー名>"} 1`
+You can get your "player head" by using the following command with cheat mode:
+```
+/give @p minecraft:player_head{SkullOwner: "<player_name>"} 1
+```
 
-### アクション4-4. 自動ぶるぶるの切り替え
-濡れている際に自動的に[ぶるぶる](#アクション1-2-ぶるぶる)を実行するかどうかを設定できます。
+#### Action 4-4. Toggle auto body shaking
+Toggles whether [she shakes her body](#action-1-2-shaking-body) or not when getting wet.
 
-### アクション4-5. 防具の表示の切り替え
-防具を表示するかどうかを設定できます。一部の[衣装](./衣装一覧.md)は防具と干渉しないように、防具装備中は非表示になります。この設定はバニラの防具にのみ対応しています。
+#### Action 4-5. Toggle armors visible
+Toggles whether equipped armors are visible or not. Some [costumes](./costume_catalog.md) will be hidden not to interfere with the armors while equips them. This setting will only affects to vanilla armors.
 
-### アクション4-6. 一人称視点での狐火の表示の切り替え
-一人称視点で狐火のパーティクルを表示するかどうかを設定できます。上を向いた際に、頭上の狐火が煩わしいと感じる場合はオフにして下さい。
+#### Action 4-6. Toggle foxfires visible in first person
+Toggles whether foxfires are visible or not in the first person. Turn this off if you are annoyed with them when looking up.
 
-### アクション4-7. 傘の開閉音の切り替え
-傘の開閉音を再生するかどうかを設定できます。傘の開閉音が煩わしいと感じる場合はオフにして下さい。
+![Foxfires](./README_images/foxfires.gif)
 
-## アクションホイール（5/5、アバター設定2）
-![アクションホイール5](./README_images/アクションホイール5.jpg)
+#### Action 4-7. Toggle umbrella open/close sound
+Toggles whether the umbrella open/closed sounds are played or not. Turn this off if you are annoyed with them.
 
-### アクション5-1. 常に傘をさす
-傘を差せる状況下において、雨が降っていなくても常に傘をさします。撮影用途などにどうぞ。
+### Page 5 (avatar settings 2)
 
-### アクション5-2. メッセージの表示
-アクションホイールでのメッセージ以外の、良く表示されるであろう一部メッセージを表示するかどうかを設定できます。メッセージが煩わしいと感じる場合はオフにして下さい。
+![Action wheel 5](./README_images/action_wheel_5.jpg)
 
-## 使用方法
-1. マインクラフトに[Fabric](https://fabricmc.net/)をインストールし、[Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)と[Figura 0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.20.1-0f8b7a9)を追加します。各Modの依存関係にご注意ください。
-2. ページ上部の緑色のボタン「**Code**」から「**Download ZIP**」からこのレポジトリのファイルをダウンロードします。（または、このレポジトリをクローンします。）
-3. 圧縮ファイルの場合は展開します。
-4. ``<マインクラフトのゲームフォルダ>/figura/avatars/``にアバターのデータを配置します。
-   - フォルダはFiguraを追加したマインクラフトを一度起動すると自動的に生成されます。ない場合は手動で作成しても構いません。
-5. ゲームメニューからFiguraメニュー（Δマーク）を開き、画面左のアバターリストから「鈴」を選択します。
-6. 必要に応じて[権限設定](#推奨設定)をして下さい。
-7. アバターをサーバーにアップロードすると、他のFiguraプレイヤーもあなたのアバターを見ることができます。
+#### Action 5-1. Toggle always umbrella use
+Toggles whether she always use umbrella when she can use it even if it isn't raining. Can be used for photo shoots.
 
-## 推奨設定
-### 権限設定（Permissions）
-デフォルトの権限設定において、**Default**以上必須！**High**以上推奨。
+![Umbrella](./README_images/umbrella.jpg)
 
-あなただけではなく、あなたのアバターを見る他のプレイヤーも同様に、あなたの信頼度を上げる必要があります！
+#### Action 5-2. Toggle frequently shown messages
+Toggles whether messages which are showed frequently show or not. This setting will not affects the action wheel messages. Turn this off if you are annoyed with them.
 
-| 項目 | 推奨設定 | 備考 |
-| - | - | - |
-| Vanilla Model Change | **有効！！** | これが有効でないと、バニラのプレイヤーモデルが消えません！！ |
-| Nameplate Change | 有効 | 権限「Default」レベルでは無効になっています。 |
-| Custom Player Heads | 有効 | |
+## How to use
+Figura is available in [Forge](https://files.minecraftforge.net/net/minecraftforge/forge/), [Fabric](https://fabricmc.net/), and [Quilt](https://quiltmc.org/).
 
-### マインクラフト設定
-| 項目 | 推奨設定 | 備考 |
-| - | - | - |
-| キー設定 | 「尻尾ふりふり」や「お耳ぴくぴく」と同じキー割り当てを行わない | |
-| 言語設定 | 日本語 | 日本語以外の言語では英語表示になります。また、英語への翻訳は正確でない可能性があります。 |
-| バニラのスキン | 鈴をモチーフにしたスキンにしない | 癒されるのはあなた自身なので。 |
+1. Install the mod loader which you want to use and make the mods available.
+2. Install [Figura](https://modrinth.com/mod/figura). Note the mod dependencies.
+3. Go to the download page for the character which you want to download.
+4. Click green "**<>Code**" button at the top of the page and "**Download ZIP**" to download the repository files (or clone this repository).
+5. Extract the file if it is a zipped file.
+6. Put avatar files at `<minecraft_instance_directory>/figura/avatars/`.
+   - The directory will automatically generated after launching the game with Figura installed. You can also create it manually if it doesn't exist.
+7. Open the Figura menu (Δ mark) from the game menu.
+8. Select the avatar from the avatar list at the left of the Figura menu.
+9. Sets your permission if you need.
+10. Other Figura players can see your avatar after uploading your avatar to the Figura server.
 
-## 注意事項
-- このアバターを使用して発生した、いかなる損害の責任も負いかねます。
-- このアバターは、デフォルトのリソースパックでの動作を想定しています。また、他MODの使用は想定していません。想定動作環境外ではテクスチャの不整合、防具が表示されない/非表示にならない、といった不具合が想定されます。この場合の不具合は対応しませんのでご了承下さい。
-- 不具合がありましたら、[Issues](https://github.com/Gakuto1112/SenkoSan/issues)までご連絡下さい。
+## Notes
+- I'm not responsible for any damages caused by using this avatar.
+- This avatar is designed for work with no resource pack and no other mods are installed. An unexpected issue may occurs when you use it with any resource packs and mods (texture and armor inconsistencies, etc.). However, I won't support in these cases.
+- Please [report an issue](https://github.com/Gakuto1112/SenkoSan/issues) if you find it.
 
-## リンク集
+## Links
 - [Figura（Modrinth）](https://modrinth.com/mod/figura)
 - [Figura（GitHub）](https://github.com/Moonlight-MC-Temp/Figura)
 - [TVアニメ「世話やきキツネの仙狐さん」オフィシャルサイト](http://senkosan.com/)
 - [Amazon.co.jp_ 世話やきキツネの仙狐さんを観る _ Prime Video](https://www.amazon.co.jp/gp/video/detail/B07QJG9NP7)
 - [世話やきキツネの仙狐さん - Webで漫画が無料で読める！コミックNewtype](https://comic.webnewtype.com/contents/sewayaki/)
 
-***
+---
 
-![仙狐とシロ1](./README_images/仙狐とシロ1.jpg)
+![Senko and Shiro 1](./README_images/senko_and_shiro_1.jpg)
 
-![仙狐とシロ2](./README_images/仙狐とシロ2.jpg)
+![Senko and Shiro 2](./README_images/senko_and_shiro_2.jpg)
 
-![仙狐とシロ3](./README_images/仙狐とシロ3.jpg)
+![Senko and Shiro 3](./README_images/senko_and_shiro_3.jpg)
 
-![仙狐とシロ4](./README_images/仙狐とシロ4.jpg)
+![Senko and Shiro 4](./README_images/senko_and_shiro_4.jpg)
 
-![仙狐とシロ5](./README_images/仙狐とシロ5.jpg)
+![Senko and Shiro 5](./README_images/senko_and_shiro_5.jpg)
