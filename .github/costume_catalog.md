@@ -1,115 +1,101 @@
 # The costume catalog
-キャラクターに着せられる衣装の一覧です。[アバター設定](../SenkoSan/README.md#アバター設定)から衣装を着せ替えられます。（一部の衣装の写真は古い場合があります。）
+This is a list of costumes which she can wear. You can change the costume at [the avatar settings](./README.md#action-4-1-costume-change) (some pictures may be old).
 
-## いつもの服
-![いつもの服](README_images/通常の服.jpg)
+## Normal costume
+![Normal costume](README_images/通常の服.jpg)
 
-## 寝間着
-第2話で登場した服です。ベッドで寝る時にはこの服になります。
+## Nightwear
+Appeared in episode 2 of the anime. She will also wear this at bedtime.
 
-![寝巻き](README_images/寝巻き.jpg)
+![Nightwear](README_images/寝巻き.jpg)
 
-## お出かけ服
-第3話で登場した服です。本来、仙狐さんはコートに腕を通していませんが、ややこしかったので、ここではコートに腕を通しています。
+## Outgoing costume
+Appeared in episode 3 of the anime.
 
-![変装服](README_images/変装服.jpg)
+![Outgoing costume](README_images/変装服.jpg)
 
-## メイド服A
-第6話で登場した服です。
+## Maid costume A
+Appeared in episode 6 of the anime.
 
-![メイド服A](README_images/メイド服A.jpg)
+![Maid costume A](README_images/メイド服A.jpg)
 
-## メイド服B
-第6話で（ちょっぴり）登場した、大正ロマン風のメイド服です。
+## Maid costume B
+Appeared (briefly) in episode 6 of the anime. It's Japanese-style maid costume.
 
-![メイド服B](README_images/メイド服B.jpg)
+![Maid costume B](README_images/メイド服B.jpg)
 
-## 水着
-第8話で登場した服です。麦わら帽子は頭に防具を装備すると表示されます。ヘルメット（素材は問わない）を被ると麦わら帽子が表示されます（防具が表示されていると麦わら帽子は表示されません）。
+## Swimsuit
+Appeared in episode 8 of the anime. An straw hat will be displayed when a helmet (of any material) is worm. It won't be shown when the armors are visible.
 
-![水着](README_images/水着.jpg)
+![Swimsuit](README_images/水着.jpg)
 
-## チアリーダーの服
-なんか手元にアクリルスタンドがあったので、それを基に作りました。ポンポンは、アイテムを手に持っている場合やアニメーション再生中は非表示になります。写真のポーズをとりたい場合は、[撮影ポーズ](README.md#アクションホイール35撮影ポーズ)をご利用ください。
+## Cheerleader costume
+Made based on [this merchandise](https://www.amazon.co.jp/gp/product/B07XZ6754D). Pompoms aren't shown when holding an item or playing an animation. If you want to let her to take the pose like this image, use [photo pose](./README.md#page-3-the-photo-poses).
 
-![チアリーダー](README_images/チアリーダー.jpg)
+![Cheerleader costume](README_images/チアリーダー.jpg)
 
-## 清めの服
-第8話で登場した服です。
+## Purification clothes
+Appeared in episode 8 of the anime.
 
-![清めの服](README_images/清めの服.jpg)
+![Purification clothes](README_images/清めの服.jpg)
 
-## 割烹着
-第11話で登場した服です。
+## Kappogi
+[Kappogi](https://en.wikipedia.org/wiki/Kappōgi) is a Japanese cooking wear. Appeared in episode 11 of the anime.
 
-![割烹着](README_images/割烹着.jpg)
+![Kappogi](README_images/割烹着.jpg)
 
-## 浴衣
-原作漫画（6巻表紙）で登場した服です。ヘルメット（素材は問わない）を被るとキツネのお面が表示されます（防具が表示されているとキツネのお面は表示されません）。
+## Yukata
+Appeared in the front cover of the volume 6 of the manga. The red fox mask will be show when leather, chain mail, or iron helmet is worn. The Arctic fox mask will be show when gold, diamond, or netherite helmet is worn. The won't be shown when the armors are visible.
 
-- 革の帽子
-- チェーンのヘルメット
-- 鉄のヘルメット
+![Yukata](README_images/浴衣.jpg)
 
-はアカギツネのお面、
+![Fox mask](README_images/狐のお面.jpg)
 
-- 金のヘルメット
-- ダイヤモンドのヘルメット
-- ネザライトのヘルメット
+## Knitted hat
+Nakano gave this hat to Senko in episode 45 of the manga.
 
-はホッキョクギツネのお面になります。
+![Knitted hat](README_images/ニット帽.jpg)
 
-![浴衣](README_images/浴衣.jpg)
+## Fox hoodie (red)
+Appeared in episode 74 of the manga. The concept of this costume was taken from the manga, and the design is arranged in the style of Minecraft foxes.
 
-![キツネのお面](README_images/狐のお面.jpg)
+![Fox hoodie (red)](README_images/きつねパーカー（赤）.jpg)
 
-## ニット帽
-原作漫画第四十五尾で中野君が仙狐さんにプレゼントしていたニット帽です。
+## Fox hoodie (white)
+This is the Arctic fox version of the fox hoodie.
 
-![ニット帽](README_images/ニット帽.jpg)
+![Fox hoodie (white)](README_images/きつねパーカー（白）.jpg)
 
-## きつねパーカー（赤）
-原作漫画第七十四尾で着ていた服です。コンセプトは漫画から頂き、衣装デザインはマインクラフトのキツネ風にアレンジしています。
+## Tracksuit
+Senko was wearing this costume when she was jogging in episode 70 of the manga.
 
-![きつねパーカー（赤）](README_images/きつねパーカー（赤）.jpg)
+![Tracksuit](README_images/ジャージ.jpg)
 
-## きつねパーカー（白）
-きつねパーカーのホッキョクギツネバージョンです。
+## Casual clothes
+Senko tried on this costume in episode 74 of the manga.
 
-![きつねパーカー（白）](README_images/きつねパーカー（白）.jpg)
+![Casual clothes](README_images/カジュアルな服.jpg)
 
-## ジャージ
-原作漫画第七十尾でランニングする際に着ていた服です。
+## Sailor suit
+Senko tried on this costume in episode 74 of the manga.
 
-![ジャージ](README_images/ジャージ.jpg)
+![Sailor suit](README_images/セーラー服.jpg)
 
-## カジュアルな服
-原作漫画第七十四尾で試着していた服です。
+## China dress
+Senko wore this costume as one of the tries to get out of her rut in episode 79 of the manga.
 
-![カジュアルな服](README_images/カジュアルな服.jpg)
+![China dress](README_images/チャイナドレス.jpg)
 
-## セーラー服
-原作漫画第七十四尾で試着していた服です。
+## Santa costume
+Made based on the illustration posted at [The original author's Twitter](https://twitter.com/rimukoro/status/1342066683704352768).
 
-![セーラー服](README_images/セーラー服.jpg)
+...If you start the game with this costume when chests becomes Christmas presents...?
 
-## チャイナドレス
-原作漫画第七十九尾で、仙狐さんマンネリ化脱却計画の一環で着ていた服です。
+![Santa costume](README_images/サンタさん.jpg)
 
-![チャイナドレス](README_images/チャイナドレス.jpg)
+## Kimono
+This kimono has a colorful pattern that would be suitable for spring. The color of her umbrella will be changed only for this costume.
 
-## サンタさんの服
-[作者様のTwitter](https://twitter.com/rimukoro/status/1342066683704352768)で投稿された画像を基に作成した服です。
+[Reference](https://twitter.com/Kanda_omiyage/status/1627141001197531136?t=pWBnib7WuzlAD-uUdDcqIg&s=19)
 
-...チェストがクリスマスプレゼントになる頃にこの衣装を着てゲームを始めると...？
-
-![サンタさんの服](README_images/サンタさん.jpg)
-
-## 春の着物
-春に似合いそうな色柄の着物です。バージョン1.20がリリースされたら桜バイオームも共に撮影してあげて下さい。
-
-この衣装のみ傘の色が変わります。
-
-[参考](https://twitter.com/Kanda_omiyage/status/1627141001197531136?t=pWBnib7WuzlAD-uUdDcqIg&s=19)
-
-![春の着物](README_images/着物.jpg)
+![Kimono](README_images/着物.jpg)
