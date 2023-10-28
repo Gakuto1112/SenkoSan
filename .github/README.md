@@ -38,11 +38,11 @@ Target Figura versions: [0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.
 
 - Sometimes she blinks.
 
-- Can play various animations with Action wheel.
+- Can play various animations with [the action wheel](#the-action-wheel).
 
   ![Broom cleaning](./README_images/箒掃除.gif)
 
-- Can sit down with Action wheel.
+- Can sit down with [the action wheel](#action-2-1-sitting-down).
   - Some animations can be played only when sitting down.
 
   ![Sit down](./README_images/おすわり.jpg)
@@ -87,11 +87,11 @@ Target Figura versions: [0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.
   - Don't let her alone for a long time and make her lonely.
 
 - Can change your display name to her name.
-  - Other players also need to install Figura and give enough permissions to see the name to you.
+  - Other players also need to install Figura and give enough permissions to see your display name.
 
   ![Changing name](./README_images/名前変更.jpg)
 
-- Changes your head block to her figures (can changes in the config).
+- Changes your head block to her figures (can changes in [the settings](#action-4-3-player-head-change)).
   - [The figure on the top-left of the image](https://www.goodsmile.info/ja/product/9273/仙狐.html)
   - [The figure on the top-center of the image](https://www.geestore.com/detail/id/00000093048)
   - [The figure on the top-left of the image](https://www.amazon.co.jp/gp/product/B07XZ6754D)
@@ -101,7 +101,7 @@ Target Figura versions: [0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.
   ![Player head](./README_images/プレイヤーの頭.jpg)
 
 - Gets wet when touching water/rain.
-  - Shakes her body and flicks water droplets off the body when getting out of water/rain (can disable in the config).
+  - Shakes her body and flicks water droplets off the body when getting out of water/rain (can disable in [the settings](#action-4-4-toggle-auto-body-shaking)).
 
     ![Shaking body](./README_images/ブルブル.gif)
 
@@ -112,16 +112,16 @@ Target Figura versions: [0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.
 - Takes an umbrella if it's raining.
   - Won't get wet when taking it.
   - Won't take it when holding an item in off hand or playing an animation (of course, she gets wet in the case).
-  - The umbrella open/close sound can disable in the config.
+  - The umbrella open/close sound can disable in [the settings](#action-4-7-toggle-umbrella-openclose-sound).
 
   ![Umbrella](./README_images/傘.jpg)
 
 - Appears foxfires (small fireballs) around her when she has the night vision effect.
   - The number of foxfires is different depends on the character.
   - They are extinguished when getting wet.
-  - Using a shader pack make them look more like foxfires thanks to its bloom effect.
+  - Using a shader pack make them look more like foxfires thanks to its bloom effects.
 
-  ![Foxfire](./README_images/狐火.gif)
+  ![Foxfires](./README_images/狐火.gif)
 
 - Will be frightened and tremble when a [warden](https://minecraft.wiki/w/Warden) is nearby her (≒ she has the darkness effect).
 
@@ -130,3 +130,159 @@ Target Figura versions: [0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.
   - Refuses playing animations when she is frightened.
 
     ![Refusing animations](./README_images/エモート拒否.gif)
+
+## The action wheel
+Figura provides the action wheel with which players can play some actions (emotes, animations, configs, and etc.). It will be shown when holding the action wheel key (default is B key). This avatar also has some actions.
+
+### Page 1 (the standing actions)
+
+![Action wheel 1](./README_images/アクションホイール1.jpg)
+
+#### Action 1-1. Smile (uyan♪)
+Plays the smile animation which is played at the end of other actions. Left-click to just smile, and right-click to play with the sound and particles.
+
+![Smile](./README_images/にっこり.jpg)
+
+#### Action 1-2. Shaking body
+Can play the body shake animation which plays when getting out of water manually.
+
+![Shaking body](./README_images/ブルブル.gif)
+
+#### Action 1-3. Cleaning
+Left-click to play broom sweeping, and right-click to play wipe cleaning. The broom sweeping animation has the rare version (The rare version is from episode 4 of the anime).
+
+![Broom sweeping](./README_images/箒掃除.gif)
+
+![Wipe cleaning](./README_images/拭き掃除.gif)
+
+#### Action 1-4. Hair cutting
+She will trim your hair (from episode 9 of the anime, the skin will be your one). She also cut a little too...
+
+![Hair cutting](./README_images/散髪.gif)
+
+#### Action 1-5. Fox jump
+Dive into the snow like a fox (from episode 10 of the anime). Enough snow and space is needed to play this action.
+
+![Fox jump](./README_images/きつねジャンプ.gif)
+
+#### Action 1-6. Tail grooming
+Brushes her tail to increase the "flulity" (fluffy quality of the tail) (from episode 16.5 of the manga). This action can be played while standing of sitting.
+
+![Tail grooming](./README_images/尻尾の手入れ.gif)
+
+### アクション1-7. Kotatsu
+Relaxes in the Kotatsu (from episode 10 of the anime). This action won't stop due to the passage of time.
+
+![Relaxing in kotatsu](./README_images/こたつ.jpg)
+
+### Page 2 (the sitting actions)
+
+![Action wheel 2](./README_images/アクションホイール2.jpg)
+
+#### Action 2-1. Sitting down
+Sits down there. She will stand up when playing this action again. She will also stand up when moving, jumping, or sneaking while setting down.
+
+![Shitting down](./README_images/おすわり.jpg)
+
+#### Action 2-2. Tail cuddling
+You will cuddle her tail (from episode 1 of the anime, the skin will be your one). This action can be played while sitting. However, it can't be played when she wears outgoing costume or armors are visible.
+
+![Tail cuddling](./README_images/尻尾モフモフ.gif)
+
+#### Action 2-3. Ears cuddling
+You will cuddle her ears (from episode 2 of the anime, the skin will be your one). This action can be played while sitting. However, it can't be played when she wears the costume which covers her ears.
+
+![Ears cuddling](./README_images/耳モフモフ.gif)
+
+#### Action 2-4. Ear pick
+Cleans your ears on her kneecap (from episode 2 of the anime, the skin will be your one). This action can be played while sitting.
+
+![Ear pick](./README_images/耳かき.gif)
+
+#### Action 2-5. Tea time
+Takes a sip of [Hojicha](https://en.wikipedia.org/wiki/Hōjicha) (from episode 6 of the anime). This action can be played while sitting.
+
+![Tea time](./README_images/お茶.gif)
+
+#### Action 2-6. Massage
+Takes the stiffness out of your shoulders (from episode 6 of the anime, the skin will be your one). This action can be played while sitting.
+
+![Massage](./README_images/マッサージ.gif)
+
+### Page 3 (the photo poses)
+
+![Action wheel 3](./README_images/アクションホイール3.jpg)
+
+Poses in 7 different poses. Can be used for photo shoots. Her umbrella will be used as a prop for pose 7.
+
+![Photo pose](./README_images/撮影ポーズ.jpg)
+
+### Page 4 (avatar settings 1)
+
+![Action wheel 4](./README_images/アクションホイール4.jpg)
+
+#### Action 4-1. Costume change
+Changes her [costume](./costume_list.md). Scroll to select the costume and closing the action wheel to confirm. Left-click to reset to current selection, and right-clock to reset to default during selection.
+
+#### Action 4-2. Display name change
+Changes the player's display name. Scroll to select the name and closing the action wheel to confirm. Left-click to reset to current selection, and right-clock to reset to default during selection. However, **Other players also need to install Figura and give enough permissions** to see your display name.
+
+![Display name](./README_images/名前変更.jpg)
+
+The name option which can be set are as follows:
+
+- &lt;Player name&gt;
+- Senko
+- 仙狐
+- Senko_san
+- 仙狐さん
+- Sen
+- 仙
+- セン
+
+#### Action 4-3. Player head change
+Changes the model of the "player head". Scroll to select the model and closing the action wheel to confirm. Left-click to reset to current selection, and right-clock to reset to default during selection.
+
+![Player head](./README_images/プレイヤーの頭.jpg)
+
+The model option which can be set are as follows:
+
+- Default (the avatar's head model only)
+- The figure（[reference](https://www.goodsmile.info/ja/product/9273/仙狐.html)）
+- The maid figure（[reference](https://www.geestore.com/detail/id/00000093048)）
+- The cheerleader figure（[reference](https://www.amazon.co.jp/gp/product/B07XZ6754D)）
+- The fox hoodie figure was made based on an illustration from the back of volume 10 of the manga.
+- The kimono figure（[reference](https://twitter.com/Kanda_omiyage/status/1627141001197531136?t=pWBnib7WuzlAD-uUdDcqIg&s=19)）
+
+Your "player heads" which other players/mobs wear will be the default heads regardless of this settings.
+
+You can get your "player head" by using the following command with cheat mode:
+```
+/give @p minecraft:player_head{SkullOwner: "<player_name>"} 1
+```
+
+#### Action 4-4. Toggle auto body shaking
+Toggles whether [she shakes her body](#action-1-2-shaking-body) or not when getting wet.
+
+#### Action 4-5. Toggle armors visible
+Toggles whether equipped armors are visible or not. Some [costumes](./costume_list.md) will be hidden not to interfere with the armors while equips them. This setting will only affects to vanilla armors.
+
+#### Action 4-6. Toggle foxfires visible in first person
+Toggles whether foxfires are visible or not in the first person. Turn this off if you are annoyed with them when looking up.
+
+![Foxfires](./README_images/狐火.gif)
+
+#### Action 4-7. Toggle umbrella open/close sound
+Toggles whether the umbrella open/closed sounds are played or not. Turn this off if you are annoyed with them.
+
+### Page 5 (avatar settings 2)
+
+![Action wheel 5](./README_images/アクションホイール5.jpg)
+
+#### Action 5-1. Toggle always umbrella use
+Toggles whether she always use umbrella when she can use it even if it isn't raining. Can be used for photo shoots.
+
+![Umbrella](./README_images/傘.jpg)
+
+#### Action 5-2. Toggle frequently shown messages
+Toggles whether messages which are showed frequently show or not. This setting will not affects the action wheel messages. Turn this off if you are annoyed with them.
