@@ -1,5 +1,5 @@
 # The costume catalog
-This is a list of costumes which she can wear. You can change the costume at [the avatar settings](./README.md#action-4-1-costume-change) (some pictures may be old).
+This is a list of costumes which she can wear. You can change the costume at [the avatar settings](./README.md#action-4-1-costume-change).
 
 ## Normal costume
 ![Normal costume](README_images/通常の服.jpg)
