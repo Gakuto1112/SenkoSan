@@ -1,11 +1,11 @@
 Language: 　[English](./README.md)　|　**日本語**
 
 # ごあんない
-![仙狐さんの頭](./README_images/head_senko.png)
-ここは、**仙狐さん**の配布ページです。
-
 ![シロの頭](./README_images/head_shiro.png)
-**シロ**の配布ページは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/Shiro)
+ここは、**シロ**の配布ページです。
+
+![仙狐さんの頭](./README_images/head_senko.png)
+**仙狐さん**の配布ページは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/Senko)
 
 ![鈴の頭](./README_images/head_suzu.png)
 **鈴**の配布ページは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/Suzu)
@@ -14,8 +14,8 @@ Language: 　[English](./README.md)　|　**日本語**
 **夜空**の配布ページは[こちら](https://github.com/Gakuto1112/Sora)
 
 ***
-# SenkoSan（仙狐さん）
-TVアニメ「世話やきキツネの仙狐さん」とその原作に登場するキャラクターを再現した、[Minecraft](https://www.minecraft.net/ja-jp)のスキンMod「[Figura](https://modrinth.com/mod/figura)」向けスキン「SenkoSan（仙狐さん）」です。
+# Shiro（シロ）
+TVアニメ「世話やきキツネの仙狐さん」とその原作に登場するキャラクターを再現した、[Minecraft](https://www.minecraft.net/ja-jp)のスキンMod「[Figura](https://modrinth.com/mod/figura)」向けスキン「Shiro（シロ）」です。
 
 ターゲットFiguraバージョン：[0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.20.1-0f8b7a9)~
 
@@ -232,13 +232,8 @@ Figuraには、アクションホイールキー（デフォルトは「B」キ�
 設定できる名前の選択肢は以下の通りです。
 
 - <プレイヤー名>
-- Senko
-- 仙狐
-- Senko_san
-- 仙狐さん
-- Sen
-- 仙
-- セン
+- Shiro
+- シロ
 
 #### アクション4-3. プレイヤーの頭のタイプの変更
 アバターの「プレイヤーの頭」のモデルタイプを変更します。選択中に左クリックをすると現在の設定値に、右クリックすると初期値にリセットされます。
