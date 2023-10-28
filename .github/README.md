@@ -1,3 +1,5 @@
+Language: 　**English**　|　[日本語](./README_jp.md)
+
 # Information
 ![Senko head](./README_images/head_senko.png)
 This is the download page for **Senko**.

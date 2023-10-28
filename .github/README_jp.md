@@ -1,3 +1,5 @@
+Language: 　[English](./README.md)　|　**日本語**
+
 # ごあんない
 ![仙狐さんの頭](./README_images/head_senko.png)
 ここは、**仙狐さん**の配布ページです。
