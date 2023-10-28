@@ -70,7 +70,7 @@ Target Figura versions: [0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.
 
   ![Sleeping together](./README_images/添い寝.jpg)
 
-- Can change the costume from about 20 different costumes. You can check [the costume catalog](./costume_list.md) to know what costumes are available.
+- Can change the costume from about 20 different costumes. You can check [the costume catalog](./costume_catalog.md) to know what costumes are available.
 
   ![Costumes](./README_images/衣装.gif)
 
@@ -222,7 +222,7 @@ Poses in 7 different poses. Can be used for photo shoots. Her umbrella will be u
 ![Action wheel 4](./README_images/アクションホイール4.jpg)
 
 #### Action 4-1. Costume change
-Changes her [costume](./costume_list.md). Scroll to select the costume and closing the action wheel to confirm. Left-click to reset to current selection, and right-clock to reset to default during selection.
+Changes her [costume](./costume_catalog.md). Scroll to select the costume and closing the action wheel to confirm. Left-click to reset to current selection, and right-clock to reset to default during selection.
 
 #### Action 4-2. Display name change
 Changes the player's display name. Scroll to select the name and closing the action wheel to confirm. Left-click to reset to current selection, and right-clock to reset to default during selection. However, **Other players also need to install Figura and give enough permissions** to see your display name.
@@ -265,7 +265,7 @@ You can get your "player head" by using the following command with cheat mode:
 Toggles whether [she shakes her body](#action-1-2-shaking-body) or not when getting wet.
 
 #### Action 4-5. Toggle armors visible
-Toggles whether equipped armors are visible or not. Some [costumes](./costume_list.md) will be hidden not to interfere with the armors while equips them. This setting will only affects to vanilla armors.
+Toggles whether equipped armors are visible or not. Some [costumes](./costume_catalog.md) will be hidden not to interfere with the armors while equips them. This setting will only affects to vanilla armors.
 
 #### Action 4-6. Toggle foxfires visible in first person
 Toggles whether foxfires are visible or not in the first person. Turn this off if you are annoyed with them when looking up.
