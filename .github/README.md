@@ -306,3 +306,22 @@ Figura is available in [Forge](https://files.minecraftforge.net/net/minecraftfor
 - I'm not responsible for any damages caused by using this avatar.
 - This avatar is designed for work with no resource pack and no other mods are installed. An unexpected issue may occurs when you use it with any resource packs and mods (texture and armor inconsistencies, etc.). However, I won't support in these cases.
 - Please [report an issue](https://github.com/Gakuto1112/SenkoSan/issues) if you find it.
+
+## Links
+- [Figura（Modrinth）](https://modrinth.com/mod/figura)
+- [Figura（GitHub）](https://github.com/Moonlight-MC-Temp/Figura)
+- [TVアニメ「世話やきキツネの仙狐さん」オフィシャルサイト](http://senkosan.com/)
+- [Amazon.co.jp_ 世話やきキツネの仙狐さんを観る _ Prime Video](https://www.amazon.co.jp/gp/video/detail/B07QJG9NP7)
+- [世話やきキツネの仙狐さん - Webで漫画が無料で読める！コミックNewtype](https://comic.webnewtype.com/contents/sewayaki/)
+
+---
+
+![Senko and Shiro 1](./README_images/仙狐とシロ1.jpg)
+
+![Senko and Shiro 2](./README_images/仙狐とシロ2.jpg)
+
+![Senko and Shiro 3](./README_images/仙狐とシロ3.jpg)
+
+![Senko and Shiro 4](./README_images/仙狐とシロ4.jpg)
+
+![Senko and Shiro 5](./README_images/仙狐とシロ5.jpg)
