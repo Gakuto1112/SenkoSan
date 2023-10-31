@@ -42,7 +42,7 @@ Kotatsu = General.instance({
 				models.models.main.Avatar.UpperBody.Body.CMaidAB:setVisible(true)
 			elseif Costume.CurrentCostume == "MAID_B" then
 				models.models.main.Avatar.UpperBody.Body.CMaidBB:setVisible(true)
-			elseif Costume.CurrentCostume == "CHEERLEADER" or Costume.CurrentCostume == "SAILOR" then
+			elseif Costume.CurrentCostume == "CHEERLEADER" or Costume.CurrentCostume == "SAILOR" or Costume.CurrentCostume == "HALLOWEEN" then
 				models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setVisible(true)
 			end
 		end

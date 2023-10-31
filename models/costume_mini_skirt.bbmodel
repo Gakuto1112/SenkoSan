@@ -13,7 +13,7 @@
 	"unhandled_root_fields": {},
 	"resolution": {
 		"width": 20,
-		"height": 28
+		"height": 42
 	},
 	"elements": [
 		{
@@ -21,6 +21,8 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
 			"from": [-4.5, 12, -3],
 			"to": [4.5, 15, 3],
 			"autouv": 0,
@@ -62,6 +64,8 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
 			"from": [-5, 9, -4],
 			"to": [5, 12, 4],
 			"autouv": 0,
@@ -115,7 +119,7 @@
 	],
 	"textures": [
 		{
-			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\costume_mini_skirt.png",
+			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\costume_mini_skirt.png",
 			"name": "costume_mini_skirt.png",
 			"folder": "",
 			"namespace": "",
@@ -132,7 +136,7 @@
 			"saved": true,
 			"uuid": "e955fda6-6988-fd0d-225d-0f5f3719d579",
 			"relative_path": "../../textures/costume_mini_skirt.png",
-			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAcCAYAAABh2p9gAAAAAXNSR0IArs4c6QAAAR5JREFUSEvNlLENwjAQReOKBSIhtqCDAUgFFV0WYAgGYAhEH9EiEEUYADrq0FFnh6AzOuQ4F/snTgFVhO139/99Wy0XeRX1/F1uibKPKgJKC7yRC5ZlGcVxrP/m7/8C+lzhboMkS/I10FfdPNj2XevQNpwO2QPgotJwaA2WTJtJRVEcahO2O329jzpCajbNqsczbeTJtIH2nK5rJ3A8GX2Bvhxyh5J3kjUwkCQjXneSDAFRya7rafqtJSOVYeAq3TaAUgal/J2zXfO1mSeb6p7vW2ND61QABlKHUiX2hdbbrpvYYQjQLMRwFSJZBIYMBQb2eW1+kn0eEpwH43oXYQ8JwtGBgF06RG6UGhzoi40pedAOXbep9tpIOZRigwI/bbuXMOmPtRsAAAAASUVORK5CYII="
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAqCAYAAACz+XvQAAAAAXNSR0IArs4c6QAAAYpJREFUSEvNljFOAzEQRdcVF1gJUdKnoCM9REKCKl0uwCE4ABUnQPQRLQIRKdAnHUWqUCDRRdo7LPqOBtm7Y/s7TpGtnLX9Zv73eDbm+nLeVjs+bx8j091qANQmZKEEbJqmquvavpbxYQFTrki2RZI1+RaYiu5uDI29DLuGY1P3ACSodjiYoyVjMVSs10/eCXcz/f59tiVkzs+m7fJr0qsn1waseXkfR4HHJ0dbYKoOJUPNO80aGgjJjNdZkikgKzl2PV2/rWQmMg28mdz1gFoNavX3Or3vd5vh6LZdzB+DZYN5BKCByFCLJL5gPnTd1AxLgG4ggZsSySqw5FBo4C7d5l9yykPA5WBifZH2EBApHQqYkyFzo8zegamycSXvNcPYbfK6jVaHWtnQwKvhBfUZ1T61s8Vnv9sAqE0IIBbw8IGuDZKtKZEcBGqG577zMszdHDvxpGRshi2Dn1W1Oh1YFsZ43N8Pm832r0jKQxcYU5INZG3JytCVGBpnAZksaWDsenrdhm0OLPAPulUHUT8emI4AAAAASUVORK5CYII="
 		}
 	],
 	"animations": [
