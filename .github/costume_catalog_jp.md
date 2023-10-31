@@ -88,6 +88,11 @@
 
 ![チャイナドレス](README_images/costume_china_dress.jpg)
 
+## ハロウィンの服
+魔女帽子とコウモリの羽が特徴的なハロウィンにピッタリな衣装です。
+
+![ハロウィンの服](README_images/ハロウィンの服.jpg)
+
 ## サンタさんの服
 [作者様のTwitter](https://twitter.com/rimukoro/status/1342066683704352768)で投稿された画像を基に作成した服です。
 
