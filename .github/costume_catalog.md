@@ -88,6 +88,11 @@ Senko wore this costume as one of the tries to get out of her rut in episode 79 
 
 ![China dress](README_images/costume_china_dress.jpg)
 
+## Halloween costume
+Perfect for Halloween, Featuring a witch hat and bat wings.
+
+![Halloween costume](README_images/costume_halloween.jpg)
+
 ## Santa costume
 Made based on the illustration posted at [The original author's Twitter](https://twitter.com/rimukoro/status/1342066683704352768).
 

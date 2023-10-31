@@ -1,4 +1,4 @@
-Language: 　[English](./README.md)　|　**日本語**
+言語: 　[English](./README.md)　|　**日本語**
 
 # ごあんない
 ![シロの頭](./README_images/head_shiro.png)
