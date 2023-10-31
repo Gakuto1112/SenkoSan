@@ -86,8 +86,6 @@ Target Figura versions: [0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.
 
   ![Relaxing in kotatsu](./README_images/kotatsu.jpg)
 
-  - Don't let her alone for a long time and make her lonely.
-
 - Can change your display name to her name.
   - Other players also need to install Figura and give enough permissions to see your display name.
 
