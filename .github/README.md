@@ -89,8 +89,6 @@ Suzu is an apprentice divine messenger who appears in the original manga. Howeve
 
   ![Relaxing in kotatsu](./README_images/kotatsu.jpg)
 
-  - Don't let her alone for a long time and make her lonely.
-
 - Can change your display name to her name.
   - Other players also need to install Figura and give enough permissions to see your display name.
 
