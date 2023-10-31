@@ -90,7 +90,7 @@ Suzu is an apprentice divine messenger who appears in the original manga. Howeve
   ![Relaxing in kotatsu](./README_images/kotatsu.jpg)
 
 - Can change your display name to her name.
-  - Other players also need to install Figura and give enough permissions to see your display name.
+  - **Other players also need to install Figura and give enough permissions** to see your display name.
 
   ![Changing name](./README_images/name_change.jpg)
 
