@@ -173,7 +173,7 @@ Brushes her tail to increase the "flulity" (fluffy quality of the tail) (from ep
 
 ![Tail grooming](./README_images/action_tail_grooming.gif)
 
-### Action 1-7. Kotatsu
+#### Action 1-7. Kotatsu
 Relaxes in the Kotatsu (from episode 10 of the anime). This action won't stop due to the passage of time.
 
 ![Relaxing in kotatsu](./README_images/kotatsu.jpg)
