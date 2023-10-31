@@ -18,12 +18,13 @@
 ---| "CHINA_DRESS"
 ---| "SANTA"
 ---| "KIMONO"
+---| "HALLOWEEN"
 
 ---@class Costume キャラクターのコスチュームを管理し、円滑に切り替えられるようにするクラス
 ---@field CostumeList table<string> 利用可能なコスチュームのリスト
 ---@field CurrentCostume CostumeType 現在のコスチューム
 Costume = {
-	CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "tracksuit", "casual", "sailor", "china_dress", "santa", "kimono"},
+	CostumeList = {"default", "nightwear", "disguise", "maid_a", "maid_b", "swimsuit", "cheerleader", "purification", "kappogi", "yukata", "knit", "fox_hoodie_red", "fox_hoodie_white", "tracksuit", "casual", "sailor", "china_dress", "kimono", "halloween", "santa"},
 	CurrentCostume = "DEFAULT",
 	CostumeEvents = {
 		---メイド服Aのチック処理
@@ -127,6 +128,13 @@ Costume = {
 			local crouching = player:getPose() == "CROUCHING"
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setRot((crouching or player:getVehicle()) and 27.5 or 0, 0, 0)
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setPos(0, 0, crouching and 1.25 or 0)
+		end,
+
+		---ハロウィン衣装のレンダー処理
+		HalloweenRender = function ()
+			local legRot = math.map(vanilla_model.RIGHT_LEG:getOriginRot().x, -90, 90, 0, 30)
+			models.models.main.Avatar.UpperBody.Body.CHalloweenB.BatWingLeftPivot:setRot(0, legRot)
+			models.models.main.Avatar.UpperBody.Body.CHalloweenB.BatWingRightPivot:setRot(0, -legRot)
 		end
 	},
 
@@ -259,13 +267,30 @@ Costume = {
 			models.models.main.Avatar.Head.Ears.LeftEarPivot:setVisible(player:getItem(6).id == "minecraft:chainmail_helmet")
 			models.models.main.Avatar.Head.Cowlick:setVisible(false)
 			models.models.main.Avatar.Head.CSantaH:setVisible(not Armor.ArmorVisible[1])
-			Costume.setCostumeTextureOffset(16)
+			Costume.setCostumeTextureOffset(18)
 		elseif costume == "KIMONO" then
 			models.models.main.Avatar.Head.CKimonoH:setVisible(true)
 			models.models.main.Avatar.UpperBody.Body.Bells:setVisible(false)
 			models.models.main.Avatar.UpperBody.Body.UmbrellaB:setUVPixels(0, 27)
-			Costume.setCostumeTextureOffset(17)
+			Costume.setCostumeTextureOffset(16)
 			Apron.disable()
+		elseif costume == "HALLOWEEN" then
+			models.models.main.Avatar.Head.Cowlick:setVisible(false)
+			models.models.main.Avatar.UpperBody.Body.Bells:setVisible(false)
+			models.models.main.Avatar.Head.CHalloweenH:setVisible(not Armor.ArmorVisible[1])
+			models.models.main.Avatar.UpperBody.Body.CHalloweenB:setVisible(not Armor.ArmorVisible[3])
+			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
+			Sleeve.disable()
+			for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do
+				modelPart:setVisible(false)
+			end
+			Costume.setCostumeTextureOffset(17)
+			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setUVPixels(0, 42)
+			models.models.main.Avatar.UpperBody.Body.CHalloweenB:setPos(0, 0, Armor.ArmorVisible[2] and 1 or 0)
+			events.TICK:register(Costume.CostumeEvents.MiniskirtTick, "costume_miniskirt_tick")
+			events.RENDER:register(Costume.CostumeEvents.HalloweenRender, "costume_halloween_render")
+			Apron.disable()
+
 		end
 	end,
 
@@ -278,7 +303,7 @@ Costume = {
 			modelPart:setVisible(not Armor.ArmorVisible[1])
 		end
 		models.models.main.Avatar.UpperBody.Body.Bells:setVisible(not (Armor.ArmorVisible[2] or Armor.ArmorVisible[3]))
-		for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.UpperBody.Body.Tail.CDisguiseT, models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.UpperBody.Body.CMaidAB, models.models.main.Avatar.UpperBody.Body.CMaidBB, models.models.main.Avatar.UpperBody.Body.CMiniSkirtB, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.CCheerleaderRAB,  models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH, models.models.main.Avatar.Head.CKimonoH}) do
+		for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.UpperBody.Body.Tail.CDisguiseT, models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.UpperBody.Body.CMaidAB, models.models.main.Avatar.UpperBody.Body.CMaidBB, models.models.main.Avatar.UpperBody.Body.CMiniSkirtB, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.CCheerleaderRAB,  models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH, models.models.main.Avatar.Head.CKimonoH, models.models.main.Avatar.Head.CHalloweenH, models.models.main.Avatar.UpperBody.Body.CHalloweenB}) do
 			modelPart:setVisible(false)
 		end
 		models.models.main.Avatar.Head.Ears:setVisible(not Armor.ArmorVisible[1])
@@ -289,7 +314,7 @@ Costume = {
 		for _, tickEventName in ipairs({"costume_maid_a_tick", "costume_maid_b_tick", "costume_summer_hat_tick", "costume_miniskirt_tick", "costume_ponpon_tick", "costume_yukata_tick"}) do
 			events.TICK:remove(tickEventName)
 		end
-		for _, renderEventName in ipairs({"costume_maid_a_render", "costume_maid_b_render"}) do
+		for _, renderEventName in ipairs({"costume_maid_a_render", "costume_maid_b_render", "costume_halloween_render"}) do
 			events.RENDER:remove(renderEventName)
 		end
 		Costume.setCostumeTextureOffset(0)
@@ -308,7 +333,7 @@ Costume = {
 				models.models.main.Avatar.Head.Ears:setVisible(player:getItem(6).id == "minecraft:chainmail_helmet")
 				models.models.main.Avatar.Head.Ears.LeftEarPivot:setVisible()
 				models.models.main.Avatar.UpperBody.Body.Hairs.BackHair:setVisible(true)
-				for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Head.Cowlick, models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH}) do
+				for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Head.Cowlick, models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH, models.models.main.Avatar.Head.CHalloweenH}) do
 					modelPart:setVisible(false)
 				end
 				for _, tickEventName in ipairs({"costume_summer_hat_tick", "costume_yukata_tick"}) do
@@ -355,8 +380,12 @@ Costume = {
 					for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Head.Cowlick}) do
 						modelPart:setVisible(true)
 					end
+				elseif Costume.CurrentCostume == "HALLOWEEN" then
+					for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Head.CHalloweenH}) do
+						modelPart:setVisible(true)
+					end
 				else
-					for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Cowlick}) do
+					for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Head.Cowlick}) do
 						modelPart:setVisible(true)
 					end
 				end
@@ -368,6 +397,8 @@ Costume = {
 				end
 				models.models.main.Avatar.UpperBody.Body.Hairs.FrontHair:setPos(0, 0, -1)
 				models.models.main.Avatar.UpperBody.Body.Hairs.BackHair:setPos(0, 0, 1)
+				models.models.main.Avatar.UpperBody.Body.CHalloweenB:setPos(0, 0, 1)
+
 			else
 				models.models.main.Avatar.UpperBody.Body.Bells:setVisible((Costume.CurrentCostume == "DEFAULT" or Costume.CurrentCostume == "KNIT" or Costume.CurrentCostume == "SANTA") and not Armor.ArmorVisible[3])
 				if Costume.CurrentCostume == "DISGUISE" then
@@ -375,6 +406,7 @@ Costume = {
 				end
 				models.models.main.Avatar.UpperBody.Body.Hairs.FrontHair:setPos()
 				models.models.main.Avatar.UpperBody.Body.Hairs.BackHair:setPos()
+				models.models.main.Avatar.UpperBody.Body.CHalloweenB:setPos()
 			end
 		elseif armorIndex == 3 then
 			if Armor.ArmorVisible[3] then
@@ -399,7 +431,7 @@ Costume = {
 					models.models.main.Avatar.UpperBody.Body.CMaidBB:setVisible(true)
 					events.TICK:register(Costume.CostumeEvents.MaidATick, "costume_maid_b_tick")
 					events.RENDER:register(Costume.CostumeEvents.MaidARender, "costume_maid_b_render")
-				elseif Costume.CurrentCostume == "SWIMSUIT" or Costume.CurrentCostume == "CHEERLEADER" or Costume.CurrentCostume == "SAILOR" then
+				elseif Costume.CurrentCostume == "SWIMSUIT" or Costume.CurrentCostume == "CHEERLEADER" or Costume.CurrentCostume == "SAILOR" or Costume.CurrentCostume == "HALLOWEEN" then
 					models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setVisible(true)
 					events.TICK:register(Costume.CostumeEvents.MiniskirtTick, "costume_miniskirt_tick")
 				elseif Costume.CurrentCostume == "KAPPOGI" then
@@ -423,5 +455,7 @@ else
 	Costume.resetCostume()
 	Config.saveConfig("costume", 1)
 end
+
+models.models.main.Avatar.Head.CHalloweenH:newBlock("halloween_pumpkin"):block("minecraft:carved_pumpkin"):pos(-5.5, 0.6, 7.5):rot(20, 90, 0):scale(0.15)
 
 return Costume
