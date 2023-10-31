@@ -87,7 +87,7 @@ Target Figura versions: [0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.
   ![Relaxing in kotatsu](./README_images/kotatsu.jpg)
 
 - Can change your display name to her name.
-  - Other players also need to install Figura and give enough permissions to see your display name.
+  - **Other players also need to install Figura and give enough permissions** to see your display name.
 
   ![Changing name](./README_images/name_change.jpg)
 
