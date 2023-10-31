@@ -331,7 +331,9 @@ Costume = {
 				elseif Costume.CurrentCostume == "KIMONO" then
 					models.models.main.Avatar.Head.Ears:setVisible(true)
 				elseif Costume.CurrentCostume == "HALLOWEEN" then
-					models.models.main.Avatar.Head.CHalloweenH:setVisible(true)
+					for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.CHalloweenH}) do
+						modelPart:setVisible(true)
+					end
 				else
 					models.models.main.Avatar.Head.Ears:setVisible(true)
 				end
