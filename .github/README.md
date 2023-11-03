@@ -221,10 +221,10 @@ Poses in 7 different poses. Can be used for photo shoots. Her umbrella will be u
 
 ![Action wheel 4](./README_images/action_wheel_4.jpg)
 
-#### Action 4-1. Costume change
+#### Action 4-1. Change costume
 Changes her [costume](./costume_catalog.md). Scroll to select the costume and closing the action wheel to confirm. Left-click to reset to current selection, and right-clock to reset to default during selection.
 
-#### Action 4-2. Display name change
+#### Action 4-2. Change display name
 Changes the player's display name. Scroll to select the name and closing the action wheel to confirm. Left-click to reset to current selection, and right-clock to reset to default during selection. However, **Other players also need to install Figura and give enough permissions** to see your display name.
 
 ![Display name](./README_images/name_change.jpg)
@@ -240,7 +240,7 @@ The name option which can be set are as follows:
 - 仙
 - セン
 
-#### Action 4-3. Player head change
+#### Action 4-3. Change player head
 Changes the model of the "player head". Scroll to select the model and closing the action wheel to confirm. Left-click to reset to current selection, and right-clock to reset to default during selection.
 
 ![Player head](./README_images/player_heads.jpg)
