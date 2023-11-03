@@ -24,7 +24,7 @@ Target Figura versions: [0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.
 
 ## Features
 - Has ears and tail models.
-  - Her tail sways with the player's movements.
+  - Her tail sways with the player's movement.
 
     ![Swaying tail](./README_images/swaying_tail.gif)
 
@@ -80,7 +80,7 @@ Target Figura versions: [0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.
 
   ![Photo poses](./README_images/photo_pose.jpg)
 
-- Grooms her tail and relaxes in the [kotatsu](https://en.wikipedia.org/wiki/Kotatsu) when she is left alone for a short while.
+- Grooms her tail and relaxes in the [kotatsu](https://en.wikipedia.org/wiki/Kotatsu) when being left alone for a short while.
 
   ![Grooming tail](./README_images/action_tail_grooming.gif)
 
@@ -107,7 +107,7 @@ Target Figura versions: [0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.
 
   - Her tail shrivels up when getting whe.
 
-    ![shriveled tail](./README_images/shriveled_tail.jpg)
+    ![Shriveled tail](./README_images/shriveled_tail.jpg)
 
 - Takes an umbrella if it's raining.
   - Won't get wet when taking it.
@@ -123,7 +123,7 @@ Target Figura versions: [0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.
 
   ![Foxfires](./README_images/foxfires.gif)
 
-- Will be frightened and tremble when a [warden](https://minecraft.wiki/w/Warden) is nearby her (≒ she has the darkness effect).
+- Will be frightened and tremble when a [warden](https://minecraft.wiki/w/Warden) is nearby her (≒ has the darkness effect).
 
   ![Scared of warden](./README_images/scared_of_warden.jpg)
 
@@ -144,7 +144,7 @@ Plays the smile animation which is played at the end of other actions. Left-clic
 ![Smile](./README_images/action_smile.jpg)
 
 #### Action 1-2. Body shaking
-Can play the body shake animation which plays when getting out of water manually.
+Plays the body shake animation which plays when getting out of water manually.
 
 ![Body shaking](./README_images/action_body_shaking.gif)
 
