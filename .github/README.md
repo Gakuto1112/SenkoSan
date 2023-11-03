@@ -16,7 +16,7 @@ Click [here](https://github.com/Gakuto1112/Sora) for the download page for **Sor
 ---
 
 # Suzu (鈴)
-This is "Suzu (鈴)", the avatar for [Figura](https://modrinth.com/mod/figura), the skin mod for [Minecraft](https://www.minecraft.net/en-us), which imitates the character who appears (briefly) in the TV anime "Sewayaki Kitsune no Senko-san" series and the original manga series.
+This is "Suzu (鈴)", the avatar for [Figura](https://modrinth.com/mod/figura), the skin mod for [Minecraft](https://www.minecraft.net/en-us), which are imitated the character who appears (briefly) in the TV anime "Sewayaki Kitsune no Senko-san" series and the original manga series.
 
 Target Figura versions: [0.1.1](https://modrinth.com/mod/figura/version/0.1.1+1.20.1-0f8b7a9)~
 
