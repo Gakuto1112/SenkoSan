@@ -3,13 +3,13 @@ name: Generate README
 on:
   push:
     branches:
-      - 'Senko'
-      - 'Shiro'
-      - 'Suzu'
+      - Senko
+      - Shiro
+      - Suzu
     paths:
-      - '.github/README_templates/**'
-      - '.github/README_images/**'
-      - '.github/workflows/generate_readme.yaml'
+      - .github/README_templates/**
+      - .github/README_images/**
+      - .github/workflows/generate_readme.yaml
 
 jobs:
   generate-readme:
