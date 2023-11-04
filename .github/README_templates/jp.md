@@ -1,4 +1,4 @@
-<!-- inject(locale_link) -->
+<!-- $inject(locale_link) -->
 
 # ごあんない
 ![仙狐さんの頭](../README_images/head_senko.png)
@@ -286,9 +286,9 @@ Mobが被っているプレイヤーの頭は設定に関わらず、デフォ�
 #### アクション5-2. メッセージの表示
 アクションホイールでのメッセージ以外の、良く表示されるであろう一部メッセージを表示するかどうかを設定できます。メッセージが煩わしいと感じる場合はオフにして下さい。
 
-<!-- inject(how_to_use) -->
+<!-- $inject(how_to_use) -->
 
-<!-- inject(notes) -->
+<!-- $inject(notes) -->
 
 ## リンク集
 - [Figura（Modrinth）](https://modrinth.com/mod/figura)

@@ -1,4 +1,4 @@
-<!-- inject(locale_link) -->
+<!-- $inject(locale_link) --> <!-- inject(locale_link) -->
 
 # Information
 ![Senko head](../README_images/head_senko.png)
@@ -287,9 +287,9 @@ Toggles whether she always use umbrella when she can use it even if it isn't rai
 #### Action 5-2. Toggle frequently shown messages
 Toggles whether messages which are showed frequently show or not. This setting will not affects the action wheel messages. Turn this off if you are annoyed with them.
 
-<!-- inject(how_to_use) -->
+<!-- $inject(how_to_use) -->
 
-<!-- inject(notes) -->
+<!-- $inject(notes) -->
 
 ## Links
 - [Figura（Modrinth）](https://modrinth.com/mod/figura)
