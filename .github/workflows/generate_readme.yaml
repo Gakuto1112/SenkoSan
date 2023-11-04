@@ -12,9 +12,6 @@ on:
       - '.github/workflows/generate_readme.yaml'
   workflow_call:
     inputs:
-      repository-owner:
-        required: true
-        type: string
       repository-name:
         required: true
         type: string
@@ -32,19 +29,17 @@ jobs:
       - name: Output env variables (push)
         if: ${{ github.event_name == 'push' }}
         run: |
-          echo 'REPOSITORY_OWNER = ${{ github.repository_owner }}' >> $GITHUB_ENV
-          echo 'REPOSITORY_NAME = ${{ github.repository_owner }}' >> $GITHUB_ENV
-          echo 'BRANCH_NAME = ${{ github.ref_name }}' >> $GITHUB_ENV
+          echo 'REPOSITORY_NAME=${{ github.repository }}' >> $GITHUB_ENV
+          echo 'BRANCH_NAME=${{ github.ref_name }}' >> $GITHUB_ENV
       - name: Output env variables (workflow_call)
         if: ${{ github.event_name == 'workflow_call' }}
         run: |
-          echo 'REPOSITORY_OWNER = ${{ inputs.repository-owner }}' >> $GITHUB_ENV
-          echo 'REPOSITORY_NAME = ${{ inputs.repository-name }}' >> $GITHUB_ENV
-          echo 'BRANCH_NAME = ${{ inputs.branch-name }}' >> $GITHUB_ENV
+          echo 'REPOSITORY_NAME=${{ inputs.repository-name }}' >> $GITHUB_ENV
+          echo 'BRANCH_NAME=${{ inputs.branch-name }}' >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v4.1.1
         with:
-          ref: $BRANCH_NAME
+          ref: ${{ env.BRANCH_NAME }}
       - name: Setup Node.js@20.8.0
         uses: actions/setup-node@v4.0.0
         with:
@@ -56,7 +51,7 @@ jobs:
         run: npm install
       - name: Generate README
         working-directory: ./.github/readme_generator
-        run: ./node_modules/.bin/ts-node ./readme_generator.ts $REPOSITORY_OWNER $REPOSITORY_NAME Gakuto1112 FiguraAvatarsReadmeTemplate main
+        run: ./node_modules/.bin/ts-node ./readme_generator.ts ${{ env.REPOSITORY_NAME }} Gakuto1112/FiguraAvatarsReadmeTemplate main
       - id: check_diff
         name: Check diff
         continue-on-error: true
