@@ -1,0 +1,16 @@
+name: Dispatch README
+
+on:
+  repository_dispatch
+
+jobs:
+  generate:
+    name: Generate README
+    permissions:
+      contents: write
+    strategy:
+      matrix:
+        target-branch: ${{ fromJSON(vars.TARGET_BRANCHES) }}
+    uses: Gakuto1112/FiguraAvatarsReadmeTemplate/.github/workflows/generate_my_figura_avatar_readme.yaml@main
+    with:
+      branch-name: ${{ matrix.target-branch }}
