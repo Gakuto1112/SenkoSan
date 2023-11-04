@@ -1,7 +1,9 @@
 name: Dispatch README
 
 on:
-  repository_dispatch
+  repository_dispatch:
+    types:
+      - dispatch_readme
 
 jobs:
   generate:
