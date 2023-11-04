@@ -14,11 +14,8 @@ on:
 jobs:
   generate-readme:
     name: Generate README
-    runs-on: ubuntu-latest
     permissions:
       contents: write
-    steps:
-      - name: Call README generator
-        uses: Gakuto1112/FiguraAvatarsReadmeTemplate/.github/workflows/generate_my_figura_avatar_readme.yaml@main
-        with:
-          branch-name: ${{ github.ref_name }}
+    uses: Gakuto1112/FiguraAvatarsReadmeTemplate/.github/workflows/generate_my_figura_avatar_readme.yaml@main
+    with:
+      branch-name: ${{ github.ref_name }}
