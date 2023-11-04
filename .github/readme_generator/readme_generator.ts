@@ -106,7 +106,7 @@ async function main(): Promise<void> {
         }
     }
 
-    if(checkArgs(0, "The repository owner is not specified.") && checkArgs(1, "The repository name is not specified.") && checkArgs(2, "The template repository owner is not specified.") && checkArgs(3, "The template repository name is not specified.") && checkArgs(2, "The branch name of the template repository is not specified.")) {
+    if(checkArgs(0, "The repository owner is not specified.") && checkArgs(1, "The repository name is not specified.") && checkArgs(2, "The template repository owner is not specified.") && checkArgs(3, "The template repository name is not specified.") && checkArgs(4, "The branch name of the template repository is not specified.")) {
         const readmeGenerator: ReadmeGenerator = new ReadmeGenerator(process.argv[2], process.argv[3], process.argv[4], process.argv[5], process.argv[6]);
         console.info("Generating README.md...");
         await readmeGenerator.generateReadme("../README_templates/en.md", "../README.md");
