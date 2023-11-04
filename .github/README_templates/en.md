@@ -1,4 +1,4 @@
-<!-- $inject(locale_link) --> <!-- inject(locale_link) -->
+<!-- $inject(locale_link) -->
 
 # Information
 ![Senko head](../README_images/head_senko.png)
