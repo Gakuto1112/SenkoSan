@@ -23,7 +23,7 @@ events.TICK:register(function()
 			end
 		end
 		Ears.setEarsRot("DROOPING", 1, true)
-		FaceParts.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 0, false)
+		FaceParts.setEmotion("SURPLISED", "SURPLISED", "CLOSED", 1, false)
 	else
 		if Warden.WardenNearbyPrev then
 			pings.setWardenNearby(false)

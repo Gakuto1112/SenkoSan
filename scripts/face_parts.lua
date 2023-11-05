@@ -26,6 +26,7 @@
 ---@field EyeTypeID { [string]: integer } EyeTypeとIDを紐付けるテーブル
 ---@field MouthTypeID { [string]: integer } MouthTypeとIDを紐付けるテーブル
 ---@field ComplexionID { [string]: integer } 顔色とIDを紐付けるテーブル
+---@field RightEyeStatus FaceParts.EyeType 現在の右目の状態
 ---@field EmotionCount integer エモートの時間を計るカウンター
 ---@field ComplexionCount integer 顔色の時間を計るカウンター
 ---@field BlinkCount integer 瞬きのタイミングを計るカウンター
@@ -35,6 +36,7 @@ FaceParts = {
 	EyeTypeID = {NONE = 0, NORMAL = 1, SLEEPY = 2, ANGRY = 3, TEAR = 4, SURPLISED = 5, TIRED = 6, TIRED_INVERSED = 7, NORMAL_INVERSED = 8, CLOSED = 9, UNEQUAL = 10},
 	MouthTypeID = {NONE = 0, CLOSED = 1, OPENED = 2, TRIANGLE = 3},
 	ComplexionID = {NORMAL = 1, PALE = 2, BLUSH = 3},
+	RightEyeStatus = "NORMAL",
 	EmotionCount = 0,
 	ComplexionCount = 0,
 	BlinkCount = 0,
@@ -57,6 +59,7 @@ FaceParts = {
 			elseif FaceParts.EyeTypeID[rightEye] > 0 then
 				rightEyePart:setUVPixels((FaceParts.EyeTypeID[rightEye] - 1) * 6, 0)
 			end
+			FaceParts.RightEyeStatus = rightEye
 			--左目
 			if FaceParts.EyeTypeID[leftEye] >= 8 then
 				leftEyePart:setUVPixels((FaceParts.EyeTypeID[leftEye] - 4) * 6, 6)
