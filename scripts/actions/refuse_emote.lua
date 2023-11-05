@@ -9,6 +9,13 @@ RefuseEmote = General.instance({
 		end
 	end,
 
+	---エモート拒否アニメーションを停止する。
+	stop = function (self)
+		self.IsAnimationPlaying = false
+		ActionWheel.IsAnimationPlaying = false
+		self.AnimationCount = -1
+	end,
+
 	---アニメーション再生中に毎チック実行される関数
 	onAnimationTick = function (self)
 		AnimationAction.onAnimationTick(self)

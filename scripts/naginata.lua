@@ -162,6 +162,9 @@ end)
 events.TICK:register(function ()
     for i = 1, 2 do
         if Naginata.State[i] > 0 then
+            if Naginata.State[i] >= 4 and not Warden.WardenNearby then
+                FaceParts.setEmotion("ANGRY", "ANGRY", "CLOSED", 1, false)
+            end
             local naginataModel = i == 1 and models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.RightNaginata or models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.LeftNaginata
             local heldItem = player:getHeldItem(player:isLeftHanded() ~= (i == 2))
             local material = heldItem.id:match("^minecraft:(%a+)_sword$")
@@ -173,6 +176,9 @@ events.TICK:register(function ()
             naginataModel:setSecondaryRenderType(heldItem:hasGlint() and "GLINT" or "NONE")
             if Naginata.State[i] >= 2 and Naginata.State[i] <= 3 then
                 if player:getSwingTime() == 1 then
+                    if not Warden.WardenNearby then
+                        FaceParts.setEmotion("ANGRY", "ANGRY", "CLOSED", 8, FaceParts.RightEyeStatus == "ANGRY")
+                    end
                     local naginataAnimation = i == 1 and {animations["models.main"]["naginata_attack_right"], animations["models.naginata"]["naginata_attack_right"]} or {animations["models.main"]["naginata_attack_left"], animations["models.naginata"]["naginata_attack_left"]}
                     local speed = 6 / player:getSwingDuration()
                     for _, animaton in ipairs(naginataAnimation) do

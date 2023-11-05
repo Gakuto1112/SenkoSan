@@ -80,7 +80,8 @@ events.RENDER:register(function (delta, context)
 	local rotLimit = {{{-60, 60}, {-30, 30}}, {{0, 80}, {-80, 0}}} --物理演算の可動範囲：1. 尻尾：{1-1. 上下方向, 1-2. 左右方向}, 2. 長髪：{2-1. 前髪, 2-2. 後髪}
 	if (context ~= "FIRST_PERSON" or client:hasIrisShader()) and (Physics.EnablePyhsics[1] or Physics.EnablePyhsics[2]) then
 		local playerPose = player:getPose()
-		if SitDown.IsAnimationPlaying or player:getVehicle() then
+		local rideVehicle = player:getVehicle() ~= nil
+		if SitDown.IsAnimationPlaying or rideVehicle then
 			rotLimit[1][1][2] = 10
 		end
 		if not Armor.ArmorVisible[3] then
@@ -123,8 +124,8 @@ events.RENDER:register(function (delta, context)
 				local tailXMoveXZ = (Physics.VelocityAverage[5] + math.abs(Physics.VelocityAverage[6])) * 160
 				local tailXMoveY = Physics.VelocityAverage[2] * 80
 				local tailXAngleMove = math.abs(Physics.VelocityAverage[7]) * 0.05
-				local tailXConditionAngle = (General.PlayerCondition == "LOW" or SitDown.IsAnimationPlaying or player:getVehicle() or Warden.WardenNearby) and 0 or (General.PlayerCondition == "MEDIUM" and 15 or 30)
-				tailRot = vectors.vec3(math.clamp(rotLimit[1][1][2] - math.min(tailXMoveXZ, math.max(rotLimit[1][1][2] - tailXMoveY - tailXAngleMove - tailXConditionAngle, 0)) + tailXMoveY - math.min(tailXAngleMove, math.max(rotLimit[1][1][2] - tailXMoveXZ - tailXMoveY - tailXConditionAngle, 0)) - tailXConditionAngle, rotLimit[1][1][1], rotLimit[1][1][2]) + (player:isCrouching() and 30 or 0), math.clamp(Physics.VelocityAverage[6] * 160 + Physics.VelocityAverage[7] * 0.05, rotLimit[1][2][1], rotLimit[1][2][2]))
+				local tailXConditionAngle = (General.PlayerCondition == "LOW" or SitDown.IsAnimationPlaying or rideVehicle or Warden.WardenNearby) and 0 or (General.PlayerCondition == "MEDIUM" and 15 or 30)
+				tailRot = vectors.vec3(math.clamp(rotLimit[1][1][2] - math.min(tailXMoveXZ, math.max(rotLimit[1][1][2] - tailXMoveY - tailXAngleMove - tailXConditionAngle, 0)) + tailXMoveY - math.min(tailXAngleMove, math.max(rotLimit[1][1][2] - tailXMoveXZ - tailXMoveY - tailXConditionAngle, 0)) - tailXConditionAngle, rotLimit[1][1][1], rotLimit[1][1][2]) + (player:isCrouching() and 30 or 0), math.clamp(Physics.VelocityAverage[rideVehicle and 3 or 6] * -160 + Physics.VelocityAverage[7] * 0.05 - models.models.main.Avatar.UpperBody:getTrueRot().y, rotLimit[1][2][1], rotLimit[1][2][2]))
 			end
 			if Physics.EnablePyhsics[2] then
 				local hairXMoveX = Physics.VelocityAverage[5] * -160 + (player:isCrouching() and 30 or 0)
