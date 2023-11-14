@@ -2,16 +2,16 @@
 
 # ごあんない
 ![夜空](../README_images/head_sora.png)
-ここは、**夜空**の配布ページです。
+ここは、**夜空**のブランチです。
 
 ![仙狐さんの頭](../README_images/head_senko.png)
-**仙狐さん**の配布ページは[こちら](https://github.com/Gakuto1112/SenkoSan)
+**仙狐さん**のブランチは[こちら](https://github.com/Gakuto1112/SenkoSan)
 
 ![シロの頭](../README_images/head_shiro.png)
-**シロ**の配布ページは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/Shiro)
+**シロ**のブランチは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/Shiro)
 
 ![鈴の頭](../README_images/head_suzu.png)
-**鈴**の配布ページは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/Suzu)
+**鈴**のブランチは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/Suzu)
 
 # Sora（夜空）
 TVアニメ「世話やきキツネの仙狐さん」とその原作に登場するキャラクターを再現した、MinecraftのスキンMod「[Figura](https://modrinth.com/mod/figura)」向けスキン「Sora（夜空）」です。

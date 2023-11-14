@@ -2,16 +2,16 @@
 
 # Information
 ![Sora head](../README_images/head_sora.png)
-This is the download page for **Sora**.
+This is the branch for **Sora**.
 
 ![Senko head](../README_images/head_senko.png)
-Click [here](https://github.com/Gakuto1112/SenkoSan/tree/Senko) for the download page for **Senko**.
+Click [here](https://github.com/Gakuto1112/SenkoSan/tree/Senko) for the branch for **Senko**.
 
 ![Shiro head](../README_images/head_shiro.png)
-Click [here](https://github.com/Gakuto1112/SenkoSan/tree/Shiro) for the download page for **Shiro**.
+Click [here](https://github.com/Gakuto1112/SenkoSan/tree/Shiro) for the branch for **Shiro**.
 
 ![Suzu head](../README_images/head_suzu.png)
-Click [here](https://github.com/Gakuto1112/SenkoSan/tree/Suzu) for the download page for **Suzu**.
+Click [here](https://github.com/Gakuto1112/SenkoSan/tree/Suzu) for the branch for **Suzu**.
 
 # Sora (夜空)
 This is "Sora (夜空)", the avatar for [Figura](https://modrinth.com/mod/figura), the skin mod for [Minecraft](https://www.minecraft.net/en-us), which is imitated the character who appears in the TV anime "Sewayaki Kitsune no Senko-san" series and the original manga series.
