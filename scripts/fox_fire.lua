@@ -26,6 +26,9 @@ local visible = false
 ---@type boolean
 local visiblePrev = false
 
+---狐火の大きさ
+local foxFireScale = 0
+
 
 ---狐火のアニメーションを制御する各種カウンター
 --[[
@@ -101,14 +104,13 @@ end)
 
 events.RENDER:register(function (delta)
 	if not renderProcessed then
-		local currentFoxFireScale = models.models.main.FoxFireAnchors.FoxFireAnchor1["FoxFire1"]:getScale().x
+		local fps = client:getFPS()
+		foxFireScale = enabled and math.min(foxFireScale + 8 / fps, 1) or math.max(foxFireScale - 8 / fps, 0)
 		if visible then
 			models.models.main.FoxFireAnchors:setPos(player:getPos(delta) * 16)
 			models.models.main.FoxFireAnchors:setRot(0, -player:getBodyYaw(delta) + 180)
 			for index, foxFireAnchor in ipairs(models.models.main.FoxFireAnchors:getChildren()) do
 				foxFireAnchor["FoxFire"..index]:setColor(fillVec3(models.models.main.FoxFireAnchors.FoxFireAnchor1.FoxFire1:getScale().x))
-				local fps = client:getFPS()
-				local foxFireScale = enabled and math.min(foxFireAnchor["FoxFire"..index]:getScale().x + 8 / fps, 1) or math.max(foxFireAnchor["FoxFire"..index]:getScale().x - 8 / fps, 0)
 				local newFloatCount = animationCounters[index].float + 0.25 / fps
 				animationCounters[index].float = newFloatCount > 1 and newFloatCount - 1 or newFloatCount;
 				foxFireAnchor["FoxFire"..index]:setPos(foxFireAnchor:getPivot() + vectors.vec3(0, math.sin(animationCounters[index].float * 2 * math.pi)) * 2)
@@ -121,12 +123,11 @@ events.RENDER:register(function (delta)
 						animationCounters[index].nextFlicker = math.random(0, 4)
 					end
 				end
-				foxFireAnchor["FoxFire"..index]:setScale(fillVec3(foxFireScale + (animationCounters[index].flicker > 0 and math.abs(animationCounters[index].flicker * 0.2 - 0.1) * -1 or 0)));
+				foxFireAnchor["FoxFire"..index]:setScale(fillVec3(foxFireScale + (animationCounters[index].flicker > 0 and math.abs(animationCounters[index].flicker * 0.2 - 0.1) * -1 or 0)))
 			end
 		elseif enabled then
-			local foxFireScale = math.min(currentFoxFireScale + 8 / client:getFPS(), 1)
 			for index, foxFireAnchor in ipairs(models.models.main.FoxFireAnchors:getChildren()) do
-				foxFireAnchor["FoxFire"..index]:setScale(fillVec3(foxFireScale));
+				foxFireAnchor["FoxFire"..index]:setScale(fillVec3(foxFireScale))
 			end
 		end
 		renderProcessed = true
