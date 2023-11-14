@@ -22,7 +22,7 @@
 ---@field EffectChecked boolean このチックにステータスエフェクトを取得したかどうか
 ---@field EffectTable table<string, HostAPI.statusEffect> ステータスエフェクトを保持する変数
 ---@field PlayerCondition ConditionLevel プレイヤーの体力・満腹度の度合い
----@field ShowMessage boolean メッセージを表示するかどうか
+---@field ShowMessage boolean 頻出メッセージを表示するかどうか
 General = {
 	EffectChecked = false,
 	EffectTable = {},
@@ -39,19 +39,6 @@ General = {
 		setmetatable(instance, {__index = class})
 		setmetatable(class, {__index = super})
 		return instance
-	end,
-
-	---該当するキーのインデックスを返す。キーがテーブルに存在しない場合は-1を返す。
-	---@param targetTable table<any> 調べるテーブル
-	---@param key any 見つけ出す要素
-	---@return integer index targetTable内のkeyがあるインデックス。存在しない場合は-1を返す。
-	indexof = function (targetTable, key)
-		for index, element in ipairs(targetTable) do
-			if element == key then
-				return index
-			end
-		end
-		return -1
 	end,
 
 	---指定されたステータス効果の情報を返す。指定されたステータス効果が付与されていない場合はnilが返される。

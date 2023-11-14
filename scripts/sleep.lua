@@ -1,168 +1,77 @@
 ---@class Sleep ベッドで寝る時の挙動を制御するクラス
----@field IsSleepingPrev boolean 前チックに寝ていたかどうか
----@field SleepStatePrev integer 前チックの睡眠の状態：0. 添い寝なし, 1. 左側にプレイヤー, 2. 右側にプレイヤー, 3. ウォーデン
----@field CostumeBeforeSleeping CostumeType 寝る前のコスチュームを保持する変数
----@field HeadVisible boolean 頭が見えるかどうか
 Sleep = {
-	IsSleepingPrev = false,
-	SleepStatePrev = 0,
-	CostumeBeforeSleeping = "DEFAULT",
-	HeadVisible = true
 }
+
+---前チックに寝ていたかどうか
+---@type boolean
+local isSleepingPrev = false
+
+---眠っている目になるまでのカウンター
+---@type integer
+local sleepEyeCount = 0
 
 events.TICK:register(function()
 	local isSleeping = player:getPose() == "SLEEPING"
 	if isSleeping then
-		local facing = nil
-		local playerPos = player:getPos():floor()
-		local playerBlock = world.getBlockState(playerPos)
-		if playerBlock.id:find("^minecraft:.+bed$") then
-			facing = playerBlock.properties["facing"]
-		end
-		local sleepState = 0 --0. 添い寝なし, 1. 左側にプレイヤー, 2. 右側にプレイヤー, 3. ウォーデン
-		if Warden.WardenNearby then
-			sleepState = 3
-		elseif facing then
-			local neighborPos = nil --0. 左隣の座標, 1. 右隣の座標
-			if facing == "north" then
-				neighborPos = {playerPos:copy():add(-1), playerPos:copy():add(1)}
-			elseif facing == "east" then
-				neighborPos = {playerPos:copy():add(0, 0, -1), playerPos:copy():add(0, 0, 1)}
-			elseif facing == "south" then
-				neighborPos = {playerPos:copy():add(1), playerPos:copy():add(-1)}
-			else
-				neighborPos = {playerPos:copy():add(0, 0, 1), playerPos:copy():add(0, 0, -1)}
+		if not isSleepingPrev then
+			local facing = nil
+			local playerPos = player:getPos():floor()
+			local playerBlock = world.getBlockState(playerPos)
+			if playerBlock.id:find("^minecraft:.+bed$") then
+				facing = playerBlock.properties["facing"]
 			end
-			for i = 1, 2 do
-				local targetBlock = world.getBlockState(neighborPos[i])
-				if targetBlock.id:find("^minecraft:.+bed$") and targetBlock.properties["facing"] == facing and targetBlock.properties["occupied"] == "false" then
-					sleepState = i
-					break
-				end
-			end
-		end
-		if not Sleep.IsSleepingPrev  then
-			animations["models.main"]["afraid"]:stop()
-			Sleep.CostumeBeforeSleeping = Costume.CurrentCostume
-			Costume.setCostume("NIGHTWEAR")
-			if not Warden.WardenNearby then
-				if host:isHost() and sleepState >= 1 and sleepState <= 2 and General.ShowMessage then
-					print(Language.getTranslate("message__sleep_together"))
-				end
-			end
-			Physics.EnablePyhsics[1] = false
+			models.models.main.Avatar:setPos(0, 0, 2)
+			models.models.main.Avatar:setRot(-90, -70, 90)
+			models.models.main.Avatar.Head:setRot(0, 0, 15)
+			Arms.RightArmRotOffset = vectors.vec3(81.1041, -59.4247, 63.7095)
+			models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom:setRot(85)
+			Sleeve.RightSleeveRotOffset = vectors.vec3(21.1728, -118.7472, -7.096)
+			models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom:setRot(50)
+			Sleeve.LeftSleeveRotOffset = vectors.vec3(60.2836, 9.3913, 3.4512)
+			Physics.TailRotOffset = vectors.vec3(0, -40)
+			models.models.main.Avatar.UpperBody.Body.Tails.TailUL:setRot(2.4994, 19.965, 1.7094)
+			models.models.main.Avatar.UpperBody.Body.Tails.TailUR:setRot(-20, 35)
+			models.models.main.Avatar.UpperBody.Body.Tails.TailLL:setRot(44.1429, 2.5586, 20.2919)
+			models.models.main.Avatar.UpperBody.Body.Tails.TailLR:setRot(20, 35)
+			models.models.main.Avatar.LowerBody:setRot(0, 0, -20)
+			models.models.main.Avatar.LowerBody.RightLeg:setRot(2.5)
+			models.models.main.Avatar.LowerBody.RightLeg.RightLegBottom:setRot(-45)
+			models.models.main.Avatar.LowerBody.LeftLeg:setRot(40.1265, -23.337, 23.287)
+			models.models.main.Avatar.LowerBody.LeftLeg.LeftLegBottom:setRot(-72.5)
+			Physics.EnablePyhsics = false
 			Sleeve.Moving = false
+			local firstPerson = renderer:isFirstPerson()
+			if firstPerson then
+				models.models.main.Avatar.Head:setVisible(false)
+				renderer:setCameraRot(0, facing == "north" and 90 or (facing == "east" and 180 or (facing == "south" and -90 or 0)), 75)
+			elseif renderer:isCameraBackwards() then
+				renderer:setCameraRot(0, facing == "north" and -90 or (facing == "east" and 0 or (facing == "south" and 90 or 180)))
+			else
+				renderer:setCameraRot(0, facing == "north" and 90 or (facing == "east" and 180 or (facing == "south" and -90 or 0)))
+			end
+			sleepEyeCount = 0
 		end
-		if sleepState ~= Sleep.SleepStatePrev or not Sleep.IsSleepingPrev then
-			if sleepState ~= Sleep.SleepStatePrev then
-				for _, animation in ipairs({animations["models.main"]["sleep"], animations["models.main"]["sleep_afraid"], animations["models.main"]["sleep_together_left"], animations["models.dummy_player"]["sleep_together_left"], animations["models.main"]["sleep_together_right"], animations["models.dummy_player"]["sleep_together_right"]}) do
-					animation:stop()
-				end
-				models.models.dummy_player:setVisible(false)
-				renderer:setCameraPos()
-				renderer:setCameraRot()
-			end
-			local isFirstPerson = renderer:isFirstPerson()
-			---眠たい目にする
-			local function sleepEye()
-				if General.PlayerCondition == "LOW" then
-					FaceParts.setEmotion("TIRED", "TIRED", "CLOSED", 40, true)
-				else
-					FaceParts.setEmotion("SLEEPY", "SLEEPY", "CLOSED", 40, true)
-				end
-			end
-			if sleepState == 0 then
-				--0. 添い寝なし
-				animations["models.main"]["sleep"]:play()
-				sleepEye()
-				if facing then
-					if isFirstPerson then
-						renderer:setCameraPos(0, -0.2, 0.2)
-						renderer:setCameraRot(10, (facing == "north" and 180 or (facing == "east" and -90 or (facing == "south" and 0 or 90))))
-					else
-						renderer:setCameraRot(10, (facing == "north" and 160 or (facing == "east" and -110 or (facing == "south" and -20 or 70))) + (renderer:isCameraBackwards() and 180 or 0))
-					end
-				end
-			elseif sleepState == 1 or sleepState == 2 then
-				models.models.dummy_player:setVisible(not isFirstPerson)
-				sleepEye()
-				if sleepState == 1 then
-					--1. 左側にプレイヤー
-					for _, animation in ipairs({animations["models.main"]["sleep_together_left"], animations["models.dummy_player"]["sleep_together_left"]}) do
-						animation:play()
-					end
-					if facing then
-						if isFirstPerson then
-							renderer:setCameraPos(0, -0.2, 1)
-							renderer:setCameraRot(0, facing == "north" and -90 or (facing == "east" and 0 or (facing == "south" and 90 or 180)), -90)
-						else
-							renderer:setCameraPos(-0.5, -0.5)
-							renderer:setCameraRot(90, facing == "north" and 180 or (facing == "east" and -90 or (facing == "south" and 0 or 90)))
-						end
-					end
-				else
-					for _, animation in ipairs({animations["models.main"]["sleep_together_right"], animations["models.dummy_player"]["sleep_together_right"]}) do
-						animation:play()
-					end
-					if facing then
-						if isFirstPerson then
-							renderer:setCameraPos(0, -0.2, 1)
-							renderer:setCameraRot(0, facing == "north" and 90 or (facing == "east" and 180 or (facing == "south" and -90 or 0)), 90)
-						else
-							renderer:setCameraPos(0.5, -0.5)
-							renderer:setCameraRot(90, facing == "north" and 180 or (facing == "east" and -90 or (facing == "south" and 0 or 90)))
-						end
-					end
-				end
-			elseif sleepState == 3 then
-				--3. ウォーデン
-				animations["models.main"]["sleep_afraid"]:play()
-				if facing then
-					if isFirstPerson then
-						renderer:setCameraPos(0, 0.2, 0.4)
-						renderer:setCameraRot(35, (facing == "north" and 180 or (facing == "east" and -90 or (facing == "south" and 0 or 90))))
-					else
-						renderer:setCameraRot(10, (facing == "north" and 160 or (facing == "east" and -110 or (facing == "south" and -20 or 70))) + (renderer:isCameraBackwards() and 180 or 0))
-					end
-				end
-			end
-			if isFirstPerson then
-				Sleep.HeadVisible = sleepState >= 1 and sleepState <= 2
-				for _, modelPart in ipairs({models.models.main.Avatar.Head, models.models.main.Avatar.Head.Ears}) do
-					modelPart:setVisible(Sleep.HeadVisible)
-				end
-				HairAccessory.visible(Sleep.HeadVisible)
-			end
-		end
-		Ears.setEarsRot("DROOPING", 1, true)
-		if not Warden.WardenNearby then
+		if sleepEyeCount >= 40 then
 			FaceParts.setEmotion("CLOSED", "CLOSED", "CLOSED", 1, false)
 		end
-		Sleep.SleepStatePrev = sleepState
+		sleepEyeCount = sleepEyeCount + 1
 	else
-		if Sleep.IsSleepingPrev then
-			Physics.EnablePyhsics[1] = true
-			if Warden.WardenNearby then
-				animations["models.main"]["afraid"]:play()
+		if isSleepingPrev then
+			models.models.main.Avatar.Head:setVisible(true)
+			models.models.main.Avatar:setPos()
+			for _, modelPart in ipairs({models.models.main.Avatar, models.models.main.Avatar.Head, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom, models.models.main.Avatar.UpperBody.Body.Tails.TailUL, models.models.main.Avatar.UpperBody.Body.Tails.TailUR, models.models.main.Avatar.UpperBody.Body.Tails.TailLL, models.models.main.Avatar.UpperBody.Body.Tails.TailLR, models.models.main.Avatar.LowerBody, models.models.main.Avatar.LowerBody.RightLeg, models.models.main.Avatar.LowerBody.RightLeg.RightLegBottom, models.models.main.Avatar.LowerBody.LeftLeg, models.models.main.Avatar.LowerBody.LeftLeg.LeftLegBottom}) do
+				modelPart:setRot()
 			end
-			for _, animation in ipairs({animations["models.main"]["sleep"], animations["models.main"]["sleep_afraid"], animations["models.main"]["sleep_together_left"], animations["models.dummy_player"]["sleep_together_left"], animations["models.main"]["sleep_together_right"], animations["models.dummy_player"]["sleep_together_right"]}) do
-				animation:stop()
-			end
-			models.models.dummy_player:setVisible(false)
-			if Sleep.CostumeBeforeSleeping == "DEFAULT" then
-				Costume.resetCostume()
-			else
-				Costume.setCostume(Sleep.CostumeBeforeSleeping)
-			end
+			Arms:resetArmRotOffset()
+			Sleeve.RightSleeveRotOffset = vectors.vec3()
+			Sleeve.LeftSleeveRotOffset = vectors.vec3()
+			Physics.TailRotOffset = vectors.vec3()
+			Physics.EnablePyhsics = true
 			Sleeve.Moving = true
-			models.models.main:setVisible(true)
-			Apron.IsVisible = (Sleep.CostumeBeforeSleeping == "DEFAULT" or Sleep.CostumeBeforeSleeping == "DISGUISE" or Costume.CurrentCostume == "KAPPOGI") and not Armor.ArmorVisible[3]
-			renderer:setCameraPos()
 			renderer:setCameraRot()
-			Sleep.HeadVisible = true
 		end
 	end
-	Sleep.IsSleepingPrev = isSleeping
+	isSleepingPrev = isSleeping
 end)
 
 return Sleep

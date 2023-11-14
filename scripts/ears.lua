@@ -20,7 +20,7 @@ Ears = {
 	---@param force boolean trueにすると以前のタイマーが残っていても強制的に適用する。
 	setEarsRot = function (earRot, duration, force)
 		if Ears.EarsRotCount == 0 or force then
-			for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.ArmorH.Helmet.Ears, models.models.main.Avatar.Head.CKnitH.Ears, models.models.main.Avatar.Head.CFoxHoodH.Ears}) do
+			for _, modelPart in ipairs({models.models.main.Avatar.Head.Ears, models.models.main.Avatar.Head.ArmorH.Helmet.Ears}) do
 				modelPart:setRot(Ears.EarsRotTypeID[earRot])
 			end
 			Ears.EarsRotCount = duration
@@ -30,7 +30,7 @@ Ears = {
 
 --ping関数
 function pings.jerk_ears()
-	for _, modelAnimation in ipairs({animations["models.main"], animations["models.armor"], animations["models.costume_knit"], animations["models.costume_fox_hood"]}) do
+	for _, modelAnimation in ipairs({animations["models.main"], animations["models.armor"]}) do
 		modelAnimation["jerk_ears"]:play()
 	end
 	sounds:playSound("entity.egg.throw", player:getPos(), 0.25, 2)

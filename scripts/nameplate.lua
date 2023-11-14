@@ -2,7 +2,7 @@
 ---@field NameList table<string> 利用可能な名前のリスト
 ---@field NamplateOffset number ネームプレートのオフセット
 Nameplate = {
-	NameList = {player:getName(), "Senko", "仙狐", "Senko_san", "仙狐さん", "Sen", "仙", "セン"},
+	NameList = {player:getName(), "Sora", "夜空"},
 	NamePlateOffset = 0
 }
 

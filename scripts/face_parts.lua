@@ -1,26 +1,19 @@
 ---@alias FaceParts.EyeType
 ---| "NONE"
 ---| "NORMAL"
----| "NORMAL_INVERSED"
 ---| "SURPLISED"
----| "SLEEPY"
 ---| "TIRED"
----| "TIRED_INVERSED"
----| "ANGRY"
----| "TEAR"
 ---| "CLOSED"
----| "UNEQUAL"
+---| "ANGRY"
 
 ---@alias FaceParts.MouthType
 ---| "NONE"
 ---| "CLOSED"
 ---| "OPENED"
----| "TRIANGLE"
 
 ---@alias FaceParts.ComplexionType
 ---| "NORMAL"
 ---| "PALE"
----| "BLUSH"
 
 ---@class FaceParts 目と口を制御するクラス
 ---@field EyeTypeID { [string]: integer } EyeTypeとIDを紐付けるテーブル
@@ -33,9 +26,9 @@
 ---@field Drowned boolean 溺れているかどうか
 ---@field DrownedPrev boolean 前チックに溺れていたかどうか
 FaceParts = {
-	EyeTypeID = {NONE = 0, NORMAL = 1, SLEEPY = 2, ANGRY = 3, TEAR = 4, SURPLISED = 5, TIRED = 6, TIRED_INVERSED = 7, NORMAL_INVERSED = 8, CLOSED = 9, UNEQUAL = 10},
-	MouthTypeID = {NONE = 0, CLOSED = 1, OPENED = 2, TRIANGLE = 3},
-	ComplexionID = {NORMAL = 1, PALE = 2, BLUSH = 3},
+	EyeTypeID = {NONE = 0, NORMAL = 1, ANGRY = 2, SURPLISED = 3, TIRED = 4, CLOSED = 5},
+	MouthTypeID = {NONE = 0, CLOSED = 1, OPENED = 2},
+	ComplexionID = {NORMAL = 1, PALE = 2},
 	RightEyeStatus = "NORMAL",
 	EmotionCount = 0,
 	ComplexionCount = 0,
@@ -54,21 +47,19 @@ FaceParts = {
 		local leftEyePart = models.models.main.Avatar.Head.FaceParts.Eyes.LeftEye.LeftEye
 		if FaceParts.EmotionCount == 0 or force then
 			--右目
-			if FaceParts.EyeTypeID[rightEye] >= 8 then
-				rightEyePart:setUVPixels((FaceParts.EyeTypeID[rightEye] - 4) * 6, 6)
-			elseif FaceParts.EyeTypeID[rightEye] > 0 then
+			if FaceParts.EyeTypeID[rightEye] > 0 then
 				rightEyePart:setUVPixels((FaceParts.EyeTypeID[rightEye] - 1) * 6, 0)
 			end
 			FaceParts.RightEyeStatus = rightEye
 			--左目
-			if FaceParts.EyeTypeID[leftEye] >= 8 then
-				leftEyePart:setUVPixels((FaceParts.EyeTypeID[leftEye] - 4) * 6, 6)
+			if FaceParts.EyeTypeID[leftEye] <= 2 then
+				leftEyePart:setUVPixels((FaceParts.EyeTypeID[leftEye] - 1) * 6, 6)
 			elseif FaceParts.EyeTypeID[leftEye] > 0 then
-				leftEyePart:setUVPixels((FaceParts.EyeTypeID[leftEye] - 1) * 6, FaceParts.EyeTypeID[leftEye] <= 4 and 6 or 0)
+				leftEyePart:setUVPixels((FaceParts.EyeTypeID[leftEye] - 1) * 6, 0)
 			end
 			--口
 			if FaceParts.MouthTypeID[mouth] > 0 then
-				models.models.main.Avatar.Head.FaceParts.Mouth:setUVPixels((FaceParts.MouthTypeID[mouth] - 1) * 4, 0)
+				models.models.main.Avatar.Head.FaceParts.Mouth:setUVPixels((FaceParts.MouthTypeID[mouth] - 1) * 2, 0)
 			end
 			FaceParts.EmotionCount = duration
 		end
@@ -108,15 +99,13 @@ events.TICK:register(function ()
 		end
 	end
 	if FaceParts.BlinkCount == 200 then
-		if not Warden.WardenNearby then
-			FaceParts.setEmotion("CLOSED", "CLOSED", "NONE", 2, false)
-		end
+		FaceParts.setEmotion("CLOSED", "CLOSED", "NONE", 2, false)
 		FaceParts.BlinkCount = 0
 	elseif not client.isPaused() then
 		FaceParts.BlinkCount = FaceParts.BlinkCount + 1
 	end
 	if FaceParts.ComplexionCount == 0 then
-		FaceParts.setComplexion((Warden.WardenNearby or player:getFrozenTicks() > 0) and "PALE" or "NORMAL", 0, false)
+		FaceParts.setComplexion(player:getFrozenTicks() > 0 and "PALE" or "NORMAL", 0, false)
 	end
 	if host:isHost() then
 		FaceParts.Drowned = host:getAir() <= 0 and General.getTargetEffect("minecraft.water_breathing") == nil

@@ -1349,8 +1349,8 @@
 			"locked": false,
 			"render_order": "default",
 			"allow_mirror_modeling": true,
-			"from": [-5, 11, 9],
-			"to": [5, 18, 17],
+			"from": [-7, 12, 9],
+			"to": [3, 19, 17],
 			"autouv": 0,
 			"color": 2,
 			"inflate": 0.5,
@@ -1421,7 +1421,7 @@
 					"texture": 4
 				},
 				"up": {
-					"uv": [0, 0, 1, 1],
+					"uv": [0, 0, 1, 1.00001],
 					"texture": 4
 				},
 				"down": {
@@ -1450,27 +1450,27 @@
 			"uv_offset": [20, 0],
 			"faces": {
 				"north": {
-					"uv": [0, 0, 1, 4],
+					"uv": [0, 0, 1, 4.00001],
 					"texture": 4
 				},
 				"east": {
-					"uv": [0, 0, 1, 4],
+					"uv": [0, 0, 1, 4.00001],
 					"texture": 4
 				},
 				"south": {
-					"uv": [0, 0, 1, 4],
+					"uv": [0, 0, 1, 4.00001],
 					"texture": 4
 				},
 				"west": {
-					"uv": [0, 0, 1, 4],
+					"uv": [0, 0, 1, 4.00001],
 					"texture": 4
 				},
 				"up": {
-					"uv": [0, 0, 1, 1],
+					"uv": [0, 0, 1, 1.00001],
 					"texture": 4
 				},
 				"down": {
-					"uv": [0, 3, 1, 4],
+					"uv": [0, 3, 1, 4.00001],
 					"texture": 4
 				}
 			},
@@ -1493,7 +1493,7 @@
 			"uv_offset": [12, 0],
 			"faces": {
 				"north": {
-					"uv": [1, 0, 2, 4],
+					"uv": [1, 0, 2, 4.00001],
 					"texture": 4
 				},
 				"east": {
@@ -1501,7 +1501,7 @@
 					"texture": null
 				},
 				"south": {
-					"uv": [1, 0, 2, 4],
+					"uv": [1, 0, 2, 4.00001],
 					"texture": 4
 				},
 				"west": {
@@ -1554,7 +1554,7 @@
 					"texture": 4
 				},
 				"up": {
-					"uv": [0, 0, 1, 1],
+					"uv": [0, 0, 1, 1.00001],
 					"texture": 4
 				},
 				"down": {
@@ -1583,27 +1583,27 @@
 			"uv_offset": [20, 0],
 			"faces": {
 				"north": {
-					"uv": [0, 0, 1, 4],
+					"uv": [0, 0, 1, 4.00001],
 					"texture": 4
 				},
 				"east": {
-					"uv": [0, 0, 1, 4],
+					"uv": [0, 0, 1, 4.00001],
 					"texture": 4
 				},
 				"south": {
-					"uv": [0, 0, 1, 4],
+					"uv": [0, 0, 1, 4.00001],
 					"texture": 4
 				},
 				"west": {
-					"uv": [0, 0, 1, 4],
+					"uv": [0, 0, 1, 4.00001],
 					"texture": 4
 				},
 				"up": {
-					"uv": [0, 0, 1, 1],
+					"uv": [0, 0, 1, 1.00001],
 					"texture": 4
 				},
 				"down": {
-					"uv": [0, 3, 1, 4],
+					"uv": [0, 3, 1, 4.00001],
 					"texture": 4
 				}
 			},
@@ -1626,7 +1626,7 @@
 			"uv_offset": [12, 0],
 			"faces": {
 				"north": {
-					"uv": [1, 0, 2, 4],
+					"uv": [1, 0, 2, 4.00001],
 					"texture": 4
 				},
 				"east": {
@@ -1634,7 +1634,7 @@
 					"texture": null
 				},
 				"south": {
-					"uv": [1, 0, 2, 4],
+					"uv": [1, 0, 2, 4.00001],
 					"texture": 4
 				},
 				"west": {
@@ -2324,8 +2324,8 @@
 			"locked": false,
 			"render_order": "default",
 			"allow_mirror_modeling": true,
-			"from": [-5, 11, 9],
-			"to": [5, 18, 17],
+			"from": [-7, 12, 9],
+			"to": [3, 19, 17],
 			"autouv": 0,
 			"color": 2,
 			"inflate": 0.51,
@@ -2361,6 +2361,546 @@
 			},
 			"type": "cube",
 			"uuid": "7abe43f7-520d-738e-9e42-7bc68e43eeaf"
+		},
+		{
+			"name": "TailChestplateTrim",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-3, 12, 9],
+			"to": [7, 19, 17],
+			"autouv": 0,
+			"color": 2,
+			"inflate": 0.51,
+			"origin": [0, 14.5, 13],
+			"faces": {
+				"north": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"east": {
+					"uv": [0, 0, 7.82353, 48],
+					"rotation": 90,
+					"texture": 7
+				},
+				"south": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"west": {
+					"uv": [0, 0, 7.82353, 48],
+					"rotation": 270,
+					"texture": 7
+				},
+				"up": {
+					"uv": [7.88235, 0, 19, 48],
+					"texture": 7
+				},
+				"down": {
+					"uv": [7.88235, 0, 19, 48],
+					"rotation": 180,
+					"texture": 7
+				}
+			},
+			"type": "cube",
+			"uuid": "c6560bfe-7c67-ec65-3ec7-4bebf03ae4bd"
+		},
+		{
+			"name": "TailChestplate",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-3, 12, 9],
+			"to": [7, 19, 17],
+			"autouv": 0,
+			"color": 2,
+			"inflate": 0.5,
+			"origin": [0, 14.5, 13],
+			"faces": {
+				"north": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"east": {
+					"uv": [2, 0, 9, 8],
+					"rotation": 90,
+					"texture": 4
+				},
+				"south": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"west": {
+					"uv": [2, 0, 9, 8],
+					"rotation": 270,
+					"texture": 4
+				},
+				"up": {
+					"uv": [9, 0, 19, 8],
+					"texture": 4
+				},
+				"down": {
+					"uv": [9, 0, 19, 8],
+					"rotation": 180,
+					"texture": 4
+				}
+			},
+			"type": "cube",
+			"uuid": "630d7c76-ca38-26b7-2d15-cb11aa9d0ddf"
+		},
+		{
+			"name": "TailChestplate",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-7, 10, 9],
+			"to": [3, 17, 17],
+			"autouv": 0,
+			"color": 2,
+			"inflate": 0.5,
+			"origin": [0, 14.5, 13],
+			"faces": {
+				"north": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"east": {
+					"uv": [2, 0, 9, 8],
+					"rotation": 90,
+					"texture": 4
+				},
+				"south": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"west": {
+					"uv": [2, 0, 9, 8],
+					"rotation": 270,
+					"texture": 4
+				},
+				"up": {
+					"uv": [9, 0, 19, 8],
+					"texture": 4
+				},
+				"down": {
+					"uv": [9, 0, 19, 8],
+					"rotation": 180,
+					"texture": 4
+				}
+			},
+			"type": "cube",
+			"uuid": "408fdb43-952d-48bc-bddc-a5d6d4557e3d"
+		},
+		{
+			"name": "TailChestplateTrim",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-7, 10, 9],
+			"to": [3, 17, 17],
+			"autouv": 0,
+			"color": 2,
+			"inflate": 0.51,
+			"origin": [0, 14.5, 13],
+			"faces": {
+				"north": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"east": {
+					"uv": [0, 0, 7.82353, 48],
+					"rotation": 90,
+					"texture": 7
+				},
+				"south": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"west": {
+					"uv": [0, 0, 7.82353, 48],
+					"rotation": 270,
+					"texture": 7
+				},
+				"up": {
+					"uv": [7.88235, 0, 19, 48],
+					"texture": 7
+				},
+				"down": {
+					"uv": [7.88235, 0, 19, 48],
+					"rotation": 180,
+					"texture": 7
+				}
+			},
+			"type": "cube",
+			"uuid": "df098680-b9ab-4b9b-c485-3e2c6efb3fa2"
+		},
+		{
+			"name": "TailChestplate",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-3, 10, 9],
+			"to": [7, 17, 17],
+			"autouv": 0,
+			"color": 2,
+			"inflate": 0.5,
+			"origin": [0, 14.5, 13],
+			"faces": {
+				"north": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"east": {
+					"uv": [2, 0, 9, 8],
+					"rotation": 90,
+					"texture": 4
+				},
+				"south": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"west": {
+					"uv": [2, 0, 9, 8],
+					"rotation": 270,
+					"texture": 4
+				},
+				"up": {
+					"uv": [9, 0, 19, 8],
+					"texture": 4
+				},
+				"down": {
+					"uv": [9, 0, 19, 8],
+					"rotation": 180,
+					"texture": 4
+				}
+			},
+			"type": "cube",
+			"uuid": "e41f3ddc-70e4-603b-576a-bf3c9fe30733"
+		},
+		{
+			"name": "TailChestplateTrim",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-3, 10, 9],
+			"to": [7, 17, 17],
+			"autouv": 0,
+			"color": 2,
+			"inflate": 0.51,
+			"origin": [0, 14.5, 13],
+			"faces": {
+				"north": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"east": {
+					"uv": [0, 0, 7.82353, 48],
+					"rotation": 90,
+					"texture": 7
+				},
+				"south": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"west": {
+					"uv": [0, 0, 7.82353, 48],
+					"rotation": 270,
+					"texture": 7
+				},
+				"up": {
+					"uv": [7.88235, 0, 19, 48],
+					"texture": 7
+				},
+				"down": {
+					"uv": [7.88235, 0, 19, 48],
+					"rotation": 180,
+					"texture": 7
+				}
+			},
+			"type": "cube",
+			"uuid": "47954b7b-043d-b7c5-585f-caa6dae6bd86"
+		},
+		{
+			"name": "ChestChestplate",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-4, 18.5, -4],
+			"to": [4, 22.5, 0],
+			"autouv": 0,
+			"color": 0,
+			"inflate": 0.99,
+			"rotation": [45, 0, 0],
+			"origin": [0, 20.5, -2],
+			"faces": {
+				"north": {
+					"uv": [5.9375, 31.5, 8.3125, 37.5],
+					"texture": 0
+				},
+				"east": {
+					"uv": [4.75, 36, 5.9375, 42],
+					"rotation": 90,
+					"texture": 0
+				},
+				"south": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"west": {
+					"uv": [8.34219, 42, 9.52969, 36],
+					"rotation": 270,
+					"texture": 0
+				},
+				"up": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"down": {
+					"uv": [5.9375, 42, 8.3125, 36],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "2b3a0798-e7f6-8e61-7c03-5cba2dbdcd68"
+		},
+		{
+			"name": "ChestChestplateOverlay",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-4, 18.5, -4],
+			"to": [4, 22.5, 0],
+			"autouv": 0,
+			"color": 0,
+			"inflate": 1.001,
+			"rotation": [45, 0, 0],
+			"origin": [0, 20.5, -2],
+			"faces": {
+				"north": {
+					"uv": [5.9375, 31.5, 8.3125, 37.5],
+					"texture": 1
+				},
+				"east": {
+					"uv": [4.75, 36, 5.9375, 42],
+					"rotation": 90,
+					"texture": 1
+				},
+				"south": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"west": {
+					"uv": [8.34219, 42, 9.52969, 36],
+					"rotation": 270,
+					"texture": 1
+				},
+				"up": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"down": {
+					"uv": [5.9375, 42, 8.3125, 36],
+					"texture": 1
+				}
+			},
+			"type": "cube",
+			"uuid": "26021c39-d171-4207-8dd1-36f59812c1e7"
+		},
+		{
+			"name": "ChestLeggingsOverlay",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-4, 18.5, -4],
+			"to": [4, 22.5, 0],
+			"autouv": 0,
+			"color": 0,
+			"inflate": 0.501,
+			"rotation": [45, 0, 0],
+			"origin": [0, 20.5, -2],
+			"faces": {
+				"north": {
+					"uv": [5.9375, 31.5, 8.3125, 37.5],
+					"texture": 3
+				},
+				"east": {
+					"uv": [4.75, 36, 5.9375, 42],
+					"rotation": 90,
+					"texture": 3
+				},
+				"south": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"west": {
+					"uv": [8.34219, 42, 9.52969, 36],
+					"rotation": 270,
+					"texture": 3
+				},
+				"up": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"down": {
+					"uv": [5.9375, 42, 8.3125, 36],
+					"texture": 3
+				}
+			},
+			"type": "cube",
+			"uuid": "b750892d-a938-4724-045e-60543d3a538d"
+		},
+		{
+			"name": "ChestLeggings",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-4, 18.5, -4],
+			"to": [4, 22.5, 0],
+			"autouv": 0,
+			"color": 0,
+			"inflate": 0.49,
+			"rotation": [45, 0, 0],
+			"origin": [0, 20.5, -2],
+			"faces": {
+				"north": {
+					"uv": [5.9375, 31.5, 8.3125, 37.5],
+					"texture": 2
+				},
+				"east": {
+					"uv": [4.75, 36, 5.9375, 42],
+					"rotation": 90,
+					"texture": 2
+				},
+				"south": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"west": {
+					"uv": [8.34219, 42, 9.52969, 36],
+					"rotation": 270,
+					"texture": 2
+				},
+				"up": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"down": {
+					"uv": [5.9375, 42, 8.3125, 36],
+					"texture": 2
+				}
+			},
+			"type": "cube",
+			"uuid": "ab2b2f06-213f-f1f7-3ee9-32c8475157b9"
+		},
+		{
+			"name": "ChestChestplateTrim",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-4, 18.5, -4],
+			"to": [4, 22.5, 0],
+			"autouv": 0,
+			"color": 0,
+			"inflate": 1.002,
+			"rotation": [45, 0, 0],
+			"origin": [0, 20.5, -2],
+			"faces": {
+				"north": {
+					"uv": [5.9375, 31.5, 8.3125, 37.5],
+					"texture": 5
+				},
+				"east": {
+					"uv": [4.75, 36, 5.9375, 42],
+					"rotation": 90,
+					"texture": 5
+				},
+				"south": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"west": {
+					"uv": [8.34219, 42, 9.52969, 36],
+					"rotation": 270,
+					"texture": 5
+				},
+				"up": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"down": {
+					"uv": [5.9375, 42, 8.3125, 36],
+					"texture": 5
+				}
+			},
+			"type": "cube",
+			"uuid": "09c38980-fa0b-cc34-5532-d6dc6ec671cc"
+		},
+		{
+			"name": "ChestLeggingsTrim",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-4, 18.5, -4],
+			"to": [4, 22.5, 0],
+			"autouv": 0,
+			"color": 0,
+			"inflate": 0.502,
+			"rotation": [45, 0, 0],
+			"origin": [0, 20.5, -2],
+			"faces": {
+				"north": {
+					"uv": [5.9375, 31.5, 8.3125, 37.5],
+					"texture": 6
+				},
+				"east": {
+					"uv": [4.75, 36, 5.9375, 42],
+					"rotation": 90,
+					"texture": 6
+				},
+				"south": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"west": {
+					"uv": [8.34219, 42, 9.52969, 36],
+					"rotation": 270,
+					"texture": 6
+				},
+				"up": {
+					"uv": [0, 0, 0, 0],
+					"texture": null
+				},
+				"down": {
+					"uv": [5.9375, 42, 8.3125, 36],
+					"texture": 6
+				}
+			},
+			"type": "cube",
+			"uuid": "3cdf6e7b-91fc-715e-d05e-d899656142cf"
 		}
 	],
 	"outliner": [
@@ -2488,7 +3028,14 @@
 					"locked": false,
 					"visibility": true,
 					"autouv": 0,
-					"children": ["dd71e763-3f50-27e7-4890-60712fe4b470", "221586a8-f1b7-d89c-103a-a8a78d463c14", "049088bb-c67b-89d6-c0c9-39cdf4d55248"]
+					"children": [
+						"dd71e763-3f50-27e7-4890-60712fe4b470",
+						"2b3a0798-e7f6-8e61-7c03-5cba2dbdcd68",
+						"221586a8-f1b7-d89c-103a-a8a78d463c14",
+						"26021c39-d171-4207-8dd1-36f59812c1e7",
+						"049088bb-c67b-89d6-c0c9-39cdf4d55248",
+						"09c38980-fa0b-cc34-5532-d6dc6ec671cc"
+					]
 				},
 				{
 					"name": "Leggings",
@@ -2501,7 +3048,14 @@
 					"locked": false,
 					"visibility": true,
 					"autouv": 0,
-					"children": ["7ad0bece-d1c9-6e51-4f44-ef97a7f7f1b9", "081f8895-a57e-f3d5-a6fc-c503639b7960", "94f742cd-a66f-e884-64b7-8dd716c679b7"]
+					"children": [
+						"7ad0bece-d1c9-6e51-4f44-ef97a7f7f1b9",
+						"ab2b2f06-213f-f1f7-3ee9-32c8475157b9",
+						"081f8895-a57e-f3d5-a6fc-c503639b7960",
+						"b750892d-a938-4724-045e-60543d3a538d",
+						"94f742cd-a66f-e884-64b7-8dd716c679b7",
+						"3cdf6e7b-91fc-715e-d05e-d899656142cf"
+					]
 				}
 			]
 		},
@@ -2620,11 +3174,64 @@
 			"uuid": "82b981c9-fd29-eb7c-8050-4131f2f1b822",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": false,
+			"isOpen": true,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
-			"children": ["4afbed7a-1ca6-77b6-db58-92e01ae31aa4", "7abe43f7-520d-738e-9e42-7bc68e43eeaf"]
+			"children": [
+				{
+					"name": "TailUL",
+					"origin": [0, 14.5, 3],
+					"color": 0,
+					"uuid": "db8bfc0e-a6fb-c07c-634e-481932cb53a9",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": true,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": ["4afbed7a-1ca6-77b6-db58-92e01ae31aa4", "7abe43f7-520d-738e-9e42-7bc68e43eeaf"]
+				},
+				{
+					"name": "TailUR",
+					"origin": [0, 14.5, 3],
+					"color": 0,
+					"uuid": "6e8e8e82-60fb-626f-ef28-d05fa7cfbf6e",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": false,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": ["630d7c76-ca38-26b7-2d15-cb11aa9d0ddf", "c6560bfe-7c67-ec65-3ec7-4bebf03ae4bd"]
+				},
+				{
+					"name": "TailLL",
+					"origin": [0, 14.5, 3],
+					"color": 0,
+					"uuid": "0f45924a-96f1-ba1c-dec3-6b65bc9dcea9",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": false,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": ["df098680-b9ab-4b9b-c485-3e2c6efb3fa2", "408fdb43-952d-48bc-bddc-a5d6d4557e3d"]
+				},
+				{
+					"name": "TailLR",
+					"origin": [0, 14.5, 3],
+					"color": 0,
+					"uuid": "bc048cc3-d96c-f1b3-968e-9ad93f2c528e",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": false,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"children": ["47954b7b-043d-b7c5-585f-caa6dae6bd86", "e41f3ddc-70e4-603b-576a-bf3c9fe30733"]
+				}
+			]
 		},
 		{
 			"name": "ArmorRL",
@@ -2633,7 +3240,7 @@
 			"uuid": "09960a3e-73fa-bf53-b5a6-939709be95dd",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": false,
+			"isOpen": true,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
@@ -2789,7 +3396,7 @@
 	],
 	"textures": [
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\for_modeling\\leather_layer_1.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\for_modeling\\leather_layer_1.png",
 			"name": "leather_layer_1.png",
 			"folder": "",
 			"namespace": "",
@@ -2809,7 +3416,7 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAgCAYAAACinX6EAAAAAXNSR0IArs4c6QAAA3lJREFUaEPlmTFv4kAQhU0TnWiQEEW4DlFSRRFVdB1/g5rfRM3foDulQkeacKcUiO5IgZBo0CmNT99Kz5qs7CzENvh8K0XB7Ho98zzzZt7SiAJjNpvFx+PRrWo2m8lqfTeZTBqhPao8HzQeAO7v7t758OftzV2vVqtoPB4H96gFAL9eXqJWq5X40m63/w8AptNp/O3hIfr9+hodDocEAMDYbrf1jwAfgF6vl4CwWCyi2nMAAAyHw2i/37sIEABfbm6iH09P9Y8ASHAwGLi3DgjkPs4zvj8+1j8CAABns0rhP58CWQ7isK37SvwsILQ2bd6WQbsvn68NYMPWedV3hTssj5FUAeZIAQ34YLfbOZC63a5LDQ2lCBzBsH0E1URrq9BHNNLKHCXu6+2ty3ENPxr0ppn3y6S9n/sAAMcZKqWQaWUA6Pf7iWFyzIZyVrcHeD5AAgoQ1uu1mwYgGik7NF+JFLAkl9cggWI5QQDbHqIqZbT0Pl5iChBsCYUfKkGClxIqRIaNiryRVpTdpUdAUYaWtU8QgPl8Hou5Ia7RaBS8pyxj2Vd9i3grbyQFnVkul7F0QFUAUF9RhBYJAvDz+TlWgwQQ144A9S2UVUg074FMEADbKkNieR+YNz1s78FepadAyOAsLeEDZXM3TVx9tN7XD9yfpT3O1RrBCDgFAHKSNKG1Ve9v81NnCnbeX0/bbZ2ie9R3NuettvC1hn99ilzPDYDVElY8Yai0hMQUAEhcoQ1Ybx0S19AlMk8rbbWErhFf0ioSY+yj/ZjXdShlcwNAaOuB1mCpRwyVYxyhWYOtVvCVKKVXesQ6hGP+87KuTzmzLAQAnRj5Ib7ZbNxJspW/OJC2XmpRilFqERA6nY7bRxGWdW0jRACWHgGkgMQOxvLHGSJDR2jiEaWAXW8B8flG64kaK7/TpLnlj3NabncecA6ryhj7EB2a6g0JgLQIEECAo/UAomG7Tt5o3jIXIvF3J0JSaJAWI41VRUoiOeW0f0KkByv8cdgPUU6UGAJMUcP/S/3w4gAgJ/VGFJLWYDvvv0E5ausvoJCzgKJfkyypcY9dLxK7xg8vLgUgFUjHsrQMxlBpeeWk1mcdaWlPHBUQvO2scE5rpi51VpBEgE5oVJfVqOiN23kiguuPGo2iW9ZQLn923kVAWltpWVckmcbEoTLzWcMudd9f6+s3Tq3qU78AAAAASUVORK5CYII="
 		},
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\for_modeling\\leather_layer_1_overlay.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\for_modeling\\leather_layer_1_overlay.png",
 			"name": "leather_layer_1_overlay.png",
 			"folder": "",
 			"namespace": "",
@@ -2829,7 +3436,7 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAgCAYAAACinX6EAAAAAXNSR0IArs4c6QAAARtJREFUaENjZCABeOlI/Acp33blBSMJ2ga1UpI8EmWhAA6AZScekKRvMIcASR4Z8QGQZANJAfOOjNAUkOWgCQ6AaQeuk5Ryhk0WGA2AkZ4CRnwZQGkABJlACtF1ZwZPIUpSYUZpNUhpANKiMCUpAEAtQQEeDrIbQoOxECUpACiNAVAK4GDhHFTVKF0DAJQCfvz5PqgaUnQNgCFfBlCaBSgtRCm1H5t+uqYAWniAUjMJBgBsDABm0XAaCwD5iagAUBARZPjw4zvDhy8/htVgCNEBAKr7OVgYGF58GKEBgJzPRlwWoLSQGez6CZYBg90DlLpvNAAoDcGhrn80BQz1GKTU/aMpgNIQHOr6R1PAUI9BSt0/mgIoDcGhrh8ARURkId1f/LQAAAAASUVORK5CYII="
 		},
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\for_modeling\\leather_layer_2.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\for_modeling\\leather_layer_2.png",
 			"name": "leather_layer_2.png",
 			"folder": "",
 			"namespace": "",
@@ -2849,7 +3456,7 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAgCAYAAACinX6EAAAAAXNSR0IArs4c6QAAAbNJREFUaEPtVquOg0AUHTSGIDA4BA7ZLLLZj8DzZXi+BI9DoJYKBMGwqevmTHI2N7Ntd5NuSToz15B5NOk9cx43UI5X4Hj/ygPgGeA4Al4CjhPAm6CXgJeA4wh4CThOAJ8CXgJeAgYCbdtesLVtmwrDUFVVZTVLfjQHAN4OB/V5Pquu61Rd124B0DTNpSxLNY6jmufZTQCkKqxnADVP3eML7UsfuHWG/VcHKAAAaDiKIjUMg24+TVMNgLmepknv43xdVyskEkDzSZJoANhgURS60b7vdRrAE1AwRRTWy7Lo+6+eEpoBfHE0hIbzPL/JAAkIALICAL44XpgSAMXRLCkfx7FmBNf4WsEAKQFqHiBkWfYtATDCBIRrKxhAU8OLk+KcA8gIMIAMkaZpRQpIDzBjEICYJmmmxL2YNCOVIzblxXMZuzzbI2a1CfJPmdn/l8Zwh6MzPQJrFkZqljznqA0A5H3c5W/2MNmH53w5OlNC78ej+jiddN/wCpScM2C6kNhv9/cw2YcBuDZIsUG+PJpnapiSYuwSKIKFL0z52R7zbwBIudzzlGsew7mDg5j0jWenzBfesmAwq9d1bgAAAABJRU5ErkJggg=="
 		},
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\for_modeling\\leather_layer_2_overlay.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\for_modeling\\leather_layer_2_overlay.png",
 			"name": "leather_layer_2_overlay.png",
 			"folder": "",
 			"namespace": "",
@@ -2869,7 +3476,7 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAgCAYAAACinX6EAAAAAXNSR0IArs4c6QAAAP5JREFUaEPtlbEKwjAQhq/gkEKHCA516wM4OvgMjo4+oKPP4eBDODp2KOSGQuUaAramLirE3n9LSS4N3Mf//8lIeWXK5ycAgAKUE4AFlAsAIQgLwALKCcACygWAVwAWgAWUE4AFlAsArwAsAAtECBx3VSfbp8tt9gp5GVCGX9ucHBPV7GYPIQrAmrzXhUoAMrhqC2gLxY9D7rD1gRmKmckYE+U47r07Gy44X38bxF8BUBY+M+6N679hPQDTOqrZ70ifR+sYMbkveQD7TdnZwpBZSGgOBxwPFfrWEHFLVDf+h2q17IHEzicP4NkCImmpKQtM5YvAi5VASh7Av4fmA8zRVyFbTtAIAAAAAElFTkSuQmCC"
 		},
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\armor.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\armor.png",
 			"name": "armor.png",
 			"folder": "",
 			"namespace": "",
@@ -2889,7 +3496,7 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAwCAYAAADzaEFUAAAAAXNSR0IArs4c6QAAA0FJREFUSEvNVs9rU0EQnhchxOSV0JiD/UW12lhaG6uQg8TWSy8qCF5rwLNY8OifUDwKpdCjNP0DLEgu6kEUb8FaKo3V2tJfgmna0iSGglmZjbOZ97L72mIO7mVnZ7755tv3vjxizczMiIGBAVhcXIRyuQzBYBBw6WLM4TJhrOnpaTGcTEoQrsrhoYoxCPj9xhoHIs4iZbomyrkHIEmhUIBIJOIYrJTpGjjS3YxnXJxQkiUSCccEHfCo62KPRSzZbFbw6TpCwuqu70nmkHrMg1KG1+WvXGcBsobJHlZ6Ni1S91NyP6YAI0wpSz9Pi9SDlDX5bFKMPx5XO+WPsytlOM5NdNKzUnbSRh3+P1bGX82/XrX+NpthjUwmI3p6emBlZQVCoRCUSiUpFmNcJzlbSBaPx6G9vR22tragWCw2mDIWixlrHCzJUBk15PN5VQ8EAjLmZJVKxfnx/IvBpFKGB50qzNu2baxplVGSTyZlvMFTGQFzuVzzfujz8/OSjKvxUqFTq3yGL4Jbg+xhsobOPtbq3JDoHumHtbef4WDDBy2dVTmUYr5j3l3nWGth6profzgKPngKVXgCvv2Nxo9feNZcY2ilDKgh96FePttViznZj3XnMMKgz0gZIrSqAKAa7jTWHD5DsstjffUcn8ymKoCXMgKJvbHm+UwsDdfI3Go8lLjVKp+hRY6ygckuZBlr6OMbkbzQC++/LcPvYhFO2bbccWGMi/JHxdbguzkxcf0G3PG1wsvqLmTKtY8jX5N2p7HmeJukjBqm9n6q+nl/7V8kJ/t+WPv3SIsweFbK8KBThflbwZCx5lCG1xy5clXl+GQ+lQCeygj06GC9eT67vVP7OHI1Xir49QinfIbXNdmCbKKzDJFir3Vv9K7ojfXBq9cvoLvrEtiRMBQL+2pfW89By+koHPzKqzpXhVjCSDJO0BZtg+38NtCOYFqIwzxfiCWMUrb8ZUmq4WACVkr7EAiFG+pIyjEOZVgkQj6RK+ED3ZiGZ0aEJN39zKiOuxuj3ubNoaSIRM84ngceCvkdldPVOcZBtrm7KRsHe+NyX1j+BB2tHTLGGs/TBMzhQKwrsovd58TXtVV5xhh3PJtiIuP1P+45A3fcZlu2AAAAAElFTkSuQmCC"
 		},
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\for_modeling\\trim.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\for_modeling\\trim.png",
 			"name": "trim.png",
 			"folder": "",
 			"namespace": "",
@@ -2909,7 +3516,7 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAgCAYAAACinX6EAAAAAXNSR0IArs4c6QAAARlJREFUaEPtWIEJxCAMrJtkFEdxFEdxFEdxE5/Ip+TFL31S+TamUFrE2NzlUsi5bfHLLY5/MwJMAYszYC2wuADsJ2gtEGOs2AallNYNANBueqcWea83wkoplfbzWFzj53Sx+7m0D58xxr8W4fTHc86ViMHEvfenY+/8n1EBQkKwESBhT0OsKUBDFSUYTAES9jTEmgI0VFGCwRQgYU9DrClAQxUlGG6vAD6FcqA0UuecP/B77/uR/hCjmAD0EzCZkY9AIzOCGPkGfQwft8lXCCGIczxSiEMAxBpt7Od93EPJcjMD174ZGmiaAMBuoNC7RK4zYofs8uTxoyml+mslnmKgDAno+06TA9SraGp/zZDs1WcaAVcz+rTzXjFzgCFw/S4BAAAAAElFTkSuQmCC"
 		},
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\for_modeling\\trim_leggings.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\for_modeling\\trim_leggings.png",
 			"name": "trim_leggings.png",
 			"folder": "",
 			"namespace": "",
@@ -2929,7 +3536,7 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAgCAYAAACinX6EAAAAAXNSR0IArs4c6QAAALdJREFUaEPtlVEKgCAQRPUmHsWj71H2JsVKGxH1o24kM0KkZIs+Z8acwFsG338iACoAnAAtAC4AhiAtQAuAE6AFwAXAW4AWoAXACdAC4ALgLUAL0ALgBLKIbMaglHKiUNU2trc364tIG9o3f2qtS9to6cXPEC8BzKC4co1hBViGeFZ4jnh+eD7YnGum3Of7+KlOdMYMA3g7fVW1Tbf61/7f1BIGwE/9AJCiT7IXbBiA3gV9/R88gB06yDkhrwNxCwAAAABJRU5ErkJggg=="
 		},
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\armor_trims\\coast.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\armor_trims\\coast.png",
 			"name": "coast.png",
 			"folder": "",
 			"namespace": "",
@@ -2949,7 +3556,7 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAICAYAAAAftBSpAAAAAXNSR0IArs4c6QAAAFRJREFUKFNjZKACYKSCGQyMDQ0N/0EGPXjwAG6egoICmI1OOzg4gC09cOAAih6iXfLgwYP/CgoKYPXIbBCfaENAtsNcBnI1zFUkGYIv7Ih2Cc0NAQCcsBvo1fl7ZAAAAABJRU5ErkJggg=="
 		},
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\armor_trims\\dune.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\armor_trims\\dune.png",
 			"name": "dune.png",
 			"folder": "",
 			"namespace": "",
@@ -2969,7 +3576,7 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAICAYAAAAftBSpAAAAAXNSR0IArs4c6QAAAHdJREFUKFOtkdEJQCEIRXUTR3GURmsUR3GTHlcyJProQYI/ej3mjelBMBi99yEihESYGbXWonfquzshU8MJUNU15O4DItRO/bkoNAAxBkQkAGY2Elbr+aIKry78gmBJPSNBjMb0Y51TxVfnpHGqGuDdtCtjH/wwfVSNdwleNQXNAAAAAElFTkSuQmCC"
 		},
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\armor_trims\\eye.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\armor_trims\\eye.png",
 			"name": "eye.png",
 			"folder": "",
 			"namespace": "",
@@ -2989,7 +3596,7 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAICAYAAAAftBSpAAAAAXNSR0IArs4c6QAAAHhJREFUKFOtkdENACEIQ2UTR3EURmEURmEUNuFSEwzGH03OLyTtwyK1Hw69MFQ13L2JyOYjM4ve+2RBUOsxxhKLSKS51vBtRHcHcPXyniYMxCBmpuxBcwVh5lBVQhwza1kDNiG3cRKE58NToz4vFjurgGMnLz9VtR8sY2RHxsm0IwAAAABJRU5ErkJggg=="
 		},
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\armor_trims\\host.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\armor_trims\\host.png",
 			"name": "host.png",
 			"folder": "",
 			"namespace": "",
@@ -3009,7 +3616,7 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAICAYAAAAftBSpAAAAAXNSR0IArs4c6QAAAERJREFUKFNjZKACYKSCGQzUMeTAgQP/Dxw4gOEgBwcHFDEHBwcUC0H6YAqIdglIk4KCAljfgwcPGJANJdoQfGE3eAwBAAtkEUh0+gV9AAAAAElFTkSuQmCC"
 		},
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\armor_trims\\raiser.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\armor_trims\\raiser.png",
 			"name": "raiser.png",
 			"folder": "",
 			"namespace": "",
@@ -3029,7 +3636,7 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAICAYAAAAftBSpAAAAAXNSR0IArs4c6QAAAGxJREFUKFOtkdENwCAIRGETRmEURmMURmETGkxsiNrQD/2SO/IOEeHCwQsMQBEJVd1gqWcAM4OIHMNUNcwMhplFbfyq3X2AiQhrz5tgZkFE4O6ZviWnP/V6T2i7k3WqusPptZDTc1ftF6T7wQeFgUAoieHRFQAAAABJRU5ErkJggg=="
 		},
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\armor_trims\\rib.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\armor_trims\\rib.png",
 			"name": "rib.png",
 			"folder": "",
 			"namespace": "",
@@ -3049,7 +3656,7 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAICAYAAAAftBSpAAAAAXNSR0IArs4c6QAAAEFJREFUKFNjZKACYKSCGQyMDQ0N/0EGHThwAG6eg4MDnA0SP3DgAFbLHBwc/oPUUscldPEOzKvoXoJ5BSQ/eLwDAHW0GQe7npTYAAAAAElFTkSuQmCC"
 		},
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\armor_trims\\sentry.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\armor_trims\\sentry.png",
 			"name": "sentry.png",
 			"folder": "",
 			"namespace": "",
@@ -3069,7 +3676,7 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAICAYAAAAftBSpAAAAAXNSR0IArs4c6QAAAGRJREFUKFNjZKACYCTFjAMHDvx/8OABQ0JCAoo+kgxZsGAB2JCGhgZUQ0CmKygogB0EUoDOVlBQYER3ATL/wYMH/xlBBEgzCMMAyCAQBok5ODgworsAmQ8ykCTv0DZMSIkdXGoBCp1V52RyuF8AAAAASUVORK5CYII="
 		},
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\armor_trims\\shaper.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\armor_trims\\shaper.png",
 			"name": "shaper.png",
 			"folder": "",
 			"namespace": "",
@@ -3089,7 +3696,7 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAICAYAAAAftBSpAAAAAXNSR0IArs4c6QAAADxJREFUKFNjTEhI+O/g4MCQkJDAyAAFCxYs+H/gwAEwDyQHAsjyID5IDYgGqYNrhBlADj1qCGaoDZ4wAQC49BAolzl9+AAAAABJRU5ErkJggg=="
 		},
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\armor_trims\\silence.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\armor_trims\\silence.png",
 			"name": "silence.png",
 			"folder": "",
 			"namespace": "",
@@ -3109,7 +3716,7 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAICAYAAAAftBSpAAAAAXNSR0IArs4c6QAAAKhJREFUKFNtkNsRQyEIRLWTWwqlUAqlUAql2ImZ42Qdb6I/6gL7oLfWWlXNMQbPdZ7naWbWeWfm5C+cW73c7t57RMyI6CISAbhIqW+F46GeTfJVQHUN0CAHUhfZb62b2TQzhrYaTVWF1aWL5ZsTooIvEprJB5FUMpP/mqWm+ulSTvfypCh21CHEpRZ4utHCcbxtuvteZGa+oqF4cyLslZVoVfWX/4af2AdoeYwEAN5e2QAAAABJRU5ErkJggg=="
 		},
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\armor_trims\\snout.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\armor_trims\\snout.png",
 			"name": "snout.png",
 			"folder": "",
 			"namespace": "",
@@ -3129,7 +3736,7 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAICAYAAAAftBSpAAAAAXNSR0IArs4c6QAAAFRJREFUKFNjZKACYKSCGQzUNWTBggX/HRwcGA4cOMCQkJCAYThM/sGDBwwgjKwGrvjBgwf/QZIKCgogTJIL4YoJuQQUdjCLHBwcUCwhyUZckUAVQwBhyyYJiDW84wAAAABJRU5ErkJggg=="
 		},
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\armor_trims\\spire.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\armor_trims\\spire.png",
 			"name": "spire.png",
 			"folder": "",
 			"namespace": "",
@@ -3149,7 +3756,7 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAICAYAAAAftBSpAAAAAXNSR0IArs4c6QAAAHNJREFUKFOtUMENACEI000chVEchVEYhVHY5C5tglE/+pAEEwptkVoeRH2gUa5EzOxrrRUkIiKYvXfy+bg7hzIwICLDAP25Tk5iHIwIiAzSXmOTdE2jGatwQWN3BmZmwLm6qi5fV1Vu7+53Nzkd/+qwJ5Efqw08KJlv0VcAAAAASUVORK5CYII="
 		},
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\armor_trims\\tide.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\armor_trims\\tide.png",
 			"name": "tide.png",
 			"folder": "",
 			"namespace": "",
@@ -3169,7 +3776,7 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAICAYAAAAftBSpAAAAAXNSR0IArs4c6QAAAGtJREFUKFOtkd0NgDAIhOkmjMIojMYojMImNZjYnIiaGN96d/QLP4OIyMymqo58dxp9ZiYRWbWZ7cLdJwZVI0REiJm/QxKenbSQiMhw0avOTtCr+eXjG+AYDetOs93tovPR+x9ST/10cqzdAC+HaAkencHjAAAAAElFTkSuQmCC"
 		},
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\armor_trims\\vex.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\armor_trims\\vex.png",
 			"name": "vex.png",
 			"folder": "",
 			"namespace": "",
@@ -3189,7 +3796,7 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAICAYAAAAftBSpAAAAAXNSR0IArs4c6QAAAEdJREFUKFNjZKACYKSCGQzUMeTAgQP/kV1z4MABDMc5ODiAxRQUFFDkHjx4AOYzNjQ0wA2BKUY3BVkzTCNIDcxC6nhn0AQsAHvUEcfJ6wpmAAAAAElFTkSuQmCC"
 		},
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\armor_trims\\ward.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\armor_trims\\ward.png",
 			"name": "ward.png",
 			"folder": "",
 			"namespace": "",
@@ -3209,7 +3816,7 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAICAYAAAAftBSpAAAAAXNSR0IArs4c6QAAAIFJREFUKFOtkcsRwCAIRLUTS6EUSqEUSqEUOyGzTtYxkwM5hBMfeSzY2w/WK4aq5pyzRcTjrYjkGKO5ey8hZrYgeHwOBBwQM6shbKQixFTAWnf3ZIFJTGZORJYCQKjm9CMit0TC7obXmqir6sqfPuLyJlSH22ANGJTiFnud6ne+1C/Xm0JIUVou9gAAAABJRU5ErkJggg=="
 		},
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\armor_trims\\wayfinder.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\armor_trims\\wayfinder.png",
 			"name": "wayfinder.png",
 			"folder": "",
 			"namespace": "",
@@ -3229,7 +3836,7 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAICAYAAAAftBSpAAAAAXNSR0IArs4c6QAAAFpJREFUKFPNkFENwEAIQ8EJUioNaZWCE5aS3TIBfBx/heYVcFsoX2DYDiQzOzO9qlpbVZUBcPWlNSPZEWERMaHSJGcm39c8JhlkFOiFNIDRCjohf9DOOdc89gG43TaIzmlykQAAAABJRU5ErkJggg=="
 		},
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\armor_trims\\wild.png",
+			"path": "C:\\Users\\gakut\\curseforge\\minecraft\\Instances\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\Sora\\textures\\armor_trims\\wild.png",
 			"name": "wild.png",
 			"folder": "",
 			"namespace": "",

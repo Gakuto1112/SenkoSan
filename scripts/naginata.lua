@@ -10,7 +10,7 @@ events.RENDER:register(function (_, context)
     local leftHanded = player:isLeftHanded()
     local heldItems = {player:getHeldItem(leftHanded), player:getHeldItem(not leftHanded)}
     for i = 1, 2 do
-        Naginata.State[i] = (not (heldItems[i].id:find("^minecraft:.+_sword$") == nil or context == "FIRST_PERSON" or Arms.ItemHeldContradicts)) and ((leftHanded ~= (i == 1) and not (player:getActiveItem().id ~= "minecraft:air" and not heldItems[3 - i].id == "minecraft:shield") and player:getPose() ~= "SLEEPING" and not (TailCuddling.IsAnimationPlaying or EarCuddling.IsAnimationPlaying)) and (player:getActiveItem().id == "minecraft:shield" and (SitDown.IsAnimationPlaying and 5 or 4) or (SitDown.IsAnimationPlaying and 3 or 2)) or 1) or 0
+        Naginata.State[i] = (not (heldItems[i].id:find("^minecraft:.+_sword$") == nil or context == "FIRST_PERSON" or Arms.ItemHeldContradicts)) and ((leftHanded ~= (i == 1) and not (player:getActiveItem().id ~= "minecraft:air" and not heldItems[3 - i].id == "minecraft:shield") and not player:getPose() ~= "SLEEPING") and (player:getActiveItem().id == "minecraft:shield" and (SitDown.IsAnimationPlaying and 5 or 4) or (SitDown.IsAnimationPlaying and 3 or 2)) or 1) or 0
         if Naginata.State[i] == 2 then
             if player:getPose() == "CROUCHING" then
                 models.models.main.Avatar.LowerBody:setPos(i == 1 and 3 or -3)
@@ -28,7 +28,7 @@ events.RENDER:register(function (_, context)
                     vanilla_model.LEFT_ITEM:setVisible(Naginata.State[2] == 0 and (not hasShield or Naginata.State[1] <= 1))
                     models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.RightNaginata:setVisible(true)
                 else
-                    if not (ActionWheel.IsAnimationPlaying or PhotoPose.CurrentPose > 0) then
+                    if not ActionWheel.IsAnimationPlaying then
                         vanilla_model.RIGHT_ITEM:setVisible(true)
                         if hasShield then
                             vanilla_model.LEFT_ITEM:setVisible(true)
@@ -75,15 +75,11 @@ events.RENDER:register(function (_, context)
                     for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.RightNaginata, models.models.main.Avatar.UpperBody}) do
                         modelPart:setRot()
                     end
-                    if PhotoPose.CurrentPose == 0 then
-                        if not Earpick.IsAnimationPlaying and not TeaTime.IsAnimationPlaying and not Massage.IsAnimationPlaying then
-                            Arms.RightArmRotOffset = vectors.vec3()
-                            Arms.LeftArmRotOffset = vectors.vec3()
-                        end
-                        models.models.main.Avatar.LowerBody:setPos()
-                        for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom}) do
-                            modelPart:setRot()
-                        end
+                    Arms.RightArmRotOffset = vectors.vec3()
+                    Arms.LeftArmRotOffset = vectors.vec3()
+                    models.models.main.Avatar.LowerBody:setPos()
+                    for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom}) do
+                        modelPart:setRot()
                     end
                 end
             else
@@ -92,7 +88,7 @@ events.RENDER:register(function (_, context)
                     vanilla_model.LEFT_ITEM:setVisible(false)
                     models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.LeftNaginata:setVisible(true)
                 else
-                    if not (ActionWheel.IsAnimationPlaying or PhotoPose.CurrentPose > 0) then
+                    if not ActionWheel.IsAnimationPlaying then
                         vanilla_model.LEFT_ITEM:setVisible(true)
                         if hasShield then
                             vanilla_model.RIGHT_ITEM:setVisible(true)
@@ -139,15 +135,11 @@ events.RENDER:register(function (_, context)
                     for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.LeftNaginata, models.models.main.Avatar.UpperBody}) do
                         modelPart:setRot()
                     end
-                    if PhotoPose.CurrentPose == 0 then
-                        if not Earpick.IsAnimationPlaying and not TeaTime.IsAnimationPlaying and not Massage.IsAnimationPlaying then
-                            Arms.RightArmRotOffset = vectors.vec3()
-                            Arms.LeftArmRotOffset = vectors.vec3()
-                        end
-                        models.models.main.Avatar.LowerBody:setPos()
-                        for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom}) do
-                            modelPart:setRot()
-                        end
+                    Arms.RightArmRotOffset = vectors.vec3()
+                    Arms.LeftArmRotOffset = vectors.vec3()
+                    models.models.main.Avatar.LowerBody:setPos()
+                    for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom}) do
+                        modelPart:setRot()
                     end
                 end
             end
@@ -162,7 +154,7 @@ end)
 events.TICK:register(function ()
     for i = 1, 2 do
         if Naginata.State[i] > 0 then
-            if Naginata.State[i] >= 4 and not Warden.WardenNearby then
+            if Naginata.State[i] >= 4 then
                 FaceParts.setEmotion("ANGRY", "ANGRY", "CLOSED", 1, false)
             end
             local naginataModel = i == 1 and models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.RightNaginata or models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.LeftNaginata
@@ -176,9 +168,7 @@ events.TICK:register(function ()
             naginataModel:setSecondaryRenderType(heldItem:hasGlint() and "GLINT" or "NONE")
             if Naginata.State[i] >= 2 and Naginata.State[i] <= 3 then
                 if player:getSwingTime() == 1 then
-                    if not Warden.WardenNearby then
-                        FaceParts.setEmotion("ANGRY", "ANGRY", "CLOSED", 8, FaceParts.RightEyeStatus == "ANGRY")
-                    end
+                    FaceParts.setEmotion("ANGRY", "ANGRY", "CLOSED", 8, FaceParts.RightEyeStatus == "ANGRY")
                     local naginataAnimation = i == 1 and {animations["models.main"]["naginata_attack_right"], animations["models.naginata"]["naginata_attack_right"]} or {animations["models.main"]["naginata_attack_left"], animations["models.naginata"]["naginata_attack_left"]}
                     local speed = 6 / player:getSwingDuration()
                     for _, animaton in ipairs(naginataAnimation) do
@@ -190,5 +180,7 @@ events.TICK:register(function ()
         end
     end
 end)
+
+Sleeve.enable()
 
 return Naginata

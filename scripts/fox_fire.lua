@@ -61,7 +61,7 @@ events.TICK:register(function ()
 			pings.setNightVision(false)
 		end
 	end
-	enabled = FoxFire.NightVision and Wet.WetCount == 0 and player:isAlive()
+	enabled = FoxFire.NightVision and player:isAlive()
 	visible = models.models.main.FoxFireAnchors.FoxFireAnchor1.FoxFire1:getScale().x > 0 and (FoxFire.FoxFireInFirstPerson or not renderer:isFirstPerson())
 	models.models.main.FoxFireAnchors:setVisible(visible)
 	if enabled and not enabledPrev then
@@ -104,7 +104,7 @@ events.RENDER:register(function (delta)
 		local currentFoxFireScale = models.models.main.FoxFireAnchors.FoxFireAnchor1["FoxFire1"]:getScale().x
 		if visible then
 			models.models.main.FoxFireAnchors:setPos(player:getPos(delta) * 16)
-			models.models.main.FoxFireAnchors:setRot(0, -player:getBodyYaw(delta))
+			models.models.main.FoxFireAnchors:setRot(0, -player:getBodyYaw(delta) + 180)
 			for index, foxFireAnchor in ipairs(models.models.main.FoxFireAnchors:getChildren()) do
 				foxFireAnchor["FoxFire"..index]:setColor(fillVec3(models.models.main.FoxFireAnchors.FoxFireAnchor1.FoxFire1:getScale().x))
 				local fps = client:getFPS()

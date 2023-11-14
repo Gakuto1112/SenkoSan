@@ -1,3 +1,3 @@
-KeyEmoteLeft = General.instance({}, EmotionAction, "UNEQUAL", "UNEQUAL", "UNEQUAL", "UNEQUAL", "OPENED", 40)
+KeyEmoteLeft = General.instance({}, EmotionAction, "CLOSED", "CLOSED", "CLOSED", "CLOSED", "OPENED", 40)
 
 return KeyEmoteLeft

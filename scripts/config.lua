@@ -41,46 +41,24 @@ Config = {
 
 --ping関数
 ---アバター設定を他Figuraクライアントと同期する。
----@param poseID integer 現在のポーズID
----@param nameID integer 名前ID
----@param costumeID integer 衣装ID
----@param skullID integer 頭モデルID
----@param autoShake boolean 自動ブルブル
----@param showArmor boolean 防具を表示するかどうか
 ---@param umbrellaSound boolean 傘の開閉音を再生するかどうか
 ---@param alwaysUmbrella boolean 傘をずっとさしているかどうか
 ---@param nightVisiton boolean 暗視が付与されているかどうか
----@param wardenNearby boolean ウォーデンが付近にいるかどうか
 ---@param drowned boolean 溺れているかどうか
-function pings.syncAvatarConfig(poseID, nameID, costumeID, skullID, autoShake, showArmor, umbrellaSound, alwaysUmbrella, nightVisiton, wardenNearby, drowned)
+function pings.syncAvatarConfig(umbrellaSound, alwaysUmbrella, nightVisiton, drowned)
 	if not Config.IsSynced then
-		if poseID >= 1 then
-			PhotoPose.setPose(poseID)
-		end
-		ActionWheel.CurrentPlayerNameState = nameID
-		ActionWheel.CurrentCostumeState = costumeID
-		ActionWheel.CurrentSkullState = skullID
-		nameplate.ALL:setText(Nameplate.NameList[nameID])
-		if ActionWheel.CurrentCostumeState == 0 then
-			Costume.resetCostume()
-		else
-			Costume.setCostume(Costume.CostumeList[ActionWheel.CurrentCostumeState]:upper())
-		end
-		Skull.CurrentSkull = skullID
-		Wet.AutoShake = autoShake
-		Armor.ShowArmor = showArmor
 		Umbrella.Sound = umbrellaSound
 		Umbrella.AlwaysUse = alwaysUmbrella
 		FoxFire.NightVision = nightVisiton
-		Warden.WardenNearby = wardenNearby
 		FaceParts.Drowned = drowned
 		Config.IsSynced = true
 	end
 end
 
+
 events.TICK:register(function ()
 	if Config.NextSyncCount == 0 then
-		pings.syncAvatarConfig(PhotoPose.CurrentPose, ActionWheel.CurrentPlayerNameState, ActionWheel.CurrentCostumeState, ActionWheel.CurrentSkullState, Wet.AutoShake, Armor.ShowArmor, Umbrella.Sound, Umbrella.AlwaysUse, FoxFire.NightVision, Warden.WardenNearby, FaceParts.Drowned)
+		pings.syncAvatarConfig(Umbrella.Sound, Umbrella.AlwaysUse, FoxFire.NightVision, FaceParts.Drowned)
 		Config.NextSyncCount = 300
 	else
 		Config.NextSyncCount = Config.NextSyncCount - 1
@@ -88,7 +66,7 @@ events.TICK:register(function ()
 end)
 
 if host:isHost() then
-	config:name("Senko_san")
+	config:name("Sora")
 end
 
 return Config

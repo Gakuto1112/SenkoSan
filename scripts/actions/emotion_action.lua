@@ -9,7 +9,7 @@ EmotionAction = {
     ---@param animationCount integer 表情を継続する時間
     new = function (rightEye, leftEye, tiredRightEye, tiredLeftEye, mouth, animationCount)
         local instance = General.instance(EmotionAction, AnimationAction, function ()
-            return not Warden.WardenNearby and not Kotatsu.IsAnimationPlaying
+            return true
         end, nil, nil, nil, nil, 0)
 		instance.AnimationLength = animationCount
         instance.RightEye = rightEye
@@ -22,9 +22,6 @@ EmotionAction = {
 
     ---表情アクションを再生する。
     play = function (self)
-        if PhotoPose.CurrentPose ~= 0 then
-			PhotoPose.stopPose()
-		end
         if General.PlayerCondition == "LOW" then
             FaceParts.setEmotion(self.TiredRightEye, self.TiredLeftEye, self.Mouth, self.AnimationCount, true)
         else
