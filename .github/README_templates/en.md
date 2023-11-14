@@ -2,16 +2,16 @@
 
 # Information
 ![Suzu head](./README_images/head_suzu.png)
-This is the download page for **Suzu**.
+This is the branch for **Suzu**.
 
 ![Senko head](./README_images/head_senko.png)
-Click [here](https://github.com/Gakuto1112/SenkoSan/tree/Senko) for the download page for **Senko**.
+Click [here](https://github.com/Gakuto1112/SenkoSan/tree/Senko) for the branch for **Senko**.
 
 ![Shiro head](./README_images/head_shiro.png)
-Click [here](https://github.com/Gakuto1112/SenkoSan/tree/Shiro) for the download page for **Shiro**.
+Click [here](https://github.com/Gakuto1112/SenkoSan/tree/Shiro) for the branch for **Shiro**.
 
 ![Sora head](./README_images/head_sora.png)
-Click [here](https://github.com/Gakuto1112/Sora) for the download page for **Sora**.
+Click [here](https://github.com/Gakuto1112/SenkoSan/tree/Sora) for the branch for **Sora**.
 
 ---
 
