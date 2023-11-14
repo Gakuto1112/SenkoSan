@@ -2,16 +2,16 @@
 
 # ごあんない
 ![仙狐さんの頭](../README_images/head_senko.png)
-ここは、**仙狐さん**の配布ページです。
+ここは、**仙狐さん**のブランチです。
 
 ![シロの頭](../README_images/head_shiro.png)
-**シロ**の配布ページは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/Shiro)
+**シロ**のブランチは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/Shiro)
 
 ![鈴の頭](../README_images/head_suzu.png)
-**鈴**の配布ページは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/Suzu)
+**鈴**のブランチは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/Suzu)
 
 ![夜空の頭](../README_images/head_sora.png)
-**夜空**の配布ページは[こちら](https://github.com/Gakuto1112/Sora)
+**夜空**のブランチは[こちら](https://github.com/Gakuto1112/SenkoSan/tree/Sora)
 
 ---
 
