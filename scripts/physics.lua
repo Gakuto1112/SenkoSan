@@ -75,7 +75,7 @@ events.RENDER:register(function (delta, context)
 	--求めた平均速度から尻尾の角度を計算
 	local tailRot = vectors.vec3()
 	local rotLimit = {{{-60, 60}, {-30, 30}}} --物理演算の可動範囲：1. 尻尾：{1-1. 上下方向, 1-2. 左右方向}
-	if (context ~= "FIRST_PERSON" or client:hasIrisShader()) and Physics.EnablePyhsics then
+	if (context ~= "FIRST_PERSON" or client:hasShaderPack()) and Physics.EnablePyhsics then
 		local playerPose = player:getPose()
 		if playerPose == "FALL_FLYING" then
 			if Physics.EnablePyhsics then
