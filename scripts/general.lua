@@ -79,4 +79,21 @@ events.TICK:register(function ()
 	end
 end)
 
+events.RENDER:register(function (delta, context)
+    local shouldRenderHead = not renderer:isFirstPerson()
+    if context == "FIRST_PERSON" then
+        shouldRenderHead = false
+    end
+    if context == "OTHER" then
+        shouldRenderHead = true
+    end
+    if context == "PAPERDOLL" then
+        shouldRenderHead = true
+    end
+    if context == "MINECRAFT_GUI" then
+        shouldRenderHead = true
+    end
+    models.models.main.Avatar.Head:setVisible(shouldRenderHead)
+end)
+
 return General
