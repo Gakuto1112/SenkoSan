@@ -76,7 +76,7 @@ events.RENDER:register(function (delta, context)
 	local tailRot = vectors.vec3(0, 0, 0)
 	local hairAccessoryLineRot = vectors.vec3(0, 0, 0)
 	local rotLimit = {{{-60, 60}, {-30, 30}}, {{0, 180}, {-90, 90}}} --物理演算の可動範囲：1. 尻尾：{1-1. 上下方向, 1-2. 左右方向}, 2. 髪飾りのヒモ：{2-1. 前後方向, 2-2. 左右方向}
-	if (context ~= "FIRST_PERSON" or client:hasIrisShader()) and (Physics.EnablePyhsics[1] or Physics.EnablePyhsics[2]) then
+	if (context ~= "FIRST_PERSON" or client:hasShaderPack()) and (Physics.EnablePyhsics[1] or Physics.EnablePyhsics[2]) then
 		local playerPose = player:getPose()
 		local rideVehicle = player:getVehicle() ~= nil
 		if SitDown.IsAnimationPlaying or rideVehicle then
