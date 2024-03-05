@@ -66,7 +66,7 @@ events.TICK:register(function ()
 	end
 end)
 
-events.RENDER:register(function (delta, context)
+events.RENDER:register(function (_, context)
     local shouldRenderHead = not renderer:isFirstPerson()
     if context == "FIRST_PERSON" then
         shouldRenderHead = false
