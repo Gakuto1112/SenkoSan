@@ -10,6 +10,7 @@ events.RENDER:register(function (_, context)
     local leftHanded = player:isLeftHanded()
     local heldItems = {player:getHeldItem(leftHanded), player:getHeldItem(not leftHanded)}
     for i = 1, 2 do
+        ---@diagnostic disable-next-line: undefined-field
         Naginata.State[i] = (not (heldItems[i].id:find("^minecraft:.+_sword$") == nil or context == "FIRST_PERSON" or Arms.ItemHeldContradicts)) and ((leftHanded ~= (i == 1) and not (player:getActiveItem().id ~= "minecraft:air" and not heldItems[3 - i].id == "minecraft:shield") and player:getPose() ~= "SLEEPING" and not (TailCuddling.IsAnimationPlaying or EarCuddling.IsAnimationPlaying)) and (player:getActiveItem().id == "minecraft:shield" and (SitDown.IsAnimationPlaying and 5 or 4) or (SitDown.IsAnimationPlaying and 3 or 2)) or 1) or 0
         if Naginata.State[i] == 2 then
             if player:isCrouching() then
@@ -76,6 +77,7 @@ events.RENDER:register(function (_, context)
                         modelPart:setRot()
                     end
                     if PhotoPose.CurrentPose == 0 then
+                        ---@diagnostic disable-next-line: undefined-field
                         if not Earpick.IsAnimationPlaying and not TeaTime.IsAnimationPlaying and not Massage.IsAnimationPlaying then
                             Arms.RightArmRotOffset = vectors.vec3()
                             Arms.LeftArmRotOffset = vectors.vec3()
@@ -140,6 +142,7 @@ events.RENDER:register(function (_, context)
                         modelPart:setRot()
                     end
                     if PhotoPose.CurrentPose == 0 then
+                        ---@diagnostic disable-next-line: undefined-field
                         if not Earpick.IsAnimationPlaying and not TeaTime.IsAnimationPlaying and not Massage.IsAnimationPlaying then
                             Arms.RightArmRotOffset = vectors.vec3()
                             Arms.LeftArmRotOffset = vectors.vec3()

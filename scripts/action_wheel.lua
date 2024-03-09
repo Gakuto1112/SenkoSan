@@ -86,78 +86,97 @@ ActionWheel = {
 
 --ping関数
 function pings.refuse_emote()
+	---@diagnostic disable-next-line: undefined-field
 	RefuseEmote:play()
 end
 
 function pings.main1_action1_left()
+	---@diagnostic disable-next-line: undefined-field
 	Smile:play(false)
 end
 
 function pings.main1_action1_right()
+	---@diagnostic disable-next-line: undefined-field
 	Smile:play(true)
 end
 
 function pings.main1_action2()
+	---@diagnostic disable-next-line: undefined-field
 	ShakeBody:play(false)
 end
 
 function pings.main1_action3_left()
+	---@diagnostic disable-next-line: undefined-field
 	BroomCleaning:play()
 end
 
 function pings.main1_action3_left_alt()
+	---@diagnostic disable-next-line: undefined-field
 	VacuumCleaning:play()
 end
 
 function pings.main1_action3_right()
+	---@diagnostic disable-next-line: undefined-field
 	ClothCleaning:play()
 end
 
 function pings.main1_action4()
+	---@diagnostic disable-next-line: undefined-field
 	HairCut:play()
 end
 
 function pings.main1_action5()
+	---@diagnostic disable-next-line: undefined-field
 	FoxJump:play()
 end
 
 function pings.main1_action6()
+	---@diagnostic disable-next-line: undefined-field
 	TailBrush:play()
 end
 
 function pings.main1_action7_toggle()
+	---@diagnostic disable-next-line: undefined-field
 	Kotatsu:play()
 end
 
 function pings.main1_action7_untoggle()
+	---@diagnostic disable-next-line: undefined-field
 	Kotatsu:stop()
 end
 
 function pings.main2_action1_toggle()
+	---@diagnostic disable-next-line: undefined-field
 	SitDown:play()
 end
 
 function pings.main2_action1_untoggle()
+	---@diagnostic disable-next-line: undefined-field
 	SitDown:stop()
 end
 
 function pings.main2_action2()
+	---@diagnostic disable-next-line: undefined-field
 	TailCuddling:play()
 end
 
 function pings.main2_action3()
+	---@diagnostic disable-next-line: undefined-field
 	EarCuddling:play()
 end
 
 function pings.main2_action4()
+	---@diagnostic disable-next-line: undefined-field
 	Earpick:play()
 end
 
 function pings.main2_action5()
+	---@diagnostic disable-next-line: undefined-field
 	TeaTime:play()
 end
 
 function pings.main2_action6()
+	---@diagnostic disable-next-line: undefined-field
 	Massage:play()
 end
 
@@ -173,6 +192,7 @@ function pings.main4_action1(costumeID)
 	if costumeID == 1 then
 		Costume.resetCostume()
 	else
+		---@diagnostic disable-next-line: undefined-field
 		Costume.setCostume(Costume.CostumeList[costumeID]:upper())
 	end
 	ActionWheel.CurrentCostumeState = costumeID
@@ -236,6 +256,7 @@ events.TICK:register(function ()
 			if ActionWheel.CurrentPage <= 2 then
 				local animationClasses = ActionWheel.CurrentPage == 1 and {Smile, ShakeBody, BroomCleaning, HairCut, FoxJump, TailBrush, Kotatsu} or {SitDown, TailCuddling, EarCuddling, Earpick, TeaTime, Massage}
 				for actionIndex, actionClass in ipairs(animationClasses) do
+					---@diagnostic disable-next-line: undefined-field
 					ActionWheel.setActionEnabled(ActionWheel.CurrentPage, actionIndex, not ActionWheel.IsAnimationPlaying and actionClass:checkAction())
 				end
 				if ActionWheel.CurrentPage == 1 then
@@ -284,6 +305,7 @@ if host:isHost() then
 	--アクション1-1. にっこり
 	ActionWheel.Pages[1]:newAction(1):item("emerald"):onLeftClick(function ()
 		if not ActionWheel.IsAnimationPlaying then
+			---@diagnostic disable-next-line: undefined-field
 			if Smile:checkAction() then
 				pings.main1_action1_left()
 			elseif Warden.WardenNearby then
@@ -303,6 +325,7 @@ if host:isHost() then
 	--アクション1-2. ブルブル
 	ActionWheel.Pages[1]:newAction(2):item("bucket"):onLeftClick(function()
 		if not ActionWheel.IsAnimationPlaying then
+			---@diagnostic disable-next-line: undefined-field
 			if ShakeBody:checkAction() then
 				pings.main1_action2()
 			elseif Warden.WardenNearby then
@@ -316,6 +339,7 @@ if host:isHost() then
 	--アクション1-3. お掃除
 	ActionWheel.Pages[1]:newAction(3):item("amethyst_shard"):onLeftClick(function ()
 		if not ActionWheel.IsAnimationPlaying then
+			---@diagnostic disable-next-line: undefined-field
 			if BroomCleaning:checkAction() then
 				if math.random() > 0.9 then
 					pings.main1_action3_left_alt()
@@ -330,6 +354,7 @@ if host:isHost() then
 		end
 	end):onRightClick(function ()
 		if not ActionWheel.IsAnimationPlaying then
+			---@diagnostic disable-next-line: undefined-field
 			if BroomCleaning:checkAction() then
 				pings.main1_action3_right()
 			elseif Warden.WardenNearby then
@@ -343,6 +368,7 @@ if host:isHost() then
 	--アクション1-4. 散髪
 	ActionWheel.Pages[1]:newAction(4):item("shears"):onLeftClick(function ()
 		if not ActionWheel.IsAnimationPlaying then
+			---@diagnostic disable-next-line: undefined-field
 			if BroomCleaning:checkAction() then
 				pings.main1_action4()
 			elseif Warden.WardenNearby then
@@ -356,6 +382,7 @@ if host:isHost() then
 	--アクション1-5. キツネジャンプ
 	ActionWheel.Pages[1]:newAction(5):item("snow_block"):onLeftClick(function ()
 		if not ActionWheel.IsAnimationPlaying then
+			---@diagnostic disable-next-line: undefined-field
 			if FoxJump:checkAction() then
 				pings.main1_action5()
 			elseif Warden.WardenNearby then
@@ -369,6 +396,7 @@ if host:isHost() then
 	--アクション1-6. 尻尾の手入れ
 	ActionWheel.Pages[1]:newAction(6):item("sponge"):onLeftClick(function ()
 		if not ActionWheel.IsAnimationPlaying then
+			---@diagnostic disable-next-line: undefined-field
 			if TailBrush:checkAction() then
 				pings.main1_action6()
 			elseif Warden.WardenNearby then
@@ -382,6 +410,7 @@ if host:isHost() then
 	--アクション1-7. こたつ
 	ActionWheel.Pages[1]:newAction(7):toggleColor(0.91, 0.67, 0.27):item("campfire"):onToggle(function (_, action)
 		if not ActionWheel.IsAnimationPlaying then
+			---@diagnostic disable-next-line: undefined-field
 			if Kotatsu:checkAction() then
 				pings.main1_action7_toggle()
 			else
@@ -402,6 +431,7 @@ if host:isHost() then
 	--アクション2-1. おすわり（正座）
 	ActionWheel.Pages[2]:newAction(1):toggleColor(0.91, 0.67, 0.27):item("oak_stairs"):onToggle(function (_, action)
 		if not ActionWheel.IsAnimationPlaying then
+			---@diagnostic disable-next-line: undefined-field
 			if SitDown:checkAction() then
 				pings.main2_action1_toggle()
 			else
@@ -422,6 +452,7 @@ if host:isHost() then
 	--アクション2-2. 尻尾モフモフ
 	ActionWheel.Pages[2]:newAction(2):item("yellow_wool"):onLeftClick(function ()
 		if not ActionWheel.IsAnimationPlaying then
+			---@diagnostic disable-next-line: undefined-field
 			if TailCuddling:checkAction() then
 				pings.main2_action2()
 			elseif Warden.WardenNearby then
@@ -435,6 +466,7 @@ if host:isHost() then
 	--アクション2-3. お耳モフモフ
 	ActionWheel.Pages[2]:newAction(3):item("white_wool"):onLeftClick(function ()
 		if not ActionWheel.IsAnimationPlaying then
+			---@diagnostic disable-next-line: undefined-field
 			if EarCuddling:checkAction() then
 				pings.main2_action3()
 			elseif Warden.WardenNearby then
@@ -448,6 +480,7 @@ if host:isHost() then
 	--アクション2-4. 耳かき
 	ActionWheel.Pages[2]:newAction(4):item("feather"):onLeftClick(function ()
 		if not ActionWheel.IsAnimationPlaying then
+			---@diagnostic disable-next-line: undefined-field
 			if SitDown.IsAnimationPlaying then
 				pings.main2_action4()
 			elseif Warden.WardenNearby then
@@ -461,6 +494,7 @@ if host:isHost() then
 	--アクション2-5. ティータイム
 	ActionWheel.Pages[2]:newAction(5):item("flower_pot"):onLeftClick(function ()
 		if not ActionWheel.IsAnimationPlaying then
+			---@diagnostic disable-next-line: undefined-field
 			if SitDown.IsAnimationPlaying then
 				pings.main2_action5()
 			elseif Warden.WardenNearby then
@@ -474,6 +508,7 @@ if host:isHost() then
 	--アクション2-6. マッサージ
 	ActionWheel.Pages[2]:newAction(6):item("yellow_bed"):onLeftClick(function ()
 		if not ActionWheel.IsAnimationPlaying then
+			---@diagnostic disable-next-line: undefined-field
 			if SitDown.IsAnimationPlaying then
 				pings.main2_action6()
 			elseif Warden.WardenNearby then

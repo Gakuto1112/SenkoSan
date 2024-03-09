@@ -35,6 +35,7 @@ Massage = General.instance({
 		end
 	end
 }, AnimationAction, function ()
+	---@diagnostic disable-next-line: undefined-field
 	return Earpick:checkAction()
 end, models.models.dummy_player, models.models.dummy_player, animations["models.main"]["massage"], {animations["models.dummy_player"]["massage"], animations["models.costume_maid_a"]["massage"], animations["models.costume_maid_b"]["massage"]}, 0)
 

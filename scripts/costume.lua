@@ -167,6 +167,7 @@ Costume = {
 			Ears.EnableJerkEar = earVisible
 		elseif costume == "MAID_A" then
 			models.models.main.Avatar.Head.CMaidBrimH:setVisible(not Armor.ArmorVisible[1])
+			---@diagnostic disable-next-line: undefined-field
 			models.models.main.Avatar.UpperBody.Body.CMaidAB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
 			Sleeve.disable()
 			for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do
@@ -179,6 +180,7 @@ Costume = {
 			Legs.ReducedLegSwing = true
 		elseif costume == "MAID_B" then
 			models.models.main.Avatar.Head.CMaidBrimH:setVisible(not Armor.ArmorVisible[1])
+			---@diagnostic disable-next-line: undefined-field
 			models.models.main.Avatar.UpperBody.Body.CMaidBB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
 			for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do
 				modelPart:setVisible(false)
@@ -189,6 +191,7 @@ Costume = {
 			Apron.disable()
 			Legs.ReducedLegSwing = true
 		elseif costume == "SWIMSUIT" then
+			---@diagnostic disable-next-line: undefined-field
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
 			Sleeve.disable()
 			for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do
@@ -200,6 +203,7 @@ Costume = {
 			events.TICK:register(Costume.CostumeEvents.MiniskirtTick, "costume_miniskirt_tick")
 			Apron.disable()
 		elseif costume == "CHEERLEADER" then
+			---@diagnostic disable-next-line: undefined-field
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
 			Sleeve.disable()
 			for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do
@@ -274,6 +278,7 @@ Costume = {
 			Ears.EnableJerkEar = earVisible
 			Apron.disable()
 		elseif costume == "SAILOR" then
+			---@diagnostic disable-next-line: undefined-field
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
 			Sleeve.disable()
 			for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do
@@ -307,6 +312,7 @@ Costume = {
 		elseif costume == "HALLOWEEN" then
 			models.models.main.Avatar.Head.CHalloweenH:setVisible(not Armor.ArmorVisible[1])
 			models.models.main.Avatar.UpperBody.Body.CHalloweenB:setVisible(not Armor.ArmorVisible[3])
+			---@diagnostic disable-next-line: undefined-field
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
 			Sleeve.disable()
 			for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do
@@ -456,6 +462,7 @@ Costume = {
 
 local loadedData = Config.loadConfig("costume", 1)
 if loadedData <= #Costume.CostumeList then
+	---@diagnostic disable-next-line: undefined-field
 	Costume.CurrentCostume = Costume.CostumeList[loadedData]:upper()
 	if Costume.CurrentCostume ~= "DEFAULT" then
 		Costume.setCostume(Costume.CurrentCostume)

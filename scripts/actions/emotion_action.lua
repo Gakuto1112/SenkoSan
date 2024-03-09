@@ -9,6 +9,7 @@ EmotionAction = {
     ---@param animationCount integer 表情を継続する時間
     new = function (rightEye, leftEye, tiredRightEye, tiredLeftEye, mouth, animationCount)
         local instance = General.instance(EmotionAction, AnimationAction, function ()
+            ---@diagnostic disable-next-line: undefined-field
             return not Warden.WardenNearby and not Kotatsu.IsAnimationPlaying
         end, nil, nil, nil, nil, 0)
 		instance.AnimationLength = animationCount

@@ -63,6 +63,7 @@ TailCuddling = General.instance({
 		end
 	end
 }, AnimationAction, function ()
+	---@diagnostic disable-next-line: undefined-field
 	return Earpick:checkAction() and Costume.CurrentCostume ~= "DISGUISE" and (not Armor.ShowArmor or not Armor.ArmorVisible[2]) and not player:isWet() and Wet.WetCount == 0
 end, models.models.dummy_player, models.models.dummy_player, animations["models.main"]["tail_cuddling"], animations["models.dummy_player"]["tail_cuddling"], 0)
 
