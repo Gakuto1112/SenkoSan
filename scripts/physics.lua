@@ -80,6 +80,7 @@ events.RENDER:register(function (delta, context)
 	if (context ~= "FIRST_PERSON" or client:hasShaderPack()) and (Physics.EnablePyhsics[1] or Physics.EnablePyhsics[2]) then
 		local playerPose = player:getPose()
 		local rideVehicle = player:getVehicle() ~= nil
+		---@diagnostic disable-next-line: undefined-field
 		if SitDown.IsAnimationPlaying or rideVehicle then
 			rotLimit[1][1][2] = 10
 		end
