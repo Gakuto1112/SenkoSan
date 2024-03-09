@@ -36,10 +36,12 @@ end
 
 --ping関数
 function pings.main_action1_toggle()
+	---@diagnostic disable-next-line: undefined-field
 	SitDown:play()
 end
 
 function pings.main_action1_untoggle()
+	---@diagnostic disable-next-line: undefined-field
 	SitDown:stop()
 end
 
@@ -79,6 +81,7 @@ events.TICK:register(function ()
     if host:isHost() then
 		local isOpenActionWheel = action_wheel:isEnabled()
         if isOpenActionWheel then
+			---@diagnostic disable-next-line: undefined-field
             if not ActionWheel.IsAnimationPlaying and SitDown:checkAction() then
                 ActionWheel.MainPage:getAction(1):title(Language.getTranslate("action_wheel__main__action_1__title")):color(0.91, 0.67, 0.27):hoverColor(1, 1, 1)
             else
@@ -103,6 +106,7 @@ if host:isHost() then
     --アクション1-1. 座る
     ActionWheel.MainPage:newAction(1):toggleColor(0.91, 0.67, 0.27):item("oak_stairs"):onToggle(function(_, action)
 		if not ActionWheel.IsAnimationPlaying then
+			---@diagnostic disable-next-line: undefined-field
 			if SitDown:checkAction() then
 				pings.main_action1_toggle()
 			else print(Language.getTranslate("action_wheel__main__action_1__unavailable"))

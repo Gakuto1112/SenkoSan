@@ -10,9 +10,10 @@ events.RENDER:register(function (_, context)
     local leftHanded = player:isLeftHanded()
     local heldItems = {player:getHeldItem(leftHanded), player:getHeldItem(not leftHanded)}
     for i = 1, 2 do
+        ---@diagnostic disable-next-line: undefined-field
         Naginata.State[i] = (not (heldItems[i].id:find("^minecraft:.+_sword$") == nil or context == "FIRST_PERSON" or Arms.ItemHeldContradicts)) and ((leftHanded ~= (i == 1) and not (player:getActiveItem().id ~= "minecraft:air" and not heldItems[3 - i].id == "minecraft:shield") and not player:getPose() ~= "SLEEPING") and (player:getActiveItem().id == "minecraft:shield" and (SitDown.IsAnimationPlaying and 5 or 4) or (SitDown.IsAnimationPlaying and 3 or 2)) or 1) or 0
         if Naginata.State[i] == 2 then
-            if player:getPose() == "CROUCHING" then
+            if player:isCrouching() then
                 models.models.main.Avatar.LowerBody:setPos(i == 1 and 3 or -3)
             else
                 models.models.main.Avatar.LowerBody:setPos()

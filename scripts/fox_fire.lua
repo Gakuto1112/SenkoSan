@@ -150,6 +150,7 @@ for index, foxFireAnchor in ipairs(models.models.main.FoxFireAnchors:getChildren
 		nextFlicker = math.random(0, 4),
 		float = floatCount
 	})
+	---@diagnostic disable-next-line: redundant-parameter
 	foxFireAnchor:addChild(models.models.fox_fire:copy("FoxFire"..index))
 	foxFireAnchor["FoxFire"..index]:setPos(foxFireAnchor:getPivot() + vectors.vec3(0, math.sin(floatCount * 2 * math.pi)))
 	foxFireAnchor["FoxFire"..index]:setRot(0, math.random(0, 3) * 90)

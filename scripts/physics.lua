@@ -75,7 +75,8 @@ events.RENDER:register(function (delta, context)
 	--求めた平均速度から尻尾の角度を計算
 	local tailRot = vectors.vec3()
 	local rotLimit = {{{-60, 60}, {-30, 30}}} --物理演算の可動範囲：1. 尻尾：{1-1. 上下方向, 1-2. 左右方向}
-	if (context ~= "FIRST_PERSON" or client:hasIrisShader()) and Physics.EnablePyhsics then
+	---@diagnostic disable-next-line: undefined-field
+	if (context ~= "FIRST_PERSON" or client:hasShaderPack()) and Physics.EnablePyhsics then
 		local playerPose = player:getPose()
 		if playerPose == "FALL_FLYING" then
 			if Physics.EnablePyhsics then
@@ -91,6 +92,7 @@ events.RENDER:register(function (delta, context)
 				local tailXMoveXZ = (Physics.VelocityAverage[5] + math.abs(Physics.VelocityAverage[6])) * 160
 				local tailXMoveY = Physics.VelocityAverage[2] * 80
 				local tailXAngleMove = math.abs(Physics.VelocityAverage[7]) * 0.05
+				---@diagnostic disable-next-line: undefined-field
 				local tailXConditionAngle = rideVehicle and 70 or ((General.PlayerCondition == "HIGH" or SitDown.IsAnimationPlaying) and 30 or (General.PlayerCondition == "MEDIUM" and 15 or 0))
 				tailRot = vectors.vec3(math.clamp(rotLimit[1][1][2] - math.min(tailXMoveXZ, math.max(rotLimit[1][1][2] - tailXMoveY - tailXAngleMove - tailXConditionAngle, 0)) + tailXMoveY - math.min(tailXAngleMove, math.max(rotLimit[1][1][2] - tailXMoveXZ - tailXMoveY - tailXConditionAngle, 0)) - tailXConditionAngle, rotLimit[1][1][1], rotLimit[1][1][2]) + (player:isCrouching() and 30 or 0), math.clamp(Physics.VelocityAverage[rideVehicle and 3 or 6] * (rideVehicle and -160 or 160) + Physics.VelocityAverage[7] * 0.05, rotLimit[1][2][1], rotLimit[1][2][2]))
 			end

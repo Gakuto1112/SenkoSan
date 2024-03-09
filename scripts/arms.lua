@@ -16,6 +16,7 @@ Arms = {
 		models.models.main.Avatar.UpperBody.Arms.RightArm:setPos(Arms.RightArmPosOffset)
 		models.models.main.Avatar.UpperBody.Arms.LeftArm:setPos(Arms.LeftArmPosOffset)
 		local leftHanded = player:isLeftHanded()
+		---@diagnostic disable-next-line: undefined-field
 		local umbrellaAdjust = Umbrella.IsUsing and not SitDown.IsAnimationPlaying
 		if Arms.ItemHeldContradicts then
 			models.models.main.Avatar.UpperBody.Arms.RightArm:setRot(vectors.vec3((umbrellaAdjust and leftHanded) and 20 or 0) + Arms.RightArmRotOffset - vanilla_model.RIGHT_ARM:getOriginRot())
