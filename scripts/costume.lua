@@ -29,7 +29,7 @@ Costume = {
 	CostumeEvents = {
 		---メイド服Aのチック処理
 		MaidATick = function ()
-			models.models.main.Avatar.UpperBody.Body.CMaidAB:setRot(player:getPose() == "CROUCHING" and 27.5 or 0)
+			models.models.main.Avatar.UpperBody.Body.CMaidAB:setRot(player:isCrouching() and 27.5 or 0)
 			if player:getVehicle() then
 				if not Armor.ArmorVisible[3] then
 					models.models.main.Avatar.UpperBody.Body.CMaidAB.Skirt2:setPos(0, 0.75)
@@ -64,7 +64,7 @@ Costume = {
 
 		---メイド服Bのチック処理
 		MaidBTick = function ()
-			models.models.main.Avatar.UpperBody.Body.CMaidBB:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
+			models.models.main.Avatar.UpperBody.Body.CMaidBB:setRot(player:isCrouching() and 27.5 or 0, 0, 0)
 			if player:getVehicle() then
 				if not Armor.ArmorVisible[3] then
 					models.models.main.Avatar.UpperBody.Body.CMaidBB.Skirt2:setPos(0, 2.5)
@@ -121,7 +121,7 @@ Costume = {
 
 		---ミニスカートのチック処理
 		MiniskirtTick = function ()
-			local crouching = player:getPose() == "CROUCHING"
+			local crouching = player:isCrouching()
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setRot((crouching or player:getVehicle()) and 27.5 or 0, 0, 0)
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setPos(0, 0, crouching and 1.25 or 0)
 		end,
