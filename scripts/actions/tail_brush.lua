@@ -2,6 +2,7 @@
 TailBrush = General.instance({
 	---尻尾の手入れアニメーションを再生する。
 	play = function (self)
+		---@diagnostic disable-next-line: undefined-field
 		if SitDown.IsAnimationPlaying then
 			Arms.RightArmRotOffset = vectors.vec3(-20, -10, 15)
 			Sleeve.RightSleeveRotOffset = vectors.vec3(-20, 40)
@@ -26,6 +27,7 @@ TailBrush = General.instance({
 		Sleeve.LeftSleeveRotOffset = vectors.vec3()
 		Physics.EnablePyhsics[1] = true
 		AnimationAction.stop(self)
+		---@diagnostic disable-next-line: undefined-field
 		if not SitDown.IsAnimationPlaying then
 			Sleeve.Moving = true
 		end
@@ -48,6 +50,7 @@ TailBrush = General.instance({
 		end
 	end
 }, AnimationAction, function ()
+	---@diagnostic disable-next-line: undefined-field
 	return player:getPose() == "STANDING" and not player:isInLava() and player:getFrozenTicks() == 0 and not player:getVehicle() and player:getVelocity():length() == 0 and Hurt.Damaged == "NONE" and not Warden.WardenNearby and Wet.WetCount == 0 and not player:isUsingItem() and not Kotatsu.IsAnimationPlaying
 end, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.BrushRAB, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.BrushRAB, animations["models.main"]["tail_brush"], nil, 0)
 

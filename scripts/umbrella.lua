@@ -25,9 +25,11 @@ events.TICK:register(function ()
 		if PhotoPose.CurrentPose == 0 and Naginata.State[1] <= 1 and Naginata.State[2] <= 1 then
 			if leftHanded then
 				models.models.main.Avatar.UpperBody.Body.UmbrellaB:setPos(5.5)
+				---@diagnostic disable-next-line: undefined-field
 				Arms.RightArmRotOffset = SitDown.IsAnimationPlaying and vectors.vec3(0, -10, 15) or vectors.vec3()
 			else
 				models.models.main.Avatar.UpperBody.Body.UmbrellaB:setPos(-5.5)
+				---@diagnostic disable-next-line: undefined-field
 				Arms.LeftArmRotOffset = SitDown.IsAnimationPlaying and vectors.vec3(0, 10, -15) or vectors.vec3()
 			end
 		end

@@ -41,6 +41,7 @@ TeaTime = General.instance({
 		end
 	end
 }, AnimationAction, function ()
+	---@diagnostic disable-next-line: undefined-field
 	return Earpick:checkAction()
 end, {models.models.tea, models.models.main.Avatar.UpperBody.Body.Yunomi1}, {models.models.tea, models.models.main.Avatar.UpperBody.Body.Yunomi1}, animations["models.main"]["tea_time"], {animations["models.tea"]["tea_time"], animations["models.main"]["earpick_arm_fix"]}, 40)
 

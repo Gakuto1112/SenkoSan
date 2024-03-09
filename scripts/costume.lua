@@ -29,7 +29,7 @@ Costume = {
 	CostumeEvents = {
 		---メイド服Aのチック処理
 		MaidATick = function ()
-			models.models.main.Avatar.UpperBody.Body.CMaidAB:setRot(player:getPose() == "CROUCHING" and 27.5 or 0)
+			models.models.main.Avatar.UpperBody.Body.CMaidAB:setRot(player:isCrouching() and 27.5 or 0)
 			if player:getVehicle() then
 				if not Armor.ArmorVisible[3] then
 					models.models.main.Avatar.UpperBody.Body.CMaidAB.Skirt2:setPos(0, 0.75)
@@ -64,7 +64,7 @@ Costume = {
 
 		---メイド服Bのチック処理
 		MaidBTick = function ()
-			models.models.main.Avatar.UpperBody.Body.CMaidBB:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
+			models.models.main.Avatar.UpperBody.Body.CMaidBB:setRot(player:isCrouching() and 27.5 or 0, 0, 0)
 			if player:getVehicle() then
 				if not Armor.ArmorVisible[3] then
 					models.models.main.Avatar.UpperBody.Body.CMaidBB.Skirt2:setPos(0, 2.5)
@@ -125,7 +125,7 @@ Costume = {
 
 		---ミニスカートのチック処理
 		MiniskirtTick = function ()
-			local crouching = player:getPose() == "CROUCHING"
+			local crouching = player:isCrouching()
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setRot((crouching or player:getVehicle()) and 27.5 or 0, 0, 0)
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setPos(0, 0, crouching and 1.25 or 0)
 		end,
@@ -168,6 +168,7 @@ Costume = {
 			Ears.EnableJerkEar = earVisible
 		elseif costume == "MAID_A" then
 			models.models.main.Avatar.Head.CMaidBrimH:setVisible(not Armor.ArmorVisible[1])
+			---@diagnostic disable-next-line: undefined-field
 			models.models.main.Avatar.UpperBody.Body.CMaidAB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
 			models.models.main.Avatar.UpperBody.Body.Bells:setVisible(false)
 			Sleeve.disable()
@@ -177,6 +178,7 @@ Costume = {
 			Legs.ReducedLegSwing = true
 		elseif costume == "MAID_B" then
 			models.models.main.Avatar.Head.CMaidBrimH:setVisible(not Armor.ArmorVisible[1])
+			---@diagnostic disable-next-line: undefined-field
 			models.models.main.Avatar.UpperBody.Body.CMaidBB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
 			models.models.main.Avatar.UpperBody.Body.Bells:setVisible(false)
 			Costume.setCostumeTextureOffset(4)
@@ -184,6 +186,7 @@ Costume = {
 			events.RENDER:register(Costume.CostumeEvents.MaidBRender, "costume_maid_b_render")
 			Legs.ReducedLegSwing = true
 		elseif costume == "SWIMSUIT" then
+			---@diagnostic disable-next-line: undefined-field
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
 			models.models.main.Avatar.UpperBody.Body.Bells:setVisible(false)
 			Sleeve.disable()
@@ -192,6 +195,7 @@ Costume = {
 			events.TICK:register(Costume.CostumeEvents.SummerHatTick, "costume_summer_hat_tick")
 			events.TICK:register(Costume.CostumeEvents.MiniskirtTick, "costume_miniskirt_tick")
 		elseif costume == "CHEERLEADER" then
+			---@diagnostic disable-next-line: undefined-field
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
 			models.models.main.Avatar.UpperBody.Body.Bells:setVisible(false)
 			Sleeve.disable()
@@ -253,6 +257,7 @@ Costume = {
 			Costume.setCostumeTextureOffset(13)
 			Ears.EnableJerkEar = earVisible
 		elseif costume == "SAILOR" then
+			---@diagnostic disable-next-line: undefined-field
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
 			models.models.main.Avatar.UpperBody.Body.Bells:setVisible(false)
 			Sleeve.disable()
@@ -279,6 +284,7 @@ Costume = {
 			models.models.main.Avatar.UpperBody.Body.Bells:setVisible(false)
 			models.models.main.Avatar.Head.CHalloweenH:setVisible(not Armor.ArmorVisible[1])
 			models.models.main.Avatar.UpperBody.Body.CHalloweenB:setVisible(not Armor.ArmorVisible[3])
+			---@diagnostic disable-next-line: undefined-field
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
 			Sleeve.disable()
 			for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do
@@ -445,6 +451,7 @@ Costume = {
 
 local loadedData = Config.loadConfig("costume", 1)
 if loadedData <= #Costume.CostumeList then
+	---@diagnostic disable-next-line: undefined-field
 	Costume.CurrentCostume = Costume.CostumeList[loadedData]:upper()
 	if Costume.CurrentCostume ~= "DEFAULT" then
 		Costume.setCostume(Costume.CurrentCostume)

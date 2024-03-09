@@ -33,6 +33,7 @@ Earpick = General.instance({
 		end
 	end
 }, AnimationAction, function ()
+	---@diagnostic disable-next-line: undefined-field
 	return SitDown.IsAnimationPlaying and not player:isUsingItem()
 end, {models.models.main.Avatar.UpperBody.Arms.RightArm.EarpickRA, models.models.ear_cleaning, models.models.dummy_player}, {models.models.main.Avatar.UpperBody.Arms.RightArm.EarpickRA, models.models.ear_cleaning, models.models.dummy_player}, animations["models.main"]["earpick"], {animations["models.ear_cleaning"]["earpick"], animations["models.dummy_player"]["earpick"]}, 0)
 

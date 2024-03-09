@@ -78,9 +78,11 @@ events.RENDER:register(function (delta, context)
 	local backHairRot = vectors.vec3()
 	local backHairVisible = models.models.main.Avatar.UpperBody.Body.Hairs.BackHair:getVisible()
 	local rotLimit = {{{-60, 60}, {-30, 30}}, {{0, 80}, {-80, 0}}} --物理演算の可動範囲：1. 尻尾：{1-1. 上下方向, 1-2. 左右方向}, 2. 長髪：{2-1. 前髪, 2-2. 後髪}
-	if (context ~= "FIRST_PERSON" or client:hasIrisShader()) and (Physics.EnablePyhsics[1] or Physics.EnablePyhsics[2]) then
+	---@diagnostic disable-next-line: undefined-field
+	if (context ~= "FIRST_PERSON" or client:hasShaderPack()) and (Physics.EnablePyhsics[1] or Physics.EnablePyhsics[2]) then
 		local playerPose = player:getPose()
 		local rideVehicle = player:getVehicle() ~= nil
+		---@diagnostic disable-next-line: undefined-field
 		if SitDown.IsAnimationPlaying or rideVehicle then
 			rotLimit[1][1][2] = 10
 		end

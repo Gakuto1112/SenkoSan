@@ -15,6 +15,7 @@ Afk = {
 			print(Language.getTranslate("message__afk_too_long"))
 		end
 		if Afk.AfkAnimationCount >= 6000 then
+			---@diagnostic disable-next-line: undefined-field
 			TailBrush:stop()
 		end
 		if Afk.TailBrushByAfk then
@@ -28,14 +29,17 @@ Afk = {
 
 --ping関数
 function pings.afkTailBrush()
+	---@diagnostic disable-next-line: undefined-field
 	TailBrush:play()
 end
 
 function pings.afkTailBrushStop()
+	---@diagnostic disable-next-line: undefined-field
 	TailBrush:stop()
 end
 
 function pings.afkKotatsu()
+	---@diagnostic disable-next-line: undefined-field
 	Kotatsu:play()
 end
 
@@ -44,8 +48,10 @@ events.TICK:register(function ()
 		if not client:isPaused() then
 			if Afk.AfkCount >= 1 then
 				local lookDir = player:getLookDir()
+				---@diagnostic disable-next-line: undefined-field
 				if Afk.AfkAnimationCount == 6000 and Kotatsu:checkAction() then
 					pings.afkKotatsu()
+					---@diagnostic disable-next-line: undefined-field
 				elseif Afk.AfkAnimationCount > 0 and Afk.AfkAnimationCount % 1200 == 0 and not Umbrella.IsUsing and not Kotatsu.IsAnimationPlaying then
 					pings.afkTailBrush()
 					Afk.TailBrushByAfk = true
