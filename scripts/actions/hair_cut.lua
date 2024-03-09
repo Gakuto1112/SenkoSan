@@ -75,6 +75,7 @@ HairCut = General.instance({
 		end
 	end
 }, AnimationAction, function ()
+	---@diagnostic disable-next-line: undefined-field
 	return BroomCleaning:checkAction()
 end, {models.models.hair_cut, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.HairCutRAB, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.HairCutRAB.Spray, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.HairCutRAB.Spray, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.HairCutRAB.Scissors, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.HairCutLAB, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.HairCutLAB.Comb, models.models.dummy_player}, {models.models.hair_cut, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.HairCutRAB, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.HairCutRAB.Spray, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.HairCutRAB.Scissors, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.HairCutLAB, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.HairCutLAB.Comb, models.models.dummy_player}, animations["models.main"]["hair_cut"], {animations["models.hair_cut"]["hair_cut"], animations["models.dummy_player"]["hair_cut"]}, 8)
 

@@ -36,6 +36,7 @@ BroomCleaning = General.instance({
 		end
 	end
 }, AnimationAction, function ()
+	---@diagnostic disable-next-line: undefined-field
 	return SitDown:checkAction() and not SitDown.IsAnimationPlaying and not player:isUsingItem() and not Kotatsu.IsAnimationPlaying
 end, {models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.BroomRAB, models.models.broom_cleaning}, {models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.BroomRAB, models.models.broom_cleaning}, animations["models.main"]["broom_cleaning"], animations["models.broom_cleaning"]["broom_cleaning"], 35)
 

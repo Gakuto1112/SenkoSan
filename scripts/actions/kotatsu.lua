@@ -17,7 +17,9 @@ Kotatsu = General.instance({
 		for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Body.CMaidAB, models.models.main.Avatar.UpperBody.Body.CMaidBB, models.models.main.Avatar.UpperBody.Body.CMiniSkirtB}) do
 			modelPart:setVisible(false)
 		end
+		---@diagnostic disable-next-line: undefined-field
 		if SitDown.IsAnimationPlaying then
+			---@diagnostic disable-next-line: undefined-field
 			SitDown:stop()
 		end
 		sounds:playSound("entity.item.pickup", player:getPos(), 1, 0.5)
@@ -69,6 +71,7 @@ Kotatsu = General.instance({
 }, PermanentAnimationAction, function ()
 	local isNotPlayerYawChanged = player:getBodyYaw() == Kotatsu.BodyYawPrev
 	Kotatsu.BodyYawPrev = player:getBodyYaw()
+	---@diagnostic disable-next-line: undefined-field
 	return SitDown:checkAction() and isNotPlayerYawChanged and not player:isUsingItem()
 end, models.models.kotatsu, models.models.kotatsu, animations["models.main"]["kotatsu"], nil)
 

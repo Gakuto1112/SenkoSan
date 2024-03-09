@@ -10,6 +10,7 @@ PhotoPose = {
     ---撮影用ポーズが可能か確認する。
     check = function ()
         if not PhotoPose.PosingChecked then
+            ---@diagnostic disable-next-line: undefined-field
             PhotoPose.CanPosing = player:getPose() == "STANDING" and not player:isInWater() and not player:isInLava() and player:getFrozenTicks() == 0 and not player:getVehicle() and player:getVelocity():length() < 0.001 and Hurt.Damaged == "NONE" and not Warden.WardenNearby and not SitDown.IsAnimationPlaying and not player:isUsingItem() and not Kotatsu.IsAnimationPlaying and not ActionWheel.IsAnimationPlaying
             PhotoPose.PosingChecked = true
         end

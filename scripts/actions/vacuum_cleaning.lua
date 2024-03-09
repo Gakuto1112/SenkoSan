@@ -49,6 +49,7 @@ VacuumCleaning = General.instance({
 		end
 	end
 }, AnimationAction, function ()
+	---@diagnostic disable-next-line: undefined-field
 	return BroomCleaning:checkAction()
 end, models.models.vacuum_cleaning, models.models.vacuum_cleaning, animations["models.main"]["vacuum_cleaning"], {animations["models.vacuum_cleaning"]["vacuum_cleaning"], animations["models.costume_maid_a"]["vacuum_cleaning"], animations["models.costume_maid_b"]["vacuum_cleaning"]}, 0)
 

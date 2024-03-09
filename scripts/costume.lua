@@ -29,7 +29,7 @@ Costume = {
 	CostumeEvents = {
 		---メイド服Aのチック処理
 		MaidATick = function ()
-			models.models.main.Avatar.UpperBody.Body.CMaidAB:setRot(player:getPose() == "CROUCHING" and 27.5 or 0)
+			models.models.main.Avatar.UpperBody.Body.CMaidAB:setRot(player:isCrouching() and 27.5 or 0)
 			if player:getVehicle() then
 				if not Armor.ArmorVisible[3] then
 					models.models.main.Avatar.UpperBody.Body.CMaidAB.Skirt2:setPos(0, 0.75)
@@ -64,7 +64,7 @@ Costume = {
 
 		---メイド服Bのチック処理
 		MaidBTick = function ()
-			models.models.main.Avatar.UpperBody.Body.CMaidBB:setRot(player:getPose() == "CROUCHING" and 27.5 or 0, 0, 0)
+			models.models.main.Avatar.UpperBody.Body.CMaidBB:setRot(player:isCrouching() and 27.5 or 0, 0, 0)
 			if player:getVehicle() then
 				if not Armor.ArmorVisible[3] then
 					models.models.main.Avatar.UpperBody.Body.CMaidBB.Skirt2:setPos(0, 2.5)
@@ -114,7 +114,7 @@ Costume = {
 
 		---ミニスカートのチック処理
 		MiniskirtTick = function ()
-			local crouching = player:getPose() == "CROUCHING"
+			local crouching = player:isCrouching()
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setRot((crouching or player:getVehicle()) and 27.5 or 0, 0, 0)
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setPos(0, 0, crouching and 1.25 or 0)
 		end,
@@ -154,6 +154,7 @@ Costume = {
 			models.models.main.Avatar.Head.CFoxHoodH:setUVPixels(0, 0)
 		elseif costume == "MAID_A" then
 			models.models.main.Avatar.Head.CMaidBrimH:setVisible(not Armor.ArmorVisible[1])
+			---@diagnostic disable-next-line: undefined-field
 			models.models.main.Avatar.UpperBody.Body.CMaidAB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
 			Costume.setCostumeTextureOffset(3)
 			events.TICK:register(Costume.CostumeEvents.MaidATick, "costume_maid_a_tick")
@@ -162,6 +163,7 @@ Costume = {
 			Legs.ReducedLegSwing = true
 		elseif costume == "MAID_B" then
 			models.models.main.Avatar.Head.CMaidBrimH:setVisible(not Armor.ArmorVisible[1])
+			---@diagnostic disable-next-line: undefined-field
 			models.models.main.Avatar.UpperBody.Body.CMaidBB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
 			Sleeve.enable()
 			Costume.setCostumeTextureOffset(4)
@@ -175,6 +177,7 @@ Costume = {
 			Costume.setCostumeTextureOffset(5)
 			Apron.disable()
 		elseif costume == "CHEERLEADER" then
+			---@diagnostic disable-next-line: undefined-field
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
 			Costume.setCostumeTextureOffset(6)
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setUVPixels(0, 0)
@@ -221,6 +224,7 @@ Costume = {
 			Ears.EnableJerkEar = earVisible
 			Apron.disable()
 		elseif costume == "SAILOR" then
+			---@diagnostic disable-next-line: undefined-field
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
 			Costume.setCostumeTextureOffset(14)
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setUVPixels(0, 14)
@@ -241,6 +245,7 @@ Costume = {
 		elseif costume == "HALLOWEEN" then
 			models.models.main.Avatar.Head.CHalloweenH:setVisible(not Armor.ArmorVisible[1])
 			models.models.main.Avatar.UpperBody.Body.CHalloweenB:setVisible(not Armor.ArmorVisible[3])
+			---@diagnostic disable-next-line: undefined-field
 			models.models.main.Avatar.UpperBody.Body.CMiniSkirtB:setVisible(not Armor.ArmorVisible[3] and not (Kotatsu and Kotatsu.IsAnimationPlaying or false))
 			Sleeve.disable()
 			for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do

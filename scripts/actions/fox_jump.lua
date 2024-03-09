@@ -34,6 +34,7 @@ FoxJump = General.instance({
 			end
 		elseif self.AnimationCount == 1 then
 			self:stop()
+			---@diagnostic disable-next-line: undefined-field
 			ShakeBody:play(true)
 		end
 	end
@@ -42,6 +43,7 @@ FoxJump = General.instance({
 	local targetBlockPos = FoxJump.TargetPos:copy():floor()
 	local block1_1 = world.getBlockState(targetBlockPos:copy():add(0, -1))
 	local block10 = world.getBlockState(targetBlockPos)
+	---@diagnostic disable-next-line: undefined-field
 	return BroomCleaning:checkAction() and (block10.id == "minecraft:air" or block10.id == "minecraft:snow") and (block1_1.id == "minecraft:snow_block" or (block1_1.id == "minecraft:snow" and tonumber(block1_1.properties["layers"]) >= 6 or false)) and world.getBlockState(FoxJump.TargetPos:copy():add(0, 1)).id == "minecraft:air" and world.getBlockState(FoxJump.TargetPos:copy():add(0, 2)).id == "minecraft:air" and world.getBlockState(player:getPos():add(0, 2)).id == "minecraft:air"
 end, nil, nil, animations["models.main"]["fox_jump"], nil, 10)
 

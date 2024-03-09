@@ -9,7 +9,9 @@ SitDown = General.instance({
 			animation:speed(1)
 		end
 		PermanentAnimationAction.play(self)
+		---@diagnostic disable-next-line: undefined-field
 		if Kotatsu.IsAnimationPlaying then
+			---@diagnostic disable-next-line: undefined-field
 			Kotatsu:stop()
 		end
 		Sleeve.Moving = false
