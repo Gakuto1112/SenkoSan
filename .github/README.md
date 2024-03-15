@@ -116,7 +116,7 @@ Toggles whether she always use umbrella when she can use it even if it isn't rai
 Toggles whether messages which are showed frequently show or not. This setting will not affects the action wheel messages. Turn this off if you are annoyed with them.
 
 ## How to use
-Figura is available in [Forge](https://files.minecraftforge.net/net/minecraftforge/forge/), [Fabric](https://fabricmc.net/), and [Quilt](https://quiltmc.org/).
+Figura is available in [Forge](https://files.minecraftforge.net/net/minecraftforge/forge/), [Fabric](https://fabricmc.net/) and [NeoForge](https://neoforged.net/).
 
 1. Install the mod loader which you want to use and make the mods available.
 2. Install [Figura](https://modrinth.com/mod/figura). Note the mod dependencies.
