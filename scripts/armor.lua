@@ -92,7 +92,7 @@ events.TICK:register(function ()
 			if textures[textureName] then
 				return textures[textureName]
 			else
-				local texture = tailArmor and textures:copy(textureName, textures["textures.armor_trims."..normalizedPatternName]) or textures:fromVanilla(textureName, "minecraft:textures/trims/models/armor/"..normalizedPatternName..(armorId:find("^minecraft:.+_leggings$") ~= nil and "_leggings" or "")..".png")
+				local texture = tailArmor and textures:copy(textureName, textures["textures.armor_trims."..normalizedPatternName]) or textures:fromVanilla(textureName, client:getVersion() >= "1.21.2" and "minecraft:textures/trims/entity/humanoid"..(armorId:find("^minecraft:.+_leggings$") ~= nil and "_leggings" or "").."/"..normalizedPatternName..".png" or "minecraft:textures/trims/models/armor/"..normalizedPatternName..(armorId:find("^minecraft:.+_leggings$") ~= nil and "_leggings" or "")..".png")
 				addTextureQueue(texture, normalizedMaterialName)
 				return texture
 			end
@@ -109,7 +109,7 @@ events.TICK:register(function ()
 				Armor.ArmorVisible[1] = helmetFound
 				if helmetFound then
 					local material = armorSlotItems[1].id:match("^minecraft:(%a+)_helmet$")
-					models.models.main.Avatar.Head.ArmorH.Helmet.Helmet:setPrimaryTexture("RESOURCE", "minecraft:textures/models/armor/"..(material == "golden" and "gold" or material).."_layer_1.png")
+					models.models.main.Avatar.Head.ArmorH.Helmet.Helmet:setPrimaryTexture("RESOURCE", client:getVersion() >= "1.21.1" and "minecraft:textures/entity/equipment/humanoid/"..(material == "golden" and "gold" or material)..".png" or "minecraft:textures/models/armor/"..(material == "golden" and "gold" or material).."_layer_1.png")
 					models.models.main.Avatar.Head.ArmorH.Helmet.Ears:setUVPixels(0, material == "leather" and 0 or (material == "chainmail" and 8 or (material == "iron" and 16 or (material == "golden" and 24 or (material == "diamond" and 32 or 40)))))
 				end
 				models.models.main.Avatar.Head.ArmorH.Helmet.HelmetOverlay:setVisible(armorSlotItems[1].id == "minecraft:leather_helmet")
@@ -122,7 +122,7 @@ events.TICK:register(function ()
 				if chestplateFound then
 					local material = armorSlotItems[2].id:match("^minecraft:(%a+)_chestplate$")
 					for _, armorPart in ipairs({models.models.main.Avatar.UpperBody.Body.ArmorB.Chestplate.Chestplate, models.models.main.Avatar.UpperBody.Arms.RightArm.ArmorRA.RightChestplate.RightChestplate, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.ArmorRAB.RightChestplateBottom.RightChestplateBottom, models.models.main.Avatar.UpperBody.Arms.LeftArm.ArmorLA.LeftChestplate.LeftChestplate, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.ArmorLAB.LeftChestplateBottom.LeftChestplateBottom}) do
-						armorPart:setPrimaryTexture("RESOURCE", "minecraft:textures/models/armor/"..(material == "golden" and "gold" or material).."_layer_1.png")
+						armorPart:setPrimaryTexture("RESOURCE", client:getVersion() >= "1.21.1" and "minecraft:textures/entity/equipment/humanoid/"..(material == "golden" and "gold" or material)..".png" or "minecraft:textures/models/armor/"..(material == "golden" and "gold" or material).."_layer_1.png")
 					end
 					models.models.main.Avatar.UpperBody.Body.Tail.ArmorT.TailChestplate:setUVPixels(0, material == "leather" and 0 or (material == "chainmail" and 8 or (material == "iron" and 16 or (material == "golden" and 24 or (material == "diamond" and 32 or 40)))))
 				end
@@ -139,7 +139,7 @@ events.TICK:register(function ()
 				if leggingsFound then
 					local material = armorSlotItems[3].id:match("^minecraft:(%a+)_leggings$")
 					for _, armorPart in ipairs({models.models.main.Avatar.UpperBody.Body.ArmorB.Leggings.Leggings, models.models.main.Avatar.LowerBody.Legs.RightLeg.ArmorRL.RightLeggings.RightLeggings, models.models.main.Avatar.LowerBody.Legs.RightLeg.RightLegBottom.ArmorRLB.RightLeggingsBottom.RightLeggingsBottom, models.models.main.Avatar.LowerBody.Legs.LeftLeg.ArmorLL.LeftLeggings.LeftLeggings, models.models.main.Avatar.LowerBody.Legs.LeftLeg.LeftLegBottom.ArmorLLB.LeftLeggingsBottom.LeftLeggingsBottom}) do
-						armorPart:setPrimaryTexture("RESOURCE", "minecraft:textures/models/armor/"..(material == "golden" and "gold" or material).."_layer_2.png")
+						armorPart:setPrimaryTexture("RESOURCE", client:getVersion() >= "1.21.1" and "minecraft:textures/entity/equipment/humanoid_leggings/"..(material == "golden" and "gold" or material)..".png" or "minecraft:textures/models/armor/"..(material == "golden" and "gold" or material).."_layer_1.png")
 					end
 				end
 				local overlayVisible = armorSlotItems[3].id == "minecraft:leather_leggings"
@@ -155,7 +155,7 @@ events.TICK:register(function ()
 				if bootsFound then
 					local material = armorSlotItems[4].id:match("^minecraft:(%a+)_boots$")
 					for _, armorPart in ipairs({models.models.main.Avatar.LowerBody.Legs.RightLeg.ArmorRL.RightBoots.RightBoots, models.models.main.Avatar.LowerBody.Legs.RightLeg.RightLegBottom.ArmorRLB.RightBootsBottom.RightBootsBottom, models.models.main.Avatar.LowerBody.Legs.LeftLeg.ArmorLL.LeftBoots.LeftBoots, models.models.main.Avatar.LowerBody.Legs.LeftLeg.LeftLegBottom.ArmorLLB.LeftBootsBottom.LeftBootsBottom}) do
-						armorPart:setPrimaryTexture("RESOURCE", "minecraft:textures/models/armor/"..(material == "golden" and "gold" or material).."_layer_1.png")
+						armorPart:setPrimaryTexture("RESOURCE", client:getVersion() >= "1.21.1" and "minecraft:textures/entity/equipment/humanoid/"..(material == "golden" and "gold" or material)..".png" or "minecraft:textures/models/armor/"..(material == "golden" and "gold" or material).."_layer_1.png")
 					end
 				end
 				local overlayVisible = armorSlotItems[4].id == "minecraft:leather_boots"
@@ -292,10 +292,10 @@ events.TICK:register(function ()
 end)
 
 for _, overlayPart in ipairs({models.models.main.Avatar.Head.ArmorH.Helmet.HelmetOverlay, models.models.main.Avatar.UpperBody.Body.ArmorB.Chestplate.ChestplateOverlay, models.models.main.Avatar.UpperBody.Arms.RightArm.ArmorRA.RightChestplate.RightChestplateOverlay, models.models.main.Avatar.UpperBody.Arms.LeftArm.ArmorLA.LeftChestplate.LeftChestplateOverlay, models.models.main.Avatar.UpperBody.Arms.RightArm.ArmorRA.RightChestplate.RightChestplateOverlay, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.ArmorRAB.RightChestplateBottom.RightChestplateBottomOverlay, models.models.main.Avatar.UpperBody.Arms.LeftArm.ArmorLA.LeftChestplate.LeftChestplateOverlay, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.ArmorLAB.LeftChestplateBottom.LeftChestplateBottomOverlay, models.models.main.Avatar.LowerBody.Legs.RightLeg.ArmorRL.RightBoots.RightBootsOverlay, models.models.main.Avatar.LowerBody.Legs.RightLeg.RightLegBottom.ArmorRLB.RightBootsBottom.RightBootsBottomOverlay, models.models.main.Avatar.LowerBody.Legs.LeftLeg.ArmorLL.LeftBoots.LeftBootsOverlay, models.models.main.Avatar.LowerBody.Legs.LeftLeg.LeftLegBottom.ArmorLLB.LeftBootsBottom.LeftBootsBottomOverlay}) do
-	overlayPart:setPrimaryTexture("RESOURCE", "minecraft:textures/models/armor/leather_layer_1_overlay.png")
+	overlayPart:setPrimaryTexture("RESOURCE", client:getVersion() >= "1.21.2" and "minecraft:textures/entity/equipment/humanoid/leather_overlay.png" or "minecraft:textures/models/armor/leather_layer_1_overlay.png")
 end
 for _, overlayPart in ipairs({models.models.main.Avatar.UpperBody.Body.ArmorB.Leggings.LeggingsOverlay, models.models.main.Avatar.LowerBody.Legs.RightLeg.ArmorRL.RightLeggings.RightLeggingsOverlay, models.models.main.Avatar.LowerBody.Legs.RightLeg.RightLegBottom.ArmorRLB.RightLeggingsBottom.RightLeggingsBottomOverlay, models.models.main.Avatar.LowerBody.Legs.LeftLeg.ArmorLL.LeftLeggings.LeftLeggingsOverlay, models.models.main.Avatar.LowerBody.Legs.LeftLeg.LeftLegBottom.ArmorLLB.LeftLeggingsBottom.LeftLeggingsBottomOverlay}) do
-	overlayPart:setPrimaryTexture("RESOURCE", "minecraft:textures/models/armor/leather_layer_2_overlay.png")
+	overlayPart:setPrimaryTexture("RESOURCE", client:getVersion() >= "1.21.2" and "minecraft:textures/entity/equipment/humanoid_leggings/leather_overlay.png" or "minecraft:textures/models/armor/leather_layer_2_overlay.png")
 end
 
 return Armor
