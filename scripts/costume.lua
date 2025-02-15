@@ -352,7 +352,6 @@ Costume = {
 			end
 		elseif armorIndex == 2 then
 			if Armor.ArmorVisible[2] then
-				models.models.main.Avatar.UpperBody.Body.Tail.CDisguiseT:setVisible(false)
 				models.models.main.Avatar.UpperBody.Body.Hairs.FrontHair:setPos(0, 0, Armor.ArmorVisible[2] and -1 or 0)
 				models.models.main.Avatar.UpperBody.Body.Hairs.BackHair:setPos(0, 0, Armor.ArmorVisible[2] and 1 or 0)
 				models.models.main.Avatar.UpperBody.Body.CHalloweenB:setPos(0, 0, 1)
