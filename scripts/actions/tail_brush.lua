@@ -48,10 +48,17 @@ TailBrush = General.instance({
 			end
 			sounds:playSound(CompatibilityUtils:checkSound("minecraft:block.grass.step"), player:getPos(), 0.5, 1)
 		end
+	end,
+
+	onDamageEvent = function (self)
+		AnimationAction.onDamageEvent(self)
+		if self.IsAnimationPlaying then
+			self:stop()
+		end
 	end
 }, AnimationAction, function ()
 	---@diagnostic disable-next-line: undefined-field
-	return player:getPose() == "STANDING" and not player:isInLava() and player:getFrozenTicks() == 0 and not player:getVehicle() and not player:isMoving() and Hurt.Damaged == "NONE" and not Warden.WardenNearby and Wet.WetCount == 0 and not player:isUsingItem() and not Kotatsu.IsAnimationPlaying
+	return player:getPose() == "STANDING" and not player:isInLava() and player:getFrozenTicks() == 0 and not player:getVehicle() and not player:isMoving() and not Warden.WardenNearby and Wet.WetCount == 0 and not player:isUsingItem() and not Kotatsu.IsAnimationPlaying
 end, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.BrushRAB, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.BrushRAB, animations["models.main"]["tail_brush"], nil, 0)
 
 return TailBrush
