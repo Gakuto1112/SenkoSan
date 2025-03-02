@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"format_version": "4.5",
+		"format_version": "4.10",
 		"model_format": "free",
 		"box_uv": false
 	},
@@ -21,6 +21,7 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
+			"light_emission": 0,
 			"render_order": "default",
 			"allow_mirror_modeling": true,
 			"from": [-4.5, 12, -3],
@@ -64,6 +65,7 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
+			"light_emission": 0,
 			"render_order": "default",
 			"allow_mirror_modeling": true,
 			"from": [-5, 9, -4],
@@ -114,28 +116,38 @@
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
+			"selected": false,
 			"children": ["462cfa8e-d803-daf8-79e2-07a818922f6d", "0c018cd9-79a3-a970-84e6-c27b6447dcbd"]
 		}
 	],
 	"textures": [
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\costume_mini_skirt.png",
+			"path": "C:\\Users\\gakut\\AppData\\Roaming\\ModrinthApp\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\costume_mini_skirt.png",
 			"name": "costume_mini_skirt.png",
 			"folder": "",
 			"namespace": "",
 			"id": "0",
+			"group": "",
+			"width": 20,
+			"height": 56,
+			"uv_width": 20,
+			"uv_height": 56,
 			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
 			"render_mode": "default",
 			"render_sides": "auto",
+			"pbr_channel": "color",
 			"frame_time": 1,
 			"frame_order_type": "loop",
 			"frame_order": "",
 			"frame_interpolate": false,
 			"visible": true,
-			"mode": "bitmap",
+			"internal": true,
 			"saved": true,
 			"uuid": "e955fda6-6988-fd0d-225d-0f5f3719d579",
-			"relative_path": "../../textures/costume_mini_skirt.png",
+			"relative_path": "../textures/costume_mini_skirt.png",
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAA4CAYAAAD959hAAAAAAXNSR0IArs4c6QAAAc1JREFUWEfdlj1OxDAQhe07JFDTohxgK0BCSBR0VFyAQ3AAKiR6LkCFREGBhFZauj1AWImKEi3JHYKel1k5ztgeJy5WuHLk5Jt58xfr98OTrm1bVRSFwkrZH68W2nxkLf20V3WXP/XggN7BOYxxhlggPOQOCIhzn+fZgbYhgk+SzAKnJEUMxItc1kNVsJUcSwoglBgRMFY2gOCdo4+5SXzTNKosy8G+LPdN6ekUD91a5EKTH5gi2ZULD135Yg9D3dTrZa4OudgkAd2JIX3O3su7BYyFQdx6oXnoHQ4x65JfQ89DSUuRUd8/RyyZps396tMwW9WqQv390Kz9s/reDIeU1tvtaQPJrlzToo78JMn/ZNpcXN2Mvtu8PN4O7zazs+tu+fbgvdvg3He3YYHwkDugzsC5r/WyA21DBNdTJLPAKUkRA8fcbbaSY0kBnBITmoviGAJCpSMCpngoGcQ6OzBWNrbkrB6Guql3t+HqkCsbMfB8dmp6dcx6Xc6H0wZA7oAMhAzuPtAOE3mrp0j2AsckxP2m52F2YCjLMIawVF+1qg8qYxt7LPv5br3e3G1iMbSBISXJQGlYkjy0Jfr2SUCJl2JgLHFkzAAllqXAX6Ai2xdD5UqiAAAAAElFTkSuQmCC"
 		}
 	],

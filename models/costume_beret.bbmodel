@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"format_version": "4.5",
+		"format_version": "4.10",
 		"model_format": "free",
 		"box_uv": false
 	},
@@ -21,6 +21,7 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
+			"light_emission": 0,
 			"render_order": "default",
 			"allow_mirror_modeling": true,
 			"from": [-4, 30, -4],
@@ -63,6 +64,7 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
+			"light_emission": 0,
 			"render_order": "default",
 			"allow_mirror_modeling": true,
 			"from": [-4, 30, -4],
@@ -114,28 +116,38 @@
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
+			"selected": false,
 			"children": ["25d32b9f-ac43-79da-17c6-533f86c5671a", "7500b690-4443-e72c-c980-9e53741ba009"]
 		}
 	],
 	"textures": [
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\costume_beret.png",
+			"path": "C:\\Users\\gakut\\AppData\\Roaming\\ModrinthApp\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\costume_beret.png",
 			"name": "costume_beret.png",
 			"folder": "",
 			"namespace": "",
 			"id": "1",
+			"group": "",
+			"width": 16,
+			"height": 12,
+			"uv_width": 16,
+			"uv_height": 12,
 			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
 			"render_mode": "default",
 			"render_sides": "auto",
+			"pbr_channel": "color",
 			"frame_time": 1,
 			"frame_order_type": "loop",
 			"frame_order": "",
 			"frame_interpolate": false,
 			"visible": true,
-			"mode": "bitmap",
+			"internal": true,
 			"saved": true,
 			"uuid": "eef2688e-e1f4-7201-ca14-44df8237de24",
-			"relative_path": "../../textures/costume_beret.png",
+			"relative_path": "../textures/costume_beret.png",
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAMCAYAAABr5z2BAAAAAXNSR0IArs4c6QAAAFJJREFUOE9j7Gfg+89ABihk+MQI0sY4uAx4w/AJ7BkRBj6snkKWx+oFig0gJSyJDkSYQlyGE4wF2htQzcCANyG1MjCAEwyu9AKWpAQQbQAulwIAJ3UoIwu0YqYAAAAASUVORK5CYII="
 		}
 	]

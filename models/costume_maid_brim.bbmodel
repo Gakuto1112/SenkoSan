@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"format_version": "4.5",
+		"format_version": "4.10",
 		"model_format": "free",
 		"box_uv": false
 	},
@@ -21,6 +21,7 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
+			"light_emission": 0,
 			"render_order": "default",
 			"allow_mirror_modeling": true,
 			"from": [-5, 30, -3],
@@ -63,6 +64,7 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
+			"light_emission": 0,
 			"render_order": "default",
 			"allow_mirror_modeling": true,
 			"from": [-5, 30, -3],
@@ -113,28 +115,38 @@
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
+			"selected": false,
 			"children": ["844f1bb2-9679-0305-7b4f-8d47ff2886ef", "f3636758-9589-57c5-b5c4-8fd3e045c1b9"]
 		}
 	],
 	"textures": [
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\costume_maid_brim.png",
+			"path": "C:\\Users\\gakut\\AppData\\Roaming\\ModrinthApp\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\costume_maid_brim.png",
 			"name": "costume_maid_brim.png",
 			"folder": "",
 			"namespace": "",
 			"id": "2",
+			"group": "",
+			"width": 20,
+			"height": 3,
+			"uv_width": 20,
+			"uv_height": 3,
 			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
 			"render_mode": "default",
 			"render_sides": "auto",
+			"pbr_channel": "color",
 			"frame_time": 1,
 			"frame_order_type": "loop",
 			"frame_order": "",
 			"frame_interpolate": false,
 			"visible": true,
-			"mode": "bitmap",
+			"internal": true,
 			"saved": true,
 			"uuid": "1ea69f58-367c-b788-d772-77b5ef3302c6",
-			"relative_path": "../../textures/costume_maid_brim.png",
+			"relative_path": "../textures/costume_maid_brim.png",
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAAAXNSR0IArs4c6QAAAExJREFUGFdjZGBgYPj168f/jx8/MvDz8zNgo0VFxRlh6tjYOBhB6rHRIDWMr1+//A/TABLABmAG4JKHiYPUwW3DpxhkKcj1IFcRMhQAKBwz75bLMAAAAAAASUVORK5CYII="
 		}
 	]
