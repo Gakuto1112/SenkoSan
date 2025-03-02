@@ -36,7 +36,7 @@ ShakeBody = General.instance({
 		if self.AnimationCount % 5 == 0 then
 			if ShakeBody.SnowParticle then
 				for _ = 1, 6 do
-					particles:newParticle(CompatibilityUtils.getBlockParticleId(CompatibilityUtils:checkBlock("minecraft:snow_block")), player:getPos():add(math.random() - 0.5, math.random() + 0.5, math.random() - 0.5))
+					particles:newParticle(CompatibilityUtils:checkParticle("minecraft:block", "minecraft:snow_block"), player:getPos():add(math.random() - 0.5, math.random() + 0.5, math.random() - 0.5))
 				end
 			elseif not Wet.IsWet and Wet.WetCount > 0 then
 				for _ = 1, 4 do
