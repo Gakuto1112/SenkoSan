@@ -156,7 +156,7 @@ Costume = {
 			Apron.disable()
 		elseif costume == "DISGUISE" then
 			local helmetItem = player:getItem(6)
-			local earVisible =  helmetItem.id == "minecraft:chainmail_helmet" or helmetItem.id == "minecraft:turtle_helmet"
+			local earVisible = Armor.ArmorVisible[1] and (helmetItem.id == "minecraft:chainmail_helmet" or helmetItem.id == "minecraft:turtle_helmet")
 			models.models.main.Avatar.Head.Ears:setVisible(earVisible)
 			models.models.main.Avatar.Head.CDisguiseH:setVisible(not Armor.ArmorVisible[1])
 			models.models.main.Avatar.UpperBody.Body.Tail.CDisguiseT:setVisible(not Armor.ArmorVisible[2])
@@ -238,11 +238,11 @@ Costume = {
 			Apron.disable()
 		elseif costume == "KNIT" then
 			local helmetItem = player:getItem(6)
-			models.models.main.Avatar.Head.Ears:setVisible(helmetItem.id == "minecraft:chainmail_helmet" or helmetItem.id == "minecraft:turtle_helmet")
+			models.models.main.Avatar.Head.Ears:setVisible(Armor.ArmorVisible[1] and (helmetItem.id == "minecraft:chainmail_helmet" or helmetItem.id == "minecraft:turtle_helmet"))
 			models.models.main.Avatar.Head.CKnitH:setVisible(not Armor.ArmorVisible[1])
 		elseif costume == "FOX_HOODIE_RED" then
 			local helmetItem = player:getItem(6)
-			models.models.main.Avatar.Head.Ears:setVisible(helmetItem.id == "minecraft:chainmail_helmet" or helmetItem.id == "minecraft:turtle_helmet")
+			models.models.main.Avatar.Head.Ears:setVisible(Armor.ArmorVisible[1] and (helmetItem.id == "minecraft:chainmail_helmet" or helmetItem.id == "minecraft:turtle_helmet"))
 			models.models.main.Avatar.Head.CFoxHoodH:setVisible(not Armor.ArmorVisible[1])
 			Sleeve.disable()
 			for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do
@@ -254,7 +254,7 @@ Costume = {
 			Apron.disable()
 		elseif costume == "FOX_HOODIE_WHITE" then
 			local helmetItem = player:getItem(6)
-			models.models.main.Avatar.Head.Ears:setVisible(helmetItem.id == "minecraft:chainmail_helmet" or helmetItem.id == "minecraft:turtle_helmet")
+			models.models.main.Avatar.Head.Ears:setVisible(Armor.ArmorVisible[1] and (helmetItem.id == "minecraft:chainmail_helmet" or helmetItem.id == "minecraft:turtle_helmet"))
 			models.models.main.Avatar.Head.CFoxHoodH:setVisible(not Armor.ArmorVisible[1])
 			Sleeve.disable()
 			for _, modelPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.RightSleeveBase.RightSleeve.RightSleeveRibbon, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.LeftSleeveBase.LeftSleeve.LeftSleeveRibbon}) do
@@ -273,7 +273,7 @@ Costume = {
 			Apron.disable()
 		elseif costume == "CASUAL" then
 			local helmetItem = player:getItem(6)
-			local earVisible = helmetItem.id == "minecraft:chainmail_helmet" or helmetItem.id == "minecraft:turtle_helmet"
+			local earVisible = Armor.ArmorVisible[1] and (helmetItem.id == "minecraft:chainmail_helmet" or helmetItem.id == "minecraft:turtle_helmet")
 			models.models.main.Avatar.Head.Ears:setVisible(earVisible)
 			models.models.main.Avatar.Head.CBeretH:setVisible(not Armor.ArmorVisible[1])
 			Sleeve.disable()
