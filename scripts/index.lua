@@ -12,7 +12,6 @@ events.ENTITY_INIT:register(function ()
 
 	--パーツ別クラス
 	require("scripts.vanilla_model")
-	require("scripts.elytra")
 	Arms = require("scripts.arms")
 	Legs = require("scripts.legs")
 	Sleeve = require("scripts.sleeve")
