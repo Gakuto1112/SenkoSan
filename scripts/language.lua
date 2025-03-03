@@ -101,7 +101,7 @@ Language = {
 			message__merry_christmas = "Merry Christmas!"
 		},
 		ja_jp = {
-			avatar__old_version_warning = "ばーじょん1.21.4以上で遊ぶことをおすすすめするのじゃ！",
+			avatar__old_version_warning = "ばーじょん1.21.4以上で遊ぶことをおすすすめするわよ！",
 			key_name__wag_tail = "尻尾ふりふり",
 			key_name__jerk_ears = "お耳ぴくぴく",
 			key_name__emote_keys__up = "えもーと（上）",
