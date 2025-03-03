@@ -3139,7 +3139,7 @@
 							"uuid": "b4ff88f6-ccc1-b306-a4d4-a5097b0ba125",
 							"export": true,
 							"mirror_uv": false,
-							"isOpen": true,
+							"isOpen": false,
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
@@ -3231,7 +3231,7 @@
 							"uuid": "00f5720e-faea-564d-cf3b-3c4d548a074a",
 							"export": true,
 							"mirror_uv": false,
-							"isOpen": true,
+							"isOpen": false,
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
@@ -3322,7 +3322,7 @@
 							"uuid": "2fa3d1c6-0a3f-6134-bab0-cbd467fb649b",
 							"export": true,
 							"mirror_uv": false,
-							"isOpen": true,
+							"isOpen": false,
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
@@ -3413,6 +3413,34 @@
 									]
 								}
 							]
+						},
+						{
+							"name": "HelmetPivot",
+							"origin": [0, 24, 0],
+							"color": 0,
+							"uuid": "7e931d86-ce79-7185-cd30-d613a5c08746",
+							"export": true,
+							"mirror_uv": false,
+							"isOpen": false,
+							"locked": false,
+							"visibility": true,
+							"autouv": 0,
+							"selected": false,
+							"children": []
+						},
+						{
+							"name": "HelmetItemPivot",
+							"origin": [0, 24, 0],
+							"color": 0,
+							"uuid": "61e1b7f6-d123-5697-3242-54ceb930ce4b",
+							"export": true,
+							"mirror_uv": false,
+							"isOpen": false,
+							"locked": false,
+							"visibility": true,
+							"autouv": 0,
+							"selected": false,
+							"children": []
 						}
 					]
 				},
@@ -3440,7 +3468,7 @@
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
-							"selected": false,
+							"selected": true,
 							"children": [
 								"8136671e-ca38-e3ac-f8d2-4e83c9ed3dbe",
 								"91ba6935-f70e-0ab0-bc03-9d1708d4d9b7",
@@ -3512,6 +3540,62 @@
 										"9e5989a8-eea1-4b15-cffe-e885cb524aba",
 										"bc4dfcf4-8e51-da7b-4566-8fd6c5300b7a"
 									]
+								},
+								{
+									"name": "ChestplateBodyPivot",
+									"origin": [0, 24, 0],
+									"color": 0,
+									"uuid": "b890a64e-f53b-4ace-dd4d-52e4850a049b",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": false,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": false,
+									"children": []
+								},
+								{
+									"name": "BeltPivot",
+									"origin": [0, 12, 0],
+									"color": 0,
+									"uuid": "ecd41ec7-2421-b4d9-727d-165b20a2b46e",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": false,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": false,
+									"children": []
+								},
+								{
+									"name": "LeftElytraPivot",
+									"origin": [0, 24, 0],
+									"color": 0,
+									"uuid": "afd16230-9726-9093-448b-fdef61544ec3",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": false,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": false,
+									"children": []
+								},
+								{
+									"name": "RightElytraPivot",
+									"origin": [0, 24, 0],
+									"color": 0,
+									"uuid": "49e261dd-7d2e-7a17-78b7-33ce6ae96961",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": false,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": true,
+									"children": []
 								}
 							]
 						},
@@ -3522,7 +3606,7 @@
 							"uuid": "0527626f-65e0-4ef6-c12f-ca9ff9360c88",
 							"export": true,
 							"mirror_uv": false,
-							"isOpen": true,
+							"isOpen": false,
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
