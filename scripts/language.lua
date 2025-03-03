@@ -27,7 +27,7 @@ Language = {
 			message__respawn = "Uyaaan... Could you be a little gentler?"
 		},
 		ja_jp = {
-			avatar__old_version_warning = "ばーじょん1.21.4以上で遊ぶことをおすすすめするのじゃ！",
+			avatar__old_version_warning = "ばーじょん1.21.4以上で遊ぶことをおすすめしますの！",
 			key_name__jerk_ears = "耳を動かす",
 			key_name__wag_tail = "尻尾を振る",
 			key_name__emote_keys__up = "エモート（上）",
