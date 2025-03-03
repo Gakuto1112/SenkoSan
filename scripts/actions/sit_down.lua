@@ -44,9 +44,17 @@ SitDown = General.instance({
 			end
 			self.StandUpCount = self.StandUpCount - 1
 		end
+	end,
+
+	onDamageEvent = function (self)
+		PermanentAnimationAction.onDamageEvent(self)
+		if self.IsAnimationPlaying then
+			self:stop()
+		end
 	end
 }, PermanentAnimationAction, function ()
-	return player:getPose() == "STANDING" and player:isOnGround() and not player:isInWater() and not player:isInLava() and player:getFrozenTicks() == 0 and not player:getVehicle() and player:getVelocity():length() < 0.001 and Hurt.Damaged == "NONE"
+	---@diagnostic disable-next-line: undefined-field
+	return player:getPose() == "STANDING" and player:isOnGround() and not player:isInWater() and not player:isInLava() and player:getFrozenTicks() == 0 and not player:getVehicle() and not player:isMoving()
 end, nil, nil, animations["models.main"]["sit_down"], nil)
 
 return SitDown

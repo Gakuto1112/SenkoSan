@@ -49,6 +49,10 @@ AnimationAction = {
 		events.TICK:register(function ()
 			instance:onTickEvent()
 		end)
+		---@diagnostic disable-next-line: undefined-field
+		events.DAMAGE:register(function ()
+			instance:onDamageEvent()
+		end)
 		return instance
 	end,
 
@@ -58,6 +62,10 @@ AnimationAction = {
 			self:onAnimationTick()
 		end
 		self.AnimationChecked = false
+	end,
+
+	---コンストラクタでdamageイベントに登録される関数
+	onDamageEvent = function (self)
 	end,
 
 	---アクションが再生可能かどうかを返す。
