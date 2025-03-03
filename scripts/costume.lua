@@ -156,7 +156,8 @@ Costume = {
 			models.models.main.Avatar.UpperBody.Body.Bells:setVisible(false)
 			Costume.setCostumeTextureOffset(1)
 		elseif costume == "DISGUISE" then
-			local earVisible = player:getItem(6).id == "minecraft:chainmail_helmet"
+			local helmetItem = player:getItem(6)
+			local earVisible = Armor.ArmorVisible[1] and (helmetItem.id == "minecraft:chainmail_helmet" or helmetItem.id == "minecraft:turtle_helmet")
 			models.models.main.Avatar.Head.Ears:setVisible(earVisible)
 			for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Head.Cowlick, models.models.main.Avatar.UpperBody.Body.Bells}) do
 				modelPart:setVisible(false)
@@ -218,13 +219,15 @@ Costume = {
 			events.TICK:register(Costume.CostumeEvents.YukataTick, "costume_yukata_tick")
 			Costume.setCostumeTextureOffset(9)
 		elseif costume == "KNIT" then
-			models.models.main.Avatar.Head.Ears:setVisible(player:getItem(6).id == "minecraft:chainmail_helmet")
+			local helmetItem = player:getItem(6)
+			models.models.main.Avatar.Head.Ears:setVisible(Armor.ArmorVisible[1] and (helmetItem.id == "minecraft:chainmail_helmet" or helmetItem.id == "minecraft:turtle_helmet"))
 			for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Head.Cowlick}) do
 				modelPart:setVisible(false)
 			end
 			models.models.main.Avatar.Head.CKnitH:setVisible(not Armor.ArmorVisible[1])
 		elseif costume == "FOX_HOODIE_RED" then
-			models.models.main.Avatar.Head.Ears:setVisible(player:getItem(6).id == "minecraft:chainmail_helmet")
+			local helmetItem = player:getItem(6)
+			models.models.main.Avatar.Head.Ears:setVisible(Armor.ArmorVisible[1] and (helmetItem.id == "minecraft:chainmail_helmet" or helmetItem.id == "minecraft:turtle_helmet"))
 			models.models.main.Avatar.UpperBody.Body.Hairs.BackHair:setVisible(Armor.ArmorVisible[1])
 			for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Head.Cowlick, models.models.main.Avatar.UpperBody.Body.Bells}) do
 				modelPart:setVisible(false)
@@ -234,7 +237,8 @@ Costume = {
 			Costume.setCostumeTextureOffset(10)
 			models.models.main.Avatar.Head.CFoxHoodH:setUVPixels(0, 0)
 		elseif costume == "FOX_HOODIE_WHITE" then
-			models.models.main.Avatar.Head.Ears:setVisible(player:getItem(6).id == "minecraft:chainmail_helmet")
+			local helmetItem = player:getItem(6)
+			models.models.main.Avatar.Head.Ears:setVisible(Armor.ArmorVisible[1] and (helmetItem.id == "minecraft:chainmail_helmet" or helmetItem.id == "minecraft:turtle_helmet"))
 			models.models.main.Avatar.UpperBody.Body.Hairs.BackHair:setVisible(Armor.ArmorVisible[1])
 			for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Head.Cowlick, models.models.main.Avatar.UpperBody.Body.Bells}) do
 				modelPart:setVisible(false)
@@ -248,7 +252,8 @@ Costume = {
 			Sleeve.disable()
 			Costume.setCostumeTextureOffset(12)
 		elseif costume == "CASUAL" then
-			local earVisible = player:getItem(6).id == "minecraft:chainmail_helmet"
+			local helmetItem = player:getItem(6)
+			local earVisible = Armor.ArmorVisible[1] and (helmetItem.id == "minecraft:chainmail_helmet" or helmetItem.id == "minecraft:turtle_helmet")
 			models.models.main.Avatar.Head.Ears:setVisible(earVisible)
 			for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Head.Cowlick, models.models.main.Avatar.UpperBody.Body.Bells}) do
 				modelPart:setVisible(false)
@@ -316,7 +321,8 @@ Costume = {
 		for _, modelPart in ipairs({models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.UpperBody.Body.Tail.CDisguiseT, models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.UpperBody.Body.CMaidAB, models.models.main.Avatar.UpperBody.Body.CMaidBB, models.models.main.Avatar.UpperBody.Body.CMiniSkirtB, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.CCheerleaderRAB,  models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.CCheerleaderLAB, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH, models.models.main.Avatar.Head.CKimonoH, models.models.main.Avatar.Head.CHalloweenH, models.models.main.Avatar.UpperBody.Body.CHalloweenB}) do
 			modelPart:setVisible(false)
 		end
-		models.models.main.Avatar.Head.Ears:setVisible(not Armor.ArmorVisible[1])
+		local helmetItem = player:getItem(6)
+		models.models.main.Avatar.Head.Ears:setVisible(not Armor.ArmorVisible[1] or helmetItem.id == "minecraft:chainmail_helmet" or helmetItem.id == "minecraft:turtle_helmet")
 		models.models.main.Avatar.Head.Ears.LeftEarPivot:setVisible(true)
 		for _, modelPart in ipairs({models.models.main.Avatar.LowerBody.Apron, models.models.main.Avatar.UpperBody.Body.UmbrellaB}) do
 			modelPart:setUVPixels()
@@ -343,7 +349,8 @@ Costume = {
 	onArmorChenge = function (armorIndex)
 		if armorIndex == 1 then
 			if Armor.ArmorVisible[1] then
-				models.models.main.Avatar.Head.Ears:setVisible(player:getItem(6).id == "minecraft:chainmail_helmet")
+				local helmetItem = player:getItem(6)
+				models.models.main.Avatar.Head.Ears:setVisible(helmetItem.id:find("^minecraft:.+_helmet$") == nil or helmetItem.id == "minecraft:chainmail_helmet" or helmetItem.id == "minecraft:turtle_helmet")
 				models.models.main.Avatar.Head.Ears.LeftEarPivot:setVisible(true)
 				models.models.main.Avatar.UpperBody.Body.Hairs.BackHair:setVisible(true)
 				for _, modelPart in ipairs({models.models.main.Avatar.Head.HairAccessory, models.models.main.Avatar.Head.Cowlick, models.models.main.Avatar.Head.CDisguiseH, models.models.main.Avatar.Head.CMaidBrimH, models.models.main.Avatar.Head.CSwimsuitH, models.models.main.Avatar.Head.CFoxMaskH, models.models.main.Avatar.Head.CKnitH, models.models.main.Avatar.Head.CFoxHoodH, models.models.main.Avatar.Head.CBeretH, models.models.main.Avatar.Head.CSantaH, models.models.main.Avatar.Head.CHalloweenH}) do
