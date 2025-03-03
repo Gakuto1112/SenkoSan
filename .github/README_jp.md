@@ -18,7 +18,7 @@
 <!-- DESCRIPTION_START -->
 TVアニメ「世話やきキツネの仙狐さん」（に一瞬だけ）とその原作に登場するキャラクターを再現した、[Minecraft](https://www.minecraft.net/ja-jp)のスキンMod「[Figura](https://modrinth.com/mod/figura)」向けスキン「Suzu（鈴）」です。
 
-ターゲットFiguraバージョン：[0.1.4](https://modrinth.com/mod/figura/version/0.1.4+1.20.4)
+ターゲットFiguraバージョン：[0.1.5](https://modrinth.com/mod/figura/version/0.1.5b+1.21.4)
 <!-- DESCRIPTION_END -->
 
 ![メイン](./README_images/main.jpg)
