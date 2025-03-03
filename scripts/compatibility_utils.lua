@@ -127,8 +127,8 @@ CompatibilityUtils = {
         self.CheckedList.particle["minecraft:poof"] = true
         self.CheckedList.sound["minecraft:empty"] = true
 
-        if host:isHost() and client:getVersion() < "1.20.1" then
-            print(Language:getTranslate("avatar__old_version_warning"))
+        if host:isHost() and client:getVersion() < "1.21.4" then
+            print(Language.getTranslate("avatar__old_version_warning"))
         end
     end
 }

@@ -3,6 +3,7 @@
 Language = {
 	LanguageData = {
 		en_us = {
+			avatar__old_version_warning = "I recommend you to play with 1.21.4 or newer!",
 			key_name__wag_tail = "Wag tail",
 			key_name__jerk_ears = "Jerk ears",
 			key_name__emote_keys__up = "Emote (up)",
@@ -100,6 +101,7 @@ Language = {
 			message__merry_christmas = "Merry Christmas!"
 		},
 		ja_jp = {
+			avatar__old_version_warning = "ばーじょん1.21.4以上で遊ぶことをおすすすめするのじゃ！",
 			key_name__wag_tail = "尻尾ふりふり",
 			key_name__jerk_ears = "お耳ぴくぴく",
 			key_name__emote_keys__up = "えもーと（上）",
