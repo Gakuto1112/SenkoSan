@@ -24,7 +24,7 @@ BroomCleaning = General.instance({
 			models.models.broom_cleaning.Dust:setOpacity(models.models.broom_cleaning.Dust:getOpacity() - 0.14)
 			local dustParticlePivot = models.models.broom_cleaning.Dust.DustParticlePivot:partToWorldMatrix()
 			for _ = 1, 5 do
-				particles:newParticle(CompatibilityUtils.getBlockParticleId(CompatibilityUtils:checkBlock("minecraft:gravel")), dustParticlePivot[4][1], dustParticlePivot[4][2], dustParticlePivot[4][3])
+				particles:newParticle(CompatibilityUtils:checkParticle("minecraft:block", "minecraft:gravel"), dustParticlePivot[4][1], dustParticlePivot[4][2], dustParticlePivot[4][3])
 			end
 		elseif self.AnimationCount == 41 then
 			FaceParts.setEmotion("CLOSED", "CLOSED", "OPENED", 40, true)

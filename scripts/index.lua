@@ -29,7 +29,6 @@ events.ENTITY_INIT:register(function ()
 
 	--機能別クラス
 	Costume = require("scripts.costume")
-	Hurt = require("scripts.hurt")
 	require("scripts.goat_horn")
 	ActionWheel = require("scripts.action_wheel")
 	Camera = require("scripts.camera")

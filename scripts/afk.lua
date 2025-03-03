@@ -56,12 +56,18 @@ events.TICK:register(function ()
 					pings.afkTailBrush()
 					Afk.TailBrushByAfk = true
 				end
-				Afk.AfkAnimationCount = (player:getVelocity():length() == 0 and lookDir == Afk.LookDIrPrev and Hurt.Damaged == "NONE" and player:getPose() == "STANDING" and Wet.WetCount == 0 and not Umbrella.IsUsing and not Warden.WardenNearby and type(player:getVehicle()) == "nil" and PhotoPose.CurrentPose == 0) and Afk.AfkAnimationCount + 1 or 0
+				---@diagnostic disable-next-line: undefined-field
+				Afk.AfkAnimationCount = (not player:isMoving() and lookDir == Afk.LookDIrPrev and player:getPose() == "STANDING" and Wet.WetCount == 0 and not Umbrella.IsUsing and not Warden.WardenNearby and type(player:getVehicle()) == "nil" and PhotoPose.CurrentPose == 0) and Afk.AfkAnimationCount + 1 or 0
 				Afk.LookDIrPrev = lookDir
 			end
 		end
 		Afk.AfkCount = Afk.AfkCount + 1
 	end
+end)
+
+---@diagnostic disable-next-line: undefined-field
+events.DAMAGE:register(function ()
+	Afk.AfkAnimationCount = 0
 end)
 
 events.KEY_PRESS:register(function ()
