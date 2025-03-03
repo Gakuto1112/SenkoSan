@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"format_version": "4.5",
+		"format_version": "4.10",
 		"model_format": "free",
 		"box_uv": false
 	},
@@ -21,6 +21,7 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
+			"light_emission": 0,
 			"render_order": "default",
 			"allow_mirror_modeling": true,
 			"from": [-4, 30, -4],
@@ -63,6 +64,7 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
+			"light_emission": 0,
 			"render_order": "default",
 			"allow_mirror_modeling": true,
 			"from": [-2.725, 12.825, 1.375],
@@ -105,6 +107,7 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
+			"light_emission": 0,
 			"render_order": "default",
 			"allow_mirror_modeling": true,
 			"from": [-3.425, 12.125, 4.175],
@@ -147,6 +150,7 @@
 			"box_uv": false,
 			"rescale": false,
 			"locked": false,
+			"light_emission": 0,
 			"render_order": "default",
 			"allow_mirror_modeling": true,
 			"from": [-4.5, 29.5, -7],
@@ -199,6 +203,7 @@
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
+			"selected": false,
 			"children": ["25d32b9f-ac43-79da-17c6-533f86c5671a", "d2cbe219-93a1-6a25-3fc6-ca0f5f9c513b"]
 		},
 		{
@@ -212,28 +217,38 @@
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
+			"selected": false,
 			"children": ["f18c203c-4e7e-7c3d-2761-7a2b055d07c9", "3a32356c-2cfc-3934-a401-54a470195c4b"]
 		}
 	],
 	"textures": [
 		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\com.modrinth.theseus\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\costume_disguise.png",
+			"path": "C:\\Users\\gakut\\AppData\\Roaming\\ModrinthApp\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\costume_disguise.png",
 			"name": "costume_disguise.png",
 			"folder": "",
 			"namespace": "",
 			"id": "1",
+			"group": "",
+			"width": 28,
+			"height": 14,
+			"uv_width": 28,
+			"uv_height": 14,
 			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
 			"render_mode": "default",
 			"render_sides": "auto",
+			"pbr_channel": "color",
 			"frame_time": 1,
 			"frame_order_type": "loop",
 			"frame_order": "",
 			"frame_interpolate": false,
 			"visible": true,
-			"mode": "bitmap",
+			"internal": true,
 			"saved": true,
 			"uuid": "eef2688e-e1f4-7201-ca14-44df8237de24",
-			"relative_path": "../../textures/costume_disguise.png",
+			"relative_path": "../textures/costume_disguise.png",
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAOCAYAAAA8E3wEAAAAAXNSR0IArs4c6QAAAKxJREFUOE9j3FTn+p+BgYHh27dvDFxcXCAmChssQADIOgaiqEA2C1nC0DGLkZFaFoIMw+eu8/un/SfKwjdvXhPyIINhaBoD1SwkFFwgi2Cup4oPRy0kFHfowUwwlaIHKbZ4wpYN3rx5wyAiIoKhHG4hrginuoXzsgzAGR8XACV5QoAsH+IqaejuQ1nHIBQPYosXknxIKLjQ5XevbsIbBcjqsSYaUi0kVj0uhwEAhiu3yDgT+lEAAAAASUVORK5CYII="
 		}
 	]

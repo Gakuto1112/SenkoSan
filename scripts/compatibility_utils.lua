@@ -92,13 +92,14 @@ CompatibilityUtils = {
     ---指定されたパーティクルIDがレジストリに登録されているか確認する。レジストリに未登録の場合は"minecraft:poof"を返す。
     ---@param self CompatibilityUtils
     ---@param particle Minecraft.particleID 確認対象のパーティクルID
+    ---@param args? string パーティクルの追加引数
     ---@return Minecraft.particleID particleID レジストリに登録してある場合は確認対象のパーティクルIDをそのまま返し、未登録の場合は"minecraft:poof"が返す。
-    checkParticle = function (self, particle)
+    checkParticle = function (self, particle, args)
         if self.CheckedList.particle[particle] == nil then
             self.CheckedList.particle[particle] = self:find("PARTICLE", particle)
         end
-        return self.CheckedList.particle[particle] and particle or "minecraft:poof"
-    end,
+        return self.CheckedList.particle[particle] and (args ~= nil and particle.." "..args or particle) or "minecraft:poof"
+    end;
 
     ---指定されたサウンドIDがレジストリに登録されているか確認する。レジストリに未登録の場合は"minecraft:empty"を返す。
     ---@param self CompatibilityUtils
@@ -109,21 +110,6 @@ CompatibilityUtils = {
             self.CheckedList.sound[sound] = self:find("SOUND", sound)
         end
         return self.CheckedList.sound[sound] and sound or "minecraft:empty"
-    end,
-
-    ---ブロックの破片のパーティクルを示す文字列を返す。Minecraftのバージョン違いを吸収するための関数。
-    ---@param block Minecraft.blockID ブロックの破片パーティクルとして表示するブロックのID。レジストリへの確認は行わない。
-    ---@return string particleData ブロックの破片のパーティクルを示す文字列
-    getBlockParticleId = function (block)
-        return client:getVersion() >= "1.20.5" and "minecraft:block{block_state:\""..block.."\"}" or "minecraft:block "..block
-    end,
-
-    ---dustパーティクルを示す文字列を返す。Minecraftのバージョン違いを吸収するための関数。
-    ---@param color Vector3 dustの色
-    ---@param size number dustの大きさ
-    ---@return string particleData dustの破片のパーティクルを示す文字列
-    getDustParticleId = function (color, size)
-        return client:getVersion() >= "1.20.5" and "minecraft:dust{color:["..color.x..","..color.y..","..color.z.."],scale:"..size.."}" or "minecraft:dust "..color.x.." "..color.y.." "..color.z.." "..size
     end,
 
     ---初期化関数
@@ -141,8 +127,8 @@ CompatibilityUtils = {
         self.CheckedList.particle["minecraft:poof"] = true
         self.CheckedList.sound["minecraft:empty"] = true
 
-        if host:isHost() and client:getVersion() < "1.20.1" then
-            print(Language:getTranslate("avatar__old_version_warning"))
+        if host:isHost() and client:getVersion() < "1.21.4" then
+            print(Language.getTranslate("avatar__old_version_warning"))
         end
     end
 }
