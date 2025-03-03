@@ -104,11 +104,12 @@ events.TICK:register(function ()
 		if armorSlotItem.id ~= Armor.ArmorSlotItemsPrev[index].id then
 			--防具変更
 			if index == 1 then
-				local helmetFound = armorSlotItems[1].id:find("^minecraft:.+_helmet$") ~= nil
-				vanilla_model.HELMET:setVisible(helmetFound)
+				local headItemFound = armorSlotItems[1].id ~= "minecraft:air"
+				vanilla_model.HELMET:setVisible(headItemFound)
+				local helmetFound = armorSlotItems[1].id:find("^minecraft:.+_helmet$") ~= nil and armorSlotItems[1].id ~= "minecraft:turtle_helmet"
 				models.models.main.Avatar.Head.ArmorH:setVisible(helmetFound)
-				Armor.ArmorVisible[1] = helmetFound
-				if helmetFound then
+				Armor.ArmorVisible[1] = headItemFound
+				if headItemFound then
 					local material = armorSlotItems[1].id:match("^minecraft:(%a+)_helmet$")
 					models.models.main.Avatar.Head.ArmorH.Helmet.Ears:setUVPixels(0, material == "leather" and 0 or (material == "chainmail" and 8 or (material == "iron" and 16 or (material == "golden" and 24 or (material == "diamond" and 32 or 40)))))
 				end
