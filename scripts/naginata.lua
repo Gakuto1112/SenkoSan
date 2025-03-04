@@ -166,7 +166,7 @@ events.TICK:register(function ()
             naginataModel.Handguard:setUVPixels(0, meterialValue)
             local blade = i == 1 and naginataModel.RightNaginataBlade or naginataModel.LeftNaginataBlade
             blade:setUVPixels(0, meterialValue * 2)
-            naginataModel:setSecondaryRenderType(heldItem:hasGlint() and "GLINT" or "NONE")
+            naginataModel:setSecondaryRenderType(heldItem:hasGlint() and (client:getVersion() == "1.21.4" and "GLINT2" or "GLINT") or "NONE")
             if Naginata.State[i] >= 2 and Naginata.State[i] <= 3 then
                 if player:getSwingTime() == 1 then
                     FaceParts.setEmotion("ANGRY", "ANGRY", "CLOSED", 8, FaceParts.RightEyeStatus == "ANGRY")
