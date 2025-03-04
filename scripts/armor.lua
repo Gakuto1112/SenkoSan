@@ -170,7 +170,7 @@ events.TICK:register(function ()
 		local glint = armorSlotItem:hasGlint()
 		if glint ~= Armor.ArmorSlotItemsPrev[index]:hasGlint() then
 			--エンチャント変更
-			local renderType = glint and "GLINT" or "NONE"
+			local renderType = glint and (client:getVersion() == "1.21.4" and "GLINT2" or "GLINT") or "NONE"
 			if index == 1 then
 				models.models.main.Avatar.Head.ArmorH.Helmet:setSecondaryRenderType(renderType)
 			elseif index == 2 then
