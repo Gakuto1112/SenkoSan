@@ -284,6 +284,38 @@ Toggles whether she always use umbrella when she can use it even if it isn't rai
 #### Action 5-2. Toggle frequently shown messages
 Toggles whether messages which are showed frequently show or not. This setting will not affects the action wheel messages. Turn this off if you are annoyed with them.
 
+#### Action 5-3. Check for avatar updates
+Left click to check for avatar updates. You can try to check updates again even if the check fails. In addition to manually checking for updates from here, the script will automatically check for updates once a day.
+
+> [!IMPORTANT]
+> To check for avatar updates, you must turn on "Allow Networking" and add `api.github.com` to the Network Filter from Figura settings!
+
+> [!CAUTION]
+> It is DANGEROUS to use a network filter other than "Whitelist" when activating Figura's Networking Feature. Although this avatar uses secure links, there is no guarantee that links used by other players' avatars are secure. I'm not responsible for any damages caused by using this feature.
+
+> [!WARNING]
+> If you repeatedly check for updates in a short period of time, GitHub will impose a temporary restriction and avatar scripts will not be able to check for updates for a while.
+
+Right click to copy the latest avatar download link to your clipboard. Please access the download page from your browser.Please note that if you have not checked for updates once or have not checked for updates for a long period of time, you will not get the correct link.
+
+## Avatar version display
+From v1.26.0, when the action wheel is open, the version of avatar currently in use and whether it has been updated are displayed in the upper left corner of the screen.
+
+![avatar version display](./README_images/version_information.jpg)
+
+Updates are automatically checked once a day, but can also be done manually via the [action wheel](#action-5-3-check-for-avatar-updates).
+
+A notification will be sent when a new avatar version is available. You can get the download link for the latest version from the [action wheel](#action-5-3-check-for-avatar-updates), which you can access from your browser.
+
+> [!IMPORTANT]
+> To check for avatar updates, you must turn on "Allow Networking" and add `api.github.com` to the Network Filter from Figura settings!
+
+> [!CAUTION]
+> It is DANGEROUS to use a network filter other than "Whitelist" when activating Figura's Networking Feature. Although this avatar uses secure links, there is no guarantee that links used by other players' avatars are secure. I'm not responsible for any damages caused by using this feature.
+
+> [!WARNING]
+> If you repeatedly check for updates in a short period of time, GitHub will impose a temporary restriction and avatar scripts will not be able to check for updates for a while.
+
 ## How to use
 Figura is available in [Forge](https://files.minecraftforge.net/net/minecraftforge/forge/), [Fabric](https://fabricmc.net/) and [NeoForge](https://neoforged.net/).
 
