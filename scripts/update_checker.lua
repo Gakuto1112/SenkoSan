@@ -37,7 +37,7 @@ UpdateChecker = {
     ---@type {[string]: {[string]: string}}
     localeData = {
         en_us = {
-            cheking = "Checking for updates...";
+            checking = "Checking for updates...";
             latest = "No avatar update available";
             update_available = "New avatar update is available: ";
             error_not_allowed = "Failed to check for updates - Networking API not allowed";
@@ -56,7 +56,7 @@ UpdateChecker = {
         };
 
         ja_jp = {
-            cheking = "アップデートを確認中...";
+            checking = "アップデートを確認中...";
             latest = "最新のアバターを使用中です";
             update_available = "アバターのアップデートが利用可能です：";
             error_not_allowed = "アップデート確認失敗 - ネットワーキング機能が不許可";
