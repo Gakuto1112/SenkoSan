@@ -64,14 +64,14 @@ UpdateChecker = {
             error_request_failed = "アップデート確認失敗 - リクエスト失敗 ";
             error_invalid_json_syntax = "アップデート確認失敗 - リクエスト解析失敗";
             error_invalid_json = "アップデート確認失敗 - 予期しないリクエスト";
-            action_title_1 = "アバターのアップデートの確認";
-            action_title_2 = "（左クリック）";
-            action_title_3 = "最新アバターバージョンのURLをコピー";
-            action_title_4 = "（右クリック）";
-            msg_networking_api = "アップデート確認機能を有効にするにはFiguraの設定より、FiguraのNetworkingの使用を許可し、\"api.github.com\"を許可リストに入れる必要があります！";
-            msg_ongoing = "現在アップデートの確認中です。連打しないでください！";
-            msg_copied = "最新のアバターへのリンクをクリップボードにコピーしました。ブラウザでリンクを開いてください。";
-            msg_cannot_check_latest = "アバターの最新バージョンを確認できないため、リンクを取得できません。";
+            action_title_1 = "あばたーのあっぷでーとの確認";
+            action_title_2 = "（左くりっく）";
+            action_title_3 = "最新あばたーのばーじょんのりんくをこぴー";
+            action_title_4 = "（右くりっく）";
+            msg_networking_api = "あっぷでーとの確認機能を有効にするにはFiguraの設定から、FiguraのNetworkingの使用を許可して、\"api.github.com\"を許可りすとに入れる必要があるのじゃ！";
+            msg_ongoing = "今あっぷでーとの確認中をしているところなのじゃ！お主もせっかちじゃのう～";
+            msg_copied = "最新のあばたーへのりんくをこぴーしたのじゃ。お主ぶらうざで開くのじゃ！";
+            msg_cannot_check_latest = "あばたーの最新ばーじょんを確認できぬから、りんくを取得できないのじゃ...。すまぬのう...。";
         };
     };
 
