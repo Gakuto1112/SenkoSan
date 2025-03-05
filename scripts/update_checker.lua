@@ -85,7 +85,7 @@ UpdateChecker = {
 
         instance.AVATAR_VERSION = "v1.26.0_dev"
         instance.AVATAR_NAME = "SenkoSan"
-        instance.BRANCH_NAME = "Senko"
+        instance.BRANCH_NAME = "Suzu"
         instance.CONFIG_NAME = "update_cache_senkosan"
         instance.REPOSITORY_NAME = "Gakuto1112/SenkoSan"
         instance.latestVersion = nil
