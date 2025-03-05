@@ -117,7 +117,7 @@ Toggles whether she always use umbrella when she can use it even if it isn't rai
 ### Action 7. Toggle frequently shown messages
 Toggles whether messages which are showed frequently show or not. This setting will not affects the action wheel messages. Turn this off if you are annoyed with them.
 
-#### Action 5-3. Check for avatar updates
+#### Action 8. Check for avatar updates
 Left click to check for avatar updates. You can try to check updates again even if the check fails. In addition to manually checking for updates from here, the script will automatically check for updates once a day.
 
 > [!IMPORTANT]
@@ -136,9 +136,9 @@ From v1.26.0, when the action wheel is open, the version of avatar currently in 
 
 ![avatar version display](../README_images/version_information.jpg)
 
-Updates are automatically checked once a day, but can also be done manually via the [action wheel](#action-5-3-check-for-avatar-updates).
+Updates are automatically checked once a day, but can also be done manually via the [action wheel](#action-8-check-for-avatar-updates).
 
-A notification will be sent when a new avatar version is available. You can get the download link for the latest version from the [action wheel](#action-5-3-check-for-avatar-updates), which you can access from your browser.
+A notification will be sent when a new avatar version is available. You can get the download link for the latest version from the [action wheel](#action-8-check-for-avatar-updates), which you can access from your browser.
 
 > [!IMPORTANT]
 > To check for avatar updates, you must turn on "Allow Networking" and add `api.github.com` to the Network Filter from Figura settings!

@@ -217,6 +217,9 @@ if host:isHost() then
 		General.ShowMessage = false
 	end
 
+	--アクション1-8. 更新確認
+	ActionWheel.MainPage:setAction(8, UpdateChecker:getUpdateAction())
+
     setNameChangeActionTitle()
     action_wheel:setPage(ActionWheel.MainPage)
 end
