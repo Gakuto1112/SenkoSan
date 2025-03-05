@@ -30,7 +30,6 @@
 ---@field package compareVersions fun(version1: string, version2: string): string|nil 2つのバージョン文字列を比較し、新しい方を返す
 ---@field package showNewUpdateMessage fun(self: UpdateChecker) 新アバターバージョンのお知らせを表示する
 ---@field package checkUpdate fun(self: UpdateChecker) アバターアップデートの確認を行う
----@field package refreshUpdateActionStatus fun(self: UpdateChecker) アップデート確認アクションの状態を更新する
 ---@field public getUpdateAction fun(self: UpdateChecker): Action アップデート確認用のアクションを生成する
 
 UpdateChecker = {
@@ -40,7 +39,7 @@ UpdateChecker = {
         en_us = {
             cheking = "Checking for updates...";
             latest = "No avatar update available";
-            update_avialable = "New avatar update is available: ";
+            update_available = "New avatar update is available: ";
             error_not_allowed = "Failed to check for updates - Networking API not allowed";
             error_network_err = "Failed to check for updates - Network error";
             error_request_failed = "Failed to check for updates - Request failure ";
@@ -59,7 +58,7 @@ UpdateChecker = {
         ja_jp = {
             cheking = "アップデートを確認中...";
             latest = "最新のアバターを使用中です";
-            update_avialable = "アバターのアップデートが利用可能です：";
+            update_available = "アバターのアップデートが利用可能です：";
             error_not_allowed = "アップデート確認失敗 - ネットワーキング機能が不許可";
             error_network_err = "アップデート確認失敗 - ネットワークエラー";
             error_request_failed = "アップデート確認失敗 - リクエスト失敗 ";
@@ -162,9 +161,9 @@ UpdateChecker = {
             config:setName(self.CONFIG_NAME)
             ---@diagnostic disable-next-line: assign-type-mismatch
             self.latestVersion = config:load("latestVersion")
-            local lastCheckTime = config:load("lastCheckTime")
+            local lastCheckTime = config:load("lastUpdateCheckTime")
+            ---@cast lastCheckTime number|nil
             if lastCheckTime ~= nil then
-                ---@diagnostic disable-next-line: assign-type-mismatch
                 self.lastCheckTime = lastCheckTime
             end
             config:setName(configName)
@@ -185,7 +184,7 @@ UpdateChecker = {
                 self:checkUpdate()
             else
                 local newerVersion = self.compareVersions(self.latestVersion, self.AVATAR_VERSION)
-                if newerVersion ~= nil and newerVersion ~= self.AVATAR_NAME then
+                if newerVersion ~= nil and newerVersion ~= self.AVATAR_VERSION then
                     self:showNewUpdateMessage()
                     self.checkerStatus = "UPDATE_AVAILABLE"
                 else
@@ -299,29 +298,6 @@ UpdateChecker = {
                 ---ネットワーキングAPIが不許可
                 self.checkerStatus = "ERROR_NOT_ALLOWED"
             end
-        end
-    end;
-
-    ---アップデート確認アクションの状態を更新する。
-    ---@param self UpdateChecker
-    refreshUpdateActionStatus = function (self)
-        if self.updateAction ~= nil then
-            local actionTitle = ""
-            if self.checkerStatus == "CHECKING" then
-                actionTitle = actionTitle.."§7"..self:getLocale("action_title_1")..self:getLocale("action_title_2").."\n"
-                self.updateAction:setColor(0.16, 0.16, 0.16)
-                self.updateAction:setHoverColor(1, 0.33, 0.33)
-            else
-                actionTitle = actionTitle..self:getLocale("action_title_1").."§b"..self:getLocale("action_title_2").."\n"
-                self.updateAction:setColor(0.78, 0.78, 0.78)
-                self.updateAction:setHoverColor(1, 1, 1)
-            end
-            if self.latestVersion ~= nil and self.currentTime < self.lastCheckTime + 86400000 then
-                actionTitle = actionTitle.."§r"..self:getLocale("action_title_3").."§b"..self:getLocale("action_title_4")
-            else
-                actionTitle = actionTitle.."§7"..self:getLocale("action_title_3")..self:getLocale("action_title_4")
-            end
-            self.updateAction:setTitle(actionTitle)
         end
     end;
 
