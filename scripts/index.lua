@@ -26,6 +26,7 @@ events.ENTITY_INIT:register(function ()
 	Portrait = require("scripts.portrait")
 
 	--機能別クラス
+	UpdateChecker = require("scripts.update_checker")
 	ActionWheel = require("scripts.action_wheel")
 	Camera = require("scripts.camera")
 	SitDown = require("scripts.actions.sit_down")
