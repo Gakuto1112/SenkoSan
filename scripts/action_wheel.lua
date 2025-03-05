@@ -694,6 +694,9 @@ if host:isHost() then
 		General.ShowMessage = false
 	end
 
+	--アクションホイール5-3. 更新確認
+	ActionWheel.Pages[5]:setAction(3, UpdateChecker:getUpdateAction())
+
 	--アクション8（共通）. ページ切り替え
 	for index, mainPage in ipairs(ActionWheel.Pages) do
 		mainPage:newAction(8):setTitle(Language.getTranslate("action_wheel__main__action_8__title")..index.."/"..#ActionWheel.Pages.."\n§6"..Language.getTranslate("action_wheel__main_"..index.."__title")):setItem(CompatibilityUtils:checkItem("minecraft:arrow")):setColor(0, 0.67, 0.67):setHoverColor(0.33, 1, 1):setOnScroll(function (direction)
