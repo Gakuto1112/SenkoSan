@@ -50,7 +50,6 @@ General = {
 		if host:isHost() then
 			for _, effect in ipairs(host:getStatusEffects()) do
 				local effectName = effect.name:match("minecraft[%.:](.+)$")
-
 				if effectName == name then
 					return effect
 				end
