@@ -68,10 +68,10 @@ UpdateChecker = {
             action_title_2 = "（左くりっく）";
             action_title_3 = "最新あばたーのばーじょんのりんくをこぴー";
             action_title_4 = "（右くりっく）";
-            msg_networking_api = "あっぷでーとの確認機能を有効にするにはFiguraの設定から、FiguraのNetworkingの使用を許可して、\"api.github.com\"を許可りすとに入れる必要があるのじゃ！";
-            msg_ongoing = "今あっぷでーとの確認中をしているところなのじゃ！お主もせっかちじゃのう～";
-            msg_copied = "最新のあばたーへのりんくをこぴーしたのじゃ。お主ぶらうざで開くのじゃ！";
-            msg_cannot_check_latest = "あばたーの最新ばーじょんを確認できぬから、りんくを取得できないのじゃ...。すまぬのう...。";
+            msg_networking_api = "あっぷでーとの確認機能を有効にするにはFiguraの設定から、FiguraのNetworkingの使用を許可して、\"api.github.com\"を許可りすとに入れる必要があるわよ！";
+            msg_ongoing = "今あっぷでーとの確認中をしているところでしょ！？アンタもせっかちなんだから...！";
+            msg_copied = "最新のあばたーへのりんくをこぴーしたわよ。お主ぶらうざで開くのよ！";
+            msg_cannot_check_latest = "あばたーの最新ばーじょんを確認できないから、りんくを取得できなかったわよ...。";
         };
     };
 
