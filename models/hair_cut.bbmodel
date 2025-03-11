@@ -1,675 +1,1056 @@
 {
-	"meta": {
-		"format_version": "4.10",
-		"model_format": "free",
-		"box_uv": false
-	},
-	"name": "hair_cut",
-	"model_identifier": "",
-	"visible_box": [1, 1, 0],
-	"variable_placeholders": "",
-	"variable_placeholder_buttons": [],
-	"timeline_setups": [],
-	"unhandled_root_fields": {},
-	"resolution": {
-		"width": 32,
-		"height": 52
-	},
-	"elements": [
-		{
-			"name": "BottleBottom",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"light_emission": 0,
-			"render_order": "default",
-			"allow_mirror_modeling": true,
-			"from": [3.75, 10, -4],
-			"to": [7.75, 14, 0],
-			"autouv": 0,
-			"color": 0,
-			"origin": [4.75, 16, -1],
-			"faces": {
-				"north": {
-					"uv": [0, 0, 4, 4],
-					"texture": 0
-				},
-				"east": {
-					"uv": [0, 0, 4, 4],
-					"texture": 0
-				},
-				"south": {
-					"uv": [0, 0, 4, 4],
-					"texture": 0
-				},
-				"west": {
-					"uv": [0, 0, 4, 4],
-					"texture": 0
-				},
-				"up": {
-					"uv": [0, 0, 4, 1],
-					"texture": 0
-				},
-				"down": {
-					"uv": [0, 3, 4, 4],
-					"texture": 0
-				}
-			},
-			"type": "cube",
-			"uuid": "dbaa1620-b1ef-7062-f061-7d5c99d4273d"
-		},
-		{
-			"name": "BottleTop",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"light_emission": 0,
-			"render_order": "default",
-			"allow_mirror_modeling": true,
-			"from": [5.25, 16, -4],
-			"to": [6.25, 18, 0],
-			"autouv": 0,
-			"color": 0,
-			"origin": [4.75, 16, -1],
-			"faces": {
-				"north": {
-					"uv": [6, 1, 7, 2],
-					"texture": 0
-				},
-				"east": {
-					"uv": [6, 1, 7, 2],
-					"texture": 0
-				},
-				"south": {
-					"uv": [6, 1, 7, 2],
-					"texture": 0
-				},
-				"west": {
-					"uv": [6, 1, 7, 2],
-					"texture": 0
-				},
-				"up": {
-					"uv": [6, 1, 7, 2],
-					"texture": 0
-				},
-				"down": {
-					"uv": [6, 1, 7, 2],
-					"texture": 0
-				}
-			},
-			"type": "cube",
-			"uuid": "afe5c4ea-7ff2-2f77-505d-3174690485e2"
-		},
-		{
-			"name": "Nozzle",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"light_emission": 0,
-			"render_order": "default",
-			"allow_mirror_modeling": true,
-			"from": [5.25, 17, -5],
-			"to": [6.25, 18, -4],
-			"autouv": 0,
-			"color": 0,
-			"origin": [4.75, 16, -1],
-			"faces": {
-				"north": {
-					"uv": [6, 2, 7, 3],
-					"texture": 0
-				},
-				"east": {
-					"uv": [6, 0, 7, 1],
-					"texture": 0
-				},
-				"south": {
-					"uv": [6, 0, 7, 1],
-					"texture": 0
-				},
-				"west": {
-					"uv": [6, 0, 7, 1],
-					"texture": 0
-				},
-				"up": {
-					"uv": [6, 0, 7, 1],
-					"texture": 0
-				},
-				"down": {
-					"uv": [6, 0, 7, 1],
-					"texture": 0
-				}
-			},
-			"type": "cube",
-			"uuid": "a221c88e-3a79-313d-dcce-d5e00c67f4b4"
-		},
-		{
-			"name": "Trigger",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"light_emission": 0,
-			"render_order": "default",
-			"allow_mirror_modeling": true,
-			"from": [5.25, 14, -4],
-			"to": [6.25, 16, -3.5],
-			"autouv": 0,
-			"color": 4,
-			"rotation": [30, 0, 0],
-			"origin": [5.75, 16, -3.5],
-			"faces": {
-				"north": {
-					"uv": [6, 0, 7, 1],
-					"texture": 0
-				},
-				"east": {
-					"uv": [6, 0, 7, 1],
-					"texture": 0
-				},
-				"south": {
-					"uv": [6, 0, 7, 1],
-					"texture": 0
-				},
-				"west": {
-					"uv": [6, 0, 7, 1],
-					"texture": 0
-				},
-				"up": {
-					"uv": [6, 0, 7, 1],
-					"texture": 0
-				},
-				"down": {
-					"uv": [6, 0, 7, 1],
-					"texture": 0
-				}
-			},
-			"type": "cube",
-			"uuid": "a6e5cbcf-3983-32b0-88c3-e865b52589b5"
-		},
-		{
-			"name": "Comb",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"light_emission": 0,
-			"render_order": "default",
-			"allow_mirror_modeling": true,
-			"from": [-7.5, 10, 0],
-			"to": [-3.5, 12, 0],
-			"autouv": 0,
-			"color": 4,
-			"inflate": 0.001,
-			"origin": [-6.5, 10, 1],
-			"faces": {
-				"north": {
-					"uv": [15, 0, 7, 4],
-					"texture": 0
-				},
-				"east": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"south": {
-					"uv": [7, 0, 15, 4],
-					"texture": 0
-				},
-				"west": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"up": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				}
-			},
-			"type": "cube",
-			"uuid": "630575ed-d724-1b59-ceaf-5952e80e6777"
-		},
-		{
-			"name": "HairPiece",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"light_emission": 0,
-			"render_order": "default",
-			"allow_mirror_modeling": true,
-			"from": [-6.5, 10, 0],
-			"to": [-4.5, 12, 0],
-			"autouv": 0,
-			"color": 4,
-			"inflate": 0.001,
-			"rotation": [45, 0, 0],
-			"origin": [-5.5, 12, 0],
-			"faces": {
-				"north": {
-					"uv": [27, 11, 29, 13],
-					"texture": 1
-				},
-				"east": {
-					"uv": [0, 0, 0, 1.625]
-				},
-				"south": {
-					"uv": [29, 11, 27, 13],
-					"texture": 1
-				},
-				"west": {
-					"uv": [0, 0, 0, 1.625]
-				},
-				"up": {
-					"uv": [0, 0.84052, 2, 0.84052]
-				},
-				"down": {
-					"uv": [0, 0, 1, 0]
-				}
-			},
-			"type": "cube",
-			"uuid": "c9f66ada-65b8-ac0b-8f81-26d6c3d2dbff"
-		},
-		{
-			"name": "Newspaper",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"light_emission": 0,
-			"render_order": "default",
-			"allow_mirror_modeling": true,
-			"from": [-16, 0, -32],
-			"to": [16, 0, 16],
-			"autouv": 0,
-			"color": 2,
-			"inflate": 0.01,
-			"origin": [0, 0, 0],
-			"faces": {
-				"north": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"east": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"south": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"west": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				},
-				"up": {
-					"uv": [0, 4, 32, 52],
-					"texture": 0
-				},
-				"down": {
-					"uv": [0, 0, 0, 0],
-					"texture": null
-				}
-			},
-			"type": "cube",
-			"uuid": "1cf06649-b8bb-ec57-f9dd-d577638ec445"
-		},
-		{
-			"name": "BottleMiddle",
-			"box_uv": false,
-			"rescale": false,
-			"locked": false,
-			"light_emission": 0,
-			"render_order": "default",
-			"allow_mirror_modeling": true,
-			"from": [4.75, 14, -3],
-			"to": [6.75, 16, -1],
-			"autouv": 0,
-			"color": 2,
-			"origin": [4.75, 16, -1],
-			"faces": {
-				"north": {
-					"uv": [4, 0, 6, 2],
-					"texture": 0
-				},
-				"east": {
-					"uv": [4, 0, 6, 2],
-					"texture": 0
-				},
-				"south": {
-					"uv": [4, 0, 6, 2],
-					"texture": 0
-				},
-				"west": {
-					"uv": [4, 0, 6, 2],
-					"texture": 0
-				},
-				"up": {
-					"uv": [4, 0, 6, 1],
-					"texture": 0
-				},
-				"down": {
-					"uv": [4, 1, 6, 2],
-					"texture": 0
-				}
-			},
-			"type": "cube",
-			"uuid": "f60dee98-244c-bb69-e7c2-afadae85f014"
-		}
-	],
-	"outliner": [
-		{
-			"name": "HairCutRAB",
-			"origin": [7, 18, 2],
-			"color": 0,
-			"uuid": "9b13a74d-3b9f-f599-c5e2-336bf2bbfe81",
-			"export": true,
-			"mirror_uv": false,
-			"isOpen": false,
-			"locked": false,
-			"visibility": true,
-			"autouv": 0,
-			"selected": false,
-			"children": [
-				{
-					"name": "Spray",
-					"origin": [5.75, 15, -1],
-					"rotation": [-105, 0, 0],
-					"color": 0,
-					"uuid": "d28608e1-0942-d0aa-32b7-1e79e7d830f8",
-					"export": true,
-					"mirror_uv": false,
-					"isOpen": false,
-					"locked": false,
-					"visibility": true,
-					"autouv": 0,
-					"selected": false,
-					"children": [
-						"f60dee98-244c-bb69-e7c2-afadae85f014",
-						"dbaa1620-b1ef-7062-f061-7d5c99d4273d",
-						"afe5c4ea-7ff2-2f77-505d-3174690485e2",
-						"a221c88e-3a79-313d-dcce-d5e00c67f4b4",
-						{
-							"name": "Trigger",
-							"origin": [5.75, 16, -3.5],
-							"color": 0,
-							"uuid": "789f6661-a55e-7b8d-ae67-9334fe288fc7",
-							"export": true,
-							"mirror_uv": false,
-							"isOpen": true,
-							"locked": false,
-							"visibility": true,
-							"autouv": 0,
-							"selected": false,
-							"children": ["a6e5cbcf-3983-32b0-88c3-e865b52589b5"]
-						}
-					]
-				},
-				{
-					"name": "Scissors",
-					"origin": [6, 10, 3],
-					"rotation": [0, 0, 90],
-					"color": 0,
-					"uuid": "beacd7d9-6d74-a7b5-c7fb-10357e153d88",
-					"export": true,
-					"mirror_uv": false,
-					"isOpen": true,
-					"locked": false,
-					"visibility": true,
-					"autouv": 0,
-					"selected": false,
-					"children": []
-				}
-			]
-		},
-		{
-			"name": "HairCutLAB",
-			"origin": [-7, 18, 2],
-			"color": 0,
-			"uuid": "a9321232-95ac-db08-94c7-2f0aadad8cf1",
-			"export": true,
-			"mirror_uv": false,
-			"isOpen": true,
-			"locked": false,
-			"visibility": true,
-			"autouv": 0,
-			"selected": false,
-			"children": ["630575ed-d724-1b59-ceaf-5952e80e6777", "c9f66ada-65b8-ac0b-8f81-26d6c3d2dbff"]
-		},
-		"1cf06649-b8bb-ec57-f9dd-d577638ec445"
-	],
-	"textures": [
-		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\ModrinthApp\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\hair_cut.png",
-			"name": "hair_cut.png",
-			"folder": "",
-			"namespace": "",
-			"id": "1",
-			"group": "",
-			"width": 32,
-			"height": 52,
-			"uv_width": 32,
-			"uv_height": 52,
-			"particle": false,
-			"use_as_default": false,
-			"layers_enabled": false,
-			"sync_to_project": "",
-			"render_mode": "default",
-			"render_sides": "auto",
-			"pbr_channel": "color",
-			"frame_time": 1,
-			"frame_order_type": "loop",
-			"frame_order": "",
-			"frame_interpolate": false,
-			"visible": true,
-			"internal": true,
-			"saved": true,
-			"uuid": "9ac098a1-2c27-f21f-6f8a-6871f8ba8714",
-			"relative_path": "../textures/hair_cut.png",
-			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAA0CAYAAADrPTp5AAAAAXNSR0IArs4c6QAAAjRJREFUWEftWb1OAkEQ3itIkE7ABCwp1cQYxMKK+NMoz2BhhRZqpzaG0PhTeT6Cz2Bj1J6gxJior0CCAUNz0p2ZM3O5W25v9/YWjpjbZnI7c7vffDuzNwMaoUa5XDZxSt9do9Wu58WdM83XQEDJXKBarZp7q7OjB1Cq1G2PYbfnuz+vcrmceX+1T8DLt9u66SUFHOSaaCwA8CZrY5znri5gYHn71e2aM5mMFoW0Nk2np0mv901UyVQySYzBgLseOG8DEGBLyAQcAQDJ1BTXHmwnC8BL83kI9fJKiemJ0x7twKtmo0Gy2SzzPaetiwEWgMvzC3J8ekJoGQNgMaA8CIMeAQDQdd3z2HAtCJChLAAlPbzOHhfxY0AKACtsx8YA9+agDMbGQBBgeBNKHQGLatF5DKxQQegXdDwgTgBS3wLeBjz9RAGIY0CKgSDpxrINlYaRA/h8/3BhMAzDE1On0xma36psW3OhGFAJQOoeUAVAuiSjAfT7fc8jSCQSzNoxVE34bwAoL8mCpKd0YxJpawYeYj8nKl9bLbJULBKU+B6yRetZ9lZjgmd2dHBIrm90wpNPD48kn8+Tdrtty/XNDTIwfqymFDaj9c7nQqFg9Y6eVbFIQUJnC3g9tzBv34QIgBU7TltXa8YrOFAfAxgZA0HynVcPSH2MIgfgR60oOEiteq1mpSFrQKZh7eDKAhYA0ewIXZarAhAzEDMgzYBoqvnZSRckKjYPlYaRVUSAOoqf6fHvgV/vuLxArDHi5QAAAABJRU5ErkJggg=="
-		},
-		{
-			"path": "C:\\Users\\gakut\\AppData\\Roaming\\ModrinthApp\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\for_modeling\\steve.png",
-			"name": "steve.png",
-			"folder": "",
-			"namespace": "",
-			"id": "2",
-			"group": "",
-			"width": 64,
-			"height": 64,
-			"uv_width": 64,
-			"uv_height": 64,
-			"particle": false,
-			"use_as_default": false,
-			"layers_enabled": false,
-			"sync_to_project": "",
-			"render_mode": "default",
-			"render_sides": "auto",
-			"pbr_channel": "color",
-			"frame_time": 1,
-			"frame_order_type": "loop",
-			"frame_order": "",
-			"frame_interpolate": false,
-			"visible": true,
-			"internal": true,
-			"saved": true,
-			"uuid": "11499e72-1227-ee5b-8cac-d5de7ec87a48",
-			"relative_path": "../textures/for_modeling/steve.png",
-			"source": "data:image/png;base64,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"
-		}
-	],
-	"animations": [
-		{
-			"uuid": "a1f38fbf-904f-31a4-f73e-079a67ccb403",
-			"name": "hair_cut",
-			"loop": "hold",
-			"override": false,
-			"length": 24,
-			"snapping": 24,
-			"selected": false,
-			"anim_time_update": "",
-			"blend_weight": "",
-			"start_delay": "",
-			"loop_delay": "",
-			"animators": {
-				"789f6661-a55e-7b8d-ae67-9334fe288fc7": {
-					"name": "Trigger",
-					"type": "bone",
-					"keyframes": [
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "0",
-									"y": "0",
-									"z": "0"
-								}
-							],
-							"uuid": "dcdc86e5-f980-d515-94e9-e9d6d3d3d4b8",
-							"time": 1,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "40",
-									"y": "0",
-									"z": "0"
-								}
-							],
-							"uuid": "d81fe6b3-1b4c-347e-9121-ea5002ae1e78",
-							"time": 1.5,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "0",
-									"y": "0",
-									"z": "0"
-								}
-							],
-							"uuid": "f219b577-4a91-8ca1-3e24-eb79c50bdb94",
-							"time": 1.75,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "40",
-									"y": "0",
-									"z": "0"
-								}
-							],
-							"uuid": "7d7ec14a-c126-d512-c83b-478a0b849b67",
-							"time": 2.25,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "0",
-									"y": "0",
-									"z": "0"
-								}
-							],
-							"uuid": "2b9c59cb-ba11-eb0c-0d3c-26f7113ee5ac",
-							"time": 2.5,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "40",
-									"y": "0",
-									"z": "0"
-								}
-							],
-							"uuid": "2c4a6fb1-1a78-83f3-2c49-c7471eed3225",
-							"time": 3,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "0",
-									"y": "0",
-									"z": "0"
-								}
-							],
-							"uuid": "d721136e-6249-80e1-21e9-35fc3f90c1db",
-							"time": 3.25,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "40",
-									"y": "0",
-									"z": "0"
-								}
-							],
-							"uuid": "14bfa0a2-c9e4-bde8-c80e-a55881620fff",
-							"time": 3.75,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "0",
-									"y": "0",
-									"z": "0"
-								}
-							],
-							"uuid": "5b8c6bd8-3e2a-30ed-6358-c194cdd3853e",
-							"time": 4,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "40",
-									"y": "0",
-									"z": "0"
-								}
-							],
-							"uuid": "073ee02c-6ee3-a4c4-63a9-7e9745929086",
-							"time": 4.5,
-							"color": -1,
-							"interpolation": "linear"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "0",
-									"y": "0",
-									"z": "0"
-								}
-							],
-							"uuid": "a9af337b-e095-f2fb-ab75-6bd7b1283770",
-							"time": 4.75,
-							"color": -1,
-							"interpolation": "linear"
-						}
-					]
-				}
-			}
-		}
-	]
+    "meta": {
+        "format_version": "4.10",
+        "model_format": "free",
+        "box_uv": false
+    },
+    "name": "hair_cut",
+    "model_identifier": "",
+    "visible_box": [
+        1,
+        1,
+        0
+    ],
+    "variable_placeholders": "",
+    "variable_placeholder_buttons": [],
+    "timeline_setups": [],
+    "unhandled_root_fields": {},
+    "resolution": {
+        "width": 32,
+        "height": 52
+    },
+    "elements": [
+        {
+            "name": "BottleBottom",
+            "box_uv": false,
+            "rescale": false,
+            "locked": false,
+            "light_emission": 0,
+            "render_order": "default",
+            "allow_mirror_modeling": true,
+            "from": [
+                3.75,
+                10,
+                -4
+            ],
+            "to": [
+                7.75,
+                14,
+                0
+            ],
+            "autouv": 0,
+            "color": 0,
+            "origin": [
+                4.75,
+                16,
+                -1
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        0,
+                        0,
+                        4,
+                        4
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        0,
+                        0,
+                        4,
+                        4
+                    ],
+                    "texture": 0
+                },
+                "south": {
+                    "uv": [
+                        0,
+                        0,
+                        4,
+                        4
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        0,
+                        0,
+                        4,
+                        4
+                    ],
+                    "texture": 0
+                },
+                "up": {
+                    "uv": [
+                        0,
+                        0,
+                        4,
+                        1
+                    ],
+                    "texture": 0
+                },
+                "down": {
+                    "uv": [
+                        0,
+                        3,
+                        4,
+                        4
+                    ],
+                    "texture": 0
+                }
+            },
+            "type": "cube",
+            "uuid": "dbaa1620-b1ef-7062-f061-7d5c99d4273d"
+        },
+        {
+            "name": "BottleTop",
+            "box_uv": false,
+            "rescale": false,
+            "locked": false,
+            "light_emission": 0,
+            "render_order": "default",
+            "allow_mirror_modeling": true,
+            "from": [
+                5.25,
+                16,
+                -4
+            ],
+            "to": [
+                6.25,
+                18,
+                0
+            ],
+            "autouv": 0,
+            "color": 0,
+            "origin": [
+                4.75,
+                16,
+                -1
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        6,
+                        1,
+                        7,
+                        2
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        6,
+                        1,
+                        7,
+                        2
+                    ],
+                    "texture": 0
+                },
+                "south": {
+                    "uv": [
+                        6,
+                        1,
+                        7,
+                        2
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        6,
+                        1,
+                        7,
+                        2
+                    ],
+                    "texture": 0
+                },
+                "up": {
+                    "uv": [
+                        6,
+                        1,
+                        7,
+                        2
+                    ],
+                    "texture": 0
+                },
+                "down": {
+                    "uv": [
+                        6,
+                        1,
+                        7,
+                        2
+                    ],
+                    "texture": 0
+                }
+            },
+            "type": "cube",
+            "uuid": "afe5c4ea-7ff2-2f77-505d-3174690485e2"
+        },
+        {
+            "name": "Nozzle",
+            "box_uv": false,
+            "rescale": false,
+            "locked": false,
+            "light_emission": 0,
+            "render_order": "default",
+            "allow_mirror_modeling": true,
+            "from": [
+                5.25,
+                17,
+                -5
+            ],
+            "to": [
+                6.25,
+                18,
+                -4
+            ],
+            "autouv": 0,
+            "color": 0,
+            "origin": [
+                4.75,
+                16,
+                -1
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        6,
+                        2,
+                        7,
+                        3
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        6,
+                        0,
+                        7,
+                        1
+                    ],
+                    "texture": 0
+                },
+                "south": {
+                    "uv": [
+                        6,
+                        0,
+                        7,
+                        1
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        6,
+                        0,
+                        7,
+                        1
+                    ],
+                    "texture": 0
+                },
+                "up": {
+                    "uv": [
+                        6,
+                        0,
+                        7,
+                        1
+                    ],
+                    "texture": 0
+                },
+                "down": {
+                    "uv": [
+                        6,
+                        0,
+                        7,
+                        1
+                    ],
+                    "texture": 0
+                }
+            },
+            "type": "cube",
+            "uuid": "a221c88e-3a79-313d-dcce-d5e00c67f4b4"
+        },
+        {
+            "name": "Trigger",
+            "box_uv": false,
+            "rescale": false,
+            "locked": false,
+            "light_emission": 0,
+            "render_order": "default",
+            "allow_mirror_modeling": true,
+            "from": [
+                5.25,
+                14,
+                -4
+            ],
+            "to": [
+                6.25,
+                16,
+                -3.5
+            ],
+            "autouv": 0,
+            "color": 4,
+            "rotation": [
+                30,
+                0,
+                0
+            ],
+            "origin": [
+                5.75,
+                16,
+                -3.5
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        6,
+                        0,
+                        7,
+                        1
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        6,
+                        0,
+                        7,
+                        1
+                    ],
+                    "texture": 0
+                },
+                "south": {
+                    "uv": [
+                        6,
+                        0,
+                        7,
+                        1
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        6,
+                        0,
+                        7,
+                        1
+                    ],
+                    "texture": 0
+                },
+                "up": {
+                    "uv": [
+                        6,
+                        0,
+                        7,
+                        1
+                    ],
+                    "texture": 0
+                },
+                "down": {
+                    "uv": [
+                        6,
+                        0,
+                        7,
+                        1
+                    ],
+                    "texture": 0
+                }
+            },
+            "type": "cube",
+            "uuid": "a6e5cbcf-3983-32b0-88c3-e865b52589b5"
+        },
+        {
+            "name": "Comb",
+            "box_uv": false,
+            "rescale": false,
+            "locked": false,
+            "light_emission": 0,
+            "render_order": "default",
+            "allow_mirror_modeling": true,
+            "from": [
+                -7.5,
+                10,
+                0
+            ],
+            "to": [
+                -3.5,
+                12,
+                0
+            ],
+            "autouv": 0,
+            "color": 4,
+            "inflate": 0.001,
+            "origin": [
+                -6.5,
+                10,
+                1
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        15,
+                        0,
+                        7,
+                        4
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                },
+                "south": {
+                    "uv": [
+                        7,
+                        0,
+                        15,
+                        4
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                },
+                "up": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                },
+                "down": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                }
+            },
+            "type": "cube",
+            "uuid": "630575ed-d724-1b59-ceaf-5952e80e6777"
+        },
+        {
+            "name": "HairPiece",
+            "box_uv": false,
+            "rescale": false,
+            "locked": false,
+            "light_emission": 0,
+            "render_order": "default",
+            "allow_mirror_modeling": true,
+            "from": [
+                -6.5,
+                10,
+                0
+            ],
+            "to": [
+                -4.5,
+                12,
+                0
+            ],
+            "autouv": 0,
+            "color": 4,
+            "inflate": 0.001,
+            "rotation": [
+                45,
+                0,
+                0
+            ],
+            "origin": [
+                -5.5,
+                12,
+                0
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        27,
+                        11,
+                        29,
+                        13
+                    ],
+                    "texture": 1
+                },
+                "east": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        1.625
+                    ]
+                },
+                "south": {
+                    "uv": [
+                        29,
+                        11,
+                        27,
+                        13
+                    ],
+                    "texture": 1
+                },
+                "west": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        1.625
+                    ]
+                },
+                "up": {
+                    "uv": [
+                        0,
+                        0.84052,
+                        2,
+                        0.84052
+                    ]
+                },
+                "down": {
+                    "uv": [
+                        0,
+                        0,
+                        1,
+                        0
+                    ]
+                }
+            },
+            "type": "cube",
+            "uuid": "c9f66ada-65b8-ac0b-8f81-26d6c3d2dbff"
+        },
+        {
+            "name": "Newspaper",
+            "box_uv": false,
+            "rescale": false,
+            "locked": false,
+            "light_emission": 0,
+            "render_order": "default",
+            "allow_mirror_modeling": true,
+            "from": [
+                -16,
+                0,
+                -32
+            ],
+            "to": [
+                16,
+                0,
+                16
+            ],
+            "autouv": 0,
+            "color": 2,
+            "inflate": 0.01,
+            "origin": [
+                0,
+                0,
+                0
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                },
+                "east": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                },
+                "south": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                },
+                "west": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                },
+                "up": {
+                    "uv": [
+                        0,
+                        4,
+                        32,
+                        52
+                    ],
+                    "texture": 0
+                },
+                "down": {
+                    "uv": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "texture": null
+                }
+            },
+            "type": "cube",
+            "uuid": "1cf06649-b8bb-ec57-f9dd-d577638ec445"
+        },
+        {
+            "name": "BottleMiddle",
+            "box_uv": false,
+            "rescale": false,
+            "locked": false,
+            "light_emission": 0,
+            "render_order": "default",
+            "allow_mirror_modeling": true,
+            "from": [
+                4.75,
+                14,
+                -3
+            ],
+            "to": [
+                6.75,
+                16,
+                -1
+            ],
+            "autouv": 0,
+            "color": 2,
+            "origin": [
+                4.75,
+                16,
+                -1
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        4,
+                        0,
+                        6,
+                        2
+                    ],
+                    "texture": 0
+                },
+                "east": {
+                    "uv": [
+                        4,
+                        0,
+                        6,
+                        2
+                    ],
+                    "texture": 0
+                },
+                "south": {
+                    "uv": [
+                        4,
+                        0,
+                        6,
+                        2
+                    ],
+                    "texture": 0
+                },
+                "west": {
+                    "uv": [
+                        4,
+                        0,
+                        6,
+                        2
+                    ],
+                    "texture": 0
+                },
+                "up": {
+                    "uv": [
+                        4,
+                        0,
+                        6,
+                        1
+                    ],
+                    "texture": 0
+                },
+                "down": {
+                    "uv": [
+                        4,
+                        1,
+                        6,
+                        2
+                    ],
+                    "texture": 0
+                }
+            },
+            "type": "cube",
+            "uuid": "f60dee98-244c-bb69-e7c2-afadae85f014"
+        }
+    ],
+    "outliner": [
+        {
+            "name": "HairCutRAB",
+            "origin": [
+                7,
+                18,
+                2
+            ],
+            "color": 0,
+            "uuid": "9b13a74d-3b9f-f599-c5e2-336bf2bbfe81",
+            "export": true,
+            "mirror_uv": false,
+            "isOpen": false,
+            "locked": false,
+            "visibility": true,
+            "autouv": 0,
+            "selected": false,
+            "children": [
+                {
+                    "name": "Spray",
+                    "origin": [
+                        5.75,
+                        15,
+                        -1
+                    ],
+                    "rotation": [
+                        -105,
+                        0,
+                        0
+                    ],
+                    "color": 0,
+                    "uuid": "d28608e1-0942-d0aa-32b7-1e79e7d830f8",
+                    "export": true,
+                    "mirror_uv": false,
+                    "isOpen": false,
+                    "locked": false,
+                    "visibility": true,
+                    "autouv": 0,
+                    "selected": false,
+                    "children": [
+                        "f60dee98-244c-bb69-e7c2-afadae85f014",
+                        "dbaa1620-b1ef-7062-f061-7d5c99d4273d",
+                        "afe5c4ea-7ff2-2f77-505d-3174690485e2",
+                        "a221c88e-3a79-313d-dcce-d5e00c67f4b4",
+                        {
+                            "name": "Trigger",
+                            "origin": [
+                                5.75,
+                                16,
+                                -3.5
+                            ],
+                            "color": 0,
+                            "uuid": "789f6661-a55e-7b8d-ae67-9334fe288fc7",
+                            "export": true,
+                            "mirror_uv": false,
+                            "isOpen": true,
+                            "locked": false,
+                            "visibility": true,
+                            "autouv": 0,
+                            "selected": false,
+                            "children": [
+                                "a6e5cbcf-3983-32b0-88c3-e865b52589b5"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Scissors",
+                    "origin": [
+                        6,
+                        10,
+                        3
+                    ],
+                    "rotation": [
+                        0,
+                        0,
+                        90
+                    ],
+                    "color": 0,
+                    "uuid": "beacd7d9-6d74-a7b5-c7fb-10357e153d88",
+                    "export": true,
+                    "mirror_uv": false,
+                    "isOpen": true,
+                    "locked": false,
+                    "visibility": true,
+                    "autouv": 0,
+                    "selected": false,
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "HairCutLAB",
+            "origin": [
+                -7,
+                18,
+                2
+            ],
+            "color": 0,
+            "uuid": "a9321232-95ac-db08-94c7-2f0aadad8cf1",
+            "export": true,
+            "mirror_uv": false,
+            "isOpen": true,
+            "locked": false,
+            "visibility": true,
+            "autouv": 0,
+            "selected": false,
+            "children": [
+                "630575ed-d724-1b59-ceaf-5952e80e6777",
+                "c9f66ada-65b8-ac0b-8f81-26d6c3d2dbff"
+            ]
+        },
+        "1cf06649-b8bb-ec57-f9dd-d577638ec445"
+    ],
+    "textures": [
+        {
+            "path": "C:\\Users\\gakut\\AppData\\Roaming\\ModrinthApp\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\hair_cut.png",
+            "name": "hair_cut.png",
+            "folder": "",
+            "namespace": "",
+            "id": "1",
+            "group": "",
+            "width": 32,
+            "height": 52,
+            "uv_width": 32,
+            "uv_height": 52,
+            "particle": false,
+            "use_as_default": false,
+            "layers_enabled": false,
+            "sync_to_project": "",
+            "render_mode": "default",
+            "render_sides": "auto",
+            "pbr_channel": "color",
+            "frame_time": 1,
+            "frame_order_type": "loop",
+            "frame_order": "",
+            "frame_interpolate": false,
+            "visible": true,
+            "internal": true,
+            "saved": true,
+            "uuid": "9ac098a1-2c27-f21f-6f8a-6871f8ba8714",
+            "relative_path": "../textures/hair_cut.png",
+            "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAA0CAYAAADrPTp5AAAAAXNSR0IArs4c6QAAAjRJREFUWEftWb1OAkEQ3itIkE7ABCwp1cQYxMKK+NMoz2BhhRZqpzaG0PhTeT6Cz2Bj1J6gxJior0CCAUNz0p2ZM3O5W25v9/YWjpjbZnI7c7vffDuzNwMaoUa5XDZxSt9do9Wu58WdM83XQEDJXKBarZp7q7OjB1Cq1G2PYbfnuz+vcrmceX+1T8DLt9u66SUFHOSaaCwA8CZrY5znri5gYHn71e2aM5mMFoW0Nk2np0mv901UyVQySYzBgLseOG8DEGBLyAQcAQDJ1BTXHmwnC8BL83kI9fJKiemJ0x7twKtmo0Gy2SzzPaetiwEWgMvzC3J8ekJoGQNgMaA8CIMeAQDQdd3z2HAtCJChLAAlPbzOHhfxY0AKACtsx8YA9+agDMbGQBBgeBNKHQGLatF5DKxQQegXdDwgTgBS3wLeBjz9RAGIY0CKgSDpxrINlYaRA/h8/3BhMAzDE1On0xma36psW3OhGFAJQOoeUAVAuiSjAfT7fc8jSCQSzNoxVE34bwAoL8mCpKd0YxJpawYeYj8nKl9bLbJULBKU+B6yRetZ9lZjgmd2dHBIrm90wpNPD48kn8+Tdrtty/XNDTIwfqymFDaj9c7nQqFg9Y6eVbFIQUJnC3g9tzBv34QIgBU7TltXa8YrOFAfAxgZA0HynVcPSH2MIgfgR60oOEiteq1mpSFrQKZh7eDKAhYA0ewIXZarAhAzEDMgzYBoqvnZSRckKjYPlYaRVUSAOoqf6fHvgV/vuLxArDHi5QAAAABJRU5ErkJggg=="
+        },
+        {
+            "path": "C:\\Users\\gakut\\AppData\\Roaming\\ModrinthApp\\profiles\\Fabricバニラ\\figura\\avatars\\世話焼きキツネの仙狐さん\\仙狐さん\\textures\\for_modeling\\steve.png",
+            "name": "steve.png",
+            "folder": "",
+            "namespace": "",
+            "id": "2",
+            "group": "",
+            "width": 64,
+            "height": 64,
+            "uv_width": 64,
+            "uv_height": 64,
+            "particle": false,
+            "use_as_default": false,
+            "layers_enabled": false,
+            "sync_to_project": "",
+            "render_mode": "default",
+            "render_sides": "auto",
+            "pbr_channel": "color",
+            "frame_time": 1,
+            "frame_order_type": "loop",
+            "frame_order": "",
+            "frame_interpolate": false,
+            "visible": true,
+            "internal": true,
+            "saved": true,
+            "uuid": "11499e72-1227-ee5b-8cac-d5de7ec87a48",
+            "relative_path": "../textures/for_modeling/steve.png",
+            "source": "data:image/png;base64,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"
+        }
+    ],
+    "animations": [
+        {
+            "uuid": "a1f38fbf-904f-31a4-f73e-079a67ccb403",
+            "name": "hair_cut",
+            "loop": "hold",
+            "override": false,
+            "length": 24,
+            "snapping": 24,
+            "selected": false,
+            "anim_time_update": "",
+            "blend_weight": "",
+            "start_delay": "",
+            "loop_delay": "",
+            "animators": {
+                "789f6661-a55e-7b8d-ae67-9334fe288fc7": {
+                    "name": "Trigger",
+                    "type": "bone",
+                    "keyframes": [
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "dcdc86e5-f980-d515-94e9-e9d6d3d3d4b8",
+                            "time": 1,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "40",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "d81fe6b3-1b4c-347e-9121-ea5002ae1e78",
+                            "time": 1.5,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "f219b577-4a91-8ca1-3e24-eb79c50bdb94",
+                            "time": 1.75,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "40",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "7d7ec14a-c126-d512-c83b-478a0b849b67",
+                            "time": 2.25,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "2b9c59cb-ba11-eb0c-0d3c-26f7113ee5ac",
+                            "time": 2.5,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "40",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "2c4a6fb1-1a78-83f3-2c49-c7471eed3225",
+                            "time": 3,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "d721136e-6249-80e1-21e9-35fc3f90c1db",
+                            "time": 3.25,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "40",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "14bfa0a2-c9e4-bde8-c80e-a55881620fff",
+                            "time": 3.75,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "5b8c6bd8-3e2a-30ed-6358-c194cdd3853e",
+                            "time": 4,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "40",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "073ee02c-6ee3-a4c4-63a9-7e9745929086",
+                            "time": 4.5,
+                            "color": -1,
+                            "interpolation": "linear"
+                        },
+                        {
+                            "channel": "rotation",
+                            "data_points": [
+                                {
+                                    "x": "0",
+                                    "y": "0",
+                                    "z": "0"
+                                }
+                            ],
+                            "uuid": "a9af337b-e095-f2fb-ab75-6bd7b1283770",
+                            "time": 4.75,
+                            "color": -1,
+                            "interpolation": "linear"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
 }
