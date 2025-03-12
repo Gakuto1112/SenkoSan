@@ -319,7 +319,7 @@ UpdateChecker = {
             end
         end):onRightClick(function ()
             if self.latestVersion ~= nil and self.currentTime < self.lastCheckTime + 86400000 then
-                host:setClipboard("https://api.github.com/repos/"..self.REPOSITORY_NAME.."/releases/tag/"..self.latestVersion)
+                host:setClipboard("https://github.com/"..self.REPOSITORY_NAME.."/releases/tag/"..self.latestVersion)
                 print(self:getLocale("msg_copied"))
             else
                 print(self:getLocale("msg_cannot_check_latest"))
