@@ -83,7 +83,7 @@ UpdateChecker = {
         local instance = {}
         setmetatable(instance, {__index = UpdateChecker})
 
-        instance.AVATAR_VERSION = "v1.26.0_dev"
+        instance.AVATAR_VERSION = "v1.27.0_dev"
         instance.AVATAR_NAME = "SenkoSan"
         instance.BRANCH_NAME = "Senko"
         instance.CONFIG_NAME = "update_cache_senkosan"
