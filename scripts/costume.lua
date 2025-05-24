@@ -404,7 +404,7 @@ Costume = {
 
 local loadedData = Config.loadConfig("costume", 1)
 if loadedData <= #Costume.CostumeList then
-	Costume.CurrentCostume = string.upper(Costume.CostumeList[loadedData])
+	Costume.CurrentCostume = StringUtils.upper(Costume.CostumeList[loadedData])
 	if Costume.CurrentCostume ~= "DEFAULT" then
 		Costume.setCostume(Costume.CurrentCostume, true)
 	else
