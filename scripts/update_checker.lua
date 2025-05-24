@@ -123,7 +123,7 @@ UpdateChecker = {
                         textTask:setText(self:getLocale("error_request_failed").."("..self.requestStatus..")")
                     else
                         ---@cast textTask TextTask
-                        textTask:setText(self:getLocale(self.checkerStatus:lower()))
+                        textTask:setText(self:getLocale(StringUtils.lower(self.checkerStatus)))
                     end
 
                     if self.updateAction ~= nil then
