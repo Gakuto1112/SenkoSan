@@ -477,7 +477,7 @@ Costume = {
 local loadedData = Config.loadConfig("costume", 1)
 if loadedData <= #Costume.CostumeList then
 	---@diagnostic disable-next-line: undefined-field
-	Costume.CurrentCostume = Costume.CostumeList[loadedData]:upper()
+	Costume.CurrentCostume = StringUtils.upper(Costume.CostumeList[loadedData])
 	if Costume.CurrentCostume ~= "DEFAULT" then
 		Costume.setCostume(Costume.CurrentCostume, true)
 	else
