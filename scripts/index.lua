@@ -3,6 +3,7 @@ events.ENTITY_INIT:register(function ()
 	Config = require("scripts.config")
 	Language = require("scripts.language")
 	KeyManager = require("scripts.key_manager")
+	StringUtils = require("scripts.string_utils")
 	CompatibilityUtils = require("scripts.compatibility_utils")
 
 	--抽象クラス
