@@ -1,10 +1,12 @@
 ---@class Armor 防具の表示を制御するクラス
 ---@field ShowArmor boolean 防具を表示するかどうか
 ---@field ArmorSlotItemsPrev table<ItemStack> 前チックの防具スロットのアイテム
+---@field hasGlintPrev boolean[] 前ティックに防具がエンチャントのキラキラを持っていたかどうか
 ---@field ArmorVisible table<boolean> 各防具の部位（ヘルメット、チェストプイート、レギンス、ブーツ）が可視状態かどうか。
 Armor = {
 	ShowArmor = Config.loadConfig("showArmor", false),
 	ArmorSlotItemsPrev = {world.newItem(CompatibilityUtils:checkItem("minecraft:air")), world.newItem(CompatibilityUtils:checkItem("minecraft:air")), world.newItem(CompatibilityUtils:checkItem("minecraft:air")), world.newItem(CompatibilityUtils:checkItem("minecraft:air"))},
+	HasGlintPrev = {false, false, false, false},
 	ArmorVisible = {false, false, false, false}
 }
 
@@ -174,7 +176,7 @@ events.TICK:register(function ()
 			end
 		end
 		local glint = armorSlotItem:hasGlint()
-		if glint ~= Armor.ArmorSlotItemsPrev[index]:hasGlint() then
+		if glint ~= Armor.HasGlintPrev[index] then
 			--エンチャント変更
 			local renderType = glint and (client:getVersion() == "1.21.4" and "GLINT2" or "GLINT") or "NONE"
 			if index == 1 then
@@ -192,6 +194,7 @@ events.TICK:register(function ()
 					armorPart:setSecondaryRenderType(renderType)
 				end
 			end
+			Armor.HasGlintPrev[index] = glint
 		end
 		local armorColor = getArmorColor(armorSlotItem)
 		if armorColor ~= getArmorColor(Armor.ArmorSlotItemsPrev[index]) then
