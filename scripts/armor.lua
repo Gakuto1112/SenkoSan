@@ -118,8 +118,18 @@ events.TICK:register(function ()
 			elseif index == 2 then
 				local chestplateFound = armorSlotItems[2].id:find("^minecraft:.+_chestplate$") ~= nil
 				vanilla_model.CHESTPLATE:setVisible(chestplateFound)
-				for _, armorPart in ipairs({models.models.main.Avatar.UpperBody.Body.Tail.ArmorT, models.models.main.Avatar.UpperBody.Arms.RightArm.ArmorRA, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.ArmorRAB, models.models.main.Avatar.UpperBody.Arms.LeftArm.ArmorLA, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.ArmorLAB}) do
-					armorPart:setVisible(chestplateFound)
+				models.models.main.Avatar.UpperBody.Body.Tail.ArmorT:setVisible(chestplateFound)
+				if chestplateFound then
+					events.RENDER:register(function (_, context)
+						for _, armorPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.ArmorRA, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.ArmorRAB, models.models.main.Avatar.UpperBody.Arms.LeftArm.ArmorLA, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.ArmorLAB}) do
+							armorPart:setVisible(context ~= "FIRST_PERSON")
+						end
+					end, "armor_chestplate_render")
+				else
+					events.RENDER:remove("armor_chestplate_render")
+					for _, armorPart in ipairs({models.models.main.Avatar.UpperBody.Arms.RightArm.ArmorRA, models.models.main.Avatar.UpperBody.Arms.RightArm.RightArmBottom.ArmorRAB, models.models.main.Avatar.UpperBody.Arms.LeftArm.ArmorLA, models.models.main.Avatar.UpperBody.Arms.LeftArm.LeftArmBottom.ArmorLAB}) do
+						armorPart:setVisible(false)
+					end
 				end
 				Armor.ArmorVisible[2] = chestplateFound
 				if chestplateFound then
